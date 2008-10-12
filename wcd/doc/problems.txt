@@ -1,0 +1,33 @@
+Known problems
+==============
+
+1  Unix and DOS 32 bit version:
+   - Strange behaviour when the argument has a wildcard and matches a
+     file or directory in the current directory.
+
+  This is the result of the pathname expansion of the shell.
+  The work-around is to "double quote" the argument (in some shells).
+
+
+2 Option -rmtree doesn't remove directories.
+  This only happens with the Windows console and zsh version if
+  it is compiled with Borland 5.x. The problem is not there when
+  wcd is compiled with any other compiler.
+
+
+3 Garbage printed on screen after exit.
+  Occurs in Windows NT/2000/XP console with large buffer
+  with wcd for win32 when PDC_RESTORE_SCREEN is set.
+  Windows only allows a relatively small buffer size to save.
+
+......................................................................
+
+If you think you found a bug do the following.
+First check that you have the latest version of WCD. The bug
+may already have been solved.
+If it has not been solved than send me an e-mail.
+Describe the bug and tell me
+what version of WCD you use and under what operating system.
+
+Also ideas to improve wcd are welcome.
+

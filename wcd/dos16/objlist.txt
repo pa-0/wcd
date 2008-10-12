@@ -1,0 +1,17 @@
+wcd.obj
+match.obj
+stack.obj
+nameset.obj
+error.obj
+text.obj
+WcdStack.obj
+display.obj
+dosdir.obj
+wfixpath.obj
+intset.obj
+wcddir.obj
+command.obj
+noehc.lib
+
+
+

@@ -1,0 +1,45 @@
+
+Starting with release 4.0.0 wcd uses the translation package "GNU gettext".
+
+Information about gettext and a manual can be found at:
+http://www.gnu.org/software/gettext/gettext.html
+
+
+Prerequisites.
+==============
+
+Get the wcd source package.
+
+To add a new language you need to have the gettext tool installed on your
+system.
+
+Linux:
+Gettext is available on almost all Linux distributions.
+
+Windows:
+The best way to use gettext on Windows is in the Cygwin environment.
+See http://cygwin.com/
+You can get also a ready-to-run native Windows gettext package from the
+GnuWin32 project at http://gnuwin32.sourceforge.net/
+
+DOS:
+The DJGPP project has a gettext package, but it is quite old.
+http://www.delorie.com/djggp/
+
+
+Add a new language.
+===================
+
+Change to the sub directory 'po' in the wcd source directory. Set the LANG
+environment variable to your local language. Type 'msginit' to create an
+initial .po file of your language.
+
+
+Update existing language file.
+==============================
+
+Edit the .po file in the 'po' subdirectory. Go back to the source directory and
+type 'make mofiles'. This will convert the .po file in a .mo file.
+
+
+

@@ -1,0 +1,55 @@
+                DOSDIR: A Portable DOS/UNIX/VMS Directory Interface
+				version 2.1a
+                -----------------------------------------------
+
+DOSDIR is an implementation of the MS-DOS directory functions (findfirst,
+findnext, and fnsplit) on MS-DOS, UNIX, and VMS platforms using the
+appropriate file & directory structure.
+
+It uses the DOS directory framework to provide a portable interface
+for MS-DOS/UNIX/VMS application programmers.  DOSDIR minimizes the OS-
+specific directory access code for applications allowing programmers to
+concentrate on the application itself and not on the low-level directory
+and file structure.  DOSDIR applications will run on their native operating
+systems with the appropriate file syntax and handling, which is expected
+for that platform.
+
+An alternative mechanism, the POSIX opendir/readdir directory functions,
+provides low-level directory access with all of the file handling in
+the application.  Findfirst/findnext filter files matching a filemask
+and returns file information, such as whether the entry is directory or a
+regular file or the entry is read-only.  However, readdir() returns only the
+filenames of files in the opened directory stream.
+
+The package includes the following files:
+
+	COPYING       - GNU license and copying conditions.
+	dosdir.c      - DOSDIR findfirst/findnext functions
+        dirent.c      - C/C++ Run Time Library opendir/readdir functions
+	fnsplit.c     - C/C++ Run Time Library fnsplit function
+	match.c       - Info-ZIP regular expression evaluator
+	*.h           - DOSDIR header files
+	dirtree.c     - Example graphically displays directory structure
+	filelist.c    - Example program using dosdir directory functions
+	example2.c    - Another example program
+        example3.c    - An example program for opendir functions
+	makefile.bor  - Makefile for MS-DOS with Borland C++
+	makefile.unx  - Makefile for UNIX with gcc or cc
+	vaxmake.com   - Script to compile examples for VAX/VMS
+
+DOSDIR supports and has been tested under the following systems:
+MS-DOS 3.3/5.0 with Borland C++ V3.x/4.0, Turbo C, or Microsoft C V6.0/7.0,
+SunOS 4.1 with SUN or GNU C compilers, SGI IRIX 4.05 and 5.x, DEC Alpha OSF/1,
+and VMS 5.5 with VAX C. Other comparable ANSI C compilers should work as well.
+
+        Jason Mathews
+        The MITRE Coporation
+	202 Burlington Road
+	Bedford, MA 01730-1420
+
+	Email: mathews@mitre.org, mathews@computer.org
+
+DOSDIR is free software, you can redistribute it and/or modify it under
+the terms of the GNU General Public License, a copy of which is
+provided under the name COPYING.
+

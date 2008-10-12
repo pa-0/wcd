@@ -1,0 +1,230 @@
+/*
+Copyright (C) 1997-2005 Erwin Waterlander
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+*/
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "std_macr.h"
+#include "structur.h"
+#include "nameset.h"
+#include "display.h"
+#include "dosdir.h"
+#include "WcdStack.h"
+#include "Text.h"
+#include "wcd.h"
+#include "stack.h"
+#include "config.h"
+
+
+/********************************************************************
+ *
+ *                 stack_add
+ *
+ ********************************************************************/
+
+int stack_add(WcdStack ws, char *dir)
+{
+	ws->lastadded++;
+
+	if(ws->lastadded == ws->maxsize)
+		ws->lastadded = 0;
+
+	ws->current = ws->lastadded;
+
+	/* printWcdStack("add ", ws, stdout); */
+
+	/* free old dir string if present */
+	if (ws->dir != NULL)
+	if((ws->dir[ws->lastadded] != NULL) && (ws->size == ws->maxsize))
+	free (ws->dir[ws->lastadded]);
+
+	putElementAtWcdStackDir(textNew(dir), ws->lastadded, ws);
+
+	return(0);
+}
+/********************************************************************
+ *
+ *                 stack_read
+ *
+ ********************************************************************/
+
+int stack_read(WcdStack ws,char *stackfilename)
+{
+
+	FILE *infile;
+	char tmp[DD_MAXPATH];
+
+
+	/* open stack-file */
+	if  ((ws->maxsize <= 0)||((infile = fopen(stackfilename,"r")) == NULL))
+	{
+		/* fprintf(stderr,"Wcd: error: Permission denied to read file %s\n",stackfilename); */
+		ws->lastadded = -1;
+		ws->current = -1;
+	}
+	else
+	{
+		if(fscanf(infile,"%d %d",&ws->lastadded,&ws->current)==2)
+		{
+
+			while( !feof(infile)&&(ws->size < ws->maxsize) )
+			{
+			int len ;
+			/* read a line */
+			len = wcd_getline(tmp,DD_MAXPATH,infile);
+
+			if (len > 0 )
+				addToWcdStackDir(textNew(tmp), ws);
+			}
+		}
+		else
+		  {
+			fprintf(stderr,_("Wcd: Error parsing stack\n"));
+			ws->lastadded = -1;
+			ws->current = -1;
+		  }
+
+		fclose(infile);
+
+		if (ws->lastadded >= ws->size)
+		ws->lastadded = 0;
+		if (ws->current >= ws->size)
+		ws->current = 0;
+	}
+
+ /*	printWcdStack("READ ", ws, stdout); */
+	return(0);
+}
+
+/*******************************************************************/
+
+int stack_print(WcdStack ws, int use_numbers, int use_stdout)
+{
+#ifdef WCD_USECONIO
+	if (use_stdout == WCD_STDOUT_NO)
+		return display_list_conio(NULL,ws,0,use_numbers);
+	else
+		return display_list_stdout(NULL,ws,0, use_stdout);
+#else
+# ifdef WCD_USECURSES
+	int i;
+	if ((use_stdout == WCD_STDOUT_NO) && ((i = display_list_curses(NULL,ws,0,use_numbers)) != WCD_ERR_CURSES))
+		return i;
+	else
+		return display_list_stdout(NULL,ws,0, use_stdout);
+# else
+	return display_list_stdout(NULL,ws,0, use_stdout);
+# endif
+#endif
+}
+/********************************************************************
+ *
+ *                 stack_push
+ *
+ ********************************************************************/
+
+char* stack_push(WcdStack ws, int push_ntimes)
+{
+
+	int  new_stack_nr;
+
+	if(ws == NULL)
+	return (NULL);
+	else
+		if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) )
+		return (NULL);
+		else
+		{
+
+			  push_ntimes = push_ntimes % ws->size;
+
+			  new_stack_nr = ws->current - push_ntimes;
+
+			  if(new_stack_nr < 0)
+			  new_stack_nr = ws->size + new_stack_nr;
+
+			  ws->current = new_stack_nr;
+
+			  return(ws->dir[ws->current]);
+		}
+}
+/********************************************************************
+ *
+ *                 stack_pop
+ *
+ *
+ *
+ ********************************************************************/
+
+char* stack_pop(WcdStack ws, int pop_ntimes)
+{
+
+	int  new_stack_nr;
+
+
+	if(ws == NULL)
+	return (NULL);
+	else
+		if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) )
+		return (NULL);
+		else
+		{
+	         pop_ntimes = pop_ntimes % ws->size;
+
+	         new_stack_nr = ws->current + pop_ntimes;
+
+	         if(new_stack_nr > (ws->size -1))
+	         new_stack_nr =  new_stack_nr - ws->size;
+
+	         ws->current = new_stack_nr;
+	         return(ws->dir[ws->current]);
+		}
+}
+/********************************************************************
+ *
+ *                 stack_write
+ *
+ ********************************************************************/
+
+int stack_write(WcdStack ws,char *stackfilename)
+{
+	FILE *outfile;
+	int  i;
+
+	if (ws->maxsize <= 0)
+	   return(0);
+	else
+	if ( (outfile = fopen(stackfilename,"w")) == NULL)
+	{
+		fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"),stackfilename);
+		return(0);
+	}
+	else
+	{
+		fprintf(outfile,"%d %d\n",ws->lastadded,ws->current);
+		for(i=0;((i<ws->size)&&(i<ws->maxsize));i++)
+		{
+	  /*		printf("writing line %d\n",i);  */
+			fprintf(outfile,"%s\n",ws->dir[i]);
+		}
+		fclose(outfile);
+	}
+	return(0);
+}
+

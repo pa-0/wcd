@@ -1,0 +1,12 @@
+
+
+RedHat RPM package installation
+===============================
+
+ Type:
+   rpm -Uhv <rpm package file>
+
+Wcd has by default been configured for bash.
+The wcd function is defined in /etc/bashrc
+For other shells read file INSTALL.unix.txt
+

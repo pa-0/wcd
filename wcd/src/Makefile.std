@@ -1,0 +1,31 @@
+CC	= gcc
+CFLAGS	= -O -Wall -Ic3po
+DEFS    = -DUNIX
+OBJS1	= \
+	nameset.o \
+	intset.o \
+	Error.o \
+	Text.o \
+	WcdStack.o \
+	wcd.o \
+	match.o \
+	stack.o \
+	display.o \
+	dosdir.o \
+	wfixpath.o \
+	wcddir.o
+
+all:wcd.exe
+
+wcd.exe: $(OBJS1)
+	$(CC) $(OBJS1) -o $@
+
+
+%.o : %.c
+	$(CC) -c $(CFLAGS) $(DEFS) $< -o $@
+
+%.o : c3po/%.c
+	$(CC) -c $(CFLAGS) $(DEFS) $< -o $@
+
+clean:
+	/bin/rm -f *.o *.bck *.bak *.exe

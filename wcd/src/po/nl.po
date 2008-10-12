@@ -1,0 +1,818 @@
+# Dutch translations for wcd package.
+# Copyright (C) 2008 THE wcd'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the wcd package.
+# Erwin Waterlander <waterlan@xs4all.nl>, 2008.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: wcd 4.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-02 19:45+0200\n"
+"PO-Revision-Date: 2008-06-01 17:57+0200\n"
+"Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: wcd.c:137 wcd.c:382 wcd.c:931 wcd.c:1616 wcd.c:1636 wcd.c:1727 wcd.c:2125
+#: stack.c:215
+#, c-format
+msgid "Wcd: error: Write access to file %s denied.\n"
+msgstr "Wcd: fout: Schrijftoegang to bestand %s geweigerd.\n"
+
+#: wcd.c:387 wcd.c:400
+#, c-format
+msgid "Wcd: %s added to file %s\n"
+msgstr "Wcd: %s toegevoegd aan bestand %s\n"
+
+#: wcd.c:532 wcd.c:594
+#, c-format
+msgid "Wcd: error: Permission denied to remove file %s\n"
+msgstr "Wcd: fout: Geen permissie om bestand %s te verwijderen.\n"
+
+#: wcd.c:542 wcd.c:604 wcd.c:1129 wcd.c:1142
+#, c-format
+msgid "Wcd: error: Permission denied to remove directory %s\n"
+msgstr "Wcd: fout: Geen permissie om map %s te verwijderen.\n"
+
+#: wcd.c:683 wcd.c:750
+#, c-format
+msgid ""
+"Wcd: error: finddirs(): can't determine path in directory %s\n"
+"Wcd: path probably too long.\n"
+msgstr ""
+"Wcd: fout: finddirs(): kan pad in map %s niet bepalen\n"
+"Wcd: pad is waarschijnlijk te lang.\n"
+
+#: wcd.c:850
+#, c-format
+msgid "Wcd: error: Permission denied to open directory %s\n"
+msgstr "Wcd: fout: Geen permissie om map %s te openen.\n"
+
+#: wcd.c:854
+#, c-format
+msgid "Wcd: Please wait. (re)Scanning disk. Building treedata-file from %s\n"
+msgstr ""
+"Wcd: Even wachten aub. (her)Scannen schijf. Boom-bestand wordt gebouwd vanaf "
+"%s\n"
+
+#: wcd.c:919
+#, c-format
+msgid ""
+"Wcd: error: Write access to tree-file denied.\n"
+"Wcd: Set TEMP environment variable if this is a read-only disk.\n"
+msgstr ""
+"Wcd: fout: Schrijftoegang tot boom-bestand geweigerd.\n"
+"Wcd: Definieer TEMP omgevingsvariabele wanneer dit een alleen-lezen schijf "
+"is.\n"
+
+#: wcd.c:1005 wcd.c:1719
+#, c-format
+msgid "Wcd: error: Permission denied to create directory %s\n"
+msgstr "Wcd: fout: Geen permissie om map %s aan te maken.\n"
+
+#: wcd.c:1045
+#, c-format
+msgid "Wcd: Removed link %s\n"
+msgstr "Wcd: Snelkoppeling %s verwijderd.\n"
+
+#: wcd.c:1049
+#, c-format
+msgid "Wcd: error: Permission denied to remove link %s\n"
+msgstr "Wcd: fout: Geen permissie om snelkoppeling %s te verwijderen.\n"
+
+#: wcd.c:1053
+#, c-format
+msgid "Wcd: %s is a link to a file.\n"
+msgstr "Wcd: %s is een snelkoppeling naar een bestand.\n"
+
+#: wcd.c:1111
+#, c-format
+msgid "Wcd: Recursively remove %s  Are you sure? y/n :"
+msgstr "Wcd: Recursief %s verwijderen  Weet u het zeker? y(ja)/n(nee) :"
+
+#: wcd.c:1138
+#, c-format
+msgid "Wcd: Removed directory %s\n"
+msgstr "Wcd: Map %s verwijderd.\n"
+
+#: wcd.c:1145
+#, c-format
+msgid "Wcd: %s is not a directory.\n"
+msgstr "Wcd: %s is geen map.\n"
+
+#: wcd.c:1171
+#, c-format
+msgid ""
+"Wcd: error: line too long in wcd_getline() ( > %d). Fix: increase "
+"DD_MAXPATH.\n"
+msgstr ""
+"Wcd: fout: regel te lang in wcd_getline() ( > %d). Repareren: verhoog "
+"DD_MAXPATH.\n"
+
+#: wcd.c:1207 wcd.c:1309
+#, c-format
+msgid "Wcd: error: Permission denied to open file %s\n"
+msgstr "Wcd: fout: Geen toegang tot bestand %s\n"
+
+#: wcd.c:1532
+#, c-format
+msgid ""
+"wcd  %s  (%s) - Wherever Change Directory\n"
+"Usage: wcd [drive:][dir] [-h] [-V] [-Q] [-b] [-l] [-c] [-e[e]] [-E <path>]\n"
+"       [-s] [-S <path>] [-a[a]] [-A <path>] [-u <user>] [-f <treefile>]\n"
+"       [-n <path>] [-i] [-d <drive>] [-[m|M|r|rmtree] <dir>] [-t]\n"
+"       [-v] [-g[a|d]] [-N] [-o[d]] [-j] [-G <path>] [-z #] [-[#]] [+[#]] "
+"[=]\n"
+"       [-w] [-x <path>] [-xf <file>] [-k]\n"
+"  dir (partial) name of directory to change to.\n"
+"      Wildcards *, ? and [SET] are supported!\n"
+"\n"
+msgstr ""
+"wcd  %s  (%s) - Wherever Change Directory\n"
+"Gebruik: wcd [schijf:][map] [-h] [-V] [-Q] [-b] [-l] [-c] [-e[e]] [-E "
+"<pad>]\n"
+"       [-s] [-S <pad>] [-a[a]] [-A <pad>] [-u <gebruiker>] [-f "
+"<boombestand>]\n"
+"       [-n <pad>] [-i] [-d <schijf>] [-[m|M|r|rmtree] <map>] [-t]\n"
+"       [-v] [-g[a|d]] [-N] [-o[d]] [-j] [-G <pad>] [-z #] [-[#]] [+[#]] [=]\n"
+"       [-w] [-x <pad>] [-xf <bestand>] [-k]\n"
+"  map (gedeeltelijke) naam van map waarnaar te veranderen.\n"
+"      Jokertekens *, ? en [SET] worden ondersteund!\n"
+"\n"
+
+#: wcd.c:1542
+#, c-format
+msgid ""
+"options:\n"
+"  -       Push dir (# times)\n"
+"  +       Pop dir (# times)\n"
+"  =       Show stack\n"
+"  -a      Add current path to treefile\n"
+"  -aa     Add current and all parent paths to treefile\n"
+"  -A      Add tree from <path>\n"
+"  -b      Ban current path\n"
+"  -c      direct CD mode\n"
+"  -d      set <drive> for stack & go files (DOS)\n"
+"  -e      add current path to Extra treefile\n"
+"  -ee     add current and all parent paths to Extra treefile\n"
+"  -E      add tree from <path> to Extra treefile\n"
+"  -f      use extra treeFile\n"
+"  +f      add extra treeFile\n"
+"  -g      Graphics\n"
+"  -ga     Graphics, alternative navigation\n"
+"  -gd     Graphics, dump tree\n"
+"  -G      set path Go-script\n"
+"  -GN     No Go-script\n"
+"  -h      show this Help\n"
+"  -i      Ignore case\n"
+"  +i      Regard case\n"
+"  -j      Just go mode\n"
+"  -K      Colors\n"
+"  -k      Keep paths\n"
+"  -l      aLias current directory\n"
+"  -L      print software License\n"
+"  -m      Make <dir>, add to treefile\n"
+"  -M      Make <dir>, add to extra treefile\n"
+"  -n      use relative treefile in <path>\n"
+"  +n      add relative treefile in <path>\n"
+"  -N      use Numbers\n"
+"  -o      use stdOut\n"
+"  -od     dump matches\n"
+"  -Q      Quieter operation\n"
+"  -r      Remove <dir>\n"
+"  -rmtree Remove <dir> recursive\n"
+"  -s      (re)Scan disk from $HOME\n"
+"  -S      Scan disk from <path>\n"
+"  +S      Scan disk from <path>, create relative treefile\n"
+"  -u      use <user> treefile\n"
+"  +u      add <user> treefile\n"
+"  -v      print Version info\n"
+"  -V      Verbose operation\n"
+"  -w      Wild matching only\n"
+"  -x      eXclude <path> during disk scan\n"
+"  -xf     eXclude paths from <file>\n"
+"  -z      set max stack siZe\n"
+msgstr ""
+"opties:\n"
+"  -       Voeg map toe aan stapel (# keer)\n"
+"  +       Haal map van stapel (# keer)\n"
+"  =       Laat stapel zien\n"
+"  -a      Voeg huidig pad toe aan boombestand\n"
+"  -aa     Voeg huidig en alle hogere paden toe aan boombestand\n"
+"  -A      Voeg boom toe vanaf <pad>\n"
+"  -b      Verban huidig pad\n"
+"  -c      direkt CD modus\n"
+"  -d      stel <schijf> voor stapel & go bestanden in (DOS)\n"
+"  -e      voeg huidig pad toe aan Extra boombestand\n"
+"  -ee     voeg huidig en alle hogere paden toe aan Extra boombestand\n"
+"  -E      voeg boom vanaf <pad> toe aan Extra boombestand\n"
+"  -f      gebruik extra boombestand\n"
+"  +f      voeg extra boombestand toe\n"
+"  -g      Grafisch\n"
+"  -ga     Grafisch, alternatieve navigatie\n"
+"  -gd     Grafisch, dump boom\n"
+"  -G      stel pad Go-script in\n"
+"  -GN     Geen Go-script\n"
+"  -h      laat deze Help zien\n"
+"  -i      hoofdletter ongevoelig\n"
+"  +i      hoofdletter gevoelig\n"
+"  -j      Ga nou maar modus\n"
+"  -K      Kleuren\n"
+"  -k      Bewaar paden\n"
+"  -l      aLias huidige map\n"
+"  -L      print software Licentie\n"
+"  -m      Maak <map>, voeg toe aan boombestand\n"
+"  -M      Maak <map>, voeg toe aan extra boombestand\n"
+"  -n      gebruik relatief boombestand in <pad>\n"
+"  +n      voeg relatief boombestand in <pad> toe\n"
+"  -N      gebruik Nummers\n"
+"  -o      gebruik stdOut\n"
+"  -od     dump treffers\n"
+"  -Q      stillere werking\n"
+"  -r      Verwijder <map>\n"
+"  -rmtree Verwijder <map> recursief\n"
+"  -s      (her)Scan schijf vanaf $HOME\n"
+"  -S      Scan schijf vanaf <pad>\n"
+"  +S      Scan schijf vanaf <pad>, maak relatief boombestand\n"
+"  -u      gebruik <gebruiker> boombestand\n"
+"  +u      voeg <gebruiker> boombestand toe\n"
+"  -v      print Versie info\n"
+"  -V      woordenrijke werking\n"
+"  -w      Alleen joker vergelijkingen\n"
+"  -x      uitsluiten <pad> tijdens scannen schijf\n"
+"  -xf     uitsluiten paden uit <bestand>\n"
+"  -z      stel max stapel grootte in\n"
+
+#: wcd.c:1592 wcd.c:2165
+#, c-format
+msgid "This version is for win32 port of ZSH!\n"
+msgstr "Deze versie is voor win32 port van ZSH\n"
+
+#: wcd.c:1595 wcd.c:2159
+#, c-format
+msgid "This version is for DJGPP DOS bash.\n"
+msgstr "Deze versie is voor DJGPP DOS bash.\n"
+
+#: wcd.c:1721
+#, c-format
+msgid "Wcd: creating directory %s\n"
+msgstr "Wcd: aanmaken map %s\n"
+
+#: wcd.c:1878
+#, c-format
+msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
+msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDLOCALEDIR is te lang.\n"
+
+#: wcd.c:1910 wcd.c:1964
+#, c-format
+msgid ""
+"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
+msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
+
+#: wcd.c:1935 wcd.c:1957
+#, c-format
+msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
+msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
+
+#: wcd.c:2020 wcd.c:2475 wcd.c:2492
+#, c-format
+msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
+msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
+
+#: wcd.c:2103
+#, c-format
+msgid "Wcd: Enter alias for current directory: "
+msgstr "Wcd: Voer alias in voor huide map: "
+
+#: wcd.c:2132
+#, c-format
+msgid "Wcd: %s added to aliasfile %s\n"
+msgstr "Wcd: %s toegevoegd aan aliasbestand %s\n"
+
+#: wcd.c:2151 wcd.c:2214
+#, c-format
+msgid "wcd %s (%s) - Wherever Change Directory\n"
+msgstr ""
+
+#: wcd.c:2152
+#, c-format
+msgid ""
+"Chdir for Dos and Unix.\n"
+"\n"
+msgstr ""
+"Chdir voor Dos en Unix.\n"
+"\n"
+
+#: wcd.c:2154
+#, c-format
+msgid "Win32 console version.\n"
+msgstr "Win32 console versie.\n"
+
+#: wcd.c:2156
+#, c-format
+msgid "DOS 32 bit version.\n"
+msgstr "DOS 32 bit versie.\n"
+
+#: wcd.c:2162
+#, c-format
+msgid "This version is for OS/2 bash.\n"
+msgstr "Deze versie is voor OS/2 bash.\n"
+
+#: wcd.c:2167
+#, c-format
+msgid "Interface: "
+msgstr ""
+
+#: wcd.c:2169
+#, c-format
+msgid "conio\n"
+msgstr ""
+
+#: wcd.c:2173
+#, c-format
+msgid "ncurses version %s\n"
+msgstr "ncurses versie %s\n"
+
+#: wcd.c:2176
+#, c-format
+msgid "PDCurses build %d\n"
+msgstr ""
+
+#: wcd.c:2178
+#, c-format
+msgid "curses\n"
+msgstr ""
+
+#: wcd.c:2182
+#, c-format
+msgid "stdout\n"
+msgstr ""
+
+#: wcd.c:2186
+#, c-format
+msgid "Native language support included.\n"
+msgstr "Met moedertaal ondersteuning.\n"
+
+#: wcd.c:2187
+#, c-format
+msgid "LOCALEDIR=%s\n"
+msgstr ""
+
+#: wcd.c:2189
+#, c-format
+msgid "No native language support included.\n"
+msgstr "Geen moedertaal ondersteuning.\n"
+
+#: wcd.c:2192
+#, c-format
+msgid "Download the latest executables and sources from:\n"
+msgstr "Download de nieuwste versie met broncode van:\n"
+
+#: wcd.c:2193
+#, c-format
+msgid "http://www.xs4all.nl/~waterlan/\n"
+msgstr ""
+
+#: wcd.c:2210
+#, c-format
+msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
+msgstr ""
+"Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
+"interface.\n"
+
+#: wcd.c:2215
+#, c-format
+msgid ""
+"Chdir for Dos and Unix.\n"
+"Copyright (C) 1997-2008 Erwin Waterlander\n"
+"Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
+"Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo "
+"Directory\n"
+"Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n"
+"Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
+"Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
+"Source code to scan Windows LAN was originally written and placed\n"
+"in the public domain by Felix Kasza.\n"
+"\n"
+"This program is free software; you can redistribute it and/or\n"
+"modify it under the terms of the GNU General Public License\n"
+"as published by the Free Software Foundation; either version 2\n"
+"of the License, or (at your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"GNU General Public License for more details.\n"
+"\n"
+"You should have received a copy of the GNU General Public License\n"
+"along with this program; if not, write to the Free Software\n"
+"Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
+msgstr ""
+
+#: wcd.c:2619
+#, c-format
+msgid "Wcd: banning {%s}\n"
+msgstr "Wcd: verbannen {%s}\n"
+
+#: wcd.c:2621
+#, c-format
+msgid "Wcd: excluding {%s}\n"
+msgstr "Wcd: uitsluiten {%s}\n"
+
+#: wcd.c:2623
+#, c-format
+msgid "Wcd: filtering {%s}\n"
+msgstr "Wcd: filteren {%s}\n"
+
+#: wcd.c:2874
+#, c-format
+msgid ""
+"Wcd: No directory found matching %s\n"
+"Wcd: Perhaps you need to rescan the disk or path is banned.\n"
+msgstr ""
+"Wcd: Geen map gevonden gelijk aan %s\n"
+"Wcd: Misschien moet u de schijf opnieuw scannen of is het pad verbannen.\n"
+
+#: wcd.c:3029
+#, c-format
+msgid "Wcd: Cannot change to %s\n"
+msgstr "Wcd: Kan niet veranderen naar %s\n"
+
+#: wcddir.c:88
+#, c-format
+msgid "Wcd: Error %lu (\"%s\") reported by \"%s\".\n"
+msgstr "Wcd: Fout %lu (\"%s\") gerapporteerd door \"%s\".\n"
+
+#: wcddir.c:111
+#, c-format
+msgid "Wcd: access denied.\n"
+msgstr "Wcd: toegang geweigerd.\n"
+
+#: wcddir.c:192
+#, c-format
+msgid "Wcd: Searching for shared directories on server %s\n"
+msgstr "Wcd: Zoeken naar gedeelde mappen op server %s\n"
+
+#: wcddir.c:204
+#, c-format
+msgid "Wcd: Found %d shared directories on server %s\n"
+msgstr "Wcd: %d gedeelde mappen gevonden op server %s\n"
+
+#: stack.c:98
+#, c-format
+msgid "Wcd: Error parsing stack\n"
+msgstr "Wcd: Fout met verwerken stapel\n"
+
+#: display.c:87
+#, c-format
+msgid "Wcd: error in maxLength(), list == NULL\n"
+msgstr "Wcd: fout in maxLength(), list == NULL\n"
+
+#: display.c:107
+#, c-format
+msgid "Wcd: error in maxLengthStack(), s == NULL\n"
+msgstr "Wcd: fout in maxLengthStack(), s == NULL\n"
+
+#: display.c:782 graphics.c:1618
+#, c-format
+msgid ""
+"Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
+msgstr ""
+"Wcd: let op: Fout tijdens openen terminal, val terug op stdout interface.\n"
+
+#: display.c:800
+#, c-format
+msgid "Wcd: error: screen height must be larger than 3 lines.\n"
+msgstr "Wcd: fout: scherm hoogte moet groter zijn dan 3 regels.\n"
+
+#: display.c:834 graphics.c:1651
+#, c-format
+msgid "Wcd: error creating scroll window.\n"
+msgstr "Wcd: fout tijdens maken rolvenster.\n"
+
+#: display.c:865
+#, c-format
+msgid "Wcd: error creating input window.\n"
+msgstr "Wcd: fout aanmaken invoervenster.\n"
+
+#: display.c:875
+msgid "Perfect "
+msgstr "Perfect "
+
+#: display.c:877
+msgid "Wild "
+msgstr "Joker "
+
+#: display.c:878
+#, c-format
+msgid "match for %d directories."
+msgstr "gelijke voor %d mappen."
+
+#: display.c:880 display.c:1119
+#, c-format
+msgid "Please choose one (<Enter> to abort): "
+msgstr "Maak een keuze (<Enter> voor afbreken): "
+
+#: display.c:885 display.c:919 display.c:944
+#, c-format
+msgid "w=up x=down ?=help  Page %d/%d      "
+msgstr "w=omhoog x=omlaag ?=help  Pagina %d/%d    "
+
+#: display.c:993
+msgid "Screenheight must be > 20 for help."
+msgstr "Schermhoogte moet groter dan 20 zijn voor help"
+
+#: display.c:996
+msgid "w or <Up>         Page Up."
+msgstr "w of <Omhoog>     Pagina Omhoog."
+
+#: display.c:997
+msgid "x or <Down>       Page Down."
+msgstr "x of <Omlaag>     Pagina Omlaag."
+
+#: display.c:998
+msgid ", or <Left>       Scroll 1 left."
+msgstr ", of <Links>      Rol 1 naar links."
+
+#: display.c:999
+msgid ". or <Right>      Scroll 1 right."
+msgstr ". of <Rechts>     Rol 1 naar rechts."
+
+#: display.c:1000
+msgid "< or [            Scroll 10 left."
+msgstr "< of [            Rol 10 naar links."
+
+#: display.c:1001
+msgid "> or ]            Scroll 10 right."
+msgstr "> of ]            Rol 10 naar rechts."
+
+#: display.c:1002
+msgid "CTRL-a or <HOME>  Scroll to beginning."
+msgstr "CTRL-a of <HOME>  Rol naar begin."
+
+#: display.c:1003
+msgid "CTRL-e or <END>   Scroll to end."
+msgstr "CTRL-e of <END>   Rol naar einde."
+
+#: display.c:1004
+msgid "CTRL-c or <Esc>   Abort."
+msgstr "CTRL-c of <Esc>   Afbreken."
+
+#: display.c:1005
+msgid "<Enter>           Abort."
+msgstr "<Enter>           Afbreken."
+
+#: display.c:1006
+msgid "Type w or x to quit help."
+msgstr "Type w of x om help af te sluiten."
+
+#: display.c:1115
+#, c-format
+msgid ""
+"\n"
+"Perfect "
+msgstr ""
+"\n"
+"Perfecte "
+
+#: display.c:1117
+#, c-format
+msgid ""
+"\n"
+"Wild "
+msgstr ""
+"\n"
+"Joker "
+
+#: display.c:1118
+#, c-format
+msgid "match for %d directories.\n"
+msgstr "gelijke voor %d mappen.\n"
+
+#: display.c:1161
+#, c-format
+msgid ""
+"\n"
+"Please choose one (<Enter> to abort): "
+msgstr ""
+"\n"
+"Maak een keuze (<Enter> voor afbreken): "
+
+#: graphics.c:184
+#, c-format
+msgid "Wcd: error: line too long in function getTreeLine()"
+msgstr "Wcd: fout: regel te lang in functie getTreeLine()"
+
+#: graphics.c:1313
+msgid "NAVIGATE MODE:"
+msgstr "NAVIGATIE MODUS:"
+
+#: graphics.c:1314
+msgid "h or <Left>       go left."
+msgstr "h of <Links>      ga naar links."
+
+#: graphics.c:1315
+msgid "j or <Down>       go down."
+msgstr "j of <Omlaag>     ga omlaag."
+
+#: graphics.c:1316
+msgid "k or <Up>         go up."
+msgstr "k of <Omhoog>     ga omhoog."
+
+#: graphics.c:1317
+msgid "l or <Right>      go right."
+msgstr "l of <Rechts>     ga naar rechts."
+
+#: graphics.c:1318
+msgid "* or v or <Space> go forward to dir with same name."
+msgstr "* of v of <Spatie> ga vooruit naar map met dezelfde naam."
+
+#: graphics.c:1319
+msgid "# or p or <BS>    go backward to dir with same name."
+msgstr "# of p of <BS>    ga achteruit naar map met dezelfde naam."
+
+#: graphics.c:1320
+msgid "^ or a            go to beginning of line."
+msgstr "^ of a            ga naar begin van regel."
+
+#: graphics.c:1321
+msgid "$ or e            go to end of line."
+msgstr "$ of e            ga naar einde van regel."
+
+#: graphics.c:1322
+msgid "1                 go to root dir."
+msgstr "1                 ga naar eerste map."
+
+#: graphics.c:1323
+msgid "g or G            go to last dir."
+msgstr "g of G            ga naar laatste map."
+
+#: graphics.c:1324
+msgid "f                 go page forward."
+msgstr "f                 ga pagina vooruit."
+
+#: graphics.c:1325
+msgid "b                 go page backward."
+msgstr "b                 ga pagina achteruit."
+
+#: graphics.c:1326
+msgid "u                 go half page up."
+msgstr "u                 ga halve pagina omhoog."
+
+#: graphics.c:1327
+msgid "d                 go half page down."
+msgstr "d                 ga halve pagina omlaag."
+
+#: graphics.c:1328
+msgid "<Esc> or q        Abort."
+msgstr "<Esc> of q        Afbreken."
+
+#: graphics.c:1329
+msgid "/                 Search forward."
+msgstr "/                 Zoek vooruit."
+
+#: graphics.c:1330
+msgid "?                 Search backward."
+msgstr "?                 Zoek achteruit."
+
+#: graphics.c:1331
+msgid "n                 Repeat latest / or ? search."
+msgstr "n                 Herhaal laatste / of ? zoekopdracht."
+
+#: graphics.c:1332 graphics.c:1355
+msgid "<Enter>           Select directory."
+msgstr "<Enter>           Kies map."
+
+#: graphics.c:1333 graphics.c:1356 graphics.c:1373
+msgid "Press any key."
+msgstr "Druk een toets."
+
+#: graphics.c:1339
+msgid "SEARCH MODE with wildcard and subdir support:"
+msgstr "ZOEK MODUS met jokertekens en submap ondersteuning:"
+
+#: graphics.c:1340
+msgid "<Left>            go left."
+msgstr "<Links>           ga naar links."
+
+#: graphics.c:1341
+msgid "<Down>            go down."
+msgstr "<Omlaag>          ga omlaag."
+
+#: graphics.c:1342
+msgid "<Up>              go up."
+msgstr "<Omhoog>          ga omhoog."
+
+#: graphics.c:1343
+msgid "<Right>           go right."
+msgstr "<Rechts>          ga naar rechts."
+
+#: graphics.c:1344
+msgid "CTRL-v            go forward to dir with same name."
+msgstr "CTRL-v            ga vooruit naar map met dezelfde naam."
+
+#: graphics.c:1345
+msgid "CTRL-p            go backward to dir with same name."
+msgstr "CTRL-p            ga achteruit naar map met dezelfde naam."
+
+#: graphics.c:1346
+msgid "CTRL-a            go to beginning of line."
+msgstr "CTRL-a            ga naar begin van regel."
+
+#: graphics.c:1347
+msgid "CTRL-e            go to end of line."
+msgstr "CTRL-e            ga naar einde van regel."
+
+#: graphics.c:1348
+msgid "CTRL-g            go to last dir."
+msgstr "CTRL-g            ga naar laatste map."
+
+#: graphics.c:1349
+msgid "CTRL-f            go page forward."
+msgstr "CTRL-f            ga pagina vooruit."
+
+#: graphics.c:1350
+msgid "CTRL-b            go page backward."
+msgstr "CTRL-b            ga pagina achteruit."
+
+#: graphics.c:1351
+msgid "CTRL-u            go half page up."
+msgstr "CTRL-u            ga halve pagina omhoog."
+
+#: graphics.c:1352
+msgid "CTRL-d            go half page down."
+msgstr "CTRL-d            ga halve pagina omlaag."
+
+#: graphics.c:1353
+msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
+msgstr "<Esc> of CTRL-x   ZOEK MODUS afbreken."
+
+#: graphics.c:1354
+msgid "CTRL-n            Repeat latest / or ? search."
+msgstr "CTRL-n            Herhaal laatste / of ? zoekopdracht."
+
+#: graphics.c:1362
+msgid "ZOOMING:"
+msgstr "ZOOMEN:"
+
+#: graphics.c:1363
+msgid "z or i or CTRL-i  zoom in."
+msgstr "z of i of CTRL-i  zoom in."
+
+#: graphics.c:1364
+msgid "Z or o or CTRL-o  zoom out."
+msgstr "Z of o of CTRL-o  zoom uit."
+
+#: graphics.c:1365
+msgid "c                 condense: fold current level."
+msgstr "c                 huidig niveau vouwen."
+
+#: graphics.c:1366
+msgid "C                 condense: fold subdir level."
+msgstr "C                 submap niveau vouwen."
+
+#: graphics.c:1367
+msgid "w                 condense: fold current and sub levels."
+msgstr "w                 huidig en subniveaus vouwen."
+
+#: graphics.c:1368
+msgid "y or CTRL-y       uncondense: unfold current and sub levels."
+msgstr "y of CTRL-y       huidig en subniveaus ontvouwen."
+
+#: graphics.c:1369
+msgid "r or CTRL-r       uncondense: unfold all directories."
+msgstr "r of CTRL-r       alle mappen ontvouwen."
+
+#: graphics.c:1370
+msgid "-                 fold directory."
+msgstr "-                 vouw map."
+
+#: graphics.c:1371
+msgid "+ or =            unfold directory."
+msgstr "+ of =            ontvouw map."
+
+#: graphics.c:1372
+msgid "l or <Right>      unfold and go right."
+msgstr "l of <Rechts>     ontvouwen en naar rechts gaan."
+
+#: graphics.c:1376
+msgid "Screenheight must be > 20 for help"
+msgstr "Schermhoogte moet groter dan 20 zijn voor help"
+
+#: wfixpath.c:65
+#, c-format
+msgid "Wcd: malloc error in wcd_fixpath()\n"
+msgstr "Wcd: malloc fout in wcd_fixpath()\n"
+
+#: c3po/Error.c:40
+#, c-format
+msgid ""
+"Wcd: error in '%s', no space left for allocation\n"
+"Wcd: Insufficient memory\n"
+msgstr ""
+"Wcd: fout in '%s', geen ruimte meer voor toewijzing\n"
+"Wcd: Onvoldoende geheugen\n"

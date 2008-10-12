@@ -1,0 +1,174 @@
+This file explains how to compile wcd for DOS and Windows.
+
+To compile wcd with internationalization support see BUILD.dos_windows.intl.txt
+
+For Unix compile instructions see file INSTALL.unix.txt.
+
+For how to install the program see files INSTALL.dos_windows.txt.
+
+
+----------------------------------------------
+PDCurses
+----------------------------------------------
+
+To build wcd with PDCurses interface you need to have the PDCurses
+library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
+Compile it and copy the library file into the \lib directory of your
+compiler and the curses.h file in the \include directory.
+
+To get support for the original console colours for the windows 32 bit
+version you need PDCurses 2.7.
+
+I reported the following bug on http://sourceforge.net/projects/pdcurses/
+*  Bug 1144353: Scroll out of window when screen buffer is large (Windows)
+This bug is solved in PDCurses 2.7.
+
+----------------------------------------------
+DOS 16 bit
+----------------------------------------------
+
+Wcd 16 bit can be build with Borland and Watcom compiler.
+Borland C compiler version 3.1 and 4.0 work (I always use 4.0). 
+A free version of Borland 2.01 can be downloaded at http://community.borland.com/museum/
+Watcom C compiler is freely available at http://www.openwatcom.org/
+
+--- Borland ---
+
+Go to directory dos16.
+
+To compile wcd with default conio interface type (Compact memory model):
+
+>  make
+
+To compile wcd with default conio interface type (Large memory model):
+
+>  make -f wcd.mak
+
+or open wcd.prj file in Borland 3.1 IDE.
+
+
+To compile wcd with PDCurses interface type (Large memory model):
+
+>  make -f pdcurses.mak
+
+
+--- Watcom ---
+
+Go to directory dos16/watcom
+
+
+To compile wcd with standard out interface type (Large memory model):
+
+>  wmake
+
+To compile wcd with PDCurses interface type (Large memory model):
+
+>  wmake -f pdcurses.mak
+
+
+----------------------------------------------
+DOS 32 bit
+----------------------------------------------
+
+Go to directory dos32. The 32 bit version is compiled with DJGPP.
+DJGPP is a free C++ compiler. You can download it at http://www.delorie.com/
+A 32 bit DOS version can also be build with Watcom C compiler.
+Watcom C compiler is freely available at http://www.openwatcom.org/
+
+DJGPP supports long file and directory names under windows 95/98/ME,
+Watcom not.
+
+
+--- DJGPP ---
+
+Go to directory dos32.
+
+To compile wcd with default conio interface type:
+
+>  make -f conio.mak
+
+To compile wcd with PDCurses interface type:
+
+>  make -f pdcurses.mak
+
+
+--- Watcom C ---
+
+Go to directory dos32/watcom.
+
+To compile wcd with default standard out interface type:
+
+>  wmake
+
+To compile wcd with PDCurses interface type:
+
+>  wmake -f pdcurses.mak
+
+----------------------------------------------
+DOS 32 bit for BASH
+----------------------------------------------
+
+Use the DJGPP compiler.
+
+Go to directory dos32bsh and use the same commands as with the
+normal dos 32 bit version.
+
+----------------------------------------------
+Windows 32 bit console version.
+----------------------------------------------
+
+This version can be compiled with free compilers:
+Borland C++: http://www.borland.com/products/downloads/download_cbuilder.html
+MinGW      : http://www.mingw.org/
+LCC        : http://www.cs.virginia.edu/~lcc-win32/
+Watcom     : http://www.openwatcom.org/
+
+Go to directory win32.
+Cd to one of the compiler directories: borland, lcc, mingw or watcom.
+
+Edit the makefile you want to use first: set CC_HOME to the correct value.
+
+The default makefile (makefile) compiles wcd with stdout interface.
+
+> make
+
+The makefiles that use PDCurses (pdcurses.mak) assume that pdcurses.h has been
+copied into the include directory of the compiler and the pdcurses library in
+the compiler's lib directory.
+
+> make -f pdcurses.mak
+
+To compile wcd with conio interface type:
+
+>  make -f conio.mak
+
+Conio version compiled with LCC does not work properly.
+Preferably compile stdout or pdcurses version.
+
+----------------------------------------------
+Windows 32 bit zsh version.
+----------------------------------------------
+
+Go to directory win32zsh.
+Same as win 32 console version.
+
+----------------------------------------------
+Cygwin version.
+----------------------------------------------
+
+Cygwin can be obtained from http://cygwin.com/
+
+Go to directory cygwin.
+
+To compile wcd with stdout interface:
+
+$ make -f stdout.mak
+
+To compile wcd with PDCurses interface:
+
+$ make -f pdcurses.mak
+
+To compile wcd with NCurses interface:
+
+$ make -f ncurses.mak
+

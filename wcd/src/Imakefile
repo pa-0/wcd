@@ -1,0 +1,22 @@
+SRCS    = \
+wcd.c \
+match.c \
+stack.c \
+display.c \
+dosdir.c \
+wfixpath.c \
+wcddir.c \
+graphics.c \
+c3po/WcdStack.c \
+c3po/Error.c \
+c3po/Text.c \
+c3po/intset.c \
+c3po/dirnode.c \
+c3po/nameset.c
+
+OBJS 	= $(SRCS:.c=.o)
+
+BINDIR=/home/$$LOGNAME/bin
+DEFINES = -DUNIX
+INCLUDES = -Ic3po
+ComplexProgramTarget(wcd.exe)

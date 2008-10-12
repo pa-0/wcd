@@ -1,0 +1,16 @@
+WCD 4.0.1 Directory changer for DOS and Unix. w/ C src.
+
+- `graphical' curses based directory browsing
+- let the user choose in case of multiple match
+- regular expressions (wildcards *, ? and [SET]) supported
+- subdir definition possible. Eg. wcd dira/dirb
+- long directory-names support in Win95 Dosbox
+- alias directories
+- ban paths
+- add directories to database without scanning
+- directory stack
+- free portable source-code (Open Source)
+- DOS 16 bit, DOS 32 bit, DOS bash
+  Windows 3.1,95,NT dos-box
+  Unix ksh, csh and bash
+- and more ...

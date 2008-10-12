@@ -1,0 +1,205 @@
+This file explains how to compile wcd for DOS and Windows with internationalization support.
+
+For Unix compile instructions see file INSTALL.unix.intl.txt
+
+For how to install the program see files INSTALL.dos_windows.intl.txt.
+
+
+Prerequisites
+=============
+
+* gcc       : GNU C compiler
+* make      : GNU make
+* sh        : Bourne type shell
+* coreutils : GNU core utilities package
+* gettext   : Framework to help GNU packages produce multi-lingual messages.
+* libiconv  : Character set conversion library.
+
+* man         : Man, apropos en whatis
+* groff       : GNU troff text formatting system.
+* ghostscript : An interpreter for the PostScript language and for PDF
+* zip         : compressor-archiver
+
+DOS/Windows
+* pdcurses : CRT screen handling and optimization package
+
+Cygwin
+* ncurses  : CRT screen handling and optimization package
+
+
+gcc
+===
+
+dos     : DJGPP  : http://www.delorie.com/djgpp/
+windows : MINGW  : http://www.mingw.org/
+windows : CYGWIN : http://cygwin.com/
+
+
+make, coreutils, gettext and libiconv
+=====================================
+
+make, coreutils, gettext and libiconv can be found as packages on the web site of
+the gcc compiler.
+
+Coreutiles is needed for `install', `mkdir' and `mv'.
+install   : copy files and set their attributes (part of GNU `coreutils' package).
+
+DJGPP  : http://www.delorie.com/pub/djgpp/current/v2gnu/
+MINGW  : http://sourceforge.net/project/showfiles.php?group_id=2435
+         coreutils under _MSYS Base System_
+         gettext, libiconv under _MSYS Supplementary Tools_.
+CYGWIN : download via the installer program setup.exe.
+
+
+For MINGW you can better install gettext and libiconv libraries from the
+GnuWin32 project.  The version is a bit older, but the GnuWin32 port
+automatically detects the language on Windows (no need to set the LANG
+variable), and can automatically find the LOCALEDIR if the wcd package
+was unpacked in a different PREFIX directory.
+
+GnuWin32: http://gnuwin32.sourceforge.net/
+
+sh
+==
+
+A Bourne type shell. A copy of Bash or Zsh will do.
+
+GNU make may not work as expected if you don't have a proper shell installed.
+You can choose a shell for GNU Make by setting the environment variable SHELL.
+See also the GNU make manual:
+
+http://www.gnu.org/software/make/manual/make.html#Choosing-the-Shell
+
+DJGPP  : Includes bash
+MINGW  : Includes bash in the MSYS environment.
+CYGWIN : Includes bash and zsh.
+
+
+MINGW without MSYS
+==================
+
+You can build wcd in a normal windows command prompt, using the MINGW gcc
+compiler without the MSYS environment. For this you need GNU make, the
+coreutils package and a Bourne like shell that works in the windows command
+prompt.
+
+Get GNU Make and the coreutils package from the GnuWin32 project.
+
+GnuWin32: http://gnuwin32.sourceforge.net/
+
+Instead of MSYS bash you can use the native zsh for windows:
+
+http://www.xs4all.nl/~waterlan/zsh-3.0.5-nt-beta-0.75.zip
+
+Copy `zsh.exe' as `sh.exe' somewhere in PATH.
+Define SHELL, pointing to sh.exe.
+
+Now you have a proper shell for GNU make.
+
+
+PDCurses
+========
+
+To build wcd with PDCurses interface you need to have the PDCurses
+library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
+Compile it and copy the library file into the \lib directory of your
+compiler and the curses.h file in the \include directory.
+
+To get support for the original console colours for the windows 32 bit
+version you need PDCurses 2.7 or higher.
+
+I reported the following bug on http://sourceforge.net/projects/pdcurses/
+*  Bug 1144353: Scroll out of window when screen buffer is large (Windows)
+This bug is solved in PDCurses 2.7.
+
+
+man, groff and ghostscript
+==========================
+
+These packages are needed if you want to work on the wcd manual page. Using man,
+groff, and ghostscript the file src/man/man1/wcd.1 is convert to a manual in
+text, PostScript and PDF format in the `doc' directory.
+
+The converted manual pages are included in the wcd source package. So if you
+don't change the wcd manual, you don't need these packages.
+
+Man, groff and ghostscript are available in the Cygwin environment.
+
+
+Problems on Windows VISTA
+=========================
+
+To be able to run `gmake install' you may need adminstrator rights. You can get
+a command prompt with administrator rights if you right click on the command
+prompt icon and select `run as administrator'.
+
+
+Basic Installation
+==================
+
+dos32    : DOS 32 bit
+dos32bsh : DOS 32 bit for BASH
+win32    : Windows 32 bit console version.
+win32zsh : Windows 32 bit zsh version.
+cygwin   : Cygwin version.
+
+Change to the appropriate directory `dos32', `dos32bsh', `win32',
+`win32zsh' or `cygwin'.
+
+
+Build wcd:
+
+  Type `make' to compile the package.
+
+Install wcd:
+
+  Type `make install' to install the package.
+
+  `make install' will also compile the package if it wasn't done yet.
+
+To start clean:
+
+  Type `make clean'
+
+
+
+Installation Names
+==================
+
+By default `make install' will install the program in /usr/local/bin, the
+language files in /usr/local/share/locale and the man file in
+/usr/local/share/man. You can specify an installation prefix other than
+`/usr/local' by giving `make' the option `PREFIX=PATH'.
+
+
+Example:
+
+  make clean
+  make install PREFIX=/home/waterlan
+
+
+dos32    : The default PREFIX is c:/djgpp
+dos32bsh : The default PREFIX is c:/djgpp
+win32    : The default PREFIX is c:/usr/local
+win32zsh : The default PREFIX is c:/usr/local
+cygwin   : The default PREFIX is /usr
+
+
+zip package
+===========
+
+After installation a zip file can be created that contains
+a ready-to-run wcd package.
+
+  Type `make zippackage' to create the .zip file.
+
+
+
+tar.gz package
+==============
+
+After installation a tar gzip file can be created that contains
+a ready-to-run wcd package.
+
+  Type `make tgzpackage' to create the .tar.gz file.
+

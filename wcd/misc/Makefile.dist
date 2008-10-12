@@ -1,0 +1,39 @@
+# Old makefile to create files for binary distribution.
+# Used to create packages before wcd version 4.0.0, without
+# native language support.
+# Only dos 16 bit is left.
+
+# edit BASE and LBASE variables
+# run 'make' (use GNU make)
+#
+# For conio DOS versions make sure that
+# binaries are compiled with conio and
+# run 'make conio'
+#
+# Erwin Waterlander
+
+BASE = wcd401
+LBASE = wcd-4.0.1
+DOC = $(BASE)/doc/wcd.txt \
+	$(BASE)/doc/README.txt \
+	$(BASE)/doc/copying.txt \
+	$(BASE)/doc/wcd.pdf
+
+OBJ = $(BASE)rm.zip
+
+CONIOOBJ = $(BASE)rm-conio.zip
+
+
+all: $(OBJ)
+
+conio: $(CONIOOBJ)
+
+$(BASE)rm.zip : $(DOC) $(BASE)/dos16/wcd.exe
+	cd ../.. ; zip $@ $+
+
+$(BASE)rm-conio.zip : $(DOC) $(BASE)/dos16/wcd.exe
+	cd ../.. ; zip $@ $+
+
+clean:
+	cd ../.. ; rm -f $(OBJ)
+

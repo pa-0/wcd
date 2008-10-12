@@ -1,0 +1,10 @@
+All source files in this directory have been generated with C3PO 0.19.5 from grammar input
+file 'wcd.G'.
+
+Only datastructures and APIs for it are generated.
+No parser generated.
+
+Shell script 'Generate' is used to run C3PO.
+
+More information about C3PO is at http://sourceforge.net/projects/c3po/
+

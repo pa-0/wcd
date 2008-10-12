@@ -1,0 +1,16 @@
+--- wcd-3.1.1.orig/c3po/std_macr.h
++++ wcd-3.1.1/c3po/std_macr.h
+@@ -41,8 +41,10 @@
+ #define    EOF      -1              /* end of file                            */
+ #endif
+ 
+-#define    true       1
+-#define    false      0
++/* Change by KMR to support build on Debian */
++#include <stdbool.h>
++/* #define    true       1 */
++/* #define    false      0 */
+ 
+ #define    expvar                   /* export variable                        */
+ #define    expfun                   /* export function                        */
+

@@ -1,0 +1,734 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-02 19:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: wcd.c:137 wcd.c:382 wcd.c:931 wcd.c:1616 wcd.c:1636 wcd.c:1727 wcd.c:2125
+#: stack.c:215
+#, c-format
+msgid "Wcd: error: Write access to file %s denied.\n"
+msgstr ""
+
+#: wcd.c:387 wcd.c:400
+#, c-format
+msgid "Wcd: %s added to file %s\n"
+msgstr ""
+
+#: wcd.c:532 wcd.c:594
+#, c-format
+msgid "Wcd: error: Permission denied to remove file %s\n"
+msgstr ""
+
+#: wcd.c:542 wcd.c:604 wcd.c:1129 wcd.c:1142
+#, c-format
+msgid "Wcd: error: Permission denied to remove directory %s\n"
+msgstr ""
+
+#: wcd.c:683 wcd.c:750
+#, c-format
+msgid ""
+"Wcd: error: finddirs(): can't determine path in directory %s\n"
+"Wcd: path probably too long.\n"
+msgstr ""
+
+#: wcd.c:850
+#, c-format
+msgid "Wcd: error: Permission denied to open directory %s\n"
+msgstr ""
+
+#: wcd.c:854
+#, c-format
+msgid "Wcd: Please wait. (re)Scanning disk. Building treedata-file from %s\n"
+msgstr ""
+
+#: wcd.c:919
+#, c-format
+msgid ""
+"Wcd: error: Write access to tree-file denied.\n"
+"Wcd: Set TEMP environment variable if this is a read-only disk.\n"
+msgstr ""
+
+#: wcd.c:1005 wcd.c:1719
+#, c-format
+msgid "Wcd: error: Permission denied to create directory %s\n"
+msgstr ""
+
+#: wcd.c:1045
+#, c-format
+msgid "Wcd: Removed link %s\n"
+msgstr ""
+
+#: wcd.c:1049
+#, c-format
+msgid "Wcd: error: Permission denied to remove link %s\n"
+msgstr ""
+
+#: wcd.c:1053
+#, c-format
+msgid "Wcd: %s is a link to a file.\n"
+msgstr ""
+
+#: wcd.c:1111
+#, c-format
+msgid "Wcd: Recursively remove %s  Are you sure? y/n :"
+msgstr ""
+
+#: wcd.c:1138
+#, c-format
+msgid "Wcd: Removed directory %s\n"
+msgstr ""
+
+#: wcd.c:1145
+#, c-format
+msgid "Wcd: %s is not a directory.\n"
+msgstr ""
+
+#: wcd.c:1171
+#, c-format
+msgid ""
+"Wcd: error: line too long in wcd_getline() ( > %d). Fix: increase "
+"DD_MAXPATH.\n"
+msgstr ""
+
+#: wcd.c:1207 wcd.c:1309
+#, c-format
+msgid "Wcd: error: Permission denied to open file %s\n"
+msgstr ""
+
+#: wcd.c:1532
+#, c-format
+msgid ""
+"wcd  %s  (%s) - Wherever Change Directory\n"
+"Usage: wcd [drive:][dir] [-h] [-V] [-Q] [-b] [-l] [-c] [-e[e]] [-E <path>]\n"
+"       [-s] [-S <path>] [-a[a]] [-A <path>] [-u <user>] [-f <treefile>]\n"
+"       [-n <path>] [-i] [-d <drive>] [-[m|M|r|rmtree] <dir>] [-t]\n"
+"       [-v] [-g[a|d]] [-N] [-o[d]] [-j] [-G <path>] [-z #] [-[#]] [+[#]] "
+"[=]\n"
+"       [-w] [-x <path>] [-xf <file>] [-k]\n"
+"  dir (partial) name of directory to change to.\n"
+"      Wildcards *, ? and [SET] are supported!\n"
+"\n"
+msgstr ""
+
+#: wcd.c:1542
+#, c-format
+msgid ""
+"options:\n"
+"  -       Push dir (# times)\n"
+"  +       Pop dir (# times)\n"
+"  =       Show stack\n"
+"  -a      Add current path to treefile\n"
+"  -aa     Add current and all parent paths to treefile\n"
+"  -A      Add tree from <path>\n"
+"  -b      Ban current path\n"
+"  -c      direct CD mode\n"
+"  -d      set <drive> for stack & go files (DOS)\n"
+"  -e      add current path to Extra treefile\n"
+"  -ee     add current and all parent paths to Extra treefile\n"
+"  -E      add tree from <path> to Extra treefile\n"
+"  -f      use extra treeFile\n"
+"  +f      add extra treeFile\n"
+"  -g      Graphics\n"
+"  -ga     Graphics, alternative navigation\n"
+"  -gd     Graphics, dump tree\n"
+"  -G      set path Go-script\n"
+"  -GN     No Go-script\n"
+"  -h      show this Help\n"
+"  -i      Ignore case\n"
+"  +i      Regard case\n"
+"  -j      Just go mode\n"
+"  -K      Colors\n"
+"  -k      Keep paths\n"
+"  -l      aLias current directory\n"
+"  -L      print software License\n"
+"  -m      Make <dir>, add to treefile\n"
+"  -M      Make <dir>, add to extra treefile\n"
+"  -n      use relative treefile in <path>\n"
+"  +n      add relative treefile in <path>\n"
+"  -N      use Numbers\n"
+"  -o      use stdOut\n"
+"  -od     dump matches\n"
+"  -Q      Quieter operation\n"
+"  -r      Remove <dir>\n"
+"  -rmtree Remove <dir> recursive\n"
+"  -s      (re)Scan disk from $HOME\n"
+"  -S      Scan disk from <path>\n"
+"  +S      Scan disk from <path>, create relative treefile\n"
+"  -u      use <user> treefile\n"
+"  +u      add <user> treefile\n"
+"  -v      print Version info\n"
+"  -V      Verbose operation\n"
+"  -w      Wild matching only\n"
+"  -x      eXclude <path> during disk scan\n"
+"  -xf     eXclude paths from <file>\n"
+"  -z      set max stack siZe\n"
+msgstr ""
+
+#: wcd.c:1592 wcd.c:2165
+#, c-format
+msgid "This version is for win32 port of ZSH!\n"
+msgstr ""
+
+#: wcd.c:1595 wcd.c:2159
+#, c-format
+msgid "This version is for DJGPP DOS bash.\n"
+msgstr ""
+
+#: wcd.c:1721
+#, c-format
+msgid "Wcd: creating directory %s\n"
+msgstr ""
+
+#: wcd.c:1878
+#, c-format
+msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
+msgstr ""
+
+#: wcd.c:1910 wcd.c:1964
+#, c-format
+msgid ""
+"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
+msgstr ""
+
+#: wcd.c:1935 wcd.c:1957
+#, c-format
+msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
+msgstr ""
+
+#: wcd.c:2020 wcd.c:2475 wcd.c:2492
+#, c-format
+msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
+msgstr ""
+
+#: wcd.c:2103
+#, c-format
+msgid "Wcd: Enter alias for current directory: "
+msgstr ""
+
+#: wcd.c:2132
+#, c-format
+msgid "Wcd: %s added to aliasfile %s\n"
+msgstr ""
+
+#: wcd.c:2151 wcd.c:2214
+#, c-format
+msgid "wcd %s (%s) - Wherever Change Directory\n"
+msgstr ""
+
+#: wcd.c:2152
+#, c-format
+msgid ""
+"Chdir for Dos and Unix.\n"
+"\n"
+msgstr ""
+
+#: wcd.c:2154
+#, c-format
+msgid "Win32 console version.\n"
+msgstr ""
+
+#: wcd.c:2156
+#, c-format
+msgid "DOS 32 bit version.\n"
+msgstr ""
+
+#: wcd.c:2162
+#, c-format
+msgid "This version is for OS/2 bash.\n"
+msgstr ""
+
+#: wcd.c:2167
+#, c-format
+msgid "Interface: "
+msgstr ""
+
+#: wcd.c:2169
+#, c-format
+msgid "conio\n"
+msgstr ""
+
+#: wcd.c:2173
+#, c-format
+msgid "ncurses version %s\n"
+msgstr ""
+
+#: wcd.c:2176
+#, c-format
+msgid "PDCurses build %d\n"
+msgstr ""
+
+#: wcd.c:2178
+#, c-format
+msgid "curses\n"
+msgstr ""
+
+#: wcd.c:2182
+#, c-format
+msgid "stdout\n"
+msgstr ""
+
+#: wcd.c:2186
+#, c-format
+msgid "Native language support included.\n"
+msgstr ""
+
+#: wcd.c:2187
+#, c-format
+msgid "LOCALEDIR=%s\n"
+msgstr ""
+
+#: wcd.c:2189
+#, c-format
+msgid "No native language support included.\n"
+msgstr ""
+
+#: wcd.c:2192
+#, c-format
+msgid "Download the latest executables and sources from:\n"
+msgstr ""
+
+#: wcd.c:2193
+#, c-format
+msgid "http://www.xs4all.nl/~waterlan/\n"
+msgstr ""
+
+#: wcd.c:2210
+#, c-format
+msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
+msgstr ""
+
+#: wcd.c:2215
+#, c-format
+msgid ""
+"Chdir for Dos and Unix.\n"
+"Copyright (C) 1997-2008 Erwin Waterlander\n"
+"Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
+"Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo "
+"Directory\n"
+"Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n"
+"Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
+"Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
+"Source code to scan Windows LAN was originally written and placed\n"
+"in the public domain by Felix Kasza.\n"
+"\n"
+"This program is free software; you can redistribute it and/or\n"
+"modify it under the terms of the GNU General Public License\n"
+"as published by the Free Software Foundation; either version 2\n"
+"of the License, or (at your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"GNU General Public License for more details.\n"
+"\n"
+"You should have received a copy of the GNU General Public License\n"
+"along with this program; if not, write to the Free Software\n"
+"Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
+msgstr ""
+
+#: wcd.c:2619
+#, c-format
+msgid "Wcd: banning {%s}\n"
+msgstr ""
+
+#: wcd.c:2621
+#, c-format
+msgid "Wcd: excluding {%s}\n"
+msgstr ""
+
+#: wcd.c:2623
+#, c-format
+msgid "Wcd: filtering {%s}\n"
+msgstr ""
+
+#: wcd.c:2874
+#, c-format
+msgid ""
+"Wcd: No directory found matching %s\n"
+"Wcd: Perhaps you need to rescan the disk or path is banned.\n"
+msgstr ""
+
+#: wcd.c:3029
+#, c-format
+msgid "Wcd: Cannot change to %s\n"
+msgstr ""
+
+#: wcddir.c:88
+#, c-format
+msgid "Wcd: Error %lu (\"%s\") reported by \"%s\".\n"
+msgstr ""
+
+#: wcddir.c:111
+#, c-format
+msgid "Wcd: access denied.\n"
+msgstr ""
+
+#: wcddir.c:192
+#, c-format
+msgid "Wcd: Searching for shared directories on server %s\n"
+msgstr ""
+
+#: wcddir.c:204
+#, c-format
+msgid "Wcd: Found %d shared directories on server %s\n"
+msgstr ""
+
+#: stack.c:98
+#, c-format
+msgid "Wcd: Error parsing stack\n"
+msgstr ""
+
+#: display.c:87
+#, c-format
+msgid "Wcd: error in maxLength(), list == NULL\n"
+msgstr ""
+
+#: display.c:107
+#, c-format
+msgid "Wcd: error in maxLengthStack(), s == NULL\n"
+msgstr ""
+
+#: display.c:782 graphics.c:1618
+#, c-format
+msgid ""
+"Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
+msgstr ""
+
+#: display.c:800
+#, c-format
+msgid "Wcd: error: screen height must be larger than 3 lines.\n"
+msgstr ""
+
+#: display.c:834 graphics.c:1651
+#, c-format
+msgid "Wcd: error creating scroll window.\n"
+msgstr ""
+
+#: display.c:865
+#, c-format
+msgid "Wcd: error creating input window.\n"
+msgstr ""
+
+#: display.c:875
+msgid "Perfect "
+msgstr ""
+
+#: display.c:877
+msgid "Wild "
+msgstr ""
+
+#: display.c:878
+#, c-format
+msgid "match for %d directories."
+msgstr ""
+
+#: display.c:880 display.c:1119
+#, c-format
+msgid "Please choose one (<Enter> to abort): "
+msgstr ""
+
+#: display.c:885 display.c:919 display.c:944
+#, c-format
+msgid "w=up x=down ?=help  Page %d/%d      "
+msgstr ""
+
+#: display.c:993
+msgid "Screenheight must be > 20 for help."
+msgstr ""
+
+#: display.c:996
+msgid "w or <Up>         Page Up."
+msgstr ""
+
+#: display.c:997
+msgid "x or <Down>       Page Down."
+msgstr ""
+
+#: display.c:998
+msgid ", or <Left>       Scroll 1 left."
+msgstr ""
+
+#: display.c:999
+msgid ". or <Right>      Scroll 1 right."
+msgstr ""
+
+#: display.c:1000
+msgid "< or [            Scroll 10 left."
+msgstr ""
+
+#: display.c:1001
+msgid "> or ]            Scroll 10 right."
+msgstr ""
+
+#: display.c:1002
+msgid "CTRL-a or <HOME>  Scroll to beginning."
+msgstr ""
+
+#: display.c:1003
+msgid "CTRL-e or <END>   Scroll to end."
+msgstr ""
+
+#: display.c:1004
+msgid "CTRL-c or <Esc>   Abort."
+msgstr ""
+
+#: display.c:1005
+msgid "<Enter>           Abort."
+msgstr ""
+
+#: display.c:1006
+msgid "Type w or x to quit help."
+msgstr ""
+
+#: display.c:1115
+#, c-format
+msgid ""
+"\n"
+"Perfect "
+msgstr ""
+
+#: display.c:1117
+#, c-format
+msgid ""
+"\n"
+"Wild "
+msgstr ""
+
+#: display.c:1118
+#, c-format
+msgid "match for %d directories.\n"
+msgstr ""
+
+#: display.c:1161
+#, c-format
+msgid ""
+"\n"
+"Please choose one (<Enter> to abort): "
+msgstr ""
+
+#: graphics.c:184
+#, c-format
+msgid "Wcd: error: line too long in function getTreeLine()"
+msgstr ""
+
+#: graphics.c:1313
+msgid "NAVIGATE MODE:"
+msgstr ""
+
+#: graphics.c:1314
+msgid "h or <Left>       go left."
+msgstr ""
+
+#: graphics.c:1315
+msgid "j or <Down>       go down."
+msgstr ""
+
+#: graphics.c:1316
+msgid "k or <Up>         go up."
+msgstr ""
+
+#: graphics.c:1317
+msgid "l or <Right>      go right."
+msgstr ""
+
+#: graphics.c:1318
+msgid "* or v or <Space> go forward to dir with same name."
+msgstr ""
+
+#: graphics.c:1319
+msgid "# or p or <BS>    go backward to dir with same name."
+msgstr ""
+
+#: graphics.c:1320
+msgid "^ or a            go to beginning of line."
+msgstr ""
+
+#: graphics.c:1321
+msgid "$ or e            go to end of line."
+msgstr ""
+
+#: graphics.c:1322
+msgid "1                 go to root dir."
+msgstr ""
+
+#: graphics.c:1323
+msgid "g or G            go to last dir."
+msgstr ""
+
+#: graphics.c:1324
+msgid "f                 go page forward."
+msgstr ""
+
+#: graphics.c:1325
+msgid "b                 go page backward."
+msgstr ""
+
+#: graphics.c:1326
+msgid "u                 go half page up."
+msgstr ""
+
+#: graphics.c:1327
+msgid "d                 go half page down."
+msgstr ""
+
+#: graphics.c:1328
+msgid "<Esc> or q        Abort."
+msgstr ""
+
+#: graphics.c:1329
+msgid "/                 Search forward."
+msgstr ""
+
+#: graphics.c:1330
+msgid "?                 Search backward."
+msgstr ""
+
+#: graphics.c:1331
+msgid "n                 Repeat latest / or ? search."
+msgstr ""
+
+#: graphics.c:1332 graphics.c:1355
+msgid "<Enter>           Select directory."
+msgstr ""
+
+#: graphics.c:1333 graphics.c:1356 graphics.c:1373
+msgid "Press any key."
+msgstr ""
+
+#: graphics.c:1339
+msgid "SEARCH MODE with wildcard and subdir support:"
+msgstr ""
+
+#: graphics.c:1340
+msgid "<Left>            go left."
+msgstr ""
+
+#: graphics.c:1341
+msgid "<Down>            go down."
+msgstr ""
+
+#: graphics.c:1342
+msgid "<Up>              go up."
+msgstr ""
+
+#: graphics.c:1343
+msgid "<Right>           go right."
+msgstr ""
+
+#: graphics.c:1344
+msgid "CTRL-v            go forward to dir with same name."
+msgstr ""
+
+#: graphics.c:1345
+msgid "CTRL-p            go backward to dir with same name."
+msgstr ""
+
+#: graphics.c:1346
+msgid "CTRL-a            go to beginning of line."
+msgstr ""
+
+#: graphics.c:1347
+msgid "CTRL-e            go to end of line."
+msgstr ""
+
+#: graphics.c:1348
+msgid "CTRL-g            go to last dir."
+msgstr ""
+
+#: graphics.c:1349
+msgid "CTRL-f            go page forward."
+msgstr ""
+
+#: graphics.c:1350
+msgid "CTRL-b            go page backward."
+msgstr ""
+
+#: graphics.c:1351
+msgid "CTRL-u            go half page up."
+msgstr ""
+
+#: graphics.c:1352
+msgid "CTRL-d            go half page down."
+msgstr ""
+
+#: graphics.c:1353
+msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
+msgstr ""
+
+#: graphics.c:1354
+msgid "CTRL-n            Repeat latest / or ? search."
+msgstr ""
+
+#: graphics.c:1362
+msgid "ZOOMING:"
+msgstr ""
+
+#: graphics.c:1363
+msgid "z or i or CTRL-i  zoom in."
+msgstr ""
+
+#: graphics.c:1364
+msgid "Z or o or CTRL-o  zoom out."
+msgstr ""
+
+#: graphics.c:1365
+msgid "c                 condense: fold current level."
+msgstr ""
+
+#: graphics.c:1366
+msgid "C                 condense: fold subdir level."
+msgstr ""
+
+#: graphics.c:1367
+msgid "w                 condense: fold current and sub levels."
+msgstr ""
+
+#: graphics.c:1368
+msgid "y or CTRL-y       uncondense: unfold current and sub levels."
+msgstr ""
+
+#: graphics.c:1369
+msgid "r or CTRL-r       uncondense: unfold all directories."
+msgstr ""
+
+#: graphics.c:1370
+msgid "-                 fold directory."
+msgstr ""
+
+#: graphics.c:1371
+msgid "+ or =            unfold directory."
+msgstr ""
+
+#: graphics.c:1372
+msgid "l or <Right>      unfold and go right."
+msgstr ""
+
+#: graphics.c:1376
+msgid "Screenheight must be > 20 for help"
+msgstr ""
+
+#: wfixpath.c:65
+#, c-format
+msgid "Wcd: malloc error in wcd_fixpath()\n"
+msgstr ""
+
+#: c3po/Error.c:40
+#, c-format
+msgid ""
+"Wcd: error in '%s', no space left for allocation\n"
+"Wcd: Insufficient memory\n"
+msgstr ""

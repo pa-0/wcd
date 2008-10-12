@@ -1,0 +1,21 @@
+#c3po-latest wcd.G 
+c3po-0.19.5 wcd.G
+
+# Solve conflicts with other definitions of type 'bool'. E.g. in (n)curses.
+# Create 8.3 DOS filenames.
+
+export list=`ls *.[chly]`
+for i in $list
+do
+  sed -e s/bool/c3po_bool/g -e s/beep/c3po_beep/g -e s/strings.h/string.h/ -e s/structures.h/structur.h/ -e s/std_macro.h/std_macr.h $i > $i.tmp
+  /bin/mv $i.tmp $i
+done
+
+/bin/rm *.tmp
+
+/bin/mv structures.h structur.h
+/bin/mv std_macro.h  std_macr.h
+
+sed -e s/structures.h/structur.h/ -e s/std_macro.h/std_macr.h Imakefile > Imakefile.tmp
+/bin/mv Imakefile.tmp Imakefile
+
