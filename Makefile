@@ -13,4 +13,4 @@ release:
 	svn export https://wcd.svn.sourceforge.net/svnroot/wcd/trunk/wcd ${RELEASE_DIR}
 	cd ${RELEASE_DIR}/misc ; ${MAKE} -f unix2dos.mk
 	cd .. ; tar cvzf wcd-${VERSION}-src.tar.gz wcd-${VERSION}
-	cd .. ; zip -r wcd${VERSION_SHORT}.zip wcd{VERSION_SHORT}
+	cd .. ; zip -r wcd${VERSION_SHORT}.zip wcd${VERSION_SHORT}
