@@ -1,0 +1,4 @@
+
+VERSION = 4.0.1-beta4
+VERSION_SHORT = 401b4
+

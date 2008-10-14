@@ -1,6 +1,7 @@
+include ../src/version.mk
 
-UNIXVERSION=wcd-4.0.1
-DOSVERSION=wcd401
+UNIXVERSION=wcd-${VERSION}
+DOSVERSION=wcd${VERSION_SHORT}
 
 # Convert in order so that no make target is out of date.
 

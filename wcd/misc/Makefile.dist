@@ -12,8 +12,10 @@
 #
 # Erwin Waterlander
 
-BASE = wcd401
-LBASE = wcd-4.0.1
+include ../src/version.mk
+
+BASE = wcd${VERSION_SHORT}
+LBASE = wcd-${VERSION}
 DOC = $(BASE)/doc/wcd.txt \
 	$(BASE)/doc/README.txt \
 	$(BASE)/doc/copying.txt \

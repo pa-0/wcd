@@ -1,3 +1,5 @@
+include version.mk
+
 CC	= gcc
 
 #PREFIX=${HOME}
@@ -24,7 +26,6 @@ NLSDEFS   = -DENABLE_NLS -DLOCALEDIR=\"${LOCALEDIR}\" -DPACKAGE=\"${PACKAGE}\"
 LFLAGS    = -lncurses $(NLFLAG)
 
 PACKAGE = wcd
-VERSION = 4.0.1
 PROGRAM = ${PACKAGE}.exe
 BINDIR    = ${PREFIX}/bin
 LOCALEDIR = ${PREFIX}/share/locale
