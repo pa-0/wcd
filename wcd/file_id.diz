@@ -1,16 +1,24 @@
 WCD 4.0.1 Directory changer for DOS and Unix. w/ C src.
 
-- `graphical' curses based directory browsing
-- let the user choose in case of multiple match
-- regular expressions (wildcards *, ? and [SET]) supported
-- subdir definition possible. Eg. wcd dira/dirb
-- long directory-names support in Win95 Dosbox
-- alias directories
-- ban paths
-- add directories to database without scanning
-- directory stack
-- free portable source-code (Open Source)
-- DOS 16 bit, DOS 32 bit, DOS bash
-  Windows 3.1,95,NT dos-box
-  Unix ksh, csh and bash
-- and more ...
+Wcd is a program to change directory fast. It saves time typing at the
+keyboard. One needs to type only a part of a directory name and wcd will jump
+to it. By default wcd searches for a directory with a name that begins with
+what has been typed, but the use of wildcards is also fully supported.
+
+* Full screen interactive directory browser with speed search.
+* Present the user a list in case of multiple matches.
+* Wildcards *, ? and [SET] supported.
+* Directory stack, push pop.
+* Subdir definition possible. E.g. wcd subdira/subdirb
+* Long directory names support in Win95/98/NT DOS-box
+* Windows LAN UNC paths supported.
+* Change drive and directory at once.
+* Alias directories.
+* Ban directories.
+* 'cd' behaviour
+* Free portable source-code.
+* Multi platform: DOS 16 bit, DOS 32 bit, DOS bash,
+  Windows Command prompt, Windows zsh, Cygwin bash, OS/2 Warp,
+  Unix ksh, csh, bash and zsh.
+* Native language support: Dutch, English 
+
