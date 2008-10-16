@@ -316,14 +316,20 @@ Address : Zeelsterstraat 59B
 
 --
 
-The latest version of WCD, executables and sources, can be downloaded from
-this internet-pages:
+Latest development source code is maintained in
+SourceForge Subversion repository:
+
+svn co https://wcd.svn.sourceforge.net/svnroot/wcd wcd
+
+
+The latest WCD packages, executables and sources, can be downloaded from
+this internet-page:
 
 http://www.xs4all.nl/~waterlan/
 
 --
 
-For each release of wcd there are two main packages
+For each release of wcd there are two source packages
 (the question marks indicate the version number):
 
 wcd-?.?.?-src.tar.gz   : source package
@@ -332,9 +338,6 @@ wcd-?.?.?-src.tar.gz   : source package
 wcd???s.zip : source package
    Source code in DOS text.
 
-wcd???bs.zip : package for DOS and Windows.
-   Includes source code in DOS text and DOS and
-   Windows ready-to-run binaries.
 
 --
 
