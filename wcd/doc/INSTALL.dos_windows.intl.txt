@@ -17,6 +17,7 @@ Contents
  2 Win32 console (Windows NT/2000/XP/Vista) installation
    - Win32 console
    - Windows VISTA
+   - Windows PowerShell
    - Z shell (zsh)
    - UNC support
  3 Cygwin (Windows 9x / NT) installation
@@ -209,11 +210,31 @@ a command prompt with administrator rights if you right click on the command
 prompt icon and select `Run as administrator'.
 
 ......................................................................
+- Windows PowerShell
+
+See http://en.wikipedia.org/wiki/Windows_PowerShell
+
+It  is  required that environment variable HOME or WCDHOME is set.  A function
+in your PowerShell user profile must be defined. The location of this profile
+is stored in the $profile variable.
+
+function wcd
+{
+  PREFIX\bin\wcdwin32psh.exe $args
+  & $env:HOME\wcdgo.ps1
+}
+
+Replace PREFIX with the prefix used during package installation.
+Start a new PowerShell 
+
+
+......................................................................
 - Z shell (zsh)
 
 A win32 port of zsh has been made by Amol Deshpande (http://www.xs4all.nl/~waterlan).
 
-It  is  required that environment variable HOME or WCDHOME is set.  A function must be defined
+It  is  required that environment variable HOME or WCDHOME is set.  A function
+must be defined
 (e.g. in $HOME/.zshenv) like this:
 
 
@@ -255,9 +276,8 @@ Options -S, -A and -E can also work on servernames. For instance:
 will search for shared directories on the server and scan them all.
 
 
-
-The Win32 zsh version of wcd has full support of UNC paths. In zsh one
-can change directly to UNC paths, without mapping to a drive letter.
+The Windows PowerShell and ZSH version of wcd have full support of UNC paths.
+One can change directly to UNC paths, without mapping to a drive letter.
 
 ======================================================================
 = 3 Cygwin (Windows 9x / NT) installation                            =

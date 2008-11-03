@@ -39,6 +39,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #    define STACKFILE "/stack.wcd"
 #    ifdef WCD_WINZSH
 #      define GO_FILE "/wcd.go"
+#    elif defined(WCD_WINPWRSH)
+#      define GO_FILE "/wcdgo.ps1"
 #    elif defined(WIN32)
 #      define GO_FILE "/wcdgo.bat"
 #    elif defined(OS2)
@@ -78,8 +80,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #  define OP_DIR "."
 #endif /* ?MSDOS|VMS */
 
-#define VERSION      "4.0.1 beta3"
-#define VERSION_DATE "Oct 7 2008"
+#define VERSION      "4.1.0"
+#define VERSION_DATE "Nov 3 2008"
 
 
 /* Function prototypes */

@@ -1,4 +1,4 @@
-WCD 4.0.1 Directory changer for DOS and Unix. w/ C src.
+WCD 4.1.0 Directory changer for DOS and Unix. w/ C src.
 
 Wcd is a program to change directory fast. It saves time typing at the
 keyboard. One needs to type only a part of a directory name and wcd will jump
@@ -18,7 +18,8 @@ what has been typed, but the use of wildcards is also fully supported.
 * 'cd' behaviour
 * Free portable source-code.
 * Multi platform: DOS 16 bit, DOS 32 bit, DOS bash,
-  Windows Command prompt, Windows zsh, Cygwin bash, OS/2 Warp,
+  Windows Command prompt, Windows PowerShell, Windows ZSH,
+  Cygwin bash, OS/2 Warp,
   Unix ksh, csh, bash and zsh.
 * Native language support: Dutch, English 
 

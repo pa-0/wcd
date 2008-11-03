@@ -1588,6 +1588,9 @@ Usage: wcd [drive:][dir] [-h] [-V] [-Q] [-b] [-l] [-c] [-e[e]] [-E <path>]\n\
   -x      eXclude <path> during disk scan\n\
   -xf     eXclude paths from <file>\n\
   -z      set max stack siZe\n"));
+#ifdef WCD_WINPWRSH
+   printf(_("This version is for Windows PowerShell!\n"));
+#endif
 #ifdef WCD_WINZSH
    printf(_("This version is for win32 port of ZSH!\n"));
 #endif
@@ -1728,6 +1731,9 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
       return;
    }
 # if (defined(WIN32) && !defined(WCD_WINZSH)) || (defined(OS2) && !defined(WCD_OS2BASH))
+#  ifdef WCD_WINPWRSH
+   fprintf(outfile,"set-location %s\n", best_match);
+#  else
    fprintf(outfile,"@echo off\n");
    if (*changedrive)
       fprintf(outfile,"%s\n",drive);
@@ -1735,6 +1741,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
       fprintf(outfile,"pushd %s\n", best_match); /* UNC path */
    else
       fprintf(outfile,"cd %s\n", best_match);
+#  endif
 #else
 #  if (defined(UNIX) && !defined(WCD_DOSBASH))
 	/* Printing of #!$SHELL is needed for 8 bit characters.
@@ -1931,7 +1938,7 @@ int main(int argc,char** argv)
    }
    else
    {
-# ifdef WCD_WINZSH
+# if (defined(WCD_WINZSH) || defined(WCD_WINPWRSH))
      fprintf(stderr,_("Wcd: error: Environment variable HOME or WCDHOME is not set.\n"));
       return(1);
 # endif
@@ -2163,6 +2170,9 @@ int main(int argc,char** argv)
 #endif
 #ifdef WCD_WINZSH
                printf(_("This version is for win32 port of ZSH!\n"));
+#endif
+#ifdef WCD_WINPWRSH
+               printf(_("This version is for Windows PowerShell.\n"));
 #endif
             printf(_("Interface: "));
 #ifdef WCD_USECONIO

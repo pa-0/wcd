@@ -1,4 +1,5 @@
-4.0.1 beta3 Oct 7 2008
+4.1.0 Nov 3 2008
+  - Wcd version for Windows PowerShell.
   - win32: Use GnuWin32 port of gettext. This version detects language
     automatically and can find the locale directory if it is relocated.
   - Sorting with locale support.
