@@ -81,7 +81,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #endif /* ?MSDOS|VMS */
 
 #define VERSION      "4.1.0"
-#define VERSION_DATE "Nov 3 2008"
+#define VERSION_DATE "Nov 4 2008"
 
 
 /* Function prototypes */
