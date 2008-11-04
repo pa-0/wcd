@@ -11,7 +11,10 @@ release:
 	rm -rf ${RELEASE_DIR}
 	rm -rf ${RELEASE_DIR_SHORT}
 	svn export https://wcd.svn.sourceforge.net/svnroot/wcd/trunk/wcd ${RELEASE_DIR}
-	cd ${RELEASE_DIR}/src ; ${MAKE} docfiles
+	# Include doc files and .mo files, to make it easier to
+	# build wcd.
+	cd ${RELEASE_DIR}/src ; ${MAKE} docfiles mofiles
+	# Create package in DOS text format.
 	cd ${RELEASE_DIR}/misc ; ${MAKE} -f unix2dos.mk
 	# Touch .mo files, they are already up to date.
 	cd ${RELEASE_DIR_SHORT}/src/po ; touch *.mo
