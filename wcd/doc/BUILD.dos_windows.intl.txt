@@ -140,11 +140,12 @@ Basic Installation
 dos32    : DOS 32 bit
 dos32bsh : DOS 32 bit for BASH
 win32    : Windows 32 bit console version.
-win32zsh : Windows 32 bit zsh version.
+win32zsh : Windows 32 bit ZSH version.
+win32psh : Windows 32 bit PowerShell version.
 cygwin   : Cygwin version.
 
 Change to the appropriate directory `dos32', `dos32bsh', `win32',
-`win32zsh' or `cygwin'.
+`win32zsh', `win32psh'  or `cygwin'.
 
 
 Build wcd:
@@ -182,6 +183,7 @@ dos32    : The default PREFIX is c:/djgpp
 dos32bsh : The default PREFIX is c:/djgpp
 win32    : The default PREFIX is c:/usr/local
 win32zsh : The default PREFIX is c:/usr/local
+win32psh : The default PREFIX is c:/usr/local
 cygwin   : The default PREFIX is /usr
 
 
