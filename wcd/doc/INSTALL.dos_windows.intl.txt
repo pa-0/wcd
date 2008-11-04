@@ -240,7 +240,7 @@ must be defined
 
 function wcd
 {
-   PREFIX/bin/wcdwin32.exe $*
+   PREFIX/bin/wcdwin32zsh.exe $*
    . $HOME/wcd.go
 }
 

@@ -1,11 +1,12 @@
 4.1.0 Nov 4 2008
-  - Wcd version for Windows PowerShell.
+  - Wcd version for Windows PowerShell, with full UNC paths support.
   - win32: Use GnuWin32 port of gettext. This version detects language
     automatically and can find the locale directory if it is relocated.
   - Sorting with locale support.
   - Less screen movement when navigating in graphical mode.
   - Cleanup documentation.
   - New make target `uninstall' for deinstallation.
+  - Renamed Win32 ZSH version to wcdwin32zsh.exe.
   - Renamed DOS source directories.
 
 4.0.0 Sep 6 2008

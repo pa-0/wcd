@@ -6,7 +6,7 @@ CFLAGS = -Ic3po -O3 -Wall
 LFLAGS = -lpdcurses -lintl -liconv -lkernel32 -luser32 -lmpr
 DEFS   = -DMSDOS -DWCD_USECURSES -DWCD_WINZSH -DPDC_STATIC_BUILD
 BINDIR    = ${PREFIX}/bin
-PROGRAM = wcdwin32.exe
+PROGRAM = wcdwin32zsh.exe
 VERSIONSUFFIX = -win32zsh
 ZIPOBJ_EXTRA = bin/libintl3.dll bin/libiconv2.dll
 
