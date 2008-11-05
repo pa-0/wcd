@@ -3,7 +3,7 @@
 # native language support.
 # Only dos 16 bit is left.
 
-# edit BASE and LBASE variables
+# edit BASE variable
 # run 'make' (use GNU make)
 #
 # For conio DOS versions make sure that
@@ -15,7 +15,6 @@
 include ../src/version.mk
 
 BASE = wcd${VERSION_SHORT}
-LBASE = wcd-${VERSION}
 DOC = $(BASE)/doc/wcd.txt \
 	$(BASE)/doc/README.txt \
 	$(BASE)/doc/copying.txt \
@@ -30,11 +29,11 @@ all: $(OBJ)
 
 conio: $(CONIOOBJ)
 
-$(BASE)rm.zip : $(DOC) $(BASE)/dos16/wcd.exe
-	cd ../.. ; zip $@ $+
+$(BASE)rm.zip :
+	cd ../.. ; zip $@ $(DOC) $(BASE)/dos16/wcd.exe
 
-$(BASE)rm-conio.zip : $(DOC) $(BASE)/dos16/wcd.exe
-	cd ../.. ; zip $@ $+
+$(BASE)rm-conio.zip :
+	cd ../.. ; zip $@ $(DOC) $(BASE)/dos16/wcd.exe
 
 clean:
 	cd ../.. ; rm -f $(OBJ)
