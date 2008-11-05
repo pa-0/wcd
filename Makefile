@@ -2,6 +2,7 @@ include wcd/src/version.mk
 
 help:
 	@echo "${MAKE} release : Create source code packages."
+	@echo "${MAKE} tag     : Create a tag copy of trunk."
 
 
 RELEASE_DIR = ../wcd-${VERSION}
@@ -21,3 +22,11 @@ release:
 	cd .. ; tar cvzf wcd-${VERSION}-src.tar.gz wcd-${VERSION}
 	cd .. ; rm -f wcd${VERSION_SHORT}s.zip
 	cd .. ; zip -r wcd${VERSION_SHORT}s.zip wcd${VERSION_SHORT}
+
+tag:
+	svn copy https://wcd.svn.sourceforge.net/svnroot/wcd/trunk \
+	         https://wcd.svn.sourceforge.net/svnroot/wcd/tags/release-${VERSION} \
+	    -m "Tagging release ${VERSION}."
+
+
+
