@@ -1363,8 +1363,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
       /* read a line */
       len = wcd_getline(line,DD_MAXPATH,infile);
 
-      if (line)
-         cleanPath(line,len,1) ;
+      cleanPath(line,len,1) ;
 
       if( (line_end = strrchr(line,DIR_SEPARATOR)) != NULL)
          line_end++;

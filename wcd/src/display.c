@@ -623,11 +623,11 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
    wcd_char *s;
    int len, j, nr_offset;
 
-   s = n->array[i];
+   s = (wcd_char *)n->array[i];
 
    if (s != NULL)
    {
-      len = strlen(s);
+      len = strlen((char *)s);
 		if (*use_numbers == 0)
 			nr_offset = 2;
 		else
@@ -647,11 +647,11 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
    wcd_char *s;
    int len, j, nr_offset;
 
-   s = ws->dir[i];
+   s = (wcd_char *)ws->dir[i];
 
    if (s != NULL)
    {
-      len = strlen(s);
+      len = strlen((char *)s);
 		if (*use_numbers == 0)
 			nr_offset = 2;
 		else

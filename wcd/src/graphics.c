@@ -1156,11 +1156,11 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
    wcd_char *s;
    int len, j;
 
-   s = getTreeLine(getLastNodeInLevel(n,i),i,&i,curNode,false);
+   s = (wcd_char *)getTreeLine(getLastNodeInLevel(n,i),i,&i,curNode,false);
 
    if (s != NULL)
    {
-      len = strlen(s);
+      len = strlen((char *)s);
       wmove(win,y,0);
 
       for(j=xoffset;(j<len)&&((j-xoffset)<(COLS-1));j++)
@@ -1279,13 +1279,13 @@ void dataRefresh(int ydiff, int init)
   }
 
   /* mvwprintw(inputWin, 1,0,"%s",getNodeFullPath(curNode)); */
-  s = getZoomStackPath(wcd_cwin.zoomStack); /* s has size DD_MAXPATH */
-  strcat(s, getNodeFullPath(wcd_cwin.curNode));
-  wcd_fixpath(s, DD_MAXPATH);
+  s = (wcd_char *)getZoomStackPath(wcd_cwin.zoomStack); /* s has size DD_MAXPATH */
+  strcat((char *)s, getNodeFullPath(wcd_cwin.curNode));
+  wcd_fixpath((char *)s, DD_MAXPATH);
 
   if (s != NULL)
   {
-    len = strlen(s);
+    len = strlen((char *)s);
     wmove(wcd_cwin.inputWin, 1, 0);
 
     for (i = 0; (i < len) && (i < (COLS - 1)); i++)
