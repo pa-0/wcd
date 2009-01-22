@@ -207,6 +207,8 @@ WINDOWS POWERSHELL: $env:HOME\\wcdgo.ps1
 .br
 WIN32 ZSH: %HOME%\\wcd.go
 .br
+OS/2 CONSOLE: c:\\wcdgo.cmd or %HOME%\\wcdgo.cmd
+.br
 UNIX: $HOME/bin/wcd.go
 .br
 
@@ -243,16 +245,18 @@ is set wcd will use WCDHOME instead of HOME.
 .SH OPTIONS
 .TP
 .B \-A <path>
-Add directory tree from <path> to default treedata.
+Scan directory tree from <path> and \fIappend\fP to default treedata.
 
-The directory tree starting from <path>
-is \fIappended\fP to the default treedata file.
-
-    Example: wcd -A .
+    Examples:
+    wcd -A .
+    wcd -A d: -A e: -A \\\\server\\share
+    wcd -A /home -A /etc
 
 On Windows one can scan all shared directories
 of a Windows LAN server by typing something like:
 wcd -A \\\\servername.
+
+See also option -S and -s and -E.
 
 .TP
 .B \-a
@@ -307,10 +311,9 @@ C: is a read-only drive.
 This option must be used in front of the stack options -, + and =.
 .TP
 .B \-E <path>
-Add directory tree from <path> to Extra treedata file.
+Scan directory tree from <path> and append to Extra treedata file.
 
-The directory tree starting from <path>
-is \fIappended\fP to the Extra treedata file
+See also options -A and -S.
 .TP
 .B \-e
 Add current path to extra treedata file.
@@ -322,11 +325,10 @@ to the extra treedata file.
 Add current and all parent paths to extra treedata file.
 .TP
 .B \-f <filename>
-Add another treedata file to be scanned, do not include
-your own treedata file.
+Read treedata file <filename>. Don't read the default treedata file.
 .TP
 .B \+f <filename>
-Add another treedata file to be scanned, include your own treedata file.
+Read treedata file <filename> in addition to the treedata file.
 .TP
 .B \-G <path>
 Set directory path of go-script.
@@ -381,7 +383,7 @@ See also option -i.
 just go mode
 
 In this mode wcd will not present a list when there is
-more than directory that matches the given directory.
+more than one directory that matches the given directory.
 Wcd will just change to the first option. When wcd is
 invoked again with the same arguments it will change
 to the next option, and so on.
@@ -448,8 +450,8 @@ letter or numbers to make a selection from the list of matches.
 
 .TP
 .B \-n <path>
-Add relative treedata file (Unix: <path>/.rtdata.wcd,  DOS: <path>\\rtdata.wcd),
-do not scan the default treedata file. If <path> is a file, wcd will add
+Read relative treedata file (Unix: <path>/.rtdata.wcd,  DOS: <path>\\rtdata.wcd),
+do not read the default treedata file. If <path> is a file, wcd will add
 <path> instead of <path>/.rtdata.wcd or <path>\\rtdata.wcd.
 See also option +S.
 
@@ -469,7 +471,7 @@ using the wcd +S option.
 
 .TP
 .B \+n <path>
-Add another relative treedata file. See option -n.
+Read relative treedata file in addition to the default treedata file. See option -n.
 
 .TP
 .B \-o
@@ -505,15 +507,20 @@ and files, and remove the directories from the treedata file.
 
 .TP
 .B \-S <path>
-Scan disk from a certain path.
+Scan directory tree from <path> and \fIoverwrite\fP default treedata.
 
-If you have a small Unix system like a PC with a few users
-you can for instance scan the disk from /.
+    Examples:
+    wcd -S c:/
+    wcd -S /
+
+See also options -A, -s and -E. Together with option -A you can create a default treedata file of your choice.
+
+    wcd -S c: -A d: -A \\\\server\\share
+    wcd -S /home -A /etc -A /usr
+
 With the Windows versions one can scan all shared directories
 of a Windows LAN server by typing something like:
 wcd -S \\\\servername.
-
-The existing default treedata file is overwritten.
 
 .TP
 .B \+S <path>
@@ -529,11 +536,9 @@ wcd -n <path> src
 .B \-s
 (re)Scan disk from your $HOME directory.
 
-This is recommended if you are on a large Unix
-server network with very much users.
 This is the default scanning mode.
 .I Wcd
-for DOS scans
+for DOS or Windows scans
 the current disk from root \\ or from %HOME% if HOME is set.
 The existing default treedata file is overwritten.
 
@@ -547,7 +552,7 @@ is used by the automounter. This behaviour can be turned off with the
 
 .TP
 .B \-u <username>
-Add default treedata file of other user, do not include
+Read default treedata file of user <username>, do not read
 your own default treedata file.
 
 Wcd now scans the treedata file of another
@@ -567,7 +572,7 @@ See section ENVIRONMENT.
 
 .TP
 .B \+u <username>
-Add treedata file of other user, include your own treedata file.
+Read default treedata file of user <username> in addation to your own treedata file.
 
 .TP
 .B \-V
@@ -967,6 +972,8 @@ function wcd
 
 Replace <PREFIX> with the prefix used during package installation.
 Start a new PowerShell
+
+Wcd for PowerShell supports only the file system provider. No other providers.
 
 .SH "INSTALLATION OS/2 CONSOLE VERSION"
 
