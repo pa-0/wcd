@@ -1,3 +1,7 @@
+4.1.1 Jan 2009
+  - Resolved a few signedness issues.
+  - Update manual page.
+
 4.1.0 Nov 4 2008
   - Wcd version for Windows PowerShell, with full UNC paths support.
   - win32: Use GnuWin32 port of gettext. This version detects language
