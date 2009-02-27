@@ -6,14 +6,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd 4.0.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-11 22:41+0100\n"
+"POT-Creation-Date: 2009-02-27 11:12+0100\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:137 wcd.c:382 wcd.c:931 wcd.c:1618 wcd.c:1638 wcd.c:1729 wcd.c:2131
@@ -52,14 +52,11 @@ msgid "Wcd: error: Permission denied to open directory %s\n"
 msgstr "Wcd: fout: Geen permissie om map %s te openen.\n"
 
 #: wcd.c:854
-#, c-format
-msgid "Wcd: Please wait. (re)Scanning disk. Building treedata-file from %s\n"
+msgid "Wcd: Please wait. Scanning disk. Building treedata-file from %s\n"
 msgstr ""
-"Wcd: Even wachten aub. (her)Scannen schijf. Boom-bestand wordt gebouwd vanaf "
-"%s\n"
+"Wcd: Even wachten aub. Aftasten schijf. Boom-bestand wordt gebouwd vanaf %s\n"
 
 #: wcd.c:919
-#, c-format
 msgid ""
 "Wcd: error: Write access to tree-file denied.\n"
 "Wcd: Set TEMP environment variable if this is a read-only disk.\n"
@@ -144,7 +141,6 @@ msgstr ""
 "\n"
 
 #: wcd.c:1541
-#, c-format
 msgid ""
 "options:\n"
 "  -       Push dir (# times)\n"
@@ -184,7 +180,7 @@ msgid ""
 "  -Q      Quieter operation\n"
 "  -r      Remove <dir>\n"
 "  -rmtree Remove <dir> recursive\n"
-"  -s      (re)Scan disk from $HOME\n"
+"  -s      Scan disk from $HOME\n"
 "  -S      Scan disk from <path>\n"
 "  +S      Scan disk from <path>, create relative treefile\n"
 "  -u      use <user> treefile\n"
@@ -234,30 +230,27 @@ msgstr ""
 "  -Q      stillere werking\n"
 "  -r      Verwijder <map>\n"
 "  -rmtree Verwijder <map> recursief\n"
-"  -s      (her)Scan schijf vanaf $HOME\n"
-"  -S      Scan schijf vanaf <pad>\n"
-"  +S      Scan schijf vanaf <pad>, maak relatief boombestand\n"
+"  -s      Aftasten schijf vanaf $HOME\n"
+"  -S      Aftasten schijf vanaf <pad>\n"
+"  +S      Aftasten schijf vanaf <pad>, maak relatief boombestand\n"
 "  -u      gebruik <gebruiker> boombestand\n"
 "  +u      voeg <gebruiker> boombestand toe\n"
 "  -v      print Versie info\n"
 "  -V      woordenrijke werking\n"
 "  -w      Alleen joker vergelijkingen\n"
-"  -x      uitsluiten <pad> tijdens scannen schijf\n"
+"  -x      uitsluiten <pad> tijdens aftasten schijf\n"
 "  -xf     uitsluiten paden uit <bestand>\n"
 "  -z      stel max stapel grootte in\n"
 
 #: wcd.c:1591
-#, c-format
 msgid "This version is for Windows PowerShell!\n"
 msgstr "Deze versie is voor Windows PowerShell!\n"
 
 #: wcd.c:1594 wcd.c:2171
-#, c-format
 msgid "This version is for win32 port of ZSH!\n"
 msgstr "Deze versie is voor win32 port van ZSH\n"
 
 #: wcd.c:1597 wcd.c:2165
-#, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Deze versie is voor DJGPP DOS bash.\n"
 
@@ -267,28 +260,23 @@ msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: aanmaken map %s\n"
 
 #: wcd.c:1884
-#, c-format
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDLOCALEDIR is te lang.\n"
 
 #: wcd.c:1916 wcd.c:1970
-#, c-format
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
 
 #: wcd.c:1941 wcd.c:1963
-#, c-format
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
 
 #: wcd.c:2026 wcd.c:2484 wcd.c:2501
-#, c-format
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
 
 #: wcd.c:2109
-#, c-format
 msgid "Wcd: Enter alias for current directory: "
 msgstr "Wcd: Voer alias in voor huide map: "
 
@@ -303,7 +291,6 @@ msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
 
 #: wcd.c:2158
-#, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
 "\n"
@@ -312,32 +299,26 @@ msgstr ""
 "\n"
 
 #: wcd.c:2160
-#, c-format
 msgid "Win32 console version.\n"
 msgstr "Win32 console versie.\n"
 
 #: wcd.c:2162
-#, c-format
 msgid "DOS 32 bit version.\n"
 msgstr "DOS 32 bit versie.\n"
 
 #: wcd.c:2168
-#, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Deze versie is voor OS/2 bash.\n"
 
 #: wcd.c:2174
-#, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr "Deze versie is voor Windows PowerShell.\n"
 
 #: wcd.c:2176
-#, c-format
 msgid "Interface: "
 msgstr ""
 
 #: wcd.c:2178
-#, c-format
 msgid "conio\n"
 msgstr ""
 
@@ -352,17 +333,14 @@ msgid "PDCurses build %d\n"
 msgstr ""
 
 #: wcd.c:2187
-#, c-format
 msgid "curses\n"
 msgstr ""
 
 #: wcd.c:2191
-#, c-format
 msgid "stdout\n"
 msgstr ""
 
 #: wcd.c:2195
-#, c-format
 msgid "Native language support included.\n"
 msgstr "Met moedertaal ondersteuning.\n"
 
@@ -372,29 +350,24 @@ msgid "LOCALEDIR=%s\n"
 msgstr ""
 
 #: wcd.c:2198
-#, c-format
 msgid "No native language support included.\n"
 msgstr "Geen moedertaal ondersteuning.\n"
 
 #: wcd.c:2201
-#, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Download de nieuwste versie met broncode van:\n"
 
 #: wcd.c:2202
-#, c-format
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr ""
 
 #: wcd.c:2219
-#, c-format
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
 "interface.\n"
 
 #: wcd.c:2224
-#, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
 "Copyright (C) 1997-2008 Erwin Waterlander\n"
@@ -445,7 +418,7 @@ msgid ""
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 "Wcd: Geen map gevonden gelijk aan %s\n"
-"Wcd: Misschien moet u de schijf opnieuw scannen of is het pad verbannen.\n"
+"Wcd: Misschien moet u de schijf opnieuw aftasten of is het pad verbannen.\n"
 
 #: wcd.c:3038
 #, c-format
@@ -458,7 +431,6 @@ msgid "Wcd: Error %lu (\"%s\") reported by \"%s\".\n"
 msgstr "Wcd: Fout %lu (\"%s\") gerapporteerd door \"%s\".\n"
 
 #: wcddir.c:111
-#, c-format
 msgid "Wcd: access denied.\n"
 msgstr "Wcd: toegang geweigerd.\n"
 
@@ -473,39 +445,32 @@ msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "Wcd: %d gedeelde mappen gevonden op server %s\n"
 
 #: stack.c:98
-#, c-format
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Fout met verwerken stapel\n"
 
 #: display.c:87
-#, c-format
 msgid "Wcd: error in maxLength(), list == NULL\n"
 msgstr "Wcd: fout in maxLength(), list == NULL\n"
 
 #: display.c:107
-#, c-format
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "Wcd: fout in maxLengthStack(), s == NULL\n"
 
 #: display.c:782 graphics.c:1618
-#, c-format
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Wcd: let op: Fout tijdens openen terminal, val terug op stdout interface.\n"
 
 #: display.c:800
-#, c-format
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: fout: scherm hoogte moet groter zijn dan 3 regels.\n"
 
 #: display.c:834 graphics.c:1651
-#, c-format
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: fout tijdens maken rolvenster.\n"
 
 #: display.c:865
-#, c-format
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: fout aanmaken invoervenster.\n"
 
@@ -523,7 +488,6 @@ msgid "match for %d directories."
 msgstr "gelijke voor %d mappen."
 
 #: display.c:880 display.c:1119
-#, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Maak een keuze (<Enter> voor afbreken): "
 
@@ -581,7 +545,6 @@ msgid "Type w or x to quit help."
 msgstr "Type w of x om help af te sluiten."
 
 #: display.c:1115
-#, c-format
 msgid ""
 "\n"
 "Perfect "
@@ -590,7 +553,6 @@ msgstr ""
 "Perfecte "
 
 #: display.c:1117
-#, c-format
 msgid ""
 "\n"
 "Wild "
@@ -604,7 +566,6 @@ msgid "match for %d directories.\n"
 msgstr "gelijke voor %d mappen.\n"
 
 #: display.c:1161
-#, c-format
 msgid ""
 "\n"
 "Please choose one (<Enter> to abort): "
@@ -613,7 +574,6 @@ msgstr ""
 "Maak een keuze (<Enter> voor afbreken): "
 
 #: graphics.c:184
-#, c-format
 msgid "Wcd: error: line too long in function getTreeLine()"
 msgstr "Wcd: fout: regel te lang in functie getTreeLine()"
 
@@ -814,7 +774,6 @@ msgid "Screenheight must be > 20 for help"
 msgstr "Schermhoogte moet groter dan 20 zijn voor help"
 
 #: wfixpath.c:65
-#, c-format
 msgid "Wcd: malloc error in wcd_fixpath()\n"
 msgstr "Wcd: malloc fout in wcd_fixpath()\n"
 

@@ -851,7 +851,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
       return ;
    }
 
-   printf(_("Wcd: Please wait. (re)Scanning disk. Building treedata-file from %s\n"),path);
+   printf(_("Wcd: Please wait. Scanning disk. Building treedata-file from %s\n"),path);
 
 #ifdef MSDOS
       changeDisk(path,&changedrive,drive,use_HOME);
@@ -1576,7 +1576,7 @@ Usage: wcd [drive:][dir] [-h] [-V] [-Q] [-b] [-l] [-c] [-e[e]] [-E <path>]\n\
   -Q      Quieter operation\n\
   -r      Remove <dir>\n\
   -rmtree Remove <dir> recursive\n\
-  -s      (re)Scan disk from $HOME\n\
+  -s      Scan disk from $HOME\n\
   -S      Scan disk from <path>\n\
   +S      Scan disk from <path>, create relative treefile\n\
   -u      use <user> treefile\n\
