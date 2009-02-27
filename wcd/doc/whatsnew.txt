@@ -1,6 +1,14 @@
-4.1.1 Jan 2009
+4.1.1 beta2 Feb 27 2009
   - Resolved a few signedness issues.
   - Update manual page.
+  - Improvements manual page (thanks to Jari Aalto)
+    o) The URLs are too long for nroff. Those are now fixed with correct formatting code
+    o) The /path/names are best not to be hyphenated. Those are now fixed with
+       correct formatting code
+    o) The order of sections is changed to follow de facto section order
+       http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap01.html#tag_01_11
+    o) The quotes `` '' are escaped to make clean output.
+    o) The top-level INSTALL sections are not made subsections for more clearer layout.
 
 4.1.0 Nov 4 2008
   - Wcd version for Windows PowerShell, with full UNC paths support.
