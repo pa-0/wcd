@@ -2197,6 +2197,14 @@ int main(int argc,char** argv)
 #else
             printf(_("No native language support included.\n"));
 #endif
+#ifdef WCD_UTF8
+            printf(_("With UTF-8 support.\n"));
+            strcpy(tmp,"EUR \u20AC 14.95");
+            printf ("%s\n",tmp);
+    
+#else
+            printf(_("Without UTF-8 support.\n"));
+#endif
             printf("\n");
             printf(_("Download the latest executables and sources from:\n"));
             printf(_("http://www.xs4all.nl/~waterlan/\n"));

@@ -20,6 +20,12 @@ MKDIR=mkdir
 # dynamically) comment the LFLAGS line and add the 'libncurses.a' file
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
+# Flags and defs for wide character support.
+ifdef WCD_UTF8 
+WCFLAGS   = -std=gnu99
+WDEFS     = -DWCD_UTF8
+endif
+
 CFLAGS    = -O -Wall -Ic3po $(NCFLAG)
 DEFS      = -DUNIX -DWCD_USECURSES
 NLSDEFS   = -DENABLE_NLS -DLOCALEDIR=\"${LOCALEDIR}\" -DPACKAGE=\"${PACKAGE}\"
@@ -64,10 +70,10 @@ ${PROGRAM}: $(OBJS1)
 	$(CC) $(OBJS1) $(LFLAGS) -o $@
 
 %.o : %.c
-	$(CC) -c $(CFLAGS) $(DEFS) $(NLSDEFS) $< -o $@
+	$(CC) -c $(CFLAGS) $(WCFLAGS) $(DEFS) $(WDEFS) $(NLSDEFS) $< -o $@
 
 %.o : c3po/%.c
-	$(CC) -c $(CFLAGS) $(DEFS) $(NLSDEFS) $< -o $@
+	$(CC) -c $(CFLAGS) $(WCFLAGS) $(DEFS) $(WDEFS) $(NLSDEFS) $< -o $@
 
 
 ${POT} : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
