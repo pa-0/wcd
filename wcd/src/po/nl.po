@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 4.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-02 10:02+0100\n"
+"POT-Creation-Date: 2009-03-02 23:58+0100\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -281,7 +281,7 @@ msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
 
-#: wcd.c:2026 wcd.c:2492 wcd.c:2509
+#: wcd.c:2026 wcd.c:2493 wcd.c:2510
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
@@ -296,7 +296,7 @@ msgstr "Wcd: Voer alias in voor huide map: "
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s toegevoegd aan aliasbestand %s\n"
 
-#: wcd.c:2157 wcd.c:2231
+#: wcd.c:2157 wcd.c:2232
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
@@ -380,29 +380,29 @@ msgstr "Geen moedertaal ondersteuning.\n"
 msgid "With UTF-8 support.\n"
 msgstr ""
 
-#: wcd.c:2206
+#: wcd.c:2207
 #, c-format
 msgid "Without UTF-8 support.\n"
 msgstr ""
 
-#: wcd.c:2209
+#: wcd.c:2210
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Download de nieuwste versie met broncode van:\n"
 
-#: wcd.c:2210
+#: wcd.c:2211
 #, c-format
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr ""
 
-#: wcd.c:2227
+#: wcd.c:2228
 #, c-format
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
 "interface.\n"
 
-#: wcd.c:2232
+#: wcd.c:2233
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -432,22 +432,22 @@ msgid ""
 "Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
 msgstr ""
 
-#: wcd.c:2636
+#: wcd.c:2637
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: verbannen {%s}\n"
 
-#: wcd.c:2638
+#: wcd.c:2639
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: uitsluiten {%s}\n"
 
-#: wcd.c:2640
+#: wcd.c:2641
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteren {%s}\n"
 
-#: wcd.c:2891
+#: wcd.c:2892
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -456,7 +456,7 @@ msgstr ""
 "Wcd: Geen map gevonden gelijk aan %s\n"
 "Wcd: Misschien moet u de schijf opnieuw aftasten of is het pad verbannen.\n"
 
-#: wcd.c:3046
+#: wcd.c:3047
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Kan niet veranderen naar %s\n"
@@ -486,110 +486,110 @@ msgstr "Wcd: %d gedeelde mappen gevonden op server %s\n"
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Fout met verwerken stapel\n"
 
-#: display.c:87
+#: display.c:99
 #, c-format
 msgid "Wcd: error in maxLength(), list == NULL\n"
 msgstr "Wcd: fout in maxLength(), list == NULL\n"
 
-#: display.c:107
+#: display.c:119
 #, c-format
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "Wcd: fout in maxLengthStack(), s == NULL\n"
 
-#: display.c:782 graphics.c:1618
+#: display.c:794 graphics.c:1619
 #, c-format
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Wcd: let op: Fout tijdens openen terminal, val terug op stdout interface.\n"
 
-#: display.c:800
+#: display.c:812
 #, c-format
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: fout: scherm hoogte moet groter zijn dan 3 regels.\n"
 
-#: display.c:834 graphics.c:1651
+#: display.c:846 graphics.c:1652
 #, c-format
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: fout tijdens maken rolvenster.\n"
 
-#: display.c:865
+#: display.c:877
 #, c-format
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: fout aanmaken invoervenster.\n"
 
-#: display.c:875
+#: display.c:887
 msgid "Perfect "
 msgstr "Perfect "
 
-#: display.c:877
+#: display.c:889
 msgid "Wild "
 msgstr "Joker "
 
-#: display.c:878
+#: display.c:890
 #, c-format
 msgid "match for %d directories."
 msgstr "gelijke voor %d mappen."
 
-#: display.c:880 display.c:1119
+#: display.c:892 display.c:1131
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Maak een keuze (<Enter> voor afbreken): "
 
-#: display.c:885 display.c:919 display.c:944
+#: display.c:897 display.c:931 display.c:956
 #, c-format
 msgid "w=up x=down ?=help  Page %d/%d      "
 msgstr "w=omhoog x=omlaag ?=help  Pagina %d/%d    "
 
-#: display.c:993
+#: display.c:1005
 msgid "Screenheight must be > 20 for help."
 msgstr "Schermhoogte moet groter dan 20 zijn voor help"
 
-#: display.c:996
+#: display.c:1008
 msgid "w or <Up>         Page Up."
 msgstr "w of <Omhoog>     Pagina Omhoog."
 
-#: display.c:997
+#: display.c:1009
 msgid "x or <Down>       Page Down."
 msgstr "x of <Omlaag>     Pagina Omlaag."
 
-#: display.c:998
+#: display.c:1010
 msgid ", or <Left>       Scroll 1 left."
 msgstr ", of <Links>      Rol 1 naar links."
 
-#: display.c:999
+#: display.c:1011
 msgid ". or <Right>      Scroll 1 right."
 msgstr ". of <Rechts>     Rol 1 naar rechts."
 
-#: display.c:1000
+#: display.c:1012
 msgid "< or [            Scroll 10 left."
 msgstr "< of [            Rol 10 naar links."
 
-#: display.c:1001
+#: display.c:1013
 msgid "> or ]            Scroll 10 right."
 msgstr "> of ]            Rol 10 naar rechts."
 
-#: display.c:1002
+#: display.c:1014
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr "CTRL-a of <HOME>  Rol naar begin."
 
-#: display.c:1003
+#: display.c:1015
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr "CTRL-e of <END>   Rol naar einde."
 
-#: display.c:1004
+#: display.c:1016
 msgid "CTRL-c or <Esc>   Abort."
 msgstr "CTRL-c of <Esc>   Afbreken."
 
-#: display.c:1005
+#: display.c:1017
 msgid "<Enter>           Abort."
 msgstr "<Enter>           Afbreken."
 
-#: display.c:1006
+#: display.c:1018
 msgid "Type w or x to quit help."
 msgstr "Type w of x om help af te sluiten."
 
-#: display.c:1115
+#: display.c:1127
 #, c-format
 msgid ""
 "\n"
@@ -598,7 +598,7 @@ msgstr ""
 "\n"
 "Perfecte "
 
-#: display.c:1117
+#: display.c:1129
 #, c-format
 msgid ""
 "\n"
@@ -607,12 +607,12 @@ msgstr ""
 "\n"
 "Joker "
 
-#: display.c:1118
+#: display.c:1130
 #, c-format
 msgid "match for %d directories.\n"
 msgstr "gelijke voor %d mappen.\n"
 
-#: display.c:1161
+#: display.c:1173
 #, c-format
 msgid ""
 "\n"
@@ -621,204 +621,204 @@ msgstr ""
 "\n"
 "Maak een keuze (<Enter> voor afbreken): "
 
-#: graphics.c:184
+#: graphics.c:185
 #, c-format
 msgid "Wcd: error: line too long in function getTreeLine()"
 msgstr "Wcd: fout: regel te lang in functie getTreeLine()"
 
-#: graphics.c:1313
+#: graphics.c:1314
 msgid "NAVIGATE MODE:"
 msgstr "NAVIGATIE MODUS:"
 
-#: graphics.c:1314
+#: graphics.c:1315
 msgid "h or <Left>       go left."
 msgstr "h of <Links>      ga naar links."
 
-#: graphics.c:1315
+#: graphics.c:1316
 msgid "j or <Down>       go down."
 msgstr "j of <Omlaag>     ga omlaag."
 
-#: graphics.c:1316
+#: graphics.c:1317
 msgid "k or <Up>         go up."
 msgstr "k of <Omhoog>     ga omhoog."
 
-#: graphics.c:1317
+#: graphics.c:1318
 msgid "l or <Right>      go right."
 msgstr "l of <Rechts>     ga naar rechts."
 
-#: graphics.c:1318
+#: graphics.c:1319
 msgid "* or v or <Space> go forward to dir with same name."
 msgstr "* of v of <Spatie> ga vooruit naar map met dezelfde naam."
 
-#: graphics.c:1319
+#: graphics.c:1320
 msgid "# or p or <BS>    go backward to dir with same name."
 msgstr "# of p of <BS>    ga achteruit naar map met dezelfde naam."
 
-#: graphics.c:1320
+#: graphics.c:1321
 msgid "^ or a            go to beginning of line."
 msgstr "^ of a            ga naar begin van regel."
 
-#: graphics.c:1321
+#: graphics.c:1322
 msgid "$ or e            go to end of line."
 msgstr "$ of e            ga naar einde van regel."
 
-#: graphics.c:1322
+#: graphics.c:1323
 msgid "1                 go to root dir."
 msgstr "1                 ga naar eerste map."
 
-#: graphics.c:1323
+#: graphics.c:1324
 msgid "g or G            go to last dir."
 msgstr "g of G            ga naar laatste map."
 
-#: graphics.c:1324
+#: graphics.c:1325
 msgid "f                 go page forward."
 msgstr "f                 ga pagina vooruit."
 
-#: graphics.c:1325
+#: graphics.c:1326
 msgid "b                 go page backward."
 msgstr "b                 ga pagina achteruit."
 
-#: graphics.c:1326
+#: graphics.c:1327
 msgid "u                 go half page up."
 msgstr "u                 ga halve pagina omhoog."
 
-#: graphics.c:1327
+#: graphics.c:1328
 msgid "d                 go half page down."
 msgstr "d                 ga halve pagina omlaag."
 
-#: graphics.c:1328
+#: graphics.c:1329
 msgid "<Esc> or q        Abort."
 msgstr "<Esc> of q        Afbreken."
 
-#: graphics.c:1329
+#: graphics.c:1330
 msgid "/                 Search forward."
 msgstr "/                 Zoek vooruit."
 
-#: graphics.c:1330
+#: graphics.c:1331
 msgid "?                 Search backward."
 msgstr "?                 Zoek achteruit."
 
-#: graphics.c:1331
+#: graphics.c:1332
 msgid "n                 Repeat latest / or ? search."
 msgstr "n                 Herhaal laatste / of ? zoekopdracht."
 
-#: graphics.c:1332 graphics.c:1355
+#: graphics.c:1333 graphics.c:1356
 msgid "<Enter>           Select directory."
 msgstr "<Enter>           Kies map."
 
-#: graphics.c:1333 graphics.c:1356 graphics.c:1373
+#: graphics.c:1334 graphics.c:1357 graphics.c:1374
 msgid "Press any key."
 msgstr "Druk een toets."
 
-#: graphics.c:1339
+#: graphics.c:1340
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "ZOEK MODUS met jokertekens en submap ondersteuning:"
 
-#: graphics.c:1340
+#: graphics.c:1341
 msgid "<Left>            go left."
 msgstr "<Links>           ga naar links."
 
-#: graphics.c:1341
+#: graphics.c:1342
 msgid "<Down>            go down."
 msgstr "<Omlaag>          ga omlaag."
 
-#: graphics.c:1342
+#: graphics.c:1343
 msgid "<Up>              go up."
 msgstr "<Omhoog>          ga omhoog."
 
-#: graphics.c:1343
+#: graphics.c:1344
 msgid "<Right>           go right."
 msgstr "<Rechts>          ga naar rechts."
 
-#: graphics.c:1344
+#: graphics.c:1345
 msgid "CTRL-v            go forward to dir with same name."
 msgstr "CTRL-v            ga vooruit naar map met dezelfde naam."
 
-#: graphics.c:1345
+#: graphics.c:1346
 msgid "CTRL-p            go backward to dir with same name."
 msgstr "CTRL-p            ga achteruit naar map met dezelfde naam."
 
-#: graphics.c:1346
+#: graphics.c:1347
 msgid "CTRL-a            go to beginning of line."
 msgstr "CTRL-a            ga naar begin van regel."
 
-#: graphics.c:1347
+#: graphics.c:1348
 msgid "CTRL-e            go to end of line."
 msgstr "CTRL-e            ga naar einde van regel."
 
-#: graphics.c:1348
+#: graphics.c:1349
 msgid "CTRL-g            go to last dir."
 msgstr "CTRL-g            ga naar laatste map."
 
-#: graphics.c:1349
+#: graphics.c:1350
 msgid "CTRL-f            go page forward."
 msgstr "CTRL-f            ga pagina vooruit."
 
-#: graphics.c:1350
+#: graphics.c:1351
 msgid "CTRL-b            go page backward."
 msgstr "CTRL-b            ga pagina achteruit."
 
-#: graphics.c:1351
+#: graphics.c:1352
 msgid "CTRL-u            go half page up."
 msgstr "CTRL-u            ga halve pagina omhoog."
 
-#: graphics.c:1352
+#: graphics.c:1353
 msgid "CTRL-d            go half page down."
 msgstr "CTRL-d            ga halve pagina omlaag."
 
-#: graphics.c:1353
+#: graphics.c:1354
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
 msgstr "<Esc> of CTRL-x   ZOEK MODUS afbreken."
 
-#: graphics.c:1354
+#: graphics.c:1355
 msgid "CTRL-n            Repeat latest / or ? search."
 msgstr "CTRL-n            Herhaal laatste / of ? zoekopdracht."
 
-#: graphics.c:1362
+#: graphics.c:1363
 msgid "ZOOMING:"
 msgstr "ZOOMEN:"
 
-#: graphics.c:1363
+#: graphics.c:1364
 msgid "z or i or CTRL-i  zoom in."
 msgstr "z of i of CTRL-i  zoom in."
 
-#: graphics.c:1364
+#: graphics.c:1365
 msgid "Z or o or CTRL-o  zoom out."
 msgstr "Z of o of CTRL-o  zoom uit."
 
-#: graphics.c:1365
+#: graphics.c:1366
 msgid "c                 condense: fold current level."
 msgstr "c                 huidig niveau vouwen."
 
-#: graphics.c:1366
+#: graphics.c:1367
 msgid "C                 condense: fold subdir level."
 msgstr "C                 submap niveau vouwen."
 
-#: graphics.c:1367
+#: graphics.c:1368
 msgid "w                 condense: fold current and sub levels."
 msgstr "w                 huidig en subniveaus vouwen."
 
-#: graphics.c:1368
+#: graphics.c:1369
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
 msgstr "y of CTRL-y       huidig en subniveaus ontvouwen."
 
-#: graphics.c:1369
+#: graphics.c:1370
 msgid "r or CTRL-r       uncondense: unfold all directories."
 msgstr "r of CTRL-r       alle mappen ontvouwen."
 
-#: graphics.c:1370
+#: graphics.c:1371
 msgid "-                 fold directory."
 msgstr "-                 vouw map."
 
-#: graphics.c:1371
+#: graphics.c:1372
 msgid "+ or =            unfold directory."
 msgstr "+ of =            ontvouw map."
 
-#: graphics.c:1372
+#: graphics.c:1373
 msgid "l or <Right>      unfold and go right."
 msgstr "l of <Rechts>     ontvouwen en naar rechts gaan."
 
-#: graphics.c:1376
+#: graphics.c:1377
 msgid "Screenheight must be > 20 for help"
 msgstr "Schermhoogte moet groter dan 20 zijn voor help"
 

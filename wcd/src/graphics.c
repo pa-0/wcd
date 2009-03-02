@@ -156,12 +156,13 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
    static text line = NULL;
    static text tline = NULL;
    dirnode n;
-   int i,len;
+   int i,len,clen;
 
    if (d == NULL)
       return(NULL);
 
-   len = strlen(dirnodeGetName(d));
+   len = strlen(dirnodeGetName(d));         /* nr. of bytes */
+   clen = str_columns(dirnodeGetName(d));   /* nr. of columns */
 
    if (line == NULL)
    {
@@ -210,9 +211,9 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
          }
          else
          {
-            for (i=0;i<len;i++)
+            for (i=0;i<clen;i++)
                tline[i] = ' ';
-            tline[len] = '\0';
+            tline[clen] = '\0';
             strcat(tline,WCD_OVERDIR);
          }
       }
@@ -241,17 +242,17 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
             }
             else
             {
-               for (i=0;i<len;i++)
+               for (i=0;i<clen;i++)
                   tline[i] = ' ';
-               tline[len] = '\0';
+               tline[clen] = '\0';
                strcat(tline,WCD_MOREDIR);
             }
          }
          else
          {
-            for (i=0;i<len;i++)
+            for (i=0;i<clen;i++)
                tline[i] = ' ';
-            tline[len] = '\0';
+            tline[clen] = '\0';
             
             if (y == dirnodeGetY(elementAtDirnode(getSizeOfDirnode(d)-1,d)))
             {

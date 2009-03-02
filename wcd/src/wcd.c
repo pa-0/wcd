@@ -2199,9 +2199,10 @@ int main(int argc,char** argv)
 #endif
 #ifdef WCD_UTF8
             printf(_("With UTF-8 support.\n"));
-            strcpy(tmp,"EUR \u20AC 14.95");
+            strcpy(tmp,"  Euro symbol: \u20AC");
             printf ("%s\n",tmp);
-    
+            strcpy(tmp,"  Chinese characters: \u4e2d\u6587");
+            printf ("%s\n",tmp);
 #else
             printf(_("Without UTF-8 support.\n"));
 #endif

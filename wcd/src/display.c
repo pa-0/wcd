@@ -19,6 +19,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#ifdef WCD_UTF8
+#include <wchar.h>
+#endif
 #include "std_macr.h"
 #include "structur.h"
 #include "nameset.h"
@@ -26,6 +29,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "wcd.h"
 #include "config.h"
 
+
+int str_columns (char *s)
+{
+#ifdef WCD_UTF8
+   return(wcswidth(s,6));
+#else
+   return(strlen(s));
+#endif
+}
 
 /************************************************************************
  *
@@ -90,7 +102,7 @@ int maxLength(nameset list)
 
    for (i=0;i<list->size;i++)
    {
-    if( (len=strlen(list->array[i])) > maxlen)
+    if( (len=str_columns(list->array[i])) > maxlen)
        maxlen=len;
    }
 	if (maxlen > 32)
@@ -110,7 +122,7 @@ int maxLengthStack(WcdStack s)
 
    for (i=0;i<s->size;i++)
    {
-    if( (len=strlen(s->dir[i])) > maxlen)
+    if( (len=str_columns(s->dir[i])) > maxlen)
        maxlen=len;
    }
 	if (maxlen > 32)
