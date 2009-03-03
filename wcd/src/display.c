@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <string.h>
 #include <stdlib.h>
 #ifdef WCD_UTF8
+#define __USE_XOPEN
 #include <wchar.h>
 #endif
 #include "std_macr.h"
@@ -28,12 +29,26 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "display.h"
 #include "wcd.h"
 #include "config.h"
+#include "dosdir.h"
 
 
 int str_columns (char *s)
 {
 #ifdef WCD_UTF8
-   return(wcswidth(s,6));
+   static wchar_t wstr[DD_MAXPATH];
+   int i;
+
+   i= mbstowcs(wstr,s,DD_MAXPATH);
+   if ( i < 0)
+      return(strlen(s));
+   else
+   {
+      i = wcswidth(wstr,DD_MAXPATH);
+      if ( i < 0)
+         return(strlen(s));
+      else
+         return(i);
+   }
 #else
    return(strlen(s));
 #endif
