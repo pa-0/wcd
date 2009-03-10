@@ -6,16 +6,16 @@ wcd - Wherever Change Directory
 chdir for DOS and Unix
 .SH SYNOPSIS
 .B wcd
-[drive:][dir] [-A <path>] [-a[a]] [-b] [-c] [-d <drive>]
+[-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]
 .br
-[-E <path>] [-e[e]] [-f <treefile>] [-G <path>] [-GN] [-g[a|d]]
+[-f <treefile>] [-g[a|d]] [-G <path>] [-h] [-i] [-j] [-k] [-l <alias>]
 .br
-[-h] [-i] [-j] [-k] [-l] [-[m|M|r|rmtree] <dir>] [-N] [-n <path>]
+[-[m|M|r|rmtree] <dir>] [-n <path>] [-N] [-o[d]] [-Q] [-s] [-S <path>]
 .br
-[-o[d]] [-Q] [-S <path>] [-s] [-t] [-u <username>] [-V] [-v] [-w]
+[-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>] [-z #]
 .br
-[-x <path>] [-xf <file>] [-z #] [-[#]] [+[#]] [=]
-.br
+[-[#]] [+[#]] [=] [drive:][dir]
+
 .SH DESCRIPTION
 .I Wcd.
 Directory changer for DOS and Unix.
@@ -322,10 +322,10 @@ The default behaviour of wcd is that it tries to remove
 paths from the treedata when wcd cannot change to them.
 With this option this behaviour is turned off.
 .TP
-.B \-l
+.B \-l <alias>
 aLias current path.
 
-Wcd places the current path and the alias in the alias file.
+Wcd places the current path with alias <alias> in the alias file.
 Aliases are case sensitive.
 .TP
 .B \-M <dir>

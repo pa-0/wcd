@@ -1530,13 +1530,14 @@ void printhelp()
 {
         printf(_("\
 wcd  %s  (%s) - Wherever Change Directory\n\
-Usage: wcd [drive:][dir] [-h] [-V] [-Q] [-b] [-l] [-c] [-e[e]] [-E <path>]\n\
-       [-s] [-S <path>] [-a[a]] [-A <path>] [-u <user>] [-f <treefile>]\n\
-       [-n <path>] [-i] [-d <drive>] [-[m|M|r|rmtree] <dir>] [-t]\n\
-       [-v] [-g[a|d]] [-N] [-o[d]] [-j] [-G <path>] [-z #] [-[#]] [+[#]] [=]\n\
-       [-w] [-x <path>] [-xf <file>] [-k]\n\
-  dir (partial) name of directory to change to.\n\
-      Wildcards *, ? and [SET] are supported!\n\n"),VERSION,VERSION_DATE);
+Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
+       [-f <treefile>] [-g[a|d]] [-G <path>] [-h] [-i] [-j] [-k] [-l <alias>]\n\
+       [-[m|M|r|rmtree] <dir>] [-n <path>] [-N] [-o[d]] [-Q] [-s] [-S <path>]\n\
+       [-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>] [-z #]\n\
+       [-[#]] [+[#]] [=] [drive:][dir]\n\
+\n\
+  [dir]   (partial) name of directory to change to.\n\
+          Wildcards *, ? and [SET] are supported!\n\n"),VERSION,VERSION_DATE);
 
   printf(_("options:\n\
   -       Push dir (# times)\n\
@@ -1839,7 +1840,6 @@ int main(int argc,char** argv)
    char scan_mk_rm = 0; /* scan disk, or make dir, or remove dir */
    char *ptr, *stackptr;
    int  quieter = 0, cd = 0 ;
-   char string[256];
    int len;
    char tmp[DD_MAXPATH];      /* tmp string buffer */
    int  stack_is_read = 0;
@@ -2106,47 +2106,7 @@ int main(int argc,char** argv)
             scan_mk_rm = 1;
             break;
          case 'l':
-            printf(_("Wcd: Enter alias for current directory: "));
-            fgets(string,sizeof(string),stdin);
-            fflush(stdin); /* flush the input stream in case of bad input */
-
-            /* fgets retains the newline character (LF) at the end of string
-            and appends a null byte to string to mark the end of the
-            string. */
-            string[strlen(string)-1] = '\0'; /* remove LF */
-
-            if(strcmp(string,"")!=0)
-            {
-
-            wcd_getcwd(tmp, sizeof(tmp));
-            if(tmp != NULL)
-            {
-               len = strlen(tmp);
-               if (len==0)
-                  tmp[len] = '\0';
-
-               /* open the treedata file */
-               if  ((outfile = fopen(aliasfile,"a")) == NULL)
-               {
-                  fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), aliasfile);
-               }
-               else
-               {
-                  wcd_fixpath(tmp,sizeof(tmp)) ;
-                  rmDriveLetter(tmp,&use_HOME);
-                  fprintf(outfile,"%s %s\n",string,tmp);
-                  printf(_("Wcd: %s added to aliasfile %s\n"),tmp,aliasfile);
-                  fclose(outfile);
-               }
-            }
-            }
-#if defined(UNIX) || defined(WIN32) || defined(OS2)     /* empty wcd.go file */
-            empty_wcdgo(go_file,use_GoScript);
-#endif
-#ifdef WCD_DOSBASH     /* empty wcd.go file */
-            empty_wcdgo(go_file,0,drive,use_GoScript);
-#endif
-            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+            break;
          case 'V':
             verbose = 1;
             break;
@@ -2410,8 +2370,38 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
          }
       else /* Not a switch. Must be a dir or filename. */
       {
+         if (strcmp(argv[i-1],"-l") == 0 )
+         {
+            wcd_getcwd(tmp, sizeof(tmp));
+            if(tmp != NULL)
+            {
+               len = strlen(tmp);
+               if (len==0)
+                  tmp[len] = '\0';
 
-
+               /* open the treedata file */
+               if  ((outfile = fopen(aliasfile,"a")) == NULL)
+               {
+                  fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), aliasfile);
+               }
+               else
+               {
+                  wcd_fixpath(tmp,sizeof(tmp)) ;
+                  rmDriveLetter(tmp,&use_HOME);
+                  fprintf(outfile,"%s %s\n",argv[i],tmp);
+                  printf(_("Wcd: %s added to aliasfile %s\n"),tmp,aliasfile);
+                  fclose(outfile);
+               }
+            }
+#if defined(UNIX) || defined(WIN32) || defined(OS2)     /* empty wcd.go file */
+            empty_wcdgo(go_file,use_GoScript);
+#endif
+#ifdef WCD_DOSBASH     /* empty wcd.go file */
+            empty_wcdgo(go_file,0,drive,use_GoScript);
+#endif
+            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+         }
+         else
          if (strcmp(argv[i-1],"-f") == 0 )
          {
             use_default_treedata = 0;
