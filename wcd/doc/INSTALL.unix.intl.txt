@@ -40,6 +40,13 @@ To start clean:
   Type `make clean'
 
 
+UTF-8 Unicode support
+=====================
+
+To activate UTF-8 support add WCD_UTF8=1 to the make command:
+
+ `make WCD_UTF8=1'
+
 
 Installation Names
 ==================

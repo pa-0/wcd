@@ -886,6 +886,29 @@ set LANG=nl_NL
 .br
 set LC_COLLATE=C
 
+.TP 4
+.I UTF-8 UNICODE
+Wcd can support UTF-8 unicode on Unix/Linux. To see if wcd was built
+with UTF-8 support type \'wcd -v\'.
+
+In order to view UTF-8 characters your console/terminal also needs to support
+UTF-8. The xterm version that comes with XFree86 4.0 or higher includes UTF-8
+support. To activate it, start xterm in a UTF-8 locale and use a font with
+iso10646-1 encoding, for instance with
+
+.nf
+ LC_CTYPE=en_GB.UTF-8 xterm -u8 \\
+  -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'
+.fi
+
+If you now type \'wcd -v\' you should see the euro symbol and Chinese
+characters (meaning: "Chinese")
+
+See also
+.nf
+http://www.cl.cam.ac.uk/~mgk25/unicode.html
+.fi
+
 .SH FILES
 
 .TP 4

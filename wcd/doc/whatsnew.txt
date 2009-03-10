@@ -1,4 +1,5 @@
-4.1.1 beta2 Feb 27 2009
+4.1.1 beta3 Mar 10 2009
+  - Preliminary UTF-8 Unicode support on Unix/Linux.
   - Resolved a few signedness issues.
   - Update manual page.
   - Improvements manual page (thanks to Jari Aalto)
