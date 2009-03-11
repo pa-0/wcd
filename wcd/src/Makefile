@@ -24,12 +24,14 @@ MKDIR=mkdir
 ifdef WCD_UTF8 
 WCFLAGS   = -std=gnu99
 WDEFS     = -DWCD_UTF8
+LFLAGS    = -lncursesw $(NLFLAG)
+else
+LFLAGS    = -lncurses $(NLFLAG)
 endif
 
 CFLAGS    = -O -Wall -Ic3po $(NCFLAG)
 DEFS      = -DUNIX -DWCD_USECURSES
 NLSDEFS   = -DENABLE_NLS -DLOCALEDIR=\"${LOCALEDIR}\" -DPACKAGE=\"${PACKAGE}\"
-LFLAGS    = -lncurses $(NLFLAG)
 
 PACKAGE = wcd
 PROGRAM = ${PACKAGE}.exe

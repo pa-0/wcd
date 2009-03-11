@@ -649,12 +649,20 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 {
    wcd_char *s;
    int len, j, nr_offset;
+#ifdef WCD_UTF8
+   static wchar_t wstr[DD_MAXPATH];
+   int width;
+#endif
 
    s = (wcd_char *)n->array[i];
 
    if (s != NULL)
    {
+#ifdef WCD_UTF8
+      len = mbstowcs(wstr,s,DD_MAXPATH); /* number of wide characters */
+#else
       len = strlen((char *)s);
+#endif
 		if (*use_numbers == 0)
 			nr_offset = 2;
 		else
@@ -662,10 +670,21 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 
 		wmove(win,y,nr_offset);
 
+#ifdef WCD_UTF8
+      j = xoffset;
+      width = wcwidth(wstr[j]);
+      while ((j<len)&&((nr_offset+width)<(COLS-1)))
+      {
+         waddnwstr(win,wstr[j],1);
+	 j++;
+	 width = width + wcwidth(wstr[j]);
+      }
+#else
       for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
       {
          waddch(win,s[j]);
       }
+#endif
    }
 }
 
