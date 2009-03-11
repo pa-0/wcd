@@ -115,7 +115,8 @@ See also option -k.
 Wcd keeps a directory stack which is stored on disk. The stack has a default
 size of 10 and is cyclic. See options -z, -, + and =.
 
-Wcd supports 8 bit character sets (non-ASCII characters).
+Wcd supports 8 bit character sets on all systems, and can support UTF-8 Unicode
+on Unix/Linux. See also section LOCALIZATION/UTF-8 UNICODE.
 
 In multi-user environments a very handy option -u can be used to
 change to directories of other users. See option -u.
@@ -889,7 +890,8 @@ set LC_COLLATE=C
 .TP 4
 .I UTF-8 UNICODE
 Wcd can support UTF-8 unicode on Unix/Linux. To see if wcd was built
-with UTF-8 support type \'wcd -v\'.
+with UTF-8 support type \'wcd -v\'.  You should see the euro symbol and
+Chinese characters (meaning: "Chinese").
 
 In order to view UTF-8 characters your console/terminal also needs to support
 UTF-8. The xterm version that comes with XFree86 4.0 or higher includes UTF-8
@@ -900,9 +902,6 @@ iso10646-1 encoding, for instance with
  LC_CTYPE=en_GB.UTF-8 xterm -u8 \\
   -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'
 .fi
-
-If you now type \'wcd -v\' you should see the euro symbol and Chinese
-characters (meaning: "Chinese")
 
 See also
 .nf
