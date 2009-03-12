@@ -36,6 +36,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <stdio.h>
 #include <string.h>
 #include <signal.h>
+#ifdef WCD_UTF8
+#define __USE_XOPEN
+#include <wchar.h>
+#endif
 #include "std_macr.h"
 #include "structur.h"
 #include "nameset.h"
@@ -1156,14 +1160,74 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
 {
    wcd_char *s;
    int len, j;
+#ifdef WCD_UTF8
+   static wchar_t wstr[DD_MAXPATH];
+   int width;
+#endif
 
    s = (wcd_char *)getTreeLine(getLastNodeInLevel(n,i),i,&i,curNode,false);
 
    if (s != NULL)
    {
+#ifdef WCD_UTF8
+      len = mbstowcs(wstr,s,DD_MAXPATH); /* number of wide characters */
+#else
       len = strlen((char *)s);
+#endif
       wmove(win,y,0);
+    /*  if (len <0 )
+      {
+         fprintf(stderr,"len = %d\n",len);
+         fprintf(stderr,"s = %s\n",s);
+      } */
 
+#ifdef WCD_UTF8
+      if (len < 0)
+      {
+         /* Erroneous UTF-8 sequence */
+         /* Try 8 bit characters */
+         len = strlen((char *)s);
+         for(j=xoffset;(j<len)&&((j-xoffset)<(COLS-1));j++)
+         {
+            switch(s[j])
+            {
+               case WCD_SEL_ON:
+                wattron(win,A_REVERSE);
+                waddch(win,'[');
+                  break;
+               case WCD_SEL_OFF:
+                waddch(win,']');
+                wattroff(win,A_REVERSE);
+                  break;
+               default:
+                  waddch(win,s[j]);
+            }
+         }
+      }
+      else
+      {
+         j = xoffset;
+         width = wcwidth(wstr[j]);
+         while ((j<len)&&(width<(COLS-1)))
+         {
+            switch(wstr[j])
+            {
+               case WCD_SEL_ON:
+                wattron(win,A_REVERSE);
+                waddch(win,'<');
+                  break;
+               case WCD_SEL_OFF:
+                waddch(win,'>');
+                wattroff(win,A_REVERSE);
+                  break;
+               default:
+                  waddnwstr(win,wstr+j,1);
+            }
+            j++;
+            width = width + wcwidth(wstr[j]);
+         }
+      }
+#else
       for(j=xoffset;(j<len)&&((j-xoffset)<(COLS-1));j++)
       {
          switch(s[j])
@@ -1180,6 +1244,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
                waddch(win,s[j]);
          }
       }
+#endif
    }
 }
 

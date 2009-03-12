@@ -38,12 +38,14 @@ int str_columns (char *s)
    static wchar_t wstr[DD_MAXPATH];
    int i;
 
+   /* convert to wide characters. i = nr. of characters */
    i= mbstowcs(wstr,s,DD_MAXPATH);
    if ( i < 0)
       return(strlen(s));
    else
    {
       i = wcswidth(wstr,DD_MAXPATH);
+      /* i =  nr. of columns */
       if ( i < 0)
          return(strlen(s));
       else
@@ -81,11 +83,11 @@ void ssort (nameset list, int left, int right)
 
   for (i = left+1; i <=right; i++)
 #ifdef ENABLE_NLS
-	if  (strcoll(list->array[i],list->array[left])<0)
+  if  (strcoll(list->array[i],list->array[left])<0)
 #else
-	if  (strcmp(list->array[i],list->array[left])<0)
+  if  (strcmp(list->array[i],list->array[left])<0)
 #endif
-	   swap(list, ++last, i);
+  swap(list, ++last, i);
 
   swap(list, left, last);
   ssort(list, left, last-1);
@@ -107,43 +109,43 @@ void sort_list(nameset list)
 #if (defined(WCD_USECONIO) || defined(WCD_USECURSES))
 int maxLength(nameset list)
 {
-	int i,len,maxlen = 0;
+   int i,len,maxlen = 0;
 
-	if (list == NULL)
-	{
-		fprintf(stderr,_("Wcd: error in maxLength(), list == NULL\n"));
-		return 32 ;
-	}
+   if (list == NULL)
+   {
+      fprintf(stderr,_("Wcd: error in maxLength(), list == NULL\n"));
+      return 32 ;
+   }
 
    for (i=0;i<list->size;i++)
    {
     if( (len=str_columns(list->array[i])) > maxlen)
        maxlen=len;
    }
-	if (maxlen > 32)
+   if (maxlen > 32)
       return(maxlen);
-	else
-	   return 32 ;     /* minimal width for help screen */
+   else
+      return 32 ;     /* minimal width for help screen */
 }
 int maxLengthStack(WcdStack s)
 {
-	int i,len,maxlen = 0;
+   int i,len,maxlen = 0;
 
-	if (s == NULL)
-	{
-		fprintf(stderr,_("Wcd: error in maxLengthStack(), s == NULL\n"));
-		return 32 ;
-	}
+   if (s == NULL)
+   {
+      fprintf(stderr,_("Wcd: error in maxLengthStack(), s == NULL\n"));
+      return 32 ;
+   }
 
    for (i=0;i<s->size;i++)
    {
     if( (len=str_columns(s->dir[i])) > maxlen)
        maxlen=len;
    }
-	if (maxlen > 32)
+   if (maxlen > 32)
       return(maxlen);
-	else
-	   return 32 ;     /* minimal width for help screen */
+   else
+      return 32 ;     /* minimal width for help screen */
 }
 #endif
 
@@ -181,10 +183,10 @@ void printLine(nameset n, int i, int y, int xoffset, int *use_numbers, int scree
    if (s != NULL)
    {
       len = strlen(s);
-		if (*use_numbers == 0)
-			nr_offset = 2;
-		else
-			nr_offset = 3;
+      if (*use_numbers == 0)
+         nr_offset = 2;
+      else
+         nr_offset = 3;
 
       for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(screenWidth-1));j++)
       {
@@ -203,73 +205,73 @@ void printStackLine(WcdStack ws, int i, int y, int xoffset, int *use_numbers, in
    if (s != NULL)
    {
       len = strlen(s);
-		if (*use_numbers == 0)
-			nr_offset = 2;
-		else
-			nr_offset = 3;
+      if (*use_numbers == 0)
+         nr_offset = 2;
+      else
+         nr_offset = 3;
 
       for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(screenWidth-1));j++)
       {
          cprintf("%c",s[j]);
       }
-		if ((i == ws->current) && ((nr_offset+j-xoffset+2)<(screenWidth-1)))
-			  cprintf(" *");
+      if ((i == ws->current) && ((nr_offset+j-xoffset+2)<(screenWidth-1)))
+           cprintf(" *");
    }
 }
 
 void print_list_normal(int lines_per_page, int line, nameset list, int top, int bottom, int use_numbers, int xoffset, int screenWidth)
 {
-	int i;
+   int i;
 
-	for (i=top;i<=bottom;i++)
-	{
-		gotoxy(1,line);
-		if (use_numbers == 0)
-	  		cprintf("%c ",(char)(((i-top)%lines_per_page) + 'a'));
-		else
-	  		cprintf("%2d ",((i-top)%lines_per_page) + 1);
-		printLine(list, i, line, xoffset, &use_numbers, screenWidth);
-		line++;
-	}
+   for (i=top;i<=bottom;i++)
+   {
+      gotoxy(1,line);
+      if (use_numbers == 0)
+         cprintf("%c ",(char)(((i-top)%lines_per_page) + 'a'));
+      else
+         cprintf("%2d ",((i-top)%lines_per_page) + 1);
+      printLine(list, i, line, xoffset, &use_numbers, screenWidth);
+      line++;
+   }
 }
 /**************************************************/
 
 void print_list_stack(int lines_per_page, int line, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset, int screenWidth) 
 {
-	int i,j;
+   int i,j;
 
-	if (use_numbers == 0)
-	{
-		for (i=top;i<=bottom;i++)
-		{
-		  j = (i + start)%(ws->size);
-		  gotoxy(1,line);
-		  cprintf("%c ",(char)(((i-top)%lines_per_page) + 'a'));
-		  printStackLine(ws, j, line, xoffset, &use_numbers, screenWidth);
-		  line++;
-		}
-	}
-	else
-	{
-		for (i=top;i<=bottom;i++)
-		{
-		  j = (i + start)%(ws->size);
-		  gotoxy(1,line);
-		  cprintf("%2d ",(i-top)%lines_per_page + 1);
-		  printStackLine(ws, j, line, xoffset, &use_numbers, screenWidth);
-		  line++;
-		}
-	}
+   if (use_numbers == 0)
+   {
+      for (i=top;i<=bottom;i++)
+      {
+        j = (i + start)%(ws->size);
+        gotoxy(1,line);
+        cprintf("%c ",(char)(((i-top)%lines_per_page) + 'a'));
+        printStackLine(ws, j, line, xoffset, &use_numbers, screenWidth);
+        line++;
+      }
+   }
+   else
+   {
+      for (i=top;i<=bottom;i++)
+      {
+        j = (i + start)%(ws->size);
+        gotoxy(1,line);
+        cprintf("%2d ",(i-top)%lines_per_page + 1);
+        printStackLine(ws, j, line, xoffset, &use_numbers, screenWidth);
+        line++;
+      }
+   }
 }
 
 void print_list(int lines_per_page,int line, nameset list, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset, int screenWidth) 
 {
-	clrscr();
-	if (list != NULL)
-		print_list_normal(lines_per_page,line,list,top,bottom,use_numbers,xoffset,screenWidth);
-	else
-		if (ws != NULL)
-			print_list_stack(lines_per_page,line,ws,start,top,bottom,use_numbers,xoffset,screenWidth);
+   clrscr();
+   if (list != NULL)
+      print_list_normal(lines_per_page,line,list,top,bottom,use_numbers,xoffset,screenWidth);
+   else
+      if (ws != NULL)
+         print_list_stack(lines_per_page,line,ws,start,top,bottom,use_numbers,xoffset,screenWidth);
 }
 
 /****************************************************************************/
@@ -285,123 +287,123 @@ char number_str[WCD_MAX_INPSTR];
 char *buffer;
 struct text_info ti;
 
-	gettextinfo(&ti);
+   gettextinfo(&ti);
 
-	buffer = (char *) malloc(ti.screenwidth * ti.screenheight * 2);
+   buffer = (char *) malloc(ti.screenwidth * ti.screenheight * 2);
 
-	if (buffer!=NULL)   /* get total screen */
-	  gtxt = gettext(1,1,ti.screenwidth,ti.screenheight,buffer);
+   if (buffer!=NULL)   /* get total screen */
+     gtxt = gettext(1,1,ti.screenwidth,ti.screenheight,buffer);
 
-	if (list != NULL)    /* normal list */
-	{
-		sort_list(list);
-		size = list->size;
-	}
-	else
-		if (ws != NULL)   /* stack */
-		{
-			if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) || ((ws->size) > ws->maxsize) )
-				return(WCD_ERR_LIST); /* in case stack file was corrupt */
-			else
-			{
-				size = ws->size;
+   if (list != NULL)    /* normal list */
+   {
+      sort_list(list);
+      size = list->size;
+   }
+   else
+      if (ws != NULL)   /* stack */
+      {
+         if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) || ((ws->size) > ws->maxsize) )
+            return(WCD_ERR_LIST); /* in case stack file was corrupt */
+         else
+         {
+            size = ws->size;
 
-				if (ws->size < ws->maxsize)
-					start = 0;
-				else
-					start = ws->lastadded + 1;
+            if (ws->size < ws->maxsize)
+               start = 0;
+            else
+               start = ws->lastadded + 1;
 
-				if (ws->lastadded >= ws->maxsize)
-					start = 0;
-			}
-		}
-		else
-			return(WCD_ERR_LIST);  /* no list or stack */
+            if (ws->lastadded >= ws->maxsize)
+               start = 0;
+         }
+      }
+      else
+         return(WCD_ERR_LIST);  /* no list or stack */
 
-	i= WCD_ERR_LIST;
-	number_str[n] = '\0';
+   i= WCD_ERR_LIST;
+   number_str[n] = '\0';
 
    scrollWinHeight = ti.screenheight - INPUT_WIN_HEIGHT;
-	lines_per_page = scrollWinHeight ;
+   lines_per_page = scrollWinHeight ;
 
-	if (use_numbers == 0)
-	{
-		if (scrollWinHeight > SCROLL_WIN_HEIGHT)
-			lines_per_page = SCROLL_WIN_HEIGHT;
-	}
-	else
-	{
-		if (scrollWinHeight > 99)
-			lines_per_page = 99; /* stay below 3 digits */
-	}
+   if (use_numbers == 0)
+   {
+      if (scrollWinHeight > SCROLL_WIN_HEIGHT)
+         lines_per_page = SCROLL_WIN_HEIGHT;
+   }
+   else
+   {
+      if (scrollWinHeight > 99)
+         lines_per_page = 99; /* stay below 3 digits */
+   }
 
-	if (list != NULL)
-		len = maxLength(list);
-	else
-		if (ws != NULL)
-			len = maxLengthStack(ws);
-		else
-			return(WCD_ERR_LIST);
+   if (list != NULL)
+      len = maxLength(list);
+   else
+      if (ws != NULL)
+         len = maxLengthStack(ws);
+      else
+         return(WCD_ERR_LIST);
 
-	top = 0;
+   top = 0;
 
-	bottom = size -1;
-	top = size - lines_per_page;
-	if (top < 0)
-	   top = 0;
+   bottom = size -1;
+   top = size - lines_per_page;
+   if (top < 0)
+      top = 0;
 
-	if (bottom < (lines_per_page -1) )
+   if (bottom < (lines_per_page -1) )
       line = scrollWinHeight - bottom; /* screen line nr. where to start printing */
    else
       line = scrollWinHeight - lines_per_page + 1;
 
-	window(1,1,ti.screenwidth,scrollWinHeight);
+   window(1,1,ti.screenwidth,scrollWinHeight);
 
    print_list(lines_per_page,line,list, ws, start, top, bottom, use_numbers,shift,ti.screenwidth);
 
-	page = bottom / lines_per_page + 1 ;
+   page = bottom / lines_per_page + 1 ;
 
-	window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
+   window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
 
-	clrscr();
+   clrscr();
 
-	cprintf("\n\r");
-	if (list != NULL)
-	{
-		if(perfect)
-			cprintf("Perfect ");
-		else
-			cprintf("Wild ");
-		cprintf("match for %d directories.\n\r",size);
-	}
-	else
-		cprintf("\n\r");
+   cprintf("\n\r");
+   if (list != NULL)
+   {
+      if(perfect)
+         cprintf("Perfect ");
+      else
+         cprintf("Wild ");
+      cprintf("match for %d directories.\n\r",size);
+   }
+   else
+      cprintf("\n\r");
 
-	cprintf("Please choose one (<Enter> to abort): ");
-	fflush(stdout);
-	gotoxy (PAGEOFFSET, 2);
-	cprintf("w=up x=down ?=help  Page %d/%d      ",page,(size -1)/lines_per_page +1);
-	gotoxy (OFFSET + n, 3);
+   cprintf("Please choose one (<Enter> to abort): ");
+   fflush(stdout);
+   gotoxy (PAGEOFFSET, 2);
+   cprintf("w=up x=down ?=help  Page %d/%d      ",page,(size -1)/lines_per_page +1);
+   gotoxy (OFFSET + n, 3);
 
-	while ((c != 13 )&&(( c < 'a' ) || ( c > ('a'+scrollWinHeight-1) || ( c > 'v' ) )))
-	{
+   while ((c != 13 )&&(( c < 'a' ) || ( c > ('a'+scrollWinHeight-1) || ( c > 'v' ) )))
+   {
 
-	  c = getch();
+     c = getch();
 
-	  switch(c)
-	  {
-	  case 'x':
-	  case 'w':
+     switch(c)
+     {
+     case 'x':
+     case 'w':
      case ',': /* 1 left */
      case '.': /* 1 right */
      case 1  : /* Ctrl-A, Home */
      case 5  : /* Ctrl-E, End */
      case '?': /* Help */
-	  case 0:   /* extended key */
+     case 0:   /* extended key */
 
-		if(c==0)
-		  extended = getch();
-		else
+      if(c==0)
+        extended = getch();
+      else
       {
        switch (c)
        {
@@ -425,61 +427,61 @@ struct text_info ti;
       }
 
 
-		if ((extended == 73) || /* Page Up */
-			(extended == 72))   /* Arrow Up */
-		{
-		  window(1,1,ti.screenwidth,scrollWinHeight);
+      if ((extended == 73) || /* Page Up */
+         (extended == 72))   /* Arrow Up */
+      {
+        window(1,1,ti.screenwidth,scrollWinHeight);
 
-		  if(bottom > (lines_per_page -1))
-		  {
-			bottom = bottom - lines_per_page ;
-			top = top - lines_per_page ;
-		  }
+        if(bottom > (lines_per_page -1))
+        {
+         bottom = bottom - lines_per_page ;
+         top = top - lines_per_page ;
+        }
 
-		  if (top<0) top = 0;
+        if (top<0) top = 0;
 
-	     if (bottom < (lines_per_page -1) )
+        if (bottom < (lines_per_page -1) )
            line = scrollWinHeight - bottom;
         else
            line = scrollWinHeight - lines_per_page + 1;
-		  
+        
         print_list(lines_per_page,line,list, ws, start, top, bottom, use_numbers,shift,ti.screenwidth);
 
-			page = bottom / lines_per_page + 1 ;
+         page = bottom / lines_per_page + 1 ;
 
-			window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
-			gotoxy (PAGEOFFSET, 2);
-			cprintf("w=up x=down ?=help  Page %d/%d      ",page,(size -1)/lines_per_page +1);
-			gotoxy (OFFSET + n, 3);
+         window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
+         gotoxy (PAGEOFFSET, 2);
+         cprintf("w=up x=down ?=help  Page %d/%d      ",page,(size -1)/lines_per_page +1);
+         gotoxy (OFFSET + n, 3);
 
 
-		} /* Page Up */
+      } /* Page Up */
 
-		if ((extended == 81) || /* Page down */
-			(extended == 80))   /* Arrow down */
-		{
-		  window(1,1,ti.screenwidth,scrollWinHeight);
+      if ((extended == 81) || /* Page down */
+         (extended == 80))   /* Arrow down */
+      {
+        window(1,1,ti.screenwidth,scrollWinHeight);
 
-		  if(bottom < (size - 1))
-		  {
-			bottom = bottom + lines_per_page ;
-			top = bottom - lines_per_page + 1;
-		  }
+        if(bottom < (size - 1))
+        {
+         bottom = bottom + lines_per_page ;
+         top = bottom - lines_per_page + 1;
+        }
 
-	     if (bottom < (lines_per_page -1) )
+        if (bottom < (lines_per_page -1) )
            line = scrollWinHeight - bottom;
         else
            line = scrollWinHeight - lines_per_page + 1;
 
         print_list(lines_per_page,line,list, ws, start, top, bottom, use_numbers,shift,ti.screenwidth);
 
-			page = bottom / lines_per_page + 1 ;
+         page = bottom / lines_per_page + 1 ;
 
-			window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
-			gotoxy (PAGEOFFSET, 2);
-			cprintf("w=up x=down ?=help  Page %d/%d      ",page,(size -1)/lines_per_page +1);
-			gotoxy (OFFSET + n, 3);
-		}/* Page down */
+         window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
+         gotoxy (PAGEOFFSET, 2);
+         cprintf("w=up x=down ?=help  Page %d/%d      ",page,(size -1)/lines_per_page +1);
+         gotoxy (OFFSET + n, 3);
+      }/* Page down */
 
       if (extended == 75) /* Key Left */
       {
@@ -535,9 +537,9 @@ struct text_info ti;
           }
       }
 
-		window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
-		gotoxy (OFFSET + n, 3);
-	  break;
+   window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
+   gotoxy (OFFSET + n, 3);
+     break;
      case '<':
      case '[':
         shift -=10;
@@ -558,87 +560,87 @@ struct text_info ti;
         window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
         gotoxy (OFFSET + n, 3);
         break;
-	  case 8:  /* backspace */
-		window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
-		if(n>0) n--;
-		number_str[n] = '\0';
-		gotoxy(OFFSET + n, 3);
-		cprintf(" ");
-		gotoxy(OFFSET + n, 3);
-		break;
-	  case 3:  /* Control-C */
-	  case 27: /* Escape */
-		c = 13;
-		i = WCD_ERR_LIST;
-		number_str[0] = '\0';
-	   break;
-	  case 13: /* Enter */
-		c = 13;
-		i = WCD_ERR_LIST;
-		break;
-	  default:
-		if (( c >= '0') && ( c <= '9') && (n < WCD_MAX_INPSTR)) /* numbers */
-		{
-			number_str[n] = (char)c;
-		   window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
-		   gotoxy (OFFSET + n++, 3);
-		   cprintf("%c",(char)c);
-			number_str[n] = '\0';
-		
-			/* Notice that one has to choose a number from 1 to max 22 */
-		if (((bottom - top) < 9) /* displayed list is 9 or less matches */
-			 || (n == 2)           /* second number typed */
-			 || (c >= '3')         /* 3-9 is typed */
-			 || ((c == '2')&&((bottom - top) < 19)) /* displayed list is 19 or less matches */
-			)
-			c = 13;      /* do an <Enter> */
-			
-		}
-		else
-			i=c+top-'a'+1;
-		 break;
-	  }
-	}
-	window (1,1,ti.screenwidth,ti.screenheight);
-	gotoxy (ti.curx, ti.cury);
+     case 8:  /* backspace */
+      window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
+      if(n>0) n--;
+      number_str[n] = '\0';
+      gotoxy(OFFSET + n, 3);
+      cprintf(" ");
+      gotoxy(OFFSET + n, 3);
+      break;
+     case 3:  /* Control-C */
+     case 27: /* Escape */
+      c = 13;
+      i = WCD_ERR_LIST;
+      number_str[0] = '\0';
+      break;
+     case 13: /* Enter */
+      c = 13;
+      i = WCD_ERR_LIST;
+      break;
+     default:
+      if (( c >= '0') && ( c <= '9') && (n < WCD_MAX_INPSTR)) /* numbers */
+      {
+         number_str[n] = (char)c;
+         window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
+         gotoxy (OFFSET + n++, 3);
+         cprintf("%c",(char)c);
+         number_str[n] = '\0';
+      
+         /* Notice that one has to choose a number from 1 to max 22 */
+      if (((bottom - top) < 9) /* displayed list is 9 or less matches */
+          || (n == 2)           /* second number typed */
+          || (c >= '3')         /* 3-9 is typed */
+          || ((c == '2')&&((bottom - top) < 19)) /* displayed list is 19 or less matches */
+         )
+         c = 13;      /* do an <Enter> */
+         
+      }
+      else
+         i=c+top-'a'+1;
+       break;
+     }
+   }
+   window (1,1,ti.screenwidth,ti.screenheight);
+   gotoxy (ti.curx, ti.cury);
 
-	printf("\n");
+   printf("\n");
 
-	if (gtxt ==1)
-	  puttext(1,1,ti.screenwidth,ti.screenheight,buffer);
+   if (gtxt ==1)
+     puttext(1,1,ti.screenwidth,ti.screenheight,buffer);
 
-	if (buffer!=NULL)
-	  free(buffer);
+   if (buffer!=NULL)
+     free(buffer);
 /*
-	cprintf("window left      %2d\r\n",ti.winleft);
-	cprintf("window top       %2d\r\n",ti.wintop);
-	cprintf("window right     %2d\r\n",ti.winright);
-	cprintf("window bottom    %2d\r\n",ti.winbottom);
-	cprintf("attribute        %2d\r\n",ti.attribute);
-	cprintf("normal attribute %2d\r\n",ti.normattr);
-	cprintf("current mode     %2d\r\n",ti.currmode);
-	cprintf("screen height    %2d\r\n",ti.screenheight);
-	cprintf("screen width     %2d\r\n",ti.screenwidth);
+   cprintf("window left      %2d\r\n",ti.winleft);
+   cprintf("window top       %2d\r\n",ti.wintop);
+   cprintf("window right     %2d\r\n",ti.winright);
+   cprintf("window bottom    %2d\r\n",ti.winbottom);
+   cprintf("attribute        %2d\r\n",ti.attribute);
+   cprintf("normal attribute %2d\r\n",ti.normattr);
+   cprintf("current mode     %2d\r\n",ti.currmode);
+   cprintf("screen height    %2d\r\n",ti.screenheight);
+   cprintf("screen width     %2d\r\n",ti.screenwidth);
 
-	cprintf("current x        %2d\r\n",ti.curx);
-	cprintf("current y        %2d\r\n",ti.cury); */
+   cprintf("current x        %2d\r\n",ti.curx);
+   cprintf("current y        %2d\r\n",ti.cury); */
 
-	if (strcmp(number_str,"") != 0) /* a number was typed */
-		i=atoi(number_str) + top; 
+   if (strcmp(number_str,"") != 0) /* a number was typed */
+      i=atoi(number_str) + top; 
 
-	if((ws != NULL)&&(list == NULL)) /* stack */
-	{
-		if (( i <=0)||(i > ws->size)) /* fail */
-		{
-		  return(WCD_ERR_LIST);
-		 }
-		else    /* succes */
-		{
-		  i = ( i - 1 + start)%(ws->size);
-		  ws->current = i;
-		}
-	}
-	return i;
+   if((ws != NULL)&&(list == NULL)) /* stack */
+   {
+      if (( i <=0)||(i > ws->size)) /* fail */
+      {
+        return(WCD_ERR_LIST);
+       }
+      else    /* succes */
+      {
+        i = ( i - 1 + start)%(ws->size);
+        ws->current = i;
+      }
+   }
+   return i;
 }
 
 #endif
@@ -663,21 +665,32 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 #else
       len = strlen((char *)s);
 #endif
-		if (*use_numbers == 0)
-			nr_offset = 2;
-		else
-			nr_offset = 3;
+      if (*use_numbers == 0)
+         nr_offset = 2;
+      else
+         nr_offset = 3;
 
-		wmove(win,y,nr_offset);
+      wmove(win,y,nr_offset);
 
 #ifdef WCD_UTF8
-      j = xoffset;
-      width = wcwidth(wstr[j]);
-      while ((j<len)&&((nr_offset+width)<(COLS-1)))
+      if (len<0)
       {
-         waddnwstr(win,wstr+j,1);
-	 j++;
-	 width = width + wcwidth(wstr[j]);
+         /* Erroneous UTF-8 sequence */
+         /* Try 8 bit characters */
+         len = strlen((char *)s);
+         for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
+         {
+            waddch(win,s[j]);
+         }
+      } else {
+         j = xoffset;
+         width = wcwidth(wstr[j]);
+         while ((j<len)&&((nr_offset+width)<(COLS-1)))
+         {
+            waddnwstr(win,wstr+j,1);
+            j++;
+            width = width + wcwidth(wstr[j]);
+         }
       }
 #else
       for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
@@ -706,31 +719,44 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
 #else
       len = strlen((char *)s);
 #endif
-		if (*use_numbers == 0)
-			nr_offset = 2;
-		else
-			nr_offset = 3;
+      if (*use_numbers == 0)
+         nr_offset = 2;
+      else
+         nr_offset = 3;
 
-		wmove(win,y,nr_offset);
+      wmove(win,y,nr_offset);
 
 #ifdef WCD_UTF8
-      j = xoffset;
-      width = wcwidth(wstr[j]);
-      while ((j<len)&&((nr_offset+width)<(COLS-1)))
+      if (len<0)
       {
-         waddnwstr(win,wstr+j,1);
-	 j++;
-	 width = width + wcwidth(wstr[j]);
+         /* Erroneous UTF-8 sequence */
+         /* Try 8 bit characters */
+         len = strlen((char *)s);
+         for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
+         {
+            waddch(win,s[j]);
+         }
+         if ((i == ws->current) && ((nr_offset+j-xoffset+2)<(COLS-1)))
+            wprintw(win," *");
+      } else {
+         j = xoffset;
+         width = wcwidth(wstr[j]);
+         while ((j<len)&&((nr_offset+width)<(COLS-1)))
+         {
+            waddnwstr(win,wstr+j,1);
+            j++;
+            width = width + wcwidth(wstr[j]);
+         }
+         if ((i == ws->current) && ((nr_offset+width-wcwidth(wstr[j])+2)<(COLS-1)))
+            wprintw(win," *");
       }
-		if ((i == ws->current) && ((nr_offset+width-wcwidth(wstr[j])+2)<(COLS-1)))
-			  wprintw(win," *");
 #else
       for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
       {
          waddch(win,s[j]);
       }
-		if ((i == ws->current) && ((nr_offset+j-xoffset+2)<(COLS-1)))
-			  wprintw(win," *");
+      if ((i == ws->current) && ((nr_offset+j-xoffset+2)<(COLS-1)))
+         wprintw(win," *");
 #endif
    }
 }
@@ -738,56 +764,56 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
 
 void print_list_normal(WINDOW *scrollWin, int lines_per_page,int line, nameset list, int top, int bottom, int use_numbers, int xoffset) 
 {
-	int i;
+   int i;
 
-	for (i=top;i<=bottom;i++)
-	{
-		if (use_numbers == 0)
-	  		mvwprintw(scrollWin,line,0,"%c ",(char)(((i-top)%lines_per_page) + 'a'));
-		else
-	  		mvwprintw(scrollWin,line,0,"%2d ",((i-top)%lines_per_page) + 1);
-		printLine(scrollWin, list, i, line, xoffset, &use_numbers);
-		line++;
-	}
+   for (i=top;i<=bottom;i++)
+   {
+      if (use_numbers == 0)
+         mvwprintw(scrollWin,line,0,"%c ",(char)(((i-top)%lines_per_page) + 'a'));
+      else
+         mvwprintw(scrollWin,line,0,"%2d ",((i-top)%lines_per_page) + 1);
+      printLine(scrollWin, list, i, line, xoffset, &use_numbers);
+      line++;
+   }
 }
 
 /**************************************************/
 
 void print_list_stack(WINDOW *scrollWin, int lines_per_page,int line, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset) 
 {
-	int i,j;
+   int i,j;
 
-	if (use_numbers == 0)
-	{
-		for (i=top;i<=bottom;i++)
-		{
-		  j = (i + start)%(ws->size);
-		  mvwprintw(scrollWin,line,0,"%c ",(char)(((i-top)%lines_per_page) + 'a'));
-		  printStackLine(scrollWin, ws, j, line, xoffset, &use_numbers);
-		  line++;
-		}
-	}
-	else
-	{
-		for (i=top;i<=bottom;i++)
-		{
-		  j = (i + start)%(ws->size);
-		  /* mvwprintw(scrollWin,line,0,"%d  %s",i + 1,ws->dir[j]); */
-		  mvwprintw(scrollWin,line,0,"%2d ",(i-top)%lines_per_page + 1);
-		  printStackLine(scrollWin, ws, j, line, xoffset, &use_numbers);
-		  line++;
-		}
-	}
+   if (use_numbers == 0)
+   {
+      for (i=top;i<=bottom;i++)
+      {
+        j = (i + start)%(ws->size);
+        mvwprintw(scrollWin,line,0,"%c ",(char)(((i-top)%lines_per_page) + 'a'));
+        printStackLine(scrollWin, ws, j, line, xoffset, &use_numbers);
+        line++;
+      }
+   }
+   else
+   {
+      for (i=top;i<=bottom;i++)
+      {
+        j = (i + start)%(ws->size);
+        /* mvwprintw(scrollWin,line,0,"%d  %s",i + 1,ws->dir[j]); */
+        mvwprintw(scrollWin,line,0,"%2d ",(i-top)%lines_per_page + 1);
+        printStackLine(scrollWin, ws, j, line, xoffset, &use_numbers);
+        line++;
+      }
+   }
 }
 
 void print_list(WINDOW *scrollWin, int lines_per_page,int line, nameset list, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset) 
 {
-	wclear(scrollWin);
-	if (list != NULL)
-		print_list_normal(scrollWin,lines_per_page,line,list,top,bottom,use_numbers,xoffset);
-	else
-		if (ws != NULL)
-			print_list_stack(scrollWin,lines_per_page,line,ws,start,top,bottom,use_numbers,xoffset);
+   wclear(scrollWin);
+   if (list != NULL)
+      print_list_normal(scrollWin,lines_per_page,line,list,top,bottom,use_numbers,xoffset);
+   else
+      if (ws != NULL)
+         print_list_stack(scrollWin,lines_per_page,line,ws,start,top,bottom,use_numbers,xoffset);
 }
 
 /* ****************************************************************** */
@@ -811,44 +837,44 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
 /* Notice that list->size > 1 when this function is called. */
 
-	if (list != NULL)    /* normal list */
-	{
-		sort_list(list);
-		size = list->size;
-	}
-	else
-		if (ws != NULL)   /* stack */
-		{
-			if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) || ((ws->size) > ws->maxsize) )
-				return(WCD_ERR_LIST); /* in case stack file was corrupt */
-			else
-			{
-				size = ws->size;
+   if (list != NULL)    /* normal list */
+   {
+      sort_list(list);
+      size = list->size;
+   }
+   else
+      if (ws != NULL)   /* stack */
+      {
+         if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) || ((ws->size) > ws->maxsize) )
+            return(WCD_ERR_LIST); /* in case stack file was corrupt */
+         else
+         {
+            size = ws->size;
 
-				if (ws->size < ws->maxsize)
-					start = 0;
-				else
-					start = ws->lastadded + 1;
+            if (ws->size < ws->maxsize)
+               start = 0;
+            else
+               start = ws->lastadded + 1;
 
-				if (ws->lastadded >= ws->maxsize)
-					start = 0;
-			}
-		}
-		else
-			return(WCD_ERR_LIST);  /* no list or stack */
+            if (ws->lastadded >= ws->maxsize)
+               start = 0;
+         }
+      }
+      else
+         return(WCD_ERR_LIST);  /* no list or stack */
 
-	i= WCD_ERR_LIST;
-	number_str[n] = '\0';
+   i= WCD_ERR_LIST;
+   number_str[n] = '\0';
 
 #ifdef __PDCURSES__
-	initscr();
+   initscr();
 #else
-	sp = newterm(NULL,stdout,stdin);
-	if (sp == NULL)
-	{  
-		fprintf(stderr,_("Wcd: warning: Error opening terminal, falling back to stdout interface.\n"));
-		return WCD_ERR_CURSES;
-	}
+   sp = newterm(NULL,stdout,stdin);
+   if (sp == NULL)
+   {  
+      fprintf(stderr,_("Wcd: warning: Error opening terminal, falling back to stdout interface.\n"));
+      return WCD_ERR_CURSES;
+   }
 #endif
 
    keypad(stdscr, TRUE);
@@ -856,7 +882,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
    cbreak();
    noecho();
    nonl();
-	scrollok(stdscr, TRUE);	/* enable scrolling */
+   scrollok(stdscr, TRUE); /* enable scrolling */
 
    if (LINES < 4)
    {
@@ -870,25 +896,25 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
    scrollWinHeight = LINES - INPUT_WIN_HEIGHT;
    lines_per_page = scrollWinHeight;
-	if (use_numbers == 0)
-	{
-		if (scrollWinHeight > SCROLL_WIN_HEIGHT)
-			lines_per_page = SCROLL_WIN_HEIGHT;
-	}
-	else
-	{
-		if (scrollWinHeight > 99)
-			lines_per_page = 99; /* stay below 3 digits */
-	}
+   if (use_numbers == 0)
+   {
+      if (scrollWinHeight > SCROLL_WIN_HEIGHT)
+         lines_per_page = SCROLL_WIN_HEIGHT;
+   }
+   else
+   {
+      if (scrollWinHeight > 99)
+         lines_per_page = 99; /* stay below 3 digits */
+   }
 
-	if (list != NULL)
-		len = maxLength(list);
-	else
-		if (ws != NULL)
-			len = maxLengthStack(ws);
-		else
-			return(WCD_ERR_LIST);
-			
+   if (list != NULL)
+      len = maxLength(list);
+   else
+      if (ws != NULL)
+         len = maxLengthStack(ws);
+      else
+         return(WCD_ERR_LIST);
+         
    refresh();
 
    scrollWin = newpad(scrollWinHeight,COLS);
@@ -904,17 +930,17 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
    scrollok(scrollWin, TRUE);
 
-	bottom = size -1; /* lowest match to print */
-	top = size - lines_per_page; /* top match to print */
-	if (top < 0)
-		top = 0;
+   bottom = size -1; /* lowest match to print */
+   top = size - lines_per_page; /* top match to print */
+   if (top < 0)
+      top = 0;
 
-	if (bottom < (lines_per_page -1) )
+   if (bottom < (lines_per_page -1) )
       line = scrollWinHeight - bottom - 1; /* screen line nr. where to start printing */
    else
       line = scrollWinHeight - lines_per_page;
 
-	print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
+   print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
 
 
    if (COLS < INPUT_WIN_LEN)
@@ -933,116 +959,116 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
       return WCD_ERR_CURSES;
    }
 
-	wclear(inputWin);
+   wclear(inputWin);
    scrollok(inputWin, TRUE);
 
-	if (list != NULL)
-	{
-		if(perfect)
-		  mvwprintw(inputWin,1,0,_("Perfect "));
-		else
-		  mvwprintw(inputWin,1,0,_("Wild "));
-		wprintw(inputWin,_("match for %d directories."),size);
-	}
-	mvwprintw(inputWin,2,0,_("Please choose one (<Enter> to abort): "));
+   if (list != NULL)
+   {
+      if(perfect)
+        mvwprintw(inputWin,1,0,_("Perfect "));
+      else
+        mvwprintw(inputWin,1,0,_("Wild "));
+      wprintw(inputWin,_("match for %d directories."),size);
+   }
+   mvwprintw(inputWin,2,0,_("Please choose one (<Enter> to abort): "));
 
-	page = bottom / lines_per_page + 1 ;
+   page = bottom / lines_per_page + 1 ;
 
-	wmove (inputWin, 1, PAGEOFFSET);
-	wprintw(inputWin,_("w=up x=down ?=help  Page %d/%d      "),page,(size -1)/lines_per_page +1);
-	wmove (inputWin, 2, OFFSET);
+   wmove (inputWin, 1, PAGEOFFSET);
+   wprintw(inputWin,_("w=up x=down ?=help  Page %d/%d      "),page,(size -1)/lines_per_page +1);
+   wmove (inputWin, 2, OFFSET);
    err = prefresh(scrollWin,0,0,0,0,scrollWinHeight-1,COLS-1);
    err = prefresh(inputWin,0,0,scrollWinHeight,0,scrollWinHeight+INPUT_WIN_HEIGHT-1,COLS-1);
 
-	while ((c != 13 )&&(( c < 'a' ) || ( c > ('a'+scrollWinHeight-1) || ( c > 'v' ) )))
-	{
+   while ((c != 13 )&&(( c < 'a' ) || ( c > ('a'+scrollWinHeight-1) || ( c > 'v' ) )))
+   {
 
-	  c = getch();
+     c = getch();
 
-	  switch(c)
-	  {
-	  case 'w':
-	  case KEY_UP:  /* Arrow Up */
+     switch(c)
+     {
+     case 'w':
+     case KEY_UP:  /* Arrow Up */
      case KEY_PPAGE: /* Page Up */
 
-		  if(bottom > (lines_per_page -1))
-		  {
-			bottom = bottom - lines_per_page ;
-			top = top - lines_per_page ;
-		  }
+        if(bottom > (lines_per_page -1))
+        {
+         bottom = bottom - lines_per_page ;
+         top = top - lines_per_page ;
+        }
 
-		  if (top<0) top = 0;
+        if (top<0) top = 0;
 
-	     if (bottom < (lines_per_page -1) )
+        if (bottom < (lines_per_page -1) )
            line = scrollWinHeight - bottom - 1;
         else
            line = scrollWinHeight - lines_per_page;
 
-			print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
+         print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
 
-		   page = bottom / lines_per_page + 1 ;
+         page = bottom / lines_per_page + 1 ;
 
-			wmove (inputWin, 1, PAGEOFFSET);
-			wprintw(inputWin,_("w=up x=down ?=help  Page %d/%d      "),page,(size -1)/lines_per_page +1);
-			wmove (inputWin, 2, OFFSET + n);
+         wmove (inputWin, 1, PAGEOFFSET);
+         wprintw(inputWin,_("w=up x=down ?=help  Page %d/%d      "),page,(size -1)/lines_per_page +1);
+         wmove (inputWin, 2, OFFSET + n);
 
-			break;
+         break;
 
-		case 'x':
-		case 'z':
-		case KEY_DOWN: /* Arrow down */
+      case 'x':
+      case 'z':
+      case KEY_DOWN: /* Arrow down */
       case KEY_NPAGE: /* Page down */
 
-		  if(bottom < (size - 1))
-		  {
-			bottom = bottom + lines_per_page ;
-			top = bottom - lines_per_page + 1;
-		  }
+        if(bottom < (size - 1))
+        {
+         bottom = bottom + lines_per_page ;
+         top = bottom - lines_per_page + 1;
+        }
 
-	     if (bottom < (lines_per_page -1) )
+        if (bottom < (lines_per_page -1) )
            line = scrollWinHeight - bottom - 1;
         else
            line = scrollWinHeight - lines_per_page;
 
-			print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
+         print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
 
-			page = bottom / lines_per_page + 1 ;
+         page = bottom / lines_per_page + 1 ;
 
-			wmove (inputWin, 1, PAGEOFFSET);
-			wprintw(inputWin,_("w=up x=down ?=help  Page %d/%d      "),page,(size -1)/lines_per_page +1);
-			wmove (inputWin, 2, OFFSET + n);
-	  break;
+         wmove (inputWin, 1, PAGEOFFSET);
+         wprintw(inputWin,_("w=up x=down ?=help  Page %d/%d      "),page,(size -1)/lines_per_page +1);
+         wmove (inputWin, 2, OFFSET + n);
+     break;
 
       case ',':
       case KEY_LEFT:
           if (shift > 0)
              shift--;
-			print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
+         print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
          break;
       case '.':
       case KEY_RIGHT:
          if (shift < len)
             shift++;
-			print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
+         print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
          break;
        case '<':
        case '[':
           shift -=10;
           if (shift < 0)
              shift=0;
-			print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
+         print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
          break;
       case ']':
       case '>':
          shift +=10;
          if (shift > len)
             shift=len;
-			print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
+         print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
          break;
       case Key_CTRL ('a'):
       case KEY_HOME:
          shift = 0;
-			print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
+         print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
          break;
       case Key_CTRL ('e'):
 #ifdef KEY_END
@@ -1051,103 +1077,103 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
          shift = len - COLS/2;
           if (shift < 0)
              shift=0;
-			print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
+         print_list(scrollWin,lines_per_page,line,list,ws,start,top,bottom,use_numbers,shift);
          break;
       case KEY_F (1):
       case '?':
 
          wclear(scrollWin);
          if (scrollWinHeight < 17)
-				mvwprintw(scrollWin,0,0,_("Screenheight must be > 20 for help."));
+            mvwprintw(scrollWin,0,0,_("Screenheight must be > 20 for help."));
          else
          {
-				mvwprintw(scrollWin, 0,0,_("w or <Up>         Page Up."));
-				mvwprintw(scrollWin, 1,0,_("x or <Down>       Page Down."));
-				mvwprintw(scrollWin, 2,0,_(", or <Left>       Scroll 1 left."));
-				mvwprintw(scrollWin, 3,0,_(". or <Right>      Scroll 1 right."));
-				mvwprintw(scrollWin, 4,0,_("< or [            Scroll 10 left."));
-				mvwprintw(scrollWin, 5,0,_("> or ]            Scroll 10 right."));
-				mvwprintw(scrollWin, 6,0,_("CTRL-a or <HOME>  Scroll to beginning."));
-				mvwprintw(scrollWin, 7,0,_("CTRL-e or <END>   Scroll to end."));
-				mvwprintw(scrollWin, 8,0,_("CTRL-c or <Esc>   Abort."));
-				mvwprintw(scrollWin, 9,0,_("<Enter>           Abort."));
-				mvwprintw(scrollWin,11,0,_("Type w or x to quit help."));
+            mvwprintw(scrollWin, 0,0,_("w or <Up>         Page Up."));
+            mvwprintw(scrollWin, 1,0,_("x or <Down>       Page Down."));
+            mvwprintw(scrollWin, 2,0,_(", or <Left>       Scroll 1 left."));
+            mvwprintw(scrollWin, 3,0,_(". or <Right>      Scroll 1 right."));
+            mvwprintw(scrollWin, 4,0,_("< or [            Scroll 10 left."));
+            mvwprintw(scrollWin, 5,0,_("> or ]            Scroll 10 right."));
+            mvwprintw(scrollWin, 6,0,_("CTRL-a or <HOME>  Scroll to beginning."));
+            mvwprintw(scrollWin, 7,0,_("CTRL-e or <END>   Scroll to end."));
+            mvwprintw(scrollWin, 8,0,_("CTRL-c or <Esc>   Abort."));
+            mvwprintw(scrollWin, 9,0,_("<Enter>           Abort."));
+            mvwprintw(scrollWin,11,0,_("Type w or x to quit help."));
          }
-	      break;
-	  case 3:  /* Control-C */
-	  case 27: /* Escape */
-		c = 13;
-		i = WCD_ERR_LIST;
-		number_str[0] = '\0';
-		break;
-	  case 13: /* Enter */
-	  case KEY_ENTER:
-		c = 13;
-		i = WCD_ERR_LIST;
-		break;
-	  case 8:  /* backspace */
-	  case KEY_BACKSPACE:
-	  case 127: /* delete */
-				if(n>0) n--;
-	  			number_str[n] = '\0';
-				wmove (inputWin, 2, OFFSET + n);
-				wprintw(inputWin," ");
-				wmove (inputWin, 2, OFFSET + n);
-	  break;
-	  default:
-			if (( c >= '0') && ( c <= '9') && (n < WCD_MAX_INPSTR)) /* numbers */
-			{
-			   number_str[n] = (char)c;
-				wmove (inputWin, 2, OFFSET + n++);
-				number_str[n] = '\0';
-				wprintw(inputWin,"%c",(char)c);
-			
-				displayed_list = bottom - top;
-				/* Notice that one has to choose a number from 1 to max 99 */
-			if ((displayed_list < 9) /* displayed list is 9 or less matches */
-				 || (n == 2)           /* second number typed */
-				 || ((c == '2')&&( displayed_list < 19)) /* displayed list is 19 or less matches */
-				 || ((c == '3')&&( displayed_list < 29)) /* displayed list is 29 or less matches */
-				 || ((c == '4')&&( displayed_list < 39)) /* displayed list is 39 or less matches */
-				 || ((c == '5')&&( displayed_list < 49)) /* displayed list is 49 or less matches */
-				 || ((c == '6')&&( displayed_list < 59)) /* displayed list is 59 or less matches */
-				 || ((c == '7')&&( displayed_list < 69)) /* displayed list is 69 or less matches */
-				 || ((c == '8')&&( displayed_list < 79)) /* displayed list is 79 or less matches */
-				 || ((c == '9')&&( displayed_list < 89)) /* displayed list is 89 or less matches */
-				)
-				c = 13;      /* do an <Enter> */
-				
-			}
-			else
-				i=c+top-'a'+1;
+         break;
+     case 3:  /* Control-C */
+     case 27: /* Escape */
+      c = 13;
+      i = WCD_ERR_LIST;
+      number_str[0] = '\0';
+      break;
+     case 13: /* Enter */
+     case KEY_ENTER:
+      c = 13;
+      i = WCD_ERR_LIST;
+      break;
+     case 8:  /* backspace */
+     case KEY_BACKSPACE:
+     case 127: /* delete */
+            if(n>0) n--;
+            number_str[n] = '\0';
+            wmove (inputWin, 2, OFFSET + n);
+            wprintw(inputWin," ");
+            wmove (inputWin, 2, OFFSET + n);
+     break;
+     default:
+         if (( c >= '0') && ( c <= '9') && (n < WCD_MAX_INPSTR)) /* numbers */
+         {
+            number_str[n] = (char)c;
+            wmove (inputWin, 2, OFFSET + n++);
+            number_str[n] = '\0';
+            wprintw(inputWin,"%c",(char)c);
+         
+            displayed_list = bottom - top;
+            /* Notice that one has to choose a number from 1 to max 99 */
+         if ((displayed_list < 9) /* displayed list is 9 or less matches */
+             || (n == 2)           /* second number typed */
+             || ((c == '2')&&( displayed_list < 19)) /* displayed list is 19 or less matches */
+             || ((c == '3')&&( displayed_list < 29)) /* displayed list is 29 or less matches */
+             || ((c == '4')&&( displayed_list < 39)) /* displayed list is 39 or less matches */
+             || ((c == '5')&&( displayed_list < 49)) /* displayed list is 49 or less matches */
+             || ((c == '6')&&( displayed_list < 59)) /* displayed list is 59 or less matches */
+             || ((c == '7')&&( displayed_list < 69)) /* displayed list is 69 or less matches */
+             || ((c == '8')&&( displayed_list < 79)) /* displayed list is 79 or less matches */
+             || ((c == '9')&&( displayed_list < 89)) /* displayed list is 89 or less matches */
+            )
+            c = 13;      /* do an <Enter> */
+            
+         }
+         else
+            i=c+top-'a'+1;
 
-	  break;
-	  }
+     break;
+     }
      err = prefresh(scrollWin,0,0,0,0,scrollWinHeight-1,COLS-1);
      err = prefresh(inputWin,0,0,scrollWinHeight,0,scrollWinHeight+INPUT_WIN_HEIGHT-1,COLS-1);
-	}
+   }
 
    endwin();
 #ifdef XCURSES
    XCursesExit();
 #endif
-	if (strcmp(number_str,"") != 0) /* a number was typed */
-		i=atoi(number_str) + top; 
+   if (strcmp(number_str,"") != 0) /* a number was typed */
+      i=atoi(number_str) + top; 
 
-	printf("\n"); /* Extra newline for curses, pdcurses and when ncurses doesn't restore screen */
+   printf("\n"); /* Extra newline for curses, pdcurses and when ncurses doesn't restore screen */
 
-	if ((ws != NULL)&&(list == NULL)) /* stack */
-	{
-		if (( i <=0)||(i > ws->size)) /* fail */
-		{
-		  return(WCD_ERR_LIST);
-		 }
-		else    /* succes */
-		{
-		  i = ( i - 1 + start)%(ws->size);
-		  ws->current = i;
-		}
-	}
+   if ((ws != NULL)&&(list == NULL)) /* stack */
+   {
+      if (( i <=0)||(i > ws->size)) /* fail */
+      {
+        return(WCD_ERR_LIST);
+       }
+      else    /* succes */
+      {
+        i = ( i - 1 + start)%(ws->size);
+        ws->current = i;
+      }
+   }
    return i;
 }
 
@@ -1158,110 +1184,110 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
 {
    int i;
-	int k, start, j;
+   int k, start, j;
 
-	if (list != NULL) /* normal list */
-	{
-		sort_list(list);
+   if (list != NULL) /* normal list */
+   {
+      sort_list(list);
 
-		if ( use_stdout & WCD_STDOUT_DUMP )
-		{
-		   for (i=0;i<list->size;i++)
-			   printf("%s\n", list->array[i]);
-		}
-		else
-		{
-		   for (i=0;i<list->size;i++)
-			   printf("%d  %s\n",i+1,list->array[i]);
-		}
+      if ( use_stdout & WCD_STDOUT_DUMP )
+      {
+         for (i=0;i<list->size;i++)
+            printf("%s\n", list->array[i]);
+      }
+      else
+      {
+         for (i=0;i<list->size;i++)
+            printf("%d  %s\n",i+1,list->array[i]);
+      }
 
-		if ( use_stdout & WCD_STDOUT_DUMP )
-			return(WCD_ERR_LIST);
-		else
-		{
-			if(perfect)
-			  printf(_("\nPerfect "));
-			else
-			  printf(_("\nWild "));
-			printf(_("match for %d directories.\n"),list->size);
-			printf(_("Please choose one (<Enter> to abort): "));
-		}
+      if ( use_stdout & WCD_STDOUT_DUMP )
+         return(WCD_ERR_LIST);
+      else
+      {
+         if(perfect)
+           printf(_("\nPerfect "));
+         else
+           printf(_("\nWild "));
+         printf(_("match for %d directories.\n"),list->size);
+         printf(_("Please choose one (<Enter> to abort): "));
+      }
 
-		return wcd_get_int();
-	}
-	else
-		if (ws != NULL)  /* stack */
-		{
-	/*	printWcdStack("XXX ", ws, stdout); */
-		if(ws->maxsize <= 0)
-			return (WCD_ERR_LIST);
-		else
-			if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) )
-			return (WCD_ERR_LIST);
-			else
-			{
+      return wcd_get_int();
+   }
+   else
+      if (ws != NULL)  /* stack */
+      {
+   /* printWcdStack("XXX ", ws, stdout); */
+      if(ws->maxsize <= 0)
+         return (WCD_ERR_LIST);
+      else
+         if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) )
+         return (WCD_ERR_LIST);
+         else
+         {
 
-				if (ws->size < ws->maxsize)
-					 start = 0;
-				 else
-					  start = ws->lastadded + 1;
+            if (ws->size < ws->maxsize)
+                start = 0;
+             else
+                 start = ws->lastadded + 1;
 
-				 if (ws->lastadded >= ws->maxsize)
-					  start = 0;
+             if (ws->lastadded >= ws->maxsize)
+                 start = 0;
 
-				k=1;
-				for(i=0; i < (ws->size) ; i++)
-				{
-					j = (i + start)%(ws->size);
-					if ( !(use_stdout & WCD_STDOUT_DUMP) )
-						printf("%2d ",k);
-					k++;
+            k=1;
+            for(i=0; i < (ws->size) ; i++)
+            {
+               j = (i + start)%(ws->size);
+               if ( !(use_stdout & WCD_STDOUT_DUMP) )
+                  printf("%2d ",k);
+               k++;
 
-					printf("%s",ws->dir[j]);
-					if (j == ws->current)
-						printf(" *");
-					printf("\n");
-				}
+               printf("%s",ws->dir[j]);
+               if (j == ws->current)
+                  printf(" *");
+               printf("\n");
+            }
 
-				if ( use_stdout & WCD_STDOUT_DUMP )
-				  return(WCD_ERR_LIST);
+            if ( use_stdout & WCD_STDOUT_DUMP )
+              return(WCD_ERR_LIST);
 
-				printf(_("\nPlease choose one (<Enter> to abort): "));
-				i = wcd_get_int();
+            printf(_("\nPlease choose one (<Enter> to abort): "));
+            i = wcd_get_int();
 
-				if (( i <=0)||(i > ws->size)) /* fail */
-				{
-				  return(WCD_ERR_LIST);
-				 }
-				else    /* succes */
-				{
-				  i = ( i - 1 + start)%(ws->size);
-				  ws->current = i;
-				  return(i);
-				}
-			}
-		}
-		else
-			return WCD_ERR_LIST;
+            if (( i <=0)||(i > ws->size)) /* fail */
+            {
+              return(WCD_ERR_LIST);
+             }
+            else    /* succes */
+            {
+              i = ( i - 1 + start)%(ws->size);
+              ws->current = i;
+              return(i);
+            }
+         }
+      }
+      else
+         return WCD_ERR_LIST;
 }
 
 
 int display_list(nameset list,int perfect, int use_numbers, int use_stdout)
 {
 #ifdef WCD_USECONIO
-	if (use_stdout == WCD_STDOUT_NO)
-		return display_list_conio(list,NULL,perfect,use_numbers);
-	else
-		return display_list_stdout(list,NULL,perfect, use_stdout);
+   if (use_stdout == WCD_STDOUT_NO)
+      return display_list_conio(list,NULL,perfect,use_numbers);
+   else
+      return display_list_stdout(list,NULL,perfect, use_stdout);
 #else
 # ifdef WCD_USECURSES
-	int i;
-	if ((use_stdout == WCD_STDOUT_NO) && ((i = display_list_curses(list,NULL,perfect,use_numbers)) != WCD_ERR_CURSES))
-		return i;
-	else
-		return display_list_stdout(list,NULL,perfect, use_stdout);
+   int i;
+   if ((use_stdout == WCD_STDOUT_NO) && ((i = display_list_curses(list,NULL,perfect,use_numbers)) != WCD_ERR_CURSES))
+      return i;
+   else
+      return display_list_stdout(list,NULL,perfect, use_stdout);
 # else
-	return display_list_stdout(list,NULL,perfect, use_stdout);
+   return display_list_stdout(list,NULL,perfect, use_stdout);
 # endif
 #endif
 }
