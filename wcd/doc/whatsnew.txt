@@ -1,5 +1,5 @@
-4.1.1 beta3 Mar 10 2009
-  - Preliminary UTF-8 Unicode support on Unix/Linux.
+5.0.0 beta1 Mar 12 2009
+  - UTF-8 Unicode support on Unix/Linux.
   - Resolved a few signedness issues.
   - Update manual page.
   - Option -l takes alias directly: wcd -l <alias> (thanks to Jari Aalto)

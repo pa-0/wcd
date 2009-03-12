@@ -394,6 +394,7 @@ struct text_info ti;
      {
      case 'x':
      case 'w':
+     case 'z':
      case ',': /* 1 left */
      case '.': /* 1 right */
      case 1  : /* Ctrl-A, Home */
@@ -410,6 +411,8 @@ struct text_info ti;
           case 'w': extended = 73;  /* Page Up */
              break;
           case 'x': extended = 81;  /* Page Down */
+             break;
+          case 'z': extended = 81;  /* Page Down */
              break;
           case ',': extended = 75;  /* Key Left */
              break;
@@ -524,7 +527,7 @@ struct text_info ti;
           {
              gotoxy(1,1);
              cprintf("w or <Up>         Page Up.\r\n");
-             cprintf("x or <Down>       Page Down.\r\n");
+             cprintf("x or z or <Down>  Page Down.\r\n");
              cprintf(", or <Left>       Scroll 1 left.\r\n");
              cprintf(". or <Right>      Scroll 1 right.\r\n");
              cprintf("< or [            Scroll 10 left.\r\n");
@@ -1088,7 +1091,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
          else
          {
             mvwprintw(scrollWin, 0,0,_("w or <Up>         Page Up."));
-            mvwprintw(scrollWin, 1,0,_("x or <Down>       Page Down."));
+            mvwprintw(scrollWin, 1,0,_("x or z or <Down>  Page Down."));
             mvwprintw(scrollWin, 2,0,_(", or <Left>       Scroll 1 left."));
             mvwprintw(scrollWin, 3,0,_(". or <Right>      Scroll 1 right."));
             mvwprintw(scrollWin, 4,0,_("< or [            Scroll 10 left."));

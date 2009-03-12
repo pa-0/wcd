@@ -1207,8 +1207,19 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
       else
       {
          j = xoffset;
-         width = wcwidth(wstr[j]);
-         while ((j<len)&&(width<(COLS-1)))
+         if (j<len)
+            switch(wstr[j])
+            {
+               case WCD_SEL_ON:
+                width = 1;
+                  break;
+               case WCD_SEL_OFF:
+                width = 1;
+                  break;
+               default:
+                width = wcwidth(wstr[j]);
+            }
+         while ((j<len)&&(width<COLS))
          {
             switch(wstr[j])
             {
@@ -1224,7 +1235,17 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
                   waddnwstr(win,wstr+j,1);
             }
             j++;
-            width = width + wcwidth(wstr[j]);
+            switch(wstr[j])
+            {
+               case WCD_SEL_ON:
+                width = width + 1;
+                  break;
+               case WCD_SEL_OFF:
+                width = width + 1;
+                  break;
+               default:
+                width = width + wcwidth(wstr[j]);
+            }
          }
       }
 #else
@@ -1289,6 +1310,10 @@ void dataRefresh(int ydiff, int init)
   static int xoffset = 0;
   static int yposition = -1;  /* -1 : not initialized */
   wcd_char *s;
+#ifdef WCD_UTF8
+  static wchar_t wstr[DD_MAXPATH];
+  int width;
+#endif
 
   /*
      yoffset is the y-offset in the whole tree of the current node.
@@ -1351,18 +1376,52 @@ void dataRefresh(int ydiff, int init)
 
   if (s != NULL)
   {
-    len = strlen((char *)s);
     wmove(wcd_cwin.inputWin, 1, 0);
-
+#ifdef WCD_UTF8
+   len = mbstowcs(wstr,s,DD_MAXPATH); /* number of wide characters */
+   if (len < 0)
+   {
+      /* Erroneous UTF-8 sequence */
+      /* Try 8 bit characters */
+      len = strlen((char *)s);
+      for (i = 0; (i < len) && (i < (COLS - 1)); i++)
+        waddch(wcd_cwin.inputWin, s[i]);
+   } else {
+      i = 0;
+      width = wcwidth(wstr[i]);
+      while ((i<len)&&(width<COLS))
+      {
+         waddnwstr(wcd_cwin.inputWin,wstr+i,1);
+         i++;
+         width = width + wcwidth(wstr[i]);
+      }
+   }
+#else
+    len = strlen((char *)s);
     for (i = 0; (i < len) && (i < (COLS - 1)); i++)
       waddch(wcd_cwin.inputWin, s[i]);
+#endif
   }
 
   if (wcd_cwin.mode == WCD_NAV)
     mvwprintw(wcd_cwin.inputWin, 2, 0, "/ = search forward,  ? = search backward,  : = help");
   else
   {
+#ifdef WCD_UTF8
+    len = mbstowcs(wstr,wcd_cwin.str,DD_MAXPATH); /* number of wide characters */
+    if (len < 0)
+    {
+      /* Erroneous UTF-8 sequence */
+      /* Try 8 bit characters */
+      mvwprintw(wcd_cwin.inputWin, 2, 0, "Search: %s", wcd_cwin.str);
+    } else {
+      wmove(wcd_cwin.inputWin, 2, 0);
+      waddnwstr(wcd_cwin.inputWin,L"Search UTF8: ",WCD_MAX_INPSTR);
+      waddnwstr(wcd_cwin.inputWin,wstr,WCD_MAX_INPSTR);
+    }
+#else
     mvwprintw(wcd_cwin.inputWin, 2, 0, "Search: %s", wcd_cwin.str);
+#endif
   }
 
   prefresh(wcd_cwin.scrollWin, 0, 0, 0, 0, wcd_cwin.scrollWinHeight-1, COLS-1);
