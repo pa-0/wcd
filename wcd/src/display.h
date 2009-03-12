@@ -26,11 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #endif
 
 #ifdef WCD_USECURSES
-#ifdef WCD_UTF8
 #  include <curses.h>
-#else
-#  include <curses.h>
-#endif
 #endif
 
 int str_columns (char *s);
