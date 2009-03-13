@@ -75,6 +75,11 @@ void swap(nameset list, int i, int j)
 void ssort (nameset list, int left, int right)
 {
  int i, last;
+#ifdef WCD_UTF8
+ static wchar_t wstr_left[DD_MAXPATH];
+ static wchar_t wstr_right[DD_MAXPATH];
+ int len1,len2;
+#endif
 
   if (left >= right) return; /* fewer than 2 elements */
 
@@ -82,12 +87,33 @@ void ssort (nameset list, int left, int right)
   last = left;
 
   for (i = left+1; i <=right; i++)
-#ifdef ENABLE_NLS
-  if  (strcoll(list->array[i],list->array[left])<0)
+  {
+#ifdef WCD_UTF8
+   len1 = mbstowcs(wstr_left, list->array[left],DD_MAXPATH);
+   len2 = mbstowcs(wstr_right,list->array[i],DD_MAXPATH);
+   if ((len1<0)||(len2<0))
+   {
+      /* Erroneous UTF-8 sequence */
+      /* Try 8 bit characters */
+#  ifdef ENABLE_NLS
+      if  (strcoll(list->array[i],list->array[left])<0)
+#  else
+      if  (strcmp(list->array[i],list->array[left])<0)
+#  endif
+         swap(list, ++last, i);
+   } else {
+      if  (wcscoll(wstr_right,wstr_left)<0)
+         swap(list, ++last, i);
+   }
 #else
+#  ifdef ENABLE_NLS
+  if  (strcoll(list->array[i],list->array[left])<0)
+#  else
   if  (strcmp(list->array[i],list->array[left])<0)
+#  endif
+     swap(list, ++last, i);
 #endif
-  swap(list, ++last, i);
+  }
 
   swap(list, left, last);
   ssort(list, left, last-1);
