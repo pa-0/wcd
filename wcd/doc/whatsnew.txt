@@ -3,6 +3,7 @@
   - Resolved a few signedness issues.
   - Update manual page.
   - Option -l takes alias directly: wcd -l <alias> (thanks to Jari Aalto)
+  - In match list key 'z' does page down (like less) (thanks to Jari Aalto).
   - Improvements manual page (thanks to Jari Aalto)
     o) The URLs are too long for nroff. Those are now fixed with correct formatting code
     o) The /path/names are best not to be hyphenated. Those are now fixed with
