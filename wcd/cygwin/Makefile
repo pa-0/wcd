@@ -2,7 +2,11 @@
 PREFIX = /usr
 
 CFLAGS = -Ic3po -O3 -Wall
+ifdef WCD_UTF8
+LFLAGS = -lncursesw -lintl -liconv -lmpr
+else
 LFLAGS = -lcurses -lintl -liconv -lmpr
+endif
 DEFS   = -DUNIX -DWCD_USECURSES
 BINDIR    = ${PREFIX}/bin
 PROGRAM = wcd.exe
