@@ -711,7 +711,7 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
    if (s != NULL)
    {
 #ifdef WCD_UTF8
-      len = mbstowcs(wstr,s,DD_MAXPATH); /* number of wide characters */
+      len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
 #endif
@@ -765,7 +765,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
    if (s != NULL)
    {
 #ifdef WCD_UTF8
-      len = mbstowcs(wstr,s,DD_MAXPATH); /* number of wide characters */
+      len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
 #endif

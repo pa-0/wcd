@@ -1170,7 +1170,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
    if (s != NULL)
    {
 #ifdef WCD_UTF8
-      len = mbstowcs(wstr,s,DD_MAXPATH); /* number of wide characters */
+      len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
 #endif
@@ -1378,7 +1378,7 @@ void dataRefresh(int ydiff, int init)
   {
     wmove(wcd_cwin.inputWin, 1, 0);
 #ifdef WCD_UTF8
-   len = mbstowcs(wstr,s,DD_MAXPATH); /* number of wide characters */
+   len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
    if (len < 0)
    {
       /* Erroneous UTF-8 sequence */
