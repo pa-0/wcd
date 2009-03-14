@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-14 11:11+0100\n"
+"POT-Creation-Date: 2009-03-14 17:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: wcd.c:137 wcd.c:382 wcd.c:931 wcd.c:1619 wcd.c:1639 wcd.c:1730 wcd.c:2387
+#: wcd.c:137 wcd.c:382 wcd.c:931 wcd.c:1619 wcd.c:1639 wcd.c:1730 wcd.c:2389
 #: stack.c:215
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
@@ -115,10 +115,10 @@ msgid ""
 "Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n"
 "       [-f <treefile>] [-g[a|d]] [-G <path>] [-h] [-i] [-j] [-k] [-l "
 "<alias>]\n"
-"       [-[m|M|r|rmtree] <dir>] [-n <path>] [-N] [-o[d]] [-Q] [-s] [-S "
-"<path>]\n"
-"       [-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>] [-z #]\n"
-"       [-[#]] [+[#]] [=] [drive:][dir]\n"
+"       [-[m|M] <dir>] [-n <path>] [-N] [-o[d]] [-Q] [-[r|rmtree] <dir>] [-"
+"s]\n"
+"       [-S <path>] [-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>]\n"
+"       [-z #] [-[#]] [+[#]] [=] [drive:][dir]\n"
 "\n"
 "  [dir]   (partial) name of directory to change to.\n"
 "          Wildcards *, ? and [SET] are supported!\n"
@@ -215,7 +215,7 @@ msgstr ""
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 
-#: wcd.c:2026 wcd.c:2485 wcd.c:2502
+#: wcd.c:2026 wcd.c:2487 wcd.c:2504
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
@@ -346,6 +346,8 @@ msgid ""
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 "Source code to scan Windows LAN was originally written and placed\n"
 "in the public domain by Felix Kasza.\n"
+"Markus Kuhn's free wcwidth() implementation is used in Wcd for Windows\n"
+"with UTF-8 Unicode support.\n"
 "\n"
 "This program is free software; you can redistribute it and/or\n"
 "modify it under the terms of the GNU General Public License\n"
@@ -362,34 +364,34 @@ msgid ""
 "Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
 msgstr ""
 
-#: wcd.c:2394
+#: wcd.c:2396
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr ""
 
-#: wcd.c:2629
+#: wcd.c:2631
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr ""
 
-#: wcd.c:2631
+#: wcd.c:2633
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr ""
 
-#: wcd.c:2633
+#: wcd.c:2635
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr ""
 
-#: wcd.c:2884
+#: wcd.c:2886
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 
-#: wcd.c:3039
+#: wcd.c:3041
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr ""
