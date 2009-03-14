@@ -10,11 +10,11 @@ chdir for DOS and Unix
 .br
 [-f <treefile>] [-g[a|d]] [-G <path>] [-h] [-i] [-j] [-k] [-l <alias>]
 .br
-[-[m|M|r|rmtree] <dir>] [-n <path>] [-N] [-o[d]] [-Q] [-s] [-S <path>]
+[-[m|M] <dir>] [-n <path>] [-N] [-o[d]] [-Q] [-[r|rmtree] <dir>] [-s]
 .br
-[-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>] [-z #]
+[-S <path>] [-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>]
 .br
-[-[#]] [+[#]] [=] [drive:][dir]
+[-z #] [-[#]] [+[#]] [=] [drive:][dir]
 
 .SH DESCRIPTION
 .I Wcd.
@@ -115,8 +115,8 @@ See also option -k.
 Wcd keeps a directory stack which is stored on disk. The stack has a default
 size of 10 and is cyclic. See options -z, -, + and =.
 
-Wcd supports 8 bit character sets on all systems, and can support UTF-8 Unicode
-on Unix/Linux. See also section LOCALIZATION/UTF-8 UNICODE.
+Wcd supports 8 bit character sets on all systems, and has optional
+support for UTF-8 Unicode. See also section LOCALIZATION/UTF-8 UNICODE.
 
 In multi-user environments a very handy option -u can be used to
 change to directories of other users. See option -u.
@@ -889,7 +889,7 @@ set LC_COLLATE=C
 
 .TP 4
 .I UTF-8 UNICODE
-Wcd can support UTF-8 unicode on Unix/Linux. To see if wcd was built
+Wcd can support UTF-8 unicode on Unix/Linux and possibly Windows. To see if wcd was built
 with UTF-8 support type \'wcd -v\'.  You should see the euro symbol and
 Chinese characters (meaning: "Chinese").
 

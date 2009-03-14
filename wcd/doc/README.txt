@@ -296,12 +296,15 @@ Billy Chen          Less screen movement when navigating in graphical mode.
 
 Thanks to the following people for using their Free software:
 
-Ondrej Popp,                        C3PO
-Jason Mathews,                      dosdir
-Mark Adler,                         recmatch()
-DJ Delorie                          _fixpath()
-Borja Etxebarria & Olivier Sirol    Ninux Czo Directory
-Felix Kasza (MVPS.ORG http://www.mvps.org/win32/) WIN32 API sample WNetOpenEnum()/WNetEnumResource()
+Ondrej Popp,                      C3PO
+Jason Mathews,                    dosdir
+Mark Adler,                       recmatch()
+DJ Delorie                        _fixpath()
+Borja Etxebarria & Olivier Sirol  Ninux Czo Directory
+Felix Kasza                       WIN32 API sample WNetOpenEnum()/WNetEnumResource()
+                                  MVPS.ORG http://www.mvps.org/win32/
+Markus Kuhn                       wcwidth(), used in Windows version of Wcd.
+                                  http://www.cl.cam.ac.uk/~mgk25/unicode.html
 
 ======================================================================
 = 5 Contact / Download new versions                                 =

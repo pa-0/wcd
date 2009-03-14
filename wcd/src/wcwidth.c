@@ -308,3 +308,11 @@ int mk_wcswidth_cjk(const wchar_t *pwcs, size_t n)
   return width;
 }
 
+int wcwidth(wchar_t ucs)
+{
+  return mk_wcwidth(ucs);
+}
+int wcswidth(const wchar_t *pwcs, size_t n)
+{
+  return mk_wcswidth(pwcs,n);
+}

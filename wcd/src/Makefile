@@ -64,7 +64,8 @@ OBJS1	= \
 	wfixpath.o \
 	colors.o \
 	graphics.o \
-	wcddir.o
+	wcddir.o \
+	${EXTRA_OBJ}
 
 all: ${PROGRAM} ${MOFILES} ${DOCFILES}
 

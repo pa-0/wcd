@@ -1532,9 +1532,9 @@ void printhelp()
 wcd  %s  (%s) - Wherever Change Directory\n\
 Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
        [-f <treefile>] [-g[a|d]] [-G <path>] [-h] [-i] [-j] [-k] [-l <alias>]\n\
-       [-[m|M|r|rmtree] <dir>] [-n <path>] [-N] [-o[d]] [-Q] [-s] [-S <path>]\n\
-       [-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>] [-z #]\n\
-       [-[#]] [+[#]] [=] [drive:][dir]\n\
+       [-[m|M] <dir>] [-n <path>] [-N] [-o[d]] [-Q] [-[r|rmtree] <dir>] [-s]\n\
+       [-S <path>] [-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>]\n\
+       [-z #] [-[#]] [+[#]] [=] [drive:][dir]\n\
 \n\
   [dir]   (partial) name of directory to change to.\n\
           Wildcards *, ? and [SET] are supported!\n\n"),VERSION,VERSION_DATE);
@@ -2202,7 +2202,9 @@ Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n\
 Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n\
 Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n\
 Source code to scan Windows LAN was originally written and placed\n\
-in the public domain by Felix Kasza.\n\n\
+in the public domain by Felix Kasza.\n\
+Markus Kuhn's free wcwidth() implementation is used in Wcd for Windows\n\
+with UTF-8 Unicode support.\n\n\
 \
 This program is free software; you can redistribute it and/or\n\
 modify it under the terms of the GNU General Public License\n\
