@@ -9,12 +9,6 @@ TO DO
   are not required.
 
 
-* Unicode support.
-
-  Support scripts that need more than 8 bit characters.
-  Unicode matching.
-
-
 * Matching with locale support.
 
   For instance an `e' should also match an `e' with accent (`é').

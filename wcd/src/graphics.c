@@ -1404,7 +1404,7 @@ void dataRefresh(int ydiff, int init)
   }
 
   if (wcd_cwin.mode == WCD_NAV)
-    mvwprintw(wcd_cwin.inputWin, 2, 0, "/ = search forward,  ? = search backward,  : = help");
+    wcd_mvwaddstr(wcd_cwin.inputWin, 2, 0, "/ = search forward,  ? = search backward,  : = help");
   else
   {
 #ifdef WCD_UTF8
@@ -1435,70 +1435,70 @@ void showHelp(WINDOW *win, int height)
    wclear(win);
    if (height > 20)
    {
-      mvwprintw(win, 0,0,_("NAVIGATE MODE:"));
-      mvwprintw(win, 1,0,_("h or <Left>       go left."));
-      mvwprintw(win, 2,0,_("j or <Down>       go down."));
-      mvwprintw(win, 3,0,_("k or <Up>         go up."));
-      mvwprintw(win, 4,0,_("l or <Right>      go right."));
-      mvwprintw(win, 5,0,_("* or v or <Space> go forward to dir with same name."));
-      mvwprintw(win, 6,0,_("# or p or <BS>    go backward to dir with same name."));
-      mvwprintw(win, 7,0,_("^ or a            go to beginning of line."));
-      mvwprintw(win, 8,0,_("$ or e            go to end of line."));
-      mvwprintw(win, 9,0,_("1                 go to root dir."));
-      mvwprintw(win,10,0,_("g or G            go to last dir."));
-      mvwprintw(win,11,0,_("f                 go page forward."));
-      mvwprintw(win,12,0,_("b                 go page backward."));
-      mvwprintw(win,13,0,_("u                 go half page up."));
-      mvwprintw(win,14,0,_("d                 go half page down."));
-      mvwprintw(win,15,0,_("<Esc> or q        Abort."));
-      mvwprintw(win,16,0,_("/                 Search forward."));
-      mvwprintw(win,17,0,_("?                 Search backward."));
-      mvwprintw(win,18,0,_("n                 Repeat latest / or ? search."));
-      mvwprintw(win,19,0,_("<Enter>           Select directory."));
-      mvwprintw(win,20,0,_("Press any key."));
+      wcd_mvwaddstr(win, 0,0,_("NAVIGATE MODE:"));
+      wcd_mvwaddstr(win, 1,0,_("h or <Left>       go left."));
+      wcd_mvwaddstr(win, 2,0,_("j or <Down>       go down."));
+      wcd_mvwaddstr(win, 3,0,_("k or <Up>         go up."));
+      wcd_mvwaddstr(win, 4,0,_("l or <Right>      go right."));
+      wcd_mvwaddstr(win, 5,0,_("* or v or <Space> go forward to dir with same name."));
+      wcd_mvwaddstr(win, 6,0,_("# or p or <BS>    go backward to dir with same name."));
+      wcd_mvwaddstr(win, 7,0,_("^ or a            go to beginning of line."));
+      wcd_mvwaddstr(win, 8,0,_("$ or e            go to end of line."));
+      wcd_mvwaddstr(win, 9,0,_("1                 go to root dir."));
+      wcd_mvwaddstr(win,10,0,_("g or G            go to last dir."));
+      wcd_mvwaddstr(win,11,0,_("f                 go page forward."));
+      wcd_mvwaddstr(win,12,0,_("b                 go page backward."));
+      wcd_mvwaddstr(win,13,0,_("u                 go half page up."));
+      wcd_mvwaddstr(win,14,0,_("d                 go half page down."));
+      wcd_mvwaddstr(win,15,0,_("<Esc> or q        Abort."));
+      wcd_mvwaddstr(win,16,0,_("/                 Search forward."));
+      wcd_mvwaddstr(win,17,0,_("?                 Search backward."));
+      wcd_mvwaddstr(win,18,0,_("n                 Repeat latest / or ? search."));
+      wcd_mvwaddstr(win,19,0,_("<Enter>           Select directory."));
+      wcd_mvwaddstr(win,20,0,_("Press any key."));
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
       wclear(win);
 
-      mvwprintw(win, 0,0,_("SEARCH MODE with wildcard and subdir support:"));
-      mvwprintw(win, 1,0,_("<Left>            go left."));
-      mvwprintw(win, 2,0,_("<Down>            go down."));
-      mvwprintw(win, 3,0,_("<Up>              go up."));
-      mvwprintw(win, 4,0,_("<Right>           go right."));
-      mvwprintw(win, 5,0,_("CTRL-v            go forward to dir with same name."));
-      mvwprintw(win, 6,0,_("CTRL-p            go backward to dir with same name."));
-      mvwprintw(win, 7,0,_("CTRL-a            go to beginning of line."));
-      mvwprintw(win, 8,0,_("CTRL-e            go to end of line."));
-      mvwprintw(win, 9,0,_("CTRL-g            go to last dir."));
-      mvwprintw(win,10,0,_("CTRL-f            go page forward."));
-      mvwprintw(win,11,0,_("CTRL-b            go page backward."));
-      mvwprintw(win,12,0,_("CTRL-u            go half page up."));
-      mvwprintw(win,13,0,_("CTRL-d            go half page down."));
-      mvwprintw(win,14,0,_("<Esc> or CTRL-x   Abort SEARCH MODE."));
-      mvwprintw(win,15,0,_("CTRL-n            Repeat latest / or ? search."));
-      mvwprintw(win,16,0,_("<Enter>           Select directory."));
-      mvwprintw(win,18,0,_("Press any key."));
+      wcd_mvwaddstr(win, 0,0,_("SEARCH MODE with wildcard and subdir support:"));
+      wcd_mvwaddstr(win, 1,0,_("<Left>            go left."));
+      wcd_mvwaddstr(win, 2,0,_("<Down>            go down."));
+      wcd_mvwaddstr(win, 3,0,_("<Up>              go up."));
+      wcd_mvwaddstr(win, 4,0,_("<Right>           go right."));
+      wcd_mvwaddstr(win, 5,0,_("CTRL-v            go forward to dir with same name."));
+      wcd_mvwaddstr(win, 6,0,_("CTRL-p            go backward to dir with same name."));
+      wcd_mvwaddstr(win, 7,0,_("CTRL-a            go to beginning of line."));
+      wcd_mvwaddstr(win, 8,0,_("CTRL-e            go to end of line."));
+      wcd_mvwaddstr(win, 9,0,_("CTRL-g            go to last dir."));
+      wcd_mvwaddstr(win,10,0,_("CTRL-f            go page forward."));
+      wcd_mvwaddstr(win,11,0,_("CTRL-b            go page backward."));
+      wcd_mvwaddstr(win,12,0,_("CTRL-u            go half page up."));
+      wcd_mvwaddstr(win,13,0,_("CTRL-d            go half page down."));
+      wcd_mvwaddstr(win,14,0,_("<Esc> or CTRL-x   Abort SEARCH MODE."));
+      wcd_mvwaddstr(win,15,0,_("CTRL-n            Repeat latest / or ? search."));
+      wcd_mvwaddstr(win,16,0,_("<Enter>           Select directory."));
+      wcd_mvwaddstr(win,18,0,_("Press any key."));
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
       wclear(win);
 
-      mvwprintw(win, 0,0,_("ZOOMING:"));
-      mvwprintw(win, 1,0,_("z or i or CTRL-i  zoom in."));
-      mvwprintw(win, 2,0,_("Z or o or CTRL-o  zoom out."));
-      mvwprintw(win, 3,0,_("c                 condense: fold current level."));
-      mvwprintw(win, 4,0,_("C                 condense: fold subdir level."));
-      mvwprintw(win, 5,0,_("w                 condense: fold current and sub levels."));
-      mvwprintw(win, 6,0,_("y or CTRL-y       uncondense: unfold current and sub levels."));
-      mvwprintw(win, 7,0,_("r or CTRL-r       uncondense: unfold all directories."));
-      mvwprintw(win, 8,0,_("-                 fold directory."));
-      mvwprintw(win, 9,0,_("+ or =            unfold directory."));
-      mvwprintw(win,10,0,_("l or <Right>      unfold and go right."));
-      mvwprintw(win,11,0,_("Press any key."));
+      wcd_mvwaddstr(win, 0,0,_("ZOOMING:"));
+      wcd_mvwaddstr(win, 1,0,_("z or i or CTRL-i  zoom in."));
+      wcd_mvwaddstr(win, 2,0,_("Z or o or CTRL-o  zoom out."));
+      wcd_mvwaddstr(win, 3,0,_("c                 condense: fold current level."));
+      wcd_mvwaddstr(win, 4,0,_("C                 condense: fold subdir level."));
+      wcd_mvwaddstr(win, 5,0,_("w                 condense: fold current and sub levels."));
+      wcd_mvwaddstr(win, 6,0,_("y or CTRL-y       uncondense: unfold current and sub levels."));
+      wcd_mvwaddstr(win, 7,0,_("r or CTRL-r       uncondense: unfold all directories."));
+      wcd_mvwaddstr(win, 8,0,_("-                 fold directory."));
+      wcd_mvwaddstr(win, 9,0,_("+ or =            unfold directory."));
+      wcd_mvwaddstr(win,10,0,_("l or <Right>      unfold and go right."));
+      wcd_mvwaddstr(win,11,0,_("Press any key."));
    }
    else
-      mvwprintw(win, 0,0,_("Screenheight must be > 20 for help"));
+      wcd_mvwaddstr(win, 0,0,_("Screenheight must be > 20 for help"));
 
 
    prefresh(win,0,0,0,0,height-1,COLS-1);

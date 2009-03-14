@@ -676,6 +676,27 @@ struct text_info ti;
 
 #ifdef WCD_USECURSES
 
+void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
+{
+#ifdef WCD_UTF8
+   static wchar_t wstr[DD_MAXPATH];
+   int i;
+
+   /* convert to wide characters. i = nr. of characters */
+   i= mbstowcs(wstr,str,DD_MAXPATH);
+   if ( i < 0)
+   {
+      /* Erroneous UTF-8 sequence */
+      /* Try 8 bit characters */
+      mvwaddstr(win, x, y, str);
+   } else {
+      mvwaddwstr(win, x, y, wstr);
+   }
+#else
+   mvwaddstr(win, x, y, str);
+#endif
+}
+
 void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbers)
 {
    wcd_char *s;
@@ -994,12 +1015,12 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
    if (list != NULL)
    {
       if(perfect)
-        mvwprintw(inputWin,1,0,_("Perfect "));
+        wcd_mvwaddstr(inputWin,1,0,_("Perfect "));
       else
-        mvwprintw(inputWin,1,0,_("Wild "));
+        wcd_mvwaddstr(inputWin,1,0,_("Wild "));
       wprintw(inputWin,_("match for %d directories."),size);
    }
-   mvwprintw(inputWin,2,0,_("Please choose one (<Enter> to abort): "));
+   wcd_mvwaddstr(inputWin,2,0,_("Please choose one (<Enter> to abort): "));
 
    page = bottom / lines_per_page + 1 ;
 
@@ -1113,20 +1134,20 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
          wclear(scrollWin);
          if (scrollWinHeight < 17)
-            mvwprintw(scrollWin,0,0,_("Screenheight must be > 20 for help."));
+            wcd_mvwaddstr(scrollWin,0,0,_("Screenheight must be > 20 for help."));
          else
          {
-            mvwprintw(scrollWin, 0,0,_("w or <Up>         Page Up."));
-            mvwprintw(scrollWin, 1,0,_("x or z or <Down>  Page Down."));
-            mvwprintw(scrollWin, 2,0,_(", or <Left>       Scroll 1 left."));
-            mvwprintw(scrollWin, 3,0,_(". or <Right>      Scroll 1 right."));
-            mvwprintw(scrollWin, 4,0,_("< or [            Scroll 10 left."));
-            mvwprintw(scrollWin, 5,0,_("> or ]            Scroll 10 right."));
-            mvwprintw(scrollWin, 6,0,_("CTRL-a or <HOME>  Scroll to beginning."));
-            mvwprintw(scrollWin, 7,0,_("CTRL-e or <END>   Scroll to end."));
-            mvwprintw(scrollWin, 8,0,_("CTRL-c or <Esc>   Abort."));
-            mvwprintw(scrollWin, 9,0,_("<Enter>           Abort."));
-            mvwprintw(scrollWin,11,0,_("Type w or x to quit help."));
+            wcd_mvwaddstr(scrollWin, 0,0,_("w or <Up>         Page Up."));
+            wcd_mvwaddstr(scrollWin, 1,0,_("x or z or <Down>  Page Down."));
+            wcd_mvwaddstr(scrollWin, 2,0,_(", or <Left>       Scroll 1 left."));
+            wcd_mvwaddstr(scrollWin, 3,0,_(". or <Right>      Scroll 1 right."));
+            wcd_mvwaddstr(scrollWin, 4,0,_("< or [            Scroll 10 left."));
+            wcd_mvwaddstr(scrollWin, 5,0,_("> or ]            Scroll 10 right."));
+            wcd_mvwaddstr(scrollWin, 6,0,_("CTRL-a or <HOME>  Scroll to beginning."));
+            wcd_mvwaddstr(scrollWin, 7,0,_("CTRL-e or <END>   Scroll to end."));
+            wcd_mvwaddstr(scrollWin, 8,0,_("CTRL-c or <Esc>   Abort."));
+            wcd_mvwaddstr(scrollWin, 9,0,_("<Enter>           Abort."));
+            wcd_mvwaddstr(scrollWin,11,0,_("Type w or x to quit help."));
          }
          break;
      case 3:  /* Control-C */

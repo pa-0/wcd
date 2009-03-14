@@ -4,7 +4,11 @@ MKDIR  = mkdir
 
 CFLAGS = -Ic3po -O3 -Wall
 LFLAGS = -lpdcurses -lintl -liconv -lkernel32 -luser32 -lmpr
+ifdef WCD_UTF8 
+DEFS   = -DMSDOS -DWCD_USECURSES -DPDC_STATIC_BUILD -DPDC_WIDE
+else
 DEFS   = -DMSDOS -DWCD_USECURSES -DPDC_STATIC_BUILD
+endif
 BINDIR    = ${PREFIX}/bin
 PROGRAM = wcdwin32.exe
 VERSIONSUFFIX = -win32
