@@ -1792,44 +1792,155 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
       c = getch();
       ydiff = wcd_cwin.curNode->y;
 
+     if (wcd_cwin.mode == WCD_NAV)
      switch(c)
      {
       case 'y':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
             if (dirnodeHasParent(wcd_cwin.curNode) eq false)
                setFold_sub(wcd_cwin.curNode,false,&ymax); /* unfold tree from current dirnode */
             else
                setFold_sub(dirnodeGetParent(wcd_cwin.curNode),false,&ymax); /* unfold tree from parent dirnode */
-         }
          break;
+      case 'r':
+            setFold_all(wcd_cwin.curNode,false,&ymax); /* unfold complete tree */
+         break;
+      case '-':
+            setFold(wcd_cwin.curNode,true,&ymax); /* fold */
+         break;
+      case '+':
+      case '=':
+            setFold(wcd_cwin.curNode,false,&ymax); /* unfold */
+         break;
+      case 'c':
+            condense(wcd_cwin.curNode,&ymax); /* condense */
+         break;
+      case 'C':
+            condenseSubdirs(wcd_cwin.curNode,&ymax); /* condense */
+         break;
+      case 'w':
+            if (dirnodeHasParent(wcd_cwin.curNode) eq false)
+               setFold_sub(wcd_cwin.curNode,true,&ymax); /* fold tree from current dirnode */
+            else
+               setFold_sub(dirnodeGetParent(wcd_cwin.curNode),true,&ymax); /* fold tree from parent dirnode */
+         break;
+      case 'b':
+           y = dirnodeGetY(wcd_cwin.curNode) - wcd_cwin.scrollWinHeight;
+           if (y < 0)
+              y = 0;
+           wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
+         break;
+      case 'f':
+           y = dirnodeGetY(wcd_cwin.curNode) + wcd_cwin.scrollWinHeight;
+           if (y > ymax)
+              y = ymax;
+           wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
+         break;
+      case 'u':
+           y = dirnodeGetY(wcd_cwin.curNode) - (wcd_cwin.scrollWinHeight/2);
+           if (y < 0)
+              y = 0;
+           wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
+         break;
+      case 'd':
+           y = dirnodeGetY(wcd_cwin.curNode) + (wcd_cwin.scrollWinHeight/2);
+           if (y > ymax)
+              y = ymax;
+           wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
+         break;
+      case '$':
+      case 'e':
+           wcd_cwin.curNode = getLastNodeInSameLevel(wcd_cwin.curNode);
+         break;
+      case '^':
+      case 'a':
+           wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,dirnodeGetY(wcd_cwin.curNode));
+         break;
+      case 'k':
+            wcd_cwin.curNode = getNodeCursUpNatural(wcd_cwin.curNode, graphics_mode);
+         break;
+      case 'j':
+            wcd_cwin.curNode = getNodeCursDownNatural(wcd_cwin.curNode, graphics_mode);
+         break;
+      case ',':
+      case 'h':
+            wcd_cwin.curNode = getNodeCursLeft(wcd_cwin.curNode);
+         break;
+      case '.':
+      case 'l':
+            if(dirnodeFold(wcd_cwin.curNode) eq true)
+            {
+               setFold(wcd_cwin.curNode,false,&ymax);
+            }
+            wcd_cwin.curNode = getNodeCursRight(wcd_cwin.curNode, graphics_mode);
+         break;
+      case '1': /* goto rootnode */
+            wcd_cwin.curNode = endOfRecursionOfDirnodeParent(wcd_cwin.curNode);
+         break;
+      case 'G': /* goto last node */
+      case 'g':
+            wcd_cwin.curNode = getLastDescendant(wcd_cwin.curNode);
+         break;
+      case 'p':
+      case '#':
+            wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
+         break;
+      case ' ':
+      case 'v':
+      case '*':
+            wcd_cwin.curNode = findDirInCicle(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
+         break;
+      case '/':
+            wcd_cwin.mode = WCD_SEARCH;
+            wcd_cwin.str[0] = '\0';
+            n = 0;
+         break;
+      case '?':
+            wcd_cwin.mode = WCD_SEARCH;
+            wcd_cwin.str[0] = '\0';
+            n = 0;
+         break;
+      case 'n':
+            ptr2 = wcd_cwin.str + 1;
+            if (n>1)
+            {
+               if (wcd_cwin.str[0] == '/')
+                  wcd_cwin.curNode = findDirInCicle(ptr2,wcd_cwin.curNode,0,ignore_case);
+               else
+                  wcd_cwin.curNode = findDirInCiclePrev(ptr2,wcd_cwin.curNode,0,ignore_case);
+            }
+         break;
+      case ':':
+            showHelp(wcd_cwin.scrollWin,wcd_cwin.scrollWinHeight);
+         break;
+      case 'q':
+            c = 13;
+      break;
+      case 'i':
+      case 'z':
+            pushZoom(wcd_cwin.zoomStack,wcd_cwin.curNode,&ymax);
+         break;
+      case 'o':
+      case 'Z':
+            popZoom(wcd_cwin.zoomStack,wcd_cwin.curNode,&ymax);
+         break;
+     case 8:  /* backspace */
+     case KEY_BACKSPACE:
+            wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
+     break;
+     default:
+     break;
+     }
+
+     switch(c)
+     {
       case Key_CTRL ('y'):
          if (dirnodeHasParent(wcd_cwin.curNode) eq false)
             setFold_sub(wcd_cwin.curNode,false,&ymax); /* unfold tree from current dirnode */
          else
             setFold_sub(dirnodeGetParent(wcd_cwin.curNode),false,&ymax); /* unfold tree from parent dirnode */
          break;
-      case 'r':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            setFold_all(wcd_cwin.curNode,false,&ymax); /* unfold complete tree */
-         }
-         break;
       case Key_CTRL('r'):
          setFold_all(wcd_cwin.curNode,false,&ymax); /* unfold complete tree */
-         break;
-      case '-':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            setFold(wcd_cwin.curNode,true,&ymax); /* fold */
-         }
-         break;
-      case '+':
-      case '=':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            setFold(wcd_cwin.curNode,false,&ymax); /* unfold */
-         }
          break;
 #ifdef PADMINUS
       case PADMINUS:
@@ -1841,36 +1952,6 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          setFold(wcd_cwin.curNode,false,&ymax); /* unfold */
          break;
 #endif
-      case 'c':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            condense(wcd_cwin.curNode,&ymax); /* condense */
-         }
-         break;
-      case 'C':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            condenseSubdirs(wcd_cwin.curNode,&ymax); /* condense */
-         }
-         break;
-      case 'w':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            if (dirnodeHasParent(wcd_cwin.curNode) eq false)
-               setFold_sub(wcd_cwin.curNode,true,&ymax); /* fold tree from current dirnode */
-            else
-               setFold_sub(dirnodeGetParent(wcd_cwin.curNode),true,&ymax); /* fold tree from parent dirnode */
-         }
-         break;
-      case 'b':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-           y = dirnodeGetY(wcd_cwin.curNode) - wcd_cwin.scrollWinHeight;
-           if (y < 0)
-              y = 0;
-           wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
-         }
-         break;
       case Key_CTRL ('b'):
       case KEY_PPAGE: /* Page Up */
 #ifdef KEY_A3
@@ -1880,15 +1961,6 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          if (y < 0)
             y = 0;
          wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
-         break;
-      case 'f':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-           y = dirnodeGetY(wcd_cwin.curNode) + wcd_cwin.scrollWinHeight;
-           if (y > ymax)
-              y = ymax;
-           wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
-         }
          break;
       case Key_CTRL ('f'):
       case KEY_NPAGE: /* Page down */
@@ -1900,40 +1972,17 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
            y = ymax;
          wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
          break;
-      case 'u':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-           y = dirnodeGetY(wcd_cwin.curNode) - (wcd_cwin.scrollWinHeight/2);
-           if (y < 0)
-              y = 0;
-           wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
-         }
-         break;
       case Key_CTRL ('u'):
          y = dirnodeGetY(wcd_cwin.curNode) - (wcd_cwin.scrollWinHeight/2);
          if (y < 0)
             y = 0;
          wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
          break;
-      case 'd':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-           y = dirnodeGetY(wcd_cwin.curNode) + (wcd_cwin.scrollWinHeight/2);
-           if (y > ymax)
-              y = ymax;
-           wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
-         }
-         break;
       case Key_CTRL ('d'):
          y = dirnodeGetY(wcd_cwin.curNode) + (wcd_cwin.scrollWinHeight/2);
          if (y > ymax)
            y = ymax;
          wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
-         break;
-      case '$':
-      case 'e':
-         if (wcd_cwin.mode == WCD_NAV)
-           wcd_cwin.curNode = getLastNodeInSameLevel(wcd_cwin.curNode);
          break;
       case Key_CTRL ('e'):
 #ifdef KEY_END
@@ -1944,11 +1993,6 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #endif
            wcd_cwin.curNode = getLastNodeInSameLevel(wcd_cwin.curNode);
          break;
-      case '^':
-      case 'a':
-         if (wcd_cwin.mode == WCD_NAV)
-           wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,dirnodeGetY(wcd_cwin.curNode));
-         break;
       case Key_CTRL ('a'):
       case KEY_HOME:
 #ifdef KEY_A1
@@ -1956,23 +2000,11 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #endif
            wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,dirnodeGetY(wcd_cwin.curNode));
          break;
-      case 'k':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            wcd_cwin.curNode = getNodeCursUpNatural(wcd_cwin.curNode, graphics_mode);
-         }
-         break;
       case KEY_UP:  /* Arrow Up */
 #ifdef KEY_A2
       case KEY_A2:  /*  Num-pad ARROW UP */
 #endif
             wcd_cwin.curNode = getNodeCursUpNatural(wcd_cwin.curNode, graphics_mode);
-         break;
-      case 'j':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            wcd_cwin.curNode = getNodeCursDownNatural(wcd_cwin.curNode, graphics_mode);
-         }
          break;
       case KEY_DOWN: /* Arrow down */
 #ifdef KEY_C2
@@ -1980,29 +2012,11 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #endif
             wcd_cwin.curNode = getNodeCursDownNatural(wcd_cwin.curNode, graphics_mode);
          break;
-      case ',':
-      case 'h':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            wcd_cwin.curNode = getNodeCursLeft(wcd_cwin.curNode);
-         }
-         break;
       case KEY_LEFT:
 #ifdef KEY_B1
       case KEY_B1:   /* Num-pad  Arrow left */
 #endif
             wcd_cwin.curNode = getNodeCursLeft(wcd_cwin.curNode);
-         break;
-      case '.':
-      case 'l':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            if(dirnodeFold(wcd_cwin.curNode) eq true)
-            {
-               setFold(wcd_cwin.curNode,false,&ymax);
-            }
-            wcd_cwin.curNode = getNodeCursRight(wcd_cwin.curNode, graphics_mode);
-         }
          break;
       case KEY_RIGHT:
 #ifdef KEY_B3
@@ -2014,50 +2028,14 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
             }
             wcd_cwin.curNode = getNodeCursRight(wcd_cwin.curNode, graphics_mode);
          break;
-      case '1': /* goto rootnode */
-         if (wcd_cwin.mode == WCD_NAV)
-            wcd_cwin.curNode = endOfRecursionOfDirnodeParent(wcd_cwin.curNode);
-         break;
-      case 'G': /* goto last node */
-      case 'g':
-         if (wcd_cwin.mode == WCD_NAV)
-            wcd_cwin.curNode = getLastDescendant(wcd_cwin.curNode);
-         break;
       case Key_CTRL ('g'):
          wcd_cwin.curNode = getLastDescendant(wcd_cwin.curNode);
-         break;
-      case 'p':
-      case '#':
-         if (wcd_cwin.mode == WCD_NAV)
-            wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
          break;
       case Key_CTRL ('p'):
          wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
          break;
-      case ' ':
-      case 'v':
-      case '*':
-         if (wcd_cwin.mode == WCD_NAV)
-            wcd_cwin.curNode = findDirInCicle(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
-         break;
       case Key_CTRL ('v'):
          wcd_cwin.curNode = findDirInCicle(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
-         break;
-      case '/':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            wcd_cwin.mode = WCD_SEARCH;
-            wcd_cwin.str[0] = '\0';
-            n = 0;
-         }
-         break;
-      case '?':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            wcd_cwin.mode = WCD_SEARCH;
-            wcd_cwin.str[0] = '\0';
-            n = 0;
-         }
          break;
       case Key_CTRL ('n'):
          ptr2 = wcd_cwin.str + 1;
@@ -2069,42 +2047,13 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
                wcd_cwin.curNode = findDirInCiclePrev(ptr2,wcd_cwin.curNode,0,ignore_case);
          }
          break;
-      case 'n':
-         if (wcd_cwin.mode == WCD_NAV)
-         {
-            ptr2 = wcd_cwin.str + 1;
-            if (n>1)
-            {
-               if (wcd_cwin.str[0] == '/')
-                  wcd_cwin.curNode = findDirInCicle(ptr2,wcd_cwin.curNode,0,ignore_case);
-               else
-                  wcd_cwin.curNode = findDirInCiclePrev(ptr2,wcd_cwin.curNode,0,ignore_case);
-            }
-         }
-         break;
       case KEY_F (1):
-      case ':':
-         if (wcd_cwin.mode == WCD_NAV)
             showHelp(wcd_cwin.scrollWin,wcd_cwin.scrollWinHeight);
          break;
-      case 'q':
-         if (wcd_cwin.mode == WCD_NAV)
-            c = 13;
-      break;
       case Key_CTRL ('i'):
             pushZoom(wcd_cwin.zoomStack,wcd_cwin.curNode,&ymax);
          break;   
-      case 'i':
-      case 'z':
-         if (wcd_cwin.mode == WCD_NAV)
-            pushZoom(wcd_cwin.zoomStack,wcd_cwin.curNode,&ymax);
-         break;
       case Key_CTRL ('o'):
-            popZoom(wcd_cwin.zoomStack,wcd_cwin.curNode,&ymax);
-         break;
-      case 'o':
-      case 'Z':
-         if (wcd_cwin.mode == WCD_NAV)
             popZoom(wcd_cwin.zoomStack,wcd_cwin.curNode,&ymax);
          break;
       case 3:  /* Control-C */
@@ -2126,9 +2075,6 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
       break;
      case 8:  /* backspace */
      case KEY_BACKSPACE:
-         if (wcd_cwin.mode == WCD_NAV)
-            wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
-
             if(n==1)
                wcd_cwin.mode = WCD_NAV;
             if(n>1) n--;
@@ -2141,12 +2087,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
             wcd_cwin.str[n] = '\0';
      break;
      default:
-     break;
-    }
-
-    ydiff -= (wcd_cwin.curNode->y);
-
-      if ((wcd_cwin.mode == WCD_SEARCH) && ( c >= ' ') && ( c <= '~') && (n < WCD_MAX_INPSTR)) /* numbers */
+      if ((wcd_cwin.mode == WCD_SEARCH) && (n < WCD_MAX_INPSTR)) /* numbers */
       {
          wcd_cwin.str[n] = (char)c;
          n++;
@@ -2160,7 +2101,12 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
                wcd_cwin.curNode = findDirInCiclePrev(ptr2,wcd_cwin.curNode,0,ignore_case);
          }
       }
-      dataRefresh(ydiff, 0);
+     break;
+    }
+
+    ydiff -= (wcd_cwin.curNode->y);
+
+    dataRefresh(ydiff, 0);
    }
 
    endwin();
