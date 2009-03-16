@@ -79,6 +79,9 @@ struct wcdwin /* structure with window information */
    WINDOW *inputWin;
    dirnode curNode;
    char str[WCD_MAX_INPSTR];
+#ifdef WCD_UTF8
+   wchar_t wstr[WCD_MAX_INPSTR];
+#endif
    int mode;
    int graphics_mode;
    dirnode zoomStack;
@@ -1408,17 +1411,9 @@ void dataRefresh(int ydiff, int init)
   else
   {
 #ifdef WCD_UTF8
-    len = mbstowcs(wstr,wcd_cwin.str,DD_MAXPATH); /* number of wide characters */
-    if (len < 0)
-    {
-      /* Erroneous UTF-8 sequence */
-      /* Try 8 bit characters */
-      mvwprintw(wcd_cwin.inputWin, 2, 0, "Search: %s", wcd_cwin.str);
-    } else {
-      wmove(wcd_cwin.inputWin, 2, 0);
-      waddnwstr(wcd_cwin.inputWin,L"Search UTF8: ",WCD_MAX_INPSTR);
-      waddnwstr(wcd_cwin.inputWin,wstr,WCD_MAX_INPSTR);
-    }
+    wmove(wcd_cwin.inputWin, 2, 0);
+    waddnwstr(wcd_cwin.inputWin,L"Search UTF8: ",WCD_MAX_INPSTR);
+    waddnwstr(wcd_cwin.inputWin,wcd_cwin.wstr,WCD_MAX_INPSTR);
 #else
     mvwprintw(wcd_cwin.inputWin, 2, 0, "Search: %s", wcd_cwin.str);
 #endif
@@ -1715,6 +1710,9 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #ifndef __PDCURSES__
   SCREEN *sp;
 #endif
+#ifdef WCD_UTF8
+  wint_t ch;
+#endif
 
   wcd_cwin.mode = WCD_NAV;
   wcd_cwin.graphics_mode = graphics_mode;
@@ -1789,11 +1787,19 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
    while (c != 13 )
    {
 
+#ifdef WCD_UTF8
+      c = get_wch(&ch);
+#else
       c = getch();
+#endif
       ydiff = wcd_cwin.curNode->y;
 
      if (wcd_cwin.mode == WCD_NAV)
+#ifdef WCD_UTF8
+     switch(ch)
+#else
      switch(c)
+#endif
      {
       case 'y':
             if (dirnodeHasParent(wcd_cwin.curNode) eq false)
@@ -1931,7 +1937,11 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
      break;
      }
 
+#ifdef WCD_UTF8
+     switch(ch)
+#else
      switch(c)
+#endif
      {
       case Key_CTRL ('y'):
          if (dirnodeHasParent(wcd_cwin.curNode) eq false)
@@ -2079,19 +2089,37 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
                wcd_cwin.mode = WCD_NAV;
             if(n>1) n--;
             wcd_cwin.str[n] = '\0';
+#ifdef WCD_UTF8
+            wcd_cwin.wstr[n] = '\0';
+#endif
      break;
      case 127: /* delete */
             if(n==1)
                wcd_cwin.mode = WCD_NAV;
             if(n>1) n--;
             wcd_cwin.str[n] = '\0';
+#ifdef WCD_UTF8
+            wcd_cwin.wstr[n] = '\0';
+#endif
      break;
      default:
-      if ((wcd_cwin.mode == WCD_SEARCH) && (n < WCD_MAX_INPSTR)) /* numbers */
+      if ((wcd_cwin.mode == WCD_SEARCH) && (n < WCD_MAX_INPSTR))
       {
+#ifdef WCD_UTF8
+         wcd_cwin.wstr[n] = ch;
+         n++;
+         wcd_cwin.wstr[n] = '\0';
+	 /* Convert wide-character input string to byte string. Needed for searching. */
+         if (wcstombs(wcd_cwin.str, wcd_cwin.wstr, WCD_MAX_INPSTR) < 0)
+	 {
+            n=1;
+            wcd_cwin.str[n] = '\0';
+	 }
+#else
          wcd_cwin.str[n] = (char)c;
          n++;
          wcd_cwin.str[n] = '\0';
+#endif
          ptr2 = wcd_cwin.str + 1;
          if (n>1)
          {
