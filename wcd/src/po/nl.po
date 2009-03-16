@@ -642,11 +642,11 @@ msgstr "/ = zoek vooruit,  ? = zoek achteruit,  : = help"
 
 #: graphics.c:1415
 msgid "SEARCH: "
-msgstr "ZOEK:"
+msgstr "ZOEK: "
 
 #: graphics.c:1418
 msgid "Search: "
-msgstr "Zoek:"
+msgstr "Zoek: "
 
 #: graphics.c:1434
 msgid "NAVIGATE MODE:"
