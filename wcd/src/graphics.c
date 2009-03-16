@@ -2094,6 +2094,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #endif
      break;
      case 127: /* delete */
+     case KEY_DC:
             if(n==1)
                wcd_cwin.mode = WCD_NAV;
             if(n>1) n--;
