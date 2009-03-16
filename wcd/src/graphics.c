@@ -1407,15 +1407,16 @@ void dataRefresh(int ydiff, int init)
   }
 
   if (wcd_cwin.mode == WCD_NAV)
-    wcd_mvwaddstr(wcd_cwin.inputWin, 2, 0, "/ = search forward,  ? = search backward,  : = help");
+    wcd_mvwaddstr(wcd_cwin.inputWin, 2, 0, _("/ = search forward,  ? = search backward,  : = help"));
   else
   {
-#ifdef WCD_UTF8
     wmove(wcd_cwin.inputWin, 2, 0);
-    waddnwstr(wcd_cwin.inputWin,L"Search UTF8: ",WCD_MAX_INPSTR);
-    waddnwstr(wcd_cwin.inputWin,wcd_cwin.wstr,WCD_MAX_INPSTR);
+#ifdef WCD_UTF8
+    waddstr(wcd_cwin.inputWin,_("SEARCH: "));
+    waddnwstr(wcd_cwin.inputWin,wcd_cwin.wstr, WCD_MAX_INPSTR);
 #else
-    mvwprintw(wcd_cwin.inputWin, 2, 0, "Search: %s", wcd_cwin.str);
+    waddstr(wcd_cwin.inputWin, _("Search: "));
+    waddnstr(wcd_cwin.inputWin, wcd_cwin.str, WCD_MAX_INPSTR);
 #endif
   }
 

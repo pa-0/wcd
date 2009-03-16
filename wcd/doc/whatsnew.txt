@@ -1,4 +1,4 @@
-5.0.0 beta2 Mar 14 2009
+5.0.0 beta3 Mar 16 2009
   - UTF-8 Unicode support.
   - Resolved a few signedness issues.
   - Update manual page.

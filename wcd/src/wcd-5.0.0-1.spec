@@ -24,7 +24,7 @@ search.
 %setup
 
 %build
-cd src ; make PREFIX=/usr
+cd src ; make PREFIX=/usr WCD_UTF8=1
 
 %install
 cd src ; make install PREFIX=/usr
