@@ -250,6 +250,12 @@ The 'tui' demo program was originally written by P.J. Kunst and placed
 in the Public Domain.
 
 
+......................................................................
+
+Markus Kuhn's free wcwidth() implementation is used in Wcd for Windows
+with UTF-8 Unicode support.
+See also http://www.cl.cam.ac.uk/~mgk25/unicode.html
+
 ======================================================================
 = 4 Acknowledgements                                                =
 ======================================================================
@@ -273,21 +279,23 @@ Etienne Joarlette   (SunOS makefile)
 Edwin Rijpkema      (zoom in graphical tree mode)
 Juhapekka Tolvanen  (man page)
 Andre vd Avoird     (Keep paths, -k)
-Gabor Grothendieck  (UNC paths support)
 Kevin M. Rosenberg  (patch for compile problems w.r.t. gcc and <stdbool.h>, man page)
 Zoltan Varady       (fix compile problems on Mac OS X/Darwin)
 Eric Auer           (default makefile for DOS 16 bit (compact memory model) works again)
 Val Vakar           (WCDFILTER)
-Jari Aalto          (man page)
-Gabor Grothendieck &(original console colours on windows)
-Mark Hessling
+Jari Aalto          (man page improvements)
+Jari Aalto          (option -l takes alias directly)
+Jari Aalto          (in match list key z does page down.)
+Gabor Grothendieck  (UNC paths support)
 Gabor Grothendieck  (automatically set PDC_RESTORE_SCREEN)
-Richard Boss        (dump matches to stdout)
+Gabor Grothendieck  (original console colours on windows)
+Mark Hessling       (original console colours on windows)
+Mark Hessling       (fix: scroll away problem on Windows NT/2000/XP)
 Ken Zinnato         (alternative tree navigation)
 Scott D Friedemann  (fix: curses interface writes uninitialised data to screen)
+Richard Boss        (dump matches to stdout)
 Richard Boss        (8-bit characters)
 Richard Boss        (print match list at bottom of console)
-Mark Hessling       (fix: scroll away problem on Windows NT/2000/XP)
 Roland Messier      Shell script to compile wcd for QNX 4.25 systems.
 Elbert Pol          Port to OS/2 Warp
 Billy Chen          Optional colours in graphical mode (option -K)

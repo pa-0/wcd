@@ -5,7 +5,7 @@ keyboard. One needs to type only a part of a directory name and wcd will jump
 to it. By default wcd searches for a directory with a name that begins with
 what has been typed, but the use of wildcards is also fully supported.
 
-* Full screen interactive directory browser with speed search.
+* Full screen interactive directory browser with speed search and zoom in/out.
 * Present the user a list in case of multiple matches.
 * Wildcards *, ? and [SET] supported.
 * Directory stack, push pop.
@@ -15,11 +15,13 @@ what has been typed, but the use of wildcards is also fully supported.
 * Change drive and directory at once.
 * Alias directories.
 * Ban directories.
+* Exclude directories.
 * 'cd' behaviour
 * Free portable source-code.
 * Multi platform: DOS 16 bit, DOS 32 bit, DOS bash,
-  Windows Command prompt, Windows PowerShell, Windows ZSH,
+  Windows Command prompt, Windows PowerShell, Windows ZSH, MSYS,
   Cygwin bash, OS/2 Warp,
-  Unix ksh, csh, bash and zsh.
+  Unix/Linux all Bource and C type shells.
 * Native language support: Dutch, English 
+* UTF-8 Unicode support.
 
