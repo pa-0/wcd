@@ -903,6 +903,13 @@ iso10646-1 encoding, for instance with
   -fn \'-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1\'
 .fi
 
+A Windows console in unicode mode can be started with the command \'cmd /U\'.
+UTF-8 code page is activated with command \'chcp 65001\'. You need to set the
+font to True Type Lucida Console (not raster fonts). A problem for wcd is that
+batch scripts don't run anymore when code page 65001 has been activated.
+In Windows PowerShell you also need to activate code page 65001 and select a
+True Type font.
+
 Wcd has been \'soft\' converted to UTF-8. In its core it still handles
 strings as 8 bit streams. See also
 .nf
