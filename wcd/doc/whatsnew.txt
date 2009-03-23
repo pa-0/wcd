@@ -3,7 +3,9 @@
   - Resolved a few signedness issues.
   - Update manual page.
   - Option -l takes alias directly: wcd -l <alias> (thanks to Jari Aalto)
-  - Switched options -v and -V. -v is now verbose and -V is verion info. (thanks to Jari Aalto)
+  - Swapped options -v and -V. (thanks to Jari Aalto)
+    -v is now verbose and -V is verion info. This seems to be more
+    commonly in use by GNU programs.
   - Changed option -Q to -q (quiet operation).
   - In match list key 'z' does page down (like less) (thanks to Jari Aalto).
   - Improvements manual page (thanks to Jari Aalto)

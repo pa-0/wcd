@@ -30,8 +30,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 /* set tabstop=3 */
 
 /* This file contains wrapper functions that operate on directories.
-	These are needed to use the WIN32 API functions. WIN32 API functions
-	are needed to get support for UNC paths.
+   These are needed to use the WIN32 API functions. WIN32 API functions
+   are needed to get support for UNC paths.
 */
 
 #include "config.h"
@@ -40,6 +40,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # include <unistd.h>
 #endif
 #include "dosdir.h"
+
+#if (defined(WIN32) && defined(WCD_UTF8))
+#include <wchar.h>
+#endif
 
 #if (defined(WIN32) || defined(__CYGWIN__))
 
@@ -60,110 +64,110 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 
 /* 
-	int wcd_isServerPath (char* path) 
-	check if path is a possible UNC server path
-	like \\servername
+   int wcd_isServerPath (char* path) 
+   check if path is a possible UNC server path
+   like \\servername
    RETURNS  1 if true
    RETURNS  0 if false
  */
 int wcd_isServerPath (char* path)
 {
-	if ((strlen(path) > 2) && (wcd_is_slash(*path)) && (wcd_is_slash(*(path+1))) &&
-		 (strchr(path+2,'/') == NULL) && (strchr(path+2,'\\') == NULL))
-		return(1);
-	else
-		return(0);
+   if ((strlen(path) > 2) && (wcd_is_slash(*path)) && (wcd_is_slash(*(path+1))) &&
+       (strchr(path+2,'/') == NULL) && (strchr(path+2,'\\') == NULL))
+      return(1);
+   else
+      return(0);
 }
 
 void exterr( void )
 {
-	/* This function was taken from Felix Kasza's Win32 Samples page
-		at MVPS.ORG.  http://www.mvps.org/win32/
-		*/
-	char errbuf[2048], namebuf[2048];
-	DWORD err;
+   /* This function was taken from Felix Kasza's Win32 Samples page
+      at MVPS.ORG.  http://www.mvps.org/win32/
+      */
+   char errbuf[2048], namebuf[2048];
+   DWORD err;
 
-	errbuf[0] = namebuf[0] = '\0';
-	if ( WNetGetLastError( &err, errbuf, sizeof errbuf, namebuf, sizeof namebuf ) == NO_ERROR )
-		printf( _("Wcd: Error %lu (\"%s\") reported by \"%s\".\n"),
-			err, errbuf, namebuf );
-	return;
+   errbuf[0] = namebuf[0] = '\0';
+   if ( WNetGetLastError( &err, errbuf, sizeof errbuf, namebuf, sizeof namebuf ) == NO_ERROR )
+      printf( _("Wcd: Error %lu (\"%s\") reported by \"%s\".\n"),
+         err, errbuf, namebuf );
+   return;
 }
 
 #define MAX_NR_BUF 1000
 
 int doEnum( int level, NETRESOURCE *pnr, nameset n )
 {
-	/* This function was taken from Felix Kasza's Win32 Samples page
-		at MVPS.ORG.  http://www.mvps.org/win32/
-		*/
-	DWORD rc, rc2;
-	HANDLE hEnum;
-	DWORD count, bufsize, ui;
-	NETRESOURCE buf[MAX_NR_BUF];
-	const char *type;
-	char path[DD_MAXPATH];
+   /* This function was taken from Felix Kasza's Win32 Samples page
+      at MVPS.ORG.  http://www.mvps.org/win32/
+      */
+   DWORD rc, rc2;
+   HANDLE hEnum;
+   DWORD count, bufsize, ui;
+   NETRESOURCE buf[MAX_NR_BUF];
+   const char *type;
+   char path[DD_MAXPATH];
 
-	rc = WNetOpenEnum( RESOURCE_GLOBALNET, RESOURCETYPE_DISK, 0, pnr, &hEnum );
-	if ( rc == ERROR_ACCESS_DENIED )
-	{
-		/* printf( "%-6.6s %-4.4s%*s  Error 5 -- access denied\n", "", "", level * 2, "" ); */
-		printf( _("Wcd: access denied.\n"));
-		return 1;
-	}
+   rc = WNetOpenEnum( RESOURCE_GLOBALNET, RESOURCETYPE_DISK, 0, pnr, &hEnum );
+   if ( rc == ERROR_ACCESS_DENIED )
+   {
+      /* printf( "%-6.6s %-4.4s%*s  Error 5 -- access denied\n", "", "", level * 2, "" ); */
+      printf( _("Wcd: access denied.\n"));
+      return 1;
+   }
 
-	if ( rc )
-	{
+   if ( rc )
+   {
       rc2 = GetLastError();
-		/* printf( "WNOE(): rc = %lu, gle = %lu\n", rc, rc2 ); */
-		if ( rc2 == ERROR_EXTENDED_ERROR )
-			exterr();
-		return 0;
-	}
+      /* printf( "WNOE(): rc = %lu, gle = %lu\n", rc, rc2 ); */
+      if ( rc2 == ERROR_EXTENDED_ERROR )
+         exterr();
+      return 0;
+   }
 
-	while ( 1 )
-	{
-		count = (DWORD) -1L;
-		bufsize = sizeof buf;
-		rc = WNetEnumResource( hEnum, &count, buf, &bufsize );
-		if ( rc != NO_ERROR )
-			break;
-		for ( ui = 0; (ui < count); ++ ui )
-		{
-			switch ( buf[ui].dwDisplayType )
-			{
-				case RESOURCEDISPLAYTYPE_DOMAIN:
-					type = "domain"; break;
-				case RESOURCEDISPLAYTYPE_GENERIC:
-					type = "generic"; break;
-				case RESOURCEDISPLAYTYPE_SERVER:
-					type = "server"; break;
-				case RESOURCEDISPLAYTYPE_SHARE:
-					type = "share"; 
-			      printf( "Wcd: %s\n", buf[ui].lpRemoteName );
-					strncpy(path, buf[ui].lpRemoteName, DD_MAXPATH);
-					wcd_fixpath(path, DD_MAXPATH);
+   while ( 1 )
+   {
+      count = (DWORD) -1L;
+      bufsize = sizeof buf;
+      rc = WNetEnumResource( hEnum, &count, buf, &bufsize );
+      if ( rc != NO_ERROR )
+         break;
+      for ( ui = 0; (ui < count); ++ ui )
+      {
+         switch ( buf[ui].dwDisplayType )
+         {
+            case RESOURCEDISPLAYTYPE_DOMAIN:
+               type = "domain"; break;
+            case RESOURCEDISPLAYTYPE_GENERIC:
+               type = "generic"; break;
+            case RESOURCEDISPLAYTYPE_SERVER:
+               type = "server"; break;
+            case RESOURCEDISPLAYTYPE_SHARE:
+               type = "share"; 
+               printf( "Wcd: %s\n", buf[ui].lpRemoteName );
+               strncpy(path, buf[ui].lpRemoteName, DD_MAXPATH);
+               wcd_fixpath(path, DD_MAXPATH);
                addToNamesetArray(textNew(path), n);
-					break;
-				default:
-					type = "unknown"; break;
-			}
-			// now we recurse if it's a container
-			if ( buf[ui].dwUsage & RESOURCEUSAGE_CONTAINER )
-				doEnum( level + 1, &buf[ui], n );
-		}
-	}
+               break;
+            default:
+               type = "unknown"; break;
+         }
+         // now we recurse if it's a container
+         if ( buf[ui].dwUsage & RESOURCEUSAGE_CONTAINER )
+            doEnum( level + 1, &buf[ui], n );
+      }
+   }
 
-	if ( rc != ERROR_NO_MORE_ITEMS )  // bad things
-	{
+   if ( rc != ERROR_NO_MORE_ITEMS )  // bad things
+   {
       rc2 = GetLastError();
-		/* printf( "WNER(): rc = %lu, gle = %lu\n", rc, rc2 ); */
-		if ( rc2 == ERROR_EXTENDED_ERROR )
-			exterr();
-	}
+      /* printf( "WNER(): rc = %lu, gle = %lu\n", rc, rc2 ); */
+      if ( rc2 == ERROR_EXTENDED_ERROR )
+         exterr();
+   }
 
-	WNetCloseEnum( hEnum );
-	return 1;
+   WNetCloseEnum( hEnum );
+   return 1;
 }
 
 
@@ -177,31 +181,31 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
   *************************************************************/
 void wcd_getshares(char* path, nameset n)
 {
-	NETRESOURCE  nr;
+   NETRESOURCE  nr;
 
-	if ((path == NULL) || (n == NULL))
-		return;
-	
-	if (wcd_isServerPath(path))
-	{
-		/* an UNC path, possibly pointing to a server */
-		/* WIN32 API needs backslashes. */
-		*path = '\\';
-		*(path+1) = '\\';
+   if ((path == NULL) || (n == NULL))
+      return;
+   
+   if (wcd_isServerPath(path))
+   {
+      /* an UNC path, possibly pointing to a server */
+      /* WIN32 API needs backslashes. */
+      *path = '\\';
+      *(path+1) = '\\';
 
-		printf(_("Wcd: Searching for shared directories on server %s\n"), path);
-		
-		nr.dwScope       = RESOURCE_GLOBALNET;
-		nr.dwType        = RESOURCETYPE_ANY;
-		nr.dwDisplayType = RESOURCEDISPLAYTYPE_SERVER;
-		nr.dwUsage       = RESOURCEUSAGE_CONTAINER;
-		nr.lpLocalName   = NULL;
-		nr.lpRemoteName  = path ;
-		nr.lpProvider    = NULL;
-		
-		doEnum( 0, &nr, n );
-	}
-	printf(_("Wcd: Found %d shared directories on server %s\n"), getSizeOfNamesetArray(n), path);
+      printf(_("Wcd: Searching for shared directories on server %s\n"), path);
+      
+      nr.dwScope       = RESOURCE_GLOBALNET;
+      nr.dwType        = RESOURCETYPE_ANY;
+      nr.dwDisplayType = RESOURCEDISPLAYTYPE_SERVER;
+      nr.dwUsage       = RESOURCEUSAGE_CONTAINER;
+      nr.lpLocalName   = NULL;
+      nr.lpRemoteName  = path ;
+      nr.lpProvider    = NULL;
+      
+      doEnum( 0, &nr, n );
+   }
+   printf(_("Wcd: Found %d shared directories on server %s\n"), getSizeOfNamesetArray(n), path);
 }
 
 #endif
@@ -213,50 +217,82 @@ void wcd_getshares(char* path, nameset n)
 
 char *wcd_getcwd(char *buf, int size)
 {
-	BOOL err;
+   BOOL err;
+#ifdef WCD_UTF8
+   static wchar_t wstr[DD_MAXPATH];
 
+   err = GetCurrentDirectoryW(size, wstr);
+   if ( err != 0)
+      if (wcstombs(buf, wstr, DD_MAXPATH) < 0)
+         err = 0;
+#else
    err = GetCurrentDirectory(size, buf);
+#endif
 
-	if (err == 0)
-		return(NULL);  /* fail */
-	else
-		return(buf);   /* success */
+   if (err == 0)
+      return(NULL);  /* fail */
+   else
+      return(buf);   /* success */
 }
 
 int wcd_chdir(char *buf)
 {
-	BOOL err;
-	
-	err = SetCurrentDirectory(buf); 
+   BOOL err;
+#ifdef WCD_UTF8
+   static wchar_t wstr[DD_MAXPATH];
 
-	if (err == 0)
-		return(1);   /* fail */
-	else
-		return(0);   /* success */
+   if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
+      err = 0;
+   else
+      err = SetCurrentDirectoryW(wstr); 
+#else
+   err = SetCurrentDirectory(buf); 
+#endif
+
+   if (err == 0)
+      return(1);   /* fail */
+   else
+      return(0);   /* success */
 }
 
 int wcd_mkdir(char *buf)
 {
-	BOOL err;
+   BOOL err;
+#ifdef WCD_UTF8
+   static wchar_t wstr[DD_MAXPATH];
 
-	err = CreateDirectory(buf, NULL);
+   if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
+      err = FALSE;
+   else
+      err = CreateDirectoryW(wstr, NULL);
+#else
+   err = CreateDirectory(buf, NULL);
+#endif
 
-	if (err == TRUE)
-		return(0);  /* success */
-	else
-		return(1);  /* fail */
+   if (err == TRUE)
+      return(0);  /* success */
+   else
+      return(1);  /* fail */
 }
 
 int wcd_rmdir(char *buf)
 {
-	BOOL err;
+   BOOL err;
+#ifdef WCD_UTF8
+   static wchar_t wstr[DD_MAXPATH];
 
-	err = RemoveDirectory(buf);
+   if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
+      err = FALSE;
+   else
+      err = RemoveDirectoryW(wstr);
+#else
+   err = RemoveDirectory(buf);
+#endif
 
-	if (err == TRUE)
-		return(0);  /* success */
-	else
-		return(1);  /* fail */
+   if (err == TRUE)
+      return(0);  /* success */
+   else
+      return(1);  /* fail */
 }
 
 /******************************************************************
@@ -304,14 +340,14 @@ int wcd_isdir(char *dir)
 
 int wcd_mkdir(char *buf, mode_t m)
 {
-	return(mkdir(buf, m));
+   return(mkdir(buf, m));
 }
 
 #else
 
 int wcd_mkdir(char *buf)
 {
-	return(mkdir(buf));
+   return(mkdir(buf));
 }
 
 #endif
@@ -323,12 +359,12 @@ char *wcd_getcwd(char *buf, int size)
 
 int wcd_chdir(char *buf)
 {
-	return(chdir(buf)); 
+   return(chdir(buf)); 
 }
 
 int wcd_rmdir(char *buf)
 {
-	return(rmdir(buf)); 
+   return(rmdir(buf)); 
 }
 
 /******************************************************************

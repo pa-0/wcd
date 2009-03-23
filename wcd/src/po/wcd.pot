@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-23 14:50+0100\n"
+"POT-Creation-Date: 2009-03-23 20:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: wcd.c:137 wcd.c:382 wcd.c:931 wcd.c:1681 wcd.c:1701 wcd.c:1792 wcd.c:2394
+#: wcd.c:137 wcd.c:382 wcd.c:931 wcd.c:1683 wcd.c:1703 wcd.c:1794 wcd.c:2396
 #: stack.c:215
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
@@ -61,7 +61,7 @@ msgid ""
 "Wcd: Set TEMP environment variable if this is a read-only disk.\n"
 msgstr ""
 
-#: wcd.c:1005 wcd.c:1784
+#: wcd.c:1005 wcd.c:1786
 #, c-format
 msgid "Wcd: error: Permission denied to create directory %s\n"
 msgstr ""
@@ -184,155 +184,155 @@ msgstr ""
 msgid "This version is for Windows PowerShell!\n"
 msgstr ""
 
-#: wcd.c:1595 wcd.c:1621
+#: wcd.c:1595 wcd.c:1623
 #, c-format
 msgid "This version is for win32 port of ZSH!\n"
 msgstr ""
 
-#: wcd.c:1598 wcd.c:1615
+#: wcd.c:1598 wcd.c:1617
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr ""
 
-#: wcd.c:1607 wcd.c:2200
+#: wcd.c:1609 wcd.c:2202
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
 
-#: wcd.c:1608
+#: wcd.c:1610
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
 "\n"
 msgstr ""
 
-#: wcd.c:1610
+#: wcd.c:1612
 #, c-format
 msgid "Win32 console version.\n"
 msgstr ""
 
-#: wcd.c:1612
+#: wcd.c:1614
 #, c-format
 msgid "DOS 32 bit version.\n"
 msgstr ""
 
-#: wcd.c:1618
+#: wcd.c:1620
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr ""
 
-#: wcd.c:1624
+#: wcd.c:1626
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr ""
 
-#: wcd.c:1626
+#: wcd.c:1628
 #, c-format
 msgid "Interface: "
 msgstr ""
 
-#: wcd.c:1628
+#: wcd.c:1630
 #, c-format
 msgid "conio\n"
 msgstr ""
 
-#: wcd.c:1632
+#: wcd.c:1634
 #, c-format
 msgid "ncurses version %s\n"
 msgstr ""
 
-#: wcd.c:1635
+#: wcd.c:1637
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr ""
 
-#: wcd.c:1637
+#: wcd.c:1639
 #, c-format
 msgid "curses\n"
 msgstr ""
 
-#: wcd.c:1641
+#: wcd.c:1643
 #, c-format
 msgid "stdout\n"
 msgstr ""
 
-#: wcd.c:1645
+#: wcd.c:1647
 #, c-format
 msgid "Native language support included.\n"
 msgstr ""
 
-#: wcd.c:1646
+#: wcd.c:1648
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr ""
 
-#: wcd.c:1648
+#: wcd.c:1650
 #, c-format
 msgid "No native language support included.\n"
 msgstr ""
 
-#: wcd.c:1651
+#: wcd.c:1653
 #, c-format
 msgid "With UTF-8 support.\n"
 msgstr ""
 
-#: wcd.c:1652
+#: wcd.c:1654
 #, c-format
 msgid "  Euro symbol: "
 msgstr ""
 
-#: wcd.c:1655
+#: wcd.c:1657
 #, c-format
 msgid "  Chinese characters: "
 msgstr ""
 
-#: wcd.c:1659
+#: wcd.c:1661
 #, c-format
 msgid "Without UTF-8 support.\n"
 msgstr ""
 
-#: wcd.c:1662
+#: wcd.c:1664
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr ""
 
-#: wcd.c:1663
+#: wcd.c:1665
 #, c-format
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr ""
 
-#: wcd.c:1786
+#: wcd.c:1788
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr ""
 
-#: wcd.c:1946
+#: wcd.c:1948
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 
-#: wcd.c:1978 wcd.c:2032
+#: wcd.c:1980 wcd.c:2034
 #, c-format
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2003 wcd.c:2025
+#: wcd.c:2005 wcd.c:2027
 #, c-format
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 
-#: wcd.c:2088 wcd.c:2492 wcd.c:2509
+#: wcd.c:2090 wcd.c:2494 wcd.c:2511
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2196
+#: wcd.c:2198
 #, c-format
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 
-#: wcd.c:2201
+#: wcd.c:2203
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -364,54 +364,54 @@ msgid ""
 "Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
 msgstr ""
 
-#: wcd.c:2401
+#: wcd.c:2403
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr ""
 
-#: wcd.c:2636
+#: wcd.c:2638
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr ""
 
-#: wcd.c:2638
+#: wcd.c:2640
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr ""
 
-#: wcd.c:2640
+#: wcd.c:2642
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr ""
 
-#: wcd.c:2891
+#: wcd.c:2893
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 
-#: wcd.c:3046
+#: wcd.c:3048
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr ""
 
-#: wcddir.c:88
+#: wcddir.c:92
 #, c-format
 msgid "Wcd: Error %lu (\"%s\") reported by \"%s\".\n"
 msgstr ""
 
-#: wcddir.c:111
+#: wcddir.c:115
 #, c-format
 msgid "Wcd: access denied.\n"
 msgstr ""
 
-#: wcddir.c:192
+#: wcddir.c:196
 #, c-format
 msgid "Wcd: Searching for shared directories on server %s\n"
 msgstr ""
 
-#: wcddir.c:204
+#: wcddir.c:208
 #, c-format
 msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr ""

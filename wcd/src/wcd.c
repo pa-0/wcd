@@ -1602,7 +1602,9 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
 
 void print_version(char *localedir)
 {
+#ifdef WCD_UTF8
    char tmp[8];      /* tmp string buffer */
+#endif
 
    printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
    printf(_("Chdir for Dos and Unix.\n\n"));
