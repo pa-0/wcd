@@ -3,6 +3,8 @@
   - Resolved a few signedness issues.
   - Update manual page.
   - Option -l takes alias directly: wcd -l <alias> (thanks to Jari Aalto)
+  - Switched options -v and -V. -v is now verbose and -V is verion info. (thanks to Jari Aalto)
+  - Changed option -Q to -q (quiet operation).
   - In match list key 'z' does page down (like less) (thanks to Jari Aalto).
   - Improvements manual page (thanks to Jari Aalto)
     o) The URLs are too long for nroff. Those are now fixed with correct formatting code

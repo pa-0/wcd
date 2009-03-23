@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-16 19:12+0100\n"
+"POT-Creation-Date: 2009-03-23 14:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: wcd.c:137 wcd.c:382 wcd.c:931 wcd.c:1619 wcd.c:1639 wcd.c:1730 wcd.c:2389
+#: wcd.c:137 wcd.c:382 wcd.c:931 wcd.c:1681 wcd.c:1701 wcd.c:1792 wcd.c:2394
 #: stack.c:215
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
@@ -61,7 +61,7 @@ msgid ""
 "Wcd: Set TEMP environment variable if this is a read-only disk.\n"
 msgstr ""
 
-#: wcd.c:1005 wcd.c:1722
+#: wcd.c:1005 wcd.c:1784
 #, c-format
 msgid "Wcd: error: Permission denied to create directory %s\n"
 msgstr ""
@@ -115,7 +115,7 @@ msgid ""
 "Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n"
 "       [-f <treefile>] [-g[a|d]] [-G <path>] [-h] [-i] [-j] [-k] [-l "
 "<alias>]\n"
-"       [-[m|M] <dir>] [-n <path>] [-N] [-o[d]] [-Q] [-[r|rmtree] <dir>] [-"
+"       [-[m|M] <dir>] [-n <path>] [-N] [-o[d]] [-q] [-[r|rmtree] <dir>] [-"
 "s]\n"
 "       [-S <path>] [-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>]\n"
 "       [-z #] [-[#]] [+[#]] [=] [drive:][dir]\n"
@@ -163,7 +163,7 @@ msgid ""
 "  -N      use Numbers\n"
 "  -o      use stdOut\n"
 "  -od     dump matches\n"
-"  -Q      Quieter operation\n"
+"  -q      Quieter operation\n"
 "  -r      Remove <dir>\n"
 "  -rmtree Remove <dir> recursive\n"
 "  -s      Scan disk from $HOME\n"
@@ -171,8 +171,8 @@ msgid ""
 "  +S      Scan disk from <path>, create relative treefile\n"
 "  -u      use <user> treefile\n"
 "  +u      add <user> treefile\n"
-"  -v      print Version info\n"
-"  -V      Verbose operation\n"
+"  -v      Verbose operation\n"
+"  -V      print Version info\n"
 "  -w      Wild matching only\n"
 "  -x      eXclude <path> during disk scan\n"
 "  -xf     eXclude paths from <file>\n"
@@ -184,159 +184,159 @@ msgstr ""
 msgid "This version is for Windows PowerShell!\n"
 msgstr ""
 
-#: wcd.c:1595 wcd.c:2131
+#: wcd.c:1595 wcd.c:1621
 #, c-format
 msgid "This version is for win32 port of ZSH!\n"
 msgstr ""
 
-#: wcd.c:1598 wcd.c:2125
+#: wcd.c:1598 wcd.c:1615
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr ""
 
-#: wcd.c:1724
-#, c-format
-msgid "Wcd: creating directory %s\n"
-msgstr ""
-
-#: wcd.c:1884
-#, c-format
-msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
-msgstr ""
-
-#: wcd.c:1916 wcd.c:1970
-#, c-format
-msgid ""
-"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
-msgstr ""
-
-#: wcd.c:1941 wcd.c:1963
-#, c-format
-msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
-msgstr ""
-
-#: wcd.c:2026 wcd.c:2487 wcd.c:2504
-#, c-format
-msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
-msgstr ""
-
-#: wcd.c:2117 wcd.c:2194
+#: wcd.c:1607 wcd.c:2200
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
 
-#: wcd.c:2118
+#: wcd.c:1608
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
 "\n"
 msgstr ""
 
-#: wcd.c:2120
+#: wcd.c:1610
 #, c-format
 msgid "Win32 console version.\n"
 msgstr ""
 
-#: wcd.c:2122
+#: wcd.c:1612
 #, c-format
 msgid "DOS 32 bit version.\n"
 msgstr ""
 
-#: wcd.c:2128
+#: wcd.c:1618
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr ""
 
-#: wcd.c:2134
+#: wcd.c:1624
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr ""
 
-#: wcd.c:2136
+#: wcd.c:1626
 #, c-format
 msgid "Interface: "
 msgstr ""
 
-#: wcd.c:2138
+#: wcd.c:1628
 #, c-format
 msgid "conio\n"
 msgstr ""
 
-#: wcd.c:2142
+#: wcd.c:1632
 #, c-format
 msgid "ncurses version %s\n"
 msgstr ""
 
-#: wcd.c:2145
+#: wcd.c:1635
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr ""
 
-#: wcd.c:2147
+#: wcd.c:1637
 #, c-format
 msgid "curses\n"
 msgstr ""
 
-#: wcd.c:2151
+#: wcd.c:1641
 #, c-format
 msgid "stdout\n"
 msgstr ""
 
-#: wcd.c:2155
+#: wcd.c:1645
 #, c-format
 msgid "Native language support included.\n"
 msgstr ""
 
-#: wcd.c:2156
+#: wcd.c:1646
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr ""
 
-#: wcd.c:2158
+#: wcd.c:1648
 #, c-format
 msgid "No native language support included.\n"
 msgstr ""
 
-#: wcd.c:2161
+#: wcd.c:1651
 #, c-format
 msgid "With UTF-8 support.\n"
 msgstr ""
 
-#: wcd.c:2162
+#: wcd.c:1652
 #, c-format
 msgid "  Euro symbol: "
 msgstr ""
 
-#: wcd.c:2165
+#: wcd.c:1655
 #, c-format
 msgid "  Chinese characters: "
 msgstr ""
 
-#: wcd.c:2169
+#: wcd.c:1659
 #, c-format
 msgid "Without UTF-8 support.\n"
 msgstr ""
 
-#: wcd.c:2172
+#: wcd.c:1662
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr ""
 
-#: wcd.c:2173
+#: wcd.c:1663
 #, c-format
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr ""
 
-#: wcd.c:2190
+#: wcd.c:1786
+#, c-format
+msgid "Wcd: creating directory %s\n"
+msgstr ""
+
+#: wcd.c:1946
+#, c-format
+msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
+msgstr ""
+
+#: wcd.c:1978 wcd.c:2032
+#, c-format
+msgid ""
+"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
+msgstr ""
+
+#: wcd.c:2003 wcd.c:2025
+#, c-format
+msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
+msgstr ""
+
+#: wcd.c:2088 wcd.c:2492 wcd.c:2509
+#, c-format
+msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
+msgstr ""
+
+#: wcd.c:2196
 #, c-format
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 
-#: wcd.c:2195
+#: wcd.c:2201
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
-"Copyright (C) 1997-2008 Erwin Waterlander\n"
+"Copyright (C) 1997-2009 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
 "Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo "
@@ -364,34 +364,34 @@ msgid ""
 "Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
 msgstr ""
 
-#: wcd.c:2396
+#: wcd.c:2401
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr ""
 
-#: wcd.c:2631
+#: wcd.c:2636
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr ""
 
-#: wcd.c:2633
+#: wcd.c:2638
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr ""
 
-#: wcd.c:2635
+#: wcd.c:2640
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr ""
 
-#: wcd.c:2886
+#: wcd.c:2891
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 
-#: wcd.c:3041
+#: wcd.c:3046
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr ""

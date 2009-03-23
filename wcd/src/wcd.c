@@ -1526,13 +1526,13 @@ int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdSta
  *                 Print help
  *
  ********************************************************************/
-void printhelp()
+void print_help()
 {
         printf(_("\
 wcd  %s  (%s) - Wherever Change Directory\n\
 Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
        [-f <treefile>] [-g[a|d]] [-G <path>] [-h] [-i] [-j] [-k] [-l <alias>]\n\
-       [-[m|M] <dir>] [-n <path>] [-N] [-o[d]] [-Q] [-[r|rmtree] <dir>] [-s]\n\
+       [-[m|M] <dir>] [-n <path>] [-N] [-o[d]] [-q] [-[r|rmtree] <dir>] [-s]\n\
        [-S <path>] [-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>]\n\
        [-z #] [-[#]] [+[#]] [=] [drive:][dir]\n\
 \n\
@@ -1574,7 +1574,7 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
   -N      use Numbers\n\
   -o      use stdOut\n\
   -od     dump matches\n\
-  -Q      Quieter operation\n\
+  -q      Quieter operation\n\
   -r      Remove <dir>\n\
   -rmtree Remove <dir> recursive\n\
   -s      Scan disk from $HOME\n\
@@ -1582,8 +1582,8 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
   +S      Scan disk from <path>, create relative treefile\n\
   -u      use <user> treefile\n\
   +u      add <user> treefile\n\
-  -v      print Version info\n\
-  -V      Verbose operation\n\
+  -v      Verbose operation\n\
+  -V      print Version info\n\
   -w      Wild matching only\n\
   -x      eXclude <path> during disk scan\n\
   -xf     eXclude paths from <file>\n\
@@ -1600,6 +1600,68 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
 
 }
 
+void print_version(char *localedir)
+{
+   char tmp[8];      /* tmp string buffer */
+
+   printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
+   printf(_("Chdir for Dos and Unix.\n\n"));
+#ifdef WIN32
+   printf(_("Win32 console version.\n"));
+#elif defined(MSDOS) && defined(__FLAT__)
+   printf(_("DOS 32 bit version.\n"));
+#endif
+#ifdef WCD_DOSBASH
+   printf(_("This version is for DJGPP DOS bash.\n"));
+#endif
+#ifdef WCD_OS2BASH
+   printf(_("This version is for OS/2 bash.\n"));
+#endif
+#ifdef WCD_WINZSH
+   printf(_("This version is for win32 port of ZSH!\n"));
+#endif
+#ifdef WCD_WINPWRSH
+   printf(_("This version is for Windows PowerShell.\n"));
+#endif
+   printf(_("Interface: "));
+#ifdef WCD_USECONIO
+   printf(_("conio\n"));
+#else
+# ifdef WCD_USECURSES
+#  ifdef NCURSES_VERSION
+   printf(_("ncurses version %s\n"),NCURSES_VERSION);
+#  else
+#   ifdef __PDCURSES__
+   printf(_("PDCurses build %d\n"),PDC_BUILD);
+#   else
+   printf(_("curses\n"));
+#   endif
+#  endif
+# else
+   printf(_("stdout\n"));
+# endif
+#endif
+#ifdef ENABLE_NLS
+   printf(_("Native language support included.\n"));
+   printf(_("LOCALEDIR=%s\n"),localedir);
+#else
+   printf(_("No native language support included.\n"));
+#endif
+#ifdef WCD_UTF8
+   printf(_("With UTF-8 support.\n"));
+   printf(_("  Euro symbol: "));
+   strcpy(tmp,"\u20AC");
+   printf ("%s\n",tmp);
+   printf(_("  Chinese characters: "));
+   strcpy(tmp,"\u4e2d\u6587");
+   printf ("%s\n",tmp);
+#else
+   printf(_("Without UTF-8 support.\n"));
+#endif
+   printf("\n");
+   printf(_("Download the latest executables and sources from:\n"));
+   printf(_("http://www.xs4all.nl/~waterlan/\n"));
+}
 /********************************************************************
  *
  *             empty wcd.go file
@@ -2107,70 +2169,14 @@ int main(int argc,char** argv)
             break;
          case 'l':
             break;
-         case 'V':
+         case 'v':
             verbose = 1;
             break;
-         case 'Q':
+         case 'q':
             quieter = 1;
             break;
-         case 'v':
-            printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
-            printf(_("Chdir for Dos and Unix.\n\n"));
-#ifdef WIN32
-               printf(_("Win32 console version.\n"));
-#elif defined(MSDOS) && defined(__FLAT__)
-               printf(_("DOS 32 bit version.\n"));
-#endif
-#ifdef WCD_DOSBASH
-               printf(_("This version is for DJGPP DOS bash.\n"));
-#endif
-#ifdef WCD_OS2BASH
-               printf(_("This version is for OS/2 bash.\n"));
-#endif
-#ifdef WCD_WINZSH
-               printf(_("This version is for win32 port of ZSH!\n"));
-#endif
-#ifdef WCD_WINPWRSH
-               printf(_("This version is for Windows PowerShell.\n"));
-#endif
-            printf(_("Interface: "));
-#ifdef WCD_USECONIO
-            printf(_("conio\n"));
-#else
-# ifdef WCD_USECURSES
-#  ifdef NCURSES_VERSION
-            printf(_("ncurses version %s\n"),NCURSES_VERSION);
-#  else
-#   ifdef __PDCURSES__
-            printf(_("PDCurses build %d\n"),PDC_BUILD);
-#   else
-            printf(_("curses\n"));
-#   endif
-#  endif
-# else
-            printf(_("stdout\n"));
-# endif
-#endif
-#ifdef ENABLE_NLS
-            printf(_("Native language support included.\n"));
-            printf(_("LOCALEDIR=%s\n"),localedir);
-#else
-            printf(_("No native language support included.\n"));
-#endif
-#ifdef WCD_UTF8
-            printf(_("With UTF-8 support.\n"));
-            printf(_("  Euro symbol: "));
-            strcpy(tmp,"\u20AC");
-            printf ("%s\n",tmp);
-            printf(_("  Chinese characters: "));
-            strcpy(tmp,"\u4e2d\u6587");
-            printf ("%s\n",tmp);
-#else
-            printf(_("Without UTF-8 support.\n"));
-#endif
-            printf("\n");
-            printf(_("Download the latest executables and sources from:\n"));
-            printf(_("http://www.xs4all.nl/~waterlan/\n"));
+         case 'V':
+	    print_version(localedir);
 
 #if defined(UNIX) || defined(WIN32) || defined(OS2)       /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
@@ -2194,7 +2200,7 @@ int main(int argc,char** argv)
         printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
         printf(_("\
 Chdir for Dos and Unix.\n\
-Copyright (C) 1997-2008 Erwin Waterlander\n\
+Copyright (C) 1997-2009 Erwin Waterlander\n\
 Copyright (C) 1994-2002 Ondrej Popp on C3PO\n\
 Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n\
 Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n\
@@ -2235,7 +2241,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
          case 'f':
          case 'z':
          case 'n':
-         case 'q':
             break;
          case 'G':
 #if (defined(UNIX) || defined(WIN32) || defined(WCD_DOSBASH) || defined(OS2))
@@ -2278,7 +2283,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
             break;
 #endif
          default:               /* any switch except the above */
-            printhelp();
+            print_help();
 
 #if defined(UNIX) || defined(WIN32) || defined(OS2)     /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
