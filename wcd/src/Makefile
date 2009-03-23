@@ -46,8 +46,13 @@ MOFILES = $(patsubst %.po,%.mo,$(POFILES))
 DOCFILES = ../doc/${PACKAGE}.txt ../doc/${PACKAGE}.ps ../doc/${PACKAGE}.pdf
 
 VERSIONSUFFIX = -bin
+ifdef WCD_UTF8 
+ZIPFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-utf8.zip
+TGZFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-utf8.tar.gz
+else
 ZIPFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}.zip
 TGZFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}.tar.gz
+endif
 
 OBJS1	= \
 	nameset.o \
