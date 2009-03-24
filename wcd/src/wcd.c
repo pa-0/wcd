@@ -2284,6 +2284,29 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
          case 'd':
             break;
 #endif
+	 case '-':  /* long option */
+	    if (strcmp(argv[i]+2,"version") == 0) {
+               print_version(localedir);
+#if defined(UNIX) || defined(WIN32) || defined(OS2)     /* empty wcd.go file */
+               empty_wcdgo(go_file,use_GoScript);
+#endif
+#ifdef WCD_DOSBASH       /* empty wcd.go file */
+               empty_wcdgo(go_file,0,drive,use_GoScript);
+#endif
+               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+	    } else if (strcmp(argv[i]+2,"verbose") == 0) {
+               verbose = 1;
+	    } else {
+               print_help();
+#if defined(UNIX) || defined(WIN32) || defined(OS2)     /* empty wcd.go file */
+               empty_wcdgo(go_file,use_GoScript);
+#endif
+#ifdef WCD_DOSBASH       /* empty wcd.go file */
+               empty_wcdgo(go_file,0,drive,use_GoScript);
+#endif
+               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+	    }
+	    break;
          default:               /* any switch except the above */
             print_help();
 
