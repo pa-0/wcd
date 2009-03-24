@@ -1,12 +1,13 @@
-5.0.0 beta3 Mar 16 2009
-  - UTF-8 Unicode support.
+5.0.0 beta4 Mar 23 2009
+  - UTF-8 Unicode support for Unix/Linux.
   - Resolved a few signedness issues.
   - Update manual page.
   - Option -l takes alias directly: wcd -l <alias> (thanks to Jari Aalto)
-  - Swapped options -v and -V. (thanks to Jari Aalto)
-    -v is now verbose and -V is verion info. This seems to be more
-    commonly in use by GNU programs.
-  - Changed option -Q to -q (quiet operation).
+  - Swapped command line options -v and -V. (thanks to Jari Aalto)
+    Option -v is now verbose and -V is verion info. This is more
+    common practice in GNU programs.
+  - Added GNU standard long command line options --help, --version and --verbose.
+  - Changed option for quiet operation from -Q to -q (GNU common practice).
   - In match list key 'z' does page down (like less) (thanks to Jari Aalto).
   - Improvements manual page (thanks to Jari Aalto)
     o) The URLs are too long for nroff. Those are now fixed with correct formatting code

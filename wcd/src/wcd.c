@@ -1540,54 +1540,54 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
           Wildcards *, ? and [SET] are supported!\n\n"),VERSION,VERSION_DATE);
 
   printf(_("options:\n\
-  -       Push dir (# times)\n\
-  +       Pop dir (# times)\n\
-  =       Show stack\n\
-  -a      Add current path to treefile\n\
-  -aa     Add current and all parent paths to treefile\n\
-  -A      Add tree from <path>\n\
-  -b      Ban current path\n\
-  -c      direct CD mode\n\
-  -d      set <drive> for stack & go files (DOS)\n\
-  -e      add current path to Extra treefile\n\
-  -ee     add current and all parent paths to Extra treefile\n\
-  -E      add tree from <path> to Extra treefile\n\
-  -f      use extra treeFile\n\
-  +f      add extra treeFile\n\
-  -g      Graphics\n\
-  -ga     Graphics, alternative navigation\n\
-  -gd     Graphics, dump tree\n\
-  -G      set path Go-script\n\
-  -GN     No Go-script\n\
-  -h      show this Help\n\
-  -i      Ignore case\n\
-  +i      Regard case\n\
-  -j      Just go mode\n\
-  -K      Colors\n\
-  -k      Keep paths\n\
-  -l      aLias current directory\n\
-  -L      print software License\n\
-  -m      Make <dir>, add to treefile\n\
-  -M      Make <dir>, add to extra treefile\n\
-  -n      use relative treefile in <path>\n\
-  +n      add relative treefile in <path>\n\
-  -N      use Numbers\n\
-  -o      use stdOut\n\
-  -od     dump matches\n\
-  -q      Quieter operation\n\
-  -r      Remove <dir>\n\
-  -rmtree Remove <dir> recursive\n\
-  -s      Scan disk from $HOME\n\
-  -S      Scan disk from <path>\n\
-  +S      Scan disk from <path>, create relative treefile\n\
-  -u      use <user> treefile\n\
-  +u      add <user> treefile\n\
-  -v      Verbose operation\n\
-  -V      print Version info\n\
-  -w      Wild matching only\n\
-  -x      eXclude <path> during disk scan\n\
-  -xf     eXclude paths from <file>\n\
-  -z      set max stack siZe\n"));
+  -              Push dir (# times)\n\
+  +              Pop dir (# times)\n\
+  =              Show stack\n\
+  -a             Add current path to treefile\n\
+  -aa            Add current and all parent paths to treefile\n\
+  -A             Add tree from <path>\n\
+  -b             Ban current path\n\
+  -c             direct CD mode\n\
+  -d             set <drive> for stack & go files (DOS)\n\
+  -e             add current path to Extra treefile\n\
+  -ee            add current and all parent paths to Extra treefile\n\
+  -E             add tree from <path> to Extra treefile\n\
+  -f             use extra treeFile\n\
+  +f             add extra treeFile\n\
+  -g             Graphics\n\
+  -ga            Graphics, alternative navigation\n\
+  -gd            Graphics, dump tree\n\
+  -G             set path Go-script\n\
+  -GN            No Go-script\n\
+  -h, --help     show this Help\n\
+  -i             Ignore case\n\
+  +i             Regard case\n\
+  -j             Just go mode\n\
+  -K             Colors\n\
+  -k             Keep paths\n\
+  -l             aLias current directory\n\
+  -L             print software License\n\
+  -m             Make <dir>, add to treefile\n\
+  -M             Make <dir>, add to extra treefile\n\
+  -n             use relative treefile in <path>\n\
+  +n             add relative treefile in <path>\n\
+  -N             use Numbers\n\
+  -o             use stdOut\n\
+  -od            dump matches\n\
+  -q             Quieter operation\n\
+  -r             Remove <dir>\n\
+  -rmtree        Remove <dir> recursive\n\
+  -s             Scan disk from $HOME\n\
+  -S             Scan disk from <path>\n\
+  +S             Scan disk from <path>, create relative treefile\n\
+  -u             use <user> treefile\n\
+  +u             add <user> treefile\n\
+  -v, --verbose  Verbose operation\n\
+  -V, --version  print Version info\n\
+  -w             Wild matching only\n\
+  -x             eXclude <path> during disk scan\n\
+  -xf            eXclude paths from <file>\n\
+  -z             set max stack siZe\n"));
 #ifdef WCD_WINPWRSH
    printf(_("This version is for Windows PowerShell!\n"));
 #endif
