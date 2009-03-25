@@ -17,6 +17,7 @@ faq.txt                      : Frequently Asked Questions.
 translate.txt                : How to translate wcd.
 copying.txt                  : distribution license.
 problems.txt                 : Known problems.
+todo.txt                     : Things to do.
 
 
 ======================================================================
