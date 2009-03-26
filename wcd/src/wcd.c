@@ -1540,9 +1540,6 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
           Wildcards *, ? and [SET] are supported!\n\n"),VERSION,VERSION_DATE);
 
   printf(_("options:\n\
-  -              Push dir (# times)\n\
-  +              Pop dir (# times)\n\
-  =              Show stack\n\
   -a             Add current path to treefile\n\
   -aa            Add current and all parent paths to treefile\n\
   -A             Add tree from <path>\n\
@@ -1587,7 +1584,10 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
   -w             Wild matching only\n\
   -x             eXclude <path> during disk scan\n\
   -xf            eXclude paths from <file>\n\
-  -z             set max stack siZe\n"));
+  -z             set max stack siZe\n\
+  -              Push dir (# times)\n\
+  +              Pop dir (# times)\n\
+  =              Show stack\n"));
 #ifdef WCD_WINPWRSH
    printf(_("This version is for Windows PowerShell!\n"));
 #endif
