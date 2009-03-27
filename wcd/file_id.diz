@@ -16,12 +16,11 @@ what has been typed, but the use of wildcards is also fully supported.
 * Alias directories.
 * Ban directories.
 * Exclude directories.
-* 'cd' behaviour
 * Free portable source-code.
 * Multi platform: DOS 16 bit, DOS 32 bit, DOS bash,
   Windows Command prompt, Windows PowerShell, Windows ZSH, MSYS,
   Cygwin bash, OS/2 Warp,
-  Unix/Linux all Bource and C type shells.
+  Unix/Linux all Bourne and C type shells.
 * Native language support: Dutch, English 
 * UTF-8 Unicode support.
 
