@@ -19,7 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #ifndef _WCD_GRAPHICS_H
 #define _WCD_GRAPHICS_H
 
-dirnode createRootNode();
+dirnode createRootNode(void);
 void buildTreeFromFile(char *filename, dirnode d);
 void buildTreeFromNameset(nameset set, dirnode d);
 void setXYTree(dirnode d);

@@ -108,7 +108,7 @@ void print_help(void);
 #ifdef ENABLE_NLS
 void print_version(char *localedir);
 #else
-void print_version();
+void print_version(void);
 #endif
 int  wcd_get_int(void);
 int wcd_getline(char s[], int lim, FILE* infile);
