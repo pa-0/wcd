@@ -104,7 +104,12 @@ int check_double_match(char *dir, nameset set);
 void scanfile(char *org_dir, char *filename, int ignore_case, nameset pm, nameset wm, nameset bd, nameset filter, int relative, int wildOnly);
 void scanaliasfile(char *org_dir, char *filename, nameset pm, nameset wm, int wildOnly);
 int  strcompare(const char*, const char*, int);
-void printhelp(void);
+void print_help(void);
+#ifdef ENABLE_NLS
+void print_version(char *localedir);
+#else
+void print_version();
+#endif
 int  wcd_get_int(void);
 int wcd_getline(char s[], int lim, FILE* infile);
 int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdStack ws, nameset excl);

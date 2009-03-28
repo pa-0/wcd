@@ -1600,7 +1600,11 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
 
 }
 
+#ifdef ENABLE_NLS
 void print_version(char *localedir)
+#else
+void print_version()
+#endif
 {
 #ifdef WCD_UTF8
    char tmp[8];      /* tmp string buffer */
@@ -2178,7 +2182,11 @@ int main(int argc,char** argv)
             quieter = 1;
             break;
          case 'V':
+#ifdef ENABLE_NLS
 	    print_version(localedir);
+#else
+	    print_version();
+#endif
 
 #if defined(UNIX) || defined(WIN32) || defined(OS2)       /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
@@ -2286,7 +2294,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
 #endif
 	 case '-':  /* long option */
 	    if (strcmp(argv[i]+2,"version") == 0) {
-               print_version(localedir);
+#ifdef ENABLE_NLS
+	            print_version(localedir);
+#else
+	            print_version();
+#endif
 #if defined(UNIX) || defined(WIN32) || defined(OS2)     /* empty wcd.go file */
                empty_wcdgo(go_file,use_GoScript);
 #endif
