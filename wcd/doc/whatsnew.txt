@@ -1,4 +1,4 @@
-5.0.0 beta4 Mar 23 2009
+5.0.0 Mar 28 2009
   - UTF-8 Unicode support for Unix/Linux.
   - Resolved a few signedness issues.
   - Update manual page.

@@ -146,6 +146,7 @@ msgstr ""
 "\n"
 
 #: wcd.c:1542
+#, c-format
 msgid ""
 "options:\n"
 "  -a             Add current path to treefile\n"
