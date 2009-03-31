@@ -43,6 +43,9 @@ TAB = 3 spaces
 #ifdef DJGPP
 # include <dir.h>
 #endif
+#ifdef WCD_UTF8
+# include <langinfo.h>
+#endif
 #include "dosdir.h"
 #include "match.h"
 #include "std_macr.h"
@@ -1606,10 +1609,6 @@ void print_version(char *localedir)
 void print_version()
 #endif
 {
-#ifdef WCD_UTF8
-   char tmp[8];      /* tmp string buffer */
-#endif
-
    printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
    printf(_("Chdir for Dos and Unix.\n\n"));
 #ifdef WIN32
@@ -1655,12 +1654,16 @@ void print_version()
 #endif
 #ifdef WCD_UTF8
    printf(_("With UTF-8 support.\n"));
-   printf(_("  Euro symbol: "));
-   strcpy(tmp,"\u20AC");
-   printf ("%s\n",tmp);
-   printf(_("  Chinese characters: "));
-   strcpy(tmp,"\u4e2d\u6587");
-   printf ("%s\n",tmp);
+   if (strcmp(nl_langinfo(CODESET), "UTF-8") == 0)
+   {
+      printf(_("  Current locale uses UTF-8 encoding.\n"));
+      printf(_("  Euro symbol: "));
+      printf ("\u20AC\n");
+      printf(_("  Chinese characters: "));
+      printf ("\u4e2d\u6587\n");
+   } else {
+      printf(_("  Current locale does not use UTF-8 encoding, but %s\n"),nl_langinfo(CODESET));
+   }
 #else
    printf(_("Without UTF-8 support.\n"));
 #endif

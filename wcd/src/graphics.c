@@ -55,7 +55,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "wfixpath.h"
 #include "match.h"
 #include "config.h"
+#ifdef WCD_USECURSES
 #include "colors.h"             /* add colors for the tree on MS platform */
+#endif
 
 # define WCD_SEL_ON 6           /* selection on/off codes */
 # define WCD_SEL_OFF 7
