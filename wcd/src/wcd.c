@@ -44,7 +44,11 @@ TAB = 3 spaces
 # include <dir.h>
 #endif
 #ifdef WCD_UTF8
+#ifdef WIN32
+# include "langinfo.h"
+#else
 # include <langinfo.h>
+#endif
 #endif
 #include "dosdir.h"
 #include "match.h"
@@ -2222,7 +2226,8 @@ Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n\
 Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n\
 Source code to scan Windows LAN was originally written and placed\n\
 in the public domain by Felix Kasza.\n\
-Markus Kuhn's free wcwidth() implementation is used in Wcd for Windows\n\
+Markus Kuhn's free wcwidth() and nl_langinfo() implementations are used\n\
+in Wcd for Windows\n\
 with UTF-8 Unicode support.\n\n\
 \
 This program is free software; you can redistribute it and/or\n\

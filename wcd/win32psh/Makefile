@@ -6,7 +6,7 @@ CFLAGS = -Ic3po -O3 -Wall
 LFLAGS = -lpdcurses -lintl -liconv -lkernel32 -luser32 -lmpr
 ifdef WCD_UTF8 
 DEFS   = -DMSDOS -DWCD_USECURSES -DWCD_WINPWRSH -DPDC_STATIC_BUILD -DPDC_WIDE
-EXTRA_OBJ=wcwidth.o
+EXTRA_OBJ=wcwidth.o langinfo.o
 else
 DEFS   = -DMSDOS -DWCD_USECURSES -DWCD_WINPWRSH -DPDC_STATIC_BUILD
 endif
