@@ -1,3 +1,9 @@
+5.0.1-beta1  Apr 17 2009
+	* src/wcd.c: Use nl_langinfo() to check for UTF-8 character encoding.
+	* src/Makefile: Use `install -D' instead of `mkdir' to create installation
+	  folders. Windows and OS/2 port of GNU mkdir (coreutils) has bug.
+	  See http://sourceforge.net/tracker/?func=detail&aid=2115584&group_id=23617&atid=379173
+
 5.0.0 Mar 28 2009
   - UTF-8 Unicode support for Unix/Linux.
   - Resolved a few signedness issues.

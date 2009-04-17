@@ -44,6 +44,9 @@ the gcc compiler.
 Coreutiles is needed for `install', `mkdir' and `mv'.
 install   : copy files and set their attributes (part of GNU `coreutils' package).
 
+For DJGPP compiler use package `fileutils' instead of `coreutils'. Coreutils is
+not (yet) available for DJGPP.
+
 DJGPP  : http://www.delorie.com/pub/djgpp/current/v2gnu/
 MINGW  : http://sourceforge.net/project/showfiles.php?group_id=2435
          coreutils under _MSYS Base System_

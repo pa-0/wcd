@@ -7,6 +7,7 @@ PREFIX=/usr/local
 #PREFIX=/usr
 
 MKDIR=mkdir
+INSTALL=install
 
 # if ncurses is not on a default place edit the two following
 # lines and uncomment them. Then run make.
@@ -111,26 +112,22 @@ docfiles : ${DOCFILES}
 	ps2pdf $< $@
 
 install : ${PROGRAM} ${MOFILES} ${DOCFILES}
-	${MKDIR} -p ${BINDIR}
-	install -m 755 ${PROGRAM} ${BINDIR}/${PROGRAM}
-	$(foreach mofile, ${MOFILES}, ${MKDIR} -p ${LOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES)
-	$(foreach mofile, ${MOFILES}, install -m 644 ${mofile} ${LOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo)
-	${MKDIR} -p ${MANDIR}/man1
-	install -m 644 man/man1/${PACKAGE}.1 ${MANDIR}/man1/${PACKAGE}.1
-	${MKDIR} -p ${DOCDIR}
-	install -m 644 ../doc/copying.txt "${DOCDIR}/copying.txt"
-	install -m 644 ../doc/faq.txt ${DOCDIR}/faq.txt
-	install -m 644 ../doc/wcd.txt ${DOCDIR}/wcd.txt
-	install -m 644 ../doc/wcd.ps ${DOCDIR}/wcd.ps
-	install -m 644 ../doc/wcd.pdf ${DOCDIR}/wcd.pdf
-	install -m 644 ../doc/whatsnew.txt ${DOCDIR}/whatsnew.txt
-	install -m 644 ../doc/INSTALL.dos_windows.intl.txt ${DOCDIR}/INSTALL.dos_windows.intl.txt
-	install -m 644 ../doc/INSTALL.unix.intl.txt ${DOCDIR}/INSTALL.unix.intl.txt
-	install -m 644 ../doc/INSTALL.os2.txt ${DOCDIR}/INSTALL.os2.txt
-	install -m 644 ../doc/INSTALL.rpm.txt ${DOCDIR}/INSTALL.rpm.txt
-	install -m 644 ../doc/README.txt ${DOCDIR}/README.txt
-	install -m 644 ../doc/problems.txt ${DOCDIR}/problems.txt
-	install -m 644 ../doc/translate.txt ${DOCDIR}/translate.txt
+	${INSTALL} -D -m 755 ${PROGRAM} ${BINDIR}/${PROGRAM}
+	$(foreach mofile, ${MOFILES}, ${INSTALL} -D -m 644 ${mofile} ${LOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo)
+	${INSTALL} -D -m 644 man/man1/${PACKAGE}.1 ${MANDIR}/man1/${PACKAGE}.1
+	${INSTALL} -D -m 644 ../doc/copying.txt "${DOCDIR}/copying.txt"
+	${INSTALL} -D -m 644 ../doc/faq.txt ${DOCDIR}/faq.txt
+	${INSTALL} -D -m 644 ../doc/wcd.txt ${DOCDIR}/wcd.txt
+	${INSTALL} -D -m 644 ../doc/wcd.ps ${DOCDIR}/wcd.ps
+	${INSTALL} -D -m 644 ../doc/wcd.pdf ${DOCDIR}/wcd.pdf
+	${INSTALL} -D -m 644 ../doc/whatsnew.txt ${DOCDIR}/whatsnew.txt
+	${INSTALL} -D -m 644 ../doc/INSTALL.dos_windows.intl.txt ${DOCDIR}/INSTALL.dos_windows.intl.txt
+	${INSTALL} -D -m 644 ../doc/INSTALL.unix.intl.txt ${DOCDIR}/INSTALL.unix.intl.txt
+	${INSTALL} -D -m 644 ../doc/INSTALL.os2.txt ${DOCDIR}/INSTALL.os2.txt
+	${INSTALL} -D -m 644 ../doc/INSTALL.rpm.txt ${DOCDIR}/INSTALL.rpm.txt
+	${INSTALL} -D -m 644 ../doc/README.txt ${DOCDIR}/README.txt
+	${INSTALL} -D -m 644 ../doc/problems.txt ${DOCDIR}/problems.txt
+	${INSTALL} -D -m 644 ../doc/translate.txt ${DOCDIR}/translate.txt
 
 uninstall :
 	-rm -f ${BINDIR}/${PROGRAM}
