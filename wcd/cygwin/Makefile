@@ -31,6 +31,12 @@ tgzpackage :
 strip:
 	${MAKE} -C ../src strip PROGRAM=${PROGRAM}
 
+docfiles :
+	${MAKE} -C ../src docfiles
+
+mofiles :
+	${MAKE} -C ../src mofiles
+
 clean :
 	${MAKE} -C ../src clean
 

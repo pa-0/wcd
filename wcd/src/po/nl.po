@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 4.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-14 23:31+0200\n"
+"POT-Creation-Date: 2009-04-20 22:12+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: wcd.c:144 wcd.c:389 wcd.c:938 wcd.c:1694 wcd.c:1714 wcd.c:1805 wcd.c:2439
+#: wcd.c:144 wcd.c:389 wcd.c:938 wcd.c:1694 wcd.c:1714 wcd.c:1805 wcd.c:2438
 #: stack.c:215
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
@@ -253,12 +253,12 @@ msgstr ""
 msgid "This version is for Windows PowerShell!\n"
 msgstr "Deze versie is voor Windows PowerShell!\n"
 
-#: wcd.c:1602 wcd.c:1630
+#: wcd.c:1602
 #, c-format
 msgid "This version is for win32 port of ZSH!\n"
 msgstr "Deze versie is voor win32 port van ZSH\n"
 
-#: wcd.c:1605 wcd.c:1624
+#: wcd.c:1605 wcd.c:1630
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Deze versie is voor DJGPP DOS bash.\n"
@@ -277,25 +277,29 @@ msgstr ""
 "Chdir voor Dos en Unix.\n"
 "\n"
 
-#: wcd.c:1619
+#: wcd.c:1620
+msgid "This version is for MSYS and win32 port of ZSH.\n"
+msgstr "Deze versie is voor MSYS en win32 port van ZSH.\n"
+
+#: wcd.c:1622
+#, c-format
+msgid "This version is for Windows PowerShell.\n"
+msgstr "Deze versie is voor Windows PowerShell.\n"
+
+#: wcd.c:1624
 #, c-format
 msgid "Win32 console version.\n"
 msgstr "Win32 console versie.\n"
 
-#: wcd.c:1621
+#: wcd.c:1627
 #, c-format
 msgid "DOS 32 bit version.\n"
 msgstr "DOS 32 bit versie.\n"
 
-#: wcd.c:1627
+#: wcd.c:1633
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Deze versie is voor OS/2 bash.\n"
-
-#: wcd.c:1633
-#, c-format
-msgid "This version is for Windows PowerShell.\n"
-msgstr "Deze versie is voor Windows PowerShell.\n"
 
 #: wcd.c:1635
 #, c-format
@@ -403,7 +407,7 @@ msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
 
-#: wcd.c:2101 wcd.c:2537 wcd.c:2554
+#: wcd.c:2101 wcd.c:2536 wcd.c:2553
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
@@ -430,8 +434,7 @@ msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
 "in the public domain by Felix Kasza.\n"
 "Markus Kuhn's free wcwidth() and nl_langinfo() implementations are used\n"
-"in Wcd for Windows\n"
-"with UTF-8 Unicode support.\n"
+"in Wcd for Windows with UTF-8 Unicode support.\n"
 "\n"
 "This program is free software; you can redistribute it and/or\n"
 "modify it under the terms of the GNU General Public License\n"
@@ -448,27 +451,27 @@ msgid ""
 "Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
 msgstr ""
 
-#: wcd.c:2446
+#: wcd.c:2445
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s toegevoegd aan aliasbestand %s\n"
 
-#: wcd.c:2681
+#: wcd.c:2680
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: verbannen {%s}\n"
 
-#: wcd.c:2683
+#: wcd.c:2682
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: uitsluiten {%s}\n"
 
-#: wcd.c:2685
+#: wcd.c:2684
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteren {%s}\n"
 
-#: wcd.c:2936
+#: wcd.c:2935
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -477,7 +480,7 @@ msgstr ""
 "Wcd: Geen map gevonden gelijk aan %s\n"
 "Wcd: Misschien moet u de schijf opnieuw aftasten of is het pad verbannen.\n"
 
-#: wcd.c:3091
+#: wcd.c:3090
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Kan niet veranderen naar %s\n"

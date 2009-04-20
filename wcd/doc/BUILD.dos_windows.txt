@@ -146,7 +146,7 @@ Conio version compiled with LCC does not work properly.
 Preferably compile stdout or pdcurses version.
 
 ----------------------------------------------
-Windows 32 bit zsh version.
+Windows 32 bit MSYS and zsh version.
 ----------------------------------------------
 
 Go to directory win32zsh.

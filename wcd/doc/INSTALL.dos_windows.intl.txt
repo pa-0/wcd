@@ -18,7 +18,7 @@ Contents
    - Win32 console
    - Windows VISTA
    - Windows PowerShell
-   - Z shell (zsh)
+   - MSYS (bash) and Z shell (zsh)
    - UNC support
  3 Cygwin (Windows 9x / NT) installation
 
@@ -229,13 +229,21 @@ Start a new PowerShell
 
 
 ......................................................................
-- Z shell (zsh)
+- MSYS (bash) and Z shell (zsh)
 
-A win32 port of zsh has been made by Amol Deshpande (http://www.xs4all.nl/~waterlan).
+MSYS, a contraction of "Minimal SYStem", is a Bourne Shell command line
+interpreter system. Offered as an alternative to Microsoft's cmd.exe, this
+provides a general purpose command line environment, which is particularly
+suited to use with MinGW, for porting of many Open Source applications to the
+MS-Windows platform. See also http://www.mingw.org/
+
+
+A native win32 port of Z shell has been made by Amol Deshpande.
+Download from http://www.xs4all.nl/~waterlan/
+
 
 It  is  required that environment variable HOME or WCDHOME is set.  A function
-must be defined
-(e.g. in $HOME/.zshenv) like this:
+must be defined like this:
 
 
 function wcd
@@ -244,7 +252,17 @@ function wcd
    . $HOME/wcd.go
 }
 
+MSYS bash: put this function e.g. in $HOME/.bashrc
+Z Shell  : put this function e.g. in $HOME/.zshenv
+
 Replace PREFIX with the prefix used during package installation.
+
+
+You have to start MSYS like this: msys.bat --norxvt , because the default rxvt
+terminal doesn't accept standard input from native win32 programs. See also
+http://www.nabble.com/Accepting-standard-input-from-MSYS-with-native-Win32-programs-td19432889.html
+You need a recent version of msys.bat that supports option --norxvt.
+
 ......................................................................
 
 - UNC support
@@ -276,7 +294,7 @@ Options -S, -A and -E can also work on servernames. For instance:
 will search for shared directories on the server and scan them all.
 
 
-The Windows PowerShell and ZSH version of wcd have full support of UNC paths.
+The Windows PowerShell and MSYS/ZSH version of wcd have full support of UNC paths.
 One can change directly to UNC paths, without mapping to a drive letter.
 
 ======================================================================

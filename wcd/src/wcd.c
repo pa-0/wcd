@@ -1616,7 +1616,13 @@ void print_version()
    printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
    printf(_("Chdir for Dos and Unix.\n\n"));
 #ifdef WIN32
+# ifdef WCD_WINZSH
+   printf(_("This version is for MSYS and win32 port of ZSH.\n"));
+# elif defined(WCD_WINPWRSH)
+   printf(_("This version is for Windows PowerShell.\n"));
+# else
    printf(_("Win32 console version.\n"));
+# endif
 #elif defined(MSDOS) && defined(__FLAT__)
    printf(_("DOS 32 bit version.\n"));
 #endif
@@ -1625,12 +1631,6 @@ void print_version()
 #endif
 #ifdef WCD_OS2BASH
    printf(_("This version is for OS/2 bash.\n"));
-#endif
-#ifdef WCD_WINZSH
-   printf(_("This version is for win32 port of ZSH!\n"));
-#endif
-#ifdef WCD_WINPWRSH
-   printf(_("This version is for Windows PowerShell.\n"));
 #endif
    printf(_("Interface: "));
 #ifdef WCD_USECONIO
@@ -2227,8 +2227,7 @@ Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n\
 Source code to scan Windows LAN was originally written and placed\n\
 in the public domain by Felix Kasza.\n\
 Markus Kuhn's free wcwidth() and nl_langinfo() implementations are used\n\
-in Wcd for Windows\n\
-with UTF-8 Unicode support.\n\n\
+in Wcd for Windows with UTF-8 Unicode support.\n\n\
 \
 This program is free software; you can redistribute it and/or\n\
 modify it under the terms of the GNU General Public License\n\

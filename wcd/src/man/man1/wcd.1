@@ -129,10 +129,10 @@ in one go by preceding the directory name with the drive name.
 
    wcd d:games
 
-The Windows versions (console, PowerShell, zsh, cygwin) support Windows SMB LAN
+The Windows versions (console, PowerShell, MSYS, zsh, cygwin) support Windows SMB LAN
 UNC paths without drive letter such as \\\\servername\\sharename. Wcd for
 windows console makes use of the \'pushd\' command to automatically map a UNC
-path to a drive letter. In windows PowerShell, zsh and Cygwin UNC paths are
+path to a drive letter. In windows PowerShell, MSYS, zsh and Cygwin UNC paths are
 fully supported. The current working directory can be a UNC path.
 
 Remark about 8 bit characters: Only the original equipment manufacturer (OEM)
@@ -663,7 +663,8 @@ function wcd
 }
 
 Replace <PREFIX> with the prefix used during package installation.
-Start a new shell
+Start a new shell. For DOS bash and Windows MSYS/ZSH the location
+of wcd.go is different. See section FILES (go-script).
 
 .TP 4
 .B C Shell (csh):
@@ -732,7 +733,7 @@ Wcd uses environment variable HOME to determine where to store its files. See
 also section FILES.  Environment variable WCDHOME overrides HOME. If both HOME
 and WCDHOME are set, WCDHOME will be used instead of HOME.
 
-For the Unix, Cygwin, Windows PowerShell and Windows ZSH version it is required
+For the Unix, Cygwin, Windows PowerShell and Windows MSYS/ZSH version it is required
 that HOME or WCDHOME is set. For the other versions of wcd the use of these
 variables is optional.
 
@@ -984,13 +985,13 @@ changed with the -d option.
 
 .TP 4
 .I go-script
-DOS BASH: c:\\wcd.go or %HOME%\\wcd.go
+DOS BASH: c:\\wcd.go or $HOME/wcd.go
 .br
 WIN32 CONSOLE: c:\\wcdgo.bat or %HOME%\\wcdgo.bat
 .br
 WINDOWS POWERSHELL: $env:HOME\\wcdgo.ps1
 .br
-WIN32 ZSH: %HOME%\\wcd.go
+WIN32 MSYS/ZSH: $HOME/wcd.go
 .br
 OS/2 CONSOLE: c:\\wcdgo.cmd or %HOME%\\wcdgo.cmd
 .br
