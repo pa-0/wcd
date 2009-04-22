@@ -1,10 +1,10 @@
 Summary: chdir for DOS and Unix
 Name: wcd
-Version: 5.0.0
+Version: 5.0.1
 Release: 1
-Copyright: GPL
+License: GPL
 Group: Applications/File
-Source: wcd-5.0.0-src.tar.gz
+Source: wcd-5.0.1-src.tar.gz
 URL: http://www.xs4all.nl/~waterlan/
 Packager: Erwin Waterlander <waterlan@xs4all.nl>
 
@@ -24,10 +24,10 @@ search.
 %setup
 
 %build
-cd src ; make PREFIX=/usr WCD_UTF8=1
+make -C src PREFIX=/usr WCD_UTF8=1
 
 %install
-cd src ; make install PREFIX=/usr
+make -C src install PREFIX=${RPM_BUILD_ROOT}/usr
 
 %post
 if ! /bin/grep "function wcd" /etc/bashrc > /dev/null ; then
@@ -39,7 +39,9 @@ if ! /bin/grep "function wcd" /etc/bashrc > /dev/null ; then
 fi
 
 %files
-%doc doc/README.txt doc/wcd.txt doc/wcd.ps doc/wcd.pdf doc/INSTALL.unix.intl.txt doc/INSTALL.rpm.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translate.txt
 /usr/bin/wcd.exe
 /usr/share/man/man1/wcd.1
+/usr/share/locale/nl/LC_MESSAGES/wcd.mo
+
+%doc doc/README.txt doc/wcd.txt doc/wcd.ps doc/wcd.pdf doc/INSTALL.unix.intl.txt doc/INSTALL.rpm.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translate.txt
 
