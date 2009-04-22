@@ -99,6 +99,8 @@ Define SHELL, pointing to sh.exe.
 
 Now you have a proper shell for GNU make.
 
+See also file problems.txt.
+
 
 PDCurses
 ========
