@@ -115,9 +115,6 @@ See also option -k.
 Wcd keeps a directory stack which is stored on disk. The stack has a default
 size of 10 and is cyclic. See options -z, -, + and =.
 
-Wcd supports 8 bit character sets on all systems, and has optional
-support for UTF-8 Unicode. See also section LOCALIZATION/UTF-8 UNICODE.
-
 In multi-user environments a very handy option -u can be used to
 change to directories of other users. See option -u.
 
@@ -135,10 +132,13 @@ windows console makes use of the \'pushd\' command to automatically map a UNC
 path to a drive letter. In windows PowerShell, MSYS, zsh and Cygwin UNC paths are
 fully supported. The current working directory can be a UNC path.
 
-Remark about 8 bit characters: Only the original equipment manufacturer (OEM)
-code page installed with Windows appears correctly in a command prompt window
-that uses Raster fonts. Other code pages appear correctly in full-screen mode
-or command prompt windows that use TrueType fonts.
+Wcd supports 8 bit character sets on all systems, and has optional
+support for UTF-8 Unicode. See also section LOCALIZATION/UTF-8 UNICODE.
+
+Remark about 8 bit characters on Windows: Only the original equipment
+manufacturer (OEM) code page installed with Windows appears correctly in a
+command prompt window that uses Raster fonts. Other code pages appear correctly
+in full-screen mode or command prompt windows that use TrueType fonts.
 
 .SH OPTIONS
 .TP
