@@ -40,7 +40,7 @@ fi
 
 %files
 /usr/bin/wcd.exe
-/usr/share/man/man1/wcd.1
+/usr/share/man/man1/wcd.*
 /usr/share/locale/nl/LC_MESSAGES/wcd.mo
 
 %doc doc/README.txt doc/wcd.txt doc/wcd.ps doc/wcd.pdf doc/INSTALL.unix.intl.txt doc/INSTALL.rpm.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translate.txt
