@@ -1,8 +1,8 @@
-5.0.1-beta2  Apr 22 2009
+5.0.1  May 2 2009
   - Fix RPM spec file.
   - Update manual w.r.t. MSYS.
   - Check environment for UTF-8 character encoding.
-  - problems.txt: Document problem during `gmake install' on Windos.
+  - problems.txt: Document problem during `gmake install' on Windows.
 
 5.0.0 Mar 28 2009
   - UTF-8 Unicode support for Unix/Linux.
