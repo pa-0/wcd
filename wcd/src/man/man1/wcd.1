@@ -836,10 +836,8 @@ export LANG=nl_BE            Dutch, Belgium
 .br
 export LANG=es_ES            Spanish, Spain
 .br
-export LANG=en_US.iso88591   English, USA, Latin-1 encoding (8 bit)
+export LANG=en_US.iso88591   English, USA, Latin-1 encoding
 
-In C shell use \'setenv\' instead of \'export\'. In DOS/Windows use the
-\'set\' command.
 
 For a complete list of language and country codes see the gettext manual:
 .br
@@ -914,9 +912,11 @@ over LC_COLLATE and LC_CTYPE.
 
 .TP 4
 .I UTF-8 UNICODE
-Wcd can support UTF-8 unicode on Unix/Linux and possibly Windows. To see if wcd was built
-with UTF-8 support type \'wcd -V\'.  You should see the euro symbol and
-Chinese characters (meaning: "Chinese").
+Wcd can support UTF-8 unicode on Unix/Linux and possibly Windows. To see if wcd
+was built with UTF-8 support type \'wcd -V\'.  If your locale character
+encoding setting is UTF-8 you should see the euro symbol and Chinese characters
+(meaning: "Chinese").  Other multi-byte character encodings should also work, but
+that has not been tested.
 
 In order to view UTF-8 characters your console/terminal also needs to support
 UTF-8. The xterm version that comes with XFree86 4.0 or higher includes UTF-8
