@@ -824,17 +824,22 @@ The primary language is selected with the environment variable LANG. The LANG
 variable consists out of several parts.  The first part is in small letters the
 language code. The second is optional and is the country code in capital
 letters, preceded with an underscore. There is also an optional third part:
-character set, preceded with a dot.
+character encoding, preceded with a dot.
 
-Examples:
+Examples (Bourne type shell):
 
-set LANG=nl        (Dutch)
+export LANG=nl               Dutch
 .br
-set LANG=nl_NL     (Dutch, The Netherlands)
+export LANG=nl_NL            Dutch, The Netherlands
 .br
-set LANG=nl_BE     (Dutch, Belgium)
+export LANG=nl_BE            Dutch, Belgium
 .br
-set LANG=es_ES     (Spanish, Spain)
+export LANG=es_ES            Spanish, Spain
+.br
+export LANG=en_US.iso88591   English, USA, Latin-1 encoding (8 bit)
+
+In C shell use \'setenv\' instead of \'export\'. In DOS/Windows use the
+\'set\' command.
 
 For a complete list of language and country codes see the gettext manual:
 .br
@@ -871,7 +876,7 @@ If you have installed wcd in a different directory than the default
 directory you may need to set the environment variable WCDLOCALEDIR
 to point to the locale directory.
 
-Example:
+Example (windows cmd):
 
 set WCDLOCALEDIR=c:/my_prefix/share/locale
 
@@ -889,9 +894,23 @@ LANG. If you make LC_COLLATE equal to "C" or "POSIX", locale sorting is
 turned off. For instance if you want Dutch language, but not Dutch
 sorting, you can do something like this:
 
-set LANG=nl_NL
+export LANG=nl_NL
 .br
-set LC_COLLATE=C
+export LC_COLLATE=C
+
+.TP 4
+.I LC_CTYPE
+With regard to character encoding Wcd will give preference to variable
+LC_CTYPE over LANG. For instance to set character encoding to UTF-8 the
+following environment setting can be done.
+
+export LC_CTYPE=en_US.UTF-8
+
+.TP 4
+.I LC_ALL
+All locale environment variables that start with LC_ are overruled by
+environment variable LC_ALL if it is defined. Wcd gives preference to LC_ALL
+over LC_COLLATE and LC_CTYPE.
 
 .TP 4
 .I UTF-8 UNICODE
@@ -913,11 +932,16 @@ A Windows console in unicode mode can be started with the command \'cmd /U\'.
 UTF-8 code page is activated with command \'chcp 65001\'. You need to set the
 font to True Type Lucida Console (not raster fonts). A problem for wcd is that
 batch scripts don't run anymore when code page 65001 has been activated. This
-is a blocker.
+is a blocker for Wcd.
 
 In Windows PowerShell you also need to activate code page 65001 and select a
-True Type font. Wcd UTF-8 support in Windows Powershell is experimental and
-may not work properly.
+True Type font. Set character encoding to UTF-8, for instance with:
+
+$env:LC_CTYPE="en_US.UTF-8"
+
+Wcd UTF-8 support in Windows Powershell is experimental and may not work
+properly. The default multi-byte character encoding in Windows is UTF-16
+instead of UTF-8.
 
 Wcd has been \'soft\' converted to UTF-8. In its core it still handles
 strings as 8 bit streams. See also
