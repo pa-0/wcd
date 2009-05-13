@@ -9,6 +9,10 @@ TO DO
   are not required.
 
 
+* Unicode matching with normalization.
+  See also http://en.wikipedia.org/wiki/Unicode_normalization
+
+
 * Matching with locale support.
 
   For instance an `e' should also match an `e' with accent (`é').
