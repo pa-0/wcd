@@ -1167,7 +1167,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
    int len, j;
 #ifdef WCD_UTF8
    static wchar_t wstr[DD_MAXPATH];
-   int width;
+   int width, c;
 #endif
 
    s = (wcd_char *)getTreeLine(getLastNodeInLevel(n,i),i,&i,curNode,false);
@@ -1211,7 +1211,24 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
       }
       else
       {
-         j = xoffset;
+	 c = 0; /* count characters with width > 0 from beginning of string. */
+	 j = 0;
+	 while ((j<len)&&(c<xoffset))
+	 {
+            switch(wstr[j])
+            {
+               case WCD_SEL_ON:
+                  break;
+               case WCD_SEL_OFF:
+                  break;
+               default:
+	          if (wcwidth(wstr[j]) != 0 )
+	             c++;
+            }
+	    j++; /* j advances over combining characters */
+	 }
+	 while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
+           j++;
          if (j<len)
             switch(wstr[j])
             {

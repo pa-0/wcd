@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2008 Erwin Waterlander
+Copyright (C) 1997-2009 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -80,8 +80,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #  define OP_DIR "."
 #endif /* ?MSDOS|VMS */
 
-#define VERSION      "5.0.1"
-#define VERSION_DATE "May 2 2009"
+#define VERSION      "5.0.2-beta1"
+#define VERSION_DATE "May 22 2009"
 
 
 /* Function prototypes */

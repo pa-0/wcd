@@ -128,6 +128,7 @@ install : ${PROGRAM} ${MOFILES} ${DOCFILES}
 	${INSTALL} -D -m 644 ../doc/README.txt ${DOCDIR}/README.txt
 	${INSTALL} -D -m 644 ../doc/problems.txt ${DOCDIR}/problems.txt
 	${INSTALL} -D -m 644 ../doc/translate.txt ${DOCDIR}/translate.txt
+	${INSTALL} -D -m 644 ../doc/todo.txt ${DOCDIR}/todo.txt
 
 uninstall :
 	-rm -f ${BINDIR}/${PROGRAM}

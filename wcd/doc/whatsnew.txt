@@ -1,3 +1,7 @@
+5.0.2-beta1  May 22 2009
+  - Improved horizontal scrolling with Unicode combining characters.
+  - Update manual, section LOCALIZATION.
+
 5.0.1  May 2 2009
   - Fix RPM spec file.
   - Update manual w.r.t. MSYS.
