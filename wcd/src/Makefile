@@ -41,6 +41,13 @@ LOCALEDIR = ${PREFIX}/share/locale
 MANDIR    = ${PREFIX}/share/man
 DOCDIR    = ${PREFIX}/share/doc/${PACKAGE}-${VERSION}
 
+# install and uninstall destination folders.
+DESTBINDIR    = ${DESTDIR}${BINDIR}
+DESTLOCALEDIR = ${DESTDIR}${LOCALEDIR}
+DESTMANDIR    = ${DESTDIR}${MANDIR}
+DESTDOCDIR    = ${DESTDIR}${DOCDIR}
+
+
 POT = po/${PACKAGE}.pot
 POFILES = $(wildcard po/*.po)
 MOFILES = $(patsubst %.po,%.mo,$(POFILES))
@@ -112,29 +119,29 @@ docfiles : ${DOCFILES}
 	ps2pdf $< $@
 
 install : ${PROGRAM} ${MOFILES} ${DOCFILES}
-	${INSTALL} -D -m 755 ${PROGRAM} ${BINDIR}/${PROGRAM}
-	$(foreach mofile, ${MOFILES}, ${INSTALL} -D -m 644 ${mofile} ${LOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo)
-	${INSTALL} -D -m 644 man/man1/${PACKAGE}.1 ${MANDIR}/man1/${PACKAGE}.1
-	${INSTALL} -D -m 644 ../doc/copying.txt "${DOCDIR}/copying.txt"
-	${INSTALL} -D -m 644 ../doc/faq.txt ${DOCDIR}/faq.txt
-	${INSTALL} -D -m 644 ../doc/wcd.txt ${DOCDIR}/wcd.txt
-	${INSTALL} -D -m 644 ../doc/wcd.ps ${DOCDIR}/wcd.ps
-	${INSTALL} -D -m 644 ../doc/wcd.pdf ${DOCDIR}/wcd.pdf
-	${INSTALL} -D -m 644 ../doc/whatsnew.txt ${DOCDIR}/whatsnew.txt
-	${INSTALL} -D -m 644 ../doc/INSTALL.dos_windows.intl.txt ${DOCDIR}/INSTALL.dos_windows.intl.txt
-	${INSTALL} -D -m 644 ../doc/INSTALL.unix.intl.txt ${DOCDIR}/INSTALL.unix.intl.txt
-	${INSTALL} -D -m 644 ../doc/INSTALL.os2.txt ${DOCDIR}/INSTALL.os2.txt
-	${INSTALL} -D -m 644 ../doc/INSTALL.rpm.txt ${DOCDIR}/INSTALL.rpm.txt
-	${INSTALL} -D -m 644 ../doc/README.txt ${DOCDIR}/README.txt
-	${INSTALL} -D -m 644 ../doc/problems.txt ${DOCDIR}/problems.txt
-	${INSTALL} -D -m 644 ../doc/translate.txt ${DOCDIR}/translate.txt
-	${INSTALL} -D -m 644 ../doc/todo.txt ${DOCDIR}/todo.txt
+	${INSTALL} -D -m 755 ${PROGRAM} ${DESTBINDIR}/${PROGRAM}
+	$(foreach mofile, ${MOFILES}, ${INSTALL} -D -m 644 ${mofile} ${DESTLOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo)
+	${INSTALL} -D -m 644 man/man1/${PACKAGE}.1 ${DESTMANDIR}/man1/${PACKAGE}.1
+	${INSTALL} -D -m 644 ../doc/copying.txt "${DESTDOCDIR}/copying.txt"
+	${INSTALL} -D -m 644 ../doc/faq.txt ${DESTDOCDIR}/faq.txt
+	${INSTALL} -D -m 644 ../doc/wcd.txt ${DESTDOCDIR}/wcd.txt
+	${INSTALL} -D -m 644 ../doc/wcd.ps ${DESTDOCDIR}/wcd.ps
+	${INSTALL} -D -m 644 ../doc/wcd.pdf ${DESTDOCDIR}/wcd.pdf
+	${INSTALL} -D -m 644 ../doc/whatsnew.txt ${DESTDOCDIR}/whatsnew.txt
+	${INSTALL} -D -m 644 ../doc/INSTALL.dos_windows.intl.txt ${DESTDOCDIR}/INSTALL.dos_windows.intl.txt
+	${INSTALL} -D -m 644 ../doc/INSTALL.unix.intl.txt ${DESTDOCDIR}/INSTALL.unix.intl.txt
+	${INSTALL} -D -m 644 ../doc/INSTALL.os2.txt ${DESTDOCDIR}/INSTALL.os2.txt
+	${INSTALL} -D -m 644 ../doc/INSTALL.rpm.txt ${DESTDOCDIR}/INSTALL.rpm.txt
+	${INSTALL} -D -m 644 ../doc/README.txt ${DESTDOCDIR}/README.txt
+	${INSTALL} -D -m 644 ../doc/problems.txt ${DESTDOCDIR}/problems.txt
+	${INSTALL} -D -m 644 ../doc/translate.txt ${DESTDOCDIR}/translate.txt
+	${INSTALL} -D -m 644 ../doc/todo.txt ${DESTDOCDIR}/todo.txt
 
 uninstall :
-	-rm -f ${BINDIR}/${PROGRAM}
-	$(foreach mofile, ${MOFILES}, rm -f ${LOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo)
-	-rm -f ${MANDIR}/man1/${PACKAGE}.1
-	-rm -rf ${DOCDIR}
+	-rm -f ${DESTBINDIR}/${PROGRAM}
+	$(foreach mofile, ${MOFILES}, rm -f ${DESTLOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo)
+	-rm -f ${DESTMANDIR}/man1/${PACKAGE}.1
+	-rm -rf ${DESTDOCDIR}
 
 ZIPOBJ = bin/${PROGRAM} \
 	share/locale/*/LC_MESSAGES/${PACKAGE}.mo \

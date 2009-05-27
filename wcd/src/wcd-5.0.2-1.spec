@@ -27,7 +27,7 @@ search.
 make -C src PREFIX=/usr WCD_UTF8=1
 
 %install
-make -C src install PREFIX=${RPM_BUILD_ROOT}/usr
+make -C src install DESTDIR=${RPM_BUILD_ROOT} PREFIX=/usr
 
 %post
 if ! /bin/grep "function wcd" /etc/bashrc > /dev/null ; then

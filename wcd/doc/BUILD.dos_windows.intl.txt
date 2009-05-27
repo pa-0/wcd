@@ -192,6 +192,7 @@ language files in /usr/local/share/locale and the man file in
 Example:
 
   make clean
+  make PREFIX=/home/waterlan
   make install PREFIX=/home/waterlan
 
 
