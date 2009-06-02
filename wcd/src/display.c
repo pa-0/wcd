@@ -32,6 +32,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "dosdir.h"
 
 
+/*
+ * int str_columns (char *s)
+ *
+ * Return number of colums a string takes. In case
+ * of erroneous multi-byte sequence, return number of
+ * 8 bit characters.
+ */
+
 int str_columns (char *s)
 {
 #ifdef WCD_UTF8
@@ -733,15 +741,15 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
             waddch(win,s[j]);
          }
       } else {
-	 c = 0; /* count characters with width > 0 from beginning of string. */
-	 j = 0;
-	 while ((j<len)&&(c<xoffset))
-	 {
-	    if (wcwidth(wstr[j]) != 0 )
-	       c++;
-	    j++; /* j advances over combining characters */
-	 }
-	 while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
+         c = 0; /* count characters with width > 0 from beginning of string. */
+         j = 0;
+         while ((j<len)&&(c<xoffset))
+         {
+            if (wcwidth(wstr[j]) != 0 )
+               c++;
+            j++; /* j advances over combining characters */
+         }
+         while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
            j++;
          width = wcwidth(wstr[j]);
          while ((j<len)&&((nr_offset+width)<(COLS-1)))
@@ -798,15 +806,15 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
          if ((i == ws->current) && ((nr_offset+j-xoffset+2)<(COLS-1)))
             wprintw(win," *");
       } else {
-	 c = 0; /* count characters with width > 0 from beginning of string. */
-	 j = 0;
-	 while ((j<len)&&(c<xoffset))
-	 {
-	    if (wcwidth(wstr[j]) != 0 )
-	       c++;
-	    j++; /* j advances over combining characters */
-	 }
-	 while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
+         c = 0; /* count characters with width > 0 from beginning of string. */
+         j = 0;
+         while ((j<len)&&(c<xoffset))
+         {
+            if (wcwidth(wstr[j]) != 0 )
+               c++;
+            j++; /* j advances over combining characters */
+         }
+         while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
            j++;
          width = wcwidth(wstr[j]);
          while ((j<len)&&((nr_offset+width)<(COLS-1)))

@@ -1,5 +1,7 @@
 5.0.2-beta1  May 22 2009
   - Improved horizontal scrolling with Unicode combining characters.
+  - Improved horizontal scrolling with Unicode double width characters
+    in graphical tree.
   - Update manual, section LOCALIZATION.
   - Makefile supports DESTDIR variable.
 

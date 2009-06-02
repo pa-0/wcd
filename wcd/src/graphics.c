@@ -368,7 +368,7 @@ void setXYTree(dirnode d)
 
    if(dirHasSubdirs(d) eq true)
    {
-      len = strlen(dirnodeGetName(d));
+      len = str_columns(dirnodeGetName(d));
       y = dirnodeGetY(d);
       index = 0;
       size = getSizeOfDirnode(d);
@@ -610,9 +610,6 @@ char *getNodeFullPath(dirnode node)
    static text line = NULL;
    static text tline = NULL;
    dirnode n;
-   int len;
-
-   len = strlen(dirnodeGetName(node));
 
    /* The reconstructed path will not be longer than
     * it was original in the treedata file. The max length
@@ -1187,6 +1184,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
       } */
 
 #ifdef WCD_UTF8
+      /* xoffset is horizontal offset measured in nr. of columns. */
       if (len < 0)
       {
          /* Erroneous UTF-8 sequence */
@@ -1211,10 +1209,10 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
       }
       else
       {
-	 c = 0; /* count characters with width > 0 from beginning of string. */
-	 j = 0;
-	 while ((j<len)&&(c<xoffset))
-	 {
+         c = 0; /* count characters with width > 0 from beginning of string. */
+         j = 0;
+         while ((j<len)&&(c<xoffset))
+         {
             switch(wstr[j])
             {
                case WCD_SEL_ON:
@@ -1222,12 +1220,11 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
                case WCD_SEL_OFF:
                   break;
                default:
-	          if (wcwidth(wstr[j]) != 0 )
-	             c++;
+                  c = c + wcwidth(wstr[j]);
             }
-	    j++; /* j advances over combining characters */
-	 }
-	 while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
+            j++; /* j advances over combining characters */
+         }
+         while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
            j++;
          if (j<len)
             switch(wstr[j])
@@ -1329,7 +1326,7 @@ char *getZoomStackPath(dirnode stack)
 void dataRefresh(int ydiff, int init)
 {
   int i, yoffset, xo, len;
-  static int xoffset = 0;
+  static int xoffset = 0;  /* Horizontal offset in number of columns */
   static int yposition = -1;  /* -1 : not initialized */
   wcd_char *s;
 #ifdef WCD_UTF8
@@ -1369,7 +1366,8 @@ void dataRefresh(int ydiff, int init)
 
   if (yoffset < 0) yoffset = 0;
 
-  len=dirnodeGetX(wcd_cwin.curNode)+strlen(dirnodeGetName(wcd_cwin.curNode))+3;
+  len=dirnodeGetX(wcd_cwin.curNode)+str_columns(dirnodeGetName(wcd_cwin.curNode))+3;
+  /* len is total nr of colums of current node plus 3 */
   if (len > COLS)
   {
     xo = len - COLS;
@@ -2130,12 +2128,12 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          wcd_cwin.wstr[n] = ch;
          n++;
          wcd_cwin.wstr[n] = '\0';
-	 /* Convert wide-character input string to byte string. Needed for searching. */
+         /* Convert wide-character input string to byte string. Needed for searching. */
          if (wcstombs(wcd_cwin.str, wcd_cwin.wstr, WCD_MAX_INPSTR) < 0)
-	 {
+         {
             n=1;
             wcd_cwin.str[n] = '\0';
-	 }
+         }
 #else
          wcd_cwin.str[n] = (char)c;
          n++;

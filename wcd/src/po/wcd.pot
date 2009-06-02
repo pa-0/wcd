@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-22 13:34+0200\n"
+"POT-Creation-Date: 2009-06-02 13:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -436,128 +436,128 @@ msgstr ""
 msgid "Wcd: Error parsing stack\n"
 msgstr ""
 
-#: display.c:142
+#: display.c:150
 #, c-format
 msgid "Wcd: error in maxLength(), list == NULL\n"
 msgstr ""
 
-#: display.c:162
+#: display.c:170
 #, c-format
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr ""
 
-#: display.c:943 graphics.c:1761
+#: display.c:951 graphics.c:1759
 #, c-format
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 
-#: display.c:961
+#: display.c:969
 #, c-format
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr ""
 
-#: display.c:995 graphics.c:1794
+#: display.c:1003 graphics.c:1792
 #, c-format
 msgid "Wcd: error creating scroll window.\n"
 msgstr ""
 
-#: display.c:1026
+#: display.c:1034
 #, c-format
 msgid "Wcd: error creating input window.\n"
 msgstr ""
 
-#: display.c:1036
+#: display.c:1044
 msgid "Perfect "
 msgstr ""
 
-#: display.c:1038
+#: display.c:1046
 msgid "Wild "
 msgstr ""
 
-#: display.c:1039
+#: display.c:1047
 #, c-format
 msgid "match for %d directories."
 msgstr ""
 
-#: display.c:1041 display.c:1281
+#: display.c:1049 display.c:1289
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr ""
 
-#: display.c:1046 display.c:1080 display.c:1106
+#: display.c:1054 display.c:1088 display.c:1114
 #, c-format
 msgid "w=up x=down ?=help  Page %d/%d      "
 msgstr ""
 
-#: display.c:1155
+#: display.c:1163
 msgid "Screenheight must be > 20 for help."
 msgstr ""
 
-#: display.c:1158
+#: display.c:1166
 msgid "w or <Up>         Page Up."
 msgstr ""
 
-#: display.c:1159
+#: display.c:1167
 msgid "x or z or <Down>  Page Down."
 msgstr ""
 
-#: display.c:1160
+#: display.c:1168
 msgid ", or <Left>       Scroll 1 left."
 msgstr ""
 
-#: display.c:1161
+#: display.c:1169
 msgid ". or <Right>      Scroll 1 right."
 msgstr ""
 
-#: display.c:1162
+#: display.c:1170
 msgid "< or [            Scroll 10 left."
 msgstr ""
 
-#: display.c:1163
+#: display.c:1171
 msgid "> or ]            Scroll 10 right."
 msgstr ""
 
-#: display.c:1164
+#: display.c:1172
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr ""
 
-#: display.c:1165
+#: display.c:1173
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr ""
 
-#: display.c:1166
+#: display.c:1174
 msgid "CTRL-c or <Esc>   Abort."
 msgstr ""
 
-#: display.c:1167
+#: display.c:1175
 msgid "<Enter>           Abort."
 msgstr ""
 
-#: display.c:1168
+#: display.c:1176
 msgid "Type w or x to quit help."
 msgstr ""
 
-#: display.c:1277
+#: display.c:1285
 #, c-format
 msgid ""
 "\n"
 "Perfect "
 msgstr ""
 
-#: display.c:1279
+#: display.c:1287
 #, c-format
 msgid ""
 "\n"
 "Wild "
 msgstr ""
 
-#: display.c:1280
+#: display.c:1288
 #, c-format
 msgid "match for %d directories.\n"
 msgstr ""
 
-#: display.c:1323
+#: display.c:1331
 #, c-format
 msgid ""
 "\n"
@@ -569,211 +569,211 @@ msgstr ""
 msgid "Wcd: error: line too long in function getTreeLine()"
 msgstr ""
 
-#: graphics.c:1429
+#: graphics.c:1427
 msgid "/ = search forward,  ? = search backward,  : = help"
 msgstr ""
 
-#: graphics.c:1434
+#: graphics.c:1432
 msgid "SEARCH: "
 msgstr ""
 
-#: graphics.c:1437
+#: graphics.c:1435
 msgid "Search: "
 msgstr ""
 
-#: graphics.c:1453
+#: graphics.c:1451
 msgid "NAVIGATE MODE:"
 msgstr ""
 
-#: graphics.c:1454
+#: graphics.c:1452
 msgid "h or <Left>       go left."
 msgstr ""
 
-#: graphics.c:1455
+#: graphics.c:1453
 msgid "j or <Down>       go down."
 msgstr ""
 
-#: graphics.c:1456
+#: graphics.c:1454
 msgid "k or <Up>         go up."
 msgstr ""
 
-#: graphics.c:1457
+#: graphics.c:1455
 msgid "l or <Right>      go right."
 msgstr ""
 
-#: graphics.c:1458
+#: graphics.c:1456
 msgid "* or v or <Space> go forward to dir with same name."
 msgstr ""
 
-#: graphics.c:1459
+#: graphics.c:1457
 msgid "# or p or <BS>    go backward to dir with same name."
 msgstr ""
 
-#: graphics.c:1460
+#: graphics.c:1458
 msgid "^ or a            go to beginning of line."
 msgstr ""
 
-#: graphics.c:1461
+#: graphics.c:1459
 msgid "$ or e            go to end of line."
 msgstr ""
 
-#: graphics.c:1462
+#: graphics.c:1460
 msgid "1                 go to root dir."
 msgstr ""
 
-#: graphics.c:1463
+#: graphics.c:1461
 msgid "g or G            go to last dir."
 msgstr ""
 
-#: graphics.c:1464
+#: graphics.c:1462
 msgid "f                 go page forward."
 msgstr ""
 
-#: graphics.c:1465
+#: graphics.c:1463
 msgid "b                 go page backward."
 msgstr ""
 
-#: graphics.c:1466
+#: graphics.c:1464
 msgid "u                 go half page up."
 msgstr ""
 
-#: graphics.c:1467
+#: graphics.c:1465
 msgid "d                 go half page down."
 msgstr ""
 
-#: graphics.c:1468
+#: graphics.c:1466
 msgid "<Esc> or q        Abort."
 msgstr ""
 
-#: graphics.c:1469
+#: graphics.c:1467
 msgid "/                 Search forward."
 msgstr ""
 
-#: graphics.c:1470
+#: graphics.c:1468
 msgid "?                 Search backward."
 msgstr ""
 
-#: graphics.c:1471
+#: graphics.c:1469
 msgid "n                 Repeat latest / or ? search."
 msgstr ""
 
-#: graphics.c:1472 graphics.c:1495
+#: graphics.c:1470 graphics.c:1493
 msgid "<Enter>           Select directory."
 msgstr ""
 
-#: graphics.c:1473 graphics.c:1496 graphics.c:1513
+#: graphics.c:1471 graphics.c:1494 graphics.c:1511
 msgid "Press any key."
 msgstr ""
 
-#: graphics.c:1479
+#: graphics.c:1477
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr ""
 
-#: graphics.c:1480
+#: graphics.c:1478
 msgid "<Left>            go left."
 msgstr ""
 
-#: graphics.c:1481
+#: graphics.c:1479
 msgid "<Down>            go down."
 msgstr ""
 
-#: graphics.c:1482
+#: graphics.c:1480
 msgid "<Up>              go up."
 msgstr ""
 
-#: graphics.c:1483
+#: graphics.c:1481
 msgid "<Right>           go right."
 msgstr ""
 
-#: graphics.c:1484
+#: graphics.c:1482
 msgid "CTRL-v            go forward to dir with same name."
 msgstr ""
 
-#: graphics.c:1485
+#: graphics.c:1483
 msgid "CTRL-p            go backward to dir with same name."
 msgstr ""
 
-#: graphics.c:1486
+#: graphics.c:1484
 msgid "CTRL-a            go to beginning of line."
 msgstr ""
 
-#: graphics.c:1487
+#: graphics.c:1485
 msgid "CTRL-e            go to end of line."
 msgstr ""
 
-#: graphics.c:1488
+#: graphics.c:1486
 msgid "CTRL-g            go to last dir."
 msgstr ""
 
-#: graphics.c:1489
+#: graphics.c:1487
 msgid "CTRL-f            go page forward."
 msgstr ""
 
-#: graphics.c:1490
+#: graphics.c:1488
 msgid "CTRL-b            go page backward."
 msgstr ""
 
-#: graphics.c:1491
+#: graphics.c:1489
 msgid "CTRL-u            go half page up."
 msgstr ""
 
-#: graphics.c:1492
+#: graphics.c:1490
 msgid "CTRL-d            go half page down."
 msgstr ""
 
-#: graphics.c:1493
+#: graphics.c:1491
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
 msgstr ""
 
-#: graphics.c:1494
+#: graphics.c:1492
 msgid "CTRL-n            Repeat latest / or ? search."
 msgstr ""
 
-#: graphics.c:1502
+#: graphics.c:1500
 msgid "ZOOMING:"
 msgstr ""
 
-#: graphics.c:1503
+#: graphics.c:1501
 msgid "z or i or CTRL-i  zoom in."
 msgstr ""
 
-#: graphics.c:1504
+#: graphics.c:1502
 msgid "Z or o or CTRL-o  zoom out."
 msgstr ""
 
-#: graphics.c:1505
+#: graphics.c:1503
 msgid "c                 condense: fold current level."
 msgstr ""
 
-#: graphics.c:1506
+#: graphics.c:1504
 msgid "C                 condense: fold subdir level."
 msgstr ""
 
-#: graphics.c:1507
+#: graphics.c:1505
 msgid "w                 condense: fold current and sub levels."
 msgstr ""
 
-#: graphics.c:1508
+#: graphics.c:1506
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
 msgstr ""
 
-#: graphics.c:1509
+#: graphics.c:1507
 msgid "r or CTRL-r       uncondense: unfold all directories."
 msgstr ""
 
-#: graphics.c:1510
+#: graphics.c:1508
 msgid "-                 fold directory."
 msgstr ""
 
-#: graphics.c:1511
+#: graphics.c:1509
 msgid "+ or =            unfold directory."
 msgstr ""
 
-#: graphics.c:1512
+#: graphics.c:1510
 msgid "l or <Right>      unfold and go right."
 msgstr ""
 
-#: graphics.c:1516
+#: graphics.c:1514
 msgid "Screenheight must be > 20 for help"
 msgstr ""
 
