@@ -943,7 +943,8 @@ properly. The default multi-byte character encoding in Windows is UTF-16
 instead of UTF-8.
 
 Wcd has been \'soft\' converted to UTF-8. In its core it still handles
-strings as 8 bit streams. See also
+strings as 8 bit streams. Only the lines printed to screen are on the fly
+converted to wide characters. Wcd fully relies on libc functions. See also
 .nf
 http://www.cl.cam.ac.uk/~mgk25/unicode.html
 .fi
