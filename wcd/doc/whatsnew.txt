@@ -1,4 +1,4 @@
-5.0.2-beta1  May 22 2009
+5.0.2-beta2  Jun 4 2009
   - Improved horizontal scrolling with Unicode combining characters.
   - Improved horizontal scrolling with Unicode double width characters
     in graphical tree.

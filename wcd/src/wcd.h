@@ -80,8 +80,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #  define OP_DIR "."
 #endif /* ?MSDOS|VMS */
 
-#define VERSION      "5.0.2-beta1"
-#define VERSION_DATE "May 22 2009"
+#define VERSION      "5.0.2-beta2"
+#define VERSION_DATE "Jun 4 2009"
 
 
 /* Function prototypes */

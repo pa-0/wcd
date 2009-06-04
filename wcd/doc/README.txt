@@ -369,8 +369,8 @@ Ubuntu Linux
 http://packages.ubuntu.com/
 
 Simtel.Net:
-http://www.simtel.net/pub/simtelnet/msdos/dirutl/
-ftp://ftp.simtel.net/pub/simtelnet/msdos/dirutl/
+Search: wcd
+SYSTEM UTILITIES > File management and conversion utils > wcd
 
 Ibiblio (was Metalab (was SunSite)):
 http://www.ibiblio.org/pub/Linux/utils/shell/
