@@ -192,8 +192,8 @@ language files in /usr/local/share/locale and the man file in
 Example:
 
   make clean
-  make PREFIX=/home/waterlan
-  make install PREFIX=/home/waterlan
+  make PREFIX=c:/Users/waterlan
+  make install PREFIX=c:/Users/waterlan
 
 
 dos32    : The default PREFIX is c:/djgpp
