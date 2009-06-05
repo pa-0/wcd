@@ -135,7 +135,7 @@ internet homepage: http://www.cs.virginia.edu/~lcc-win32/
 = 3 Copyright                                                        =
 ======================================================================
 
-Copyright (C) 1997-2008 Erwin Waterlander
+Copyright (C) 1997-2009 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -253,8 +253,8 @@ in the Public Domain.
 
 ......................................................................
 
-Markus Kuhn's free wcwidth() implementation is used in Wcd for Windows
-with UTF-8 Unicode support.
+Markus Kuhn's free wcwidth() and nl_langinfo() implementation are used in
+Wcd for Windows with UTF-8 Unicode support.
 See also http://www.cl.cam.ac.uk/~mgk25/unicode.html
 
 ======================================================================
