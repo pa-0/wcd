@@ -60,5 +60,8 @@ intset.obj :  ..\src\c3po\intset.c
 command.obj :  ..\src\c3po\command.c
 	$(CC) -c $(CFLAGS) -o$@ ..\src\c3po\command.c
 
+strip :
+	tdstrip wcd.exe
+
 clean:
 	del *.obj
