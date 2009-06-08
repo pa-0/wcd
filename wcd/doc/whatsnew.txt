@@ -3,7 +3,7 @@
   - Improved horizontal scrolling with Unicode double width characters
     in graphical tree.
   - Update manual, section LOCALIZATION.
-  - Man page uses ASCII quotes (grave accent, acute accent) for
+  - Man page uses ASCII quotes (grave accent, apostrophe quote) for
     readability on all systems.
   - src/Makefile supports DESTDIR variable.
   - dos16/GNUmakefile: New gnu makefile for dos16 installation and zip
