@@ -4,7 +4,7 @@ To compile wcd with internationalization support see BUILD.dos_windows.intl.txt
 
 For Unix compile instructions see file INSTALL.unix.txt.
 
-For how to install the program see files INSTALL.dos_windows.txt.
+For how to install the program see files INSTALL.dos_windows.intl.txt.
 
 
 ----------------------------------------------

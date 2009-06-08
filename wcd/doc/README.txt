@@ -64,8 +64,8 @@ the MinGW compiler.
 Until wcd 3.2.1 wcd supported many compilers, but from version 4.0.0 the main
 focus will be on GNU C compiler and tools. The DOS 16 bit version cannot keep
 up. It runs out of memory and GNU libraries for native language support are not
-available. Also building the DOS 32 bit version with DJGPP will become a
-challenge in the future.
+available. Modern features, like Unicode support, can only be supported on
+modern operating systems like Linux or Windows.
 
 
 ======================================================================
