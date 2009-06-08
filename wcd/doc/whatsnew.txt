@@ -1,14 +1,12 @@
-5.0.2-beta2  Jun 4 2009
-  - Improved horizontal scrolling with Unicode combining characters.
-  - Improved horizontal scrolling with Unicode double width characters
-    in graphical tree.
+5.0.2  Jun 8 2009
+  - Improved horizontal scrolling with Unicode combining and
+    double width characters in match list and graphical tree.
   - Update manual, section LOCALIZATION.
   - Man page uses ASCII quotes (grave accent, apostrophe quote) for
-    readability on all systems.
+    readability on old systems.
   - src/Makefile supports DESTDIR variable.
   - dos16/GNUmakefile: New gnu makefile for dos16 installation and zip
     package creation. Replaces misc/Makefile.dist.
-  - misc/Makefile.dist: deleted.
 
 5.0.1  May 2 2009
   - Fix RPM spec file.
