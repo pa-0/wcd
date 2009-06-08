@@ -42,21 +42,21 @@ of all matches. The user can then make a selection with a few keystrokes
 
 Wcd fully supports wildcards, i.e. *, ? and [SET].
 
-\`*\' matches any sequence of characters (zero or more)
+\(ga*\(aq matches any sequence of characters (zero or more)
 .br
-\`?\' matches any character
+\(ga?\(aq matches any character
 .br
 [SET] matches any character in the specified set,
 .br
 [!SET] or [^SET] matches any character not in the specified set.
 
-A set is composed of characters or ranges; a range looks like \`\`character
-hyphen character\'\' (as in 0-9 or A-Z).  [0-9a-zA-Z_] is the minimal set of
+A set is composed of characters or ranges; a range looks like \(ga\(gacharacter
+hyphen character\(aq\(aq (as in 0-9 or A-Z).  [0-9a-zA-Z_] is the minimal set of
 characters allowed in the [..] pattern construct.  Other characters are
 allowed (i.e. 8 bit characters) if your system will support them.
-To suppress the special syntactic significance of any of \`\`[]*?!^-\\\'\', in-
+To suppress the special syntactic significance of any of \(ga\(ga[]*?!^-\\\(aq\(aq, in-
 side or outside a [..] construct and match the character exactly, precede
-it with a \`\`\\\'\' (backslash).
+it with a \(ga\(ga\\\(aq\(aq (backslash).
 
 
 Using wildcards makes powerful searching possible. For instance:
@@ -128,7 +128,7 @@ in one go by preceding the directory name with the drive name.
 
 The Windows versions (console, PowerShell, MSYS, zsh, cygwin) support Windows SMB LAN
 UNC paths without drive letter such as \\\\servername\\sharename. Wcd for
-windows console makes use of the \'pushd\' command to automatically map a UNC
+windows console makes use of the \(aqpushd\(aq command to automatically map a UNC
 path to a drive letter. In windows PowerShell, MSYS, zsh and Cygwin UNC paths are
 fully supported. The current working directory can be a UNC path.
 
@@ -223,7 +223,7 @@ to the extra treedata file.
 Add current and all parent paths to extra treedata file.
 .TP
 .B \-f <filename>
-Read treedata file <filename>. Don't read the default treedata file.
+Read treedata file <filename>. Don\(aqt read the default treedata file.
 .TP
 .B \+f <filename>
 Read treedata file <filename> in addition to the default treedata file.
@@ -233,17 +233,17 @@ Set directory path of go-script.
 
 .TP
 .B \-GN
-Don\'t create go-script.
+Don\(aqt create go-script.
 
 This option can be used in combination with the option
 .I -j
-if one doesn\'t want wcd to create a go-script.
+if one doesn\(aqt want wcd to create a go-script.
 
 .TP
 .B \-g
 Graphical interface (only in version with curses interface).
 
-Wcd starts a textual curses based \`graphical\' interface.
+Wcd starts a textual curses based \(gagraphical\(aq interface.
 The user can select a directory via a full-screen
 interactive directory browser. It has a Vi(m) like
 navigation and search method.
@@ -258,7 +258,7 @@ as a graphical tree.
 .TP
 .B \-ga
 Graphical interface with alternative way of navigating. With
-this option one can\'t jump to unrelated directories.
+this option one can\(aqt jump to unrelated directories.
 
 .TP
 .B \-gd
@@ -294,14 +294,14 @@ function wcd()
 .br
 {
 .br
-  cd "\`$HOME/bin/wcd.exe -j $*\`"
+  cd "\(ga$HOME/bin/wcd.exe -j $*\(ga"
 .br
 }
 
 On windows systems, if one is running 4NT shell, one could
 make the following alias:
 
-alias wcd \`cd %@execstr[wcdwin32.exe -z 0 -j %1]\`
+alias wcd \(gacd %@execstr[wcdwin32.exe -z 0 -j %1]\(ga
 
 This method eliminates the need of the go-script, so one can
 use option
@@ -381,7 +381,7 @@ Read relative treedata file in addition to the default treedata file. See option
 Use stdin/stdout interface.
 
 When for some kind of reason the conio or curses interface
-of wcd doesn\'t work one can fall back to the stdin/stdout interface
+of wcd doesn\(aqt work one can fall back to the stdin/stdout interface
 of wcd by using the -o option.
 
 .TP
@@ -405,7 +405,7 @@ will remove it, and try to remove it from the treedata file.
 .B \-rmtree <dir>
 Recursively remove directory and remove from treedata file.
 
-Wcd will remove the directory and all it\'s sub directories
+Wcd will remove the directory and all it\(aqs sub directories
 and files, and remove the directories from the treedata file.
 
 .TP
@@ -513,7 +513,7 @@ If HOME or WCDHOME is set one needs to specify the drive letter. Example:
 
   wcd -x c:/temp -S c:
 
-Otherwise don\'t specify drive letter.
+Otherwise don\(aqt specify drive letter.
 
   wcd -x /temp -s
 
@@ -558,7 +558,7 @@ A wrong command is:
   wcd - -z 50
 
 Wcd goes one directory back, the stack gets the default size
-10. \'-z 50\' is ignored.
+10. \(aq-z 50\(aq is ignored.
 
 Add this option as the first option to your wcd alias or function.
 E.g. for the bash this would be:
@@ -577,23 +577,23 @@ function wcd
 .B \-[#]
 Push dir [ # times ].
 
-Go back a directory. \'wcd -\' goes one directory back. To go
+Go back a directory. \(aqwcd -\(aq goes one directory back. To go
 more directories back add a number to it. E.g. wcd -3
 The stack is cyclic.
 .TP
 .B \+[#]
 Pop dir [ # times ].
 
-Go forward a directory. \'wcd +\' goes one directory forward. To go
+Go forward a directory. \(aqwcd +\(aq goes one directory forward. To go
 more directories forward add a number to it. E.g. wcd +2
 The stack is cyclic.
 .TP
 .B \=
 Show stack.
 
-Use this option if don\'t know anymore how many times to push or pop.
+Use this option if don\(aqt know anymore how many times to push or pop.
 The stack is printed and you can choose a number. The current place
-in the stack is marked with an asterisk \'*\'.
+in the stack is marked with an asterisk \(ga*\(aq.
 
 .SH "INTERFACE"
 
@@ -690,7 +690,7 @@ which must be executed in the current shell.
 In a Windows VISTA command prompt you may have limited access to directories.
 To get access to more directories you need administrator rights. You can get a
 command prompt with administrator rights if you right click on the command
-prompt icon and select \`Run as administrator\'.
+prompt icon and select \(gaRun as administrator\(aq.
 
 .SS "INSTALLATION WINDOWS POWERSHELL VERSION"
 
@@ -756,7 +756,7 @@ e.g. in AUTOEXEC.BAT. Example:
 
    set PDC_RESTORE_SCREEN=1
 
-For Cygwin this would be \'export PDC_RESTORE_SCREEN=1\'.
+For Cygwin this would be \(gaexport PDC_RESTORE_SCREEN=1\(aq.
 
 Windows allows only a small buffer to be saved. So it is not always possible to
 restore everything. Some garbage data may be printed in the console after
@@ -766,18 +766,18 @@ wcd exists if you have set a large buffer width.
 .I SHELL
 Printing of #!$SHELL on the first line of the go-script for Bourne-like or C shell
 is needed for 8 bit characters. Some shells otherwise think that the go-script is a binary file
-and will not source it. In Cygwin bash one may need to define $SHELL with an \'export\' command,
-otherwise wcd can\'t read the variable.
+and will not source it. In Cygwin bash one may need to define $SHELL with an \(gaexport\(aq command,
+otherwise wcd can\(aqt read the variable.
 
 .TP 4
 .I BASH
 Wcd for DOS bash uses $BASH instead of $SHELL, because $SHELL point to the DOS command shell.
-One may need to define $BASH with an \'export\' command, otherwise wcd can\'t read the variable.
+One may need to define $BASH with an \(gaexport\(aq command, otherwise wcd can\(aqt read the variable.
 
 .TP 4
 .I WCDFILTER
 Specify filters with environment variable WCDFILTER.  All directories that
-don\'t match the filter(s) are ignored.  A list can be specified by separating
+don\(aqt match the filter(s) are ignored.  A list can be specified by separating
 filters with colons (:) on Unix/Cygwin and semicolons (;) on DOS/Windows systems
 (Similar as specifying the PATH variable). Filters are case sensitive on Unix
 and case insensitive on DOS/Windows.
@@ -844,7 +844,7 @@ For a complete list of language and country codes see the gettext manual:
 http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes
 
 .fi
-On Unix systems you can use to command \`locale\' to get locale specific
+On Unix systems you can use to command \(galocale\(aq to get locale specific
 information.
 
 .TP 4
@@ -866,7 +866,7 @@ English messages.
 With the environment variable WCDLOCALEDIR the LOCALEDIR used during
 compilation and installation of wcd can be overruled. LOCALEDIR is used
 by wcd with native language support to find the language files. The GNU
-default value is \%/usr/local/share/locale. By typing \`wcd -V\' wcd will
+default value is \%/usr/local/share/locale. By typing \(gawcd -V\(aq wcd will
 print the LOCALEDIR that is used.
 
 If you have installed wcd in a different directory than the default
@@ -905,14 +905,14 @@ export LC_CTYPE=en_US.UTF-8
 
 .TP 4
 .I LC_ALL
-All locale environment variables that start with \'LC_\' are overruled by
+All locale environment variables that start with \(gaLC_\(aq are overruled by
 environment variable LC_ALL if it is defined. Wcd gives preference to LC_ALL
 over LC_COLLATE and LC_CTYPE.
 
 .TP 4
 .I UTF-8 UNICODE
 Wcd can support UTF-8 unicode on Unix/Linux and possibly Windows. To see if wcd
-was built with UTF-8 support type \'wcd -V\'.  If your locale character
+was built with UTF-8 support type \(gawcd -V\(aq.  If your locale character
 encoding setting is UTF-8 you should see the euro symbol and Chinese characters
 (meaning: "Chinese").  Other multi-byte character encodings should also work, but
 that has not been tested.
@@ -924,13 +924,13 @@ iso10646-1 encoding, for instance with
 
 .nf
  LC_CTYPE=en_GB.UTF-8 xterm -u8 \\
-  -fn \'-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1\'
+  -fn \(aq-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1\(aq
 .fi
 
-A Windows console in unicode mode can be started with the command \'cmd /U\'.
-UTF-8 code page is activated with command \'chcp 65001\'. You need to set the
+A Windows console in unicode mode can be started with the command \(gacmd /U\(aq.
+UTF-8 code page is activated with command \(gachcp 65001\(aq. You need to set the
 font to True Type Lucida Console (not raster fonts). A problem for wcd is that
-batch scripts don't run anymore when code page 65001 has been activated. This
+batch scripts don\(aqt run anymore when code page 65001 has been activated. This
 is a blocker for Wcd.
 
 In Windows PowerShell you also need to activate code page 65001 and select a
@@ -942,7 +942,7 @@ Wcd UTF-8 support in Windows Powershell is experimental and may not work
 properly. The default multi-byte character encoding in Windows is UTF-16
 instead of UTF-8.
 
-Wcd has been \'soft\' converted to UTF-8. In its core it still handles
+Wcd has been \(gasoft\(aq converted to UTF-8. In its core it still handles
 strings as 8 bit streams. Only the lines printed to screen are on the fly
 converted to wide characters. Wcd fully relies on libc functions. See also
 .nf
@@ -953,7 +953,7 @@ http://www.cl.cam.ac.uk/~mgk25/unicode.html
 
 .TP 4
 .I wcd.exe
-The program. Do not rename it to \'wcd\' on Unix systems. In a Bourne-like or C
+The program. Do not rename it to \(gawcd\(aq on Unix systems. In a Bourne-like or C
 shell the program is always called by a function or alias, because the
 current working directory of a Bourne-like or C shell can only be changed by
 the builtin cd command. See also section INSTALLATION.
@@ -1004,7 +1004,7 @@ DOS: c:\\stack.wcd or %HOME%\\stack.wcd
 UNIX: $HOME/.stack.wcd
 .br
 
-In this file wcd stores it\'s stack. The drive-letter can be
+In this file wcd stores it\(aqs stack. The drive-letter can be
 changed with the -d option.
 
 .TP 4
