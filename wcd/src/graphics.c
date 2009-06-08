@@ -1209,7 +1209,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
       }
       else
       {
-         c = 0; /* count characters with width > 0 from beginning of string. */
+         c = 0; /* count width from beginning of string. */
          j = 0;
          while ((j<len)&&(c<xoffset))
          {
@@ -1224,6 +1224,15 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
             }
             j++; /* j advances over combining characters */
          }
+         /* xoffset is horizontal offset measured in nr. of columns.
+	  * This may be at the middle of a double width character. */
+	 if (( c > xoffset ) && ( wcwidth(wstr[j-1]) == 2))
+	 {
+	    /* Last character skipped was a double width character.
+	     * Insert a space. */
+	    j--;
+	    wstr[j] = ' ';
+	 }
          while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
            j++;
          if (j<len)
