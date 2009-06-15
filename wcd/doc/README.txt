@@ -54,12 +54,12 @@ downloaded it in the first month. From then on development was driven a
 lot by feedback I got via the internet. In March 1998 the GNU distribution
 license was attached.
 
-Later I installed Linux on my PC and that became my main development
-platform.
+Later I installed Linux (RedHat 5.0) on my PC and that became my main
+development platform.
 
-Because eventually most DOS users will migrate to Windows I ported
-wcd to Windows. I started with Borland C 4.0, but changed soon to
-the MinGW compiler.
+Because eventually most DOS users will migrate to Windows I ported wcd
+to Windows NT. I started with Borland C 4.0, but changed soon to the MinGW
+compiler. The first Win32 port was ready in November 1999.
 
 Until wcd 3.2.1 wcd supported many compilers, but from version 4.0.0 the main
 focus will be on GNU C compiler and tools. The DOS 16 bit version cannot keep
