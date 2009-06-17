@@ -686,11 +686,11 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
      return ;  /* dir == NULL */
 
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
-	{
+   {
       fprintf(stdout,_("Wcd: error: finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
       wcd_chdir(DIR_PARENT); /* go to parent directory */
       return;
-	};
+   };
 
    wcd_fixpath(tmp,sizeof(tmp));
    rmDriveLetter(tmp,use_HOME);
@@ -753,11 +753,11 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
 
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
-	{
+   {
       fprintf(stdout,_("Wcd: error: finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
       wcd_chdir(DIR_PARENT); /* go to parent directory */
       return;
-	};
+   };
 
 #ifdef MSDOS
    wcd_fixpath(tmp,sizeof(tmp));
@@ -1819,14 +1819,14 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 #  endif
 #else
 #  if (defined(UNIX) && !defined(WCD_DOSBASH))
-	/* Printing of #!$SHELL is needed for 8 bit characters.
+   /* Printing of #!$SHELL is needed for 8 bit characters.
       Some shells otherwise think that the go-script is a binary file
       and will not source it. */
    if ((ptr = getenv("SHELL")) != NULL)
       fprintf(outfile,"#!%s\n",ptr);
 #  endif
 #  ifdef WCD_DOSBASH
-	/* In DOS Bash $SHELL points to the windows command shell.
+   /* In DOS Bash $SHELL points to the windows command shell.
       So we use $BASH instead. */
    if ((ptr = getenv("BASH")) != NULL)
       fprintf(outfile,"#!%s\n",ptr);
@@ -1909,7 +1909,7 @@ int main(int argc,char** argv)
    char stackfile[DD_MAXPATH];
    char scandir[DD_MAXPATH];
    char extratreefile[DD_MAXPATH];
-	char homedir[DD_MAXPATH];
+   char homedir[DD_MAXPATH];
    char dir[DD_MAXPATH];  /* directory to go to, or dir to scan, make or remove */
    FILE *infile;
    char scan_mk_rm = 0; /* scan disk, or make dir, or remove dir */
@@ -1948,7 +1948,7 @@ int main(int argc,char** argv)
 #endif
 
 #ifdef ENABLE_NLS
-	char localedir[DD_MAXPATH];
+   char localedir[DD_MAXPATH];
    ptr = getenv("WCDLOCALEDIR");
    if (ptr == NULL)
       strcpy(localedir,LOCALEDIR);
@@ -1962,7 +1962,7 @@ int main(int argc,char** argv)
       strcpy(localedir,ptr);
       wcd_fixpath(localedir,sizeof(localedir));
    }
-	setlocale (LC_ALL, "");
+   setlocale (LC_ALL, "");
    bindtextdomain (PACKAGE, localedir);
    textdomain (PACKAGE);
 #endif
@@ -2190,9 +2190,9 @@ int main(int argc,char** argv)
             break;
          case 'V':
 #ifdef ENABLE_NLS
-	    print_version(localedir);
+            print_version(localedir);
 #else
-	    print_version();
+            print_version();
 #endif
 
 #if defined(UNIX) || defined(WIN32) || defined(OS2)       /* empty wcd.go file */
@@ -2299,12 +2299,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
          case 'd':
             break;
 #endif
-	 case '-':  /* long option */
-	    if (strcmp(argv[i]+2,"version") == 0) {
+         case '-':  /* long option */
+            if (strcmp(argv[i]+2,"version") == 0) {
 #ifdef ENABLE_NLS
-	            print_version(localedir);
+               print_version(localedir);
 #else
-	            print_version();
+               print_version();
 #endif
 #if defined(UNIX) || defined(WIN32) || defined(OS2)     /* empty wcd.go file */
                empty_wcdgo(go_file,use_GoScript);
@@ -2313,9 +2313,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
                empty_wcdgo(go_file,0,drive,use_GoScript);
 #endif
                return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
-	    } else if (strcmp(argv[i]+2,"verbose") == 0) {
+            } else if (strcmp(argv[i]+2,"verbose") == 0) {
                verbose = 1;
-	    } else {
+            } else {
                print_help();
 #if defined(UNIX) || defined(WIN32) || defined(OS2)     /* empty wcd.go file */
                empty_wcdgo(go_file,use_GoScript);
@@ -2324,8 +2324,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
                empty_wcdgo(go_file,0,drive,use_GoScript);
 #endif
                return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
-	    }
-	    break;
+            }
+            break;
          default:               /* any switch except the above */
             print_help();
 
