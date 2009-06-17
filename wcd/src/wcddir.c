@@ -380,6 +380,7 @@ int wcd_isdir(char *dir)
 {
    struct stat buf;
 
+   buf.st_mode = 0; /* initialise st_mode */
    stat(dir, &buf) ;
 
    if (S_ISDIR(buf.st_mode))

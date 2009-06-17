@@ -1,3 +1,6 @@
+5.0.3-beta1 Jun 17 2009
+  - fix wcd_isdir().
+
 5.0.2  Jun 8 2009
   - Improved horizontal scrolling with Unicode combining and
     double width characters in match list and graphical tree.
