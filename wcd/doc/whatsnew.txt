@@ -1,7 +1,6 @@
-5.0.3-beta1 Jun 17 2009
-  - Fixed wcd_isdir() (unix version). Possible false positive test on
-    non-existing path due to uninitialized st_mode field in stat buffer.
-    Behaviour differed with different gcc versions.
+5.0.3-beta2 Jun 24 2009
+  - Fixed wcd_isdir() (POSIX version). Possible false positive test on
+    non-existing path.
 
 5.0.2  Jun 8 2009
   - Improved horizontal scrolling with Unicode combining and
