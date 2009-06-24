@@ -813,9 +813,8 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
       {
         static struct stat buf ;
 
-        stat(fb.dd_name, &buf);
-        if (S_ISDIR(buf.st_mode)) /* does the link point to a dir */
-         fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
+        if ((stat(fb.dd_name, &buf) == 0) && S_ISDIR(buf.st_mode)) /* does the link point to a dir */
+           fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
       }
 #endif
       rc = dd_findnext(&fb);
@@ -1025,7 +1024,8 @@ void deleteLink(char *path, char *treefile, int *use_HOME)
    static struct stat buf ;
    char tmp2[DD_MAXPATH];
 
-   stat(path, &buf) ;
+ if (stat(path, &buf) == 0)
+ {
    if (S_ISDIR(buf.st_mode)) /* does the link point to a dir */
    {
         char *line_end ;
@@ -1058,6 +1058,9 @@ void deleteLink(char *path, char *treefile, int *use_HOME)
 
    else
       fprintf(stderr,_("Wcd: %s is a link to a file.\n"),path);
+ }
+ else
+   fprintf(stderr,_("Wcd: %s is not a directory.\n"),path);
 }
 #endif
 
@@ -1080,8 +1083,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
    wcd_fixpath(path,DD_MAXPATH);
 
 #ifdef UNIX
-   lstat(path, &buf) ;
-   if (S_ISLNK(buf.st_mode))  /* is it a link? */
+   if ((lstat(path, &buf) == 0) && S_ISLNK(buf.st_mode))  /* is it a link? */
    {
       deleteLink(path,treefile,use_HOME);
    }
@@ -1924,7 +1926,6 @@ int main(int argc,char** argv)
    nameset relative_files;
    nameset exclude; /* list of paths to exclude from scanning */
    nameset filter;
-   static struct stat buf ;
    int use_HOME = 0 ;
    int wildOnly = 0 ;
    int justGo = 0;
@@ -2510,7 +2511,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
                /* is there a drive to go to ? */
                changeDisk(tmp,&changedrive,drive,&use_HOME);
 #endif
-               stat(tmp, &buf) ;
                if (wcd_isdir(tmp) == 0) /* is it a dir */
                {
                   strcat(tmp,RELTREEFILE);

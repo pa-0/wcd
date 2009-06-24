@@ -380,13 +380,7 @@ int wcd_isdir(char *dir)
 {
    struct stat buf;
 
-   /* When *dir points to a non-existing directory
-    * and st_mode is not initialized, S_ISDIR may
-    * return a wrong value */
-   buf.st_mode = 0; /* initialise st_mode */
-   stat(dir, &buf) ;
-
-   if (S_ISDIR(buf.st_mode))
+   if ((stat(dir, &buf) == 0) && S_ISDIR(buf.st_mode))
       return(0); 
    else
       return(-1);
