@@ -1,6 +1,6 @@
 5.0.3 Jul 4 2009
-  - Fixed wcd_isdir() (POSIX version). Possible false positive test on
-    non-existing path.
+  - Fixed wcd_isdir() (UNIX/DOS/Cygwin/OS2 version). Possible false positive
+    test on non-existing path. Win32 version is not affected.
 
 5.0.2  Jun 8 2009
   - Improved horizontal scrolling with Unicode combining and
