@@ -1,4 +1,4 @@
-5.0.3-beta2 Jun 24 2009
+5.0.3 Jul 4 2009
   - Fixed wcd_isdir() (POSIX version). Possible false positive test on
     non-existing path.
 
