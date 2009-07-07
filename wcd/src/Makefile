@@ -120,7 +120,7 @@ docfiles : ${DOCFILES}
 
 install : ${PROGRAM} ${MOFILES} ${DOCFILES}
 	${INSTALL} -D -m 755 ${PROGRAM} ${DESTBINDIR}/${PROGRAM}
-	$(foreach mofile, ${MOFILES}, ${INSTALL} -D -m 644 ${mofile} ${DESTLOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo)
+	$(foreach mofile, ${MOFILES}, ${INSTALL} -D -m 644 ${mofile} ${DESTLOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo ;)
 	${INSTALL} -D -m 644 man/man1/${PACKAGE}.1 ${DESTMANDIR}/man1/${PACKAGE}.1
 	${INSTALL} -D -m 644 ../doc/copying.txt "${DESTDOCDIR}/copying.txt"
 	${INSTALL} -D -m 644 ../doc/faq.txt ${DESTDOCDIR}/faq.txt
@@ -139,7 +139,7 @@ install : ${PROGRAM} ${MOFILES} ${DOCFILES}
 
 uninstall :
 	-rm -f ${DESTBINDIR}/${PROGRAM}
-	$(foreach mofile, ${MOFILES}, rm -f ${DESTLOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo)
+	$(foreach mofile, ${MOFILES}, rm -f ${DESTLOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo ;)
 	-rm -f ${DESTMANDIR}/man1/${PACKAGE}.1
 	-rm -rf ${DESTDOCDIR}
 
