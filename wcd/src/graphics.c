@@ -1235,6 +1235,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
 	 }
          while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
            j++;
+         width = 0;
          if (j<len)
             switch(wstr[j])
             {
