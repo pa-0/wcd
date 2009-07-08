@@ -906,6 +906,8 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
   int inputWinLen ;
   int lines_per_page ; /* number of lines to print per page */
   char number_str[WCD_MAX_INPSTR];
+  char buf[WCD_MAX_INPSTR];
+  int offset, pageoffset;
   WINDOW *scrollWin, *inputWin ;
 #ifndef __PDCURSES__
   SCREEN *sp;
@@ -1046,13 +1048,20 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
         wcd_mvwaddstr(inputWin,1,0,_("Wild "));
       wprintw(inputWin,_("match for %d directories."),size);
    }
-   wcd_mvwaddstr(inputWin,2,0,_("Please choose one (<Enter> to abort): "));
 
    page = bottom / lines_per_page + 1 ;
 
-   wmove (inputWin, 1, PAGEOFFSET);
-   wprintw(inputWin,_("w=up x=down ?=help  Page %d/%d      "),page,(size -1)/lines_per_page +1);
-   wmove (inputWin, 2, OFFSET);
+   snprintf(buf,WCD_MAX_INPSTR,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+   pageoffset = COLS - str_columns(buf);
+   if (pageoffset < 0)
+      pageoffset = 0;
+   wmove (inputWin, 0, pageoffset);
+   wprintw(inputWin,"%s",buf);
+
+   snprintf(buf,WCD_MAX_INPSTR,_("Please choose one (<Enter> to abort): "));
+   wcd_mvwaddstr(inputWin,2,0,buf);
+   offset = str_columns(buf) ;
+   wmove (inputWin, 2, offset);
    err = prefresh(scrollWin,0,0,0,0,scrollWinHeight-1,COLS-1);
    err = prefresh(inputWin,0,0,scrollWinHeight,0,scrollWinHeight+INPUT_WIN_HEIGHT-1,COLS-1);
 
@@ -1084,9 +1093,13 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
          page = bottom / lines_per_page + 1 ;
 
-         wmove (inputWin, 1, PAGEOFFSET);
-         wprintw(inputWin,_("w=up x=down ?=help  Page %d/%d      "),page,(size -1)/lines_per_page +1);
-         wmove (inputWin, 2, OFFSET + n);
+         snprintf(buf,WCD_MAX_INPSTR,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+         pageoffset = COLS - str_columns(buf);
+         if (pageoffset < 0)
+            pageoffset = 0;
+         wmove (inputWin, 0, pageoffset);
+         wprintw(inputWin,"%s",buf);
+         wmove (inputWin, 2, offset + n);
 
          break;
 
@@ -1110,9 +1123,13 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
          page = bottom / lines_per_page + 1 ;
 
-         wmove (inputWin, 1, PAGEOFFSET);
-         wprintw(inputWin,_("w=up x=down ?=help  Page %d/%d      "),page,(size -1)/lines_per_page +1);
-         wmove (inputWin, 2, OFFSET + n);
+         snprintf(buf,WCD_MAX_INPSTR,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+         pageoffset = COLS - str_columns(buf);
+         if (pageoffset < 0)
+            pageoffset = 0;
+         wmove (inputWin, 0, pageoffset);
+         wprintw(inputWin,"%s",buf);
+         wmove (inputWin, 2, offset + n);
      break;
 
       case ',':
@@ -1192,15 +1209,15 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
      case 127: /* delete */
             if(n>0) n--;
             number_str[n] = '\0';
-            wmove (inputWin, 2, OFFSET + n);
+            wmove (inputWin, 2, offset + n);
             wprintw(inputWin," ");
-            wmove (inputWin, 2, OFFSET + n);
+            wmove (inputWin, 2, offset + n);
      break;
      default:
          if (( c >= '0') && ( c <= '9') && (n < WCD_MAX_INPSTR)) /* numbers */
          {
             number_str[n] = (char)c;
-            wmove (inputWin, 2, OFFSET + n++);
+            wmove (inputWin, 2, offset + n++);
             number_str[n] = '\0';
             wprintw(inputWin,"%c",(char)c);
          

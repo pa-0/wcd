@@ -1598,10 +1598,10 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
   +              Pop dir (# times)\n\
   =              Show stack\n"));
 #ifdef WCD_WINPWRSH
-   printf(_("This version is for Windows PowerShell!\n"));
+   printf(_("This version is for Windows PowerShell.\n"));
 #endif
 #ifdef WCD_WINZSH
-   printf(_("This version is for win32 port of ZSH!\n"));
+   printf(_("This version is for MSYS and win32 port of ZSH.\n"));
 #endif
 #ifdef WCD_DOSBASH
    printf(_("This version is for DJGPP DOS bash.\n"));

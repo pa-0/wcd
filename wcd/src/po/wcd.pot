@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-07 07:59+0200\n"
+"POT-Creation-Date: 2009-07-08 23:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -179,14 +179,14 @@ msgid ""
 "  =              Show stack\n"
 msgstr ""
 
-#: wcd.c:1601
+#: wcd.c:1601 wcd.c:1624
 #, c-format
-msgid "This version is for Windows PowerShell!\n"
+msgid "This version is for Windows PowerShell.\n"
 msgstr ""
 
-#: wcd.c:1604
+#: wcd.c:1604 wcd.c:1622
 #, c-format
-msgid "This version is for win32 port of ZSH!\n"
+msgid "This version is for MSYS and win32 port of ZSH.\n"
 msgstr ""
 
 #: wcd.c:1607 wcd.c:1632
@@ -204,16 +204,6 @@ msgstr ""
 msgid ""
 "Chdir for Dos and Unix.\n"
 "\n"
-msgstr ""
-
-#: wcd.c:1622
-#, c-format
-msgid "This version is for MSYS and win32 port of ZSH.\n"
-msgstr ""
-
-#: wcd.c:1624
-#, c-format
-msgid "This version is for Windows PowerShell.\n"
 msgstr ""
 
 #: wcd.c:1626
@@ -446,118 +436,118 @@ msgstr ""
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr ""
 
-#: display.c:951 graphics.c:1769
+#: display.c:953 graphics.c:1769
 #, c-format
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 
-#: display.c:969
+#: display.c:971
 #, c-format
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr ""
 
-#: display.c:1003 graphics.c:1802
+#: display.c:1005 graphics.c:1802
 #, c-format
 msgid "Wcd: error creating scroll window.\n"
 msgstr ""
 
-#: display.c:1034
+#: display.c:1036
 #, c-format
 msgid "Wcd: error creating input window.\n"
 msgstr ""
 
-#: display.c:1044
+#: display.c:1046
 msgid "Perfect "
 msgstr ""
 
-#: display.c:1046
+#: display.c:1048
 msgid "Wild "
 msgstr ""
 
-#: display.c:1047
+#: display.c:1049
 #, c-format
 msgid "match for %d directories."
 msgstr ""
 
-#: display.c:1049 display.c:1289
+#: display.c:1054 display.c:1096 display.c:1126
+#, c-format
+msgid " w=up x=down ?=help  Page %d/%d "
+msgstr ""
+
+#: display.c:1061 display.c:1306
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr ""
 
-#: display.c:1054 display.c:1088 display.c:1114
-#, c-format
-msgid "w=up x=down ?=help  Page %d/%d      "
-msgstr ""
-
-#: display.c:1163
+#: display.c:1180
 msgid "Screenheight must be > 20 for help."
 msgstr ""
 
-#: display.c:1166
+#: display.c:1183
 msgid "w or <Up>         Page Up."
 msgstr ""
 
-#: display.c:1167
+#: display.c:1184
 msgid "x or z or <Down>  Page Down."
 msgstr ""
 
-#: display.c:1168
+#: display.c:1185
 msgid ", or <Left>       Scroll 1 left."
 msgstr ""
 
-#: display.c:1169
+#: display.c:1186
 msgid ". or <Right>      Scroll 1 right."
 msgstr ""
 
-#: display.c:1170
+#: display.c:1187
 msgid "< or [            Scroll 10 left."
 msgstr ""
 
-#: display.c:1171
+#: display.c:1188
 msgid "> or ]            Scroll 10 right."
 msgstr ""
 
-#: display.c:1172
+#: display.c:1189
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr ""
 
-#: display.c:1173
+#: display.c:1190
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr ""
 
-#: display.c:1174
+#: display.c:1191
 msgid "CTRL-c or <Esc>   Abort."
 msgstr ""
 
-#: display.c:1175
+#: display.c:1192
 msgid "<Enter>           Abort."
 msgstr ""
 
-#: display.c:1176
+#: display.c:1193
 msgid "Type w or x to quit help."
 msgstr ""
 
-#: display.c:1285
+#: display.c:1302
 #, c-format
 msgid ""
 "\n"
 "Perfect "
 msgstr ""
 
-#: display.c:1287
+#: display.c:1304
 #, c-format
 msgid ""
 "\n"
 "Wild "
 msgstr ""
 
-#: display.c:1288
+#: display.c:1305
 #, c-format
 msgid "match for %d directories.\n"
 msgstr ""
 
-#: display.c:1331
+#: display.c:1348
 #, c-format
 msgid ""
 "\n"
