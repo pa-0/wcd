@@ -1,5 +1,5 @@
-5.0.4-beta1 Jul 8 2009
-  - Added Spanish language file.
+5.0.4-beta1 Jul 9 2009
+  - Added Spanish language file (thanks to Julio Augusto Freyre-Gonzalez).
   - Improved display of match list for different languages.
 
 5.0.3 Jul 4 2009

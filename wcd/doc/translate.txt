@@ -42,4 +42,9 @@ Edit the .po file in the 'po' subdirectory. Go back to the source directory and
 type 'make mofiles'. This will convert the .po file in a .mo file.
 
 
+Translators.
+============
+
+Dutch        Erwin Waterlander <waterlan@xs4all.nl>
+Spanish      Julio Augusto Freyre-Gonzalez <jfreyreg@gmail.com>
 

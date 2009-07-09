@@ -303,6 +303,11 @@ Elbert Pol          Port to OS/2 Warp
 Billy Chen          Optional colours in graphical mode (option -K)
 Billy Chen          Less screen movement when navigating in graphical mode.
 
+Thanks to the following translators:
+
+Julio Augusto Freyre-Gonzalez  (Spanish)
+
+
 
 Thanks to the following people for using their Free software:
 

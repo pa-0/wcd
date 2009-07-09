@@ -71,7 +71,7 @@ msgstr ""
 #: wcd.c:1011 wcd.c:1799
 #, c-format
 msgid "Wcd: error: Permission denied to create directory %s\n"
-msgstr "Wcd: error: Persmiso denegado para crear el directorio %s\n"
+msgstr "Wcd: error: Permiso denegado para crear el directorio %s\n"
 
 #: wcd.c:1052
 #, c-format
@@ -86,7 +86,7 @@ msgstr "Wcd: error: Permiso denegado para remover el enlace %s\n"
 #: wcd.c:1060
 #, c-format
 msgid "Wcd: %s is a link to a file.\n"
-msgstr "Wcd: %s es un enlace un archivo.\n"
+msgstr "Wcd: %s es un enlace a un archivo.\n"
 
 #: wcd.c:1063 wcd.c:1154
 #, c-format
@@ -206,14 +206,14 @@ msgstr ""
 "  -a             Añade la ruta actual al archivo de árbol\n"
 "  -aa            Añade la ruta actual y sus padres al archivo de árbol\n"
 "  -A             Añade árbol desde <ruta>\n"
-"  -b             Prohibe la ruta actual\n"
+"  -b             Prohíbe la ruta actual\n"
 "  -c             Usa modo CD directo\n"
 "  -d             Establece la <unidad> para almacenar los archivos de la "
 "pila y el script go (DOS)\n"
 "  -e             Añade la ruta actual al archivo de árbol extra\n"
 "  -ee            Añade la ruta actual y sus padres al archivo de árbol "
 "extra\n"
-"  -E             Añade árbol desde <ruta> al arhivo extra del árbol\n"
+"  -E             Añade árbol desde <ruta> al archivo extra del árbol\n"
 "  -f             Usa archivo de árbol extra\n"
 "  +f             Añade archivo de árbol extra\n"
 "  -g             Ambiente gráfico\n"
@@ -221,7 +221,7 @@ msgstr ""
 "  -gd            Ambiente gráfico, impresión del árbol\n"
 "  -G             Establece la ruta del script go\n"
 "  -GN            No emplees el script go\n"
-"  -h, --help     Depliega esta ayuda\n"
+"  -h, --help     Despliega esta ayuda\n"
 "  -i             Trata igual mayúsculas y minúsculas\n"
 "  +i             Trata distinto mayúsculas y minúsculas\n"
 "  -j             Modo directo\n"
@@ -229,12 +229,12 @@ msgstr ""
 "  -k             Retén las rutas\n"
 "  -l             Crea un alias para la ruta actual\n"
 "  -L             Imprime la Licencia del Programa\n"
-"  -m             Crea <directorio>, y añadelo al archivo de árbol\n"
-"  -M             Crea <directorio>, y añadelo al archivo de árbol extra\n"
+"  -m             Crea <directorio>, y añádelo al archivo de árbol\n"
+"  -M             Crea <directorio>, y añádelo al archivo de árbol extra\n"
 "  -n             Emplea archivo de árbol relativo en <ruta>\n"
 "  +n             Añade archivo de árbol relativo en <ruta>\n"
 "  -N             Emplea números\n"
-"  -o             Emplea la salida estandar (stdout)\n"
+"  -o             Emplea la salida estándar (stdout)\n"
 "  -od            Imprime correspondencias\n"
 "  -q             Operación silenciosa\n"
 "  -r             Remueve <directorio>\n"
@@ -257,12 +257,12 @@ msgstr ""
 #: wcd.c:1601 wcd.c:1624
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
-msgstr ""
+msgstr "Esta versión es para Windows PowerShell.\n"
 
 #: wcd.c:1604 wcd.c:1622
 #, c-format
 msgid "This version is for MSYS and win32 port of ZSH.\n"
-msgstr ""
+msgstr "Esta versión es para la implementación MSYS y win32 de ZSH.\n"
 
 #: wcd.c:1607 wcd.c:1632
 #, c-format
@@ -291,7 +291,7 @@ msgstr "Versión de consola para Win32.\n"
 #: wcd.c:1629
 #, c-format
 msgid "DOS 32 bit version.\n"
-msgstr "Version DOS de 32 bit.\n"
+msgstr "Versión DOS de 32 bit.\n"
 
 #: wcd.c:1635
 #, c-format
@@ -301,12 +301,12 @@ msgstr "Esta versión es para OS/2 bash.\n"
 #: wcd.c:1637
 #, c-format
 msgid "Interface: "
-msgstr ""
+msgstr "Interfase: "
 
 #: wcd.c:1639
 #, c-format
 msgid "conio\n"
-msgstr ""
+msgstr "conio\n"
 
 #: wcd.c:1643
 #, c-format
@@ -321,12 +321,12 @@ msgstr "PDCurses versión %d\n"
 #: wcd.c:1648
 #, c-format
 msgid "curses\n"
-msgstr ""
+msgstr "curses\n"
 
 #: wcd.c:1652
 #, c-format
 msgid "stdout\n"
-msgstr ""
+msgstr "stdout\n"
 
 #: wcd.c:1656
 #, c-format
@@ -336,7 +336,7 @@ msgstr "Soporte de lenguaje nativo incluido.\n"
 #: wcd.c:1657
 #, c-format
 msgid "LOCALEDIR=%s\n"
-msgstr ""
+msgstr "LOCALEDIR=%s\n"
 
 #: wcd.c:1659
 #, c-format
@@ -346,32 +346,32 @@ msgstr "No incluye soporte de lenguaje nativo.\n"
 #: wcd.c:1662
 #, c-format
 msgid "With UTF-8 support.\n"
-msgstr ""
+msgstr "Con soporte para UTF-8.\n"
 
 #: wcd.c:1665
 #, c-format
 msgid "  Current locale uses UTF-8 encoding.\n"
-msgstr ""
+msgstr "  Localización actual emplea codificación UTF-8.\n"
 
 #: wcd.c:1666
 #, c-format
 msgid "  Euro symbol: "
-msgstr ""
+msgstr "  Símbolo de Euro: "
 
 #: wcd.c:1668
 #, c-format
 msgid "  Chinese characters: "
-msgstr ""
+msgstr "  Caracteres chinos: "
 
 #: wcd.c:1671
 #, c-format
 msgid "  Current locale does not use UTF-8 encoding, but %s\n"
-msgstr ""
+msgstr "  Localización actual no emplea codificación UTF-8 sino %s\n"
 
 #: wcd.c:1674
 #, c-format
 msgid "Without UTF-8 support.\n"
-msgstr ""
+msgstr "Sin soporte para UTF-8.\n"
 
 #: wcd.c:1677
 #, c-format
@@ -406,7 +406,7 @@ msgstr ""
 #: wcd.c:2017 wcd.c:2039
 #, c-format
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
-msgstr "Wcd: error: La varible de ambiente HOME o WCDHOME no tiene valor.\n"
+msgstr "Wcd: error: La variable de ambiente HOME o WCDHOME no tiene valor.\n"
 
 #: wcd.c:2102 wcd.c:2536 wcd.c:2553
 #, c-format
@@ -419,7 +419,7 @@ msgstr ""
 #, c-format
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
-"Wcd: Modo gráfico sólo soportado en wcd con interface basada en curses.\n"
+"Wcd: Modo gráfico sólo soportado en wcd con interfase basada en curses.\n"
 
 #: wcd.c:2219
 #, c-format
@@ -479,7 +479,7 @@ msgid ""
 "Wcd: No directory found matching %s\n"
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
-"Wcd: No se encontró algun directorio que concordara con %s\n"
+"Wcd: No se encontró algún directorio que concordara con %s\n"
 "Wcd: Quizá necesite reexplorar el disco o la ruta.\n"
 
 #: wcd.c:3090
@@ -526,7 +526,7 @@ msgstr "Wcd: error en maxLengthStack(), s == NULL\n"
 #, c-format
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
-msgstr "Wcd: warning: Error al abrir la terminal, usando interface stdout.\n"
+msgstr "Wcd: warning: Error al abrir la terminal, usando interfase stdout.\n"
 
 #: display.c:971
 #, c-format
@@ -559,7 +559,7 @@ msgstr "concordancia para %d directorios."
 #: display.c:1054 display.c:1096 display.c:1126
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
-msgstr " w=arriba x=abajo ?=ayuda  Pagina %d/%d "
+msgstr " w=arriba x=abajo ?=ayuda  Página %d/%d "
 
 #: display.c:1061 display.c:1306
 #, c-format
@@ -572,11 +572,11 @@ msgstr "La altura de la pantalla debe ser > 20 para la ayuda."
 
 #: display.c:1183
 msgid "w or <Up>         Page Up."
-msgstr "w o <Arriba>      Avanza Pág."
+msgstr "w o <Arriba>      Avanza página"
 
 #: display.c:1184
 msgid "x or z or <Down>  Page Down."
-msgstr "x o <Abajo>       Retrocede Pág."
+msgstr "x o <Abajo>       Retrocede página."
 
 #: display.c:1185
 msgid ", or <Left>       Scroll 1 left."
@@ -653,15 +653,15 @@ msgstr "Wcd: error: línea demasiado larga en función getTreeLine()"
 
 #: graphics.c:1437
 msgid "/ = search forward,  ? = search backward,  : = help"
-msgstr ""
+msgstr "/ = busca adelante,  ? = busca atrás,  : = ayuda"
 
 #: graphics.c:1442
 msgid "SEARCH: "
-msgstr ""
+msgstr "BUSCA: "
 
 #: graphics.c:1445
 msgid "Search: "
-msgstr ""
+msgstr "Busca: "
 
 #: graphics.c:1461
 msgid "NAVIGATE MODE:"
@@ -749,7 +749,7 @@ msgstr "Presione alguna tecla."
 
 #: graphics.c:1487
 msgid "SEARCH MODE with wildcard and subdir support:"
-msgstr "MODO DE BUSQUEDA con soporte de comodines y subdirectorios:"
+msgstr "MODO BUSQUEDA con soporte de comodines y subdirectorios:"
 
 #: graphics.c:1488
 msgid "<Left>            go left."
@@ -805,7 +805,7 @@ msgstr "CTRL-d            retroceder media página."
 
 #: graphics.c:1501
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
-msgstr "<Esc> o CTRL-x    Abortar MODO DE BUSQUEDA."
+msgstr "<Esc> o CTRL-x    Abortar MODO BUSQUEDA."
 
 #: graphics.c:1502
 msgid "CTRL-n            Repeat latest / or ? search."
@@ -813,7 +813,7 @@ msgstr "CTRL-n            Repetir la última búsqueda / o ?."
 
 #: graphics.c:1510
 msgid "ZOOMING:"
-msgstr ""
+msgstr "ZOOMING:"
 
 #: graphics.c:1511
 msgid "z or i or CTRL-i  zoom in."
