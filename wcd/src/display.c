@@ -906,7 +906,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
   int inputWinLen ;
   int lines_per_page ; /* number of lines to print per page */
   char number_str[WCD_MAX_INPSTR];
-  wcd_char buf[WCD_MAX_INPSTR];
+  char buf[WCD_MAX_INPSTR];
   int offset, pageoffset;
   WINDOW *scrollWin, *inputWin ;
 #ifndef __PDCURSES__
