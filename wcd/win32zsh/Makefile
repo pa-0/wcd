@@ -4,7 +4,7 @@ MKDIR  = mkdir
 
 CFLAGS = -Ic3po -O3 -Wall
 LFLAGS = -lpdcurses -lintl -liconv -lkernel32 -luser32 -lmpr
-ifdef WCD_UTF8 
+ifdef UNICODE 
 DEFS   = -DMSDOS -DWCD_USECURSES -DWCD_WINZSH -DPDC_STATIC_BUILD -DPDC_WIDE
 EXTRA_OBJ=wcwidth.o langinfo.o
 else

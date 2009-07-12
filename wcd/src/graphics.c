@@ -36,7 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <stdio.h>
 #include <string.h>
 #include <signal.h>
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
 #define __USE_XOPEN
 #include <wchar.h>
 #endif
@@ -81,7 +81,7 @@ struct wcdwin /* structure with window information */
    WINDOW *inputWin;
    dirnode curNode;
    char str[WCD_MAX_INPSTR];
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    wchar_t wstr[WCD_MAX_INPSTR];
 #endif
    int mode;
@@ -1162,7 +1162,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
 {
    wcd_char *s;
    int len, j;
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
 #endif
@@ -1171,7 +1171,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
 
    if (s != NULL)
    {
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
       len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
@@ -1183,11 +1183,11 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
          fprintf(stderr,"s = %s\n",s);
       } */
 
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
       /* xoffset is horizontal offset measured in nr. of columns. */
       if (len < 0)
       {
-         /* Erroneous UTF-8 sequence */
+         /* Erroneous multi-byte sequence */
          /* Try 8 bit characters */
          len = strlen((char *)s);
          for(j=xoffset;(j<len)&&((j-xoffset)<(COLS-1));j++)
@@ -1339,7 +1339,7 @@ void dataRefresh(int ydiff, int init)
   static int xoffset = 0;  /* Horizontal offset in number of columns */
   static int yposition = -1;  /* -1 : not initialized */
   wcd_char *s;
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
   static wchar_t wstr[DD_MAXPATH];
   int width;
 #endif
@@ -1407,11 +1407,11 @@ void dataRefresh(int ydiff, int init)
   if (s != NULL)
   {
     wmove(wcd_cwin.inputWin, 1, 0);
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
    if (len < 0)
    {
-      /* Erroneous UTF-8 sequence */
+      /* Erroneous multi-byte sequence */
       /* Try 8 bit characters */
       len = strlen((char *)s);
       for (i = 0; (i < len) && (i < (COLS - 1)); i++)
@@ -1438,7 +1438,7 @@ void dataRefresh(int ydiff, int init)
   else
   {
     wmove(wcd_cwin.inputWin, 2, 0);
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
     waddstr(wcd_cwin.inputWin,_("SEARCH: "));
     waddnwstr(wcd_cwin.inputWin,wcd_cwin.wstr, WCD_MAX_INPSTR);
 #else
@@ -1738,7 +1738,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #ifndef __PDCURSES__
   SCREEN *sp;
 #endif
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
   wint_t ch;
 #endif
 
@@ -1815,7 +1815,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
    while (c != 13 )
    {
 
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
       c = get_wch(&ch);
 #else
       c = getch();
@@ -1823,7 +1823,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
       ydiff = wcd_cwin.curNode->y;
 
      if (wcd_cwin.mode == WCD_NAV)
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
      switch(ch)
 #else
      switch(c)
@@ -1965,7 +1965,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
      break;
      }
 
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
      switch(ch)
 #else
      switch(c)
@@ -2117,7 +2117,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
                wcd_cwin.mode = WCD_NAV;
             if(n>1) n--;
             wcd_cwin.str[n] = '\0';
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
             wcd_cwin.wstr[n] = '\0';
 #endif
      break;
@@ -2127,14 +2127,14 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
                wcd_cwin.mode = WCD_NAV;
             if(n>1) n--;
             wcd_cwin.str[n] = '\0';
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
             wcd_cwin.wstr[n] = '\0';
 #endif
      break;
      default:
       if ((wcd_cwin.mode == WCD_SEARCH) && (n < WCD_MAX_INPSTR))
       {
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
          wcd_cwin.wstr[n] = ch;
          n++;
          wcd_cwin.wstr[n] = '\0';

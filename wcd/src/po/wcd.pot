@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 22:05+0200\n"
+"POT-Creation-Date: 2009-07-13 00:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -268,7 +268,7 @@ msgstr ""
 
 #: wcd.c:1662
 #, c-format
-msgid "With UTF-8 support.\n"
+msgid "With Unicode support.\n"
 msgstr ""
 
 #: wcd.c:1665
@@ -288,12 +288,12 @@ msgstr ""
 
 #: wcd.c:1671
 #, c-format
-msgid "  Current locale does not use UTF-8 encoding, but %s\n"
+msgid "  Current locale uses %s encoding.\n"
 msgstr ""
 
 #: wcd.c:1674
 #, c-format
-msgid "Without UTF-8 support.\n"
+msgid "Without Unicode support.\n"
 msgstr ""
 
 #: wcd.c:1677
@@ -352,7 +352,7 @@ msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
 "in the public domain by Felix Kasza.\n"
 "Markus Kuhn's free wcwidth() and nl_langinfo() implementations are used\n"
-"in Wcd for Windows with UTF-8 Unicode support.\n"
+"in Wcd for Windows with Unicode support.\n"
 "\n"
 "This program is free software; you can redistribute it and/or\n"
 "modify it under the terms of the GNU General Public License\n"

@@ -1,6 +1,7 @@
 5.0.4-beta2 Jul 10 2009
   - Added Spanish language file (thanks to Julio Augusto Freyre-Gonzalez).
   - Improved display of match list for different languages.
+  - Changed makefile variable 'WCD_UTF8' to 'UNICODE'.
 
 5.0.3 Jul 4 2009
   - Fixed wcd_isdir() (UNIX/DOS/Cygwin/OS2 version). Possible false positive

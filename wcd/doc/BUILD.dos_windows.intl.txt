@@ -168,12 +168,12 @@ To start clean:
   Type `make clean'
 
 
-UTF-8 Unicode support
-=====================
+Unicode support
+===============
 
-To activate UTF-8 support add WCD_UTF8=1 to the make command:
+To activate Unicode support add UNICODE=1 to the make command:
 
- `make WCD_UTF8=1'
+ `make UNICODE=1'
 
 This requires a (pd/n)curses installation with wide character support.
 Not supported for DOS versions of wcd.

@@ -19,7 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
 #define __USE_XOPEN
 #include <wchar.h>
 #endif
@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 int str_columns (char *s)
 {
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int i;
 
@@ -83,7 +83,7 @@ void swap(nameset list, int i, int j)
 void ssort (nameset list, int left, int right)
 {
  int i, last;
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
  static wchar_t wstr_left[DD_MAXPATH];
  static wchar_t wstr_right[DD_MAXPATH];
  int len1,len2;
@@ -96,12 +96,12 @@ void ssort (nameset list, int left, int right)
 
   for (i = left+1; i <=right; i++)
   {
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    len1 = mbstowcs(wstr_left, list->array[left],DD_MAXPATH);
    len2 = mbstowcs(wstr_right,list->array[i],DD_MAXPATH);
    if ((len1<0)||(len2<0))
    {
-      /* Erroneous UTF-8 sequence */
+      /* Erroneous multi-byte sequence */
       /* Try 8 bit characters */
 #  ifdef ENABLE_NLS
       if  (strcoll(list->array[i],list->array[left])<0)
@@ -686,7 +686,7 @@ struct text_info ti;
 
 void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
 {
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int i;
 
@@ -694,7 +694,7 @@ void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
    i= mbstowcs(wstr,str,DD_MAXPATH);
    if ( i < 0)
    {
-      /* Erroneous UTF-8 sequence */
+      /* Erroneous multi-byte sequence */
       /* Try 8 bit characters */
       mvwaddstr(win, x, y, str);
    } else {
@@ -709,7 +709,7 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 {
    wcd_char *s;
    int len, j, nr_offset;
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
 #endif
@@ -718,7 +718,7 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 
    if (s != NULL)
    {
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
       len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
@@ -730,10 +730,10 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 
       wmove(win,y,nr_offset);
 
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
       if (len<0)
       {
-         /* Erroneous UTF-8 sequence */
+         /* Erroneous multi-byte sequence */
          /* Try 8 bit characters */
          len = strlen((char *)s);
          for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
@@ -772,7 +772,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
 {
    wcd_char *s;
    int len, j, nr_offset;
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
 #endif
@@ -781,7 +781,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
 
    if (s != NULL)
    {
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
       len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
@@ -793,10 +793,10 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
 
       wmove(win,y,nr_offset);
 
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
       if (len<0)
       {
-         /* Erroneous UTF-8 sequence */
+         /* Erroneous multi-byte sequence */
          /* Try 8 bit characters */
          len = strlen((char *)s);
          for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(COLS-1));j++)

@@ -2,7 +2,7 @@
 PREFIX = /usr
 
 CFLAGS = -Ic3po -O3 -Wall
-ifdef WCD_UTF8
+ifdef UNICODE
 LFLAGS = -lncursesw -lintl -liconv -lmpr
 else
 LFLAGS = -lcurses -lintl -liconv -lmpr

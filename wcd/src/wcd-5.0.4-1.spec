@@ -24,7 +24,7 @@ search.
 %setup
 
 %build
-make -C src PREFIX=/usr WCD_UTF8=1
+make -C src PREFIX=/usr UNICODE=1
 
 %install
 make -C src install DESTDIR=${RPM_BUILD_ROOT} PREFIX=/usr

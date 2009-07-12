@@ -41,7 +41,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #endif
 #include "dosdir.h"
 
-#if (defined(WIN32) && defined(WCD_UTF8))
+#if (defined(WIN32) && defined(WCD_UNICODE))
 #include <wchar.h>
 #endif
 
@@ -218,7 +218,7 @@ void wcd_getshares(char* path, nameset n)
 char *wcd_getcwd(char *buf, int size)
 {
    BOOL err;
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
    err = GetCurrentDirectoryW(size, wstr);
@@ -238,7 +238,7 @@ char *wcd_getcwd(char *buf, int size)
 int wcd_chdir(char *buf)
 {
    BOOL err;
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
    if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
@@ -258,7 +258,7 @@ int wcd_chdir(char *buf)
 int wcd_mkdir(char *buf)
 {
    BOOL err;
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
    if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
@@ -278,7 +278,7 @@ int wcd_mkdir(char *buf)
 int wcd_rmdir(char *buf)
 {
    BOOL err;
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
    if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)

@@ -43,7 +43,7 @@ TAB = 3 spaces
 #ifdef DJGPP
 # include <dir.h>
 #endif
-#ifdef WCD_UTF8
+#ifdef WCD_UNICODE
 #ifdef WIN32
 # include "langinfo.h"
 #else
@@ -1658,8 +1658,8 @@ void print_version()
 #else
    printf(_("No native language support included.\n"));
 #endif
-#ifdef WCD_UTF8
-   printf(_("With UTF-8 support.\n"));
+#ifdef WCD_UNICODE
+   printf(_("With Unicode support.\n"));
    if (strcmp(nl_langinfo(CODESET), "UTF-8") == 0)
    {
       printf(_("  Current locale uses UTF-8 encoding.\n"));
@@ -1668,10 +1668,10 @@ void print_version()
       printf(_("  Chinese characters: "));
       printf ("\u4e2d\u6587\n");
    } else {
-      printf(_("  Current locale does not use UTF-8 encoding, but %s\n"),nl_langinfo(CODESET));
+      printf(_("  Current locale uses %s encoding.\n"),nl_langinfo(CODESET));
    }
 #else
-   printf(_("Without UTF-8 support.\n"));
+   printf(_("Without Unicode support.\n"));
 #endif
    printf("\n");
    printf(_("Download the latest executables and sources from:\n"));
@@ -2228,7 +2228,7 @@ Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n\
 Source code to scan Windows LAN was originally written and placed\n\
 in the public domain by Felix Kasza.\n\
 Markus Kuhn's free wcwidth() and nl_langinfo() implementations are used\n\
-in Wcd for Windows with UTF-8 Unicode support.\n\n\
+in Wcd for Windows with Unicode support.\n\n\
 \
 This program is free software; you can redistribute it and/or\n\
 modify it under the terms of the GNU General Public License\n\

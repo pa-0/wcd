@@ -22,9 +22,13 @@ INSTALL=install
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
 # Flags and defs for wide character support.
-ifdef WCD_UTF8 
+ifdef WCD_UTF8
+# WCD_UTF8 was used in older versions.
+UNICODE=1
+endif
+ifdef UNICODE 
 WCFLAGS   = -std=gnu99
-WDEFS     = -DWCD_UTF8
+WDEFS     = -DWCD_UNICODE
 LFLAGS    = -lncursesw $(NLFLAG)
 else
 LFLAGS    = -lncurses $(NLFLAG)
@@ -54,9 +58,9 @@ MOFILES = $(patsubst %.po,%.mo,$(POFILES))
 DOCFILES = ../doc/${PACKAGE}.txt ../doc/${PACKAGE}.ps ../doc/${PACKAGE}.pdf
 
 VERSIONSUFFIX = -bin
-ifdef WCD_UTF8 
-ZIPFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-utf8.zip
-TGZFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-utf8.tar.gz
+ifdef UNICODE 
+ZIPFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-ucs.zip
+TGZFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-ucs.tar.gz
 else
 ZIPFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}.zip
 TGZFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}.tar.gz
