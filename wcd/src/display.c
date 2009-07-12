@@ -1051,14 +1051,14 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
    page = bottom / lines_per_page + 1 ;
 
-   snprintf(buf,WCD_MAX_INPSTR,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+   sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
    pageoffset = COLS - str_columns(buf);
    if (pageoffset < 0)
       pageoffset = 0;
    wmove (inputWin, 0, pageoffset);
    wprintw(inputWin,"%s",buf);
 
-   snprintf(buf,WCD_MAX_INPSTR,_("Please choose one (<Enter> to abort): "));
+   sprintf(buf,_("Please choose one (<Enter> to abort): "));
    wcd_mvwaddstr(inputWin,2,0,buf);
    offset = str_columns(buf) ;
    wmove (inputWin, 2, offset);
@@ -1093,7 +1093,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
          page = bottom / lines_per_page + 1 ;
 
-         snprintf(buf,WCD_MAX_INPSTR,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+         sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
          pageoffset = COLS - str_columns(buf);
          if (pageoffset < 0)
             pageoffset = 0;
@@ -1123,7 +1123,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
          page = bottom / lines_per_page + 1 ;
 
-         snprintf(buf,WCD_MAX_INPSTR,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+         sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
          pageoffset = COLS - str_columns(buf);
          if (pageoffset < 0)
             pageoffset = 0;
