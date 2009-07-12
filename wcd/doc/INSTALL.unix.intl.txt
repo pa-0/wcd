@@ -43,9 +43,9 @@ To start clean:
 UTF-8 and Unicode support
 =========================
 
-To activate Unicode support add UNICODE=1 to the make command:
+To activate Unicode support add UCS=1 to the make command:
 
- `make UNICODE=1'
+ `make UCS=1'
 
 This requires an (n)curses installation with wide character support.
 

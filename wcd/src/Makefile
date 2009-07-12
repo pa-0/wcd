@@ -24,9 +24,9 @@ INSTALL=install
 # Flags and defs for wide character support.
 ifdef WCD_UTF8
 # WCD_UTF8 was used in older versions.
-UNICODE=1
+UCS=1
 endif
-ifdef UNICODE 
+ifdef UCS 
 WCFLAGS   = -std=gnu99
 WDEFS     = -DWCD_UNICODE
 LFLAGS    = -lncursesw $(NLFLAG)
@@ -58,7 +58,7 @@ MOFILES = $(patsubst %.po,%.mo,$(POFILES))
 DOCFILES = ../doc/${PACKAGE}.txt ../doc/${PACKAGE}.ps ../doc/${PACKAGE}.pdf
 
 VERSIONSUFFIX = -bin
-ifdef UNICODE 
+ifdef UCS 
 ZIPFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-ucs.zip
 TGZFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-ucs.tar.gz
 else
