@@ -133,7 +133,7 @@ path to a drive letter. In windows PowerShell, MSYS, zsh and Cygwin UNC paths ar
 fully supported. The current working directory can be a UNC path.
 
 Wcd supports 8 bit character sets on all systems, and has optional
-support for UTF-8 Unicode. See also section LOCALIZATION/UTF-8 UNICODE.
+support for Unicode. See also section LOCALIZATION/UTF-8 and UNICODE.
 
 Remark about 8 bit characters on Windows: Only the original equipment
 manufacturer (OEM) code page installed with Windows appears correctly in a
@@ -836,6 +836,8 @@ export LANG=nl_BE            Dutch, Belgium
 .br
 export LANG=es_ES            Spanish, Spain
 .br
+export LANG=es_MX            Spanish, Mexico
+.br
 export LANG=en_US.iso88591   English, USA, Latin-1 encoding
 
 For a complete list of language and country codes see the gettext manual:
@@ -850,9 +852,11 @@ information.
 .TP 4
 .I LANGUAGE
 With the LANGUAGE environment variable you can specify a priority list of
-languages, separated by colons. Gettext gives preference to LANGUAGE over LANG.
-Example, first Dutch and then German: \%LANGUAGE=nl:de
-See also the gettext manual:
+languages, separated by colons. Wcd gives preference to LANGUAGE over LANG.
+For instance, first Dutch and then German: \%LANGUAGE=nl:de. You have to first
+enable localization, by setting LANG (or LC_ALL) to a value other than
+\(gaC\(aq, before you can use a language priority list through the LANGUAGE
+variable. See also the gettext manual:
 .br
 .nf
 http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable
@@ -910,12 +914,31 @@ environment variable LC_ALL if it is defined. Wcd gives preference to LC_ALL
 over LC_COLLATE and LC_CTYPE.
 
 .TP 4
-.I UTF-8 UNICODE
-Wcd can support UTF-8 unicode on Unix/Linux and possibly Windows. To see if wcd
-was built with UTF-8 support type \(gawcd -V\(aq.  If your locale character
-encoding setting is UTF-8 you should see the euro symbol and Chinese characters
-(meaning: "Chinese").  Other multi-byte character encodings should also work, but
-that has not been tested.
+.I WINDOWS CODE PAGES 
+There are two groups of code pages. DOS code pages (OEM) and Windows code pages
+(ANSI). The default encoding for Windows, when configured with Western regional
+settings, is  ANSI CP1252. Windows programs, for instance notepad, use this
+default system ANSI code page. The Windows console uses by default an OEM code
+page (CP850) for compatibility with DOS programs. If you use a DOS version of
+wcd in a Windows console it will work, because of the DOS code page. But the
+DOS version of wcd lacks support for long directory names and network drives on
+Windows. The windows version of wcd is a native windows program and will use
+the Windows system ANSI code page. So on a Western regional Windows it will use
+CP1252 for directory names and messages. Therefore the code page of the console
+has to be made equal to the system code page (changed to 1252) to make wcd for
+Windows work properly with special characters such as accented characters
+or the euro symbol. The console raster font only supports the default OEM code
+page, so you also have to change the font to true type Lucida console to
+support the ANSI code page. The Windows system code page can be changed via the
+Control Panel regional options. The Windows console code page is changed with
+the \(gachcp\(aq command.
+
+.TP 4
+.I UTF-8 and UNICODE
+Wcd can support UTF-8 Unicode. To see if wcd was built with Unicode support
+type \(gawcd -V\(aq.  If your locale character encoding setting is UTF-8 you
+should see the euro symbol and Chinese characters (meaning: "Chinese").  Other
+multi-byte character encodings should also work, but that has not been tested.
 
 In order to view UTF-8 characters your console/terminal also needs to support
 UTF-8. The xterm version that comes with XFree86 4.0 or higher includes UTF-8
@@ -927,7 +950,7 @@ iso10646-1 encoding, for instance with
   -fn \(aq-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1\(aq
 .fi
 
-A Windows console in unicode mode can be started with the command \(gacmd /U\(aq.
+A Windows console in unicode mode can be started with the command \(gacmd /u\(aq.
 UTF-8 code page is activated with command \(gachcp 65001\(aq. You need to set the
 font to True Type Lucida Console (not raster fonts). A problem for wcd is that
 batch scripts don\(aqt run anymore when code page 65001 has been activated. This
@@ -939,12 +962,13 @@ True Type font. Set character encoding to UTF-8, for instance with:
 $env:LC_CTYPE="en_US.UTF-8"
 
 Wcd UTF-8 support in Windows Powershell is experimental and may not work
-properly. The default multi-byte character encoding in Windows is UTF-16
+properly. The default Unicode encoding in Windows is UTF-16
 instead of UTF-8.
 
-Wcd has been \(gasoft\(aq converted to UTF-8. In its core it still handles
+Wcd has been \(gasoft\(aq converted to Unicode. In its core it still handles
 strings as 8 bit streams. Only the lines printed to screen are on the fly
-converted to wide characters. Wcd fully relies on libc functions. See also
+converted to Unicode characters. Wcd fully relies on libc functions and has
+no UTF-8 specific code. See also
 .nf
 http://www.cl.cam.ac.uk/~mgk25/unicode.html
 .fi
