@@ -933,6 +933,8 @@ support the ANSI code page. The Windows system code page can be changed via the
 Control Panel regional options. The Windows console code page is changed with
 the \(gachcp\(aq command.
 
+When you type \(gawcd -V\(aq, the actual used character encoding is shown.
+
 .TP 4
 .I UTF-8 and UNICODE
 Wcd can support UTF-8 Unicode. To see if wcd was built with Unicode support
@@ -957,12 +959,11 @@ batch scripts don\(aqt run anymore when code page 65001 has been activated. This
 is a blocker for Wcd.
 
 In Windows PowerShell you also need to activate code page 65001 and select a
-True Type font. Set character encoding to UTF-8, for instance with:
-
-$env:LC_CTYPE="en_US.UTF-8"
+True Type font.
 
 Wcd UTF-8 support in Windows Powershell is experimental and may not work
-properly. The default Unicode encoding in Windows is UTF-16
+properly. Note that also the Windows system code page needs to be set
+to UTF-8. The default Unicode encoding in Windows is UTF-16
 instead of UTF-8.
 
 Wcd has been \(gasoft\(aq converted to Unicode. In its core it still handles

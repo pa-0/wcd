@@ -1655,6 +1655,7 @@ void print_version()
 #ifdef ENABLE_NLS
    printf(_("Native language support included.\n"));
    printf(_("LOCALEDIR=%s\n"),localedir);
+   printf(_("Current locale uses %s encoding.\n"),setlocale( LC_CTYPE, NULL ));
 #else
    printf(_("No native language support included.\n"));
 #endif
@@ -1662,19 +1663,13 @@ void print_version()
    printf(_("With Unicode support.\n"));
    if (strcmp(nl_langinfo(CODESET), "UTF-8") == 0)
    {
-      printf(_("  Current locale uses UTF-8 encoding.\n"));
       printf(_("  Euro symbol: "));
       printf ("\u20AC\n");
       printf(_("  Chinese characters: "));
       printf ("\u4e2d\u6587\n");
-   } else {
-      printf(_("  Current locale uses %s encoding.\n"),nl_langinfo(CODESET));
    }
 #else
    printf(_("Without Unicode support.\n"));
-#endif
-#ifdef ENABLE_NLS
-   printf("LC_CTYPE=%s\n",setlocale( LC_CTYPE, NULL ));
 #endif
    printf("\n");
    printf(_("Download the latest executables and sources from:\n"));
