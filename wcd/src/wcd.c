@@ -1673,6 +1673,9 @@ void print_version()
 #else
    printf(_("Without Unicode support.\n"));
 #endif
+#ifdef ENABLE_NLS
+   printf("LC_CTYPE=%s\n",setlocale( LC_CTYPE, NULL ));
+#endif
    printf("\n");
    printf(_("Download the latest executables and sources from:\n"));
    printf(_("http://www.xs4all.nl/~waterlan/\n"));
