@@ -43,8 +43,8 @@ TAB = 3 spaces
 #ifdef DJGPP
 # include <dir.h>
 #endif
-#ifdef WCD_UNICODE
-#ifdef WIN32
+#ifdef ENABLE_NLS
+#if (defined(MSDOS))   /* DOS, Windows (not Cygwin), OS/2 */
 # include "langinfo.h"
 #else
 # include <langinfo.h>
@@ -1655,7 +1655,11 @@ void print_version()
 #ifdef ENABLE_NLS
    printf(_("Native language support included.\n"));
    printf(_("LOCALEDIR=%s\n"),localedir);
+#if (defined(MSDOS))   /* DOS, Windows (not Cygwin), OS/2 */
    printf(_("Current locale uses %s encoding.\n"),setlocale( LC_CTYPE, NULL ));
+#else
+   printf(_("Current locale uses %s encoding.\n"),nl_langinfo(CODESET));
+#endif
 #else
    printf(_("No native language support included.\n"));
 #endif
