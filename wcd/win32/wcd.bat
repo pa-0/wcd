@@ -3,6 +3,7 @@
 set PDC_RESTORE_SCREEN=1
 rem set WCDHOME=%HOMEDRIVE%%HOMEPATH%
 rem set LANG=nl_NL
+rem set LANGUAGE=nl
 rem set WCDLOCALEDIR=c:/Program Files/wcd/share/locale
 
 wcdwin32.exe %*
