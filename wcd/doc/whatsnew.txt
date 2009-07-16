@@ -5,6 +5,9 @@
     Wcd's Unicode support is not UTF-8 specific.
   - Option -V prints the actual used character encoding.
   - Update manual. New section WINDOWS CODE PAGES.
+  - Use Keith Marshall's nl_langinfo() implementation in
+    Wcd for DOS/Windows/OS2 with native language support.
+    Taken from package mingw-catgets.
 
 5.0.3 Jul 4 2009
   - Fixed wcd_isdir() (UNIX/DOS/Cygwin/OS2 version). Possible false positive

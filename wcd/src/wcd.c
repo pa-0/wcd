@@ -1655,11 +1655,7 @@ void print_version()
 #ifdef ENABLE_NLS
    printf(_("Native language support included.\n"));
    printf(_("LOCALEDIR=%s\n"),localedir);
-#if (defined(MSDOS))   /* DOS, Windows (not Cygwin), OS/2 */
-   printf(_("Current locale uses %s encoding.\n"),setlocale( LC_CTYPE, NULL ));
-#else
    printf(_("Current locale uses %s encoding.\n"),nl_langinfo(CODESET));
-#endif
 #else
    printf(_("No native language support included.\n"));
 #endif
@@ -2229,8 +2225,10 @@ Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n\
 Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n\
 Source code to scan Windows LAN was originally written and placed\n\
 in the public domain by Felix Kasza.\n\
-Markus Kuhn's free wcwidth() and nl_langinfo() implementations are used\n\
-in Wcd for Windows with Unicode support.\n\n\
+Markus Kuhn's free wcwidth() implementation is used\n\
+in Wcd for Windows with Unicode support.\n\
+Copyright (C) 2007-2008 Keith Marshall on nl_langinfo()\n\
+in Wcd for DOS/Windows/OS2 with native language support.\n\n\
 \
 This program is free software; you can redistribute it and/or\n\
 modify it under the terms of the GNU General Public License\n\

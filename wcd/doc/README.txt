@@ -253,9 +253,15 @@ in the Public Domain.
 
 ......................................................................
 
-Markus Kuhn's free wcwidth() and nl_langinfo() implementation are used in
-Wcd for Windows with UTF-8 Unicode support.
+Markus Kuhn's free wcwidth() implementation is used in
+Wcd for Windows with Unicode support.
 See also http://www.cl.cam.ac.uk/~mgk25/unicode.html
+
+......................................................................
+
+Keith Marshall's nl_langinfo() implementation is used in
+Wcd for DOS/Windows/OS2 with native language support.
+Taken from package mingw-catgets.
 
 ======================================================================
 = 4 Acknowledgements                                                =
