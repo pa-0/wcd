@@ -32,6 +32,7 @@ int main (int argc, char ** argv) {
     wchar_t *cmdstr;
     wchar_t **wargv;
     wchar_t *wstr = L"\u0394"; /* greek delta */
+    wchar_t wc ;
     int i;
     FILE *out;
 
@@ -64,10 +65,12 @@ int main (int argc, char ** argv) {
   fprintf (out, "%s\n", wstr);
   fclose(out);
 
-  // Read unicode from a file.
+  // Read unicode back from file.
   out = fopen("out.txt","r");
-  
+  wc = getwc(out);
   fclose(out);
+  wcd_wprintf(L"wide char=%c\n",wc);
+  wcd_wprintf(L"wide char=%x\n",wc);
 
   return 0;
 }
