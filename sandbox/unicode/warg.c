@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <wchar.h>
-#ifdef WIN32
 #include <windows.h>
-#endif
 #include <stdarg.h>
 
-// Portable printf for Unicode characters.
+// Portable wprintf for Unicode characters.
 void wcd_wprintf( const wchar_t* format, ... ) {
 	wchar_t wstr[1024];
 	va_list args;
@@ -26,16 +24,16 @@ void wcd_wprintf( const wchar_t* format, ... ) {
 	va_end( args );
 }
 
-// greek delta \u0394
-// pound sign \u00a3
-// Cyrillic Ya \u044f
 
-// This program can take Unicode arguments.
+// This program can take Unicode arguments on Windows NT
+// even if the system/console code page is 8 bit.
 int main (int argc, char ** argv) {
 
-	wchar_t *cmdstr;
-	wchar_t **wargv;
+    wchar_t *cmdstr;
+    wchar_t **wargv;
+    wchar_t *wstr = L"\u0394"; /* greek delta */
     int i;
+    FILE *out;
 
 
 #ifdef WIN32
@@ -44,17 +42,32 @@ int main (int argc, char ** argv) {
 #endif
 
 
-    for (i = 0; i < argc; i++) {
-        printf("argv[%d]: %s\n", i, argv[i]);
-    }
+#ifdef WIN32
+    // print parameters, including Unicode.
     cmdstr = GetCommandLineW();
     wargv = CommandLineToArgvW(cmdstr, &argc);
-	
     for (i = 0; i < argc; i++) {
         wcd_wprintf(L"wargv[%d]: %s\n", i, wargv[i]);
     }
-    wcd_wprintf(L"delta=%s\n",L"\u0394");
+#else
+    for (i = 0; i < argc; i++) {
+        printf("argv[%d]: %s\n", i, argv[i]);
+    }
+#endif
+	
+    wcd_wprintf(L"greek delta=%s\n",L"\u0394");
     wcd_wprintf(L"pound sign=%s\n",L"\u00a3");
     wcd_wprintf(L"cyrillic Ya=%s\n",L"\u044f");
-	return 0;
+
+  // Write unicode to a file.
+  out = fopen("out.txt","w");
+  fprintf (out, "%s\n", wstr);
+  fclose(out);
+
+  // Read unicode from a file.
+  out = fopen("out.txt","r");
+  
+  fclose(out);
+
+  return 0;
 }
