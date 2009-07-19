@@ -32,12 +32,14 @@ int main (int argc, char ** argv) {
     wchar_t *cmdstr;
     wchar_t **wargv;
     wchar_t *wstr = L"\u0394"; /* greek delta */
+    wchar_t wbuf[128];
     wchar_t wc ;
     int i;
     FILE *out;
-
-
 #ifdef WIN32
+    OFSTRUCT *openbuf;
+
+
     printf("system cp=%d\n",GetACP());
     printf("console cp=%d\n",GetConsoleOutputCP());
 #endif
@@ -71,6 +73,13 @@ int main (int argc, char ** argv) {
   fclose(out);
   wcd_wprintf(L"wide char=%c\n",wc);
   wcd_wprintf(L"wide char=%x\n",wc);
+
+//  HFILE  *wout = OpenFile("out.txt", openbuf, OF_READ);
+//  ReadFile(wout, wbuf, 2, NULL, NULL);
+//  wbuf[2] = '\0';
+//  CloseHandle(wout);
+//  wcd_wprintf(L"wide buf=%x\n",wbuf);
+
 
   return 0;
 }
