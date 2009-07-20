@@ -7,10 +7,10 @@
 
 
 #ifdef WIN32
-# define WCD_L L
+# define WCDL (wchar_t*)
 # define WCD_PRINTF wcd_wprintf
 #else
-# define WCD_L 
+# define WCDL 
 # define WCD_PRINTF printf
 #endif
 
@@ -76,26 +76,36 @@ int main (int argc, char ** argv) {
     }
 #endif
 	
+#ifdef WIN32
     printf("fwide=%d\n",fwide(stdout,0));
-    WCD_PRINTF(WCD_L"greek delta=%s\n",WCD_L"\u0394");
-    WCD_PRINTF(WCD_L"pound sign=%s\n",WCD_L"\u00a3");
-    WCD_PRINTF(WCD_L"cyrillic Ya=%s\n",WCD_L"\u044f");
+    WCD_PRINTF(L"greek delta=%s\n",L"\u0394");
+    WCD_PRINTF(L"pound sign=%s\n",L"\u00a3");
+    WCD_PRINTF(L"cyrillic Ya=%s\n",L"\u044f");
+#else
+    WCD_PRINTF("greek delta=%s\n","\u0394");
+    WCD_PRINTF("pound sign=%s\n","\u00a3");
+    WCD_PRINTF("cyrillic Ya=%s\n","\u044f");
+#endif
 
 
 #ifdef WIN32
   // Write unicode to a file.
   out = fopen("out.txt","wb");
-  fwprintf (out, L"%s\n", L"\ufffe");  /* UTF-16LE */
-  fwprintf (out, L"%s\n", wstr);
+  fwprintf (out, L"%s", L"\ufeff");  /* UTF-16LE BOM */
+  fwprintf (out, L"%s\r\n", wstr);
+  fwprintf (out, L"\r\n"); /* new line */
+  fwprintf (out, L"%s", L"a");
+  fwprintf (out, L"%s", L"\u00df"); /* German sharp s */
+  fwprintf (out, L"\r\n"); /* new line */
   fclose(out);
 
   // Read unicode back from file.
   out = fopen("out.txt","rb");
-  wc = getwc(out); /* UTF-16LE tag */
+  wc = getwc(out); /* UTF-16LE BOM */
   wc = getwc(out);
   fclose(out);
   wcd_wprintf(L"wide char=%c\n",wc);
-  wcd_wprintf(L"wide char=%x\n",wc);
+  wcd_wprintf(L"wide char=%4x\n",wc);
 #endif
 
   return 0;
