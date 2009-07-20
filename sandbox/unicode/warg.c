@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <wchar.h>
+#ifdef WIN32
 #include <windows.h>
+#endif
 #include <stdarg.h>
 
 // Portable wprintf for Unicode characters.
@@ -19,7 +21,10 @@ void wcd_wprintf( const wchar_t* format, ... ) {
    	WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
    	//WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);  
 #else
+    if ( fwide(stdout,0) > 0 )
 	vwprintf( format, args );
+    else
+	printf ("wide-char streams not permitted.\n");
 #endif
 	va_end( args );
 }
@@ -55,10 +60,26 @@ int main (int argc, char ** argv) {
     }
 #endif
 	
+#ifdef WIN32
+    // Windows UTF-16
     wcd_wprintf(L"greek delta=%s\n",L"\u0394");
     wcd_wprintf(L"pound sign=%s\n",L"\u00a3");
     wcd_wprintf(L"cyrillic Ya=%s\n",L"\u044f");
+#else
+    // Linux, UTF-8
+    printf("fwide=%d\n",fwide(stdout,0));
+    if ( fwide(stdout,0) < 0 )
+    {
+       printf ("stdio is byte oriented.\n");
+       printf ("wide-char streams not permitted.\n");
+       printf ("wprintf will not work.\n");
+       printf("greek delta=%s\n","\u0394");
+       printf("pound sign=%s\n","\u00a3");
+       printf("cyrillic Ya=%s\n","\u044f");
+    }
+#endif
 
+#ifdef WIN32
   // Write unicode to a file.
   out = fopen("out.txt","wb");
   fwprintf (out, L"%s\n", wstr);
@@ -70,6 +91,7 @@ int main (int argc, char ** argv) {
   fclose(out);
   wcd_wprintf(L"wide char=%c\n",wc);
   wcd_wprintf(L"wide char=%x\n",wc);
+#endif
 
   return 0;
 }
