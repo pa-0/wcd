@@ -5,6 +5,16 @@
 #endif
 #include <stdarg.h>
 
+
+#ifdef WIN32
+# define WCD_L L
+# define WCD_PRINTF wcd_wprintf
+#else
+# define WCD_L 
+# define WCD_PRINTF printf
+#endif
+
+
 // Portable wprintf for Unicode characters.
 void wcd_wprintf( const wchar_t* format, ... ) {
 	wchar_t wstr[1024];
@@ -14,19 +24,25 @@ void wcd_wprintf( const wchar_t* format, ... ) {
 	int len;
 #endif
 
-	va_start( args, format );
+        if ( fwide(stdout,0) < 0 )
+	{
+           printf ("stdio is byte oriented.\n");
+           printf ("wide-char streams not permitted.\n");
+           printf ("wprintf will not work.\n");
+	}
+        else
+	{
+	   va_start( args, format );
 #ifdef WIN32
-	len = sizeof(wstr);
-	vsnwprintf( wstr, len, format, args);
-   	WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
-   	//WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);  
+	   len = sizeof(wstr);
+	   vsnwprintf( wstr, len, format, args);
+   	   WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
+   	   //WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);  
 #else
-    if ( fwide(stdout,0) > 0 )
-	vwprintf( format, args );
-    else
-	printf ("wide-char streams not permitted.\n");
+	   vwprintf( format, args );
 #endif
-	va_end( args );
+	   va_end( args );
+	}
 }
 
 
@@ -60,33 +76,22 @@ int main (int argc, char ** argv) {
     }
 #endif
 	
-#ifdef WIN32
-    // Windows UTF-16
-    wcd_wprintf(L"greek delta=%s\n",L"\u0394");
-    wcd_wprintf(L"pound sign=%s\n",L"\u00a3");
-    wcd_wprintf(L"cyrillic Ya=%s\n",L"\u044f");
-#else
-    // Linux, UTF-8
     printf("fwide=%d\n",fwide(stdout,0));
-    if ( fwide(stdout,0) < 0 )
-    {
-       printf ("stdio is byte oriented.\n");
-       printf ("wide-char streams not permitted.\n");
-       printf ("wprintf will not work.\n");
-       printf("greek delta=%s\n","\u0394");
-       printf("pound sign=%s\n","\u00a3");
-       printf("cyrillic Ya=%s\n","\u044f");
-    }
-#endif
+    WCD_PRINTF(WCD_L"greek delta=%s\n",WCD_L"\u0394");
+    WCD_PRINTF(WCD_L"pound sign=%s\n",WCD_L"\u00a3");
+    WCD_PRINTF(WCD_L"cyrillic Ya=%s\n",WCD_L"\u044f");
+
 
 #ifdef WIN32
   // Write unicode to a file.
   out = fopen("out.txt","wb");
+  fwprintf (out, L"%s\n", L"\ufffe");  /* UTF-16LE */
   fwprintf (out, L"%s\n", wstr);
   fclose(out);
 
   // Read unicode back from file.
   out = fopen("out.txt","rb");
+  wc = getwc(out); /* UTF-16LE tag */
   wc = getwc(out);
   fclose(out);
   wcd_wprintf(L"wide char=%c\n",wc);
