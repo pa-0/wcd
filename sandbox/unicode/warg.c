@@ -32,13 +32,10 @@ int main (int argc, char ** argv) {
     wchar_t *cmdstr;
     wchar_t **wargv;
     wchar_t *wstr = L"\u0394"; /* greek delta */
-    wchar_t wbuf[128];
     wchar_t wc ;
     int i;
     FILE *out;
 #ifdef WIN32
-    OFSTRUCT *openbuf;
-
 
     printf("system cp=%d\n",GetACP());
     printf("console cp=%d\n",GetConsoleOutputCP());
@@ -63,23 +60,16 @@ int main (int argc, char ** argv) {
     wcd_wprintf(L"cyrillic Ya=%s\n",L"\u044f");
 
   // Write unicode to a file.
-  out = fopen("out.txt","w");
-  fprintf (out, "%s\n", wstr);
+  out = fopen("out.txt","wb");
+  fwprintf (out, L"%s\n", wstr);
   fclose(out);
 
   // Read unicode back from file.
-  out = fopen("out.txt","r");
+  out = fopen("out.txt","rb");
   wc = getwc(out);
   fclose(out);
   wcd_wprintf(L"wide char=%c\n",wc);
   wcd_wprintf(L"wide char=%x\n",wc);
-
-//  HFILE  *wout = OpenFile("out.txt", openbuf, OF_READ);
-//  ReadFile(wout, wbuf, 2, NULL, NULL);
-//  wbuf[2] = '\0';
-//  CloseHandle(wout);
-//  wcd_wprintf(L"wide buf=%x\n",wbuf);
-
 
   return 0;
 }
