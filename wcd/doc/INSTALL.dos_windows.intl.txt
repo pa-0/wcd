@@ -33,6 +33,7 @@ bin/                             Binary
 share/doc/                       Documentation
 share/locale/                    Locale directory
 share/locale/nl/LC_MESSAGES/     Locale directory with Dutch Language file
+share/locale/es/LC_MESSAGES/     Locale directory with Spanish Language file
 share/man/man1/                  Man page
 
 
