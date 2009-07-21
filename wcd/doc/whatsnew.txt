@@ -2,7 +2,6 @@
   - Added Spanish language file (thanks to Julio Augusto Freyre-Gonzalez).
   - Improved display of match list for different languages.
   - Changed makefile variable WCD_UTF8 to UCS (Universal Character Set).
-    Wcd's Unicode support is not UTF-8 specific.
   - Option -V prints the actual used character encoding.
   - Update manual. New section WINDOWS CODE PAGES.
   - Use Keith Marshall's nl_langinfo() implementation in
