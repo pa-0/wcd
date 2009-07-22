@@ -61,4 +61,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
       c3po_bool fold;
    } dirnode_struct, *dirnode;
 
+#ifdef WCD_UNICODE
+   typedef wchar_t *textw;
+
+   typedef struct namesetw_struct
+   {
+      textw *array;
+      int size;
+   } namesetw_struct, *namesetw;
+#endif
+
 #endif
