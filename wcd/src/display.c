@@ -209,7 +209,7 @@ int maxLengthStack(WcdStack s)
 
 void printLine(nameset n, int i, int y, int xoffset, int *use_numbers, int screenWidth)
 {
-   wcd_char *s;
+   wcd_uchar *s;
    int len, j, nr_offset;
 
    s = n->array[i];
@@ -231,7 +231,7 @@ void printLine(nameset n, int i, int y, int xoffset, int *use_numbers, int scree
 
 void printStackLine(WcdStack ws, int i, int y, int xoffset, int *use_numbers, int screenWidth)
 {
-   wcd_char *s;
+   wcd_uchar *s;
    int len, j, nr_offset;
 
    s = ws->dir[i];
@@ -707,14 +707,14 @@ void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
 
 void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbers)
 {
-   wcd_char *s;
+   wcd_uchar *s;
    int len, j, nr_offset;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
 #endif
 
-   s = (wcd_char *)n->array[i];
+   s = (wcd_uchar *)n->array[i];
 
    if (s != NULL)
    {
@@ -770,14 +770,14 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 
 void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *use_numbers)
 {
-   wcd_char *s;
+   wcd_uchar *s;
    int len, j, nr_offset;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
 #endif
 
-   s = (wcd_char *)ws->dir[i];
+   s = (wcd_uchar *)ws->dir[i];
 
    if (s != NULL)
    {

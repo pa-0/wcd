@@ -66,6 +66,12 @@ TAB = 3 spaces
 #include "graphics.h"
 #include "wcddir.h"
 #include "config.h"
+#ifdef WCD_UTF16
+#  include <wchar.h>
+#  include <windows.h>
+#  include "Textw.h"
+#  include "namesetw.h"
+#endif
 
 #ifdef OS2
 #undef UNIX
@@ -78,6 +84,27 @@ TAB = 3 spaces
 /* Global variables */
 
 const char *default_mask = ALL_FILES_MASK;
+
+FILE *wcd_fopen(const char *filename, const char *mode)
+{
+#ifdef WCD_UTF16
+	FILE *fp = NULL;
+        wchar_t *BOM_UTF16LE = L"\ufeff"; 
+
+        if ( strcmp(mode, "a") == 0)
+             fp = fopen(filename, "ab");
+
+	if ( strcmp(mode, "w") == 0)
+	{
+           fp = fopen(filename, "wb");
+	   if (fp != NULL)
+              fwprintf (fp, L"%s", BOM_UTF16LE);  /* UTF-16LE BOM */
+	}
+	return fp;
+#else
+	return fopen(filename, mode);
+#endif
+}
 
 /********************************************************************
  * void cleanPath(char path[], int len, minlength)
@@ -1945,6 +1972,10 @@ int main(int argc,char** argv)
    char go_file[DD_MAXPATH];
    int use_GoScript = 1;
 #endif
+#ifdef WCD_UTF16
+    wchar_t *cmdstr;
+    wchar_t **wargv;
+#endif
 
 #ifdef ENABLE_NLS
    char localedir[DD_MAXPATH];
@@ -2104,6 +2135,11 @@ int main(int argc,char** argv)
       wcd_fixpath(homedir,sizeof(homedir));
    }
 
+#ifdef WCD_UTF16
+    /* Get Unicode parameters. */
+    cmdstr = GetCommandLineW();
+    wargv = CommandLineToArgvW(cmdstr, &argc);
+#endif
    /* ---------------------- parse the commandline ------------*/
 
    for (i=1; i < argc; i++)

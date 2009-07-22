@@ -80,8 +80,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #  define OP_DIR "."
 #endif /* ?MSDOS|VMS */
 
-#define VERSION      "5.0.4"
-#define VERSION_DATE "Jul 21 2009"
+#define VERSION      "5.1.0-UTF16"
+#define VERSION_DATE "Jul 22 2009"
 
 
 /* Function prototypes */
@@ -90,7 +90,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void quoteString(char *string);
 #endif
 
-typedef unsigned char wcd_char;
+#if defined(WCD_UNICODE) && defined(WIN32) && defined(WCD_WINPWRSH)
+#define WCD_UTF16
+//typedef wchar_t wcd_uchar;
+//typedef wchar_t wcd_char;
+typedef unsigned char wcd_uchar;
+typedef char wcd_char;
+#else
+typedef unsigned char wcd_uchar;
+typedef char wcd_char;
+#endif
 
 void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude);
 void read_treefile(char *filename, nameset bd, int silent);
