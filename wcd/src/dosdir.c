@@ -84,8 +84,13 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #  elif (defined(__MINGW32__) || defined(__LCC__))
 #    define FSTRUCT		struct _finddata_t
 #    define FATTR		_A_HIDDEN+_A_SYSTEM+_A_SUBDIR
-#    define FFIRST(n,d)	_findfirst(n,d)
-#    define FNEXT(h,d)	_findnext(h,d)
+#    ifdef WCD_UTF16
+#      define FFIRST(n,d)	_wfindfirst(n,d)
+#      define FNEXT(h,d)	_wfindnext(h,d)
+#    else
+#      define FFIRST(n,d)	_findfirst(n,d)
+#      define FNEXT(h,d)	_findnext(h,d)
+#    endif
 #    define FNAME		name
 #    define FATTRIB		attrib
 #    define FSIZE		size
@@ -269,7 +274,7 @@ static int dd_initstruct( dd_ffblk* fb )
    *   parent directory, so we use "." instead.
    */
   if (STAT(!strcmp(fb->dd_name, "..") ? "." : fb->dd_name, &dd_sstat))
-	return -1; /* stat failed! */
+   return -1; /* stat failed! */
 
   fb->dd_time = dd_sstat.st_mtime;
   fb->dd_size = fb->dos_fb.FSIZE;
@@ -284,21 +289,21 @@ int dd_findnext( dd_ffblk* fb )
 {
     int rc;
     /* repeat until file info is initialized or no more files are left */
-	while ((rc=FNEXT(fb->nHandle,&fb->dos_fb)) == 0 && (rc=dd_initstruct(fb)) != 0);
+   while ((rc=FNEXT(fb->nHandle,&fb->dos_fb)) == 0 && (rc=dd_initstruct(fb)) != 0);
    if (rc != 0) /* no more files left */
       _findclose(fb->nHandle);
-	return rc;
+   return rc;
 }
 
-int dd_findfirst( const char *path, dd_ffblk *fb, int attrib )
+int dd_findfirst( const wcd_char *path, dd_ffblk *fb, int attrib )
 {
-	int rc;
-	if ((rc = FFIRST( path, &fb->dos_fb)) != -1)
-	{
-	fb->nHandle = rc;
-	fb->dd_attribs = attrib;
+   int rc;
+   if ((rc = FFIRST( path, &fb->dos_fb)) != -1)
+   {
+   fb->nHandle = rc;
+   fb->dd_attribs = attrib;
 
-	if ((rc = dd_initstruct(fb)) != 0) /* initialization failed? */
+   if ((rc = dd_initstruct(fb)) != 0) /* initialization failed? */
             rc = dd_findnext( fb );
     }
     return rc;

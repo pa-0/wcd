@@ -91,6 +91,9 @@ FILE *wcd_fopen(const char *filename, const char *mode)
 	FILE *fp = NULL;
         wchar_t *BOM_UTF16LE = L"\ufeff"; 
 
+        if ( strcmp(mode, "r") == 0)
+             fp = fopen(filename, "rb");
+
         if ( strcmp(mode, "a") == 0)
              fp = fopen(filename, "ab");
 
@@ -444,7 +447,7 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
 /****************************************************************/
 
 typedef struct TDirTag {
-   char* dirname;
+   wcd_char* dirname;
    struct TDirTag *next;
 } TDirEntry;
 
@@ -472,23 +475,23 @@ int SpecialDir(const char *path)
  *
  ******************************************************************/
 
-void q_insert(TDirList *list,const char *s)
+void q_insert(TDirList *list,const wcd_char *s)
 {
    TDirEntry *ptr;
-   int len = strlen(s);
+   int len = STRLEN(s);
    if (!len) return;
    if ((ptr = (TDirEntry*) malloc(sizeof(TDirEntry))) == NULL )
    {
       perror("malloc");
       return;
    }
-   if ((ptr->dirname = (char*) malloc(len+1)) == NULL )
+   if ((ptr->dirname = (wcd_char*) malloc(sizeof(wcd_char) * (len+1))) == NULL )
    {
       perror("malloc");
       free(ptr);
       return;
    }
-   strcpy(ptr->dirname, s);
+   STRCPY(ptr->dirname, s);
    ptr->next = NULL;
    if (!list->head) list->head = ptr;
    else list->tail->next = ptr;
@@ -501,11 +504,11 @@ void q_insert(TDirList *list,const char *s)
  *
  *******************************************************************/
 
-int q_remove(TDirList *list,char *s)
+int q_remove(TDirList *list, wcd_char *s)
 {
    TDirEntry *ptr = list->head;
    if (!ptr) return 0;     /* queue empty? */
-   strcpy(s, ptr->dirname);
+   STRCPY(s, ptr->dirname);
    list->head = ptr->next;
    free(ptr->dirname);
    free(ptr);
@@ -762,10 +765,10 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
 #else /* not DJGPP */
 
-void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude)
+void finddirs(wcd_char *dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude)
 {
    static dd_ffblk fb;       /* file block structure */
-   static char tmp[DD_MAXPATH];      /* tmp string buffer */
+   static wcd_char tmp[DD_MAXPATH];      /* tmp string buffer */
    int rc;                       /* error code */
    int len ;
    TDirList list;                /* directory queue */
@@ -781,7 +784,7 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
    {
-      fprintf(stdout,_("Wcd: error: finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
+      WCD_PRINTF(L_(_("Wcd: error: finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n")),dir);
       wcd_chdir(DIR_PARENT); /* go to parent directory */
       return;
    };
@@ -911,9 +914,9 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
 
    /* open the output file */
    if (append)
-   outfile = fopen(treefile,"a");  /* append to database */
+   outfile = wcd_fopen(treefile,"a");  /* append to database */
    else
-   outfile = fopen(treefile,"w");  /* create new database */
+   outfile = wcd_fopen(treefile,"w");  /* create new database */
 
    if (!outfile) /* Try to open in a temp dir */
    {
@@ -923,7 +926,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
       {
       strcpy(treefile,ptr);
       strcat(treefile,TREEFILE);
-      outfile = fopen(treefile,"w");
+      outfile = wcd_fopen(treefile,"w");
       }
 
       if (!outfile)
@@ -932,7 +935,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
             {
             strcpy(treefile,ptr);
             strcat(treefile,TREEFILE);
-            outfile = fopen(treefile,"w");
+            outfile = wcd_fopen(treefile,"w");
             }
 
          if (!outfile)
@@ -941,7 +944,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
                {
                strcpy(treefile,ptr);
                strcat(treefile,TREEFILE);
-               outfile = fopen(treefile,"w");
+               outfile = wcd_fopen(treefile,"w");
                }
          }
       }
@@ -955,9 +958,9 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
 #else
    /* open the output file */
    if (append)
-   outfile = fopen(treefile,"a");  /* append to database */
+   outfile = wcd_fopen(treefile,"a");  /* append to database */
    else
-   outfile = fopen(treefile,"w");  /* create new database */
+   outfile = wcd_fopen(treefile,"w");  /* create new database */
 
    if  (!outfile)
    {

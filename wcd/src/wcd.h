@@ -93,12 +93,20 @@ void quoteString(char *string);
 #if defined(WCD_UNICODE) && defined(WIN32) && defined(WCD_WINPWRSH)
 #define WCD_UTF16
 //typedef wchar_t wcd_uchar;
-//typedef wchar_t wcd_char;
 typedef unsigned char wcd_uchar;
-typedef char wcd_char;
+typedef wchar_t wcd_char;
+#  define CAT(a,b)   a##b
+#  define L_(String) CAT(L,String)
+#  define WCD_PRINTF wcd_wprintf
+#  define STRLEN wcslen
+#  define STRCPY wcscpy
 #else
 typedef unsigned char wcd_uchar;
 typedef char wcd_char;
+#  define L_(String) String
+#  define WCD_PRINTF printf
+#  define STRLEN strlen
+#  define STRCPY strcpy
 #endif
 
 void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude);

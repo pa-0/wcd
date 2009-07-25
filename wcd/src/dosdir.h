@@ -23,6 +23,7 @@
 
 /* Set up portability */
 #include "tailor.h"
+#include "wcd.h"
 
 #if (defined (MSDOS) && !defined(OS2))
 #  ifndef __LCC__
@@ -36,8 +37,8 @@
 #  else /* ?!__TURBOC__ */
 #    include <direct.h>
 #  endif /* ?TURBOC */
-#  define ALL_FILES_MASK "*.*"
-#  define DIR_PARENT ".."
+#  define ALL_FILES_MASK L_("*.*")
+#  define DIR_PARENT L_("..")
 #  define DIR_END '\\'
 #elif defined(VMS)
 #  include <rms.h>
@@ -187,8 +188,13 @@ typedef unsigned short mode_t;
    typedef struct dirent DIR_ENT;
 #endif /* ?MSDOS */
 
-typedef struct {
+typedef struct
+#ifdef WCD_UTF16
+    wchar_t*  dd_name;          /* File name */
+#else
     char*  dd_name;             /* File name */
+#endif
+
     time_t dd_time;             /* File time stamp */
     off_t  dd_size;             /* File length */
     mode_t dd_mode;             /* Attributes of file */
@@ -200,9 +206,13 @@ typedef struct {
 #  ifdef __TURBOC__
     struct ffblk  dos_fb;
 #  elif (defined(__MINGW32__)||defined(__LCC__))
+#   ifdef WCD_UTF16
+    struct _wfinddata_t dos_fb;
+#   else
     struct _finddata_t dos_fb;
+#   endif
     int nHandle;
-	char dd_attribs;
+    char dd_attribs;
 #  else /* ?MSC */
     struct find_t dos_fb;
 #  endif /* ?TURBOC */
@@ -228,7 +238,7 @@ typedef struct {
 extern "C" {
 #endif
 
-int  dd_findfirst(const char *path, dd_ffblk *fb, int attrib);
+int  dd_findfirst(const wcd_char *path, dd_ffblk *fb, int attrib);
 int  dd_findnext(dd_ffblk *fb);
 int  dd_fnsplit(const char *path, char * drive, char * dir,
 		    char * name, char * ext);

@@ -25,6 +25,13 @@ void wcd_wprintf( const wchar_t* format, ... ) {
 	int len;
 #endif
 
+	va_start( args, format );
+#ifdef WIN32
+	len = sizeof(wstr);
+	vsnwprintf( wstr, len, format, args);
+   	WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
+   	//WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);  
+#else
         if ( fwide(stdout,0) < 0 )
 	{
            printf ("stdio is byte oriented.\n");
@@ -33,17 +40,10 @@ void wcd_wprintf( const wchar_t* format, ... ) {
 	}
         else
 	{
-	   va_start( args, format );
-#ifdef WIN32
-	   len = sizeof(wstr);
-	   vsnwprintf( wstr, len, format, args);
-   	   WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
-   	   //WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);  
-#else
 	   vwprintf( format, args );
-#endif
-	   va_end( args );
 	}
+#endif
+	va_end( args );
 }
 
 

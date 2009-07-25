@@ -215,16 +215,11 @@ void wcd_getshares(char* path, nameset n)
 /* WIN32, not CYGWIN
    Use WIN32 API */
 
-char *wcd_getcwd(char *buf, int size)
+char *wcd_getcwd(wcd_char *buf, int size)
 {
    BOOL err;
 #ifdef WCD_UNICODE
-   static wchar_t wstr[DD_MAXPATH];
-
-   err = GetCurrentDirectoryW(size, wstr);
-   if ( err != 0)
-      if (wcstombs(buf, wstr, DD_MAXPATH) < 0)
-         err = 0;
+   err = GetCurrentDirectoryW(size, buf);
 #else
    err = GetCurrentDirectory(size, buf);
 #endif
@@ -235,16 +230,11 @@ char *wcd_getcwd(char *buf, int size)
       return(buf);   /* success */
 }
 
-int wcd_chdir(char *buf)
+int wcd_chdir(wcd_char *buf)
 {
    BOOL err;
 #ifdef WCD_UNICODE
-   static wchar_t wstr[DD_MAXPATH];
-
-   if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
-      err = 0;
-   else
-      err = SetCurrentDirectoryW(wstr); 
+   err = SetCurrentDirectoryW(buf); 
 #else
    err = SetCurrentDirectory(buf); 
 #endif
@@ -255,16 +245,11 @@ int wcd_chdir(char *buf)
       return(0);   /* success */
 }
 
-int wcd_mkdir(char *buf)
+int wcd_mkdir(wcd_char *buf)
 {
    BOOL err;
 #ifdef WCD_UNICODE
-   static wchar_t wstr[DD_MAXPATH];
-
-   if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
-      err = FALSE;
-   else
-      err = CreateDirectoryW(wstr, NULL);
+   err = CreateDirectoryW(buf, NULL);
 #else
    err = CreateDirectory(buf, NULL);
 #endif
@@ -275,16 +260,11 @@ int wcd_mkdir(char *buf)
       return(1);  /* fail */
 }
 
-int wcd_rmdir(char *buf)
+int wcd_rmdir(wcd_char *buf)
 {
    BOOL err;
 #ifdef WCD_UNICODE
-   static wchar_t wstr[DD_MAXPATH];
-
-   if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
-      err = FALSE;
-   else
-      err = RemoveDirectoryW(wstr);
+   err = RemoveDirectoryW(buf);
 #else
    err = RemoveDirectory(buf);
 #endif
@@ -316,9 +296,9 @@ int wcd_rmdir(char *buf)
  * - Using 'wcd_chdir()' is a portable solution.
  *
  ******************************************************************/
-int wcd_isdir(char *dir)
+int wcd_isdir(wcd_char *dir)
 {
-   char tmp[DD_MAXDIR];
+   wcd_char tmp[DD_MAXDIR];
 
    wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
 

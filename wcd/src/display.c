@@ -31,6 +31,37 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "config.h"
 #include "dosdir.h"
 
+#ifdef WCD_UTF16
+// Portable wprintf for Unicode characters.
+void wcd_wprintf( const wchar_t* format, ... ) {
+	wchar_t wstr[1024];
+	va_list args;
+#ifdef WIN32
+	HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE); 
+	int len;
+#endif
+
+	va_start( args, format );
+#ifdef WIN32
+	len = sizeof(wstr);
+	vsnwprintf( wstr, len, format, args);
+   	WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
+   	//WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);  
+#else
+        if ( fwide(stdout,0) < 0 )
+	{
+           printf ("stdio is byte oriented.\n");
+           printf ("wide-char streams not permitted.\n");
+           printf ("wprintf will not work.\n");
+	}
+        else
+	{
+	   vwprintf( format, args );
+	}
+#endif
+	va_end( args );
+}
+#endif
 
 /*
  * int str_columns (char *s)
