@@ -29,7 +29,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #  include <curses.h>
 #endif
 
-void wcd_wprintf( const wchar_t* format, ... );
+int wcstoutf8(wchar_t *wcstr, char *mbstr, int len);
+int utf8tombs(char *mbstr, wchar_t *wcstr, int len);
+void wcd_printf( const char* format, ... );
 int str_columns (char *s);
 void sort_list(nameset list);
 int display_list(nameset list,int perfect, int use_numbers, int use_stdout);
