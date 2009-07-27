@@ -35,11 +35,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 /* wide char to UTF-8 */
 int wcstoutf8(wchar_t *wcstr, char *mbstr, int len)
 {
-   return(WideCharToMultiByte(CP_UTF8, 0, wcstr, -1, mbstr, len, NULL, NULL));
+   return(WideCharToMultiByte(CP_UTF8, 0, wcstr, -1, mbstr, len, NULL, NULL) -1);
 }
 int utf8tombs(char *mbstr, wchar_t *wcstr, int len)
 {
-   return(MultiByteToWideChar(CP_UTF8, 0, mbstr, -1, wcstr, len))
+   return(MultiByteToWideChar(CP_UTF8, 0, mbstr, -1, wcstr, len) -1)
 }
 
 /* Print an UTF-8 multi-byte string */
