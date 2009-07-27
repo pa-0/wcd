@@ -188,7 +188,7 @@ typedef unsigned short mode_t;
    typedef struct dirent DIR_ENT;
 #endif /* ?MSDOS */
 
-typedef struct
+typedef struct {
 #ifdef WCD_UTF16
     wchar_t*  dd_name;          /* File name */
 #else

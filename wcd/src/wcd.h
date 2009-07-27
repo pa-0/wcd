@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define _WCD_H
 
 #include "tailor.h"
+#include "std_macr.h"
+#include "structur.h"
 
 #ifdef VMS
 #  define EXIT_OK 1
