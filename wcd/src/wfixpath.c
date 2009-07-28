@@ -16,7 +16,6 @@
 #include <string.h>
 #include "tailor.h"
 #include "config.h"
-#include "wfixpath.h"
 
 #ifdef OS2
 #undef UNIX
@@ -51,17 +50,17 @@ static int is_term(int c)
   10. Don't fix path "."
 */
 
-void wcd_fixpath(wcd_char *in, int lim)
+void wcd_fixpath(char *in, int lim)
 {
   int	i=0,drive_number= -1;
-  const wcd_char  *ip = in;
-  wcd_char  *out;
-  wcd_char	*op;
+  const char	*ip = in;
+  char  *out;
+  char	*op;
 
   if (in == NULL)
    	return ;
 
-  if ((out = (wcd_char *) malloc(sizeof(wcd_char)*lim)) == NULL)
+  if ((out = (char *) malloc(lim)) == NULL)
   {
   	fprintf(stderr,_("Wcd: malloc error in wcd_fixpath()\n"));
 	return;
@@ -164,7 +163,7 @@ void wcd_fixpath(wcd_char *in, int lim)
   /* Null terminate the output */
   *op = '\0';
 
-  STRCPY(in,out);
+  strcpy(in,out);
 
   free(out);
 

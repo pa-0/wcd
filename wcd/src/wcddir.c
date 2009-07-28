@@ -215,11 +215,20 @@ void wcd_getshares(char* path, nameset n)
 /* WIN32, not CYGWIN
    Use WIN32 API */
 
-char *wcd_getcwd(wcd_char *buf, int size)
+/* If WCD_UNICODE is defined we assume that all multi-byte
+ * strings are encoded in UTF-8.
+ */
+
+char *wcd_getcwd(char *buf, int size)
 {
    BOOL err;
 #ifdef WCD_UNICODE
-   err = GetCurrentDirectoryW(size, buf);
+   static wchar_t wstr[DD_MAXPATH];
+
+   err = GetCurrentDirectoryW(size, wstr);
+   if ( err != 0)
+      if (wcstoutf8(buf, wstr, DD_MAXPATH) < 0)
+         err = 0;
 #else
    err = GetCurrentDirectory(size, buf);
 #endif
@@ -230,11 +239,16 @@ char *wcd_getcwd(wcd_char *buf, int size)
       return(buf);   /* success */
 }
 
-int wcd_chdir(wcd_char *buf)
+int wcd_chdir(char *buf)
 {
    BOOL err;
 #ifdef WCD_UNICODE
-   err = SetCurrentDirectoryW(buf); 
+   static wchar_t wstr[DD_MAXPATH];
+
+   if (utf8towcs(wstr, buf, DD_MAXPATH) < 0)
+      err = 0;
+   else
+      err = SetCurrentDirectoryW(wstr); 
 #else
    err = SetCurrentDirectory(buf); 
 #endif
@@ -245,11 +259,16 @@ int wcd_chdir(wcd_char *buf)
       return(0);   /* success */
 }
 
-int wcd_mkdir(wcd_char *buf)
+int wcd_mkdir(char *buf)
 {
    BOOL err;
 #ifdef WCD_UNICODE
-   err = CreateDirectoryW(buf, NULL);
+   static wchar_t wstr[DD_MAXPATH];
+
+   if (utf8towcs(wstr, buf, DD_MAXPATH) < 0)
+      err = FALSE;
+   else
+      err = CreateDirectoryW(wstr, NULL);
 #else
    err = CreateDirectory(buf, NULL);
 #endif
@@ -260,11 +279,16 @@ int wcd_mkdir(wcd_char *buf)
       return(1);  /* fail */
 }
 
-int wcd_rmdir(wcd_char *buf)
+int wcd_rmdir(char *buf)
 {
    BOOL err;
 #ifdef WCD_UNICODE
-   err = RemoveDirectoryW(buf);
+   static wchar_t wstr[DD_MAXPATH];
+
+   if (utf8towcs(wstr, buf, DD_MAXPATH) < 0)
+      err = FALSE;
+   else
+      err = RemoveDirectoryW(wstr);
 #else
    err = RemoveDirectory(buf);
 #endif
@@ -296,9 +320,9 @@ int wcd_rmdir(wcd_char *buf)
  * - Using 'wcd_chdir()' is a portable solution.
  *
  ******************************************************************/
-int wcd_isdir(wcd_char *dir)
+int wcd_isdir(char *dir)
 {
-   wcd_char tmp[DD_MAXDIR];
+   char tmp[DD_MAXDIR];
 
    wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
 

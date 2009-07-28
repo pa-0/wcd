@@ -102,6 +102,8 @@ typedef wchar_t wcd_char;
 #  define WCD_PRINTF wcd_wprintf
 #  define STRLEN wcslen
 #  define STRCPY wcscpy
+#  define WCSTOMBS wcstoutf8
+#  define MBSTOWCS utf8towcs
 #else
 typedef unsigned char wcd_uchar;
 typedef char wcd_char;
@@ -109,6 +111,8 @@ typedef char wcd_char;
 #  define WCD_PRINTF printf
 #  define STRLEN strlen
 #  define STRCPY strcpy
+#  define WCSTOMBS wcstombs
+#  define MBSTOWCS mbstowcs
 #endif
 
 void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude);

@@ -41,29 +41,30 @@ int utf8tombs(char *mbstr, wchar_t *wcstr, int len)
 {
    return(MultiByteToWideChar(CP_UTF8, 0, mbstr, -1, wcstr, len) -1)
 }
+#endif
 
 /* Print an UTF-8 multi-byte string */
 void wcd_printf( const char* format, ... ) {
-   wchar_t wstr[1024];
-   char buf[1024];
    va_list args;
-#ifdef WIN32
+#ifdef WCD_UTF16
+   wchar_t wstr[DD_MAXPATH];
+   char buf[DD_MAXPATH];
+
    HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE); 
 #endif
 
    va_start( args, format );
-#ifdef WIN32
+#ifdef WCD_UTF16
+   /* Assume the multi-byte string is in UTF-8 encoding. */
    vsnprintf( buf, sizeof(wstr), format, args);
-   if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr,1024) > 0  )
+   if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, DD_MAXPATH) >= 0  )
       WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
-   //WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);  
 #else
    vprintf( format, args );
 #endif
    va_end( args );
 }
 
-#endif
 
 /*
  * int str_columns (char *s)

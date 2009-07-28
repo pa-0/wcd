@@ -37,8 +37,12 @@
 #  else /* ?!__TURBOC__ */
 #    include <direct.h>
 #  endif /* ?TURBOC */
-#  define ALL_FILES_MASK L_("*.*")
-#  define DIR_PARENT L_("..")
+#  ifdef WCD_UTF16
+#    define ALL_FILES_MASK L"*.*"
+#  else
+#    define ALL_FILES_MASK "*.*"
+#  endif
+#  define DIR_PARENT ".."
 #  define DIR_END '\\'
 #elif defined(VMS)
 #  include <rms.h>
@@ -190,7 +194,9 @@ typedef unsigned short mode_t;
 
 typedef struct {
 #ifdef WCD_UTF16
-    wchar_t*  dd_name;          /* File name */
+    /* We need a buffer, because we convert the UTF-16 wide character
+     * name to an UTF-8 multi-byte string. */
+    char   dd_name[DD_MAXPATH]; /* File name */
 #else
     char*  dd_name;             /* File name */
 #endif

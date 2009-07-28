@@ -50,6 +50,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA
    Jan 3 2000, Erwin Waterlander, update for Mingw32 compiler.
    Apr 29 2002, Erwin Waterlander, update for LCC windows compiler.
    Jul 14 2008, Erwin Waterlander, update for OS2 using gcc.
+   Jul 28 2009, Erwin Waterlander, support UTF-16 Unicode on Windows.
+                UTF-16 wide character names are converted to UTF-8 multi-byte strings.
   */
 
 #include <string.h>
@@ -67,7 +69,11 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #ifdef UNIX
 #  define STAT lstat /* don't expand symbolic links */
 #else /* ?MSDOS\VMS */
-#  define STAT stat
+#  ifdef WCD_UTF16
+#    define STAT _wstat
+#  else
+#    define STAT stat
+#  endif
 #endif
 
 #if (defined (MSDOS) && !defined(OS2))
@@ -268,13 +274,23 @@ static void dd_fillstatbuf( FSTRUCT* fb )
 
 static int dd_initstruct( dd_ffblk* fb )
 {
+#ifdef WCD_UTF16
+  /* Convert wide character name (UTF-16) to UTF-8. */
+  wcstoutf8(fb->dos_fb.FNAME,fb->dd_name,DD_MAXPATH);
+#else
   fb->dd_name = fb->dos_fb.FNAME;
+#endif
 
   /*  ".." entry refers to the directory entry of the cwd and *NOT* the
    *   parent directory, so we use "." instead.
    */
+#ifdef WCD_UTF16
+  if (STAT(!strcmp(fb->dd_name, "..") ? "." : fb->dos_fb.FNAME, &dd_sstat))
+   return -1; /* stat failed! */
+#else
   if (STAT(!strcmp(fb->dd_name, "..") ? "." : fb->dd_name, &dd_sstat))
    return -1; /* stat failed! */
+#endif
 
   fb->dd_time = dd_sstat.st_mtime;
   fb->dd_size = fb->dos_fb.FSIZE;
