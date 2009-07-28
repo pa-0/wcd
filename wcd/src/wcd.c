@@ -1781,6 +1781,10 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 #if (defined(UNIX) || defined(DJGPP) || defined(OS2))
    mode_t m;
 #endif
+#ifdef WCD_UTF16
+   wchar_t best_matchw[DD_MAXPATH];
+   wchar_t *BOM_UTF16LE = L"\ufeff"; 
+#endif
    
    if (use_GoScript == 0)
       return;
@@ -1804,14 +1808,27 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
        }
    }
    /* open go-script */
+#ifdef WCD_UTF16
+   if  ((outfile = fopen(go_file,"wb")) == NULL)
+#else
    if  ((outfile = fopen(go_file,"w")) == NULL)
+#endif
    {
       fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), go_file);
       return;
    }
 # if (defined(WIN32) && !defined(WCD_WINZSH)) || (defined(OS2) && !defined(WCD_OS2BASH))
 #  ifdef WCD_WINPWRSH
+#    ifdef WCD_UTF16
+   /* Convert UTF-8 multi-byte to UTF-16 wide characters. */
+   if (utf8towcs(best_matchw, best_match, DD_MAXPATH) >= 0)
+   {
+      fwprintf(outfile, L"%s", BOM_UTF16LE);  /* UTF-16LE BOM */
+      fwprintf(outfile,L"set-location %s\r\n", best_matchw);
+   }
+#    else
    fprintf(outfile,"set-location %s\n", best_match);
+#    endif
 #  else
    fprintf(outfile,"@echo off\n");
    if (*changedrive)
@@ -2678,7 +2695,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
 #endif
             else
                {
+#ifdef WCD_UTF16
+                  wcstoutf8(dir,wargv[i],sizeof(dir));
+#else
                   strncpy(dir,argv[i],sizeof(dir));
+#endif
                   wcd_fixpath(dir,sizeof(dir));
                }
       }
@@ -3051,7 +3072,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
       /* Yes, a match (best_match) */
       if ( use_stdout & WCD_STDOUT_DUMP ) /* just dump the match and exit */
       {
-         printf("%s\n", best_match);
+         wcd_printf("%s\n", best_match);
 #if defined(UNIX) || defined(WIN32) || defined(OS2)    /* empty wcd.go file */
          empty_wcdgo(go_file,use_GoScript);
 #endif
@@ -3076,7 +3097,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
          if(tmp != NULL)
             {
             if ((!quieter)&&(!justGo))
-               printf("-> %s\n",best_match); /* print match without /tmp_mnt string */
+               wcd_printf("-> %s\n",best_match); /* print match without /tmp_mnt string */
 
                len = strlen(tmp);
                if (len==0)
@@ -3100,7 +3121,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
          }
          else
          {
-            fprintf(stderr,_("Wcd: Cannot change to %s\n"),best_match);
+            wcd_printf(_("Wcd: Cannot change to %s\n"),best_match);
 #if defined(UNIX) || defined(WIN32) || defined(OS2)     /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif

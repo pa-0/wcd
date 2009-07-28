@@ -84,8 +84,7 @@ OBJS1	= \
 	wcddir.o \
 	${EXTRA_OBJ}
 
-#all: ${PROGRAM} ${MOFILES} ${DOCFILES}
-all: ${PROGRAM}
+all: ${PROGRAM} ${MOFILES} ${DOCFILES}
 
 ${PROGRAM}: $(OBJS1)
 	$(CC) $(OBJS1) $(LFLAGS) -o $@

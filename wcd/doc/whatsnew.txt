@@ -1,3 +1,6 @@
+5.1.0 Jul 28 2009
+  - Support UTF-16 on Windows.
+
 5.0.4 Jul 21 2009
   - Added Spanish language file (thanks to Julio Augusto Freyre-Gonzalez).
   - Improved display of match list for different languages.
