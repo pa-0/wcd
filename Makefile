@@ -11,7 +11,7 @@ RELEASE_DIR_SHORT = ../wcd${VERSION_SHORT}
 release:
 	rm -rf ${RELEASE_DIR}
 	rm -rf ${RELEASE_DIR_SHORT}
-	svn export https://wcd.svn.sourceforge.net/svnroot/wcd/branches/wcd-utf16 ${RELEASE_DIR}
+	svn export https://wcd.svn.sourceforge.net/svnroot/wcd/branches/wcd-utf16/wcd ${RELEASE_DIR}
 	# Include doc files and .mo files, to make it easier to
 	# build wcd.
 	cd ${RELEASE_DIR}/src ; ${MAKE} docfiles mofiles
