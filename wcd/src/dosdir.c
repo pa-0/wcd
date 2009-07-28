@@ -56,11 +56,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA
 
 #include <string.h>
 #include "dosdir.h"
+#ifdef WCD_UTF16
+#  include "display.h"
+struct _stat dd_sstat;
+#else
 
 struct stat dd_sstat;  /* global stat structure of last successful file
 			* returned by findfirst/findnext functions available
 			* to query for more detailed information.
 			*/
+#endif
 
 #ifdef OS2
 #undef UNIX
@@ -276,7 +281,7 @@ static int dd_initstruct( dd_ffblk* fb )
 {
 #ifdef WCD_UTF16
   /* Convert wide character name (UTF-16) to UTF-8. */
-  wcstoutf8(fb->dos_fb.FNAME,fb->dd_name,DD_MAXPATH);
+  wcstoutf8(fb->dd_name,fb->dos_fb.FNAME,DD_MAXPATH);
 #else
   fb->dd_name = fb->dos_fb.FNAME;
 #endif
@@ -285,7 +290,7 @@ static int dd_initstruct( dd_ffblk* fb )
    *   parent directory, so we use "." instead.
    */
 #ifdef WCD_UTF16
-  if (STAT(!strcmp(fb->dd_name, "..") ? "." : fb->dos_fb.FNAME, &dd_sstat))
+  if (STAT(!strcmp(fb->dd_name, "..") ? L"." : fb->dos_fb.FNAME, &dd_sstat))
    return -1; /* stat failed! */
 #else
   if (STAT(!strcmp(fb->dd_name, "..") ? "." : fb->dd_name, &dd_sstat))

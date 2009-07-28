@@ -19,27 +19,32 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "wcd.h"
 #ifdef WCD_UNICODE
 #define __USE_XOPEN
 #include <wchar.h>
+#endif
+#ifdef WCD_UTF16
+#include <windows.h>
 #endif
 #include "std_macr.h"
 #include "structur.h"
 #include "nameset.h"
 #include "display.h"
-#include "wcd.h"
 #include "config.h"
 #include "dosdir.h"
 
+
+
 #ifdef WCD_UTF16
 /* wide char to UTF-8 */
-int wcstoutf8(wchar_t *wcstr, char *mbstr, int len)
+int wcstoutf8(char *mbstr, wchar_t *wcstr, int len)
 {
    return(WideCharToMultiByte(CP_UTF8, 0, wcstr, -1, mbstr, len, NULL, NULL) -1);
 }
-int utf8tombs(char *mbstr, wchar_t *wcstr, int len)
+int utf8towcs(wchar_t *wcstr, char *mbstr, int len)
 {
-   return(MultiByteToWideChar(CP_UTF8, 0, mbstr, -1, wcstr, len) -1)
+   return(MultiByteToWideChar(CP_UTF8, 0, mbstr, -1, wcstr, len) -1);
 }
 #endif
 
@@ -81,7 +86,7 @@ int str_columns (char *s)
    int i;
 
    /* convert to wide characters. i = nr. of characters */
-   i= mbstowcs(wstr,s,DD_MAXPATH);
+   i= MBSTOWCS(wstr,s,DD_MAXPATH);
    if ( i < 0)
       return(strlen(s));
    else
@@ -131,8 +136,8 @@ void ssort (nameset list, int left, int right)
   for (i = left+1; i <=right; i++)
   {
 #ifdef WCD_UNICODE
-   len1 = mbstowcs(wstr_left, list->array[left],DD_MAXPATH);
-   len2 = mbstowcs(wstr_right,list->array[i],DD_MAXPATH);
+   len1 = MBSTOWCS(wstr_left, list->array[left],DD_MAXPATH);
+   len2 = MBSTOWCS(wstr_right,list->array[i],DD_MAXPATH);
    if ((len1<0)||(len2<0))
    {
       /* Erroneous multi-byte sequence */
@@ -725,7 +730,7 @@ void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
    int i;
 
    /* convert to wide characters. i = nr. of characters */
-   i= mbstowcs(wstr,str,DD_MAXPATH);
+   i= MBSTOWCS(wstr,str,DD_MAXPATH);
    if ( i < 0)
    {
       /* Erroneous multi-byte sequence */
@@ -753,7 +758,7 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
    if (s != NULL)
    {
 #ifdef WCD_UNICODE
-      len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
+      len = MBSTOWCS(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
 #endif
@@ -816,7 +821,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
    if (s != NULL)
    {
 #ifdef WCD_UNICODE
-      len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
+      len = MBSTOWCS(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
 #endif

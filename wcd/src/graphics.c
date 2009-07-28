@@ -1172,7 +1172,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
    if (s != NULL)
    {
 #ifdef WCD_UNICODE
-      len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
+      len = MBSTOWCS(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
 #endif
@@ -1408,7 +1408,7 @@ void dataRefresh(int ydiff, int init)
   {
     wmove(wcd_cwin.inputWin, 1, 0);
 #ifdef WCD_UNICODE
-   len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
+   len = MBSTOWCS(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
    if (len < 0)
    {
       /* Erroneous multi-byte sequence */
@@ -2139,7 +2139,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          n++;
          wcd_cwin.wstr[n] = '\0';
          /* Convert wide-character input string to byte string. Needed for searching. */
-         if (wcstombs(wcd_cwin.str, wcd_cwin.wstr, WCD_MAX_INPSTR) < 0)
+         if (WCSTOMBS(wcd_cwin.str, wcd_cwin.wstr, WCD_MAX_INPSTR) < 0)
          {
             n=1;
             wcd_cwin.str[n] = '\0';

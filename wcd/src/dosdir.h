@@ -258,6 +258,10 @@ int  setdisk(int drive);
 }
 #endif
 
+#ifdef WCD_UTF16
+extern struct _stat dd_sstat;
+#else
 extern struct stat dd_sstat;
+#endif
 
 #endif /* _DOSDIR_H */

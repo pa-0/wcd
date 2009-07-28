@@ -81,7 +81,7 @@ TAB = 3 spaces
 
 /* Global variables */
 
-const char *default_mask = ALL_FILES_MASK;
+const wcd_char *default_mask = ALL_FILES_MASK;
 
 /********************************************************************
  * void cleanPath(char path[], int len, minlength)

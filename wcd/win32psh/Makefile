@@ -10,7 +10,7 @@ UCS=1
 endif
 ifdef UCS 
 DEFS   = -DMSDOS -DWCD_USECURSES -DWCD_WINPWRSH -DPDC_STATIC_BUILD -DPDC_WIDE
-EXTRA_OBJ=wcwidth.o langinfo.o Textw.o namesetw.o
+EXTRA_OBJ=wcwidth.o langinfo.o
 else
 DEFS   = -DMSDOS -DWCD_USECURSES -DWCD_WINPWRSH -DPDC_STATIC_BUILD
 EXTRA_OBJ=langinfo.o
