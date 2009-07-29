@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-28 14:01+0200\n"
+"POT-Creation-Date: 2009-07-29 14:30+0200\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: wcd.c:148 wcd.c:393 wcd.c:941 wcd.c:1698 wcd.c:1718 wcd.c:1817 wcd.c:2469
+#: wcd.c:148 wcd.c:393 wcd.c:941 wcd.c:1700 wcd.c:1720 wcd.c:1819 wcd.c:2474
 #: stack.c:215
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
@@ -68,7 +68,7 @@ msgstr ""
 "Wcd: error: Se denegó la escritura al archivo de árbol de rutas.\n"
 "Wcd: Use la variable de ambiente TEMP si este es un disco de sólo lectura.\n"
 
-#: wcd.c:1015 wcd.c:1805
+#: wcd.c:1015 wcd.c:1807
 #, c-format
 msgid "Wcd: error: Permission denied to create directory %s\n"
 msgstr "Wcd: error: Permiso denegado para crear el directorio %s\n"
@@ -269,7 +269,7 @@ msgstr "Esta versión es para la implementación MSYS y win32 de ZSH.\n"
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Esta versión es para DJGPP DOS bash.\n"
 
-#: wcd.c:1622 wcd.c:2246
+#: wcd.c:1622 wcd.c:2251
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
@@ -353,44 +353,44 @@ msgstr "No incluye soporte de lenguaje nativo.\n"
 msgid "With Unicode support.\n"
 msgstr "Con soporte para Unicode.\n"
 
-#: wcd.c:1670
+#: wcd.c:1672
 #, c-format
 msgid "  Euro symbol: "
 msgstr "  Símbolo de Euro: "
 
-#: wcd.c:1672
+#: wcd.c:1674
 #, c-format
 msgid "  Chinese characters: "
 msgstr "  Caracteres chinos: "
 
-#: wcd.c:1676
+#: wcd.c:1678
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr "Sin soporte para Unicode.\n"
 
-#: wcd.c:1679
+#: wcd.c:1681
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Descarga los últimos ejecutables y archivos fuente de:\n"
 
-#: wcd.c:1680
+#: wcd.c:1682
 #, c-format
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr ""
 
-#: wcd.c:1807
+#: wcd.c:1809
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: Creando directorio %s\n"
 
-#: wcd.c:1983
+#: wcd.c:1985
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente WCDLOCALEDIR es demasiado "
 "largo.\n"
 
-#: wcd.c:2015 wcd.c:2069
+#: wcd.c:2020 wcd.c:2074
 #, c-format
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
@@ -398,25 +398,25 @@ msgstr ""
 "Wcd: error: El valor de la variable de ambiente HOME o WCDHOME es demasiado "
 "largo.\n"
 
-#: wcd.c:2040 wcd.c:2062
+#: wcd.c:2045 wcd.c:2067
 #, c-format
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: error: La variable de ambiente HOME o WCDHOME no tiene valor.\n"
 
-#: wcd.c:2125 wcd.c:2566 wcd.c:2583
+#: wcd.c:2130 wcd.c:2571 wcd.c:2588
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente WCDUSERSHOME es demasiado "
 "largo.\n"
 
-#: wcd.c:2242
+#: wcd.c:2247
 #, c-format
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Modo gráfico sólo soportado en wcd con interfase basada en curses.\n"
 
-#: wcd.c:2247
+#: wcd.c:2252
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -450,27 +450,27 @@ msgid ""
 "Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
 msgstr ""
 
-#: wcd.c:2476
+#: wcd.c:2481
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s se añadió al archivo de alias %s\n"
 
-#: wcd.c:2714
+#: wcd.c:2719
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: prohibiendo {%s}\n"
 
-#: wcd.c:2716
+#: wcd.c:2721
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: excluyendo {%s}\n"
 
-#: wcd.c:2718
+#: wcd.c:2723
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filtrando {%s}\n"
 
-#: wcd.c:2969
+#: wcd.c:2974
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -479,7 +479,7 @@ msgstr ""
 "Wcd: No se encontró algún directorio que concordara con %s\n"
 "Wcd: Quizá necesite reexplorar el disco o la ruta.\n"
 
-#: wcd.c:3124
+#: wcd.c:3129
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: No puedo cambiar el directorio a %s\n"
@@ -509,109 +509,109 @@ msgstr "Wcd: Se encontraron %d directorios compartidos en el servidor %s\n"
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Error al analizar la pila\n"
 
-#: display.c:189
+#: display.c:194
 #, c-format
 msgid "Wcd: error in maxLength(), list == NULL\n"
 msgstr "Wcd: error en maxLength(), list == NULL\n"
 
-#: display.c:209
+#: display.c:214
 #, c-format
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "Wcd: error en maxLengthStack(), s == NULL\n"
 
-#: display.c:992 graphics.c:1769
+#: display.c:997 graphics.c:1769
 #, c-format
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr "Wcd: warning: Error al abrir la terminal, usando interfase stdout.\n"
 
-#: display.c:1010
+#: display.c:1015
 #, c-format
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: error: la altura de la pantalla debe ser mayor de 3 líneas.\n"
 
-#: display.c:1044 graphics.c:1802
+#: display.c:1049 graphics.c:1802
 #, c-format
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: error al crear ventana deslizable.\n"
 
-#: display.c:1075
+#: display.c:1080
 #, c-format
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: error al crear ventana de entrada.\n"
 
-#: display.c:1085
+#: display.c:1090
 msgid "Perfect "
 msgstr "Perfecta "
 
-#: display.c:1087
+#: display.c:1092
 msgid "Wild "
 msgstr "Inexacta "
 
-#: display.c:1088
+#: display.c:1093
 #, c-format
 msgid "match for %d directories."
 msgstr "concordancia para %d directorios."
 
-#: display.c:1093 display.c:1135 display.c:1165
+#: display.c:1098 display.c:1140 display.c:1170
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=arriba x=abajo ?=ayuda  Página %d/%d "
 
-#: display.c:1100 display.c:1345
+#: display.c:1105 display.c:1350
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Favor de elegir uno (<Intro> para abortar): "
 
-#: display.c:1219
+#: display.c:1224
 msgid "Screenheight must be > 20 for help."
 msgstr "La altura de la pantalla debe ser > 20 para la ayuda."
 
-#: display.c:1222
+#: display.c:1227
 msgid "w or <Up>         Page Up."
 msgstr "w o <Arriba>      Avanza página"
 
-#: display.c:1223
+#: display.c:1228
 msgid "x or z or <Down>  Page Down."
 msgstr "x o <Abajo>       Retrocede página."
 
-#: display.c:1224
+#: display.c:1229
 msgid ", or <Left>       Scroll 1 left."
 msgstr ", o <Izquierda>   Desliza 1 a la izquierda."
 
-#: display.c:1225
+#: display.c:1230
 msgid ". or <Right>      Scroll 1 right."
 msgstr ". o <Derecha>     Desliza 1 a la derecha."
 
-#: display.c:1226
+#: display.c:1231
 msgid "< or [            Scroll 10 left."
 msgstr "< o [             Desliza 10 a la izquierda."
 
-#: display.c:1227
+#: display.c:1232
 msgid "> or ]            Scroll 10 right."
 msgstr "> o ]             Desliza 10 a la derecha."
 
-#: display.c:1228
+#: display.c:1233
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr "CTRL-a o <Inicio> Desliza al inicio."
 
-#: display.c:1229
+#: display.c:1234
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr "CTRL-e o <Fin>    Desliza al fin."
 
-#: display.c:1230
+#: display.c:1235
 msgid "CTRL-c or <Esc>   Abort."
 msgstr "CTRL-c o <Esc>    Aborta."
 
-#: display.c:1231
+#: display.c:1236
 msgid "<Enter>           Abort."
 msgstr "<Intro>           Aborta."
 
-#: display.c:1232
+#: display.c:1237
 msgid "Type w or x to quit help."
 msgstr "Presiona w o x para salir de la ayuda."
 
-#: display.c:1341
+#: display.c:1346
 #, c-format
 msgid ""
 "\n"
@@ -620,7 +620,7 @@ msgstr ""
 "\n"
 "Perfecta "
 
-#: display.c:1343
+#: display.c:1348
 #, c-format
 msgid ""
 "\n"
@@ -629,12 +629,12 @@ msgstr ""
 "\n"
 "Inexacta "
 
-#: display.c:1344
+#: display.c:1349
 #, c-format
 msgid "match for %d directories.\n"
 msgstr "concordancia para %d directorios.\n"
 
-#: display.c:1387
+#: display.c:1392
 #, c-format
 msgid ""
 "\n"

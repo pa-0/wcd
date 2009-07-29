@@ -62,8 +62,13 @@ void wcd_printf( const char* format, ... ) {
 #ifdef WCD_UTF16
    /* Assume the multi-byte string is in UTF-8 encoding. */
    vsnprintf( buf, sizeof(wstr), format, args);
-   if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, DD_MAXPATH) >= 0  )
+   if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, DD_MAXPATH) > 0  )
       WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
+   else
+   {
+      printf("A:");
+      vprintf( format, args );
+   }
 #else
    vprintf( format, args );
 #endif
@@ -1325,7 +1330,7 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
       if ( use_stdout & WCD_STDOUT_DUMP )
       {
          for (i=0;i<list->size;i++)
-            printf("%s\n", list->array[i]);
+            wcd_printf("%s\n", list->array[i]);
       }
       else
       {

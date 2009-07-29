@@ -939,7 +939,9 @@ Type \(gachcp\(aq to display the active code page of the windows console.
 .TP 4
 .I UNICODE
 Wcd can support UTF-8 Unicode on Unix/Linux and UTF-16 on Windows NT/XP/Vista.
-To see if wcd was built with Unicode support type \(gawcd -V\(aq.
+To see if wcd was built with Unicode support type \(gawcd -V\(aq.  If your
+terminal/console and font supports it, you should see the euro symbol and
+Chinese characters (meaning: "Chinese").
 
 Wcd has been \(gasoft\(aq converted to Unicode. In its core it still handles
 strings as 8 bit streams. Only the lines printed to screen are on the fly
@@ -949,12 +951,7 @@ no UTF-8 specific code. See also
 http://www.cl.cam.ac.uk/~mgk25/unicode.html
 .fi
 
-.SS "UTF-8 ON UNIX/LINUX"
-
-If you type \(gawcd -V\(aq and your locale character encoding setting is UTF-8
-you should see the euro symbol and Chinese characters (meaning: "Chinese").
-Other multi-byte character encodings should also work, but that has not been
-tested.
+.B "UTF-8 on Unix/Linux"
 
 In order to view UTF-8 characters your console/terminal also needs to support
 UTF-8. The xterm version that comes with XFree86 4.0 or higher includes UTF-8
@@ -966,18 +963,23 @@ iso10646-1 encoding, for instance with
   -fn \(aq-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1\(aq
 .fi
 
-.SS "UTF-16 ON WINDOWS NT"
+Other multi-byte character encodings should also work, but that has not been
+tested.
 
-On Windows NT the directory names are encoded in UTF-16. Windows has poor support
-for UTF-8. For instance you can't run .bat files in a Windows console with active
-UTF-8 code page (CP65001).
+.B "UTF-16 on Windows NT"
+
+On Windows NT/XP/Vista all the directory names on disk are encoded in UTF-16
+Unicode.  For programs that don't support UTF-16 the Unicode characters are
+translated to the active code page. For characters that are not part of your
+regional setting this translation is not be possible and non-Unicode programs
+print a question mark or a strange character instead.
 
 Wcd with Unicode support will read the UTF-16 encoded directory names and
-converts them internally to UTF-8. So all treedata files are also encoded in
+converts them internally to UTF-8. So all treedata files are encoded in
 UTF-8. Wcd will create a go-script encoded in UTF-16. This can only be run in
-Windows PowerShell.  Therefore Unicode is only supported in PowerShell and not
-in a normal Windows Console. You need to set the font to True Type Lucida
-Console (not raster fonts).
+Windows PowerShell.  Therefore wcd with Unicode is only supported in PowerShell
+and not in a normal Windows Console. You need to set the font to True Type
+Lucida Console (not raster fonts).
 
 .SH FILES
 

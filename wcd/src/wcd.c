@@ -1665,12 +1665,14 @@ void print_version()
 #endif
 #ifdef WCD_UNICODE
    printf(_("With Unicode support.\n"));
+#ifndef WCD_UTF16
    if (strcmp(nl_langinfo(CODESET), "UTF-8") == 0)
+#endif
    {
       printf(_("  Euro symbol: "));
-      printf ("\u20AC\n");
+      wcd_printf ("\u20AC\n");
       printf(_("  Chinese characters: "));
-      printf ("\u4e2d\u6587\n");
+      wcd_printf ("\u4e2d\u6587\n");
    }
 #else
    printf(_("Without Unicode support.\n"));
@@ -2741,7 +2743,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
          stripTmpMnt(best_match);
 #endif
       if ((!quieter)&&(!justGo))
-         printf("-> %s\n",best_match);
+         wcd_printf("-> %s\n",best_match);
 #ifdef MSDOS
        /* is there a drive to go to ? */
        changeDisk(best_match,&changedrive,drive,&use_HOME);
@@ -2750,7 +2752,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
 #if defined(UNIX) || defined(WIN32) || defined(WCD_DOSBASH) || defined(OS2)
          quoteString(best_match);
          if (justGo)
-            printf("%s\n",best_match);
+            wcd_printf("%s\n",best_match);
          writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript);
 #else
          wcd_chdir(best_match); /* change to directory */
@@ -2770,7 +2772,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
       {
          if ( use_stdout & WCD_STDOUT_DUMP ) /* just dump the match and exit */
          {
-            printf("%s\n", dir);
+            wcd_printf("%s\n", dir);
 #if defined(UNIX) || defined(WIN32) || defined(OS2)    /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif
@@ -2781,7 +2783,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
          }
          strcpy(best_match,dir);
          if ((!quieter)&&(!justGo))
-            printf("-> %s\n",best_match);
+            wcd_printf("-> %s\n",best_match);
 
 #ifdef MSDOS
            /* is there a drive to go to ? */
@@ -2814,7 +2816,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
 #if defined(UNIX) || defined(WIN32) || defined(WCD_DOSBASH) || defined(OS2)
          quoteString(best_match);
          if (justGo)
-            printf("%s\n",best_match);
+            wcd_printf("%s\n",best_match);
          writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript);
 #else
          wcd_chdir(best_match); /* change to directory */
@@ -3121,7 +3123,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
          }
          else
          {
-            wcd_printf(_("Wcd: Cannot change to %s\n"),best_match);
+            printf(_("Wcd: Cannot change to %s\n"),best_match);
 #if defined(UNIX) || defined(WIN32) || defined(OS2)     /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif
@@ -3136,7 +3138,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
 #if defined(UNIX) || defined(WIN32) || defined(WCD_DOSBASH) || defined(OS2)
          quoteString(best_match);
          if (justGo)
-            printf("%s\n",best_match);
+            wcd_printf("%s\n",best_match);
          writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript);
 #else
          wcd_chdir(best_match); /* change to directory */
