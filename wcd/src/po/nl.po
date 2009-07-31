@@ -2,12 +2,12 @@
 # Copyright (C) 2008 THE wcd'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the wcd package.
 # Erwin Waterlander <waterlan@xs4all.nl>, 2008.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-29 14:30+0200\n"
+"POT-Creation-Date: 2009-07-31 15:33+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: wcd.c:148 wcd.c:393 wcd.c:941 wcd.c:1700 wcd.c:1720 wcd.c:1819 wcd.c:2474
+#: wcd.c:148 wcd.c:393 wcd.c:941 wcd.c:1700 wcd.c:1720 wcd.c:1819 wcd.c:2466
 #: stack.c:215
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
@@ -263,7 +263,7 @@ msgstr "Deze versie is voor MSYS en win32 port van ZSH.\n"
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Deze versie is voor DJGPP DOS bash.\n"
 
-#: wcd.c:1622 wcd.c:2251
+#: wcd.c:1622 wcd.c:2243
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
@@ -377,35 +377,35 @@ msgstr ""
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: aanmaken map %s\n"
 
-#: wcd.c:1985
+#: wcd.c:1980
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDLOCALEDIR is te lang.\n"
 
-#: wcd.c:2020 wcd.c:2074
+#: wcd.c:2012 wcd.c:2066
 #, c-format
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
 
-#: wcd.c:2045 wcd.c:2067
+#: wcd.c:2037 wcd.c:2059
 #, c-format
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
 
-#: wcd.c:2130 wcd.c:2571 wcd.c:2588
+#: wcd.c:2122 wcd.c:2563 wcd.c:2580
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
 
-#: wcd.c:2247
+#: wcd.c:2239
 #, c-format
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
 "interface.\n"
 
-#: wcd.c:2252
+#: wcd.c:2244
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -439,27 +439,27 @@ msgid ""
 "Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
 msgstr ""
 
-#: wcd.c:2481
+#: wcd.c:2473
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s toegevoegd aan aliasbestand %s\n"
 
-#: wcd.c:2719
+#: wcd.c:2711
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: verbannen {%s}\n"
 
-#: wcd.c:2721
+#: wcd.c:2713
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: uitsluiten {%s}\n"
 
-#: wcd.c:2723
+#: wcd.c:2715
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteren {%s}\n"
 
-#: wcd.c:2974
+#: wcd.c:2966
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -468,7 +468,7 @@ msgstr ""
 "Wcd: Geen map gevonden gelijk aan %s\n"
 "Wcd: Misschien moet u de schijf opnieuw aftasten of is het pad verbannen.\n"
 
-#: wcd.c:3129
+#: wcd.c:3121
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Kan niet veranderen naar %s\n"

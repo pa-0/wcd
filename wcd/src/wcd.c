@@ -1810,7 +1810,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
        }
    }
    /* open go-script */
-#ifdef WCD_UTF16
+#if defined(WCD_UTF16) && defined(WCD_WINPWRSH)
    if  ((outfile = fopen(go_file,"wb")) == NULL)
 #else
    if  ((outfile = fopen(go_file,"w")) == NULL)
@@ -1822,15 +1822,10 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 # if (defined(WIN32) && !defined(WCD_WINZSH)) || (defined(OS2) && !defined(WCD_OS2BASH))
 #  ifdef WCD_WINPWRSH
 #    ifdef WCD_UTF16
-   /* Convert UTF-8 multi-byte to UTF-16 wide characters. */
-   if (utf8towcs(best_matchw, best_match, DD_MAXPATH) >= 0)
-   {
-      fwprintf(outfile, L"%s", BOM_UTF16LE);  /* UTF-16LE BOM */
-      fwprintf(outfile,L"set-location %s\r\n", best_matchw);
-   }
-#    else
-   fprintf(outfile,"set-location %s\n", best_match);
+   /* PowerShell can run UTF-8 encoded scripts when the UTF-8 BOM is in. */
+   fprintf(outfile,"\xEF\xBB\xBF");  /* UTF-8 BOM */
 #    endif
+   fprintf(outfile,"set-location %s", best_match);
 #  else
    fprintf(outfile,"@echo off\n");
    if (*changedrive)

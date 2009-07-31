@@ -975,11 +975,12 @@ regional setting this translation is not be possible and non-Unicode programs
 print a question mark or a strange character instead.
 
 Wcd with Unicode support will read the UTF-16 encoded directory names and
-converts them internally to UTF-8. So all treedata files are encoded in
-UTF-8. Wcd will create a go-script encoded in UTF-16. This can only be run in
-Windows PowerShell.  Therefore wcd with Unicode is only supported in PowerShell
-and not in a normal Windows Console. You need to set the font to True Type
-Lucida Console (not raster fonts).
+converts them internally to UTF-8. All treedata files are encoded in UTF-8 and
+not compatible with the non-Unicode version of Wcd. Wcd will create a go-script
+encoded in UTF-8. This can only be run in Windows PowerShell.  Therefore wcd
+with Unicode is only supported in PowerShell and not in a normal Windows
+Console. You need to set the font to True Type Lucida Console (not raster
+font).
 
 .SH FILES
 

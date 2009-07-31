@@ -82,8 +82,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #  define OP_DIR "."
 #endif /* ?MSDOS|VMS */
 
-#define VERSION      "5.1.0-beta1"
-#define VERSION_DATE "Jul 28 2009"
+#define VERSION      "5.1.0-beta2"
+#define VERSION_DATE "Jul 31 2009"
 
 
 /* Function prototypes */
@@ -97,20 +97,11 @@ void quoteString(char *string);
 //typedef wchar_t wcd_uchar;
 typedef unsigned char wcd_uchar;
 typedef wchar_t wcd_char;
-#  define CAT(a,b)   a##b
-#  define L_(String) CAT(L,String)
-#  define WCD_PRINTF wcd_wprintf
-#  define STRLEN wcslen
-#  define STRCPY wcscpy
 #  define WCSTOMBS wcstoutf8
 #  define MBSTOWCS utf8towcs
 #else
 typedef unsigned char wcd_uchar;
 typedef char wcd_char;
-#  define L_(String) String
-#  define WCD_PRINTF printf
-#  define STRLEN strlen
-#  define STRCPY strcpy
 #  define WCSTOMBS wcstombs
 #  define MBSTOWCS mbstowcs
 #endif
