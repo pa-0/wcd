@@ -274,11 +274,13 @@ void quoteString(char *string)
 
  for (i=0; (i < j)&&(k < kmax) ; i++)
  {
+#ifndef WCD_WINPWRSH
    if (string[i] == '%')
    {
       help1_str[k] = '%';
      k++;
    }
+#endif
 
    if (string[i] == '/')
       help1_str[k] = '\\';
