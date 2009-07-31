@@ -1783,10 +1783,6 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 #if (defined(UNIX) || defined(DJGPP) || defined(OS2))
    mode_t m;
 #endif
-#ifdef WCD_UTF16
-   wchar_t best_matchw[DD_MAXPATH];
-   wchar_t *BOM_UTF16LE = L"\ufeff"; 
-#endif
    
    if (use_GoScript == 0)
       return;
@@ -1810,11 +1806,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
        }
    }
    /* open go-script */
-#if defined(WCD_UTF16) && defined(WCD_WINPWRSH)
-   if  ((outfile = fopen(go_file,"wb")) == NULL)
-#else
    if  ((outfile = fopen(go_file,"w")) == NULL)
-#endif
    {
       fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), go_file);
       return;
