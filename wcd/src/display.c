@@ -735,7 +735,7 @@ void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
    int i;
 
    /* convert to wide characters. i = nr. of characters */
-   i= MBSTOWCS(wstr,str,DD_MAXPATH);
+   i= mbstowcs(wstr,str,DD_MAXPATH);
    if ( i < 0)
    {
       /* Erroneous multi-byte sequence */

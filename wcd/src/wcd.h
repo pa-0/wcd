@@ -82,8 +82,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #  define OP_DIR "."
 #endif /* ?MSDOS|VMS */
 
-#define VERSION      "5.1.0-beta2"
-#define VERSION_DATE "Jul 31 2009"
+#define VERSION      "5.1.0-beta3"
+#define VERSION_DATE "Aug 21 2009"
 
 
 /* Function prototypes */
@@ -92,7 +92,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void quoteString(char *string);
 #endif
 
-#if defined(WCD_UNICODE) && defined(WIN32) && defined(WCD_WINPWRSH)
+#if defined(WCD_UNICODE) && defined(WIN32) && !defined(__CYGWIN__)
 #define WCD_UTF16
 //typedef wchar_t wcd_uchar;
 typedef unsigned char wcd_uchar;
