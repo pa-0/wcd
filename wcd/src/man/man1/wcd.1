@@ -942,9 +942,9 @@ To see if wcd was built with Unicode support type \(gawcd -V\(aq.  If your
 terminal/console and font supports it, you should see the euro symbol and
 Chinese characters (meaning: "Chinese").
 
-Wcd has been \(gasoft\(aq converted to Unicode. In its core it still handles
+Wcd has been \(gasoft\(aq converted to Unicode. In its core wcd handles all
 data as a stream of bytes. Only the lines printed to screen are on the fly
-converted to Unicode characters. Wcd fully relies on libc functions and has
+converted to Unicode wide characters. Wcd fully relies on libc functions and has
 no UTF-8 specific code. See also
 .nf
 http://www.cl.cam.ac.uk/~mgk25/unicode.html
@@ -969,8 +969,8 @@ character encodings should also work, but that has not been tested.
 
 On Windows all the directory names on disk are encoded in UTF-16
 Unicode.  For programs that don't support UTF-16 the Unicode characters are
-translated to the active code page. For characters that are not part of your
-regional setting this translation is not be possible and non-Unicode programs
+translated to the active code page. For characters that are not part of the
+regional setting this translation is not possible and non-Unicode programs
 print a question mark or a wrong character instead.
 
 Wcd with Unicode support will read the UTF-16 encoded directory names and
