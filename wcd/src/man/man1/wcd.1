@@ -1,4 +1,3 @@
-.PU
 .TH WCD 1 local
 .SH NAME
 wcd - Wherever Change Directory
@@ -133,7 +132,7 @@ path to a drive letter. In windows PowerShell, MSYS, zsh and Cygwin UNC paths ar
 fully supported. The current working directory can be a UNC path.
 
 Wcd supports 8 bit character sets on all systems, and has optional
-support for Unicode. See also section LOCALIZATION/UTF-8 and UNICODE.
+support for Unicode. See also section LOCALIZATION/UNICODE.
 
 Remark about 8 bit characters on Windows: Only the original equipment
 manufacturer (OEM) code page installed with Windows appears correctly in a
@@ -937,11 +936,21 @@ When you type \(gawcd -V\(aq, the actual character encoding used by wcd is shown
 Type \(gachcp\(aq to display the active code page of the windows console.
 
 .TP 4
-.I UTF-8 and UNICODE
-Wcd can support UTF-8 Unicode. To see if wcd was built with Unicode support
-type \(gawcd -V\(aq.  If your locale character encoding setting is UTF-8 you
-should see the euro symbol and Chinese characters (meaning: "Chinese").  Other
-multi-byte character encodings should also work, but that has not been tested.
+.I UNICODE
+Wcd can support UTF-8 Unicode on Unix/Linux and UTF-16 on Windows.
+To see if wcd was built with Unicode support type \(gawcd -V\(aq.  If your
+terminal/console and font supports it, you should see the euro symbol and
+Chinese characters (meaning: "Chinese").
+
+Wcd has been \(gasoft\(aq converted to Unicode. In its core wcd handles all
+data as a stream of bytes. Only the lines printed to screen are on the fly
+converted to Unicode wide characters. Wcd fully relies on libc functions and has
+no UTF-8 specific code. See also
+.nf
+http://www.cl.cam.ac.uk/~mgk25/unicode.html
+.fi
+
+.B "UTF-8 on Unix/Linux"
 
 In order to view UTF-8 characters your console/terminal also needs to support
 UTF-8. The xterm version that comes with XFree86 4.0 or higher includes UTF-8
@@ -953,26 +962,34 @@ iso10646-1 encoding, for instance with
   -fn \(aq-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1\(aq
 .fi
 
-A Windows console in unicode mode can be started with the command \(gacmd /u\(aq.
-UTF-8 code page is activated with command \(gachcp 65001\(aq. You need to set the
-font to True Type Lucida Console (not raster fonts). A problem for wcd is that
-batch scripts don\(aqt run anymore when code page 65001 has been activated. This
-is a blocker for Wcd.
+Modern distributions of Linux support UTF-8 by default. Other multi-byte
+character encodings should also work, but that has not been tested.
 
-In Windows PowerShell you also need to activate code page 65001 and select a
-True Type font.
+.B "UTF-16 on Windows"
 
-Wcd UTF-8 support in Windows Powershell is experimental and may not work
-properly. The default Unicode encoding in Windows is UTF-16 instead of UTF-8.
-Wcd does not (yet) support UTF-16 on Windows.
+On Windows all the directory names on disk are encoded in UTF-16
+Unicode.  For programs that don't support UTF-16 the Unicode characters are
+translated to the active code page. For characters that are not part of the
+regional setting this translation is not possible and non-Unicode programs
+print a question mark or a wrong character instead.
 
-Wcd has been \(gasoft\(aq converted to Unicode. In its core it still handles
-strings as 8 bit streams. Only the lines printed to screen are on the fly
-converted to Unicode characters. Wcd fully relies on libc functions and has
-no UTF-8 specific code. See also
-.nf
-http://www.cl.cam.ac.uk/~mgk25/unicode.html
-.fi
+Wcd with Unicode support will read the UTF-16 encoded directory names and
+converts them internally to UTF-8. All treedata files are encoded in UTF-8 and
+not compatible with the non-Unicode version of Wcd. Wcd will create a go-script
+encoded in UTF-8. This can only be run in Windows PowerShell.  Therefore wcd
+with Unicode is only supported in PowerShell and not in a normal Windows
+Console. You need to set the font to True Type Lucida Console (not raster
+font).
+
+.B "UTF-8 on Cygwin"
+
+Cygwin supports Unicode since version 1.7. The Cygwin layer takes care that the
+Windows UTF-16 Unicode names are converted to UTF-8. So programs, like wcd,
+don't need to be aware of this and can operate using UTF-8 encoding as on
+Unix/Linux. Set character encoding to UTF-8 with the LANG or LC_CTYPE
+environment variable. You may need to rescan your drives. You need to set the
+font to True Type Lucida Console (not raster font) if you use the default
+Cygwin console.
 
 .SH FILES
 

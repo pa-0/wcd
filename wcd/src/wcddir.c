@@ -61,6 +61,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "dosdir.h"
 #include <string.h>
 #include <windows.h>
+#include "wcd.h"
+#include "display.h"
 
 
 /* 
@@ -215,6 +217,10 @@ void wcd_getshares(char* path, nameset n)
 /* WIN32, not CYGWIN
    Use WIN32 API */
 
+/* If WCD_UNICODE is defined we assume that all multi-byte
+ * strings are encoded in UTF-8.
+ */
+
 char *wcd_getcwd(char *buf, int size)
 {
    BOOL err;
@@ -223,7 +229,7 @@ char *wcd_getcwd(char *buf, int size)
 
    err = GetCurrentDirectoryW(size, wstr);
    if ( err != 0)
-      if (wcstombs(buf, wstr, DD_MAXPATH) < 0)
+      if (wcstoutf8(buf, wstr, DD_MAXPATH) < 0)
          err = 0;
 #else
    err = GetCurrentDirectory(size, buf);
@@ -241,7 +247,7 @@ int wcd_chdir(char *buf)
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
-   if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
+   if (utf8towcs(wstr, buf, DD_MAXPATH) < 0)
       err = 0;
    else
       err = SetCurrentDirectoryW(wstr); 
@@ -261,7 +267,7 @@ int wcd_mkdir(char *buf)
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
-   if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
+   if (utf8towcs(wstr, buf, DD_MAXPATH) < 0)
       err = FALSE;
    else
       err = CreateDirectoryW(wstr, NULL);
@@ -281,7 +287,7 @@ int wcd_rmdir(char *buf)
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
-   if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
+   if (utf8towcs(wstr, buf, DD_MAXPATH) < 0)
       err = FALSE;
    else
       err = RemoveDirectoryW(wstr);

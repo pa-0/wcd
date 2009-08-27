@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define _WCD_H
 
 #include "tailor.h"
+#include "std_macr.h"
+#include "structur.h"
 
 #ifdef VMS
 #  define EXIT_OK 1
@@ -80,8 +82,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #  define OP_DIR "."
 #endif /* ?MSDOS|VMS */
 
-#define VERSION      "5.0.4"
-#define VERSION_DATE "Jul 21 2009"
+#define VERSION      "5.1.0-beta4"
+#define VERSION_DATE "Aug 27 2009"
 
 
 /* Function prototypes */
@@ -90,7 +92,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void quoteString(char *string);
 #endif
 
-typedef unsigned char wcd_char;
+#if defined(WCD_UNICODE) && defined(WIN32) && !defined(__CYGWIN__)
+#define WCD_UTF16
+//typedef wchar_t wcd_uchar;
+typedef unsigned char wcd_uchar;
+typedef wchar_t wcd_char;
+#  define WCSTOMBS wcstoutf8
+#  define MBSTOWCS utf8towcs
+#else
+typedef unsigned char wcd_uchar;
+typedef char wcd_char;
+#  define WCSTOMBS wcstombs
+#  define MBSTOWCS mbstowcs
+#endif
 
 void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude);
 void read_treefile(char *filename, nameset bd, int silent);

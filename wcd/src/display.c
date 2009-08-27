@@ -19,17 +19,61 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "wcd.h"
 #ifdef WCD_UNICODE
 #define __USE_XOPEN
 #include <wchar.h>
+#endif
+#ifdef WCD_UTF16
+#include <windows.h>
 #endif
 #include "std_macr.h"
 #include "structur.h"
 #include "nameset.h"
 #include "display.h"
-#include "wcd.h"
 #include "config.h"
 #include "dosdir.h"
+
+
+
+#ifdef WCD_UTF16
+/* wide char to UTF-8 */
+int wcstoutf8(char *mbstr, wchar_t *wcstr, int len)
+{
+   return(WideCharToMultiByte(CP_UTF8, 0, wcstr, -1, mbstr, len, NULL, NULL) -1);
+}
+int utf8towcs(wchar_t *wcstr, char *mbstr, int len)
+{
+   return(MultiByteToWideChar(CP_UTF8, 0, mbstr, -1, wcstr, len) -1);
+}
+#endif
+
+/* Print an UTF-8 multi-byte string */
+void wcd_printf( const char* format, ... ) {
+   va_list args;
+#ifdef WCD_UTF16
+   wchar_t wstr[DD_MAXPATH];
+   char buf[DD_MAXPATH];
+
+   HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE); 
+#endif
+
+   va_start( args, format );
+#ifdef WCD_UTF16
+   /* Assume the multi-byte string is in UTF-8 encoding. */
+   vsnprintf( buf, sizeof(wstr), format, args);
+   if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, DD_MAXPATH) > 0  )
+      WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
+   else
+   {
+      printf("A:");
+      vprintf( format, args );
+   }
+#else
+   vprintf( format, args );
+#endif
+   va_end( args );
+}
 
 
 /*
@@ -47,7 +91,7 @@ int str_columns (char *s)
    int i;
 
    /* convert to wide characters. i = nr. of characters */
-   i= mbstowcs(wstr,s,DD_MAXPATH);
+   i= MBSTOWCS(wstr,s,DD_MAXPATH);
    if ( i < 0)
       return(strlen(s));
    else
@@ -97,8 +141,8 @@ void ssort (nameset list, int left, int right)
   for (i = left+1; i <=right; i++)
   {
 #ifdef WCD_UNICODE
-   len1 = mbstowcs(wstr_left, list->array[left],DD_MAXPATH);
-   len2 = mbstowcs(wstr_right,list->array[i],DD_MAXPATH);
+   len1 = MBSTOWCS(wstr_left, list->array[left],DD_MAXPATH);
+   len2 = MBSTOWCS(wstr_right,list->array[i],DD_MAXPATH);
    if ((len1<0)||(len2<0))
    {
       /* Erroneous multi-byte sequence */
@@ -209,7 +253,7 @@ int maxLengthStack(WcdStack s)
 
 void printLine(nameset n, int i, int y, int xoffset, int *use_numbers, int screenWidth)
 {
-   wcd_char *s;
+   wcd_uchar *s;
    int len, j, nr_offset;
 
    s = n->array[i];
@@ -231,7 +275,7 @@ void printLine(nameset n, int i, int y, int xoffset, int *use_numbers, int scree
 
 void printStackLine(WcdStack ws, int i, int y, int xoffset, int *use_numbers, int screenWidth)
 {
-   wcd_char *s;
+   wcd_uchar *s;
    int len, j, nr_offset;
 
    s = ws->dir[i];
@@ -707,19 +751,19 @@ void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
 
 void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbers)
 {
-   wcd_char *s;
+   wcd_uchar *s;
    int len, j, nr_offset;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
 #endif
 
-   s = (wcd_char *)n->array[i];
+   s = (wcd_uchar *)n->array[i];
 
    if (s != NULL)
    {
 #ifdef WCD_UNICODE
-      len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
+      len = MBSTOWCS(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
 #endif
@@ -770,19 +814,19 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 
 void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *use_numbers)
 {
-   wcd_char *s;
+   wcd_uchar *s;
    int len, j, nr_offset;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
 #endif
 
-   s = (wcd_char *)ws->dir[i];
+   s = (wcd_uchar *)ws->dir[i];
 
    if (s != NULL)
    {
 #ifdef WCD_UNICODE
-      len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
+      len = MBSTOWCS(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
 #endif
@@ -1286,7 +1330,7 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
       if ( use_stdout & WCD_STDOUT_DUMP )
       {
          for (i=0;i<list->size;i++)
-            printf("%s\n", list->array[i]);
+            wcd_printf("%s\n", list->array[i]);
       }
       else
       {

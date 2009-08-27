@@ -23,6 +23,7 @@
 
 /* Set up portability */
 #include "tailor.h"
+#include "wcd.h"
 
 #if (defined (MSDOS) && !defined(OS2))
 #  ifndef __LCC__
@@ -36,7 +37,11 @@
 #  else /* ?!__TURBOC__ */
 #    include <direct.h>
 #  endif /* ?TURBOC */
-#  define ALL_FILES_MASK "*.*"
+#  ifdef WCD_UTF16
+#    define ALL_FILES_MASK L"*.*"
+#  else
+#    define ALL_FILES_MASK "*.*"
+#  endif
 #  define DIR_PARENT ".."
 #  define DIR_END '\\'
 #elif defined(VMS)
@@ -188,7 +193,14 @@ typedef unsigned short mode_t;
 #endif /* ?MSDOS */
 
 typedef struct {
+#ifdef WCD_UTF16
+    /* We need a buffer, because we convert the UTF-16 wide character
+     * name to an UTF-8 multi-byte string. */
+    char   dd_name[DD_MAXPATH]; /* File name */
+#else
     char*  dd_name;             /* File name */
+#endif
+
     time_t dd_time;             /* File time stamp */
     off_t  dd_size;             /* File length */
     mode_t dd_mode;             /* Attributes of file */
@@ -200,9 +212,13 @@ typedef struct {
 #  ifdef __TURBOC__
     struct ffblk  dos_fb;
 #  elif (defined(__MINGW32__)||defined(__LCC__))
+#   ifdef WCD_UTF16
+    struct _wfinddata_t dos_fb;
+#   else
     struct _finddata_t dos_fb;
+#   endif
     int nHandle;
-	char dd_attribs;
+    char dd_attribs;
 #  else /* ?MSC */
     struct find_t dos_fb;
 #  endif /* ?TURBOC */
@@ -228,7 +244,7 @@ typedef struct {
 extern "C" {
 #endif
 
-int  dd_findfirst(const char *path, dd_ffblk *fb, int attrib);
+int  dd_findfirst(const wcd_char *path, dd_ffblk *fb, int attrib);
 int  dd_findnext(dd_ffblk *fb);
 int  dd_fnsplit(const char *path, char * drive, char * dir,
 		    char * name, char * ext);
@@ -242,6 +258,10 @@ int  setdisk(int drive);
 }
 #endif
 
+#ifdef WCD_UTF16
+extern struct _stat dd_sstat;
+#else
 extern struct stat dd_sstat;
+#endif
 
 #endif /* _DOSDIR_H */

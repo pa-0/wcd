@@ -1160,19 +1160,19 @@ dirnode findDirInCicle(char *dir, dirnode curNode, int exact, int ignore_case)
 #ifdef WCD_USECURSES
 void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffset)
 {
-   wcd_char *s;
+   wcd_uchar *s;
    int len, j;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
 #endif
 
-   s = (wcd_char *)getTreeLine(getLastNodeInLevel(n,i),i,&i,curNode,false);
+   s = (wcd_uchar *)getTreeLine(getLastNodeInLevel(n,i),i,&i,curNode,false);
 
    if (s != NULL)
    {
 #ifdef WCD_UNICODE
-      len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
+      len = MBSTOWCS(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
 #endif
@@ -1338,7 +1338,7 @@ void dataRefresh(int ydiff, int init)
   int i, yoffset, xo, len;
   static int xoffset = 0;  /* Horizontal offset in number of columns */
   static int yposition = -1;  /* -1 : not initialized */
-  wcd_char *s;
+  wcd_uchar *s;
 #ifdef WCD_UNICODE
   static wchar_t wstr[DD_MAXPATH];
   int width;
@@ -1400,7 +1400,7 @@ void dataRefresh(int ydiff, int init)
   }
 
   /* mvwprintw(inputWin, 1,0,"%s",getNodeFullPath(curNode)); */
-  s = (wcd_char *)getZoomStackPath(wcd_cwin.zoomStack); /* s has size DD_MAXPATH */
+  s = (wcd_uchar *)getZoomStackPath(wcd_cwin.zoomStack); /* s has size DD_MAXPATH */
   strcat((char *)s, getNodeFullPath(wcd_cwin.curNode));
   wcd_fixpath((char *)s, DD_MAXPATH);
 
@@ -1408,7 +1408,7 @@ void dataRefresh(int ydiff, int init)
   {
     wmove(wcd_cwin.inputWin, 1, 0);
 #ifdef WCD_UNICODE
-   len = mbstowcs(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
+   len = MBSTOWCS(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
    if (len < 0)
    {
       /* Erroneous multi-byte sequence */
@@ -2139,7 +2139,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          n++;
          wcd_cwin.wstr[n] = '\0';
          /* Convert wide-character input string to byte string. Needed for searching. */
-         if (wcstombs(wcd_cwin.str, wcd_cwin.wstr, WCD_MAX_INPSTR) < 0)
+         if (WCSTOMBS(wcd_cwin.str, wcd_cwin.wstr, WCD_MAX_INPSTR) < 0)
          {
             n=1;
             wcd_cwin.str[n] = '\0';

@@ -1,3 +1,7 @@
+5.1.0-beta3 Aug 21 2009
+  - UTF-16 Unicode support for Windows PowerShell.
+  - Update manual, section Unicode.
+
 5.0.4 Jul 21 2009
   - Added Spanish language file (thanks to Julio Augusto Freyre-Gonzalez).
   - Improved display of match list for different languages.
