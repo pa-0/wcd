@@ -54,6 +54,7 @@ merge_from_trunk:
 # Merge branch into trunk.
 # After this the branch is unusable for further work.
 # Copy a new branch if needed.
+merge_to_trunk:
 	svn merge --reintegrate https://wcd.svn.sourceforge.net/svnroot/wcd/branches/${BRANCH}
 
 # Delete branch
