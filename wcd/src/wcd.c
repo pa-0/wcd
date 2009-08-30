@@ -83,6 +83,53 @@ TAB = 3 spaces
 
 const wcd_char *default_mask = ALL_FILES_MASK;
 
+#ifdef UNIX
+char *replace_HOME_abs_path(char *buf, int size)
+{
+	static char *home = NULL;      /* value of $HOME env variable */
+	static char home_abs[MAX_PATH];  /* absolute path of $HOME */
+	static char status = 0;
+	static int  len_home = 0;
+	static int  len_home_abs = 0;
+
+	if (buf == NULL)
+		return(NULL);
+
+   if ( status == 0 ) {
+	/* not intialised. */
+      if ((home = getenv("HOME")) != NULL )
+		{
+			if (wcd_chdir(home) == 0)
+			{
+				if (wcd_getcwd(home_abs, sizeof(home_abs)) == NULL)
+				{
+					status = 3; /* fail */
+				} else
+				{
+					if (strcmp(home,home_abs) == 0)
+					{
+						status = 3; /* home and home_abs are equal */
+					} else {
+						len_home = strlen(home);
+						len_home_abs = strlen(home_abs);
+						if (len_home < len_home_abs) {
+				         status = 1; /* home and home_abs are not equal */
+						} else {
+				         status = 2; /* home and home_abs are not equal */
+						}
+					}
+				}
+			} else {
+				status = 3; /* fail */
+			}
+		} else {
+			status = 3; /* fail */
+		}
+	}
+	return(buf);
+}
+#endif
+
 /********************************************************************
  * void cleanPath(char path[], int len, minlength)
  *
