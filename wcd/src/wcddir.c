@@ -41,6 +41,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #endif
 #include "dosdir.h"
 #include "wcddir.h"
+#include "match.h"
 
 #if (defined(WIN32) && defined(WCD_UNICODE))
 #include <wchar.h>
@@ -408,39 +409,49 @@ char *replace_volume_path_HOME(char *buf, int size)
             }
          wcd_chdir(tmp); /* go back */
          } else {
-            status = 3; /* fail */
+            status = 5; /* fail */
          }
       } else {
-         status = 3; /* fail */
+         status = 6; /* fail */
       }
       /* printf("status = %d\n", status); */
    }
    if ( status == 1 )  /* $HOME is shorter or equal length than volume name */
    {
-      len_buf = strlen(buf);
-      for (i=0; i < len_home; i++)
-         buf[i] = home[i];
-      j = i;
-      for (i=len_home_abs; i < len_buf; i++)
-      {
-         buf[j] = buf[i];
-         ++j;
+      strncpy(tmp, home_abs, sizeof(tmp)-1);
+      strcat(tmp,"*");
+      if (dd_match(buf, tmp , 0))
+      { 
+         len_buf = strlen(buf);
+         for (i=0; i < len_home; i++)
+            buf[i] = home[i];
+         j = i;
+         for (i=len_home_abs; i < len_buf; i++)
+         {
+            buf[j] = buf[i];
+            ++j;
+         }
+         buf[j] = '\0';
       }
-      buf[j] = '\0';
    }
    if ( status == 2 )  /* $HOME is longer than volume name */
    {
-      len_buf = strlen(buf);
-      for (i=0; (i < len_home) && (i < size); i++)
-         tmp[i] = home[i];
-      j = i;
-      for (i=len_home_abs; (i < len_buf) && (i < size); i++)
-      {
-         tmp[j] = buf[i];
-         ++j;
+      strncpy(tmp, home_abs, sizeof(tmp)-1);
+      strcat(tmp,"*");
+      if (dd_match(buf, tmp, 0))
+      { 
+         len_buf = strlen(buf);
+         for (i=0; (i < len_home) && (i < size); i++)
+            tmp[i] = home[i];
+         j = i;
+         for (i=len_home_abs; (i < len_buf) && (i < size); i++)
+         {
+            tmp[j] = buf[i];
+            ++j;
+         }
+         tmp[j] = '\0';
+         strcpy(buf,tmp);
       }
-      tmp[j] = '\0';
-      strcpy(buf,tmp);
    }
    return(buf);
 }
