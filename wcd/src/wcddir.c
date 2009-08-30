@@ -368,7 +368,7 @@ int wcd_mkdir(char *buf)
 char *replace_volume_path_HOME(char *buf, int size)
 {
    static char *home = NULL;      /* value of $HOME env variable */
-   static char home_abs[DD_MAXPATH];  /* absolute path of $HOME */
+   static char home_abs[DD_MAXPATH];  /* absolute volume path of $HOME */
    static char status = 0;
    static int  len_home = 0;
    static int  len_home_abs = 0;
@@ -383,7 +383,6 @@ char *replace_volume_path_HOME(char *buf, int size)
    {
    /* not intialised. */
    /* initialize only once. */
-      printf("status = %d\n", status);
       if ((home = getenv("HOME")) != NULL )
       {
          getcwd(tmp, sizeof(tmp)); /* remember current dir */
@@ -414,9 +413,9 @@ char *replace_volume_path_HOME(char *buf, int size)
       } else {
          status = 3; /* fail */
       }
-      printf("status = %d\n", status);
+      /* printf("status = %d\n", status); */
    }
-   if ( status == 1 )  /* $HOME is shorter than volume name */
+   if ( status == 1 )  /* $HOME is shorter or equal length than volume name */
    {
       len_buf = strlen(buf);
       for (i=0; i < len_home; i++)
