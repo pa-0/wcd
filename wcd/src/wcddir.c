@@ -386,10 +386,10 @@ char *replace_volume_path_HOME(char *buf, int size)
       printf("status = %d\n", status);
       if ((home = getenv("HOME")) != NULL )
       {
-         wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
+         getcwd(tmp, sizeof(tmp)); /* remember current dir */
          if (wcd_chdir(home) == 0)
          {
-            if (wcd_getcwd(home_abs, sizeof(home_abs)) == NULL)
+            if (getcwd(home_abs, sizeof(home_abs)) == NULL)
             {
                status = 3; /* fail */
             } else
