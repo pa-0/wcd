@@ -8,7 +8,6 @@ TO DO
   if you want to help (waterlan@xs4all.nl). Programming skills
   are not required.
 
-* UTF-16 Unicode on Windows.
 
 * Unicode matching with normalization.
   See also http://en.wikipedia.org/wiki/Unicode_normalization
