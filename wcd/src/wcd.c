@@ -83,94 +83,6 @@ TAB = 3 spaces
 
 const wcd_char *default_mask = ALL_FILES_MASK;
 
-#ifdef UNIX
-
-/* The $HOME directory can be mounted to a long absolute path by
- * a volume manager. Replace the absolute volume path by $HOME.
- */
-
-char *replace_volume_path_HOME(char *buf, int size)
-{
-   static char *home = NULL;      /* value of $HOME env variable */
-   static char home_abs[DD_MAXPATH];  /* absolute path of $HOME */
-   static char status = 0;
-   static int  len_home = 0;
-   static int  len_home_abs = 0;
-   int i, j, len_buf;
-   char tmp[DD_MAXDIR];
-
-
-   if (buf == NULL)
-      return(NULL);
-
-   if ( status == 0 )
-   {
-   /* not intialised. */
-   /* initialize only once. */
-      printf("status = %d\n", status);
-      if ((home = getenv("HOME")) != NULL )
-      {
-         wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
-         if (wcd_chdir(home) == 0)
-         {
-            if (wcd_getcwd(home_abs, sizeof(home_abs)) == NULL)
-            {
-               status = 3; /* fail */
-            } else
-            {
-               if (strcmp(home,home_abs) == 0)
-               {
-                  status = 4; /* home and home_abs are equal */
-               } else {
-                  len_home = strlen(home);
-                  len_home_abs = strlen(home_abs);
-                  if (len_home <= len_home_abs) {
-                     status = 1; /* home and home_abs are not equal */
-                  } else {
-                     status = 2; /* home and home_abs are not equal */
-                  }
-               }
-            }
-         wcd_chdir(tmp); /* go back */
-         } else {
-            status = 3; /* fail */
-         }
-      } else {
-         status = 3; /* fail */
-      }
-      printf("status = %d\n", status);
-   }
-   if ( status == 1 )  /* $HOME is shorter than volume name */
-   {
-      len_buf = strlen(buf);
-      for (i=0; i < len_home; i++)
-         buf[i] = home[i];
-      j = i;
-      for (i=len_home_abs; i < len_buf; i++)
-      {
-         buf[j] = buf[i];
-         ++j;
-      }
-      buf[j] = '\0';
-   }
-   if ( status == 2 )  /* $HOME is longer than volume name */
-   {
-      len_buf = strlen(buf);
-      for (i=0; (i < len_home) && (i < size); i++)
-         tmp[i] = home[i];
-      j = i;
-      for (i=len_home_abs; (i < len_buf) && (i < size); i++)
-      {
-         tmp[j] = buf[i];
-         ++j;
-      }
-      tmp[j] = '\0';
-      strcpy(buf,tmp);
-   }
-   return(buf);
-}
-#endif
-
 /********************************************************************
  * void cleanPath(char path[], int len, minlength)
  *
@@ -459,9 +371,6 @@ void getCurPath(char *buffer, int size, int *use_HOME)
    if (len==0)
       buffer[len] = '\0';
    wcd_fixpath(buffer,size);
-#ifdef UNIX
-   replace_volume_path_HOME(buffer, size);
-#endif
    rmDriveLetter(buffer,use_HOME);
  }
 }
@@ -859,9 +768,6 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 #ifdef MSDOS
    wcd_fixpath(tmp,sizeof(tmp));
    rmDriveLetter(tmp,use_HOME);
-#endif
-#ifdef UNIX
-   replace_volume_path_HOME(tmp,sizeof(tmp));
 #endif
 
    if (pathInNameset(tmp,exclude) >= 0)

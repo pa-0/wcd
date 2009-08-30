@@ -7,12 +7,13 @@ DEFS   = -DUNIX -DWCD_USECURSES
 BINDIR    = ${PREFIX}/bin
 PROGRAM = wcd.exe
 VERSIONSUFFIX = -bin
+INSTALL = ginstall
 
 all :
 	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" DEFS="${DEFS}" LFLAGS="${LFLAGS}" PREFIX=${PREFIX}
 
 install :
-	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" DEFS="${DEFS}" LFLAGS="${LFLAGS}" PREFIX=${PREFIX}
+	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" DEFS="${DEFS}" LFLAGS="${LFLAGS}" PREFIX=${PREFIX} INSTALL=${INSTALL}
 
 uninstall :
 	${MAKE} -C ../src uninstall PROGRAM=${PROGRAM} PREFIX=${PREFIX}
