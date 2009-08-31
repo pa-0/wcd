@@ -1,7 +1,9 @@
 5.1.0-beta4 Aug 30 2009
   - UTF-16 Unicode support for Windows PowerShell.
   - Update manual, section Unicode.
-  - Unix: Replace volume manager path of HOME dir by "$HOME".
+  - Unix: Replace volume manager path of HOME dir by "$HOME" (thanks to Jari Aalto).
+  - Fix compilation on Solaris (gcc) (thanks to Jari Aalto).
+  - Fix compilation on HP-UX (cc and curses).
 
 5.0.4 Jul 21 2009
   - Added Spanish language file (thanks to Julio Augusto Freyre-Gonzalez).
