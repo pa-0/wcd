@@ -19,6 +19,9 @@ $ make -f Makefile.curses.HP-UX
 With SunOS cc and curses:
 % make -f Makefile.curses.SunOS
 
+With SunOS gcc and curses:
+% make -f Makefile.curses.SunOS CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
+
 With gcc compiler and PDcurses:
 $ make -f Makefile.pdcurses.gcc
 
