@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 15:45+0200\n"
+"POT-Creation-Date: 2009-08-31 11:13+0200\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -509,109 +509,109 @@ msgstr "Wcd: Se encontraron %d directorios compartidos en el servidor %s\n"
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Error al analizar la pila\n"
 
-#: display.c:194
+#: display.c:196
 #, c-format
 msgid "Wcd: error in maxLength(), list == NULL\n"
 msgstr "Wcd: error en maxLength(), list == NULL\n"
 
-#: display.c:214
+#: display.c:216
 #, c-format
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "Wcd: error en maxLengthStack(), s == NULL\n"
 
-#: display.c:997 graphics.c:1769
+#: display.c:999 graphics.c:1769
 #, c-format
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr "Wcd: warning: Error al abrir la terminal, usando interfase stdout.\n"
 
-#: display.c:1015
+#: display.c:1017
 #, c-format
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: error: la altura de la pantalla debe ser mayor de 3 líneas.\n"
 
-#: display.c:1049 graphics.c:1802
+#: display.c:1051 graphics.c:1802
 #, c-format
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: error al crear ventana deslizable.\n"
 
-#: display.c:1080
+#: display.c:1082
 #, c-format
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: error al crear ventana de entrada.\n"
 
-#: display.c:1090
+#: display.c:1092
 msgid "Perfect "
 msgstr "Perfecta "
 
-#: display.c:1092
+#: display.c:1094
 msgid "Wild "
 msgstr "Inexacta "
 
-#: display.c:1093
+#: display.c:1095
 #, c-format
 msgid "match for %d directories."
 msgstr "concordancia para %d directorios."
 
-#: display.c:1098 display.c:1140 display.c:1170
+#: display.c:1100 display.c:1142 display.c:1172
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=arriba x=abajo ?=ayuda  Página %d/%d "
 
-#: display.c:1105 display.c:1350
+#: display.c:1107 display.c:1352
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Favor de elegir uno (<Intro> para abortar): "
 
-#: display.c:1224
+#: display.c:1226
 msgid "Screenheight must be > 20 for help."
 msgstr "La altura de la pantalla debe ser > 20 para la ayuda."
 
-#: display.c:1227
+#: display.c:1229
 msgid "w or <Up>         Page Up."
 msgstr "w o <Arriba>      Avanza página"
 
-#: display.c:1228
+#: display.c:1230
 msgid "x or z or <Down>  Page Down."
 msgstr "x o <Abajo>       Retrocede página."
 
-#: display.c:1229
+#: display.c:1231
 msgid ", or <Left>       Scroll 1 left."
 msgstr ", o <Izquierda>   Desliza 1 a la izquierda."
 
-#: display.c:1230
+#: display.c:1232
 msgid ". or <Right>      Scroll 1 right."
 msgstr ". o <Derecha>     Desliza 1 a la derecha."
 
-#: display.c:1231
+#: display.c:1233
 msgid "< or [            Scroll 10 left."
 msgstr "< o [             Desliza 10 a la izquierda."
 
-#: display.c:1232
+#: display.c:1234
 msgid "> or ]            Scroll 10 right."
 msgstr "> o ]             Desliza 10 a la derecha."
 
-#: display.c:1233
+#: display.c:1235
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr "CTRL-a o <Inicio> Desliza al inicio."
 
-#: display.c:1234
+#: display.c:1236
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr "CTRL-e o <Fin>    Desliza al fin."
 
-#: display.c:1235
+#: display.c:1237
 msgid "CTRL-c or <Esc>   Abort."
 msgstr "CTRL-c o <Esc>    Aborta."
 
-#: display.c:1236
+#: display.c:1238
 msgid "<Enter>           Abort."
 msgstr "<Intro>           Aborta."
 
-#: display.c:1237
+#: display.c:1239
 msgid "Type w or x to quit help."
 msgstr "Presiona w o x para salir de la ayuda."
 
-#: display.c:1346
+#: display.c:1348
 #, c-format
 msgid ""
 "\n"
@@ -620,7 +620,7 @@ msgstr ""
 "\n"
 "Perfecta "
 
-#: display.c:1348
+#: display.c:1350
 #, c-format
 msgid ""
 "\n"
@@ -629,12 +629,12 @@ msgstr ""
 "\n"
 "Inexacta "
 
-#: display.c:1349
+#: display.c:1351
 #, c-format
 msgid "match for %d directories.\n"
 msgstr "concordancia para %d directorios.\n"
 
-#: display.c:1392
+#: display.c:1394
 #, c-format
 msgid ""
 "\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-30 15:45+0200\n"
+"POT-Creation-Date: 2009-08-31 11:13+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -498,110 +498,110 @@ msgstr "Wcd: %d gedeelde mappen gevonden op server %s\n"
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Fout met verwerken stapel\n"
 
-#: display.c:194
+#: display.c:196
 #, c-format
 msgid "Wcd: error in maxLength(), list == NULL\n"
 msgstr "Wcd: fout in maxLength(), list == NULL\n"
 
-#: display.c:214
+#: display.c:216
 #, c-format
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "Wcd: fout in maxLengthStack(), s == NULL\n"
 
-#: display.c:997 graphics.c:1769
+#: display.c:999 graphics.c:1769
 #, c-format
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Wcd: let op: Fout tijdens openen terminal, val terug op stdout interface.\n"
 
-#: display.c:1015
+#: display.c:1017
 #, c-format
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: fout: scherm hoogte moet groter zijn dan 3 regels.\n"
 
-#: display.c:1049 graphics.c:1802
+#: display.c:1051 graphics.c:1802
 #, c-format
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: fout tijdens maken rolvenster.\n"
 
-#: display.c:1080
+#: display.c:1082
 #, c-format
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: fout aanmaken invoervenster.\n"
 
-#: display.c:1090
+#: display.c:1092
 msgid "Perfect "
 msgstr "Perfect "
 
-#: display.c:1092
+#: display.c:1094
 msgid "Wild "
 msgstr "Joker "
 
-#: display.c:1093
+#: display.c:1095
 #, c-format
 msgid "match for %d directories."
 msgstr "gelijke voor %d mappen."
 
-#: display.c:1098 display.c:1140 display.c:1170
+#: display.c:1100 display.c:1142 display.c:1172
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=omhoog x=omlaag ?=help  Pagina %d/%d "
 
-#: display.c:1105 display.c:1350
+#: display.c:1107 display.c:1352
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Maak een keuze (<Enter> voor afbreken): "
 
-#: display.c:1224
+#: display.c:1226
 msgid "Screenheight must be > 20 for help."
 msgstr "Schermhoogte moet groter dan 20 zijn voor help"
 
-#: display.c:1227
+#: display.c:1229
 msgid "w or <Up>         Page Up."
 msgstr "w of <Omhoog>      Pagina Omhoog."
 
-#: display.c:1228
+#: display.c:1230
 msgid "x or z or <Down>  Page Down."
 msgstr "x of z of <Omlaag> Pagina Omlaag."
 
-#: display.c:1229
+#: display.c:1231
 msgid ", or <Left>       Scroll 1 left."
 msgstr ", of <Links>       Rol 1 naar links."
 
-#: display.c:1230
+#: display.c:1232
 msgid ". or <Right>      Scroll 1 right."
 msgstr ". of <Rechts>      Rol 1 naar rechts."
 
-#: display.c:1231
+#: display.c:1233
 msgid "< or [            Scroll 10 left."
 msgstr "< of [             Rol 10 naar links."
 
-#: display.c:1232
+#: display.c:1234
 msgid "> or ]            Scroll 10 right."
 msgstr "> of ]             Rol 10 naar rechts."
 
-#: display.c:1233
+#: display.c:1235
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr "CTRL-a of <HOME>   Rol naar begin."
 
-#: display.c:1234
+#: display.c:1236
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr "CTRL-e of <END>    Rol naar einde."
 
-#: display.c:1235
+#: display.c:1237
 msgid "CTRL-c or <Esc>   Abort."
 msgstr "CTRL-c of <Esc>    Afbreken."
 
-#: display.c:1236
+#: display.c:1238
 msgid "<Enter>           Abort."
 msgstr "<Enter>            Afbreken."
 
-#: display.c:1237
+#: display.c:1239
 msgid "Type w or x to quit help."
 msgstr "Type w of x om help af te sluiten."
 
-#: display.c:1346
+#: display.c:1348
 #, c-format
 msgid ""
 "\n"
@@ -610,7 +610,7 @@ msgstr ""
 "\n"
 "Perfecte "
 
-#: display.c:1348
+#: display.c:1350
 #, c-format
 msgid ""
 "\n"
@@ -619,12 +619,12 @@ msgstr ""
 "\n"
 "Joker "
 
-#: display.c:1349
+#: display.c:1351
 #, c-format
 msgid "match for %d directories.\n"
 msgstr "gelijke voor %d mappen.\n"
 
-#: display.c:1392
+#: display.c:1394
 #, c-format
 msgid ""
 "\n"

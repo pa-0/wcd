@@ -4,7 +4,7 @@ CC	= cc
 
 CFLAGS  = -fast -Ic3po
 LFLAGS  = -lcurses -fast
-DEFS    = -DUNIX -DWCD_USECURSES -DSYSV
+DEFS    = -DUNIX -DWCD_USECURSES -D_XOPEN_SOURCE_EXTENDED -DSYSV
 OBJS1	= wcd.o match.o stack.o nameset.o intset.o Error.o Text.o WcdStack.o dirnode.o display.o dosdir.o wfixpath.o colors.o graphics.o wcddir.o
 
 all:wcd.exe
