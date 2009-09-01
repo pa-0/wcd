@@ -4,6 +4,10 @@
   - Unix: Replace volume manager path of HOME dir by "$HOME" (thanks to Jari Aalto).
   - Fix compilation on Solaris (gcc) (thanks to Jari Aalto).
   - Fix compilation on HP-UX (cc and curses).
+  - New GNU makefile for easy compilation and installation on old
+    or non-Linux systems without internationalisation and without
+    gcc or ncurses, using cc and curses instead. (thanks to Jari Aalto).
+
 
 5.0.4 Jul 21 2009
   - Added Spanish language file (thanks to Julio Augusto Freyre-Gonzalez).
