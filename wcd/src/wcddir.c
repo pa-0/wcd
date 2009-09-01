@@ -42,6 +42,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "dosdir.h"
 #include "wcddir.h"
 #include "match.h"
+#include <string.h>
 
 #if (defined(WIN32) && defined(WCD_UNICODE))
 #include <wchar.h>
