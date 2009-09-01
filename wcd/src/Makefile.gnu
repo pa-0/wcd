@@ -22,14 +22,15 @@ This makefile requires GNU Make.
 endif
 
 ifeq (gcc,$(notdir $(shell which gcc)))
-CC	= gcc
+	CC	= gcc
 else
-# gcc not available, use native cc.
-CC	= cc
+	# gcc not available, use native cc.
+	CC	= cc
 endif
-EXT	= .exe
 
 PACKAGE		= wcd
+EXT		= .exe
+
 DESTDIR		=
 prefix		= /usr/local
 exec_prefix	= $(prefix)
@@ -61,11 +62,11 @@ INSTALL_DATA	= $(INSTALL) -m 644
 INSTALL_SUID	= $(INSTALL) -m 4755
 
 # Local installation prefix of ncurses.
-LOCAL_NCURSES	= ${HOME}
+LOCAL_NCURSES	= $(HOME)
 
-ifneq (, $(wildcard ${LOCAL_NCURSES}/include/ncurses.h))
-	NCFLAG = -I${LOCAL_NCURSES}/include
-	NLFLAG = -L${LOCAL_NCURSES}/lib
+ifneq (, $(wildcard $(LOCAL_NCURSES)/include/ncurses.h))
+	NCFLAG = -I$(LOCAL_NCURSES)/include
+	NLFLAG = -L$(LOCAL_NCURSES)/lib
 endif
 
 ifneq (, $(wildcard /opt/csw))
@@ -94,7 +95,7 @@ ifeq (, $(wildcard /usr/lib/libncurses.a))
 	LCURSES		= -lcurses
 endif
 
-ifneq (, $(wildcard ${LOCAL_NCURSES}/include/ncurses.h))
+ifneq (, $(wildcard $(LOCAL_NCURSES)/include/ncurses.h))
 	# A local installation of ncurses found.
 	LCURSES		= -lncurses
 endif
@@ -107,13 +108,11 @@ endif
 # dynamically) comment the LFLAGS line and add the 'libncurses.a' file
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
-GCCFLAGS	= -O -Wall 
 ifeq ($(CC), gcc)
-CFLAGS		= -Ic3po $(GCCFLAGS) $(NCFLAG)
-else
-CFLAGS		= -Ic3po $(CFLAGS_OS) $(NCFLAG)
+GCCFLAGS	= -O -Wall
 endif
 
+CFLAGS		= -Ic3po $(GCCFLAGS $(NCFLAG) $(CFLAGS_OS)
 LFLAGS		= $(LCURSES) $(NLFLAG)
 
 DEFS		= -DUNIX $(DEFS_CURSES) $(EXTRA_DEFS)
@@ -167,13 +166,14 @@ install-etc:
 	# $(INSTALL_BIN) -d $(ETCDIR)
 	# $(INSTALL_BIN)    $(INSTALL_OBJS_ETC) $(ETCDIR)
 
-# Old (non-GNU) versions of `install' don't support option -d. Use mkdir instead. 
-# Was seen on HP-UX 11.
+# Old (non-GNU) versions of install(1) don't support option -d. Use
+# mkdir instead. Was seen on HP-UX 11.
 
 install-man:
 	# install-man
 	#$(INSTALL_BIN) -d $(MANDIR1)
 	mkdir -p $(MANDIR1)
+	chmod 755 $(MANDIR1)
 	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(MANDIR1)
 
 install-bin:
