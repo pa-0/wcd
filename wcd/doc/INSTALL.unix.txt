@@ -1,168 +1,152 @@
+NOTE
 
-To compile wcd with internationalization support see INSTALL.unix.intl.txt
+	To compile wcd with internationalization support see INSTALL.unix.intl.txt
 
+Using GNU tools
 
-Change to directory `src'.
+	If you have GNU make installed on your system first try:
 
+	    make -C src -f Makefile.gnu
 
-If you have GNU make installed on your system first try:
+	This will try to build wcd with (n)curses interface, using gcc
+	or cc and ncurses or curses. On some (non-Linux) systems GNU
+	make is installed as `gmake' command:
 
-  make -f Makefile.gnu
+	    gmake -C src -f Makefile.gnu
 
-This will try to build wcd with (n)curses interface,
-using gcc or cc and ncurses or curses.
-Makefile.gnu is a GNU Makefile and requires GNU make.
-On some (non-Linux) systems GNU make is installed as `gmake' command:
+	Installation:
 
-  gmake -f Makefile.gnu
+	    make -C src -f Makefile.gnu install
 
-Installation:
+	By default the `install' target will install the program in
+	/usr/local/bin and the man file in /usr/local/share/man. You
+	can specify an installation prefix other than `/usr/local' by
+	modifying the 'prefix' variable. An Example:
 
-  make -f Makefile.gnu install
+	    make prefix=$HOME clean all install
 
-By default `make install' will install the program in /usr/local/bin and the
-man file in /usr/local/share/man. You can specify an installation prefix other
-than `/usr/local' by giving `make' the option `prefix=PATH'.
+	To disable curses and compile wcd with plain stdin/stdout
+	interface type, reset the CURSES variable:
 
-Example:
+	    make -C src -f Makefile.gnu CURSES=
 
-  make clean
-  make
-  make install prefix=$HOME
+Using native OS tools
 
+	If the Makefile.gnu failed, the options are after changing to
+	directory `src'.
 
+	With HP-UX cc and ncurses:
+	  make -f Makefile.HP-UX.ncurses
 
-If building with Makefile.gnu fails other options are:
+	With HP-UX cc and curses:
+	  make -f Makefile.HP-UX.curses
 
-With gcc compiler and ncurses:
-  make -f Makefile.gnu.ncurses
+	With SunOS cc and curses:
+	  make -f Makefile.SunOS.curses
 
-With HP-UX cc and ncurses:
-  make -f Makefile.HP-UX.ncurses
+	With SunOS gcc and curses:
+	  make -f Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
 
-With HP-UX cc and curses:
-  make -f Makefile.HP-UX.curses
+	With gcc compiler and PDcurses:
+	  make -f Makefile.gnu.pdcurses
 
-With SunOS cc and curses:
-  make -f Makefile.SunOS.curses
+	QNX 4.25
+	  make4qnx
 
-With SunOS gcc and curses:
-  make -f Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
+Using Imake
 
-With gcc compiler and PDcurses:
-  make -f Makefile.gnu.pdcurses
+	Wcd can also be compiled with Imake:
 
-You may need to edit the makefile first.
+	    xmkmf
+	    make depend
+	    make
+	    make install
 
-QNX 4.25
-  make4qnx
+	The last command copies wcd.exe to your $HOME/bin directory.
+	Note: Imake will overwrite the makefile "Makefile".
 
-   ----------------------------------------------
+PORTABILITY
 
-To compile wcd with plain stdin/stdout interface type:
+	See also section "Source code" in file README.txt.
 
-  make -f Makefile.gnu.std
+	--
 
-You may need to edit file 'Makefile' first if you don't
-have the gcc compiler.
+	A compile error occurs when you use gcc < 3.0 and
+	<stdbool.h> is included somewhere (e.g. in curses.h).
 
-   ----------------------------------------------
+	Thanks to Kevin M. Rosenberg, apply the following patch:
 
-Wcd can also be compiled with Imake:
+	    patch -p1 < patch/wcd_bool.diff
 
-  xmkmf
-  make depend
-  make
-  make install
+	--
 
-The last command copies wcd.exe to your ~/bin/ directory.
-Note: Imake will overwrite the makefile "Makefile".
+	Conflicting curses.h ncurses.h
 
-   ----------------------------------------------
-*** PORTABILITY ***
+	On some systems curses.h is conflicting with ncurses.h. To
+	compile wcd you can solve this by creating a symbolic link
+	curses.h in the wcd source directory pointing to the ncurses.h
+	file and adding -I. to CFLAGS in Makefile.ncurses.gcc.
 
-See also section "Source code" in file README.txt.
+	This problem was seen on a BSDI BSD/OS 4.0 system.
+	/usr/local/include/ncurses.h
 
---
+	......................................................................
 
-A compile error occurs when you use gcc < 3.0 and
-<stdbool.h> is included somewhere (e.g. in curses.h).
 
-Apply the following patch:
+	Make sure that you have a copy of wcd.exe in a directory
+	listed in your PATH environment. If you install a local copy,
+	for example in your $HOME/bin directory, this directory must
+	be added to the PATH environment.
 
-  patch -p1 < patch/wcd_bool.diff
+	Copy file wcd.1 somewhere in $MANPATH .
 
-(thanks to Kevin M. Rosenberg)
+SHELL Integration
 
---
+    Installation of wcd function or alias
 
-Conflicting curses.h ncurses.h
+	Note that the current working directory of a Bourne-like or C
+	shell can only be changed by the builtin cd command. Therefore
+	the binary is always called by a function or alias. The
+	function or alias sources a shell script (go-script) which is
+	generated by the binary wcd.exe. Wcd can only work after the
+	function or alias is defined.
 
-On some systems curses.h is conflicting with ncurses.h. To compile wcd you can
-solve this by creating a symbolic link curses.h in the wcd source directory
-pointing to the ncurses.h file and adding -I. to CFLAGS in
-Makefile.ncurses.gcc.
+    Bourne-like shells
 
-This problem was seen on a BSDI BSD/OS 4.0 system. /usr/local/include/ncurses.h
-......................................................................
+	Korn Shell (ksh, pdksh), Bourne Again Shell (bash), Z shell (zsh), ash, ...
 
-Make sure that you have a copy of wcd.exe in a directory listed in your
-PATH environment. If you install a local copy, for example in your
-$HOME/bin directory, this directory must be added to the PATH
-environment.
+	1) Copy wcd along your PATH, we assume your path
+	contains $HOME/bin:
 
-Copy file wcd.1 somewhere in $MANPATH .
+	    cp wcd.exe $HOME/bin
 
+	2) Add the following function the Shell's startup file of your
+	shell. For instance in: $HOME/.kshrc (ksh), $HOME/.bashrc
+	(bash) or $HOME/.zshenv (zsh)
 
+	    function wcd
+	    {
+	       $HOME/bin/wcd.exe "$@" &&
+	       . $HOME/bin/wcd.go
+	    }
 
-Installation of wcd function or alias
-=====================================
+	Reload modifications to see new function wcd(). E.g. in Bash:
 
-Note that the current working directory of a Bourne-like or C shell can only be
-changed by the builtin cd command. Therefore the binary is always called by a
-function or alias. The function or alias sources a shell script (go-script)
-which is generated by the binary wcd.exe. Wcd can only work after the function
-or alias is defined.
+	    . ~/.bashrc
 
+    C Shell (csh/tcsh)
 
- ===== Bourne-like shells: =====
+	1) Copy wcd along your PATH, we assume your path
+	contains $HOME/bin:
 
-Korn Shell (ksh, pdksh), Bourne Again Shell (bash), Z shell (zsh), ash, ...
+	    cp wcd.exe $HOME/bin
 
-1)
+	2) Add the following alias to the Shell's startup file
+	$HOME/.cshrc or $HOME/.tcshrc respectively:
 
- copy wcd.exe to your $HOME/bin directory.
+	    alias wcd "$HOME/bin/wcd.exe \!* ; source $HOME/bin/wcd.go"
 
-2)
+	Log out and log in to make settings active.
 
- Add the following function to a startup file of your shell. For instance in:
-$HOME/.kshrc (ksh)
-$HOME/.bashrc (bash)
-$HOME/.zshenv (zsh)
-
-function wcd
-{
-   $HOME/bin/wcd.exe $*
-   . $HOME/bin/wcd.go
-}
-
-
-Start a new shell
-
-
- ===== C Shell (csh): =====
-
-1)
-
- copy wcd.exe to your $HOME/bin directory.
-
-2)
-
- Add the following alias to your $HOME/.cshrc
- file.
-
-alias wcd "$HOME/bin/wcd.exe \!* ; source $HOME/bin/wcd.go"
-
-Start a new C Shell
-
+End of file
 
