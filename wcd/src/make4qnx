@@ -8,12 +8,12 @@
 ##
 ##  o Compiles with the QNX Watcom 10.6 compiler, via the 'cc' interface.
 ##
-##  o Leverages the 'Makefile.ncurses.gcc' file to do the work, but overrides
+##  o Leverages the 'Makefile.gnu.ncurses' file to do the work, but overrides
 ##    the makefile variables 'CC' and 'CFLAGS'. If this script were two lines,
 ##    it would be:
 ##
 ##        echo "/* */" > memory.h
-##        make -f Makefile.ncurses.gcc CC='cc' CFLAGS='-wx -Ic3po -I.'  $*
+##        make -f Makefile.gnu.ncurses CC='cc' CFLAGS='-wx -Ic3po -I.'  $*
 ##
 ##  USAGE:
 ##
@@ -52,13 +52,13 @@ if [ ! -r memory.h ];  then
 fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Now do the MAKE. Use the 'Makefile.ncurses.gcc' makefile.
+# Now do the MAKE. Use the 'Makefile.gnu.ncurses' makefile.
 # For MAKE to work, override two makefile variables, CC and CFLAG.
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo "\n  o ${fname}: Performing ' MAKE $* ' (with Watcom 10.6 compiler).\n"
 
 set -x
-make -f Makefile.ncurses.gcc CC='cc' CFLAGS='-wx -Ic3po -I.'  $*
+make -f Makefile.gnu.ncurses CC='cc' CFLAGS='-wx -Ic3po -I.'  $*
 err=$?
 set +x
 

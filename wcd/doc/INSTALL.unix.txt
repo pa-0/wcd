@@ -5,36 +5,63 @@ To compile wcd with internationalization support see INSTALL.unix.intl.txt
 Change to directory `src'.
 
 
-If you want the curse-based interface, try:
+If you have GNU make installed on your system first try:
+
+  make -f Makefile.gnu
+
+This will try to build wcd with (n)curses interface,
+using gcc or cc and ncurses or curses.
+Makefile.gnu is a GNU Makefile and requires GNU make.
+On some (non-Linux) systems GNU make is installed as `gmake' command:
+
+  gmake -f Makefile.gnu
+
+Installation:
+
+  make -f Makefile.gnu install
+
+By default `make install' will install the program in /usr/local/bin and the
+man file in /usr/local/share/man. You can specify an installation prefix other
+than `/usr/local' by giving `make' the option `prefix=PATH'.
+
+Example:
+
+  make clean
+  make
+  make install prefix=$HOME
+
+
+
+If building with Makefile.gnu fails other options are:
 
 With gcc compiler and ncurses:
-$ make -f Makefile.ncurses.gcc
+  make -f Makefile.gnu.ncurses
 
 With HP-UX cc and ncurses:
-$ make -f Makefile.ncurses.HP-UX
+  make -f Makefile.HP-UX.ncurses
 
 With HP-UX cc and curses:
-$ make -f Makefile.curses.HP-UX
+  make -f Makefile.HP-UX.curses
 
 With SunOS cc and curses:
-% make -f Makefile.curses.SunOS
+  make -f Makefile.SunOS.curses
 
 With SunOS gcc and curses:
-% make -f Makefile.curses.SunOS CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
+  make -f Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
 
 With gcc compiler and PDcurses:
-$ make -f Makefile.pdcurses.gcc
+  make -f Makefile.gnu.pdcurses
 
 You may need to edit the makefile first.
 
 QNX 4.25
-$ make4qnx
+  make4qnx
 
    ----------------------------------------------
 
 To compile wcd with plain stdin/stdout interface type:
 
-$ make -f Makefile.std
+  make -f Makefile.gnu.std
 
 You may need to edit file 'Makefile' first if you don't
 have the gcc compiler.
@@ -43,10 +70,10 @@ have the gcc compiler.
 
 Wcd can also be compiled with Imake:
 
-$ xmkmf
-$ make depend
-$ make
-$ make install
+  xmkmf
+  make depend
+  make
+  make install
 
 The last command copies wcd.exe to your ~/bin/ directory.
 Note: Imake will overwrite the makefile "Makefile".
@@ -63,7 +90,7 @@ A compile error occurs when you use gcc < 3.0 and
 
 Apply the following patch:
 
-$ patch -p1 < patch/wcd_bool.diff
+  patch -p1 < patch/wcd_bool.diff
 
 (thanks to Kevin M. Rosenberg)
 
