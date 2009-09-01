@@ -452,13 +452,13 @@ expfun void printDirnode(text Offset,
       fprintf(fp, "%sint y : %d\n", new_Offset, d->y);
 
       if ((dirnodeHasParent(d) == true) || (showEmpty == true))
-         fprintf(fp, "%sdirnode parent : %d (reference)\n", new_Offset, (int) d->parent);
+         fprintf(fp, "%sdirnode parent : %lu (reference)\n", new_Offset, (long) d->parent);
 
       if ((dirnodeHasUp(d) == true) || (showEmpty == true))
-         fprintf(fp, "%sdirnode up : %d (reference)\n", new_Offset, (int) d->up);
+         fprintf(fp, "%sdirnode up : %lu (reference)\n", new_Offset, (long) d->up);
 
       if ((dirnodeHasDown(d) == true) || (showEmpty == true))
-         fprintf(fp, "%sdirnode down : %d (reference)\n", new_Offset, (int) d->down);
+         fprintf(fp, "%sdirnode down : %lu (reference)\n", new_Offset, (long) d->down);
 
       fprintf(fp, "%sc3po_bool fold : %d\n", new_Offset, d->fold);
 
