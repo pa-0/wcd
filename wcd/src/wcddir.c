@@ -375,7 +375,9 @@ char *replace_volume_path_HOME(char *buf, int size)
    static int  len_home = 0;
    static int  len_home_abs = 0;
    int i, j, len_buf;
-   char tmp[DD_MAXDIR];
+   char tmp[DD_MAXPATH];
+   char pattern[DD_MAXPATH];
+   char *ptr1, *ptr2;
 
 
    if (buf == NULL)
@@ -399,6 +401,19 @@ char *replace_volume_path_HOME(char *buf, int size)
                {
                   status = 4; /* home and home_abs are equal */
                } else {
+                  if ( ((ptr1 = strrchr(home,DIR_SEPARATOR)) != NULL) && ((ptr2 = strrchr(home_abs,DIR_SEPARATOR)) != NULL))
+                  {
+                     if (strcmp(ptr1,ptr2) == 0)
+                     {
+                         /* Both paths have same user name. Strip user name, so that
+                          * also paths from other users benefit if users have a common
+                          * volume prefix. Depends on how Volume Manager was configured. */
+                         ptr1 = '\0';
+                         ptr2 = '\0';
+                     }
+                  }
+                  strncpy(pattern, home_abs, sizeof(pattern)-1);
+                  strcat(pattern,"*");
                   len_home = strlen(home);
                   len_home_abs = strlen(home_abs);
                   if (len_home <= len_home_abs) {
@@ -419,9 +434,7 @@ char *replace_volume_path_HOME(char *buf, int size)
    }
    if ( status == 1 )  /* $HOME is shorter or equal length than volume name */
    {
-      strncpy(tmp, home_abs, sizeof(tmp)-1);
-      strcat(tmp,"*");
-      if (dd_match(buf, tmp , 0))
+      if (dd_match(buf, pattern , 0))
       { 
          len_buf = strlen(buf);
          for (i=0; i < len_home; i++)
@@ -437,9 +450,7 @@ char *replace_volume_path_HOME(char *buf, int size)
    }
    if ( status == 2 )  /* $HOME is longer than volume name */
    {
-      strncpy(tmp, home_abs, sizeof(tmp)-1);
-      strcat(tmp,"*");
-      if (dd_match(buf, tmp, 0))
+      if (dd_match(buf, pattern, 0))
       { 
          len_buf = strlen(buf);
          for (i=0; (i < len_home) && (i < size); i++)

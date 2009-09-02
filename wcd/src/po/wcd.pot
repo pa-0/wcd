@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-31 14:14+0200\n"
+"POT-Creation-Date: 2009-09-02 11:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -398,22 +398,22 @@ msgstr ""
 msgid "Wcd: Cannot change to %s\n"
 msgstr ""
 
-#: wcddir.c:96
+#: wcddir.c:97
 #, c-format
 msgid "Wcd: Error %lu (\"%s\") reported by \"%s\".\n"
 msgstr ""
 
-#: wcddir.c:119
+#: wcddir.c:120
 #, c-format
 msgid "Wcd: access denied.\n"
 msgstr ""
 
-#: wcddir.c:200
+#: wcddir.c:201
 #, c-format
 msgid "Wcd: Searching for shared directories on server %s\n"
 msgstr ""
 
-#: wcddir.c:212
+#: wcddir.c:213
 #, c-format
 msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr ""
