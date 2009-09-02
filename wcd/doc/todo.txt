@@ -15,8 +15,10 @@ TO DO
 
 * Matching with locale support.
 
-  For instance an `e' should also match an `e' with accent (`é').
+  For instance an `e' should also match an `e' with accent.
 
+
+* Support scripts that write from right to left like Arabic or Hebrew.
 
 
 
