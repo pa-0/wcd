@@ -43,7 +43,7 @@ TAB = 3 spaces
 #ifdef DJGPP
 # include <dir.h>
 #endif
-#ifdef ENABLE_NLS
+#if defined(ENABLE_NLS) || defined(WCD_UNICODE)
 #if (defined(MSDOS))   /* DOS, Windows (not Cygwin), OS/2 */
 # include "langinfo.h"
 #else

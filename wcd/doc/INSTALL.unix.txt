@@ -2,21 +2,24 @@ NOTE
 
 	To compile wcd with internationalization support see INSTALL.unix.intl.txt
 
+	Use instructions in this file if instructions in INSTALL.unix.intl.txt fail.
+
+
 Using GNU tools
 
 	If you have GNU make installed on your system first try:
 
-	    make -C src -f Makefile.gnu
+	    make -C src -f old_makefiles/Makefile.gnu
 
 	This will try to build wcd with (n)curses interface, using gcc
 	or cc and ncurses or curses. On some (non-Linux) systems GNU
 	make is installed as `gmake' command:
 
-	    gmake -C src -f Makefile.gnu
+	    gmake -C src -f old_makefiles/Makefile.gnu
 
 	Installation:
 
-	    make -C src -f Makefile.gnu install
+	    make -C src -f old_makefiles/Makefile.gnu install
 
 	By default the `install' target will install the program in
 	/usr/local/bin and the man file in /usr/local/share/man. You
@@ -28,7 +31,7 @@ Using GNU tools
 	To disable curses and compile wcd with plain stdin/stdout
 	interface type, reset the CURSES variable:
 
-	    make -C src -f Makefile.gnu CURSES=
+	    make -C src -f old_makefiles/Makefile.gnu CURSES=
 
 Using native OS tools
 
@@ -36,19 +39,19 @@ Using native OS tools
 	directory `src'.
 
 	With HP-UX cc and ncurses:
-	  make -f Makefile.HP-UX.ncurses
+	  make -f old_makefiles/Makefile.HP-UX.ncurses
 
 	With HP-UX cc and curses:
-	  make -f Makefile.HP-UX.curses
+	  make -f old_makefiles/Makefile.HP-UX.curses
 
 	With SunOS cc and curses:
-	  make -f Makefile.SunOS.curses
+	  make -f old_makefiles/Makefile.SunOS.curses
 
 	With SunOS gcc and curses:
-	  make -f Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
+	  make -f old_makefiles/Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
 
 	With gcc compiler and PDcurses:
-	  make -f Makefile.gnu.pdcurses
+	  make -f old_makefiles/Makefile.gnu.pdcurses
 
 	QNX 4.25
 	  make4qnx
@@ -85,7 +88,7 @@ PORTABILITY
 	On some systems curses.h is conflicting with ncurses.h. To
 	compile wcd you can solve this by creating a symbolic link
 	curses.h in the wcd source directory pointing to the ncurses.h
-	file and adding -I. to CFLAGS in Makefile.ncurses.gcc.
+	file and adding -I. to CFLAGS in old_makefiles/Makefile.ncurses.gcc.
 
 	This problem was seen on a BSDI BSD/OS 4.0 system.
 	/usr/local/include/ncurses.h

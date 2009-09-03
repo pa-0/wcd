@@ -1,6 +1,8 @@
 
 Build and install wcd with internationalization support.
 
+If building fails read file INSTALL.unix.txt.
+
 For dos/windows/cygwin see BUILD.dos_windows.intl.txt.
 
 Prerequisites
@@ -38,6 +40,28 @@ Install wcd:
 To start clean:
 
   Type `make clean'
+
+
+Curses-based interface
+======================
+
+The curses-based interface is by default enabled using ncurses.
+To use old `curses' add CURSES=curses to the make command:
+
+ `make CURSES=curses'
+
+To disable the curses-based interface add CURSES=
+
+ `make CURSES='
+
+
+Multi-lingual messages
+======================
+
+Multi-lingual messages are by default enabled. To turn it off
+add ENABLE_NLS= to the make command:
+
+ `make ENABLE_NLS='
 
 
 UTF-8 and Unicode support

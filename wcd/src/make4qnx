@@ -58,7 +58,7 @@ fi
 echo "\n  o ${fname}: Performing ' MAKE $* ' (with Watcom 10.6 compiler).\n"
 
 set -x
-make -f Makefile.gnu.ncurses CC='cc' CFLAGS='-wx -Ic3po -I.'  $*
+make -f old_makefiles/Makefile.gnu.ncurses CC='cc' CFLAGS='-wx -Ic3po -I.'  $*
 err=$?
 set +x
 
