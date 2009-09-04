@@ -88,6 +88,15 @@ POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 DOCFILES	= ../doc/${PACKAGE}.txt ../doc/${PACKAGE}.ps ../doc/${PACKAGE}.pdf
 
+VERSIONSUFFIX = -bin
+ifdef UCS 
+ZIPFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-ucs.zip
+TGZFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-ucs.tar.gz
+else
+ZIPFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}.zip
+TGZFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}.tar.gz
+endif
+
 ZIPOBJ		= bin/$(BIN) \
 		  share/locale/*/LC_MESSAGES/$(PACKAGE).mo \
 		  share/man/man1/$(PACKAGE).1 \
@@ -127,8 +136,8 @@ ifneq (,$(CURSES))
 endif
 
 ifeq ($(CURSES), pdcurses)
-	CFLAGS_PDCURSES = -fomit-frame-pointer -DXCURSES
-	LFLAGS_PDCURSES = -lXCurses -L/usr/X11R6/lib -lXaw -lXmu -lXt -lX11 -lSM -lICE -lXext
+	DEFS_CURSES = -fomit-frame-pointer -DXCURSES
+	LCURSES = -lXCurses -L/usr/X11R6/lib -lXaw -lXmu -lXt -lX11 -lSM -lICE -lXext
 endif
 
 ifeq ($(CURSES), curses)
@@ -165,21 +174,19 @@ endif
 # dynamically) comment the LFLAGS line and add the 'libncurses.a' file
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
-GCCFLAGS	= -O -Wall
+GCCFLAGS	= -O2 -Wall
 
 CFLAGS		= -Ic3po \
 		  $(GCCFLAGS) \
 		  $(CFLAGS_OS) \
 		  $(CFLAGS_UCS) \
-		  $(CFLAGS_PDCURSES) \
 		  $(CFLAGS_BSD) \
 		  $(WDEFS) \
 		  $(NLSDEFS) \
 		  $(NCFLAG)
 
 LFLAGS		= $(LCURSES) $(NLFLAG) \
-	          $(LFLAGS_EXTRA) \
-	          $(LFLAGS_PDCURSES)
+	          $(LFLAGS_EXTRA)
 
 DEFS		= -DUNIX $(DEFS_CURSES) $(EXTRA_DEFS)
 
@@ -200,9 +207,10 @@ OBJS1 = \
 	wfixpath.o \
 	colors.o \
 	graphics.o \
-	wcddir.o
+	wcddir.o \
+	$(EXTRA_OBJ)
 
-all: $(BIN)
+all: $(BIN) $(MOFILES) $(DOCFILES)
 
 $(BIN): $(OBJS1)
 	$(CC) $(OBJS1) $(LFLAGS) -o $@
@@ -257,7 +265,7 @@ strip:
 	strip $(BIN)
 
 clean:
-	/bin/rm -f \
+	-rm -f \
 		$(BIN) \
 		*.o \
 		*/*.o \
@@ -279,11 +287,11 @@ install-etc:
 # Old (non-GNU) versions of install(1) don't support option -d. Use
 # mkdir instead. Was seen on HP-UX 11.
 
-install-mo: mofiles
+install-mo: $(MOFILES)
 	# install-mo
 	$(foreach mofile, $(MOFILES), $(INSTALL) -D -m 644 $(mofile) $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 
-install-doc:
+install-doc: $(DOCFILES)
 	# install-doc
 	$(MKDIR) -p $(DOCDIR)
 	chmod 755 $(DOCDIR)
@@ -300,9 +308,15 @@ install-bin: $(BIN)
 	# install-bin
 	#$(INSTALL_BIN) -d $(BINDIR)
 	$(MKDIR) -p $(BINDIR)
-	$(INSTALL_BIN) -s $(INSTALL_OBJS_BIN) $(BINDIR)
+	$(INSTALL_BIN) $(INSTALL_OBJS_BIN) $(BINDIR)
 
 install: install-bin install-man install-doc install-mo
+
+uninstall :
+	-rm -f ${BINDIR}/${BIN}
+	$(foreach mofile, ${MOFILES}, rm -f ${LOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo ;)
+	-rm -f ${MANDIR}/man1/${PACKAGE}.1
+	-rm -rf ${DOCDIR}
 
 PHONY: install install-doc dist dist-zip dist-tgz
 

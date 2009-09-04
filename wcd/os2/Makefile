@@ -1,14 +1,17 @@
 
 PREFIX = c:/usr
 
-CFLAGS = -Ic3po -O3 -Wall
+CFLAGS = -O3 -Wall
 
 # PDcurses
-LFLAGS = pdcurses.a -lintl -liconv
+CURSES = pdcurses
+LCURSES = pdcurses.a
 
 # Ncurses
-#LFLAGS = -lncurses -lintl -liconv -Zomf
+#CURSES = ncurses
+#LCURSES = -lncurses -Zomf
 
+LFLAGS_EXTRA = -lintl -liconv
 DEFS   = -DMSDOS -DWCD_USECURSES
 EXTRA_OBJ=langinfo.o
 BINDIR    = ${PREFIX}/bin
@@ -16,10 +19,10 @@ PROGRAM = wcdos2.exe
 VERSIONSUFFIX = -os2
 
 all :
-	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" DEFS="${DEFS}" LFLAGS="${LFLAGS}" PREFIX=${PREFIX} EXTRA_OBJ="${EXTRA_OBJ}"
+	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LCURSES=${LCURSES} DEFS="${DEFS}" LFLAGS_EXTRA="${LFLAGS_EXTRA}" PREFIX=${PREFIX} EXTRA_OBJ="${EXTRA_OBJ}"
 
 install :
-	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" DEFS="${DEFS}" LFLAGS="${LFLAGS}" PREFIX=${PREFIX} EXTRA_OBJ="${EXTRA_OBJ}"
+	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LCURSES=${LCURSES} DEFS="${DEFS}" LFLAGS_EXTRA="${LFLAGS_EXTRA}" PREFIX=${PREFIX} EXTRA_OBJ="${EXTRA_OBJ}"
 	install -m 755 wcd.cmd ${BINDIR}/wcd.cmd
 
 uninstall :

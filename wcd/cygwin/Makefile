@@ -1,22 +1,20 @@
 
 PREFIX = /usr
 
-CFLAGS = -Ic3po -O3 -Wall
-ifdef UCS
-LFLAGS = -lncursesw -lintl -liconv -lmpr
-else
-LFLAGS = -lcurses -lintl -liconv -lmpr
-endif
+GCCFLAGS = -O3 -Wall
+CURSES = ncurses
+LCURSES = -l${CURSES}
+LFLAGS_EXTRA = -lintl -liconv -lmpr
 DEFS   = -DUNIX -DWCD_USECURSES
 BINDIR    = ${PREFIX}/bin
 PROGRAM = wcd.exe
 VERSIONSUFFIX = -cygwin
 
 all :
-	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" DEFS="${DEFS}" LFLAGS="${LFLAGS}" PREFIX=${PREFIX}
+	${MAKE} -C ../src all PROGRAM=${PROGRAM} GCCFLAGS="${GCCFLAGS}" CURSES=${CURSES} LCURSES=${LCURSES} DEFS="${DEFS}" LFLAGS_EXTRA="${LFLAGS_EXTRA}" PREFIX=${PREFIX}
 
 install :
-	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" DEFS="${DEFS}" LFLAGS="${LFLAGS}" PREFIX=${PREFIX}
+	${MAKE} -C ../src install PROGRAM=${PROGRAM} GCCFLAGS="${GCCFLAGS}" CURSES=${CURSES} LCURSES=${LCURSES} DEFS="${DEFS}" LFLAGS_EXTRA="${LFLAGS_EXTRA}" PREFIX=${PREFIX}
 
 uninstall :
 	${MAKE} -C ../src uninstall PROGRAM=${PROGRAM} PREFIX=${PREFIX}

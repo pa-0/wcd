@@ -2,8 +2,10 @@
 PREFIX = c:/usr/local
 MKDIR  = mkdir
 
-CFLAGS = -Ic3po -O3 -Wall
-LFLAGS = -lpdcurses -lintl -liconv -lkernel32 -luser32 -lmpr
+GCCFLAGS = -O3 -Wall
+CURSES = pdcurses
+LCURSES = -l${CURSES}
+LFLAGS_EXTRA = -lintl -liconv -lkernel32 -luser32 -lmpr
 ifdef WCD_UTF8
 # WCD_UTF8 was used in older versions.
 UCS=1
@@ -21,10 +23,10 @@ VERSIONSUFFIX = -win32psh
 ZIPOBJ_EXTRA = bin/libintl3.dll bin/libiconv2.dll
 
 all :
-	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" DEFS="${DEFS}" LFLAGS="${LFLAGS}" PREFIX=${PREFIX} EXTRA_OBJ="${EXTRA_OBJ}"
+	${MAKE} -C ../src all PROGRAM=${PROGRAM} GCCFLAGS="${GCCFLAGS}" CURSES=${CURSES} LCURSES=${LCURSES} DEFS="${DEFS}" LFLAGS_EXTRA="${LFLAGS_EXTRA}" PREFIX=${PREFIX} EXTRA_OBJ="${EXTRA_OBJ}"
 
 install :
-	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" DEFS="${DEFS}" LFLAGS="${LFLAGS}" PREFIX=${PREFIX} MKDIR=${MKDIR} EXTRA_OBJ="${EXTRA_OBJ}"
+	${MAKE} -C ../src install PROGRAM=${PROGRAM} GCCFLAGS="${GCCFLAGS}" CURSES=${CURSES} LCURSES=${LCURSES} DEFS="${DEFS}" LFLAGS_EXTRA="${LFLAGS_EXTRA}" PREFIX=${PREFIX} MKDIR=${MKDIR} EXTRA_OBJ="${EXTRA_OBJ}"
 
 uninstall :
 	${MAKE} -C ../src uninstall PROGRAM=${PROGRAM} PREFIX=${PREFIX}
