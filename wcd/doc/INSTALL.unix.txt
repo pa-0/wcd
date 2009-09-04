@@ -35,7 +35,9 @@ Using GNU tools
 
 	    make -f old/Makefile.gnu CURSES=
 
-Using native OS tools
+
+Alternative simple GNU makefiles
+
 
 	If the Makefile.gnu failed, the options are after changing to
 	directory `src'.
@@ -46,20 +48,27 @@ Using native OS tools
 	With gcc compiler and stdin/stdout interface:
 	  make -f old/Makefile.gnu.std
 
-	With HP-UX cc and ncurses:
-	  make -f old/Makefile.HP-UX.ncurses
-
-	With HP-UX cc and curses:
-	  make -f old/Makefile.HP-UX.curses
-
-	With SunOS cc and curses:
-	  make -f old/Makefile.SunOS.curses
-
-	With SunOS gcc and curses:
-	  make -f old/Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
-
 	With gcc compiler and PDcurses:
 	  make -f old/Makefile.gnu.pdcurses
+	
+	Note: using PDcurses on Unix makes not much sense for wcd,
+	because it runs in its own separate window, not in the
+	current terminal.
+
+
+Using native OS tools
+
+	With HP-UX cc and ncurses:
+	  make -f Makefile.HP-UX.ncurses
+
+	With HP-UX cc and curses:
+	  make -f Makefile.HP-UX.curses
+
+	With SunOS cc and curses:
+	  make -f Makefile.SunOS.curses
+
+	With SunOS gcc and curses:
+	  make -f Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
 
 	QNX 4.25
 	  make4qnx
