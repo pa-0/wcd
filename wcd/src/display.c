@@ -21,7 +21,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <stdlib.h>
 #include "wcd.h"
 #ifdef WCD_UNICODE
+#ifndef __USE_XOPEN
 #define __USE_XOPEN
+#endif
 #include <wchar.h>
 #endif
 #ifdef WCD_UTF16

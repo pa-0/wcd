@@ -26,6 +26,9 @@ include version.mk
 CC		= gcc
 STATIC		=
 
+# Write compiler messages in plain english
+export LC_ALL		= C
+
 PACKAGE		= wcd
 EXT		= .exe
 PROGRAM         = $(PACKAGE)$(EXT)
@@ -136,13 +139,21 @@ ifneq (,$(CURSES))
 	LCURSES     = -l$(CURSES)
 endif
 
-ifeq ($(CURSES), pdcurses)
-	DEFS_CURSES = -fomit-frame-pointer -DXCURSES
-	LCURSES     = -lXCurses -L/usr/X11R6/lib -lXaw -lXmu -lXt -lX11 -lSM -lICE -lXext
+ifeq ($(CURSES),ncursesw)
+	EXTRA_DEFS = -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED
+
+	# Pick right include:
+	# libncurses5-dev: /usr/include/curses.h
+	# libncursesw5-dev: /usr/include/ncursesw/curses.h
+
+ifneq (,$(wildcard /usr/include/ncursesw/curses.h))
+	INCFLAGS = -I/usr/include/ncursesw
+endif
 endif
 
-ifeq ($(CURSES), curses)
-	EXTRA_DEFS = -D_XOPEN_SOURCE_EXTENDED
+ifeq ($(CURSES),pdcurses)
+	DEFS_CURSES = -fomit-frame-pointer -DXCURSES
+	LCURSES     = -lXCurses -L/usr/X11R6/lib -lXaw -lXmu -lXt -lX11 -lSM -lICE -lXext
 endif
 
 # Local installation prefix of ncurses.
@@ -229,7 +240,8 @@ CFLAGS		= -Ic3po \
 		  $(CFLAGS_BSD) \
 		  $(WDEFS) \
 		  $(NLSDEFS) \
-		  $(NCFLAG)
+		  $(NCFLAG) \
+		  $(INCFLAGS)
 
 LFLAGS		= $(LCURSES) $(NLFLAG) \
 	          $(LFLAGS_EXTRA)
@@ -260,12 +272,15 @@ all: $(BIN) $(MOFILES) $(DOCFILES)
 
 status:
 	@echo "-- $(PACKAGE) Makefile settings begin --"
-	@echo "OS         = $(OS)"
-	@echo "STATIC     = $(STATIC)"
-	@echo "UCS        = $(UCS)"
-	@echo "ENABLE_NLS = $(ENABLE_NLS)"
-	@echo "CURSES     = $(CURSES)"
-	@echo "prefix     = $(prefix)"
+	@echo "OS	   = $(OS)"
+	@echo "prefix	   = $(prefix)"
+	@echo "STATIC	   = $(STATIC)"
+	@echo "UCS	   = $(UCS)"
+	@echo "ENABLE_NLS  = $(ENABLE_NLS)"
+	@echo "CURSES	   = $(CURSES)"
+	@echo "DEFS_CURSES = $(DEFS_CURSES)"
+	@echo "EXTRA_DEFS  = $(EXTRA_DEFS)"
+	@echo "CFLAGS	   = $(CFLAGS)"
 	@echo "-- $(PACKAGE) Makefile settings end --"
 
 $(BIN): status $(OBJS1)
