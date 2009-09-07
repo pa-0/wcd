@@ -58,7 +58,7 @@ To disable the curses-based interface add CURSES=
 Multi-lingual messages
 ======================
 
-Multi-lingual messages are by default enabled. To turn it off
+Multi-lingual messages are by default enabled. To disable
 add ENABLE_NLS= to the make command:
 
  `make ENABLE_NLS='

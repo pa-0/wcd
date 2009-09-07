@@ -1,31 +1,47 @@
-NOTE
+USING GNU TOOLS
 
-	To compile wcd with internationalization support see INSTALL.unix.intl.txt
+	Change to directory src/
 
-	Use instructions in this file if instructions in INSTALL.unix.intl.txt fail.
+	Check if you have GNU make(1) and GNU gcc(1) installed on your
+	system check that. On some systems GNU make may be installed
+	as 'gmake' command.
 
+	    make --version
+	    gcc --version
 
-Using GNU tools
+	To compile using GNU make:
 
-	Change to directory `src'.
+	    make all
 
-	If you have GNU make installed on your system first try:
+	Options that can be enabled during compiling
 
-	    make -f old/Makefile.gnu
+	  UCS=1		Enable unicode (UTF8) support.
 
-	This will try to build wcd with (n)curses interface, using gcc
-	or cc and ncurses or curses. On some (non-Linux) systems GNU
-	make is installed as `gmake' command:
+	  ENABLE_NLS=1	Enable native language support.
 
-	    gmake -f old/Makefile.gnu
+	  STATIC=1	Enable static linking. Make a
+		        standalone wcd binary.
 
-	Installation:
+	  CURSES=<curses|ncurses|ncursesw|pdcurses>
 
-	    make -f old/Makefile.gnu install
+			Select curses library. The default is
+			ncurses.
 
-	By default the `install' target will install the program in
+	  EXT=		Disable extension (*.exe) which
+			is the historical default.
+
+	An example to enable NLS and Unicode support, provided that
+	the library libncursesw has been installed:
+
+	    make UCS=1 clean all
+
+	To install:
+
+	    make all strip install
+
+	By default the 'install' target will install the program in
 	/usr/local/bin and the man file in /usr/local/share/man. You
-	can specify an installation prefix other than `/usr/local' by
+	can specify an installation prefix other than /usr/local by
 	modifying the 'prefix' variable. An Example:
 
 	    make prefix=$HOME clean all install
@@ -33,14 +49,13 @@ Using GNU tools
 	To disable curses and compile wcd with plain stdin/stdout
 	interface type, reset the CURSES variable:
 
-	    make -f old/Makefile.gnu CURSES=
+	    make CURSES=
 
+USING SIMPLE GNU MAKEFILES
 
-Alternative simple GNU makefiles
-
-
-	If the Makefile.gnu failed, the options are after changing to
-	directory `src'.
+	If the above command failed to recognize your system, the
+	options are after below. See also how to compile wcd with
+	internationalization support manually at INSTALL.unix.intl.txt
 
 	With gcc compiler and ncurses:
 	  make -f old/Makefile.gnu.ncurses
@@ -50,13 +65,15 @@ Alternative simple GNU makefiles
 
 	With gcc compiler and PDcurses:
 	  make -f old/Makefile.gnu.pdcurses
-	
+
 	Note: using PDcurses on Unix makes not much sense for wcd,
 	because it runs in its own separate window, not in the
 	current terminal.
 
+USING NATIVE OS TOOLS
 
-Using native OS tools
+	If you don't have GNU tools, see these files for native OS
+	compilation.
 
 	With HP-UX cc and ncurses:
 	  make -f Makefile.HP-UX.ncurses
@@ -73,7 +90,7 @@ Using native OS tools
 	QNX 4.25
 	  make4qnx
 
-Using Imake
+USING IMAKE
 
 	Wcd can also be compiled with Imake:
 
@@ -87,7 +104,7 @@ Using Imake
 
 PORTABILITY
 
-	See also section "Source code" in file README.txt.
+	See section "Source code" in file README.txt.
 
 	--
 
@@ -120,7 +137,7 @@ PORTABILITY
 
 	Copy file wcd.1 somewhere in $MANPATH .
 
-SHELL Integration
+SHELL INTEGRATION
 
     Installation of wcd function or alias
 
@@ -169,4 +186,3 @@ SHELL Integration
 	Log out and log in to make settings active.
 
 End of file
-
