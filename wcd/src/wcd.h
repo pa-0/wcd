@@ -94,7 +94,7 @@ void quoteString(char *string);
 
 #if defined(WCD_UNICODE) && defined(WIN32) && !defined(__CYGWIN__)
 #define WCD_UTF16
-//typedef wchar_t wcd_uchar;
+/* typedef wchar_t wcd_uchar; */
 typedef unsigned char wcd_uchar;
 typedef wchar_t wcd_char;
 #  define WCSTOMBS wcstoutf8

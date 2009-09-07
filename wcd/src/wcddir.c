@@ -157,13 +157,13 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
             default:
                type = "unknown"; break;
          }
-         // now we recurse if it's a container
+         /* now we recurse if it's a container */
          if ( buf[ui].dwUsage & RESOURCEUSAGE_CONTAINER )
             doEnum( level + 1, &buf[ui], n );
       }
    }
 
-   if ( rc != ERROR_NO_MORE_ITEMS )  // bad things
+   if ( rc != ERROR_NO_MORE_ITEMS )  /* bad things */
    {
       rc2 = GetLastError();
       /* printf( "WNER(): rc = %lu, gle = %lu\n", rc, rc2 ); */
