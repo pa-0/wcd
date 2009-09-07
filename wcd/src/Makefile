@@ -23,7 +23,8 @@ endif
 
 include version.mk
 
-CC	= gcc
+CC		= gcc
+STATIC		=
 
 PACKAGE		= wcd
 EXT		= .exe
@@ -115,29 +116,29 @@ ifdef UCS
 	WDEFS	   = -DWCD_UNICODE
 endif
 
-ENABLE_NLS	= 1
+ENABLE_NLS = 1
+
 ifdef ENABLE_NLS
 	NLSDEFS    = -DENABLE_NLS -DLOCALEDIR=\"$(sharedir)/locale\" -DPACKAGE=\"$(PACKAGE)\"
 endif
 
 # ........................................................... curses ...
 
-# ncurses, curses, pdcurses or empty
-CURSES		= ncurses
-
+# possible values: ncurses, curses, pdcurses or <empty>
+CURSES = ncurses
 
 ifdef UCS
 	CURSES  = ncursesw
 endif
 
 ifneq (,$(CURSES))
-	DEFS_CURSES	= -DWCD_USECURSES
-	LCURSES		= -l$(CURSES)
+	DEFS_CURSES = -DWCD_USECURSES
+	LCURSES     = -l$(CURSES)
 endif
 
 ifeq ($(CURSES), pdcurses)
 	DEFS_CURSES = -fomit-frame-pointer -DXCURSES
-	LCURSES = -lXCurses -L/usr/X11R6/lib -lXaw -lXmu -lXt -lX11 -lSM -lICE -lXext
+	LCURSES     = -lXCurses -L/usr/X11R6/lib -lXaw -lXmu -lXt -lX11 -lSM -lICE -lXext
 endif
 
 ifeq ($(CURSES), curses)
@@ -154,17 +155,58 @@ endif
 
 # ......................................................... OS flags ...
 
+OS =
+
+ifndef OS
+ifneq (, $(wildcard /boot/vmlinuz*))
+	OS = linux
+endif
+endif
+
+ifndef OS
+ifneq (, $(wildcard /cygdrive/c))
+	OS = cygwin
+endif
+endif
+
+ifndef OS
 ifeq (FreeBSD, $(shell uname -s))
+	OS = freebsd
+endif
+endif
+
+ifeq (freebsd,$(OS))
 	# Running under FreeBSD
-	CFLAGS_BSD = -I/usr/local/include
+	CFLAGS_BSD   = -I/usr/local/include
 	LFLAGS_EXTRA = -lintl -L/usr/local/lib
 endif
 
+ifndef OS
 ifneq (, $(wildcard /opt/csw))
+	OS = sun
+endif
+endif
+
+ifeq (sun,$(OS))
 	# Running under SunOS/Solaris
 	LFLAGS_EXTRA = -lintl
 endif
 
+ifndef OS
+ifeq (HP-UX, $(shell uname -s))
+	OS = hpux
+endif
+endif
+
+ifeq (hpux,$(OS))
+	# Running under HP-UX
+	EXTRA_DEFS += -Dhpux -D_HPUX_SOURCE -D_XOPEN_SOURCE_EXTENDED
+	# CFLAGS_OS = -O -Aa
+endif
+
+ifndef OS
+	OS = unknown
+endif
 
 # ............................................................ flags ...
 
@@ -175,6 +217,10 @@ endif
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
 GCCFLAGS	= -O2 -Wall
+
+ifdef STATIC
+	GCCFLAGS += -static
+endif
 
 CFLAGS		= -Ic3po \
 		  $(GCCFLAGS) \
@@ -212,9 +258,18 @@ OBJS1 = \
 
 all: $(BIN) $(MOFILES) $(DOCFILES)
 
-$(BIN): $(OBJS1)
-	$(CC) $(OBJS1) $(LFLAGS) -o $@
+status:
+	@echo "-- $(PACKAGE) Makefile settings begin --"
+	@echo "OS         = $(OS)"
+	@echo "STATIC     = $(STATIC)"
+	@echo "UCS        = $(UCS)"
+	@echo "ENABLE_NLS = $(ENABLE_NLS)"
+	@echo "CURSES     = $(CURSES)"
+	@echo "prefix     = $(prefix)"
+	@echo "-- $(PACKAGE) Makefile settings end --"
 
+$(BIN): status $(OBJS1)
+	$(CC) $(OBJS1) $(LFLAGS) -o $@
 %.o: %.c
 	$(CC) $(CFLAGS) $(DEFS) -c $< -o $@
 
@@ -318,8 +373,6 @@ uninstall :
 	-rm -f ${MANDIR}/man1/${PACKAGE}.1
 	-rm -rf ${DOCDIR}
 
-PHONY: install install-doc dist dist-zip dist-tgz
+PHONY: status install install-doc dist dist-zip dist-tgz
 
 # End of file
-
- 	  	 
