@@ -5,6 +5,7 @@
   - Fix compilation on Solaris (gcc) (thanks to Jari Aalto).
   - Fix compilation on HP-UX (cc and curses).
   - Updated makefiles. (thanks to Jari Aalto).
+  - Code cleanup (thanks to Jari Aalto).
 
 
 5.0.4 Jul 21 2009

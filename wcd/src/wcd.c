@@ -43,6 +43,9 @@ TAB = 3 spaces
 #ifdef DJGPP
 # include <dir.h>
 #endif
+#ifdef ENABLE_NLS
+#include <locale.h>
+#endif
 #if defined(ENABLE_NLS) || defined(WCD_UNICODE)
 #if (defined(MSDOS))   /* DOS, Windows (not Cygwin), OS/2 */
 # include "langinfo.h"
@@ -1020,12 +1023,12 @@ void makeDir(char *path, char *treefile, int *use_HOME)
 
 /********************************************************************
  *
- *     deleteLink(char *path, char *treefile, int *use_HOME)
+ *     deleteLink(char *path, char *treefile)
  *
  ********************************************************************/
 
 #ifdef UNIX
-void deleteLink(char *path, char *treefile, int *use_HOME)
+void deleteLink(char *path, char *treefile)
 {
    static struct stat buf ;
    char tmp2[DD_MAXPATH];
@@ -1091,7 +1094,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
 #ifdef UNIX
    if ((lstat(path, &buf) == 0) && S_ISLNK(buf.st_mode))  /* is it a link? */
    {
-      deleteLink(path,treefile,use_HOME);
+      deleteLink(path,treefile);
    }
    else
    {
