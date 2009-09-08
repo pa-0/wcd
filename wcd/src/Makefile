@@ -136,7 +136,7 @@ endif
 
 ifneq (,$(CURSES))
 	DEFS_CURSES = -DWCD_USECURSES
-	LCURSES     = -l$(CURSES)
+	LIB_CURSES  = -l$(CURSES)
 endif
 
 ifeq ($(CURSES),ncursesw)
@@ -153,7 +153,7 @@ endif
 
 ifeq ($(CURSES),pdcurses)
 	DEFS_CURSES = -fomit-frame-pointer -DXCURSES
-	LCURSES     = -lXCurses -L/usr/X11R6/lib -lXaw -lXmu -lXt -lX11 -lSM -lICE -lXext
+	LIB_CURSES  = -lXCurses -L/usr/X11R6/lib -lXaw -lXmu -lXt -lX11 -lSM -lICE -lXext
 endif
 
 # Local installation prefix of ncurses.
@@ -189,7 +189,7 @@ endif
 ifeq (freebsd,$(OS))
 	# Running under FreeBSD
 	CFLAGS_BSD   = -I/usr/local/include
-	LFLAGS_EXTRA = -lintl -L/usr/local/lib
+	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
 endif
 
 ifndef OS
@@ -200,7 +200,7 @@ endif
 
 ifeq (sun,$(OS))
 	# Running under SunOS/Solaris
-	LFLAGS_EXTRA = -lintl
+	LDFLAGS_EXTRA = -lintl
 endif
 
 ifndef OS
@@ -224,7 +224,7 @@ endif
 # Statically linking of a specific library can be done by linking
 # to a lib*.a library file instead a lib*.s* library file.
 # To link ncurses statically (if your system links by default
-# dynamically) comment the LFLAGS line and add the 'libncurses.a' file
+# dynamically) comment the LDFLAGS line and add the 'libncurses.a' file
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
 GCCFLAGS	= -O2 -Wall
@@ -243,8 +243,9 @@ CFLAGS		= -Ic3po \
 		  $(NCFLAG) \
 		  $(INCFLAGS)
 
-LFLAGS		= $(LCURSES) $(NLFLAG) \
-	          $(LFLAGS_EXTRA)
+LDFLAGS		= $(LIB_CURSES) \
+	          $(LDFLAGS_EXTRA) \
+		  $(NLFLAG)
 
 DEFS		= -DUNIX $(DEFS_CURSES) $(EXTRA_DEFS)
 
@@ -284,7 +285,8 @@ status:
 	@echo "-- $(PACKAGE) Makefile settings end --"
 
 $(BIN): status $(OBJS1)
-	$(CC) $(OBJS1) $(LFLAGS) -o $@
+	$(CC) $(OBJS1) $(LDFLAGS) -o $@
+
 %.o: %.c
 	$(CC) $(CFLAGS) $(DEFS) -c $< -o $@
 
