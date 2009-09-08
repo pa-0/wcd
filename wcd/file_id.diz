@@ -20,9 +20,11 @@ what has been typed, but the use of wildcards is also fully supported.
 * Multi user: Jump to folders of your colleagues.
 * Multi platform:
   * DOS 16 bit, DOS 32 bit, DOS bash
-  * Windows Command prompt, Windows PowerShell, Windows ZSH, MSYS, Cygwin
+  * Windows Command Prompt, Windows PowerShell, Windows ZSH, MSYS, Cygwin
   * Unix/Linux: all Bourne and C type shells
   * OS/2 Warp
 * Native language support: Dutch, English, Spanish
-* UTF-8 Unicode support.
+* Unicode support, including double width and combining characters.
+  * UTF-8 Unicode support for Unix/Linux and Cygwin-1.7.
+  * UTF-16 Unicode support for Windows PowerShell.
 

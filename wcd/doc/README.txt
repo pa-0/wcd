@@ -35,7 +35,7 @@ todo.txt                     : Things to do.
 = 1 History                                                          =
 ======================================================================
 
-In 1995 I started working for Philips Research in Einhoven. I had to do all my
+In 1995 I started working for Philips Research in Eindhoven. I had to do all my
 work on HP Unix (HP-UX). I was missing an application like Norton Change
 Directory (NCD). I didn't know of any other NCD like program so in 1996 I
 decided to make it myself. On the internet I found Jason Mathew's DOSDIR
@@ -294,6 +294,9 @@ Jari Aalto          (man page improvements)
 Jari Aalto          (option -l takes alias directly)
 Jari Aalto          (in match list key z does page down.)
 Jari Aalto          (Swap options -v and -V.)
+Jari Aalto          (Unix: Replace volume manager path of HOME dir by "$HOME")
+Jari Aalto          (Makefile improvements)
+Jari Aalto          (Code cleanup)
 Gabor Grothendieck  (UNC paths support)
 Gabor Grothendieck  (automatically set PDC_RESTORE_SCREEN)
 Gabor Grothendieck  (original console colours on windows)
