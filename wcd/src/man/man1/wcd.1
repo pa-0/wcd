@@ -132,12 +132,8 @@ path to a drive letter. In windows PowerShell, MSYS, zsh and Cygwin UNC paths ar
 fully supported. The current working directory can be a UNC path.
 
 Wcd supports 8 bit character sets on all systems, and has optional
-support for Unicode. See also section LOCALIZATION/UNICODE.
-
-Remark about 8 bit characters on Windows: Only the original equipment
-manufacturer (OEM) code page installed with Windows appears correctly in a
-command prompt window that uses Raster fonts. Other code pages appear correctly
-in full-screen mode or command prompt windows that use TrueType fonts.
+support for Unicode. See also sections LOCALIZATION/WINDOWS CODE PAGES
+and LOCALIZATION/UNICODE.
 
 .SH OPTIONS
 .TP
@@ -925,12 +921,12 @@ Windows. The windows version of wcd is a native windows program and will use
 the Windows system ANSI code page. So on a Western regional Windows it will use
 CP1252 for directory names and messages. Therefore the code page of the console
 has to be made equal to the system code page (changed to 1252) to make wcd for
-Windows work properly with special characters such as accented characters
-or the euro symbol. The console raster font only supports the default OEM code
-page, so you also have to change the font to true type Lucida console to
-support the ANSI code page. The Windows system code page can be changed via the
-Control Panel regional options. The Windows console code page is changed with
-the \(gachcp\(aq command.
+Windows work properly with special characters such as accented characters or
+the euro symbol. The console raster font only supports the original OEM code
+page installed with Windows, so you also have to change the font to true type
+Lucida Console to make the ANSI code page appear correctly. The Windows system
+code page can be changed via the Control Panel regional options. The Windows
+console code page is changed with the \(gachcp\(aq command.
 
 When you type \(gawcd -V\(aq, the actual character encoding used by wcd is shown.
 Type \(gachcp\(aq to display the active code page of the windows console.
