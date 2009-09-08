@@ -27,7 +27,7 @@ CC		= gcc
 STATIC		=
 
 # Write compiler messages in plain english
-export LC_ALL		= C
+export LC_ALL	= C
 
 PACKAGE		= wcd
 EXT		= .exe
@@ -87,18 +87,18 @@ INSTALL_OBJS_DOC   = \
   ../doc/translate.txt \
   ../doc/todo.txt
 
-POT		= po/${PACKAGE}.pot
+POT		= po/$(PACKAGE).pot
 POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
-DOCFILES	= ../doc/${PACKAGE}.txt ../doc/${PACKAGE}.ps ../doc/${PACKAGE}.pdf
+DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf
 
 VERSIONSUFFIX = -bin
 ifdef UCS 
-ZIPFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-ucs.zip
-TGZFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}-ucs.tar.gz
+ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.zip
+TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.tar.gz
 else
-ZIPFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}.zip
-TGZFILE = ${PACKAGE}-${VERSION}${VERSIONSUFFIX}.tar.gz
+ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX).zip
+TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX).tar.gz
 endif
 
 ZIPOBJ		= bin/$(BIN) \
@@ -382,12 +382,12 @@ install-bin: $(BIN)
 
 install: install-bin install-man install-doc install-mo
 
-uninstall :
-	-rm -f ${BINDIR}/${BIN}
-	$(foreach mofile, ${MOFILES}, rm -f ${LOCALEDIR}/$(basename $(notdir ${mofile}))/LC_MESSAGES/${PACKAGE}.mo ;)
-	-rm -f ${MANDIR}/man1/${PACKAGE}.1
-	-rm -rf ${DOCDIR}
+uninstall:
+	-rm -f $(BINDIR)/$(BIN)
+	$(foreach mofile, $(MOFILES), rm -f $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	-rm -f $(MANDIR)/man1/$(PACKAGE).1
+	-rm -rf $(DOCDIR)
 
-PHONY: status install install-doc dist dist-zip dist-tgz
+PHONY: status uninstall install install-doc dist dist-zip dist-tgz
 
 # End of file
