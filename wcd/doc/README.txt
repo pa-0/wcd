@@ -314,6 +314,7 @@ Billy Chen          Less screen movement when navigating in graphical mode.
 
 Thanks to the following translators:
 
+Jari Aalto                     (Finnish)
 Julio Augusto Freyre-Gonzalez  (Spanish)
 
 
