@@ -107,10 +107,6 @@ ZIPOBJ		= bin/$(BIN) \
 		  share/doc/$(PACKAGE)-$(VERSION) \
 		  $(ZIPOBJ_EXTRA)
 
-ew:
-	echo ${POFILES}
-	echo ${MOFILES}
-
 # .......................................................... unicode ...
 
 ifdef WCD_UTF8
