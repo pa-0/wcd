@@ -15,23 +15,30 @@ USING GNU TOOLS
 
 	Options that can be enabled during compiling
 
-	  UCS=1		Enable unicode (UTF8) support.
+	    UCS=1	Enable unicode (UTF8) support
+			The default value is empty.
 
-	  ENABLE_NLS=1	Enable native language support.
+	    ENABLE_NLS=1
+			Enable native language support.
+			That is, use locale files.
+			The default value is 1.
 
-	  STATIC=1	Enable static linking. Make a
-		        standalone wcd binary.
+	    STATIC=1	Enable static linking. Make a
+			standalone wcd binary.
+			The default value is empty.
 
-	  CURSES=<curses|ncurses|ncursesw|pdcurses>
+	    CURSES=<curses|ncurses|ncursesw|pdcurses>
 
-			Select curses library. The default is
-			ncurses.
+			Select curses library.
+			The default value is 'ncurses'.
+			Only an expert should change this.
 
-	  EXT=		Disable extension (*.exe) which
-			is the historical default.
+	    EXT=.exe	Set executable extension
+			The default value is '.exe' for
+			historical reasons (DOS).
 
-	An example to enable NLS and Unicode support, provided that
-	the library libncursesw has been installed:
+	An example to unicode support, provided that also the library
+	libncursesw is also available:
 
 	    make UCS=1 clean all
 
@@ -40,13 +47,14 @@ USING GNU TOOLS
 	    make all strip install
 
 	By default the 'install' target will install the program in
-	/usr/local/bin and the man file in /usr/local/share/man. You
-	can specify an installation prefix other than /usr/local by
-	modifying the 'prefix' variable. An Example:
+	/usr/local/bin, the language files in /usr/local/share/locale
+	and the man page in /usr/local/share/man. You can specify an
+	installation prefix other than /usr/local by modifying the
+	'prefix' variable. An Example:
 
-	    make prefix=$HOME clean all install
+	    make prefix=$HOME UCS=1 clean all strip install
 
-	To disable curses and compile wcd with plain stdin/stdout
+	To disable curses and compile with plain stdin/stdout
 	interface type, reset the CURSES variable:
 
 	    make CURSES=
