@@ -341,10 +341,15 @@ clean:
 		$(BIN) \
 		*.o \
 		*/*.o \
-		*.bck \
-		*.bak \
-		*[#~] \
+		../*/*.bck \
+		../*/*.bak \
+		../*/*[#~] \
 		*.\#* \
+		*/*.bak \
+		*/*.bck \
+		*/*~ \
+		*/*/*.bak \
+		*/*/*~ \
 		*.stackdump
 
 distclean: clean
