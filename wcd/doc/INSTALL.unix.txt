@@ -1,6 +1,17 @@
-USING GNU TOOLS
+PREREQUISITES
 
-	Change to directory src/
+	* gcc       : GNU C compiler
+	* make      : GNU make
+	* sh        : Bourne type shell
+	* coreutils : GNU core utilities package
+	* gettext   : Framework to help GNU packages produce multi-lingual messages. (optional)
+	* ncurses   : CRT screen handling and optimization package. (optional)
+
+	Only needed if you change the manual page:
+
+	* man         : Man, apropos en whatis
+	* groff       : GNU troff text formatting system.
+	* ghostscript : An interpreter for the PostScript language and for PDF
 
 	Check if you have GNU make(1) and GNU gcc(1) installed on your
 	system check that. On some systems GNU make may be installed
@@ -8,6 +19,13 @@ USING GNU TOOLS
 
 	    make --version
 	    gcc --version
+
+	If you can't meet the prerequisites, see section USING NATIVE OS TOOLS below.
+
+
+BASIC INSTALLATION
+
+	Change to directory src/
 
 	To compile using GNU make:
 
@@ -37,14 +55,23 @@ USING GNU TOOLS
 			The default value is '.exe' for
 			historical reasons (DOS).
 
-	An example to unicode support, provided that also the library
+	An example to unicode support, provided that the library
 	libncursesw is also available:
 
 	    make UCS=1 clean all
 
+	To disable curses and compile with plain stdin/stdout
+	interface type, reset the CURSES variable:
+
+	    make CURSES=
+
 	To install:
 
 	    make all strip install
+
+	Now go to section SHELL INTEGRATION below.
+
+INSTALLATION NAMES
 
 	By default the 'install' target will install the program in
 	/usr/local/bin, the language files in /usr/local/share/locale
@@ -52,18 +79,13 @@ USING GNU TOOLS
 	installation prefix other than /usr/local by modifying the
 	'prefix' variable. An Example:
 
-	    make prefix=$HOME UCS=1 clean all strip install
-
-	To disable curses and compile with plain stdin/stdout
-	interface type, reset the CURSES variable:
-
-	    make CURSES=
+	    make prefix=$HOME clean all
+	    make prefix=$HOME strip install
 
 USING SIMPLE GNU MAKEFILES
 
 	If the above command failed to recognize your system, the
-	options are after below. See also how to compile wcd with
-	internationalization support manually at INSTALL.unix.intl.txt
+	options are after below.
 
 	With gcc compiler and ncurses:
 	  make -f old/Makefile.gnu.ncurses
@@ -77,6 +99,8 @@ USING SIMPLE GNU MAKEFILES
 	Note: using PDcurses on Unix makes not much sense for wcd,
 	because it runs in its own separate window, not in the
 	current terminal.
+
+	Now go to section SHELL INTEGRATION below.
 
 USING NATIVE OS TOOLS
 
@@ -98,6 +122,8 @@ USING NATIVE OS TOOLS
 	QNX 4.25
 	  make4qnx
 
+	Now go to section SHELL INTEGRATION below.
+
 USING IMAKE
 
 	Wcd can also be compiled with Imake:
@@ -109,6 +135,8 @@ USING IMAKE
 
 	The last command copies wcd.exe to your $HOME/bin directory.
 	Note: Imake will overwrite the makefile "Makefile".
+
+	Now go to section SHELL INTEGRATION below.
 
 PORTABILITY
 
