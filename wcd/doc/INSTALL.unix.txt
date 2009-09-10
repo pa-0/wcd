@@ -14,8 +14,7 @@ PREREQUISITES
 	* ghostscript : An interpreter for the PostScript language and for PDF
 
 	Check if you have GNU make(1) and GNU gcc(1) installed on your
-	system check that. On some systems GNU make may be installed
-	as 'gmake' command.
+	system. On some systems GNU make may be installed as 'gmake' command.
 
 	    make --version
 	    gcc --version
