@@ -3,8 +3,7 @@ README.txt                   : This file.
 BUILD.dos_windows.txt        : How to build wcd for DOS and Windows.
 BUILD.dos_windows.intl.txt   : How to build wcd for DOS and Windows with
                                native language support.
-INSTALL.dos_windows.intl.txt : How to install wcd on DOS and Windows with
-                               native language support.
+INSTALL.dos_windows.txt      : How to install wcd on DOS and Windows.
 INSTALL.unix.txt             : How to build and install wcd for unix.
 INSTALL.os2.txt              : How to install wcd for OS/2 Warp.
 INSTALL.rpm.txt              : How to install wcd using an rpm package.
@@ -258,7 +257,7 @@ See also http://www.cl.cam.ac.uk/~mgk25/unicode.html
 ......................................................................
 
 Keith Marshall's nl_langinfo() implementation is used in
-Wcd for DOS/Windows/OS2 with native language support.
+Wcd for DOS, Windows, OS/2 with native language support.
 Taken from package mingw-catgets.
 
 ======================================================================
@@ -294,6 +293,7 @@ Jari Aalto          (in match list key z does page down.)
 Jari Aalto          (Swap options -v and -V.)
 Jari Aalto          (Unix: Replace volume manager path of HOME dir by "$HOME")
 Jari Aalto          (Makefile improvements)
+Jari Aalto          (Updated installation documentation)
 Jari Aalto          (Code cleanup)
 Gabor Grothendieck  (UNC paths support)
 Gabor Grothendieck  (automatically set PDC_RESTORE_SCREEN)
@@ -309,6 +309,7 @@ Roland Messier      Shell script to compile wcd for QNX 4.25 systems.
 Elbert Pol          Port to OS/2 Warp
 Billy Chen          Optional colours in graphical mode (option -K)
 Billy Chen          Less screen movement when navigating in graphical mode.
+
 
 Thanks to the following translators:
 
@@ -328,6 +329,7 @@ Felix Kasza                       WIN32 API sample WNetOpenEnum()/WNetEnumResour
                                   MVPS.ORG http://www.mvps.org/win32/
 Markus Kuhn                       wcwidth(), used in Windows version of Wcd.
                                   http://www.cl.cam.ac.uk/~mgk25/unicode.html
+Keith Marshall                    nl_langinfo(), for DOS, Windows, OS/2
 
 ======================================================================
 = 5 Contact / Download new versions                                 =

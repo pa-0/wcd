@@ -1,4 +1,4 @@
-5.1.0-beta5 Sep 5 2009
+5.1.0-beta6 Sep 11 2009
   - UTF-16 Unicode support for Windows PowerShell.
   - Added Finnish language file (thanks to Jari Aalto).
   - Update manual, section Unicode.
@@ -6,6 +6,7 @@
   - Fix compilation on Solaris (gcc) (thanks to Jari Aalto).
   - Fix compilation on HP-UX (cc and curses).
   - Updated makefiles. (thanks to Jari Aalto).
+  - Updated installation documentation. (thanks to Jari Aalto).
   - Code cleanup (thanks to Jari Aalto).
 
 
