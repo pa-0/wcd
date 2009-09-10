@@ -3,7 +3,7 @@ PREREQUISITES
 	* gcc       : GNU C compiler
 	* make      : GNU make
 	* sh        : Bourne type shell
-	* coreutils : GNU core utilities package
+	* coreutils : GNU core utilities package (chmod, install, mkdir, mv, rm, uname)
 	* gettext   : Framework to help GNU packages produce multi-lingual messages. (optional)
 	* ncurses   : CRT screen handling and optimization package. (optional)
 
@@ -53,9 +53,11 @@ BASIC INSTALLATION
 
 	    EXT=.exe	Set executable extension
 			The default value is '.exe' for
-			historical reasons (DOS).
+			historical reasons (DOS) and to
+			make a distinction between the binary
+			and the function/alias.
 
-	An example to unicode support, provided that the library
+	An example to enable unicode support, provided that the library
 	libncursesw is also available:
 
 	    make UCS=1 clean all
@@ -81,6 +83,16 @@ INSTALLATION NAMES
 
 	    make prefix=$HOME clean all
 	    make prefix=$HOME strip install
+
+DISTRIBUTION PACKAGE CREATION
+
+	After installation a package can be created that contains
+	a ready-to-run wcd binary.
+
+	  Type `make dist' to create a .tar.gz file.
+
+	  Type `make dist-zip' to create a .zip file.
+
 
 USING SIMPLE GNU MAKEFILES
 

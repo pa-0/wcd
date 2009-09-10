@@ -6,8 +6,6 @@ BUILD.dos_windows.intl.txt   : How to build wcd for DOS and Windows with
 INSTALL.dos_windows.intl.txt : How to install wcd on DOS and Windows with
                                native language support.
 INSTALL.unix.txt             : How to build and install wcd for unix.
-INSTALL.unix.intl.txt        : How to build and install wcd for unix with
-                               native language support.
 INSTALL.os2.txt              : How to install wcd for OS/2 Warp.
 INSTALL.rpm.txt              : How to install wcd using an rpm package.
 wcd.txt                      : Manual, text format.

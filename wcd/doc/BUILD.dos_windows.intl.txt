@@ -41,7 +41,7 @@ make, coreutils, gettext and libiconv
 make, coreutils, gettext and libiconv can be found as packages on the web site of
 the gcc compiler.
 
-Coreutiles is needed for `install', `mkdir' and `mv'.
+Coreutiles is needed for `chmod', `install', `mkdir', `mv', `rm', and `uname'.
 install   : copy files and set their attributes (part of GNU `coreutils' package).
 
 For DJGPP compiler use package `fileutils' instead of `coreutils'. Coreutils is
