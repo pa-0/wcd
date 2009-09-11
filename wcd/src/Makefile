@@ -78,8 +78,8 @@ INSTALL_OBJS_DOC   = \
   ../doc/$(PACKAGE).ps \
   ../doc/$(PACKAGE).pdf \
   ../doc/whatsnew.txt \
-  ../doc/INSTALL.dos_windows.intl.txt \
-  ../doc/INSTALL.unix.intl.txt \
+  ../doc/INSTALL.dos_windows.txt \
+  ../doc/INSTALL.unix.txt \
   ../doc/INSTALL.os2.txt \
   ../doc/INSTALL.rpm.txt \
   ../doc/README.txt \
@@ -152,7 +152,8 @@ endif
 endif
 
 ifeq ($(CURSES),pdcurses)
-	DEFS_CURSES = -fomit-frame-pointer -DXCURSES
+	DEFS_CURSES = -DWCD_USECURSES
+	EXTRA_DEFS  = -fomit-frame-pointer -DXCURSES
 	LIB_CURSES  = -lXCurses -L/usr/X11R6/lib -lXaw -lXmu -lXt -lX11 -lSM -lICE -lXext
 endif
 
