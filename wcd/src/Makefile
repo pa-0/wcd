@@ -283,6 +283,7 @@ status:
 	@echo "DEFS_CURSES = $(DEFS_CURSES)"
 	@echo "EXTRA_DEFS  = $(EXTRA_DEFS)"
 	@echo "CFLAGS	   = $(CFLAGS)"
+	@echo "DEFS	   = $(DEFS)"
 	@echo "-- $(PACKAGE) Makefile settings end --"
 
 $(BIN): status $(OBJS1)
