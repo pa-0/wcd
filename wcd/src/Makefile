@@ -26,8 +26,6 @@ include version.mk
 CC		= gcc
 STATIC		=
 
-# Write compiler messages in plain english
-export LC_ALL	= C
 
 PACKAGE		= wcd
 EXT		= .exe
