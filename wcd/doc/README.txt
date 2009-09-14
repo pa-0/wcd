@@ -104,7 +104,7 @@ color and multiple highlights and forms characters and function-key mapping,
 and has all the other SYSV-curses enhancements over BSD curses.
 The ncurses distribution is available via anonymous FTP at the GNU distribution
 site ftp://ftp.gnu.org/pub/gnu/ncurses. It is also available at
-ftp://ftp.clark.net/pub/dickey/ncurses. 
+ftp://ftp.clark.net/pub/dickey/ncurses.
 
 PDCurses is a port of System VR4 curses for multiple platforms.  PDCurses has
 been ported to DOS, OS/2, X11, WIN32 and Flexos. A directory containing the
@@ -391,6 +391,6 @@ Ibiblio (was Metalab (was SunSite)):
 http://www.ibiblio.org/pub/Linux/utils/shell/
 
 
--- 
+--
 Erwin Waterlander
 

@@ -1,7 +1,7 @@
 # Wedit Makefile for project wcd
 CC_HOME=c:\lcc
 SRCDIR=..\..\src
-CFLAGS=-I$(CC_HOME)\include -I"$(SRCDIR)" -I"$(SRCDIR)\c3po" -DMSDOS  -g2 
+CFLAGS=-I$(CC_HOME)\include -I"$(SRCDIR)" -I"$(SRCDIR)\c3po" -DMSDOS  -g2
 CC=$(CC_HOME)\bin\lcc.exe
 LINKER=$(CC_HOME)\bin\lcclnk.exe
 OBJS=\

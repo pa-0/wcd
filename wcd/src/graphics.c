@@ -130,7 +130,7 @@ void ioResize()
    scrollok(wcd_cwin.scrollWin, TRUE);
 
    refresh();
-   dataRefresh(0, 1); 
+   dataRefresh(0, 1);
 }
 
 void signalSigwinch (int sig)
@@ -206,13 +206,13 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
             strcpy(tline," ");
             if (d == curNode)
                tline[strlen (tline) - 1] = WCD_SEL_ON;
-            
+
             strcat(tline,dirnodeGetName(d));
-            
+
             strcat(tline," ");
             if (d == curNode)
                tline[strlen (tline) - 1] = WCD_SEL_OFF;
-               
+
             strcat(tline,WCD_ONESUBDIR);
 
             n = elementAtDirnode(0,d);
@@ -237,13 +237,13 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
                strcpy(tline," ");
                if (d == curNode)
                   tline[strlen (tline) - 1] = WCD_SEL_ON;
-               
+
                strcat(tline,dirnodeGetName(d));
-               
+
                strcat(tline," ");
                if (d == curNode)
                   tline[strlen (tline) - 1] = WCD_SEL_OFF;
-               
+
                strcat(tline,WCD_SPLITDIR);
 
                n = elementAtDirnode(0,d);
@@ -264,7 +264,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
             for (i=0;i<clen;i++)
                tline[i] = ' ';
             tline[clen] = '\0';
-            
+
             if (y == dirnodeGetY(elementAtDirnode(getSizeOfDirnode(d)-1,d)))
             {
                if (y == *y_orig)
@@ -286,26 +286,26 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
                   if (fold eq true)
                      tline[strlen(tline)-1] = '+';
                }
-               else 
+               else
                   strcat(tline,WCD_MOREDIR);
             }
          }
 
       }
-      
+
    }
    else
    {
       strcpy(tline," ");
       if (d == curNode)
          tline[strlen (tline) - 1] = WCD_SEL_ON;
-      
+
       strcat(tline,dirnodeGetName(d));
-      
+
       strcat(tline," ");
       if (d == curNode)
          tline[strlen (tline) - 1] = WCD_SEL_OFF;
-      
+
       line[0] = '\0';
    }
 
@@ -317,14 +317,14 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
       n = dirnodeGetParent(d);
       return(getTreeLine(n,dirnodeGetY(d),y_orig,curNode,d->fold));
    }
-   
+
    if (*y_orig != 0)
    {
       strcpy(tline," ");
       strcat(tline,line);
       strcpy(line,tline);
    }
-      
+
    return line;
 }
 
@@ -334,9 +334,9 @@ void dumpTree(dirnode d)
    dirnode n;
    int y;
 
-   
+
    index = 0;
-   
+
    if(isEmptyDirnode(d) eq false)
    {
          size = getSizeOfDirnode(d);
@@ -356,11 +356,11 @@ void dumpTree(dirnode d)
 
 }
 
-/* 
+/*
  * Set the x,y values of the dirnodes
  * in the tree
  */
- 
+
 void setXYTree(dirnode d)
 {
    int index, x, len, size;
@@ -469,7 +469,7 @@ void buildTreeFromNameset(nameset set, dirnode d)
 
    if ((set == NULL)||(d == NULL))
       return;
-   
+
    sort_list(set);
 
    for (i=0;i < set->size;i++)
@@ -497,7 +497,7 @@ void buildTreeFromNameset(nameset set, dirnode d)
  * - duplicates are skipped
  * - These functions can be used on all WCD treefiles
  *   and match lists. This enables a graphical match list.
- *   
+ *
  ***********************************************************/
 
 void buildTreeFromFile(char *filename, dirnode d)
@@ -510,7 +510,7 @@ void buildTreeFromFile(char *filename, dirnode d)
       read_treefile(filename,dirs,0);
    else
       return;
-   
+
    if (d == NULL)
       return;
 
@@ -554,7 +554,7 @@ dirnode searchNodeForDir(text path, dirnode d, dirnode rNode)
 #if (defined(WIN32) || defined(__CYGWIN__))
    static char buf[DD_MAXPATH] = "//" ;
 #endif
-   
+
    if (d == NULL)
       return(NULL);
 
@@ -586,7 +586,7 @@ dirnode searchNodeForDir(text path, dirnode d, dirnode rNode)
       index = inDirnode(s,d);
       if (index < 0)
       {
-         return(d); 
+         return(d);
       }
       else
       {
@@ -621,7 +621,7 @@ char *getNodeFullPath(dirnode node)
     * in the beginning on DOS/Windows if environment
     * variable HOME or WCDHOME is set
     * */
-   
+
    if (line == NULL)
    {
       line = textNewSize(DD_MAXPATH+1);
@@ -630,9 +630,9 @@ char *getNodeFullPath(dirnode node)
    {
       tline = textNewSize(DD_MAXPATH+1);
    }
-   
+
    line[0] = '\0';
-   
+
    n = node;
 
    if (dirnodeHasParent(n) eq false)
@@ -653,12 +653,12 @@ char *getNodeFullPath(dirnode node)
 
    return(line);
 }
-   
+
 /*****************************************************
  *
  * dirnode Left()
  *
- * Return Left node, which is parent node 
+ * Return Left node, which is parent node
  *****************************************************/
 
 dirnode Left(dirnode node)
@@ -682,12 +682,12 @@ dirnode Down(dirnode node)
  *
  * dirnode Right()
  *
- * Return Right node, which is first sub node 
+ * Return Right node, which is first sub node
  *****************************************************/
 
 dirnode Right(dirnode node)
 {
-   
+
    if(dirnodeFold(node) eq false)
       return elementAtDirnode(0,node);
    else
@@ -719,11 +719,11 @@ dirnode getAnyNodeInLevel(dirnode node, int level)
 
    if (node == NULL)
       return(NULL);
-   
+
    rootnode = endOfRecursionOfDirnodeParent(node);
 
    n = rootnode; /* start on top of tree */
-   
+
    while(n != NULL)
    {
       ndown = Down(n);
@@ -785,7 +785,7 @@ dirnode getNodeCursUp(dirnode curNode)
 {
    dirnode node;
 
-   
+
    if ((node = Up(curNode)) == NULL) /* there is no Up node, try left node */
    {
       if ((node = Left(curNode)) == NULL)
@@ -914,12 +914,12 @@ dirnode getNodePrev(dirnode curNode)
       return(NULL);
 
    node = Left(curNode);
-   
+
    if ((node != NULL) && (dirnodeGetY(node)==dirnodeGetY(curNode)))
    {
       return(node);
    }
-   
+
    return(getNodeLnUp(curNode));
 }
 
@@ -957,7 +957,7 @@ dirnode prevNodeCiclic(dirnode curNode)
 
    if (curNode == NULL)
       return NULL;
-   
+
    rootnode = endOfRecursionOfDirnodeParent(curNode);
 
    if (curNode == rootnode)
@@ -975,7 +975,7 @@ dirnode nextNodeCiclic(dirnode curNode)
 
    if (curNode == NULL)
       return NULL;
-   
+
    rootnode = endOfRecursionOfDirnodeParent(curNode);
 
    node = getNodeCursRight(curNode, WCD_GRAPH_NORMAL);
@@ -1000,7 +1000,7 @@ int getNodeDepth(dirnode curNode)
 
    return(thisdepth);
 }
-   
+
 /******************************************************/
 
 dirnode getNodeCursDownNatural(dirnode curNode, int graphics_mode)
@@ -1019,7 +1019,7 @@ dirnode getNodeCursDownNatural(dirnode curNode, int graphics_mode)
    node = getNodeCursRight(curNode, graphics_mode);
 
    /* There was no direct down node, try to find down node on same level */
-   
+
    while ( (node != NULL) &&
            (node !=oldnode) &&
            (getNodeDepth(node) != thisdepth))
@@ -1028,7 +1028,7 @@ dirnode getNodeCursDownNatural(dirnode curNode, int graphics_mode)
       node = getNodeCursRight(node, WCD_GRAPH_NORMAL);
    }
 
-   /* node==NULL  or  
+   /* node==NULL  or
     * node==oldnode or
     * dept node == dept oldnode */
 
@@ -1068,7 +1068,7 @@ dirnode getNodeCursUpNatural(dirnode curNode, int graphics_mode)
       node = getNodePrev(node);
    }
 
-   /* node==NULL  or  
+   /* node==NULL  or
     * node==oldnode or
     * dept node == dept oldnode */
 
@@ -1125,12 +1125,12 @@ dirnode findDirInCiclePrev(char *dir, dirnode curNode, int exact, int ignore_cas
    int valid;
 
    node = curNode;
-   
+
    do{
       node = prevNodeCiclic(node);
       valid = validSearchDir(dir,node,exact,ignore_case);
    } while((!valid)&&(node!=curNode));
-   
+
    return(node);
 }
 
@@ -1142,12 +1142,12 @@ dirnode findDirInCicle(char *dir, dirnode curNode, int exact, int ignore_case)
    int valid;
 
    node = curNode;
-   
+
    do{
       node = nextNodeCiclic(node);
       valid = validSearchDir(dir,node,exact,ignore_case);
    } while((!valid)&&(node!=curNode));
-   
+
    return(node);
 }
 
@@ -1156,7 +1156,7 @@ dirnode findDirInCicle(char *dir, dirnode curNode, int exact, int ignore_case)
  * updateLine()
  * i = nodelevel
  * y = screen level
- * 
+ *
  * **********************************************************/
 
 #ifdef WCD_USECURSES
@@ -1311,16 +1311,16 @@ char *getZoomStackPath(dirnode stack)
    int i, size;
    text name;
 
-   
+
    if (line == NULL)
    {
       line = textNewSize(DD_MAXPATH);
    }
-   
+
    line[0] = '\0';
-   
+
    size = getSizeOfDirnode(stack);
-   
+
    for (i = 0; i < size ; i++)
    {
       if(i != 0)
@@ -1330,7 +1330,7 @@ char *getZoomStackPath(dirnode stack)
          strcat(line,name);
    }
 
-            
+
    return(line);
 }
 
@@ -1535,7 +1535,7 @@ dirnode pushZoom(dirnode zoomStack, dirnode curNode, int *ymax)
 {
    dirnode znew; /* new element on zoom stack */
    dirnode top;
-   
+
    if ((zoomStack == NULL)||(curNode == NULL))
       return(NULL);
 
@@ -1545,9 +1545,9 @@ dirnode pushZoom(dirnode zoomStack, dirnode curNode, int *ymax)
 
    /* store Parent, Up and Down pointers in znew */
    znew = dirnodeNew(dirnodeGetParent(curNode),dirnodeGetUp(curNode),dirnodeGetDown(curNode));
-   
+
    dirnodeSetName(textNew(getNodeFullPath(curNode)),znew);
-   
+
    addToDirnode (znew,zoomStack);
 
    /* curNode will be the new top node */
@@ -1560,7 +1560,7 @@ dirnode pushZoom(dirnode zoomStack, dirnode curNode, int *ymax)
    setXYTree(curNode);
 
    *ymax = dirnodeGetY(getLastDescendant(curNode));
-   
+
    return(curNode);
 }
 /************************************************************/
@@ -1581,7 +1581,7 @@ dirnode popZoom(dirnode zoomStack, dirnode curNode, int *ymax)
       zlast = elementAtDirnode(size - 1,zoomStack); /* get last element on stack */
 
    top = endOfRecursionOfDirnodeParent(curNode);
-   
+
    /* restore pointers on top node */
    dirnodeSetParent(dirnodeGetParent(zlast),top);
    dirnodeSetUp(dirnodeGetUp(zlast),top);
@@ -1694,7 +1694,7 @@ void setFold_all(dirnode n, c3po_bool f, int *ymax)
  *
  * condenseSubdirs()
  * This function folds all subdirectories of a dirnode.
- * 
+ *
  *****************************************************************/
 void condenseSubdirs(dirnode n, int *ymax)
 {
@@ -1703,14 +1703,14 @@ void condenseSubdirs(dirnode n, int *ymax)
 
    if ((n == NULL)||(dirHasSubdirs(n) eq false))
       return;
-   
+
    for(i=0;i<n->size;i++)
    {
       d = elementAtDirnode(i,n);
       if (d-> size > 0)
          d->fold = true;
    }
-   
+
    d = endOfRecursionOfDirnodeParent(n);
    setXYTree(d);
    *ymax = dirnodeGetY(getLastDescendant(d));
@@ -1726,7 +1726,7 @@ void condense(dirnode n, int *ymax)
 
    condenseSubdirs(dirnodeGetParent(n),ymax);
 }
-   
+
 /***************************************************************/
 
 #define Key_CTRL(x)      ((x) & 31)
@@ -1751,8 +1751,8 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
   if (tree == NULL)
      return NULL;
 
-   ptr=NULL;   
-  
+   ptr=NULL;
+
    getCurPath(curPath,DD_MAXPATH,use_HOME);
    wcd_cwin.curNode = locatePathOrSo(curPath,tree);
 
@@ -1761,13 +1761,13 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #if CAN_RESIZE
    signal (SIGWINCH, signalSigwinch);
 #endif
-  
+
 #ifdef __PDCURSES__
    initscr();
 #else
    sp = newterm(NULL,stdout,stdin);
    if (sp == NULL)
-   {  
+   {
       fprintf(stderr,_("Wcd: warning: Error opening terminal, falling back to stdout interface.\n"));
       return NULL;
    }
@@ -2092,7 +2092,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          break;
       case Key_CTRL ('i'):
             pushZoom(wcd_cwin.zoomStack,wcd_cwin.curNode,&ymax);
-         break;   
+         break;
       case Key_CTRL ('o'):
             popZoom(wcd_cwin.zoomStack,wcd_cwin.curNode,&ymax);
          break;
@@ -2172,7 +2172,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #ifdef XCURSES
    XCursesExit();
 #endif
-   
+
    printf("\n"); /* Extra newline for curses, pdcurses and when ncurses doesn't restore screen */
 
 #ifdef MSDOS
@@ -2183,7 +2183,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #endif
    wcd_fixpath(ptr,DD_MAXPATH);
    return(ptr);
-   
+
 }
 
 #endif /* WCD_USECURSES */

@@ -68,8 +68,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "display.h"
 
 
-/* 
-   int wcd_isServerPath (char* path) 
+/*
+   int wcd_isServerPath (char* path)
    check if path is a possible UNC server path
    like \\servername
    RETURNS  1 if true
@@ -148,7 +148,7 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
             case RESOURCEDISPLAYTYPE_SERVER:
                type = "server"; break;
             case RESOURCEDISPLAYTYPE_SHARE:
-               type = "share"; 
+               type = "share";
                printf( "Wcd: %s\n", buf[ui].lpRemoteName );
                strncpy(path, buf[ui].lpRemoteName, DD_MAXPATH);
                wcd_fixpath(path, DD_MAXPATH);
@@ -190,7 +190,7 @@ void wcd_getshares(char* path, nameset n)
 
    if ((path == NULL) || (n == NULL))
       return;
-   
+
    if (wcd_isServerPath(path))
    {
       /* an UNC path, possibly pointing to a server */
@@ -199,7 +199,7 @@ void wcd_getshares(char* path, nameset n)
       *(path+1) = '\\';
 
       printf(_("Wcd: Searching for shared directories on server %s\n"), path);
-      
+
       nr.dwScope       = RESOURCE_GLOBALNET;
       nr.dwType        = RESOURCETYPE_ANY;
       nr.dwDisplayType = RESOURCEDISPLAYTYPE_SERVER;
@@ -207,7 +207,7 @@ void wcd_getshares(char* path, nameset n)
       nr.lpLocalName   = NULL;
       nr.lpRemoteName  = path ;
       nr.lpProvider    = NULL;
-      
+
       doEnum( 0, &nr, n );
    }
    printf(_("Wcd: Found %d shared directories on server %s\n"), getSizeOfNamesetArray(n), path);
@@ -253,9 +253,9 @@ int wcd_chdir(char *buf)
    if (utf8towcs(wstr, buf, DD_MAXPATH) < 0)
       err = 0;
    else
-      err = SetCurrentDirectoryW(wstr); 
+      err = SetCurrentDirectoryW(wstr);
 #else
-   err = SetCurrentDirectory(buf); 
+   err = SetCurrentDirectory(buf);
 #endif
 
    if (err == 0)
@@ -318,7 +318,7 @@ int wcd_rmdir(char *buf)
  *       stat(path, &buf) ;
  *          if (S_ISDIR(buf.st_mode)) { ... }
  *
- * - The function 'opendir()' from <dirent.h> works on all systems, 
+ * - The function 'opendir()' from <dirent.h> works on all systems,
  *   also on Windows UNC paths as above, but not all compilers have 'dirent'
  *   included. E.g. LCC 3.8 and Open Watcom 1.3 don't have it.
  *
@@ -435,7 +435,7 @@ char *replace_volume_path_HOME(char *buf, int size)
    if ( status == 1 )  /* $HOME is shorter or equal length than volume name */
    {
       if (dd_match(buf, pattern , 0))
-      { 
+      {
          len_buf = strlen(buf);
          for (i=0; i < len_home; i++)
             buf[i] = home[i];
@@ -451,7 +451,7 @@ char *replace_volume_path_HOME(char *buf, int size)
    if ( status == 2 )  /* $HOME is longer than volume name */
    {
       if (dd_match(buf, pattern, 0))
-      { 
+      {
          len_buf = strlen(buf);
          for (i=0; (i < len_home) && (i < size); i++)
             tmp[i] = home[i];
@@ -482,12 +482,12 @@ char *wcd_getcwd(char *buf, int size)
 
 int wcd_chdir(char *buf)
 {
-   return(chdir(buf)); 
+   return(chdir(buf));
 }
 
 int wcd_rmdir(char *buf)
 {
-   return(rmdir(buf)); 
+   return(rmdir(buf));
 }
 
 /******************************************************************
@@ -504,7 +504,7 @@ int wcd_isdir(char *dir)
    struct stat buf;
 
    if ((stat(dir, &buf) == 0) && S_ISDIR(buf.st_mode))
-      return(0); 
+      return(0);
    else
       return(-1);
 }

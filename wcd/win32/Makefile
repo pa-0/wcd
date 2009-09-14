@@ -10,7 +10,7 @@ ifdef WCD_UTF8
 # WCD_UTF8 was used in older versions.
 UCS=1
 endif
-ifdef UCS 
+ifdef UCS
 DEFS   = -DMSDOS -DWCD_USECURSES -DPDC_STATIC_BUILD -DPDC_WIDE
 EXTRA_OBJ=wcwidth.o langinfo.o
 else

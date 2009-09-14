@@ -28,7 +28,7 @@ DOS 16 bit
 ----------------------------------------------
 
 Wcd 16 bit can be build with Borland and Watcom compiler.
-Borland C compiler version 3.1 and 4.0 work (I always use 4.0). 
+Borland C compiler version 3.1 and 4.0 work (I always use 4.0).
 A free version of Borland 2.01 can be downloaded at http://community.borland.com/museum/
 Watcom C compiler is freely available at http://www.openwatcom.org/
 

@@ -2,13 +2,13 @@
 
  A rudimentary implementation of the nl_langinfo function,
  written by Keith Marshall.
- 
+
  This file was taken from package mingw-catgets.
  http://sourceforge.net/projects/mingw/files/
  http://en.sourceforge.jp/projects/mingw/releases/35416
  http://mingw.cvs.sourceforge.net/mingw/catgets/
 
-   
+
 Copyright (C) 2007, 2008, Keith Marshall
 
 Written by Keith Marshall  <keithmarshall@users.sourceforge.net>

@@ -72,13 +72,13 @@ char *wcd_getcwd(char *buf, int size)
    int len;
 /*   UINT codepage = GetConsoleOutputCP();
    HANDLE stduit = GetStdHandle(STD_OUTPUT_HANDLE) ; */
- 
+
 
    err = GetCurrentDirectoryW(size, wstr);
    len = wcslen(wstr);
 /*   WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
    WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);  */
-   
+
    if ( err != 0)
       if (wcstombs(buf, wstr, DD_MAXPATH) < 0)
 /*      if (WideCharToMultiByte(codepage, 0, wstr, -1, buf, DD_MAXPATH, NULL, NULL) == 0) */
@@ -105,14 +105,14 @@ int wcd_chdir(char *buf)
 
 /*   UINT codepage = GetConsoleOutputCP();  // console OEM code page
    UINT codepage = GetACP();              // system ANSI code page
-   
+
    if (MultiByteToWideChar(codepage,0, buf, -1, wstr,DD_MAXPATH) == 0  ) */
    if (mbstowcs(wstr, buf, DD_MAXPATH) < 0)
       err = 0;
    else
-      err = SetCurrentDirectoryW(wstr); 
+      err = SetCurrentDirectoryW(wstr);
 #else
-   err = SetCurrentDirectory(buf); 
+   err = SetCurrentDirectory(buf);
 #endif
 
    if (err == 0)
@@ -175,7 +175,7 @@ int wcd_rmdir(char *buf)
  *       stat(path, &buf) ;
  *          if (S_ISDIR(buf.st_mode)) { ... }
  *
- * - The function 'opendir()' from <dirent.h> works on all systems, 
+ * - The function 'opendir()' from <dirent.h> works on all systems,
  *   also on Windows UNC paths as above, but not all compilers have 'dirent'
  *   included. E.g. LCC 3.8 and Open Watcom 1.3 don't have it.
  *
@@ -225,12 +225,12 @@ char *wcd_getcwd(char *buf, int size)
 
 int wcd_chdir(char *buf)
 {
-   return(chdir(buf)); 
+   return(chdir(buf));
 }
 
 int wcd_rmdir(char *buf)
 {
-   return(rmdir(buf)); 
+   return(rmdir(buf));
 }
 
 /******************************************************************
@@ -247,7 +247,7 @@ int wcd_isdir(char *dir)
    struct stat buf;
 
    if ((stat(dir, &buf) == 0) && S_ISDIR(buf.st_mode))
-      return(0); 
+      return(0);
    else
       return(-1);
 }

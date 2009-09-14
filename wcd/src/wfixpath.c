@@ -19,7 +19,7 @@
 
 #ifdef OS2
 #undef UNIX
-#endif 
+#endif
 
 int wcd_is_slash(int c)
 {

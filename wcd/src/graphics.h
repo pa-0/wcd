@@ -31,6 +31,6 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #define WCD_GRAPH_DUMP   2 /* dump graphics */
 #define WCD_GRAPH_ALT    4 /* alternative navigating */
 #define WCD_GRAPH_COLOR  8 /* colors */
-	
+
 #endif
 

@@ -220,8 +220,8 @@ void quoteString(char *string)
 
  for (i=0; (i < j)&&(k < kmax) ; i++)
  {
-   if ( (string[i] == '"') || 
-        (string[i] == '$') || 
+   if ( (string[i] == '"') ||
+        (string[i] == '$') ||
         (string[i] == '&') ||
         (string[i] == '\'') ||
         (string[i] == '(') ||
@@ -366,7 +366,7 @@ int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
 void getCurPath(char *buffer, int size, int *use_HOME)
 {
    int len;
-   
+
  wcd_getcwd(buffer, size);
  if(buffer != NULL)
  {
@@ -646,7 +646,7 @@ int pathInNameset (text path, nameset set)
 
    if ((path == NULL)||(set == NULL))
       return(-1);
-   
+
    size = getSizeOfNamesetArray(set);
 
    while (index < size)
@@ -665,7 +665,7 @@ int pathInNameset (text path, nameset set)
       ++index;
    }
    return(-1);
-   
+
 }
 
 /********************************************************************
@@ -709,7 +709,7 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
       wcd_chdir(DIR_PARENT); /* go to parent directory */
       return;
    }
-   
+
    len = strlen(tmp);
 
    if(*offset < len)
@@ -961,7 +961,7 @@ void scanServer(char *path, char *treefile, int append, int *use_HOME, nameset e
 {
    int i;
    nameset shares;
-   
+
    shares = namesetNew();
    wcd_getshares(path, shares);
 
@@ -1261,7 +1261,7 @@ int check_double_match(char *dir, nameset set)
 
    if ((dir == NULL) || (set == NULL))
       return(0);
-   
+
    while(i < set->size)
    {
 #ifdef MSDOS
@@ -1286,7 +1286,7 @@ int check_double_match(char *dir, nameset set)
 int check_filter(char *dir, nameset filter)
 {
    int index = 0;
-   
+
    if (filter->size == 0) return (0);
 
    while (index < filter->size)
@@ -1734,7 +1734,7 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript)
 }
 #endif
 
-   
+
 /********************************************************************
  *
  * pickDir()
@@ -1745,7 +1745,7 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript)
  *
  * Returns 0, if no dir found. Otherwise the indexnumber of the
  *         list + 1.
- * 
+ *
  * ******************************************************************/
 
 
@@ -1763,14 +1763,14 @@ int pickDir(nameset list, int *use_HOME)
 
    if (curDir == NULL)  /* no dirname found */
       return(1);            /* return first of list */
-   
+
    if ((i = inNameset(curDir,list)) == -1)  /* not in list */
       return(1);                            /* return first of list */
-      
+
    i++;  /* next dirname */
    if (i >= getSizeOfNamesetArray(list))
       i = 0;             /* wrap to beginning */
-   
+
    return(i+1);
 }
 
@@ -1788,7 +1788,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 #if (defined(UNIX) || defined(DJGPP) || defined(OS2))
    mode_t m;
 #endif
-   
+
    if (use_GoScript == 0)
       return;
 
@@ -1993,7 +1993,7 @@ int main(int argc,char** argv)
 
    /* When PDC_RESTORE_SCREEN is set, wcd scrolls away if command window buffer
       is too large. This has been fixed in PDCurses 2.7. Bug 1144353.
-      Don't assume user has PDCurses 2.7, so don't set PDC_RESTORE_SCREEN by default. 
+      Don't assume user has PDCurses 2.7, so don't set PDC_RESTORE_SCREEN by default.
       Erwin */
 #endif
 
@@ -2096,11 +2096,11 @@ int main(int argc,char** argv)
    read_treefile(banfile,banned_dirs,1);
 
    ptr = getenv("WCDEXCLUDE");
-   
+
    addListToNameset(exclude, ptr);
 
    ptr = getenv("WCDBAN");
-   
+
    addListToNameset(banned_dirs, ptr);
 
    ptr = getenv("WCDFILTER");
@@ -2883,7 +2883,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"))
       /* search alias file */
 
       scanaliasfile(dir, aliasfile, perfect_list, wild_list,wildOnly);
-      
+
       freeNameset(filter, 1); /* free filter list */
     }
 #ifdef WCD_USECURSES

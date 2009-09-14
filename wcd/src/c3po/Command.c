@@ -65,7 +65,7 @@ expfun c3po_bool inArgList(text name,
    while(index < argc)
    {
       arg = *(argv + index);
-      if (strcmp(name, arg) eq 0) 
+      if (strcmp(name, arg) eq 0)
       {
          found = true;
          break;
@@ -179,7 +179,7 @@ expfun c3po_bool isFloat(text string)
 
    while(index < strlen(string))
    {
-      if (isdigit(string[index]) ne 0) 
+      if (isdigit(string[index]) ne 0)
          index = index + 1;
       else if (string[index] eq '.')
       {

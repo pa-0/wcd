@@ -154,7 +154,7 @@
 3.1.0 Nov 13 2002
   - Windows console version supports Windows LAN UNC paths.
   - Option -gd will dump all treefiles that are read.
- 
+
 
 3.0.7 Oct 17 2002
   - minor updates in documentation: manpage, wcd.txt and INSTALL
@@ -295,7 +295,7 @@
     avoid warnings some compilers or systems give
     (e.g. gcc or FreeBSD).)
 
-    
+
 2.1.5 Jul 15 1998
    - Sort match lists
 
@@ -305,7 +305,7 @@
 
 2.1.2   - Bug fix: backspace in long match list (DOS)
 
-    
+
 2.1.1 Jun 29 1998
    - Bug fix: alias, ban and stack could not deal with
 	  paths with spaces.

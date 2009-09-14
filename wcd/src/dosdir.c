@@ -156,7 +156,7 @@ int setdisk( int drive )
 		/* printf("Wcd: error: Can not change default drive to %d\n",drive); */
 		return(-1);
 	}
-	
+
 	d = getdisk();
 	return(d);
 }

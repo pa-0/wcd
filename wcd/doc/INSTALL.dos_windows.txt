@@ -64,7 +64,7 @@ LOCALEDIR if wcd was unpacked in a different PREFIX directory.
 ======================================================================
 = 1 DOS/Windows installation                                         =
 ======================================================================
- 
+
 - dos 16 bit version:
 
  Make sure that wcd.exe is in your path.
@@ -226,7 +226,7 @@ function wcd
 }
 
 Replace PREFIX with the prefix used during package installation.
-Start a new PowerShell 
+Start a new PowerShell
 
 
 ......................................................................
@@ -277,9 +277,9 @@ A UNC path looks like: \\servername\sharename
 In Windows networking, you can map a drive letter to a UNC:
   net use G: \\gui_fileserv\apps
 
-The win32 console version of wcd supports UNC paths since version 3.1.0. 
+The win32 console version of wcd supports UNC paths since version 3.1.0.
 To change to the UNC path wcd makes use of the 'pushd' command in the
-wcdgo.bat script. 
+wcdgo.bat script.
 
 Quote from John Savill's Windows NT/2000 FAQ (http://www.windows2000faq.com):
 

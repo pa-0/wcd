@@ -2,7 +2,7 @@
 sh/bash/zsh/csh:
 
 Q: I have installed wcd. It looks like it works, but the
-   directory is actually not changed. 
+   directory is actually not changed.
 
 A: The directory can only be changed by the shell builtin cd
    command. You need to define a wcd function or alias.

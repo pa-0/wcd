@@ -91,7 +91,7 @@ MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf
 
 VERSIONSUFFIX = -bin
-ifdef UCS 
+ifdef UCS
 ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.zip
 TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.tar.gz
 else

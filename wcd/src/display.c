@@ -59,7 +59,7 @@ void wcd_printf( const char* format, ... ) {
    wchar_t wstr[DD_MAXPATH];
    char buf[DD_MAXPATH];
 
-   HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE); 
+   HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE);
 #endif
 
    va_start( args, format );
@@ -318,7 +318,7 @@ void print_list_normal(int lines_per_page, int line, nameset list, int top, int 
 }
 /**************************************************/
 
-void print_list_stack(int lines_per_page, int line, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset, int screenWidth) 
+void print_list_stack(int lines_per_page, int line, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset, int screenWidth)
 {
    int i,j;
 
@@ -346,7 +346,7 @@ void print_list_stack(int lines_per_page, int line, WcdStack ws, int start, int 
    }
 }
 
-void print_list(int lines_per_page,int line, nameset list, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset, int screenWidth) 
+void print_list(int lines_per_page,int line, nameset list, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset, int screenWidth)
 {
    clrscr();
    if (list != NULL)
@@ -529,7 +529,7 @@ struct text_info ti;
            line = scrollWinHeight - bottom;
         else
            line = scrollWinHeight - lines_per_page + 1;
-        
+
         print_list(lines_per_page,line,list, ws, start, top, bottom, use_numbers,shift,ti.screenwidth);
 
          page = bottom / lines_per_page + 1 ;
@@ -671,7 +671,7 @@ struct text_info ti;
          gotoxy (OFFSET + n++, 3);
          cprintf("%c",(char)c);
          number_str[n] = '\0';
-      
+
          /* Notice that one has to choose a number from 1 to max 22 */
       if (((bottom - top) < 9) /* displayed list is 9 or less matches */
           || (n == 2)           /* second number typed */
@@ -679,7 +679,7 @@ struct text_info ti;
           || ((c == '2')&&((bottom - top) < 19)) /* displayed list is 19 or less matches */
          )
          c = 13;      /* do an <Enter> */
-         
+
       }
       else
          i=c+top-'a'+1;
@@ -711,7 +711,7 @@ struct text_info ti;
    cprintf("current y        %2d\r\n",ti.cury); */
 
    if (strcmp(number_str,"") != 0) /* a number was typed */
-      i=atoi(number_str) + top; 
+      i=atoi(number_str) + top;
 
    if((ws != NULL)&&(list == NULL)) /* stack */
    {
@@ -886,7 +886,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
 }
 /**************************************************/
 
-void print_list_normal(WINDOW *scrollWin, int lines_per_page,int line, nameset list, int top, int bottom, int use_numbers, int xoffset) 
+void print_list_normal(WINDOW *scrollWin, int lines_per_page,int line, nameset list, int top, int bottom, int use_numbers, int xoffset)
 {
    int i;
 
@@ -903,7 +903,7 @@ void print_list_normal(WINDOW *scrollWin, int lines_per_page,int line, nameset l
 
 /**************************************************/
 
-void print_list_stack(WINDOW *scrollWin, int lines_per_page,int line, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset) 
+void print_list_stack(WINDOW *scrollWin, int lines_per_page,int line, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset)
 {
    int i,j;
 
@@ -930,7 +930,7 @@ void print_list_stack(WINDOW *scrollWin, int lines_per_page,int line, WcdStack w
    }
 }
 
-void print_list(WINDOW *scrollWin, int lines_per_page,int line, nameset list, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset) 
+void print_list(WINDOW *scrollWin, int lines_per_page,int line, nameset list, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset)
 {
    wclear(scrollWin);
    if (list != NULL)
@@ -997,7 +997,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 #else
    sp = newterm(NULL,stdout,stdin);
    if (sp == NULL)
-   {  
+   {
       fprintf(stderr,_("Wcd: warning: Error opening terminal, falling back to stdout interface.\n"));
       return WCD_ERR_CURSES;
    }
@@ -1040,7 +1040,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
          len = maxLengthStack(ws);
       else
          return(WCD_ERR_LIST);
-         
+
    refresh();
 
    scrollWin = newpad(scrollWinHeight,COLS);
@@ -1071,7 +1071,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
    if (COLS < INPUT_WIN_LEN)
       inputWinLen = INPUT_WIN_LEN;
-   else 
+   else
       inputWinLen = COLS;
 
    inputWin = newpad(INPUT_WIN_HEIGHT,inputWinLen);
@@ -1268,7 +1268,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
             wmove (inputWin, 2, offset + n++);
             number_str[n] = '\0';
             wprintw(inputWin,"%c",(char)c);
-         
+
             displayed_list = bottom - top;
             /* Notice that one has to choose a number from 1 to max 99 */
          if ((displayed_list < 9) /* displayed list is 9 or less matches */
@@ -1283,7 +1283,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
              || ((c == '9')&&( displayed_list < 89)) /* displayed list is 89 or less matches */
             )
             c = 13;      /* do an <Enter> */
-            
+
          }
          else
             i=c+top-'a'+1;
@@ -1299,7 +1299,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
    XCursesExit();
 #endif
    if (strcmp(number_str,"") != 0) /* a number was typed */
-      i=atoi(number_str) + top; 
+      i=atoi(number_str) + top;
 
    printf("\n"); /* Extra newline for curses, pdcurses and when ncurses doesn't restore screen */
 

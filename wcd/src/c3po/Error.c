@@ -38,6 +38,6 @@ expfun void malloc_error(text function_name)
 {
    c3po_beep(1);
    fprintf (stderr, _("Wcd: error in '%s', no space left for allocation\nWcd: Insufficient memory\n"), function_name);
- 
+
 	exit(1);
 }

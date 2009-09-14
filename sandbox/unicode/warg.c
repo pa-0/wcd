@@ -28,7 +28,7 @@ void wcd_printf( const char* format, ... ) {
    char buf[1024];
    va_list args;
 #ifdef WIN32
-   HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE); 
+   HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE);
    int len;
 #endif
 
@@ -38,7 +38,7 @@ void wcd_printf( const char* format, ... ) {
    vsnprintf( buf, len, format, args);
    if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr,1024) > 0  )
       WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
-   //WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);  
+   //WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);
 #else
    if ( fwide(stdout,0) < 0 )
    {
@@ -60,7 +60,7 @@ void wcd_wprintf( const wchar_t* format, ... ) {
    wchar_t wstr[1024];
    va_list args;
 #ifdef WIN32
-   HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE); 
+   HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE);
    int len;
 #endif
 
@@ -69,7 +69,7 @@ void wcd_wprintf( const wchar_t* format, ... ) {
    len = sizeof(wstr);
    vsnwprintf( wstr, len, format, args);
    WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
-   //WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);  
+   //WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);
 #else
    if ( fwide(stdout,0) < 0 )
    {
@@ -93,7 +93,7 @@ int main (int argc, char ** argv) {
     wchar_t *cmdstr;
     wchar_t **wargv;
     wchar_t *wstr = L"\u0394"; /* greek delta */
-    wchar_t *BOM_UTF16LE = L"\ufeff"; 
+    wchar_t *BOM_UTF16LE = L"\ufeff";
     wchar_t wc ;
     wchar_t wstring[128];
     char    cstring[128];
@@ -128,7 +128,7 @@ int main (int argc, char ** argv) {
   wcstoutf8(wstring, cstring, sizeof(cstring));
   wcd_printf("UTF-8 %s\n",cstring);
   wcd_printf("UTF-8 \u044f\n");
-  
+
 
 #ifdef WIN32
   // Write unicode to a file.
