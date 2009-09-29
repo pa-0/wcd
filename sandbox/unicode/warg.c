@@ -17,10 +17,12 @@
 #endif
 
 /* wide char to UTF-8 */
+#ifdef WIN32
 int wcstoutf8(wchar_t *wcstr, char *mbstr, int len)
 {
    return(WideCharToMultiByte(CP_UTF8, 0, wcstr, -1, mbstr, len, NULL, NULL));
 }
+#endif
 
 /* Print an UTF-8 multi-byte string */
 void wcd_printf( const char* format, ... ) {
@@ -123,10 +125,15 @@ int main (int argc, char ** argv) {
   WCD_PRINTF(L_("greek delta=%s\n"),L_("\u0394"));
   WCD_PRINTF(L_("pound sign=%s\n"),L_("\u00a3"));
   WCD_PRINTF(L_("cyrillic Ya=%s\n"),L_("\u044f"));
+  WCD_PRINTF(L_("Dutch IJ=%s\n"),L_("\u0132"));      // Latin extended-A
+  WCD_PRINTF(L_("Dutch ij=%s\n"),L_("\u0133"));      // Latin extended-A
+  WCD_PRINTF(L_("Dutch Florin=%s\n"),L_("\u0192"));  // Latin extended-B
 
   wcscpy(wstring,L"DELTA=\u0394");
+#ifdef WIN32
   wcstoutf8(wstring, cstring, sizeof(cstring));
   wcd_printf("UTF-8 %s\n",cstring);
+#endif
   wcd_printf("UTF-8 \u044f\n");
 
 
