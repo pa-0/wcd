@@ -174,10 +174,15 @@ endif
 endif
 
 ifndef OS
-ifneq (, $(wildcard /cygdrive/c))
+ifneq (, $(wildcard /cygdrive))
 	OS = cygwin
 endif
 endif
+
+ifeq (cygwin,$(OS))
+	LDFLAGS_EXTRA = -lintl -liconv -lmpr
+endif
+
 
 ifndef OS
 ifeq (FreeBSD, $(shell uname -s))
@@ -187,7 +192,7 @@ endif
 
 ifeq (freebsd,$(OS))
 	# Running under FreeBSD
-	CFLAGS_BSD   = -I/usr/local/include
+	CFLAGS_OS     = -I/usr/local/include
 	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
 endif
 
@@ -236,7 +241,6 @@ CFLAGS		= -Ic3po \
 		  $(GCCFLAGS) \
 		  $(CFLAGS_OS) \
 		  $(CFLAGS_UCS) \
-		  $(CFLAGS_BSD) \
 		  $(WDEFS) \
 		  $(NLSDEFS) \
 		  $(NCFLAG) \
@@ -272,16 +276,18 @@ all: $(BIN) $(MOFILES) $(DOCFILES)
 
 status:
 	@echo "-- $(PACKAGE) Makefile settings begin --"
-	@echo "OS	   = $(OS)"
-	@echo "prefix	   = $(prefix)"
-	@echo "STATIC	   = $(STATIC)"
-	@echo "UCS	   = $(UCS)"
-	@echo "ENABLE_NLS  = $(ENABLE_NLS)"
-	@echo "CURSES	   = $(CURSES)"
-	@echo "DEFS_CURSES = $(DEFS_CURSES)"
-	@echo "EXTRA_DEFS  = $(EXTRA_DEFS)"
-	@echo "CFLAGS	   = $(CFLAGS)"
-	@echo "DEFS	   = $(DEFS)"
+	@echo "OS            = $(OS)"
+	@echo "prefix        = $(prefix)"
+	@echo "STATIC        = $(STATIC)"
+	@echo "UCS           = $(UCS)"
+	@echo "ENABLE_NLS    = $(ENABLE_NLS)"
+	@echo "CURSES        = $(CURSES)"
+	@echo "DEFS          = $(DEFS)"
+	@echo "DEFS_CURSES   = $(DEFS_CURSES)"
+	@echo "EXTRA_DEFS    = $(EXTRA_DEFS)"
+	@echo "LDFLAGS_EXTRA = $(LDFLAGS_EXTRA)"
+	@echo "CFLAGS        = $(CFLAGS)"
+	@echo "CFLAGS_OS     = $(CFLAGS_OS)"
 	@echo "-- $(PACKAGE) Makefile settings end --"
 
 $(BIN): status $(OBJS1)
