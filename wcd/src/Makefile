@@ -314,7 +314,7 @@ $(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
 ../doc/$(PACKAGE).txt : man/man1/wcd.1
-	man -M ./man wcd | col -b > $@
+	nroff -man man/man1/wcd.1 | col -bx > $@
 
 ../doc/$(PACKAGE).ps : man/man1/wcd.1
 	man -M ./man -t wcd > $@
