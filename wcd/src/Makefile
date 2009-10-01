@@ -180,7 +180,7 @@ endif
 endif
 
 ifeq (cygwin,$(OS))
-	LDFLAGS_EXTRA = -lintl -liconv -lmpr
+	LDFLAGS_EXTRA = -lintl -liconv -lmpr -Wl,--enable-auto-import
 endif
 
 
@@ -216,6 +216,8 @@ endif
 ifeq (hpux,$(OS))
 	# Running under HP-UX
 	EXTRA_DEFS += -Dhpux -D_HPUX_SOURCE -D_XOPEN_SOURCE_EXTENDED
+
+	# These flags were for native HP compiler
 	# CFLAGS_OS = -O -Aa
 endif
 
