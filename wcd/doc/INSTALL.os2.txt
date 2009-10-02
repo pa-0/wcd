@@ -2,7 +2,7 @@ Install wcd with internationalization support.
 
 
 Package directory structure
-===========================
+---------------------------
 
 When you unpack the zip archive you will get the following
 directory structure:
@@ -24,42 +24,12 @@ Add directory PREFIX/bin to your PATH environment variable.
 
 
 Language selection
-==================
+-----------------
 
-See section LOCALIZATION of the wcd manual.
+See manual page section LOCALIZATION.
 
-======================================================================
-= OS/2 installation                                                  =
-======================================================================
+OS/2 USAGE
+----------
 
-Notice that under OS/2 console an os2-program cannot change the current
-work directory.	That is why wcd generates a command script (wcdgo.cmd)
-which must be executed in the current shell.
-
-The script wcd.cmd first executes wcdos2.exe, which creates the wcdgo.cmd
-script. Then wcd.cmd executes the wcdgo.cmd script.
-
-
-- Use of environment variable HOME / WCDHOME
-
-The OS/2 versions of wcd can make use of environment variable HOME.
-(UNIX version always uses HOME.)
-
-Example:
-set HOME=c:\home\waterlan
-
-If HOME is set, wcd will place all it's files (treedata.wcd, extra.wcd,
-alias.wcd, ban.wcd, wcd.go) in directory %HOME% .
-The behaviour of wcd is then equal to the UNIX version of wcd.
-Wcd will scan the disk default from %HOME%. Drives will not
-be automaticly scanned by changing to them.
-You need to tell wcd explicitly. E.g.:
-
-wcd -S c: -A d: -A e:
-
-Matching of directories is now global over all scanned drives.
-
-If the environment variable WCDHOME is set wcd will use
-WCDHOME instead of HOME.
-
-
+See manual page section INSTALLATION and topic "Os/2 console version" how
+to use wcd.
