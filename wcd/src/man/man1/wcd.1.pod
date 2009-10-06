@@ -1,0 +1,1059 @@
+#  Copyright and License
+#
+#      Copyright (C) 1997-2009 Erwin Waterlander
+#      Copyright (C) 2009 Jari Aalto
+#
+#   License
+#
+#       This program is free software; you can redistribute it and/or
+#       modify it under the terms of the GNU General Public License as
+#       published by the Free Software Foundation; either version 2 of the
+#       License, or (at your option) any later version
+#
+#       This program is distributed in the hope that it will be useful, but
+#       WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#       General Public License for more details.
+#
+#       Visit <http://www.gnu.org/copyleft/gpl.html>
+#
+#   Description
+#
+#       To learn what TOP LEVEL section to use in manual pages,
+#       see POSIX/Susv standard and "Utility Description Defaults" at
+#       http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap01.html#tag_01_11
+#
+#       This is manual page in Perl POD format. Read more at
+#       http://perldoc.perl.org/perlpod.html or run command:
+#
+#           perldoc perlpod | less
+#
+#       To check the syntax:
+#
+#           podchecker *.pod
+#
+#       Create manual page with command:
+#
+#           pod2man PAGE.N.pod > PAGE.N
+
+=pod
+
+=head1 NAME
+
+wcd - Wherever Change Directory
+
+=head1 SYNOPSIS
+
+    wcd [options] [directory pattern to change to]
+
+=head1 DESCRIPTION
+
+=head2 Overview
+
+Wcd. Directory changer for DOS and Unix. Another Norton Change Directory
+(NCD) clone with more features.
+
+Wcd is a program to change directory fast. It saves time typing at the
+keyboard. One needs to type only a part of a directory name and wcd will
+jump to it. Wcd has a fast selection method in case of multiple matches and
+allows aliasing and banning of directories. Wcd also includes a full screen
+interactive directory browser with speed search.
+
+Wcd supports 8 bit character sets on all systems, and has optional support for
+Unicode. See also sections LOCALIZATION/WINDOWS CODE PAGES and
+LOCALIZATION/UNICODE.
+
+See section INSTALLATION how to setup wcd for personal use.
+
+=head2 Basic use
+
+By default (if no wildcards are used) wcd searches for a directory with a
+name that begins with the typed name.
+
+For instance this command will change to directory
+C</home/waterlan/Desktop>:
+
+    wcd Desk
+
+When there are multiple matches, wcd will present the user a list of all
+matches. The user can then make a selection with a few keystrokes (most of
+the times only one).
+
+=head2 Wildcards
+
+Wcd supports following wildcards:
+
+    *       matches any sequence of characters (zero or more)
+    ?       matches any character
+    [SET]   matches any character in the specified set,
+    [!SET]  or [^SET] matches any character not in the specified set.
+
+A set is composed of characters or ranges; a range looks like C<character
+hyphen character> as in 0-9 or A-Z. The [0-9a-zA-Z_] is the minimal set of
+characters allowed in the [..] pattern construct. International characters
+are allowed if the system supports them. To suppress the special syntactic
+significance of any of C<[]*?!^-\> inside or outside a [..] construct and
+match the character exactly, precede the character with a C<\> backslash
+marker.
+
+Using wildcards makes powerful searching possible. For instance this
+matched any directory name that ends with "top".
+
+    wcd *top
+
+Match any directory that has contain "top" anywhere:
+
+    wcd *top*
+
+Match any directory name that begins with "a", "b" or "c":
+
+    wcd [a-c]*
+
+It is also possible to give a part of a directory path. Here Wcd searches
+for directory that begins with "Desk" and which path matches C<*me/Desk*>,
+
+    wcd me/Desk
+
+It is allowed to type any kind of expression with slashes and wildcards.
+E.g.:
+
+    wcd src*/*1?/a*2
+
+=head2 Other uses
+
+If no wildcards are used and wcd finds a perfect match, wcd will ignore all
+wild matches by default. This behaviour can be changed with the B<-w> option.
+
+The interactive directory browser can be started by using option B<-g>.
+
+    wcd -g
+
+Wcd generates a treedata file were it searches the directory. On Unix
+systems wcd does add links to the treedata files while scanning the disk,
+but does not follow them. While following links wcd could end up scanning
+infinite loops, or scan very large portions of a network.
+
+Wcd can also change to directories that are not in the treedata file. E.g.:
+
+    wcd ..
+
+If wcd found a match but cannot change to the directory it tries to remove
+it from the default treedata file. Not from the extra treedata file. See
+also option B<-k>.
+
+Wcd  keeps  a  directory stack which is stored on disk. The stack has a
+default size of 10 and is cyclic. See options B<-z>, B<->, B<+> and B<=>.
+
+In multi-user environments a very handy option B<-u> can be used to change
+to directories of other users.
+
+On DOS and Windows systems it does not matter if you use a slash C</> or a
+backslash C<\> as a directory-separator.
+
+It is possible on DOS and Windows systems to change drive and directory in
+one go by preceding the directory name with the drive name.
+
+    wcd d:games
+
+=head2 Windows UNC paths
+
+The Windows versions (console, PowerShell, MSYS, zsh, cygwin) support
+Windows SMB LAN UNC paths without drive letter such as
+C<\\servername\sharename>. Wcd for windows console makes use of the 'pushd'
+command to automatically map a UNC path to a drive letter. In windows
+PowerShell, MSYS, zsh and Cygwin UNC paths are fully supported. The
+current working directory can be a UNC path.
+
+=head2 Interfaces
+
+Wcd has three different interfaces to choose from a list of matches. The
+interface can be chosen at compile time.
+
+The first interface uses plain stdin/stdout. A numbered list is printed in
+the terminal. The user has to choose from the list by typing a number
+followed by <Enter>. This interface does not provide scroll back
+functionality in case of a long list. The scroll back capability of the
+terminal/console has to be used. It is very small and portable.
+
+The second interface is built with the conio library. It provides a builtin
+scroll back capability. The user is presented a list numbered with letters.
+Choosing from a list can be done by pressing just one letter. This
+interface is fast because it saves keystrokes. If possible the screen
+will be restored after exiting. One who prefers to type numbers can use the
+B<-N> option. This interface is meant for DOS systems.
+
+The third interface is built with the curses library. It is similar to the
+conio interface. The curses version of wcd has also an additional graphical
+interface. It lets the user select a directory via a full screen
+interactive directory browser. It has a vim(1) like navigation and search
+method. It can be activated with option B<-g>. This interface is portable
+to DOS, Windows and Unix.
+
+By using the B<-o> option one can always fall back to the stdin/stdout
+interface.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-A PATH>
+
+Scan directory tree from <path> and append to the default treedata file.
+Examples:
+
+    wcd -A .
+    wcd -A d: -A e: -A \\server\share
+    wcd -A /home -A /etc
+
+On Windows one can scan all shared directories of a Windows LAN server by
+typing something like: C<wcd -A \\servername>.
+
+See also option B<-S> and B<-s> and B<-E>.
+
+=item B<-a>
+
+Add current path to default treedata file.
+
+Use this option to quickly add the current path to the default treedata
+file. Re-scanning the complete disk can take a long time in some cases.
+
+=item B<-aa>
+
+Add current and all parent paths to default treedata.
+
+=item B<-b>
+
+Ban current path.
+
+Wcd places the current path in the ban file. This means that wcd ignores
+all matches of this directory and its sub directories.
+
+The ban file can be edited with a text editor. Use of wildcards are
+supported and it is matched against absolute path.
+
+Banned paths are not excluded from scanning the disk. To do that use option
+B<-xf>.
+
+=item B<-c>
+
+Direct CD mode. By default wcd works as follows:
+
+    1. Try to find a match in the treedata file(s)
+    2. If no match, try to open the directory you typed.
+
+In direct CD mode wcd works in reversed order.
+
+    1. Try to open the directory you typed.
+    2. If not, try to find a match in the treedata file(s).
+
+=item B<-d DRIVE>
+
+Set drive for stack and go file (DOS only).
+
+The stack file and the go-script are by default stored on drive c: if
+environment variable HOME is not set. Use this option if drive C: is a
+read-only drive. This option must be used in front of the stack options -,
++ and =.
+
+=item B<-E DIR>
+
+Scan directory tree from DIR and append to Extra treedata file. See
+also options B<-A> and B<-S>.
+
+=item B<-e>
+
+Add current path to extra treedata file.
+
+Use this option to quickly add the current path to the extra treedata file.
+
+=item B<-ee>
+
+Add current and all parent paths to extra treedata file.
+
+=item B<-f FILE>
+
+Read treedata FILE. Don't read the default treedata file.
+
+=item B<+f FILE>
+
+Read treedata FILE in addition to the default treedata file.
+
+=item B<-G DIR>
+
+Set DIR of go-script.
+
+=item B<-GN>
+
+Don't create go-script. This option can be used in combination with the
+option B<-j> if one doesn't want wcd to create a go-script.
+
+=item B<-g>
+
+Graphical interface (only in version with curses interface).
+
+Wcd starts a textual curses based I<graphical> interface. The user can
+select a directory via a full-screen interactive directory browser. It has
+a vim(1) like navigation and search method.
+
+If no search string is given wcd presents the whole tree which is in the
+default treedata file and the extra treedata files.
+
+If a search string is given the match list is presented as a graphical
+tree.
+
+=item B<-ga>
+
+Graphical interface with alternative way of navigating. With this option
+one can't jump to unrelated directories.
+
+=item B<-gd>
+
+Dump the treedata files as a tree to stdout.
+
+=item B<-h, --help>
+
+Print help and exit.
+
+=item B<-i>
+
+Ignore case. Dos and Windows versions of wcd ignore case default. Unix
+versions regard case by default.
+
+=item  B<+i>
+
+Regard case.  See also option B<-i>.
+
+=item B<-j>
+
+Just go mode.
+
+In this mode wcd will not present a list when there is more than one
+directory that matches the given directory. Wcd will just change to the
+first option. When wcd is invoked again with the same arguments it will
+change to the next option, and so on.
+
+Wcd will print the directory to go to to stdout. So a different
+installation method can be used. One could make the following function for
+bash or ksh:
+
+     function wcd()
+     {
+       cd "\(ga$HOME/bin/wcd.exe -j $*\(ga"
+     }
+
+On windows systems, if one is running 4NT shell, one could make the
+following alias:
+
+    alias wcd \(gacd %@execstr[wcdwin32.exe -z 0 -j %1]\(ga
+
+This method eliminates the need of the go-script, so one can use option B<-GN>
+in combination with B<-j>.
+
+=item B<-K>
+
+Use colors in graphical mode.
+
+=item B<-k>
+
+Keep paths.
+
+Keep paths in treedata when wcd cannot change to them. The default
+behaviour of wcd is that it tries to remove paths from the treedata when
+wcd cannot change to them. With this option this behaviour is turned off.
+
+=item  B<-l ALIAS>
+
+Name the current path with ALIAS. Wcd places the current path with alias
+<alias> in the alias file. Aliases are case sensitive.
+
+=item B<-M DIR>
+
+Make directory and add to extra treedata file.
+
+=item B<-m DIR>
+
+Make directory and add to treedata file.
+
+=item B<-N>
+
+Use numbers instead of letters.
+
+Wcd with a conio or curses based interface (see section INTERFACE) presents
+a match list default numbered with letters. When the B<-N> option is used
+the match list is numbered with numbers. Regardless of the B<-N> option one
+can type a letter or numbers to make a selection from the list of matches.
+
+=item B<-n DIR>
+
+Read relative treedata file from DIR.
+
+In Unix: DIR/.rtdata.wcd, in DOS: DIR\rtdata.wcd), do not read the default
+treedata file. If DIR is a file, wcd will add DIR instead of
+DIR/.rtdata.wcd or DIR\rtdata.wcd. The relative treedata file should
+already have been created using the wcd B<+S> option.
+
+An example: Suppose another system has been NFS mounted to mount point
+/mnt/network
+
+    wcd -n /mnt/network src
+
+Wcd opens file /mnt/network/.rtdata.wcd The file contains the paths
+relative from that point.
+
+=item B<+n DIR>
+
+Read relative treedata file in addition to the default treedata file. See
+option B<-n>.
+
+=item B<-o>
+
+Use stdin/stdout interface.
+
+When for some kind of reason the conio or curses interface of wcd doesn't
+work one can fall back to the stdin/stdout interface of wcd by using the
+B<-o> option.
+
+=item B<-od>
+
+Dump all matches to stdout.
+
+=item B<-q>
+
+Quieter operation. Printing of the final match is suppressed.
+
+=item B<-r DIR>
+
+Remove directory and remove from treedata file.
+
+If the directory is empty, wcd will remove it, and try to remove it from
+the treedata file.
+
+=item B<-rmtree DIR>
+
+Recursively remove directory and remove from treedata file.
+
+Wcd will remove the directory and all it's sub directories and files, and
+remove the directories from the treedata file.
+
+=item B<-S DIR>
+
+Scan directory tree from DIR and overwrite the default treedata file.
+
+    Examples:
+    wcd -S c:/
+    wcd -S /
+
+See also options B<-A>, B<-s> and B<-E>. Together with option B<-A> you can
+create a default treedata file of your choice.
+
+    wcd -S c: -A d: -A \\server\share
+    wcd -S /home -A /etc -A /usr
+
+With the Windows versions one can scan all shared directories of a Windows
+LAN server by typing something like: C<wcd -S \\servername>.
+
+=item B<+S DIR>
+
+Scan disk from DIR and place relative paths in a relative treedata file.
+This file is used by the B<-n> and +n options of wcd. E.g. C<wcd -n DIR
++src>,
+
+=item B<-s>
+
+(re)Scan disk from your $HOME directory.
+
+This is the default scanning mode. Wcd for DOS or Windows scans the current
+disk from DOS root \ or from %HOME% if HOME is set. The existing default
+treedata file is overwritten.
+
+=item B<-t>
+
+Do not strip tmp mount dir /tmp_mnt (Unix only)
+
+Wcd strips by default /tmp_mnt/ from the match. Directory /tmp_mnt is used
+by the automounter. This behaviour can be turned off with the B<-t> option.
+
+=item B<-u USERNAME>
+
+Read default treedata file of USERNAME, do not read your own default
+treedata file.
+
+Wcd now scans the treedata file of another user On Unix the base directory
+for user home directores is assumed to be /home , so wcd tries to scan
+C</home/USERNAME/.treedata.wcd>. On DOS/Windows the base directory for user
+home directores is assumed to be C<\\users>, so wcd tries to scan
+C<\\users\<username>\treedata.wcd>.
+
+One can define a different base directory with environment variable
+I<WCDUSERSHOME>. See section ENVIRONMENT.
+
+=item B<+u USERNAME>
+
+Read default treedata file of USERNAME in addition to your own treedata
+file.
+
+=item B<-V, --version>
+
+Print version information and exit.
+
+=item B<-v, --verbose>
+
+Display verbose messages. With this option wcd prints all filters, bans and
+excludes.
+
+=item B<-w>
+
+Wild matching only. Treat all matches as wild matches.
+
+=item B<-x DIR>
+
+Exclude DIR from scanning.
+
+When this option is used wcd will exclude DIR and all its subdirectories
+when wcd is scanning a disk. Wildcards are supported and matched against
+absolute paths. Option -x can be used multiple times.
+
+    wcd -x <path1> -x <path2> -s
+
+Option -x must be used in front of any scan option (B<-s>, B<-S>, B<+S>,
+B<-A>, B<-E>).
+
+On DOS/Windows systems one must specify the drive letter depending on if
+environment variable I<HOME> or I<WCDHOME> is set. If I<HOME> or I<WCDHOME>
+is set one needs to specify the drive letter. An example:
+
+    wcd -x c:/temp -S c:
+
+Otherwise don't specify drive letter.
+
+    wcd -x /temp -s
+
+=item B<-xf FILE>
+
+Exclude all paths listed in FILE from scanning.
+
+When this option is used wcd will exclude all paths listed in FILE and all
+their subdirectories when wcd is scanning a disk. Wildcards are supported
+and they are matched against absolute paths; one path per line. Be aware
+that wcd will not ignore leading or trailing blanks on a line, because they
+are legal characters in a directory name. Option B<-xf> can be used multiple
+times. When one wants to exclude all banned paths from scanning one can do
+the following (example for wcd on unix):
+
+    wcd -xf ~/.ban.wcd -s
+
+Wildcards are supported. For instance to exclude all your CVS directories
+with cvs administrative files add a line with C<*/CVS>.
+
+Option B<-xf> must be used in front of any scan option (B<-s>, B<-S>, B<+S>,
+B<-A>, B<-E>).
+
+=item B<-z NUMBER>
+
+Set maximum stack size to NUMBER.
+
+The default size of the stack is 10. Stack operation can be turned off by
+setting the size to 0. This option must be used in front of any other stack
+operations (-,+,=). Otherwise the size of the stack will be set back to the
+default 10.
+
+A correct command is:
+
+    wcd -z 50 -
+
+The new stack size will be 50, wcd will go one directory back. A wrong
+command is:
+
+    wcd - -z 50
+
+Wcd goes one directory back, the stack gets the default size 10. The B<-z
+50> is ignored.
+
+Add this option as the first option to your wcd alias or function. E.g.
+for the bash this would be:
+
+    function wcd
+    {
+        wcd.exe -z 50 "$@"
+        . $HOME/bin/wcd.go
+    }
+
+=item B<-[NUMBER]>
+
+Push dir NUMBER of times. Default is one.
+
+Go back a directory. Command C<wcd -> goes one directory back. To go more
+directories back add a number to it. E.g. command C<wcd -3>. The stack is
+cyclic.
+
+=item B<+[NUMBER]>
+
+Pop dir NUMBER of times. Default is one.
+
+Go forward a directory. Command C<wcd +> goes one directory forward. To go
+more directories forward add a number to it. E.g. command C<wcd +2>. The
+stack is cyclic.
+
+=item B<=>
+
+Show stack.
+
+Use this option if don't know anymore how many times to push or pop. The
+stack is printed and you can choose a number. The current place in the
+stack is marked with an asterisk C<*>.
+
+=back
+
+=head1 INSTALLATION
+
+The current working directory of a Bourne-like or C shell can only be
+changed by the builtin cd command. Therefore the program is always called
+by a function or alias. The function or alias sources a shell script
+(go-script) which is generated by the wcd program. Wcd can only work after
+the function or alias is defined.
+
+Another important influence on your installation is the definition of
+environment variables HOME and WCDHOME. See section ENVIRONMENT VARIABLES.
+
+=head2 Install for Bourne-alike shells
+
+For Korn Shell (ksh, pdksh), Bourne Again Shell (bash), Z shell (zsh), ash,
+etc. Add the following function to the shell startup. For instance for Ksh
+that would be C<$HOME/.kshrc>, for Bash C<$HOME/.bashrc> and for Zsh
+C<$HOME/.zshenv>:
+
+    wcd ()
+    {
+        go="$HOME/bin/wcd.go"
+
+        <PATH>/wcd.exe "$@"
+        [ -f "$go" ] && . $go"
+    }
+
+Replace <PATH> with the location where wcd executable have been installed.
+Reload the shell initialization files or start new shell. The location of
+the C<wcd.go> differs from the Operating System, e.g. for DOS bash and
+Windows MSYS/ZSH. See section files FILES for more information.
+
+=head2 Install for C-alike shells (csh, tcsh)
+
+Add the following alias to the shell startup file C<$HOME/.cshrc> or
+C<$HOME/.tcshrc> :
+
+    alias wcd "<PATH>/wcd.exe \!* ; source $HOME/bin/wcd.go"
+
+Replace <PATH> with the location where wcd executable have been installed.
+Reload the shell initialization files or start new shell.
+
+=head2 Win32 console version
+
+In a Windows NT/XP/Vista console (Command prompt) a win32-program cannot
+change the current work directory (although a DOS-program can). That is why
+wcd generates a batch script (wcdgo.bat) which must be executed in the
+current shell.
+
+=head2 Windows VISTA
+
+In a Windows VISTA command prompt you may have limited access to
+directories. To get access to more directories you need administrator
+rights. You can get a command prompt with administrator rights if you right
+click on the command prompt icon and select C<Run as administrator>.
+
+=head2 Windows powershell version
+
+Add the following function to your PowerShell user profile. The location of
+this profile is stored in the $profile variable. It is required that
+environment variable HOME or WCDHOME is defined.
+
+    function wcd
+    {
+        <PATH>\wcdwin32psh.exe $args
+        & $env:HOME\wcdgo.ps1
+    }
+
+Replace <PATH> with the location where wcd executable have been installed.
+Start a new PowerShell. Wcd for PowerShell supports only the file system
+provider. No other providers.
+
+=head2 Os/2 console version
+
+In a OS/2 console an os2-program cannot change the current work directory.
+That is why wcd generates a command script (wcdgo.cmd) which must be
+executed in the current shell. The script wcd.cmd first executes
+wcdos2.exe, which creates the wcdgo.cmd script. Then wcd.cmd executes the
+wcdgo.cmd script.
+
+
+=head1 LOCALIZATION
+
+=over 4
+
+=item B<LANG>
+
+The primary language is selected with the environment variable LANG. The
+LANG variable consists out of several parts. The first part is in small
+letters the language code. The second is optional and is the country code
+in capital letters, preceded with an underscore. There is also an
+optional third part: character encoding, preceded with a dot. A few
+examples from a Bourne type shell:
+
+    export LANG=nl               Dutch
+    export LANG=nl_NL            Dutch, The Netherlands
+    export LANG=nl_BE            Dutch, Belgium
+    export LANG=es_ES            Spanish, Spain
+    export LANG=es_MX            Spanish, Mexico
+    export LANG=en_US.iso88591   English, USA, Latin-1 encoding
+
+For a complete list of language and country codes see the gettext manual:
+http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes On
+Unix systems you can use to command locale(1) to get locale specific
+information.
+
+=item B<LANGUAGE>
+
+With the LANGUAGE environment variable you can specify a priority list of
+languages, separated by colons. Wcd gives preference to LANGUAGE over LANG.
+For instance, first Dutch and then German: LANGUAGE=nl:de. You have to
+first enable localization, by setting LANG (or LC_ALL) to a value other
+than \(gaC\(aq, before you can use a language priority list through the LANGUAGE
+variable. See also the gettext manual:
+http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable
+
+If you select a language which is not available you will get the standard
+English messages.
+
+=item B<WCDLOCALEDIR>
+
+With the environment variable WCDLOCALEDIR the LOCALEDIR used during
+compilation and installation of wcd can be overruled. LOCALEDIR is used by
+wcd with native language support to find the language files. The GNU
+default value is /usr/local/share/locale. By typing \(gawcd -V\(aq wcd will print
+the LOCALEDIR that is used.
+
+If you have installed wcd in a different directory than the default
+directory you may need to set the environment variable WCDLOCALEDIR to
+point to the locale directory.
+
+An example of windows cmd:
+
+    set WCDLOCALEDIR=c:/my_prefix/share/locale
+
+=item B<LC_COLLATE>
+
+When there are multiple directory matches wcd presents a sorted list. The
+sorting depends on the locale settings. If the environment LANG has been
+set the matches are sorted like dictionaries or phone books are sorted in
+that language. For instance dots and dashes are ignored, or letters e with
+and without accent are equal, or upper and lower case is ignored.
+
+The sorting gives preference to environment variable LC_COLLATE over LANG.
+If you make LC_COLLATE equal to "C" or "POSIX", locale sorting is turned
+off. For instance if you want Dutch language, but not Dutch sorting, you
+can do something like this:
+
+    export LANG=nl_NL
+    export LC_COLLATE=C
+
+=item B<LC_CTYPE>
+
+With regard to character encoding Wcd will give preference to variable
+LC_CTYPE over LANG. For instance to set character encoding to UTF-8 the
+following environment setting can be done.
+
+    export LC_CTYPE=en_US.UTF-8
+
+LC_ALL
+
+All locale environment variables that start with \(gaLC_\(aq are overruled by
+environment variable LC_ALL if it is defined. Wcd gives preference to
+LC_ALL over LC_COLLATE and LC_CTYPE.
+
+=item B<WINDOWS CODE PAGES>
+
+There are two groups of code pages. DOS code pages (OEM) and Windows code
+pages (ANSI). The default encoding for Windows, when configured with
+Western regional settings, is ANSI CP1252. Windows programs, for instance
+notepad, use this default system ANSI code page. The Windows console uses
+by default an OEM code page (CP850) for compatibility with DOS programs. If
+you use a DOS version of wcd in a Windows console it will work, because of
+the DOS code page. But the DOS version of wcd lacks support for long
+directory names and network drives on Windows. The windows version of wcd
+is a native windows program and will use the Windows system ANSI code page.
+So on a Western regional Windows it will use CP1252 for directory names and
+messages. Therefore the code page of the console has to be made equal to
+the system code page (changed to 1252) to make wcd for Windows work
+properly with special characters such as accented characters or the euro
+symbol. The console raster font only supports the original OEM code page
+installed with Windows, so you also have to change the font to true type
+Lucida Console to make the ANSI code page appear correctly. The Windows
+system code page can be changed via the Control Panel regional options. The
+Windows console code page is changed with the \(gachcp\(aq command.
+
+When you type C<wcd -V>, the actual character encoding used by wcd is
+shown. Type command C<chcp> to display the active code page of the windows
+console.
+
+=item B<UNICODE>
+
+Wcd can support UTF-8 Unicode on Unix/Linux and UTF-16 on Windows. To see
+if wcd was built with Unicode support type C<wcd -V>. If your
+terminal/console and font supports it, you should see the euro symbol and
+Chinese characters (meaning: "Chinese").
+
+Wcd has been \(gasoft\(aq converted to Unicode. In its core wcd handles all data
+as a stream of bytes. Only the lines printed to screen are on the fly
+converted to Unicode wide characters. Wcd fully relies on libc functions
+and has no UTF-8 specific code. See also
+http://www.cl.cam.ac.uk/~mgk25/unicode.html
+
+B<UTF-8 on Unix/Linux>
+
+In order to view UTF-8 characters your console/terminal also needs to
+support UTF-8. The xterm version that comes with XFree86 4.0 or higher
+includes UTF-8 support. To activate it, start xterm(1) in a UTF-8 locale
+and use a font with iso10646-1 encoding, for instance with
+
+    LC_CTYPE=en_GB.UTF-8 xterm -u8 \
+     -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'
+
+Modern distributions of Linux support UTF-8 by default. Other multi-byte
+character encodings should also work, but that has not been tested.
+
+B<UTF-16 on Windows>
+
+On Windows all the directory names on disk are encoded in UTF-16 Unicode.
+For programs that don't support UTF-16 the Unicode characters are
+translated to the active code page. For characters that are not part of the
+regional setting this translation is not possible and non-Unicode programs
+print a question mark or a wrong character instead.
+
+Wcd with Unicode support will read the UTF-16 encoded directory names and
+converts them internally to UTF-8. All treedata files are encoded in UTF-8
+and not compatible with the non-Unicode version of Wcd. Wcd will create a
+go-script encoded in UTF-8. This can only be run in Windows PowerShell.
+Therefore wcd with Unicode is only supported in PowerShell and not in a
+normal Windows Console. You need to set the font to True Type Lucida
+Console (not raster font).
+
+B<UTF-8 on Cygwin>
+
+Cygwin supports Unicode since version 1.7. The Cygwin layer takes care that
+the Windows UTF-16 Unicode names are converted to UTF-8. So programs, like
+wcd, don't need to be aware of this and can operate using UTF-8 encoding as
+on Unix/Linux. Set character encoding to UTF-8 with the LANG or LC_CTYPE
+environment variable. You may need to rescan your drives. You need to set
+the font to True Type Lucida Console (not raster font) if you use the
+default Cygwin console.
+
+=back
+
+=head1 FILES
+
+If the environment variable WCDHOME is set wcd will use WCDHOME instead of
+HOME. All C<*.wcd> files are text files. They can be edited with a
+text-editor. The win32 console version of wcd behaves as the DOS version.
+The Cygwin version of wcd behaves as the UNIX version.
+
+=over 4
+
+=item B<wcd.exe>
+
+The program. Do not rename it to \(gawcd\(aq on Unix systems. In a Bourne-like or
+C shell the program is always called by a function or alias, because the
+current working directory of a Bourne-like or C shell can only be changed
+by the builtin cd command. See also section INSTALLATION.
+
+=item B<default treedata file>
+
+This is the default treedata file where wcd searches for matches. If it is
+not readable wcd will create a new one.
+
+    DOS: \treedata.wcd or %HOME%\treedata.wcd
+    UNIX: $HOME/.treedata.wcd
+
+=item B<extra treedata file>
+
+An optional extra treedata file. If it exists and is readable wcd will try
+to find matches in this file also.
+
+    DOS: \extra.wcd or %HOME%\extra.wcd
+    UNIX: $HOME/.extra.wcd
+
+=item B<ban file>
+
+In this optional file wcd places banned paths. See option B<-b>. Wildcards are
+supported.
+
+    DOS: \ban.wcd or %HOME%\ban.wcd
+    UNIX: $HOME/.ban.wcd
+
+=item B<alias file>
+
+    Optional file with wcd aliases. See option B<-l>.
+
+    DOS: \alias.wcd or %HOME%\alias.wcd
+    UNIX: $HOME/.alias.wcd
+
+=item B<stack file>
+
+In this file wcd stores it's stack. The drive letter can be changed with
+the -d option.
+
+    DOS: c:\stack.wcd or %HOME%\stack.wcd
+    UNIX: $HOME/.stack.wcd
+
+=item B<go-script>
+
+This is the shell script which wcd.exe creates each time. It is sourced via
+a function or an alias. The drive letter can be changed with the B<-d> option.
+For history reasons it is placed by default in C<$HOME/bin> on Unix
+systems. The directory of this file can be changed with the option B<-G>.
+
+    DOS BASH: c:/wcd.go or $HOME/wcd.go
+    WIN32 CONSOLE: c:\wcdgo.bat or %HOME%\wcdgo.bat
+    WINDOWS POWERSHELL: $env:HOME\wcdgo.ps1
+    WIN32 MSYS/ZSH: $HOME/wcd.go
+    OS/2 CONSOLE: c:\wcdgo.cmd or %HOME%\wcdgo.cmd
+    UNIX: $HOME/bin/wcd.go
+
+=item B<relative treedata file>
+
+Text  file  with relative paths from DIR>. See options B<+S>, B<-n> and
+B<+n>.
+
+    DOS: <path>\rtdata.wcd
+    UNIX: <path>/.rtdata.wcd
+
+=back
+
+=head1 ENVIRONMENT VARIABLES
+
+=over 4
+
+=item B<HOME> and B<WCDHOME>
+
+Wcd uses environment variable HOME to determine where to store its files.
+See also section FILES. Environment variable WCDHOME overrides HOME. If
+both HOME and WCDHOME are set, WCDHOME will be used instead of HOME.
+
+For the Unix, Cygwin, Windows PowerShell and Windows MSYS/ZSH version it
+is required that HOME or WCDHOME is set. For the other versions of wcd
+the use of these variables is optional.
+
+If HOME is set on DOS/Windows, wcd will place all it's files (treedata.wcd,
+extra.wcd, alias.wcd, ban.wcd, wcd.go) in directory HOME . The behaviour of wcd
+is then equal to the UNIX version of wcd. Wcd will scan the disk default from
+HOME. Drives will not be automatically scanned by changing to them. You need to
+tell wcd explicitly. E.g.:
+
+    wcd -S c: -A d: -A e:
+
+Matching of directories is now global over all scanned drives. If the
+environment variable WCDHOME is set wcd will use WCDHOME instead of HOME.
+
+=item B<TERMINFO>
+
+If the environment variable TERMINFO is defined, wcd with ncurses interface
+checks for a local terminal definition before checking in the standard
+place. This is useful if terminal definitions are not on a standard place.
+Often used standard places are C</usr/lib/terminfo> and
+C</usr/share/terminfo>.
+
+=item B<PDC_RESTORE_SCREEN>
+
+Wcd with PDCurses interface recognizes the environment variable
+PDC_RESTORE_SCREEN. If this environment variable is set, PDCurses will take
+a copy of the contents of the screen at the time that wcd is started; when
+wcd exits, the screen will be restored. One can set this variable e.g. in
+AUTOEXEC.BAT. Example:
+
+set PDC_RESTORE_SCREEN=1
+
+For Cygwin this would be C<export PDC_RESTORE_SCREEN=1>.
+
+Windows allows only a small buffer to be saved. So it is not always
+possible to restore everything. Some garbage data may be printed in the
+console after wcd exists if you have set a large buffer width.
+
+=item B<SHELL>
+
+Printing of C<#!$SHELL> on the first line of the go-script for Bourne-like
+or C shell is needed for 8 bit characters. Some shells otherwise think that
+the go-script is a binary file and will not source it. In Cygwin bash one
+may need to define $SHELL with the C<export> command, otherwise wcd can't
+read the variable.
+
+=item B<BASH>
+
+Wcd for DOS bash uses $BASH instead of $SHELL, because $SHELL point to the
+DOS command shell. One may need to define $BASH with an C<export> command,
+otherwise wcd can't read the variable.
+
+=item B<WCDFILTER>
+
+Specify filters with environment variable WCDFILTER. All directories that
+don't match the filter(s) are ignored. A list can be specified by
+separating filters with colons (:) on Unix/Cygwin and semicolons (;) on
+DOS/Windows systems (Similar as specifying the PATH variable). Filters are
+case sensitive on Unix and case insensitive on DOS/Windows.
+
+Example in Unix:
+
+    export WCDFILTER=projects:doc
+
+Example in DOS/Windows:
+
+    set WCDFILTER=projects;doc
+
+=item B<WCDBAN>
+
+The paths specified with environment WCDBAN will be banned by wcd. See also
+option B<-b>. Specify a list of paths separated by colons on Unix/Cygwin
+and semicolons on DOS/Windows.
+
+
+=item B<WCDEXCLUDE>
+
+The paths specified with environment WCDEXCLUDE will be excluded by wcd.
+See also options B<-x> and B<-xf>. Specify a list of paths separated by
+colons on Unix/Cygwin and semicolons on DOS/Windows.
+
+Example in Unix:
+
+    export WCDEXCLUDE=/dev:/tmp:*CVS
+
+Example in DOS/Windows:
+
+    set WCDEXCLUDE=*/windows;*/temp;*CVS
+
+=item B<WCDUSERSHOME>
+
+With this variable one can set the base directory where the users home
+directories are. If this variable is not set wcd will assume /home on Unix,
+and C<\\users> on DOS/Windows. This variable is used to scan treedata files
+of other users. See also options B<-u> an B<+u>.
+
+In verbose mode wcd will print all filters, bans and excludes. See option
+B<-v>.
+
+=back
+
+=head1 SEE ALSO
+
+sh(1),
+bash(1),
+csh(1),
+ksh(1),
+zsh(1),
+locale(1),
+ncurses(1),
+
+=head1 AUTHORS
+
+Program was written by Erwin Waterlander <waterlan@xs4all.nl>
+Project homepage: http://www.xs4all.nl/~waterlan/
+
+The manual page formatting was provided by Jari Aalto
+<jari.aalto@cante.net>.
+
+=cut

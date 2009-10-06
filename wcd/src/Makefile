@@ -67,7 +67,7 @@ INSTALL_DATA	= $(INSTALL) -m 644
 INSTALL_SUID	= $(INSTALL) -m 4755
 
 INSTALL_OBJS_BIN   = $(BIN)
-INSTALL_OBJS_MAN1  = man/man1/*.1
+INSTALL_OBJS_MAN1  = man/man1/wcd.1
 # Documents for end users, not for developers:
 INSTALL_OBJS_DOC   = \
   ../doc/copying.txt \
