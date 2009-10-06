@@ -8,7 +8,7 @@ Author: Erwin Waterlander
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 2002-2006 Erwin Waterlander
+Copyright (C) 2002-2009 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -376,7 +376,7 @@ char *replace_volume_path_HOME(char *buf, int size)
    static int  len_home_abs = 0;
    int i, j, len_buf;
    char tmp[DD_MAXPATH];
-   char pattern[DD_MAXPATH];
+   static char pattern[DD_MAXPATH];
    char *ptr1, *ptr2;
 
 
