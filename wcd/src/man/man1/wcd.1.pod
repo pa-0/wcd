@@ -338,13 +338,13 @@ bash or ksh:
 
      function wcd()
      {
-       cd "\(ga$HOME/bin/wcd.exe -j $*\(ga"
+       cd "`$HOME/bin/wcd.exe -j $*`"
      }
 
 On windows systems, if one is running 4NT shell, one could make the
 following alias:
 
-    alias wcd \(gacd %@execstr[wcdwin32.exe -z 0 -j %1]\(ga
+    alias wcd `cd %@execstr[wcdwin32.exe -z 0 -j %1]`
 
 This method eliminates the need of the go-script, so one can use option B<-GN>
 in combination with B<-j>.
@@ -715,7 +715,7 @@ With the LANGUAGE environment variable you can specify a priority list of
 languages, separated by colons. Wcd gives preference to LANGUAGE over LANG.
 For instance, first Dutch and then German: LANGUAGE=nl:de. You have to
 first enable localization, by setting LANG (or LC_ALL) to a value other
-than \(gaC\(aq, before you can use a language priority list through the LANGUAGE
+than `C', before you can use a language priority list through the LANGUAGE
 variable. See also the gettext manual:
 http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable
 
@@ -727,7 +727,7 @@ English messages.
 With the environment variable WCDLOCALEDIR the LOCALEDIR used during
 compilation and installation of wcd can be overruled. LOCALEDIR is used by
 wcd with native language support to find the language files. The GNU
-default value is /usr/local/share/locale. By typing \(gawcd -V\(aq wcd will print
+default value is /usr/local/share/locale. By typing `wcd -V' wcd will print
 the LOCALEDIR that is used.
 
 If you have installed wcd in a different directory than the default
@@ -764,7 +764,7 @@ following environment setting can be done.
 
 LC_ALL
 
-All locale environment variables that start with \(gaLC_\(aq are overruled by
+All locale environment variables that start with `LC_' are overruled by
 environment variable LC_ALL if it is defined. Wcd gives preference to
 LC_ALL over LC_COLLATE and LC_CTYPE.
 
@@ -787,7 +787,7 @@ symbol. The console raster font only supports the original OEM code page
 installed with Windows, so you also have to change the font to true type
 Lucida Console to make the ANSI code page appear correctly. The Windows
 system code page can be changed via the Control Panel regional options. The
-Windows console code page is changed with the \(gachcp\(aq command.
+Windows console code page is changed with the `chcp' command.
 
 When you type C<wcd -V>, the actual character encoding used by wcd is
 shown. Type command C<chcp> to display the active code page of the windows
@@ -800,7 +800,7 @@ if wcd was built with Unicode support type C<wcd -V>. If your
 terminal/console and font supports it, you should see the euro symbol and
 Chinese characters (meaning: "Chinese").
 
-Wcd has been \(gasoft\(aq converted to Unicode. In its core wcd handles all data
+Wcd has been `soft' converted to Unicode. In its core wcd handles all data
 as a stream of bytes. Only the lines printed to screen are on the fly
 converted to Unicode wide characters. Wcd fully relies on libc functions
 and has no UTF-8 specific code. See also
@@ -858,7 +858,7 @@ The Cygwin version of wcd behaves as the UNIX version.
 
 =item B<wcd.exe>
 
-The program. Do not rename it to \(gawcd\(aq on Unix systems. In a Bourne-like or
+The program. Do not rename it to `wcd' on Unix systems. In a Bourne-like or
 C shell the program is always called by a function or alias, because the
 current working directory of a Bourne-like or C shell can only be changed
 by the builtin cd command. See also section INSTALLATION.
