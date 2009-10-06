@@ -1949,7 +1949,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
             showHelp(wcd_cwin.scrollWin,wcd_cwin.scrollWinHeight);
          break;
       case 'q':
-            c = 13;
+            c = 3; /* 3 = Control-C */
       break;
       case 'i':
       case 'z':
