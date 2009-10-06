@@ -317,11 +317,8 @@ $(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
 man/man1/wcd.1 : man/man1/wcd.1.pod
 	$(MAKE) -C man/man1
 
-#../doc/$(PACKAGE).txt : man/man1/wcd.1
-#	LC_CTYPE=C nroff -man $< | col -bx > $@
-
-../doc/$(PACKAGE).txt : man/man1/wcd.1.pod
-	pod2text $< $@
+../doc/$(PACKAGE).txt : man/man1/wcd.1
+	LC_CTYPE=C nroff -man $< | col -bx > $@
 
 ../doc/$(PACKAGE).ps : man/man1/wcd.1
 	groff -man $< -T ps > $@
