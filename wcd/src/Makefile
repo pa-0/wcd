@@ -292,7 +292,8 @@ status:
 	@echo "CFLAGS_OS     = $(CFLAGS_OS)"
 	@echo "-- $(PACKAGE) Makefile settings end --"
 
-$(BIN): status $(OBJS1)
+$(BIN): $(OBJS1)
+	$(MAKE) status
 	$(CC) $(OBJS1) $(LDFLAGS) -o $@
 
 %.o: %.c
@@ -317,10 +318,10 @@ man/man1/wcd.1 : man/man1/wcd.1.pod
 	$(MAKE) -C man/man1
 
 ../doc/$(PACKAGE).txt : man/man1/wcd.1
-	LC_CTYPE=C nroff -man man/man1/wcd.1 | col -bx > $@
+	LC_CTYPE=C nroff -man $< | col -bx > $@
 
 ../doc/$(PACKAGE).ps : man/man1/wcd.1
-	man -M ./man -t wcd > $@
+	groff -man $< -T ps > $@
 
 mofiles: $(MOFILES)
 
@@ -406,6 +407,6 @@ uninstall:
 	-rm -f $(MANDIR)/man1/$(PACKAGE).1
 	-rm -rf $(DOCDIR)
 
-PHONY: status uninstall install install-doc dist dist-zip dist-tgz
+.PHONY: status uninstall install install-doc dist dist-zip dist-tgz
 
 # End of file
