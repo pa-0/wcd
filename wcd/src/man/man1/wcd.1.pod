@@ -622,12 +622,10 @@ etc. Add the following function to the shell startup. For instance for Ksh
 that would be C<$HOME/.kshrc>, for Bash C<$HOME/.bashrc> and for Zsh
 C<$HOME/.zshenv>:
 
-    wcd ()
+    function wcd
     {
-        go="$HOME/bin/wcd.go"
-
-        <PATH>/wcd.exe "$@"
-        [ -f "$go" ] && . $go"
+        <PATH>/wcd.exe $@
+        . $HOME/bin/wcd.go
     }
 
 Replace <PATH> with the location where wcd executable have been installed.
