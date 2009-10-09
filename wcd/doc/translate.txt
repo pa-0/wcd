@@ -7,7 +7,7 @@ Translators.
 ============
 
 Dutch        Erwin Waterlander <waterlan@xs4all.nl>
-Finnish      Jari Aalto <jari DOT aalto AT cante DOT net>
+Finnish      Jari Aalto <jari.aalto@cante.net>
 Spanish      Julio Augusto Freyre-Gonzalez <jfreyreg@gmail.com>
 
 

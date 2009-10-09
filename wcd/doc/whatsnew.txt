@@ -8,9 +8,10 @@
   - Updated makefiles. (thanks to Jari Aalto).
   - Updated installation documentation. (thanks to Jari Aalto).
   - Code cleanup (thanks to Jari Aalto).
-  - Fix: Graphics mode non-Unicode version: key q did select instead of quit.
+  - Fix: Graphics mode, non-Unicode version: key q did "select" instead of "quit".
   - Man page generation from Perl POD file instead of ROFF. (thanks to Jari Aalto).
-
+  - Man page in HTML format.
+  - Reformat README file (thanks to Jari Aalto).
 
 5.0.4 Jul 21 2009
   - Added Spanish language file (thanks to Julio Augusto Freyre-Gonzalez).
