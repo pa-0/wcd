@@ -55,7 +55,5 @@ $(MANPAGE): $(MANPOD)
 	| sed 's,[Pp]erl v[0-9.]\+,$(PACKAGE),' \
 	  > $(MANPAGE) && \
 	rm -f pod*.tmp
-	sed -e 's/\\e(ga/\\(ga/g' -e 's/\\e(aq/\\(aq/g' < $(MANPAGE) > $(MANPAGE).tmp
-	/bin/mv $(MANPAGE).tmp $(MANPAGE)
 
 # End of of Makefile part
