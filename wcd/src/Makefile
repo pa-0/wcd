@@ -75,6 +75,7 @@ INSTALL_OBJS_DOC   = \
   ../doc/$(PACKAGE).txt \
   ../doc/$(PACKAGE).ps \
   ../doc/$(PACKAGE).pdf \
+  ../doc/$(PACKAGE).html \
   ../doc/whatsnew.txt \
   ../doc/INSTALL.dos_windows.txt \
   ../doc/INSTALL.unix.txt \
@@ -88,7 +89,7 @@ INSTALL_OBJS_DOC   = \
 POT		= po/$(PACKAGE).pot
 POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
-DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf
+DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf ../doc/$(PACKAGE).html
 
 VERSIONSUFFIX = -bin
 ifdef UCS
@@ -322,6 +323,9 @@ man/man1/wcd.1 : man/man1/wcd.1.pod
 
 ../doc/$(PACKAGE).ps : man/man1/wcd.1
 	groff -man $< -T ps > $@
+
+../doc/$(PACKAGE).html : man/man1/wcd.1.pod
+	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
 
 mofiles: $(MOFILES)
 
