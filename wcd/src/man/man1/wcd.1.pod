@@ -336,7 +336,7 @@ Wcd will print the directory to go to to stdout. So a different
 installation method can be used. One could make the following function for
 bash or ksh:
 
-    fucntion wcd
+    function wcd
     {
         cd "`$HOME/bin/wcd.exe -j $*`"
     }
