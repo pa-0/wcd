@@ -199,7 +199,7 @@ interface.
 
 =item B<-A PATH>
 
-Scan directory tree from <path> and append to the default treedata file.
+Scan directory tree from PATH and append to the default treedata file.
 Examples:
 
     wcd -A .
@@ -365,7 +365,7 @@ wcd cannot change to them. With this option this behaviour is turned off.
 =item  B<-l ALIAS>
 
 Name the current path with ALIAS. Wcd places the current path with alias
-<alias> in the alias file. Aliases are case sensitive.
+ALIAS in the alias file. Aliases are case sensitive.
 
 =item B<-M DIR>
 
@@ -491,7 +491,7 @@ I<WCDUSERSHOME>. See section ENVIRONMENT.
 
 =item B<+u USERNAME>
 
-Read default treedata file of I<USERNAME> in addition to your own treedata
+Read default treedata file of USERNAME in addition to your own treedata
 file.
 
 =item B<-V, --version>
