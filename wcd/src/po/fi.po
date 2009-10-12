@@ -4,14 +4,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-09 16:02+0200\n"
+"POT-Creation-Date: 2009-10-06 21:13+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1705 wcd.c:1725 wcd.c:1816 wcd.c:2463
@@ -105,7 +105,7 @@ msgid ""
 "Wcd: error: line too long in wcd_getline() ( > %d). Fix: increase "
 "DD_MAXPATH.\n"
 msgstr ""
-"Wcd: error: line too long in wcd_getline() ( > %d). Fix: increase "
+"Wcd: error: rivi liian pitkä funktiossa wcd_getline() ( > %d). Korjausehdotus: kasvata "
 "DD_MAXPATH.\n"
 
 #: wcd.c:1225 wcd.c:1327
@@ -240,7 +240,7 @@ msgstr ""
 "  +S             Skannaa levy, <polku> alaspäin, mutta käyttäen relatiivisia "
 "ositteita (treefile)\n"
 "  -u             Käytä treefile: <käyttäjätunnus>\n"
-"  +u             Lisää treefile: <käyttäjätunns>\n"
+"  +u             Lisää treefile: <käyttäjätunnus>\n"
 "  -v, --verbose  Verbose moodi, lisää viestien määrää\n"
 "  -V, --version  Tulosta ohjelman versio\n"
 "  -w             Villkikorttihaku, etsi annetun säännön mukaan\n"
@@ -248,24 +248,24 @@ msgstr ""
 "  -xf            Jätä huomioimatta kaikki polut, joktka on mainittu "
 "<tiedostossa>\n"
 "  -z             Aseta pinon maksimikko: stack siZe\n"
-"  -              Lisää hakemisto pinoon (N keraa)\n"
+"  -              Lisää hakemisto pinoon (N kertaa)\n"
 "  +              Ota hakemisto pinosta (N kertaa)\n"
 "  =              Näitä pino: stackS\n"
 
 #: wcd.c:1610 wcd.c:1633
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
-msgstr "Tämä version on tarkoitettu Windows PowerShell käyttöön.\n"
+msgstr "Tämä versio on tarkoitettu Windows PowerShell käyttöön.\n"
 
 #: wcd.c:1613 wcd.c:1631
 #, c-format
 msgid "This version is for MSYS and win32 port of ZSH.\n"
-msgstr "Tämä version on tarkoitettu MSYS ja win32 portattuun ZSH käyttöön.\n"
+msgstr "Tämä versio on tarkoitettu MSYS ja win32 portattuun ZSH käyttöön.\n"
 
 #: wcd.c:1616 wcd.c:1641
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
-msgstr "Tämä version on tarkoitettu DJGPP DOS bash käyttöön.\n"
+msgstr "Tämä versio on tarkoitettu DJGPP DOS bash käyttöön.\n"
 
 #: wcd.c:1627 wcd.c:2240
 #, c-format
@@ -360,7 +360,7 @@ msgstr "  Euro symboli: "
 #: wcd.c:1679
 #, c-format
 msgid "  Chinese characters: "
-msgstr "  Kinnalaiset kirjaimet: "
+msgstr "  Kiinalaiset kirjaimet: "
 
 #: wcd.c:1683
 #, c-format
@@ -392,12 +392,12 @@ msgstr "Wcd: virhe: Ympäristömuuttujan WCDLOCALEDIR arvo on liian pitkä.\n"
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
-"Wcd: virhe: Ympäristömuuttujien HOME ja WCDHOME arvot on liian pitkät.\n"
+"Wcd: virhe: Ympäristömuuttujien HOME ja WCDHOME arvot ovat liian pitkät.\n"
 
 #: wcd.c:2034 wcd.c:2056
 #, c-format
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
-msgstr "Wcd: virhe: Ympäristömuuttuja HOME tai WCDHOME is ole asetettu.\n"
+msgstr "Wcd: virhe: Ympäristömuuttujaa HOME tai WCDHOME is ole asetettu.\n"
 
 #: wcd.c:2119 wcd.c:2560 wcd.c:2577
 #, c-format
@@ -501,7 +501,7 @@ msgid ""
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 "Wcd: Ei hakemistoa kriteerillä %s\n"
-"Wcd: Mahdollisesti levy tulee skannata uudelleen tai hakmisto on mustalla "
+"Wcd: Mahdollisesti levy tulee skannata uudelleen tai hakemisto on mustalla "
 "listalla\n"
 
 #: wcd.c:3118
@@ -549,7 +549,7 @@ msgstr "Wcd: error in maxLengthStack(), s == NULL\n"
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
-"Wcd: varoitus: Terminaalin avaus ei onnistu, käytössä vain stdout "
+"Wcd: varoitus: Terminaalin avaus ei onnistu, käytössä vain stdout.\n"
 "komentorivi.\n"
 
 #: display.c:1019
@@ -774,7 +774,7 @@ msgstr "Paina jotakin näppäintä."
 
 #: graphics.c:1489
 msgid "SEARCH MODE with wildcard and subdir support:"
-msgstr "SEARCH MODE with wildcard and subdir support:"
+msgstr "HAKUMOODI villikorttien ja alihakemistojen tuki:"
 
 #: graphics.c:1490
 msgid "<Left>            go left."
@@ -839,7 +839,7 @@ msgstr "CTRL-n            Toista viimeisin / tai ? etsintä."
 
 #: graphics.c:1512
 msgid "ZOOMING:"
-msgstr "ZOOMING:"
+msgstr "ZOOMAUS:"
 
 #: graphics.c:1513
 msgid "z or i or CTRL-i  zoom in."
@@ -889,7 +889,7 @@ msgstr ""
 #: wfixpath.c:65
 #, c-format
 msgid "Wcd: malloc error in wcd_fixpath()\n"
-msgstr "Wcd: malloc error in wcd_fixpath()\n"
+msgstr "Wcd: malloc virhe funktiossa wcd_fixpath()\n"
 
 #: c3po/Error.c:40
 #, c-format
@@ -897,5 +897,5 @@ msgid ""
 "Wcd: error in '%s', no space left for allocation\n"
 "Wcd: Insufficient memory\n"
 msgstr ""
-"Wcd: error in '%s', no space left for allocation\n"
-"Wcd: Insufficient memory\n"
+"Wcd: virhe kohdassa '%s', muistin varaus ei onnistu\n"
+"Wcd: Riitämätön määrä muistia\n"
