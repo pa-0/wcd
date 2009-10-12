@@ -390,6 +390,14 @@ Table of Contents
 
         --
 
+        SourceForge project page:
+        http://sourceforge.net/projects/wcd/
+
+        Freshmeat project page:
+        http://freshmeat.net/projects/wcd/
+
+        --
+
         For each release of wcd there are two source packages
         (the question marks indicate the version number):
 
@@ -403,9 +411,6 @@ Table of Contents
         --
 
         Wcd is also distributed by:
-
-        SourceForge:
-        http://sourceforge.net/projects/wcd/
 
         the SfR Freeware/Shareware Archive
         http://www.sfr-fresh.com/unix/misc/
@@ -422,5 +427,6 @@ Table of Contents
 
         Ibiblio (was Metalab (was SunSite)):
         http://www.ibiblio.org/pub/Linux/utils/shell/
+
 
 -- Erwin Waterlander
