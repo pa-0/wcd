@@ -630,7 +630,7 @@ VARIABLES.
 =head2 Install for POSIX shells
 
 For POSIX shell (sh, bash, zsh, ksh, pdksh etc), add the following
-function to the shell staartup file (for Bash C<$HOME/.bashrc>):
+function to the shell startup file (for Bash C<$HOME/.bashrc>):
 
     wcd ()
     {
@@ -685,7 +685,7 @@ provider. No other providers.
 
 =head2 Os/2 console version
 
-In a OS/2 console an os2-program cannot change the current work
+In a OS/2 console an OS/2-program cannot change the current work
 directory. That is why wcd generates a command script (wcdgo.cmd)
 which must be executed in the current shell. The script C<wcd.cmd>
 first executes C<wcdos2.exe>, which creates the C<wcdgo.cmd> script.
