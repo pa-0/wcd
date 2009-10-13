@@ -1,4 +1,4 @@
-5.1.0-beta6 Sep 11 2009
+5.1.0-beta7 Oct 13 2009
   - UTF-16 Unicode support for Windows PowerShell.
   - Added Finnish language file (thanks to Jari Aalto).
   - Update manual, section Unicode.

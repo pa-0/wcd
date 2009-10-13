@@ -1,0 +1,79 @@
+
+1.0 Notes about the source code
+
+    1.1 Compiler support
+
+        The 16 bit DOS version has been compiled with Borland C/C++
+        4.02, but will also compile with Borland 3. A 16 bit DOS wcd
+        can also be build with the Open Watcom compiler.
+
+        The 32 bit dos versions are compiled with DJGPP and do not use
+        DOSDIR. DJGPP is a mix of DOS/Unix compiler (both 'MSDOS' and
+        'unix' are defined). DOSDIR's dd_findfirst/dd_findnext
+        implementation for Unix is build with opendir/readdir. Using
+        DJGPP's implementation of opendir/readdir to scan a disk is
+        about a factor 100 slower than using findfirst/findnext (with
+        DJGPP 2.01, gcc 2.7.2). Also using DOSDIR's
+        dd_findfirst/dd_findnext for DOS is very slow when it is
+        compiled with DJGPP. It is about a factor 35 slower than using
+        DJGPP's findfirst/findnext. Probably due to a slow stat()
+        function in dd_initstruct(). Using DOSDIR in combination with
+        DJGPP would make scanning the disk very slow. A 32 bit DOS wcd
+        can also be build with the Open Watcom compiler.
+
+        The win32 console version is by default compiled with MinGW.
+        Win32 versions can also be compiled with Borland, LCC, Open
+        Watcom and Cygwin. Although Borland 4 can compile wcd with
+        conio interface for windows console, it doesn't work well. The
+        screen gets garbled after exit.
+
+        Wcd for Unix compiles with gcc and with the native system C
+        compilers such as HP-UX cc or SunOS cc.
+
+    1.2 Curses support
+
+        Wcd can optionally have a curse-based interface. Wcd compiles
+        with curses, ncurses and pdcurses. Ncurses is preferred,
+        because of portability and it restores the screen
+        automatically after exit (if possible) and has better support
+        for resizing of the terminal.
+
+        The ncurses (new curses) library is a free software emulation
+        of curses in System V Release 4.0, and more. It uses terminfo
+        format, supports pads and color and multiple highlights and
+        forms characters and function-key mapping, and has all the
+        other SYSV-curses enhancements over BSD curses. The ncurses
+        distribution is available via anonymous FTP at the GNU
+        distribution site ftp://ftp.gnu.org/pub/gnu/ncurses. It is
+        also available at ftp://ftp.clark.net/pub/dickey/ncurses.
+
+        PDCurses is a port of System VR4 curses for multiple
+        platforms. PDCurses has been ported to DOS, OS/2, X11, WIN32
+        and Flexos. A directory containing the port-specific source
+        files exists for each of these platforms. Get it at
+        http://pdcurses.sourceforge.net/
+
+    1.3 DOS DJGPP support
+
+        DJGPP is a project to port the GNU C/C++ compiler to DOS.
+        It includes a shell (bash) and many ported unix utilities.
+        For more information about DJGPP take a look at this
+        internet homepage:   http://www.delorie.com/djgpp/
+
+    1.4 Cygwin support
+
+        Cygwin is a project to port the GNU C/C++ compiler to Windows.
+        It includes a shell (bash) and many ported unix utilities.
+        For more information about Cygwin take a look at this
+        internet homepage:   http://cygwin.com/
+
+    1.5 MingW support
+
+        MinGW is a project to port GNU C/C++ compiler to Windows.
+        internet homepage: http://www.mingw.org/
+
+    1.6 LCC suport
+
+        LCC is a free C compiler for windows. internet homepage:
+        http://www.cs.virginia.edu/~lcc-win32/
+

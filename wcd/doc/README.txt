@@ -1,5 +1,6 @@
 
 README.txt                   : This file.
+README.sourcecode.txt        : Notes about the source code.
 BUILD.dos_windows.txt        : How to build wcd for DOS and Windows.
 BUILD.dos_windows.intl.txt   : How to build wcd for DOS and Windows with
                                native language support.
@@ -20,53 +21,27 @@ todo.txt                     : Things to do.
 
 Table of Contents
 
-       1.0 Copyright
+       1.0 History
+           1.1 The DOSDIR program
+           1.2 The Windows
+           1.3 The GNU
 
-       2.0 History
-           2.1 The DOSDIR program
-           2.2 The Windows
-           2.3 The GNU
+       2.0 Copyright
+           2.1 C3PO data structures
+           2.2 DOSDIR
+           2.3 Recmatch
+           2.4 Ninux Czo Directory
+           2.5 Miscellaneus bits and pieces
 
-       3.0 Notes about the source code
-           3.1 Operating system support
-           3.2 Curses support
-           3.3 DOS DJGPP support
-           3.4 Cygwin support
-           3.5 MingW support
-           3.6 LCC suport
-           3.7 C3PO data structures
-           3.8 DOSDIR
-           3.9 Regmatch
-           3.10 Ninux Czo Directory
-           3.11 Miscellaneus bits and pieces
+       3.0 Acknowledgements
+           3.1 Translators
+           3.2 Works of others used in the program
 
-       4.0 Acknowledgements
-           4.1 Translators
-           4.2 Works of others used in the program
+       4.0 Contact and Download information
 
-       5.0 Contact and Download information
+1.0 History
 
-1.0 Copyright
-
-        The wcd program is:
-
-        Copyright (C) 1997-2009 Erwin Waterlander
-
-        This program is free software; you can redistribute it and/or
-        modify it under the terms of the GNU General Public License
-        as published by the Free Software Foundation; either version 2
-        of the License, or (at your option) any later version.
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-
-        Visit <http://www.gnu.org/copyleft/gpl.html>
-
-2.0 History
-
-    2.1 The DOSDIR program
+    1.1 The DOSDIR program
 
         In 1995 I started working for Philips Research in Eindhoven. I
         had to do all my work on HP Unix (HP-UX). I was missing an
@@ -94,14 +69,14 @@ Table of Contents
         Later I installed Linux (RedHat 5.0) on my PC and that became
         my main development platform.
 
-    2.2 The Windows
+    1.2 The Windows
 
         Because eventually most DOS users will migrate to Windows I
         ported wcd to Windows NT. I started with Borland C 4.0, but
         changed soon to the MinGW compiler. The first Win32 port was
         ready in November 1999.
 
-    2.3 The GNU
+    1.3 The GNU
 
         Until wcd 3.2.1 wcd supported many compilers, but from version
         4.0.0 the main focus will be on GNU C compiler and tools. The
@@ -110,85 +85,26 @@ Table of Contents
         Modern features, like Unicode support, can only be supported
         on modern operating systems like Linux or Windows.
 
-3.0 Notes about the source code
 
-    3.1 Operating system support
+2.0 Copyright
 
-        The 16 bit DOS version has been compiled with Borland C/C++
-        4.02, but will also compile with Borland 3. A 16 bit DOS wcd
-        can also be build with the Open Watcom compiler.
 
-        The 32 bit dos versions are compiled with DJGPP and do not use
-        DOSDIR. DJGPP is a mix of DOS/Unix compiler (both 'MSDOS' and
-        'unix' are defined). DOSDIR's dd_findfirst/dd_findnext
-        implementation for Unix is build with opendir/readdir. Using
-        DJGPP's implementation of opendir/readdir to scan a disk is
-        about a factor 100 slower than using findfirst/findnext (with
-        DJGPP 2.01, gcc 2.7.2). Also using DOSDIR's
-        dd_findfirst/dd_findnext for DOS is very slow when it is
-        compiled with DJGPP. It is about a factor 35 slower than using
-        DJGPP's findfirst/findnext. Probably due to a slow stat()
-        function in dd_initstruct(). Using DOSDIR in combination with
-        DJGPP would make scanning the disk very slow. A 32 bit DOS wcd
-        can also be build with the Open Watcom compiler.
+        Copyright (C) 1997-2009 Erwin Waterlander
 
-        The win32 console version is by default compiled with MinGW.
-        Win32 versions can also be compiled with Borland, LCC, Open
-        Watcom and Cygwin. Although Borland 4 can compile wcd with
-        conio interface for windows console, it doesn't work well. The
-        screen gets garbled after exit.
+        This program is free software; you can redistribute it and/or
+        modify it under the terms of the GNU General Public License
+        as published by the Free Software Foundation; either version 2
+        of the License, or (at your option) any later version.
 
-        Wcd for Unix compiles with gcc and with the native system C
-        compilers such as HP-UX cc or SunOS cc.
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
 
-    3.2 Curses support
+        Visit <http://www.gnu.org/copyleft/gpl.html>
 
-        Wcd can optionally have a curse-based interface. Wcd compiles
-        with curses, ncurses and pdcurses. Ncurses is preferred,
-        because of portability and it restores the screen
-        automatically after exit (if possible) and has better support
-        for resizing of the terminal.
 
-        The ncurses (new curses) library is a free software emulation
-        of curses in System V Release 4.0, and more. It uses terminfo
-        format, supports pads and color and multiple highlights and
-        forms characters and function-key mapping, and has all the
-        other SYSV-curses enhancements over BSD curses. The ncurses
-        distribution is available via anonymous FTP at the GNU
-        distribution site ftp://ftp.gnu.org/pub/gnu/ncurses. It is
-        also available at ftp://ftp.clark.net/pub/dickey/ncurses.
-
-        PDCurses is a port of System VR4 curses for multiple
-        platforms. PDCurses has been ported to DOS, OS/2, X11, WIN32
-        and Flexos. A directory containing the port-specific source
-        files exists for each of these platforms. Get it at
-        http://pdcurses.sourceforge.net/
-
-    3.3 DOS DJGPP support
-
-        DJGPP is a project to port the GNU C/C++ compiler to DOS.
-        It includes a shell (bash) and many ported unix utilities.
-        For more information about DJGPP take a look at this
-        internet homepage:   http://www.delorie.com/djgpp/
-
-    3.4 Cygwin support
-
-        Cygwin is a project to port the GNU C/C++ compiler to Windows.
-        It includes a shell (bash) and many ported unix utilities.
-        For more information about Cygwin take a look at this
-        internet homepage:   http://cygwin.com/
-
-    3.5 MingW support
-
-        MinGW is a project to port GNU C/C++ compiler to Windows.
-        internet homepage: http://www.mingw.org/
-
-    3.6 LCC suport
-
-        LCC is a free C compiler for windows. internet homepage:
-        http://www.cs.virginia.edu/~lcc-win32/
-
-    3.7 C3PO data structures
+    2.1 C3PO data structures
 
         Data structures with dynamic memory allocation were created
         with Ondrej Popp's C3PO ( Compiler Compiler Compiler Popp
@@ -197,7 +113,7 @@ Table of Contents
         http://sourceforge.net/projects/c3po/
         email: <ondrejpopp@users.sourceforge.net>
 
-    3.8 DOSDIR
+    2.2 DOSDIR
 
 
         For the DOS-16-bit and the Unix version I use DOSDIR. Only the
@@ -225,7 +141,7 @@ Table of Contents
         DOSDIR can be download from my own homepage
         http://www.xs4all.nl/~waterlan/
 
-    3.9 Recmatch
+    2.3 Recmatch
 
         recmatch() was written by Mark Adler.
 
@@ -244,7 +160,7 @@ Table of Contents
 
            http://www.info-zip.org/
 
-    3.10 Ninux Czo Directory
+    2.4 Ninux Czo Directory
 
         Ideas and source code of NCD (Ninux Czo Directory) have been
         used in the WCD graphical interface.
@@ -262,7 +178,7 @@ Table of Contents
         Olivier Sirol <sirol@ecoledoc.ibp.fr>
         http://www.ibiblio.org/pub/Linux/utils/file/managers/ncd1_205.tgz
 
-    3.11 Miscellaneus bits and pieces
+    2.5 Miscellaneus bits and pieces
 
         wcd_fixpath() is a modified version of _fixpath() Copyright
         (C) 1995-1996 DJ Delorie, see COPYING.DJ for details
@@ -291,7 +207,7 @@ Table of Contents
         for DOS, Windows, OS/2 with native language support. Taken
         from package mingw-catgets.
 
-4.0 Acknowledgements
+3.0 Acknowledgements
 
         Thanks to the following people for giving ideas and/or
         reporting/solving bugs:
@@ -343,14 +259,14 @@ Table of Contents
         Billy Chen          Optional colours in graphical mode (option -K)
         Billy Chen          Less screen movement when navigating in graphical mode.
 
-    4.1 Translators
+    3.1 Translators
 
         Thanks to the following translators:
 
         Jari Aalto                     (Finnish)
         Julio Augusto Freyre-Gonzalez  (Spanish)
 
-    4.2 Works of others used in the program
+    3.2 Works of others used in the program
 
         Thanks to the following people for using their Free software:
 
@@ -365,7 +281,7 @@ Table of Contents
                                           http://www.cl.cam.ac.uk/~mgk25/unicode.html
         Keith Marshall                    nl_langinfo(), for DOS, Windows, OS/2
 
-5.0 Contact and Download information
+4.0 Contact and Download information
 
 
         I can be contacted via E-mail:
