@@ -683,7 +683,7 @@ Replace <PATH> with the location where wcd executable have been installed.
 Start a new PowerShell. Wcd for PowerShell supports only the file system
 provider. No other providers.
 
-=head2 Os/2 console version
+=head2 OS/2 console version
 
 In a OS/2 console an OS/2-program cannot change the current work
 directory. That is why wcd generates a command script (wcdgo.cmd)
