@@ -8,5 +8,6 @@ RedHat RPM package installation
 
 Wcd has by default been configured for bash.
 The wcd function is defined in /etc/bashrc
-For other shells read file INSTALL.unix.txt
+For other shells read the manual section
+INSTALLATION.
 

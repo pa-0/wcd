@@ -283,10 +283,10 @@ wcdgo.bat script.
 
 Quote from John Savill's Windows NT/2000 FAQ (http://www.windows2000faq.com):
 
-``The 'pushd' command automatically maps a drive and navigates to it. If you
+"The 'pushd' command automatically maps a drive and navigates to it. If you
 run the 'net use' command after you run pushd, you'll see a new drive mapping.
 After you're done working in the UNC location, use the 'popd' command to
-navigate back to your original network location before you ran 'pushd'.''
+navigate back to your original network location before you ran 'pushd'."
 
 Options -S, -A and -E can also work on servernames. For instance:
 

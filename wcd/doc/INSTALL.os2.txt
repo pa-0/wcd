@@ -31,5 +31,5 @@ See manual page section LOCALIZATION.
 OS/2 USAGE
 ----------
 
-See manual page section INSTALLATION and topic "Os/2 console version" how
+See manual page section INSTALLATION and topic "OS/2 console version" how
 to use wcd.
