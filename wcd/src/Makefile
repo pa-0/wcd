@@ -68,6 +68,11 @@ INSTALL_SUID	= $(INSTALL) -m 4755
 
 INSTALL_OBJS_BIN   = $(BIN)
 INSTALL_OBJS_MAN1  = man/man1/wcd.1
+INSTALL_OBJS_DOC_INSTALL = \
+  ../doc/INSTALL.unix.txt \
+  ../doc/INSTALL.dos_windows.txt \
+  ../doc/INSTALL.os2.txt \
+  ../doc/INSTALL.rpm.txt \
 # Documents for end users, not for developers:
 INSTALL_OBJS_DOC   = \
   ../doc/copying.txt \
@@ -77,14 +82,11 @@ INSTALL_OBJS_DOC   = \
   ../doc/$(PACKAGE).pdf \
   ../doc/$(PACKAGE).html \
   ../doc/whatsnew.txt \
-  ../doc/INSTALL.dos_windows.txt \
-  ../doc/INSTALL.unix.txt \
-  ../doc/INSTALL.os2.txt \
-  ../doc/INSTALL.rpm.txt \
   ../doc/README.txt \
   ../doc/problems.txt \
   ../doc/translate.txt \
-  ../doc/todo.txt
+  ../doc/todo.txt \
+  $(INSTALL_OBJS_DOC_INSTALL)
 
 POT		= po/$(PACKAGE).pot
 POFILES		= $(wildcard po/*.po)
