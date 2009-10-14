@@ -1,22 +1,24 @@
+File list
 
-README.txt                   : This file.
-README.sourcecode.txt        : Notes about the source code.
-BUILD.dos_windows.txt        : How to build wcd for DOS and Windows.
-BUILD.dos_windows.intl.txt   : How to build wcd for DOS and Windows with
-                               native language support.
-INSTALL.dos_windows.txt      : How to install wcd on DOS and Windows.
-INSTALL.unix.txt             : How to build and install wcd for unix.
-INSTALL.os2.txt              : How to install wcd for OS/2 Warp.
-INSTALL.rpm.txt              : How to install wcd using an rpm package.
-wcd.txt                      : Manual, text format.
-wcd.ps                       : Manual, PostScript format.
-wcd.pdf                      : Manual, PDF format.
-wcd.html                     : Manual, HTML format.
-faq.txt                      : Frequently Asked Questions.
-translate.txt                : How to translate wcd.
-copying.txt                  : distribution license.
-problems.txt                 : Known problems.
-todo.txt                     : Things to do.
+    README.txt                   : This file.
+    README.sourcecode.txt        : Notes about the source code.
+    BUILD.dos_windows.txt        : How to build wcd for DOS and Windows.
+    BUILD.dos_windows.intl.txt   : How to build wcd for DOS and Windows with
+                                   native language support.
+    INSTALL.dos_windows.txt      : How to install wcd on DOS and Windows.
+    INSTALL.unix.txt             : How to build and install wcd for Unix.
+    INSTALL.os2.txt              : How to install wcd for OS/2 Warp.
+    INSTALL.rpm.txt              : How to install wcd using an rpm package.
+    wcd.txt                      : Manual, text format.
+    wcd.ps                       : Manual, PostScript format.
+    wcd.pdf                      : Manual, PDF format.
+    wcd.html                     : Manual, HTML format.
+    whatsnew.txt                 : Change log.
+    faq.txt                      : Frequently Asked Questions.
+    translate.txt                : How to translate wcd.
+    copying.txt                  : distribution license.
+    problems.txt                 : Known problems.
+    todo.txt                     : Things to do.
 
 
 Table of Contents
@@ -31,7 +33,7 @@ Table of Contents
            2.2 DOSDIR
            2.3 Recmatch
            2.4 Ninux Czo Directory
-           2.5 Miscellaneus bits and pieces
+           2.5 Miscellaneous bits and pieces
 
        3.0 Acknowledgements
            3.1 Translators
@@ -178,7 +180,7 @@ Table of Contents
         Olivier Sirol <sirol@ecoledoc.ibp.fr>
         http://www.ibiblio.org/pub/Linux/utils/file/managers/ncd1_205.tgz
 
-    2.5 Miscellaneus bits and pieces
+    2.5 Miscellaneous bits and pieces
 
         wcd_fixpath() is a modified version of _fixpath() Copyright
         (C) 1995-1996 DJ Delorie, see COPYING.DJ for details

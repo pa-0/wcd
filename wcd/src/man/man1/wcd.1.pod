@@ -342,9 +342,8 @@ bash or ksh:
         cd "$($HOME/bin/wcd.exe -j $*)"
     }
 
-When you are using a very old shell or a non POSIX compliant shell that
-doesn't support "$()" command substitution you have to use old style
-command substitution with backquotes.
+When you are using an old shell that doesn't support "$()" command substitution
+you have to use old style command substitution with backquotes.
 
     wcd ()
     {
