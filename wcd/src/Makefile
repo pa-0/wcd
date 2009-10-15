@@ -35,6 +35,10 @@
 #
 #	    make CPP_FLAGS_WCD="-Ddos" man
 #
+#       In order to clean generated POD file:
+#
+#           make distclean
+
 
 ifneq (,)
 This makefile requires GNU Make.
@@ -409,12 +413,17 @@ clean:
 		*/*~ \
 		*/*/*.bak \
 		*/*/*~ \
-		*.stackdump \
-		man/man1/wcd.1.pod
+		*.stackdump
 
 distclean: clean
+	rm -f man/man1/wcd.1.pod
 
 realclean: clean
+	rm -f \
+	  man/man1/wcd.1.pod \
+	  man/man1/wcd.1 \
+	  $(DOCFILES) \
+	  $(MOFILES)
 
 install-etc:
 	# install-etc: Nothing yet
