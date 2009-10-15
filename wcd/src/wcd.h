@@ -70,10 +70,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #  endif /* ?MSDOS */
 #endif /* ?VMS */
 
-#ifdef MSDOS
-# define LIST_SEPARATOR ";"
-#else
+#if (defined(UNIX) || defined(WCD_WINZSH) || defined(WCD_DOSBASH) || defined(WCD_OS2BASH))
 # define LIST_SEPARATOR ":"
+#else
+# define LIST_SEPARATOR ";"
 #endif
 
 #if defined(MSDOS) || defined(VMS)

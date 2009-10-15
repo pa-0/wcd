@@ -12,6 +12,8 @@
   - Man page generation from Perl POD file instead of ROFF. (thanks to Jari Aalto).
   - Man page in HTML format.
   - Reformat README file (thanks to Jari Aalto).
+  - List separators for WCDFILTER, WCDBAN, and WCDEXCLUDE depend on shell type, not on DOS vs Unix.
+  - Conditonal text in manual. DOS or Unix specific text can be stripped out. (thanks to Jari Aalto).
 
 5.0.4 Jul 21 2009
   - Added Spanish language file (thanks to Julio Augusto Freyre-Gonzalez).

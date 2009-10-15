@@ -16,6 +16,25 @@
 #	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 #	General Public License for more details at
 #	Visit <http://www.gnu.org/copyleft/gpl.html>.
+#
+#   Description
+#
+#	This is a GNU Makefile that uses GNU compilers, linkers and cpp. The
+#	platform specific issues are determined by the various OS teets that
+#	rely on the uname(1) command and directory locations.
+#
+#   Developer notes
+#
+#	The documentation default is set for DOS and Unix.
+#
+#       In order to generate documentation for Unix only, use:
+#
+#	    make CPP_FLAGS_WCD="-Dunix" man
+#
+#       In order to generate documentation for DOS/Windows only, use:
+#
+#	    make CPP_FLAGS_WCD="-Ddos" man
+#
 
 ifneq (,)
 This makefile requires GNU Make.
@@ -70,8 +89,6 @@ INSTALL_OBJS_BIN   = $(BIN)
 INSTALL_OBJS_MAN1  = man/man1/wcd.1
 INSTALL_OBJS_DOC_INSTALL = \
   ../doc/INSTALL.unix.txt \
-  ../doc/INSTALL.dos_windows.txt \
-  ../doc/INSTALL.os2.txt \
   ../doc/INSTALL.rpm.txt \
 # Documents for end users, not for developers:
 INSTALL_OBJS_DOC   = \
@@ -93,7 +110,11 @@ POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf ../doc/$(PACKAGE).html
 
-VERSIONSUFFIX = -bin
+CPP		= cpp
+CPP_FLAGS_WCD	= ALL
+
+VERSIONSUFFIX	= -bin
+
 ifdef UCS
 ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.zip
 TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.tar.gz
@@ -317,6 +338,13 @@ $(BIN): $(OBJS1)
 $(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
+man/man1/wcd.1.pod : man/man1/wcd.1.pod.in
+ifeq ($(CPP_FLAGS_WCD),ALL)
+	sed -e '/#ifdef/d' -e '/#endif/d' -e '/#define/d' -e '/^\/\*/d' -e '/^\*\//d' -e 's/WILDSTAR()/*/g' $< > $@
+else
+	$(CPP) -traditional-cpp -P -fno-show-column $(CPP_FLAGS_WCD) $< > $@
+endif
+
 man/man1/wcd.1 : man/man1/wcd.1.pod
 	$(MAKE) -C man/man1
 
@@ -328,6 +356,19 @@ man/man1/wcd.1 : man/man1/wcd.1.pod
 
 ../doc/$(PACKAGE).html : man/man1/wcd.1.pod
 	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
+
+
+pod: man/man1/wcd.1.pod
+
+man: man/man1/wcd.1
+
+html: ../doc/$(PACKAGE).html
+
+txt: ../doc/$(PACKAGE).txt
+
+ps: ../doc/$(PACKAGE).ps
+
+pdf: ../doc/$(PACKAGE).pdf
 
 mofiles: $(MOFILES)
 
@@ -368,7 +409,8 @@ clean:
 		*/*~ \
 		*/*/*.bak \
 		*/*/*~ \
-		*.stackdump
+		*.stackdump \
+		man/man1/wcd.1.pod
 
 distclean: clean
 
@@ -414,5 +456,6 @@ uninstall:
 	-rm -rf $(DOCDIR)
 
 .PHONY: status uninstall install install-doc dist dist-zip dist-tgz
+.PHONY: man pod ps txt html pdf
 
 # End of file
