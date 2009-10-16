@@ -2,7 +2,7 @@ PREREQUISITES
 
 	* gcc       : GNU C compiler
 	* make      : GNU make
-	* sh        : Bourne type shell
+	* sh        : POSIX type shell
 	* coreutils : GNU core utilities package (chmod, install, mkdir, mv, rm, uname)
 	* gettext   : Framework to help GNU packages produce multi-lingual messages. (optional)
 	* ncurses   : CRT screen handling and optimization package. (optional)
@@ -186,10 +186,8 @@ PORTABILITY
 
 SHELL INTEGRATION
 
-	See manual page section "INSTALLATION" and topic Install for
-	Bourne-alike shells" how to configure the shell to use the
-	program.
-	It is required to configure your shell, otherwise wcd cannot
-	work.
+	See manual page section "INSTALLATION" how to configure the shell to
+	use the program.  It is required to configure your shell, otherwise wcd
+	cannot work.
 
 End of file

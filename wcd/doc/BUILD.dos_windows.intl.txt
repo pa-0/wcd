@@ -10,7 +10,7 @@ Prerequisites
 
 * gcc       : GNU C compiler
 * make      : GNU make
-* sh        : Bourne type shell
+* sh        : POSIX type shell
 * coreutils : GNU core utilities package
 * gettext   : Framework to help GNU packages produce multi-lingual messages.
 * libiconv  : Character set conversion library.
@@ -65,7 +65,7 @@ GnuWin32: http://gnuwin32.sourceforge.net/
 sh
 ==
 
-A Bourne type shell. A copy of Bash or Zsh will do.
+A POSIX type shell. A copy of Bash or Zsh will do.
 
 GNU make may not work as expected if you don't have a proper shell installed.
 You can choose a shell for GNU Make by setting the environment variable SHELL.
@@ -83,7 +83,7 @@ MINGW without MSYS
 
 You can build wcd in a normal windows command prompt, using the MINGW gcc
 compiler without the MSYS environment. For this you need GNU make, the
-coreutils package and a Bourne like shell that works in the windows command
+coreutils package and a POSIX type shell that works in the windows command
 prompt.
 
 Get GNU Make and the coreutils package from the GnuWin32 project.

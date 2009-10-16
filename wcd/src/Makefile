@@ -29,11 +29,11 @@
 #
 #       In order to generate documentation for Unix only, use:
 #
-#	    make CPP_FLAGS_WCD="-Dunix" man
+#	    make CPP_FLAGS_POD="-Dunix" man
 #
 #       In order to generate documentation for DOS/Windows only, use:
 #
-#	    make CPP_FLAGS_WCD="-Ddos" man
+#	    make CPP_FLAGS_POD="-Ddos" man
 #
 #       In order to clean generated POD file:
 #
@@ -115,7 +115,7 @@ MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf ../doc/$(PACKAGE).html
 
 CPP		= cpp
-CPP_FLAGS_WCD	= ALL
+CPP_FLAGS_POD	= ALL
 
 VERSIONSUFFIX	= -bin
 
@@ -343,10 +343,16 @@ $(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
 man/man1/wcd.1.pod : man/man1/wcd.1.pod.in
-ifeq ($(CPP_FLAGS_WCD),ALL)
-	sed -e '/#ifdef/d' -e '/#endif/d' -e '/#define/d' -e '/^\/\*/d' -e '/^\*\//d' -e 's/WILDSTAR()/*/g' $< > $@
+ifeq ($(CPP_FLAGS_POD),ALL)
+	sed 	-e '/#ifdef/d' \
+		-e '/#endif/d' \
+		-e '/#define/d' \
+		-e '/^\/\*/d' \
+		-e '/^\*\//d' \
+		-e 's/WILDSTAR()/*/g' \
+		$< > $@
 else
-	$(CPP) -traditional-cpp -P -fno-show-column $(CPP_FLAGS_WCD) $< > $@
+	$(CPP) -traditional-cpp -P -fno-show-column $(CPP_FLAGS_POD) $< > $@
 endif
 
 man/man1/wcd.1 : man/man1/wcd.1.pod
