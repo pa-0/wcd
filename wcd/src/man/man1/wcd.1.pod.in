@@ -517,15 +517,13 @@ off with the B<-t> option.
 Scan treedata file of another user based on I<USER>, do not scan your own default
 treedata file. See also section ENVIRONMENT for I<WCDUSERSHOME>.
 
-#ifdef unix
-On Unix the base directory
+On Unix/Cygwin the base directory
 for user home directories is assumed to be C</home>, so wcd tries to scan
-C</home/USERNAME/.treedata.wcd>.
-#endif
+C</home/USER/.treedata.wcd>.
 #ifdef dos
 On DOS/Windows the base directory for user
 home directories is assumed to be C<\\users>, so wcd tries to scan
-C<\\users\<username>\treedata.wcd>.
+C<\\users\USER\treedata.wcd>.
 #endif
 
 =item B<+u USER>
@@ -1151,9 +1149,7 @@ Set the base of home directories.
 #ifdef dos
 On DOS/Windows the default value is C<\\users>.
 #endif
-#ifdef unix
 On Unix/Cygwin the default value is C</home>.
-#endif
 This variable is used to scan treedata files of other users. See also
 options B<-u> an B<+u>. In verbose mode wcd will print all filters,
 bans and excludes. See option B<-v>.
