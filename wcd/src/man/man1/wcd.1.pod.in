@@ -73,8 +73,8 @@ See section INSTALLATION how to setup wcd for personal use.
 By default (if no wildcards are used) wcd searches for a directory with a
 name that begins with the typed name.
 
-For instance this command will change to directory
-C</home/waterlan/Desktop>:
+For instance this command will change to directory to the current user's
+C</home/user/Desktop>:
 
     wcd Desk
 
@@ -218,11 +218,9 @@ Scan directory tree from PATHNAME and append to the default treedata
 file. Examples:
 
     wcd -A .
-
-#ifdef dos
-
-    wcd -A d: -A e: -A \\server\share
     wcd -A /home -A /etc
+#ifdef dos
+    wcd -A d: -A e: -A \\server\share
 
 On Windows one can scan all shared directories of a Windows LAN server by
 typing something like: C<wcd -A \\servername>.
@@ -376,10 +374,14 @@ you have to use old style command substitution with backquotes.
         cd "`$HOME/bin/wcd.exe -j $*`"
     }
 
+#ifdef dos
+
 On windows systems, if one is running 4NT shell, one could make the
 following alias:
 
     alias wcd `cd %@execstr[wcdwin32.exe -z 0 -j %1]`
+
+#endif
 
 This method eliminates the need of the go-script, so one can use option B<-GN>
 in combination with B<-j>.
@@ -472,19 +474,22 @@ remove the directories from the treedata file.
 =item B<-S DIR>
 
 Scan directory tree from DIR and overwrite the default treedata file.
+See also options B<-A>, B<-s> and B<-E>. E.g. with option B<-A> you
+can create a default treedata file of your choice. Examples:
 
-    Examples:
-    wcd -S c:/
+Unix:
     wcd -S /
-
-See also options B<-A>, B<-s> and B<-E>. Together with option B<-A> you can
-create a default treedata file of your choice.
-
-    wcd -S c: -A d: -A \\server\share
     wcd -S /home -A /etc -A /usr
+
+#ifdef dos
+DOS/Windows:
+    wcd -S c:/
+    wcd -S c: -A d: -A \\server\share
 
 With the Windows versions one can scan all shared directories of a Windows
 LAN server by typing something like: C<wcd -S \\servername>.
+
+#endif
 
 =item B<+S DIR>
 
@@ -705,7 +710,7 @@ click on the command prompt icon and select I<Run as administrator>.
 
 Add the following function to your PowerShell user profile. The location of
 this profile is stored in the $profile variable. It is required that
-environment variable HOME or WCDHOME is defined.
+environment variable I<HOME> or I<WCDHOME> is defined.
 
     function wcd
     {
@@ -778,9 +783,17 @@ If you have installed wcd in a different directory than the default
 directory you may need to set the environment variable I<WCDLOCALEDIR> to
 point to the locale directory.
 
-An example of windows cmd:
+#ifdef dos
+
+An example for windows cmd:
 
     set WCDLOCALEDIR=c:/my_prefix/share/locale
+
+#endif
+
+An example for a POSIX shell:
+
+    export WCDLOCALEDIR=$HOME/share/locale
 
 =item B<LC_COLLATE>
 
@@ -843,10 +856,10 @@ console.
 
 =item B<UNICODE>
 
-Wcd can support UTF-8 Unicode on Unix/Linux and UTF-16 on Windows. To see
-if wcd was built with Unicode support type C<wcd -V>. If your
-terminal/console and font supports it, you should see the euro symbol and
-Chinese characters (meaning: "Chinese").
+Wcd has optional support for Unicode. To see if wcd was built with Unicode support
+type C<wcd -V>. If your terminal/console and font supports it, you
+should see the euro symbol and Chinese characters (meaning:
+"Chinese").
 
 Wcd has been I<soft> converted to Unicode. In its core wcd handles all data
 as a stream of bytes. Only the lines printed to screen are on the fly
@@ -1021,11 +1034,11 @@ Wcd uses environment variable HOME to determine where to store its files.
 See also section FILES. Environment variable I<WCDHOME> overrides I<HOME>. If
 both I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead of I<HOME>.
 
+#ifdef dos
+
 For the Unix, Cygwin, Windows PowerShell and Windows MSYS/ZSH version
 it is required that I<HOME> or I<WCDHOME> is set. For the other
 versions of wcd the use of these variables is optional.
-
-#ifdef dos
 
 If HOME is set on DOS/Windows, wcd will place all its files
 (treedata.wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) in directory
@@ -1055,16 +1068,17 @@ and C</usr/share/terminfo>.
 Wcd with PDCurses interface recognizes the environment variable
 I<PDC_RESTORE_SCREEN>. If this environment variable is set, PDCurses
 will take a copy of the contents of the screen at the time that wcd is
-started; when wcd exits, the screen will be restored. One can set this
-variable e.g. in C<AUTOEXEC.BAT>. Example:
+started; when wcd exits, the screen will be restored.
+#ifdef dos
+This variable can be set e.g. in C<AUTOEXEC.BAT>. An example:
 
     set PDC_RESTORE_SCREEN=1
-
-For Cygwin this would be C<export PDC_RESTORE_SCREEN=1>.
 
 Windows allows only a small buffer to be saved. So it is not always
 possible to restore everything. Some garbage data may be printed in
 the console after wcd exists if you have set a large buffer width.
+
+#endif
 
 =item B<SHELL>
 
@@ -1141,9 +1155,12 @@ An example for Csh type shells:
 =item B<WCDUSERSHOME>
 
 With this variable one can set the base directory where the users home
-directories are. If this variable is not set wcd will assume C</home> on Unix,
-and C<\\users> on DOS/Windows. This variable is used to scan treedata files
-of other users. See also options B<-u> an B<+u>.
+directories are. If this variable is not set wcd will assume
+#ifdef dos
+C<\\users> on DOS/Windows and
+#endif
+C</home> on Unix, This variable is used to scan treedata files of
+other users. See also options B<-u> an B<+u>.
 
 Set the base of home directories.
 #ifdef dos
@@ -1168,7 +1185,7 @@ ncurses(1),
 
 =head1 AUTHORS
 
-Program was written by Erwin Waterlander <waterlan@xs4all.nl>
+Wcd was written by Erwin Waterlander <waterlan@xs4all.nl>
 
 Project homepage:
 L<http://www.xs4all.nl/~waterlan/>
@@ -1181,5 +1198,9 @@ L<http://freshmeat.net/projects/wcd/>
 
 The manual page formatting was provided by Jari Aalto
 <jari.aalto@cante.net>.
+
+NCD was originally written by Brad Kingsbury for Peter Norton's
+"Norton Utilities" around 1987. See also
+L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>
 
 =cut
