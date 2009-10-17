@@ -54,7 +54,7 @@ chdir for DOS and Unix
 
 =head2 Overview
 
-Wcd. Directory changer for DOS and Unix. Another Norton Change Directory
+Wcd is a directory changer for DOS and Unix. Another Norton Change Directory
 (NCD) clone with more features.
 
 Wcd is a program to change directory fast. It saves time typing at the
@@ -64,7 +64,7 @@ allows aliasing and banning of directories. Wcd also includes a full screen
 interactive directory browser with speed search.
 
 Wcd supports 8 bit character sets on all systems, and has optional
-support for Unicode. See section I<LOCALIZATION>.
+support for Unicode. See section LOCALIZATION.
 
 See section INSTALLATION how to setup wcd for personal use.
 
@@ -212,9 +212,9 @@ interface.
 
 =over 4
 
-=item B<-A PATHNAME>
+=item B<-A PATH>
 
-Scan directory tree from PATHNAME and append to the default treedata
+Scan directory tree from PATH and append to the default treedata
 file. Examples:
 
     wcd -A .
@@ -302,7 +302,7 @@ Read treedata FILE in addition to the default treedata file.
 
 =item B<-G DIR>
 
-Set DIR of go-script.
+Set directory path of go-script equal to DIR.
 
 =item B<-GN>
 
@@ -519,7 +519,7 @@ off with the B<-t> option.
 
 =item B<-u USER>
 
-Scan treedata file of another user based on I<USER>, do not scan your own default
+Scan treedata file of another user based on USER, do not scan your own default
 treedata file. See also section ENVIRONMENT for I<WCDUSERSHOME>.
 
 On Unix/Cygwin the base directory
@@ -533,7 +533,7 @@ C<\\users\USER\treedata.wcd>.
 
 =item B<+u USER>
 
-Read default treedata file of I<USER> in addition to your own treedata
+Read default treedata file of USER in addition to your own treedata
 file.
 
 =item B<-V, --version>
