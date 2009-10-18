@@ -446,14 +446,14 @@ install-mo: $(MOFILES)
 install-doc: $(DOCFILES)
 	# install-doc
 	$(MKDIR) -p $(DOCDIR)
-	chmod 755 $(DOCDIR)
+	-chmod 755 $(DOCDIR)
 	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DOCDIR)
 
 install-man: $(INSTALL_OBJS_MAN1)
 	# install-man
 	#$(INSTALL_BIN) -d $(MANDIR1)
 	$(MKDIR) -p $(MANDIR1)
-	chmod 755 $(MANDIR1)
+	-chmod 755 $(MANDIR1)
 	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(MANDIR1)
 
 install-bin: $(BIN)
