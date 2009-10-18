@@ -61,7 +61,12 @@ Wcd is a program to change directory fast. It saves time typing at the
 keyboard. One needs to type only a part of a directory name and wcd will
 jump to it. Wcd has a fast selection method in case of multiple matches and
 allows aliasing and banning of directories. Wcd also includes a full screen
-interactive directory browser with speed search.
+interactive directory tree browser with speed search.
+
+Wcd has been ported to many different command-line shells: DOS command.com,
+Windows cmd.exe and PowerShell, OS/2 cmd.exe, and Unix shells such as Bourne
+(sh), Bourne Again (bash), Korn (ksh), Z (zsh), and C (csh) shell and others
+running on any operating system. 
 
 Wcd supports 8 bit character sets on all systems, and has optional
 support for Unicode. See section LOCALIZATION.
@@ -132,7 +137,7 @@ E.g.:
 If no wildcards are used and wcd finds a perfect match, wcd will ignore all
 wild matches by default. This behaviour can be changed with the B<-w> option.
 
-The interactive directory browser can be started by using option B<-g>.
+The interactive directory tree browser can be started by using option B<-g>.
 
     wcd -g
 
@@ -145,7 +150,7 @@ Wcd can also change to directories that are not in the treedata file. E.g.:
 
     wcd ..
 
-If wcd found a match but cannot change to the directory it tries to remove
+If wcd found a match but can't change to the directory it tries to remove
 it from the default treedata file. Not from the extra treedata file. See
 also option B<-k>.
 
@@ -200,9 +205,9 @@ will be restored after exiting. One who prefers to type numbers can use the
 B<-N> option.
 
 The third interface is built with the curses library. It is similar to the
-conio interface. The curses version of wcd has also an additional graphical
+conio interface. The curses version of wcd has also an additional 'graphical'
 interface. It lets the user select a directory via a full screen
-interactive directory browser. It has a vim(1) like navigation and search
+interactive directory tree browser. It has a vim(1) like navigation and search
 method. It can be activated with option B<-g>.
 
 By using the B<-o> option one can always fall back to the stdin/stdout
@@ -313,20 +318,20 @@ option B<-j> if one does not want wcd to create a go-script.
 
 Graphical interface (only in version with curses interface).
 
-Wcd starts a textual curses based I<graphical> interface. The user can
-select a directory via a full-screen interactive directory browser. It has
+Wcd starts a textual curses based 'graphical' interface. The user can
+select a directory via a full-screen interactive directory tree browser. It has
 a vim(1) like navigation and search method.
 
 If no search string is given wcd presents the whole tree which is in the
 default treedata file and the extra treedata files.
 
-If a search string is given the match list is presented as a graphical
+If a search string is given the match list is presented as a directory
 tree.
 
 =item B<-ga>
 
 Graphical interface with alternative way of navigating. With this option
-one cannot jump to unrelated directories.
+one can't jump to unrelated directories.
 
 =item B<-gd>
 
@@ -394,9 +399,9 @@ Use colors in graphical mode.
 
 Keep paths.
 
-Keep paths in treedata when wcd cannot change to them. The default
+Keep paths in treedata when wcd can't change to them. The default
 behaviour of wcd is that it tries to remove paths from the treedata when
-wcd cannot change to them. With this option this behaviour is turned off.
+wcd can't change to them. With this option this behaviour is turned off.
 
 =item  B<-l ALIAS>
 
@@ -695,7 +700,7 @@ Reload the shell initialization files or start new shell.
 =head2 Win32 console version
 
 In a Windows NT/XP/Vista console (Command prompt) a win32-program
-cannot change the current work directory (although a DOS-program can).
+can't change the current work directory (although a DOS-program can).
 That is why wcd generates a batch script (C<wcdgo.bat>) which must be
 executed in the current shell.
 
@@ -724,7 +729,7 @@ provider. No other providers.
 
 =head2 OS/2 console version
 
-In a OS/2 console an OS/2-program cannot change the current work
+In a OS/2 console an OS/2-program can't change the current work
 directory. That is why wcd generates a command script (wcdgo.cmd)
 which must be executed in the current shell. The script C<wcd.cmd>
 first executes C<wcdos2.exe>, which creates the C<wcdgo.cmd> script.
@@ -1086,7 +1091,7 @@ Printing of C<#!$SHELL> on the first line of the go-script for POSIX
 type shell or C shell is needed for 8 bit characters. Some shells
 otherwise think that the go-script is a binary file and will not
 source it. In Cygwin Bash the variabel I<SHELL> must be set in
-environtment using the C<export> command, otherwise wcd cannot see the
+environtment using the C<export> command, otherwise wcd can't read the
 variable.
 
 #ifdef dos
@@ -1095,7 +1100,7 @@ variable.
 
 Wcd for DOS bash uses C<$BASH> instead of C<$SHELL>, because C<$SHELL>
 points to the DOS command shell. One may need to define C<$BASH> with
-an C<export> command, otherwise wcd cannot read the variable.
+an C<export> command, otherwise wcd can't read the variable.
 
 #endif
 

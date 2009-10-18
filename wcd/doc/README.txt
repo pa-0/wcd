@@ -24,9 +24,6 @@ File list
 Table of Contents
 
        1.0 History
-           1.1 The DOSDIR program
-           1.2 The Windows
-           1.3 The GNU
 
        2.0 Copyright
            2.1 C3PO data structures
@@ -42,8 +39,6 @@ Table of Contents
        4.0 Contact and Download information
 
 1.0 History
-
-    1.1 The DOSDIR program
 
         In 1995 I started working for Philips Research in Eindhoven. I
         had to do all my work on HP Unix (HP-UX). I was missing an
@@ -71,19 +66,17 @@ Table of Contents
         Later I installed Linux (RedHat 5.0) on my PC and that became
         my main development platform.
 
-    1.2 The Windows
-
         Because eventually most DOS users will migrate to Windows I
         ported wcd to Windows NT. I started with Borland C 4.0, but
         changed soon to the MinGW compiler. The first Win32 port was
         ready in November 1999.
-
-    1.3 The GNU
+        The DOS 32 bit version still stayed the most popular version for
+        a long time. In 2003 the Windows NT port became most popular.
 
         Until wcd 3.2.1 wcd supported many compilers, but from version
-        4.0.0 the main focus will be on GNU C compiler and tools. The
-        DOS 16 bit version cannot keep up. It runs out of memory and
-        GNU libraries for native language support are not available.
+        4.0.0 (Sep 6 2008) the main focus will be on GNU C compiler and
+        tools. The DOS 16 bit version cannot keep up. It runs out of memory
+        and GNU libraries for native language support are not available.
         Modern features, like Unicode support, can only be supported
         on modern operating systems like Linux or Windows.
 
