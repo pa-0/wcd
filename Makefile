@@ -17,7 +17,15 @@ release:
 	cd ${RELEASE_DIR}/src ; ${MAKE} docfiles mofiles
 	# Create package in DOS text format.
 	cd ${RELEASE_DIR}/misc ; ${MAKE} -f unix2dos.mk
+	# Unix2dos does not keep original dates.
+	# Touch .pot file, this is already up to date.
+	sleep 2
+	cd ${RELEASE_DIR_SHORT}/src/po ; touch *.pot
+	# Touch .po files, they are already up to date.
+	sleep 2
+	cd ${RELEASE_DIR_SHORT}/src/po ; touch *.po
 	# Touch .mo files, they are already up to date.
+	sleep 2
 	cd ${RELEASE_DIR_SHORT}/src/po ; touch *.mo
 	cd .. ; tar cvzf wcd-${VERSION}-src.tar.gz wcd-${VERSION}
 	cd .. ; rm -f wcd${VERSION_SHORT}s.zip
