@@ -6,7 +6,7 @@ CC = bcc +WCD.CFG
 TASM = TASM
 TLIB = tlib
 TLINK = tlink
-LIBPATH = C:\BC4\LIB
+LIBPATH = C:\BC4\LIB;
 INCLUDEPATH = ..\SRC;..\SRC\C3PO;C:\BC4\INCLUDE
 
 
@@ -61,25 +61,25 @@ cl.lib
 
 
 #		*Individual File Dependencies*
-display.obj: pdcurses.cfg ..\src\display.c 
+display.obj: wcd.cfg ..\src\display.c 
 	$(CC) -c ..\src\display.c
 
-dosdir.obj: pdcurses.cfg ..\src\dosdir.c 
+dosdir.obj: wcd.cfg ..\src\dosdir.c 
 	$(CC) -c ..\src\dosdir.c
 
-match.obj: pdcurses.cfg ..\src\match.c 
+match.obj: wcd.cfg ..\src\match.c 
 	$(CC) -c ..\src\match.c
 
-stack.obj: pdcurses.cfg ..\src\stack.c 
+stack.obj: wcd.cfg ..\src\stack.c 
 	$(CC) -c ..\src\stack.c
 
-wcd.obj: pdcurses.cfg ..\src\wcd.c 
+wcd.obj: wcd.cfg ..\src\wcd.c 
 	$(CC) -c ..\src\wcd.c
 
-wfixpath.obj: pdcurses.cfg ..\src\wfixpath.c 
+wfixpath.obj: wcd.cfg ..\src\wfixpath.c 
 	$(CC) -c ..\src\wfixpath.c
 
-wcddir.obj: pdcurses.cfg ..\src\wcddir.c 
+wcddir.obj: wcd.cfg ..\src\wcddir.c 
 	$(CC) -c ..\src\wcddir.c
 
 command.obj: wcd.cfg ..\src\c3po\command.c 
