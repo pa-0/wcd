@@ -54,8 +54,9 @@ chdir for DOS and Unix
 
 =head2 Overview
 
-Wcd is a directory changer for DOS and Unix. Another Norton Change Directory
-(NCD) clone with more features.
+Wcd is a command-line directory changer for DOS and Unix. Wcd was modeled after
+Norton Change Directory (NCD). NCD appeared first in
+I<The Norton Utilities, Release 4>, for DOS in 1987, published by Peter Norton.
 
 Wcd is a program to change directory fast. It saves time typing at the
 keyboard. One needs to type only a part of a directory name and wcd will
@@ -63,7 +64,7 @@ jump to it. Wcd has a fast selection method in case of multiple matches and
 allows aliasing and banning of directories. Wcd also includes a full screen
 interactive directory tree browser with speed search.
 
-Wcd has been ported to many different command-line shells: DOS command.com,
+Wcd has been ported to different command-line shells: DOS command.com,
 Windows cmd.exe and PowerShell, OS/2 cmd.exe, and Unix shells such as Bourne
 (sh), Bourne Again (bash), Korn (ksh), Z (zsh), and C (csh) shell and others
 running on any operating system. 

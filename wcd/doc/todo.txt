@@ -24,7 +24,7 @@ TO DO
 
 I always kept this in mind while developing wcd:
 * keep it simple.
-  Although wcd has many features it should still be usable by by novice users.
+  Wcd has to stay usable by by novice users.
 * wcd is a directory changer.
   The main goal is to change directory with a minimal amount of keystrokes.
   Don't change wcd into a directory/file manager.

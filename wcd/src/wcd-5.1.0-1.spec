@@ -10,7 +10,7 @@ Packager: Erwin Waterlander <waterlan@xs4all.nl>
 
 %description
 Wcd.   Directory changer for DOS and Unix.  Another Norton
-Change Directory (NCD) clone with more features.
+Change Directory (NCD) clone.
 
 Wcd is a program to change directory fast. It  saves  time
 typing at the keyboard. One needs to type only a part of a
