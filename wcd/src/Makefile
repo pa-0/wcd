@@ -436,29 +436,22 @@ install-etc:
 	# $(INSTALL_BIN) -d $(ETCDIR)
 	# $(INSTALL_BIN)    $(INSTALL_OBJS_ETC) $(ETCDIR)
 
-# Old (non-GNU) versions of install(1) don't support option -d. Use
-# mkdir instead. Was seen on HP-UX 11.
+# Old versions of install(1) don't support option -D. Use
+# mkdir instead. Was seen on HP-UX 11 and DOS DJGPP.
 
 install-mo: $(MOFILES)
-	# install-mo
-	$(foreach mofile, $(MOFILES), $(INSTALL) -D -m 644 $(mofile) $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
+	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 
 install-doc: $(DOCFILES)
-	# install-doc
-	$(MKDIR) -p $(DOCDIR)
-	-chmod 755 $(DOCDIR)
+	$(MKDIR) -p -m 755 $(DOCDIR)
 	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DOCDIR)
 
 install-man: $(INSTALL_OBJS_MAN1)
-	# install-man
-	#$(INSTALL_BIN) -d $(MANDIR1)
-	$(MKDIR) -p $(MANDIR1)
-	-chmod 755 $(MANDIR1)
+	$(MKDIR) -p -m 755 $(MANDIR1)
 	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(MANDIR1)
 
 install-bin: $(BIN)
-	# install-bin
-	#$(INSTALL_BIN) -d $(BINDIR)
 	$(MKDIR) -p $(BINDIR)
 	$(INSTALL_BIN) $(INSTALL_OBJS_BIN) $(BINDIR)
 
