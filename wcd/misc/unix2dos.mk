@@ -10,7 +10,10 @@ unix2dos:
 	cd ../../${DOSVERSION}/src ; unix2dos *.h *.c Makefile *.mk
 	cd ../../${DOSVERSION}/src/c3po ; unix2dos *
 	cd ../../${DOSVERSION}/src/patch ; unix2dos *.*
-	cd ../../${DOSVERSION}/src/po ; unix2dos *.po *.pot
+	sleep 2
+	cd ../../${DOSVERSION}/src/po ; unix2dos *.pot
+	sleep 2
+	cd ../../${DOSVERSION}/src/po ; unix2dos *.po
 	cd ../../${DOSVERSION} ; unix2dos *.txt
 	cd ../../${DOSVERSION}/doc ; unix2dos *.txt
 
