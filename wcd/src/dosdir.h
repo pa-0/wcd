@@ -154,7 +154,7 @@
 #    define DD_MAXEXT	256
 #  endif /* ?__FLAT__ */
 
-# if !(defined(GO32) || defined(__MINGW32__))  /* (DJGPP or MINGW32 or LCC), Erwin Waterlander */
+# if !(defined(GO32) || defined(__MINGW32__) || defined(__WATCOMC__))  /* (DJGPP or MINGW32 or LCC or WATCOM), Erwin Waterlander */
 #  ifndef __LCC__
      typedef long    off_t;
 #  endif

@@ -26,6 +26,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #endif
 
 #ifdef WCD_USECURSES
+#  ifdef MOUSE_MOVED
+#    undef MOUSE_MOVED
+#  endif
 #  include <curses.h>
 #endif
 

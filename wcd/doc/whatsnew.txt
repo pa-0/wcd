@@ -5,6 +5,7 @@
   - Unix: Replace volume manager path of HOME dir by "$HOME" (thanks to Jari Aalto).
   - Fix compilation on Solaris (gcc) (thanks to Jari Aalto).
   - Fix compilation on HP-UX (cc and curses).
+  - Fix compilation with Open Watcom C Compiler.
   - Updated makefiles. (thanks to Jari Aalto).
   - Updated installation documentation. (thanks to Jari Aalto).
   - Code cleanup (thanks to Jari Aalto).
