@@ -2,6 +2,7 @@ include ../src/version.mk
 
 PREFIX = c:/usr/local
 INSTALL=install
+MKDIR=mkdir
 
 PACKAGE = wcd
 PROGRAM = ${PACKAGE}.exe
@@ -28,17 +29,20 @@ all :
 
 install :
 	${MAKE} -C ../src docfiles
-	${INSTALL} -D -m 755 ${PROGRAM} ${DESTBINDIR}/${PROGRAM}
-	${INSTALL} -D -m 644 ../src/man/man1/${PACKAGE}.1 ${DESTMANDIR}/man1/${PACKAGE}.1
-	${INSTALL} -D -m 644 ../doc/copying.txt "${DESTDOCDIR}/copying.txt"
-	${INSTALL} -D -m 644 ../doc/faq.txt ${DESTDOCDIR}/faq.txt
-	${INSTALL} -D -m 644 ../doc/wcd.txt ${DESTDOCDIR}/wcd.txt
-	${INSTALL} -D -m 644 ../doc/wcd.pdf ${DESTDOCDIR}/wcd.pdf
-	${INSTALL} -D -m 644 ../doc/whatsnew.txt ${DESTDOCDIR}/whatsnew.txt
-	${INSTALL} -D -m 644 ../doc/INSTALL.dos_windows.intl.txt ${DESTDOCDIR}/INSTALL.txt
-	${INSTALL} -D -m 644 ../doc/README.txt ${DESTDOCDIR}/README.txt
-	${INSTALL} -D -m 644 ../doc/problems.txt ${DESTDOCDIR}/problems.txt
-	${INSTALL} -D -m 644 ../doc/todo.txt ${DESTDOCDIR}/todo.txt
+	${MKDIR} -p -m 755 ${DESTBINDIR}
+	${MKDIR} -p -m 755 ${DESTMANDIR}/man1
+	${MKDIR} -p -m 755 ${DESTDOCDIR}
+	${INSTALL} -m 755 ${PROGRAM} ${DESTBINDIR}/${PROGRAM}
+	${INSTALL} -m 644 ../src/man/man1/${PACKAGE}.1 ${DESTMANDIR}/man1/${PACKAGE}.1
+	${INSTALL} -m 644 ../doc/copying.txt "${DESTDOCDIR}/copying.txt"
+	${INSTALL} -m 644 ../doc/faq.txt ${DESTDOCDIR}/faq.txt
+	${INSTALL} -m 644 ../doc/wcd.txt ${DESTDOCDIR}/wcd.txt
+	${INSTALL} -m 644 ../doc/wcd.pdf ${DESTDOCDIR}/wcd.pdf
+	${INSTALL} -m 644 ../doc/whatsnew.txt ${DESTDOCDIR}/whatsnew.txt
+	${INSTALL} -m 644 ../doc/INSTALL.dos_windows.intl.txt ${DESTDOCDIR}/INSTALL.txt
+	${INSTALL} -m 644 ../doc/README.txt ${DESTDOCDIR}/README.txt
+	${INSTALL} -m 644 ../doc/problems.txt ${DESTDOCDIR}/problems.txt
+	${INSTALL} -m 644 ../doc/todo.txt ${DESTDOCDIR}/todo.txt
 
 uninstall :
 	-rm -f ${DESTBINDIR}/${PROGRAM}
