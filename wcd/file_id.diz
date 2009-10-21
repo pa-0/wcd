@@ -3,9 +3,10 @@ WCD - Directory changer for DOS and Unix. w/ C src.
 Wcd is a program to change directory fast. It saves time typing at the
 keyboard. One needs to type only a part of a directory name and wcd will jump
 to it. By default wcd searches for a directory with a name that begins with
-what has been typed, but the use of wildcards is also fully supported.
+what has been typed. The use of wildcards is fully supported.
 
-* Full screen interactive directory browser with speed search and zoom in/out.
+* Full screen interactive directory tree browser with speed search and
+  zoom in/out.
 * Present the user a list in case of multiple matches.
 * Wildcards *, ? and [SET] supported.
 * Directory stack, push pop.
