@@ -16,4 +16,5 @@ unix2dos:
 	cd ../../${DOSVERSION}/src/po ; unix2dos *.po
 	cd ../../${DOSVERSION} ; unix2dos *.txt
 	cd ../../${DOSVERSION}/doc ; unix2dos *.txt
+	cd ../../${DOSVERSION} ; unix2dos file_id.diz
 

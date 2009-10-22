@@ -91,12 +91,17 @@ INSTALL_SUID	= $(INSTALL) -m 4755
 
 INSTALL_OBJS_BIN   = $(BIN)
 INSTALL_OBJS_MAN1  = man/man1/wcd.1
+
 INSTALL_OBJS_DOC_INSTALL = \
   ../doc/INSTALL.unix.txt \
   ../doc/INSTALL.rpm.txt \
+  ../doc/translate.txt
+
+INSTALL_OBJS_DOC_COPYING = \
+  ../doc/copying.txt
+
 # Documents for end users, not for developers:
 INSTALL_OBJS_DOC   = \
-  ../doc/copying.txt \
   ../doc/faq.txt \
   ../doc/$(PACKAGE).txt \
   ../doc/$(PACKAGE).ps \
@@ -105,9 +110,9 @@ INSTALL_OBJS_DOC   = \
   ../doc/whatsnew.txt \
   ../doc/README.txt \
   ../doc/problems.txt \
-  ../doc/translate.txt \
   ../doc/todo.txt \
-  $(INSTALL_OBJS_DOC_INSTALL)
+  $(INSTALL_OBJS_DOC_INSTALL) \
+  $(INSTALL_OBJS_DOC_COPYING)
 
 POT		= po/$(PACKAGE).pot
 POFILES		= $(wildcard po/*.po)
@@ -308,6 +313,8 @@ status:
 	@echo "-- $(PACKAGE) Makefile settings begin --"
 	@echo "OS            = $(OS)"
 	@echo "prefix        = $(prefix)"
+	@echo "EXT           = $(EXT)"
+	@echo "CPP_FLAGS_POD = $(CPP_FLAGS_POD)"
 	@echo "STATIC        = $(STATIC)"
 	@echo "UCS           = $(UCS)"
 	@echo "ENABLE_NLS    = $(ENABLE_NLS)"
@@ -422,11 +429,11 @@ clean:
 		*.stackdump
 
 distclean: clean
-	rm -f man/man1/wcd.1.pod
+	rm -f man/man1/wcd.1.pod \
+		po/*.mo
 
-realclean: clean
+realclean: distclean
 	rm -f \
-	  man/man1/wcd.1.pod \
 	  man/man1/wcd.1 \
 	  $(DOCFILES) \
 	  $(MOFILES)
