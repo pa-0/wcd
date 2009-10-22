@@ -37,7 +37,7 @@
 #
 #       In order to clean generated POD file:
 #
-#           make distclean
+#           make maintainer-clean
 
 
 ifneq (,)
@@ -429,14 +429,17 @@ clean:
 		*.stackdump
 
 distclean: clean
-	rm -f man/man1/wcd.1.pod \
-		po/*.mo
 
-realclean: distclean
+maintainer-clean: distclean
 	rm -f \
+	  man/man1/wcd.1.pod \
+	  po/*.mo \
 	  man/man1/wcd.1 \
 	  $(DOCFILES) \
 	  $(MOFILES)
+
+# 'maintainer-clean' was 'realclean' in old GNU standards.
+realclean: maintainer-clean
 
 install-etc:
 	# install-etc: Nothing yet
