@@ -66,7 +66,7 @@ I<The Norton Utilities, Release 4>, for DOS in 1987, published by Peter Norton.
 Wcd has been ported to different command-line shells: DOS command.com,
 Windows cmd.exe and PowerShell, OS/2 cmd.exe, and Unix shells such as Bourne
 (sh), Bourne Again (bash), Korn (ksh), Z (zsh), and C (csh) shell and others
-running on any operating system. 
+running on any operating system.
 
 Wcd supports 8 bit character sets on all systems, and has optional
 support for Unicode. See section LOCALIZATION.
