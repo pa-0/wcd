@@ -410,9 +410,11 @@ tgzpackage: dist-tgz
 zippackage: dist-zip
 
 strip:
+	@echo "# target: strip"
 	strip $(BIN)
 
 clean:
+	@echo "# target: clean"
 	-rm -f \
 		$(BIN) \
 		*.o \
@@ -431,6 +433,7 @@ clean:
 distclean: clean
 
 maintainer-clean: distclean
+	@echo "# target: maintainer-clean:"
 	rm -f \
 	  man/man1/wcd.1.pod \
 	  po/*.mo \
@@ -442,7 +445,7 @@ maintainer-clean: distclean
 realclean: maintainer-clean
 
 install-etc:
-	# install-etc: Nothing yet
+	@echo "# target: install-etc, Nothing yet"
 	# $(INSTALL_BIN) -d $(ETCDIR)
 	# $(INSTALL_BIN)    $(INSTALL_OBJS_ETC) $(ETCDIR)
 
@@ -450,24 +453,29 @@ install-etc:
 # mkdir instead. Was seen on HP-UX 11 and DOS DJGPP.
 
 install-mo: $(MOFILES)
+	@echo "# target: install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
 	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 
 install-doc: $(DOCFILES)
+	@echo "# target: install-doc"
 	$(MKDIR) -p -m 755 $(DOCDIR)
 	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DOCDIR)
 
 install-man: $(INSTALL_OBJS_MAN1)
+	@echo "# target: install-man"
 	$(MKDIR) -p -m 755 $(MANDIR1)
 	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(MANDIR1)
 
 install-bin: $(BIN)
+	@echo "# target: install-bin"
 	$(MKDIR) -p -m 755 $(BINDIR)
 	$(INSTALL_BIN) $(INSTALL_OBJS_BIN) $(BINDIR)
 
 install: install-bin install-man install-doc install-mo
 
 uninstall:
+	@echo "# target: uninstall"
 	-rm -f $(BINDIR)/$(BIN)
 	$(foreach mofile, $(MOFILES), rm -f $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 	-rm -f $(MANDIR)/man1/$(PACKAGE).1
