@@ -462,7 +462,7 @@ install-man: $(INSTALL_OBJS_MAN1)
 	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(MANDIR1)
 
 install-bin: $(BIN)
-	$(MKDIR) -p $(BINDIR)
+	$(MKDIR) -p -m 755 $(BINDIR)
 	$(INSTALL_BIN) $(INSTALL_OBJS_BIN) $(BINDIR)
 
 install: install-bin install-man install-doc install-mo
