@@ -2,7 +2,11 @@
 PREFIX = /usr
 
 GCCFLAGS = -O3 -Wall
+ifdef UCS
+CURSES = ncursesw
+else
 CURSES = ncurses
+endif
 LIB_CURSES = -l${CURSES}
 LDFLAGS_EXTRA = -lintl -liconv -lmpr -Wl,--enable-auto-import
 DEFS   = -DUNIX -DWCD_USECURSES

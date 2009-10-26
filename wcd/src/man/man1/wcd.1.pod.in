@@ -830,9 +830,11 @@ All locale environment variables that start with "LC_" are overruled by
 environment variable I<LC_ALL> if it is defined. Wcd gives preference to
 I<LC_ALL> over I<LC_COLLATE> and I<LC_CTYPE>.
 
+=back
+
 #ifdef dos
 
-=item B<WINDOWS CODE PAGES>
+=head2 WINDOWS CODE PAGES
 
 There are two groups of code pages. DOS code pages (OEM) and Windows code
 pages (ANSI). The default encoding for Windows, when configured with
@@ -859,7 +861,7 @@ console.
 
 #endif
 
-=item B<UNICODE>
+=head2 UNICODE
 
 Wcd has optional support for Unicode. To see if wcd was built with Unicode support
 type C<wcd -V>. If your terminal/console and font supports it, you
@@ -872,7 +874,8 @@ converted to Unicode wide characters. Wcd fully relies on libc functions
 and has no UTF-8 specific code. See also
 L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>
 
-B<UTF-8 on Unix/Linux>
+
+=head3 UTF-8 on Unix/Linux
 
 In order to view UTF-8 characters your console/terminal also needs to
 support UTF-8. The xterm version that comes with XFree86 4.0 or higher
@@ -887,7 +890,7 @@ character encodings should also work, but that has not been tested.
 
 #ifdef dos
 
-B<UTF-16 on Windows>
+=head3 UTF-16 on Windows
 
 On Windows all the directory names on disk are encoded in UTF-16 Unicode.
 For programs that do not support UTF-16 the Unicode characters are
@@ -905,7 +908,7 @@ Console (not raster font).
 
 #endif
 
-B<UTF-8 on Cygwin>
+=head3 UTF-8 on Cygwin
 
 Cygwin supports Unicode since version 1.7. The Cygwin layer takes care
 that the Windows UTF-16 Unicode names are converted to UTF-8. So
@@ -915,7 +918,6 @@ with the I<LANG> or I<LC_CTYPE> environment variable. You may need to
 rescan your drives. You need to set the font to True Type Lucida
 Console (not raster font) if you use the default Cygwin console.
 
-=back
 
 =head1 FILES
 
@@ -1130,7 +1132,7 @@ An example for Csh type shells:
 
 =item B<WCDBAN>
 
-The paths specified with environment C<WCDBAN> will be banned by wcd.
+The paths specified with environment I<WCDBAN> will be banned by wcd.
 See also option B<-b>. Specify a list of paths separated by shell
 path separator
 

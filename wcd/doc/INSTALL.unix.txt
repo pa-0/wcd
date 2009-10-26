@@ -174,15 +174,6 @@ PORTABILITY
 	This problem was seen on a BSDI BSD/OS 4.0 system.
 	/usr/local/include/ncurses.h
 
-	......................................................................
-
-
-	Make sure that you have a copy of wcd.exe in a directory
-	listed in your PATH environment. If you install a local copy,
-	for example in your $HOME/bin directory, this directory must
-	be added to the PATH environment.
-
-	Copy file wcd.1 somewhere in $MANPATH .
 
 SHELL INTEGRATION
 
