@@ -20,7 +20,10 @@ endif
 BINDIR    = ${PREFIX}/bin
 PROGRAM = wcdwin32.exe
 VERSIONSUFFIX = -win32
-ZIPOBJ_EXTRA = bin/wcd.bat bin/wcd_win95.bat bin/libintl3.dll bin/libiconv2.dll
+# Using GnuWin32 gettext,iconv
+#ZIPOBJ_EXTRA = bin/wcd.bat bin/wcd_win95.bat bin/libintl3.dll bin/libiconv2.dll
+# Using MinGW gettext,iconv
+ZIPOBJ_EXTRA = bin/wcd.bat bin/wcd_win95.bat bin/libintl-8.dll bin/libiconv-2.dll
 
 all :
 	${MAKE} -C ../src all PROGRAM=${PROGRAM} GCCFLAGS="${GCCFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" PREFIX=${PREFIX} EXTRA_OBJ="${EXTRA_OBJ}"
