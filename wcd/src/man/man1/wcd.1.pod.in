@@ -364,11 +364,11 @@ change to the next option, and so on.
 
 Wcd will print the directory to go to to stdout. So a different
 installation method can be used. One could make the following function for
-bash or ksh:
+a POSIX compatible shell:
 
     wcd ()
     {
-        cd "$($HOME/bin/wcd.exe -j $*)"
+        cd "$($HOME/bin/wcd.exe -j $@)"
     }
 
 When you are using an old shell that doesn't support "$()" command substitution
@@ -376,7 +376,7 @@ you have to use old style command substitution with backquotes.
 
     wcd ()
     {
-        cd "`$HOME/bin/wcd.exe -j $*`"
+        cd "`$HOME/bin/wcd.exe -j $@`"
     }
 
 #ifdef dos
@@ -623,12 +623,12 @@ Wcd goes one directory back, the stack gets the default size 10. The B<-z
 50> is ignored.
 
 Add this option as the first option to your wcd alias or function. E.g.
-for the bash this would be:
+for the a POSIX compatible shell this would be:
 
-    function wcd
+    wcd ()
     {
-        wcd.exe -z 50 "$@"
-        . $HOME/bin/wcd.go
+	wcd.exe -z 50 "$@"
+	. $HOME/bin/wcd.go
     }
 
 =item B<-[NUMBER]>
@@ -676,8 +676,8 @@ function to the shell startup file (e.g. Bash uses C<$HOME/.bashrc>):
 
     wcd ()
     {
-        <PATH>/wcd.exe $@
-        . $HOME/bin/wcd.go
+	<PATH>/wcd.exe "$@"
+	. $HOME/bin/wcd.go
     }
 
 Replace <PATH> with the location where the wcd executable has been
@@ -719,8 +719,8 @@ environment variable I<HOME> or I<WCDHOME> is defined.
 
     function wcd
     {
-        <PATH>\wcdwin32psh.exe $args
-        & $env:HOME\wcdgo.ps1
+	<PATH>\wcdwin32psh.exe $args
+	& $env:HOME\wcdgo.ps1
     }
 
 Replace <PATH> with the location where wcd executable have been installed.
@@ -1037,9 +1037,10 @@ B<+n>.
 
 =item B<HOME> and B<WCDHOME>
 
-Wcd uses environment variable HOME to determine where to store its files.
-See also section FILES. Environment variable I<WCDHOME> overrides I<HOME>. If
-both I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead of I<HOME>.
+Wcd uses environment variable I<HOME> to determine where to store its
+files. Environment variable I<WCDHOME> overrides I<HOME>. If both
+I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead of
+I<HOME>. See also section FILES.
 
 #ifdef dos
 
