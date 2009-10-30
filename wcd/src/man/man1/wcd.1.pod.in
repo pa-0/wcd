@@ -1096,7 +1096,7 @@ the console after wcd exists if you have set a large buffer width.
 Printing of C<#!$SHELL> on the first line of the go-script for POSIX
 type shell or C shell is needed for 8 bit characters. Some shells
 otherwise think that the go-script is a binary file and will not
-source it. In Cygwin Bash the variabel I<SHELL> must be set in
+source it. In Cygwin Bash the variable I<SHELL> must be set in
 environtment using the C<export> command, otherwise wcd can't read the
 variable.
 
@@ -1184,18 +1184,22 @@ bans and excludes. See option B<-v>.
 
 =item B<WCDSTACKFILE>
 
-With environment variable I<WCDSTACKFILE> you can set an alternate stack file name.
-Wcd will use the name defined by I<WCDSTACKFILE> instead of the default stack file name.
-You can use this to set different stack file names for every shell, or every Xterminal.
+Wcd gives preference to I<WCDSTACKFILE> over the default stack file name (see
+section FILES). With this variable each shell (or used terminal emulator) can
+have its private stack of used directories.
 
-For instance, to use a different stack file for every shell add this to a startup file
-of a POSIX compatible shell:
+To use a unique time based YYYYMMDD-HHMMSS file for each opened
+interactive shell.
 
-    export WCDSTACKFILE=$HOME/.wcd/stack.$(date +%Y%0m%0d_%0k%0M%0S)
+    export WCDSTACKFILE=$HOME/.wcd/stack.$(date +%Y%m%d-%H%M%S)
 
-Or if you want to have a stack per Xterminal add this to the shell startup file:
+For a stack per xterm(1), use the xterm WINDOWID environment variable:
 
     export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOWID
+
+For GNU screen(1), to use stack per screen:
+
+    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOW
 
 =back
 
