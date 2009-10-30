@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "wcd.h"
 #include "stack.h"
 #include "config.h"
+#include "wcddir.h"
 
 
 /********************************************************************
@@ -206,25 +207,53 @@ int stack_write(WcdStack ws,char *stackfilename)
 {
 	FILE *outfile;
 	int  i;
+        char *ptr ;
+        char path[DD_MAXPATH];
+#if (defined(UNIX) || defined(DJGPP) || defined(OS2))
+        mode_t m;
+#endif
 
 	if (ws->maxsize <= 0)
-	   return(0);
+		return(0);
 	else
-	if ( (outfile = fopen(stackfilename,"w")) == NULL)
 	{
-		fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"),stackfilename);
+
+
+		/* try to create directory for stack file if it doesn't exist */
+		strncpy(path, stackfilename, sizeof(path));
+		if ( (ptr = strrchr(path,DIR_SEPARATOR)) != NULL)
+		{
+			*ptr = '\0' ;
+			if (wcd_isdir(path) != 0) /* is it a dir */
+			{
+#if (defined(UNIX) || defined(DJGPP) || defined(OS2))
+			m = S_IRWXU | S_IRWXG | S_IRWXO;
+				if (wcd_mkdir(path,m)!=0)
+#else
+				if (wcd_mkdir(path)!=0)
+#endif
+					fprintf(stderr,_("Wcd: error: Permission denied to create directory %s\n"), path);
+				else
+					fprintf(stderr,_("Wcd: creating directory %s\n"), path);
+			}
+		}
+
+		if ( (outfile = fopen(stackfilename,"w")) == NULL)
+		{
+			fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"),stackfilename);
+			return(0);
+		}
+		else
+		{
+			fprintf(outfile,"%d %d\n",ws->lastadded,ws->current);
+			for(i=0;((i<ws->size)&&(i<ws->maxsize));i++)
+			{
+			/* printf("writing line %d\n",i);  */
+				fprintf(outfile,"%s\n",ws->dir[i]);
+			}
+			fclose(outfile);
+		}
 		return(0);
 	}
-	else
-	{
-		fprintf(outfile,"%d %d\n",ws->lastadded,ws->current);
-		for(i=0;((i<ws->size)&&(i<ws->maxsize));i++)
-		{
-	  /*		printf("writing line %d\n",i);  */
-			fprintf(outfile,"%s\n",ws->dir[i]);
-		}
-		fclose(outfile);
-	}
-	return(0);
 }
 

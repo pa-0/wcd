@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-07 15:39+0200\n"
+"POT-Creation-Date: 2009-10-30 13:03+0100\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1705 wcd.c:1725 wcd.c:1816 wcd.c:2463
-#: stack.c:215
+#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1705 wcd.c:1725 wcd.c:1816 wcd.c:2484
+#: stack.c:243
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
 msgstr "Wcd: error: Se denegó la escritura del archivo %s.\n"
@@ -68,7 +68,7 @@ msgstr ""
 "Wcd: error: Se denegó la escritura al archivo de árbol de rutas.\n"
 "Wcd: Use la variable de ambiente TEMP si este es un disco de sólo lectura.\n"
 
-#: wcd.c:1020 wcd.c:1808
+#: wcd.c:1020 wcd.c:1808 stack.c:235
 #, c-format
 msgid "Wcd: error: Permission denied to create directory %s\n"
 msgstr "Wcd: error: Permiso denegado para crear el directorio %s\n"
@@ -269,7 +269,7 @@ msgstr "Esta versión es para la implementación MSYS y win32 de ZSH.\n"
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Esta versión es para DJGPP DOS bash.\n"
 
-#: wcd.c:1627 wcd.c:2240
+#: wcd.c:1627 wcd.c:2261
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
@@ -378,7 +378,7 @@ msgstr "Descarga los últimos ejecutables y archivos fuente de:\n"
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr ""
 
-#: wcd.c:1810
+#: wcd.c:1810 stack.c:237
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: Creando directorio %s\n"
@@ -390,7 +390,7 @@ msgstr ""
 "Wcd: error: El valor de la variable de ambiente WCDLOCALEDIR es demasiado "
 "largo.\n"
 
-#: wcd.c:2009 wcd.c:2063
+#: wcd.c:2009 wcd.c:2077
 #, c-format
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
@@ -398,25 +398,25 @@ msgstr ""
 "Wcd: error: El valor de la variable de ambiente HOME o WCDHOME es demasiado "
 "largo.\n"
 
-#: wcd.c:2034 wcd.c:2056
+#: wcd.c:2041 wcd.c:2070
 #, c-format
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: error: La variable de ambiente HOME o WCDHOME no tiene valor.\n"
 
-#: wcd.c:2119 wcd.c:2560 wcd.c:2577
+#: wcd.c:2140 wcd.c:2581 wcd.c:2598
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente WCDUSERSHOME es demasiado "
 "largo.\n"
 
-#: wcd.c:2236
+#: wcd.c:2257
 #, c-format
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Modo gráfico sólo soportado en wcd con interfase basada en curses.\n"
 
-#: wcd.c:2241
+#: wcd.c:2262
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -450,27 +450,27 @@ msgid ""
 "Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
 msgstr ""
 
-#: wcd.c:2470
+#: wcd.c:2491
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s se añadió al archivo de alias %s\n"
 
-#: wcd.c:2708
+#: wcd.c:2729
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: prohibiendo {%s}\n"
 
-#: wcd.c:2710
+#: wcd.c:2731
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: excluyendo {%s}\n"
 
-#: wcd.c:2712
+#: wcd.c:2733
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filtrando {%s}\n"
 
-#: wcd.c:2963
+#: wcd.c:2984
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -479,7 +479,7 @@ msgstr ""
 "Wcd: No se encontró algún directorio que concordara con %s\n"
 "Wcd: Quizá necesite reexplorar el disco o la ruta.\n"
 
-#: wcd.c:3118
+#: wcd.c:3139
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: No puedo cambiar el directorio a %s\n"
@@ -504,7 +504,7 @@ msgstr "Wcd: Buscando archivos compartidos en el servidor %s\n"
 msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "Wcd: Se encontraron %d directorios compartidos en el servidor %s\n"
 
-#: stack.c:98
+#: stack.c:99
 #, c-format
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Error al analizar la pila\n"

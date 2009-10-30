@@ -1,3 +1,6 @@
+5.1.1-beta1 Oct 30 2009
+  - Alternate stack file support with environment variable WCDSTACKFILE (thanks to anonymous).
+
 5.1.0 Oct 22 2009
   - UTF-16 Unicode support for Windows PowerShell.
   - Added Finnish language file (thanks to Jari Aalto).

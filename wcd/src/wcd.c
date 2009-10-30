@@ -2025,8 +2025,15 @@ int main(int argc,char** argv)
       strcat(banfile,BANFILE);
       strcpy(aliasfile,rootdir);
       strcat(aliasfile,ALIASFILE);
-      strcpy(stackfile,rootdir);
-      strcat(stackfile,STACKFILE);
+      if ((ptr = getenv("WCDSTACKFILE")) == NULL)
+      {
+         strcpy(stackfile,rootdir);
+         strcat(stackfile,STACKFILE);
+      }
+      else
+      {
+         strncpy(stackfile,ptr,sizeof(stackfile));
+      }
    }
    else
    {
@@ -2043,8 +2050,15 @@ int main(int argc,char** argv)
       strcpy(extratreefile,EXTRA_TREEFILE);
       strcpy(banfile,BANFILE);
       strcpy(aliasfile,ALIASFILE);
-      strcpy(stackfile,STACK_GO_DRIVE);
-      strcat(stackfile,STACKFILE);
+      if ((ptr = getenv("WCDSTACKFILE")) == NULL)
+      {
+         strcpy(stackfile,STACK_GO_DRIVE);
+         strcat(stackfile,STACKFILE);
+      }
+      else
+      {
+         strncpy(stackfile,ptr,sizeof(stackfile));
+      }
    }
 #else
 
@@ -2076,8 +2090,15 @@ int main(int argc,char** argv)
    strcat(banfile,BANFILE);
    strcpy(aliasfile,rootdir);
    strcat(aliasfile,ALIASFILE);
-   strcpy(stackfile,rootdir);
-   strcat(stackfile,STACKFILE);
+   if ((ptr = getenv("WCDSTACKFILE")) == NULL)
+   {
+      strcpy(stackfile,rootdir);
+      strcat(stackfile,STACKFILE);
+   }
+   else
+   {
+      strncpy(stackfile,ptr,sizeof(stackfile));
+   }
 #endif
 
    strncpy(scandir,rootdir,DD_MAXPATH);

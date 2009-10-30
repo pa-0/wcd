@@ -998,6 +998,9 @@ the B<-d> option.
     UNIX: $HOME/.stack.wcd
 #endif
 
+The name of the stack file can be changed with environment variable I<WCDSTACKFILE>.
+See section ENVIRONMENT VARIABLES.
+
 =item B<go-script>
 
 This is the shell script which wcd.exe creates each time. It is sourced via
@@ -1178,6 +1181,21 @@ On Unix/Cygwin the default value is C</home>.
 This variable is used to scan treedata files of other users. See also
 options B<-u> an B<+u>. In verbose mode wcd will print all filters,
 bans and excludes. See option B<-v>.
+
+=item B<WCDSTACKFILE>
+
+With environment variable I<WCDSTACKFILE> you can set an alternate stack file name.
+Wcd will use the name defined by I<WCDSTACKFILE> instead of the default stack file name.
+You can use this to set different stack file names for every shell, or every Xterminal.
+
+For instance, to use a different stack file for every shell add this to a startup file
+of a POSIX compatible shell:
+
+    export WCDSTACKFILE=$HOME/.wcd/stack.$(date +%Y%0m%0d_%0k%0M%0S)
+
+Or if you want to have a stack per Xterminal add this to the shell startup file:
+
+    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOWID
 
 =back
 

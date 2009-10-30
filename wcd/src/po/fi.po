@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-13 15:12+0200\n"
+"POT-Creation-Date: 2009-10-30 13:03+0100\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -14,8 +14,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1705 wcd.c:1725 wcd.c:1816 wcd.c:2463
-#: stack.c:215
+#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1705 wcd.c:1725 wcd.c:1816 wcd.c:2484
+#: stack.c:243
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
 msgstr "Wcd: virhe: Ei kirjoitusoikeutta %s tiedostoon.\n"
@@ -64,7 +64,7 @@ msgstr ""
 "Wcd: Aseta ympäristömuuttuja TEMP eri paikkaan, jos kyseessä on read-only "
 "levy.\n"
 
-#: wcd.c:1020 wcd.c:1808
+#: wcd.c:1020 wcd.c:1808 stack.c:235
 #, c-format
 msgid "Wcd: error: Permission denied to create directory %s\n"
 msgstr "Wcd: virhe: Ei oikeutta luoda hamistoa%s\n"
@@ -267,7 +267,7 @@ msgstr "Tämä versio on tarkoitettu MSYS ja win32 portattuun ZSH käyttöön.\n
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Tämä versio on tarkoitettu DJGPP DOS bash käyttöön.\n"
 
-#: wcd.c:1627 wcd.c:2240
+#: wcd.c:1627 wcd.c:2261
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
@@ -377,7 +377,7 @@ msgstr "Lataa viimeisin versio ohjelmasta ja sen lähdekoodista osoitteesta:\n"
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr "http://www.xs4all.nl/~waterlan/\n"
 
-#: wcd.c:1810
+#: wcd.c:1810 stack.c:237
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: Luodaan hakemisto %s\n"
@@ -387,31 +387,31 @@ msgstr "Wcd: Luodaan hakemisto %s\n"
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujan WCDLOCALEDIR arvo on liian pitkä.\n"
 
-#: wcd.c:2009 wcd.c:2063
+#: wcd.c:2009 wcd.c:2077
 #, c-format
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 "Wcd: virhe: Ympäristömuuttujien HOME ja WCDHOME arvot ovat liian pitkät.\n"
 
-#: wcd.c:2034 wcd.c:2056
+#: wcd.c:2041 wcd.c:2070
 #, c-format
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujaa HOME tai WCDHOME is ole asetettu.\n"
 
-#: wcd.c:2119 wcd.c:2560 wcd.c:2577
+#: wcd.c:2140 wcd.c:2581 wcd.c:2598
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujan WCDUSERSHOME arvo on liian pitkä.\n"
 
-#: wcd.c:2236
+#: wcd.c:2257
 #, c-format
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Graffinen moodi tuettu ainoastaan ohjelman curses-kirjaston "
 "versioissa.\n"
 
-#: wcd.c:2241
+#: wcd.c:2262
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -474,27 +474,27 @@ msgstr ""
 "along with this program; if not, write to the Free Software\n"
 "Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
 
-#: wcd.c:2470
+#: wcd.c:2491
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s lisätty tiedostoon %s\n"
 
-#: wcd.c:2708
+#: wcd.c:2729
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: asetettu mustalle listalle {%s}\n"
 
-#: wcd.c:2710
+#: wcd.c:2731
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: jätetään ottamasta huomioon {%s}\n"
 
-#: wcd.c:2712
+#: wcd.c:2733
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteroidaan {%s}\n"
 
-#: wcd.c:2963
+#: wcd.c:2984
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -504,7 +504,7 @@ msgstr ""
 "Wcd: Mahdollisesti levy tulee skannata uudelleen tai hakemisto on mustalla "
 "listalla\n"
 
-#: wcd.c:3118
+#: wcd.c:3139
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Ei voi vaihtaa hakemistoon %s\n"
@@ -529,7 +529,7 @@ msgstr "Wcd: Etsitään jaettuja hakemistoja palvelimelta %s\n"
 msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "Wcd: Köydetty %d hakemistoa palvelimelta %s\n"
 
-#: stack.c:98
+#: stack.c:99
 #, c-format
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Error parsing stack\n"

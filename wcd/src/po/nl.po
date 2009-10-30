@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-07 15:39+0200\n"
+"POT-Creation-Date: 2009-10-30 13:03+0100\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1705 wcd.c:1725 wcd.c:1816 wcd.c:2463
-#: stack.c:215
+#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1705 wcd.c:1725 wcd.c:1816 wcd.c:2484
+#: stack.c:243
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
 msgstr "Wcd: fout: Schrijftoegang to bestand %s geweigerd.\n"
@@ -67,7 +67,7 @@ msgstr ""
 "Wcd: Definieer TEMP omgevingsvariabele wanneer dit een alleen-lezen schijf "
 "is.\n"
 
-#: wcd.c:1020 wcd.c:1808
+#: wcd.c:1020 wcd.c:1808 stack.c:235
 #, c-format
 msgid "Wcd: error: Permission denied to create directory %s\n"
 msgstr "Wcd: fout: Geen permissie om map %s aan te maken.\n"
@@ -263,7 +263,7 @@ msgstr "Deze versie is voor MSYS en win32 port van ZSH.\n"
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Deze versie is voor DJGPP DOS bash.\n"
 
-#: wcd.c:1627 wcd.c:2240
+#: wcd.c:1627 wcd.c:2261
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
@@ -372,7 +372,7 @@ msgstr "Download de nieuwste versie met broncode van:\n"
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr ""
 
-#: wcd.c:1810
+#: wcd.c:1810 stack.c:237
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: aanmaken map %s\n"
@@ -382,30 +382,30 @@ msgstr "Wcd: aanmaken map %s\n"
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDLOCALEDIR is te lang.\n"
 
-#: wcd.c:2009 wcd.c:2063
+#: wcd.c:2009 wcd.c:2077
 #, c-format
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
 
-#: wcd.c:2034 wcd.c:2056
+#: wcd.c:2041 wcd.c:2070
 #, c-format
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
 
-#: wcd.c:2119 wcd.c:2560 wcd.c:2577
+#: wcd.c:2140 wcd.c:2581 wcd.c:2598
 #, c-format
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
 
-#: wcd.c:2236
+#: wcd.c:2257
 #, c-format
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
 "interface.\n"
 
-#: wcd.c:2241
+#: wcd.c:2262
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -439,27 +439,27 @@ msgid ""
 "Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
 msgstr ""
 
-#: wcd.c:2470
+#: wcd.c:2491
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s toegevoegd aan aliasbestand %s\n"
 
-#: wcd.c:2708
+#: wcd.c:2729
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: verbannen {%s}\n"
 
-#: wcd.c:2710
+#: wcd.c:2731
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: uitsluiten {%s}\n"
 
-#: wcd.c:2712
+#: wcd.c:2733
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteren {%s}\n"
 
-#: wcd.c:2963
+#: wcd.c:2984
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -468,7 +468,7 @@ msgstr ""
 "Wcd: Geen map gevonden gelijk aan %s\n"
 "Wcd: Misschien moet u de schijf opnieuw aftasten of is het pad verbannen.\n"
 
-#: wcd.c:3118
+#: wcd.c:3139
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Kan niet veranderen naar %s\n"
@@ -493,7 +493,7 @@ msgstr "Wcd: Zoeken naar gedeelde mappen op server %s\n"
 msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "Wcd: %d gedeelde mappen gevonden op server %s\n"
 
-#: stack.c:98
+#: stack.c:99
 #, c-format
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Fout met verwerken stapel\n"
