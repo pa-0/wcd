@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-30 13:03+0100\n"
+"POT-Creation-Date: 2009-11-02 09:54+0100\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -442,7 +442,8 @@ msgid ""
 "\n"
 "You should have received a copy of the GNU General Public License\n"
 "along with this program; if not, write to the Free Software\n"
-"Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 "
+"USA.\n"
 msgstr ""
 "Chdir for Dos and Unix.\n"
 "Copyright (C) 1997-2009 Erwin Waterlander\n"
@@ -472,7 +473,8 @@ msgstr ""
 "\n"
 "You should have received a copy of the GNU General Public License\n"
 "along with this program; if not, write to the Free Software\n"
-"Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 "
+"USA.\n"
 
 #: wcd.c:2491
 #, c-format
@@ -534,17 +536,17 @@ msgstr "Wcd: Köydetty %d hakemistoa palvelimelta %s\n"
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Error parsing stack\n"
 
-#: display.c:198
+#: display.c:199
 #, c-format
 msgid "Wcd: error in maxLength(), list == NULL\n"
 msgstr "Wcd: error in maxLength(), list == NULL\n"
 
-#: display.c:218
+#: display.c:219
 #, c-format
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "Wcd: error in maxLengthStack(), s == NULL\n"
 
-#: display.c:1001 graphics.c:1771
+#: display.c:1002 graphics.c:1771
 #, c-format
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
@@ -552,94 +554,94 @@ msgstr ""
 "Wcd: varoitus: Terminaalin avaus ei onnistu, käytössä vain stdout.\n"
 "komentorivi.\n"
 
-#: display.c:1019
+#: display.c:1020
 #, c-format
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: virhe: terminaalin korkeus ei ole vähintään 3 riviä.\n"
 
-#: display.c:1053 graphics.c:1804
+#: display.c:1054 graphics.c:1804
 #, c-format
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: virhe: vierityspalkin luonti ei onnistu ikkunaan.\n"
 
-#: display.c:1084
+#: display.c:1085
 #, c-format
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: virhe: input-ikkunaa ei voi luoda.\n"
 
-#: display.c:1094
+#: display.c:1095
 msgid "Perfect "
 msgstr "Ok "
 
-#: display.c:1096
+#: display.c:1097
 msgid "Wild "
 msgstr "Villi "
 
-#: display.c:1097
+#: display.c:1098
 #, c-format
 msgid "match for %d directories."
 msgstr "osumaa %d hakemistossa."
 
-#: display.c:1102 display.c:1144 display.c:1174
+#: display.c:1103 display.c:1145 display.c:1175
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=yläs x=alas ?=help  Sivu %d/%d "
 
-#: display.c:1109 display.c:1354
+#: display.c:1110 display.c:1355
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Valitse toiminta (<Enter> keskeytys): "
 
-#: display.c:1228
+#: display.c:1229
 msgid "Screenheight must be > 20 for help."
 msgstr ""
 "Help-ikkunan avaaminen ei onnistu. Ikkunan korkeuden tulee olla > 20 riviä."
 
-#: display.c:1231
+#: display.c:1232
 msgid "w or <Up>         Page Up."
 msgstr "w tai <Up>          Sivu ylös."
 
-#: display.c:1232
+#: display.c:1233
 msgid "x or z or <Down>  Page Down."
 msgstr "x tai z tai <Down>  Sivu alas."
 
-#: display.c:1233
+#: display.c:1234
 msgid ", or <Left>       Scroll 1 left."
 msgstr ", tai <Left>        Vieritys 1 vasemmalle."
 
-#: display.c:1234
+#: display.c:1235
 msgid ". or <Right>      Scroll 1 right."
 msgstr ". tai <Right>       Vieritys 1 oikealle."
 
-#: display.c:1235
+#: display.c:1236
 msgid "< or [            Scroll 10 left."
 msgstr "< tai [             Vieritys 10 vasemmalle."
 
-#: display.c:1236
+#: display.c:1237
 msgid "> or ]            Scroll 10 right."
 msgstr "> tai ]             Vieritys 10 oikealle."
 
-#: display.c:1237
+#: display.c:1238
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr "CTRL-a tai <HOME>   Sivun alkuun."
 
-#: display.c:1238
+#: display.c:1239
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr "CTRL-e tai <END>    Sivun loppuun."
 
-#: display.c:1239
+#: display.c:1240
 msgid "CTRL-c or <Esc>   Abort."
 msgstr "CTRL-c tai <Esc>    Keskeytys."
 
-#: display.c:1240
+#: display.c:1241
 msgid "<Enter>           Abort."
 msgstr "<Enter>             Keskeytys."
 
-#: display.c:1241
+#: display.c:1242
 msgid "Type w or x to quit help."
 msgstr "Type w tai x lopettaaksesi Help-toiminnan."
 
-#: display.c:1350
+#: display.c:1351
 #, c-format
 msgid ""
 "\n"
@@ -648,7 +650,7 @@ msgstr ""
 "\n"
 "Ok "
 
-#: display.c:1352
+#: display.c:1353
 #, c-format
 msgid ""
 "\n"
@@ -657,12 +659,12 @@ msgstr ""
 "\n"
 "Villi "
 
-#: display.c:1353
+#: display.c:1354
 #, c-format
 msgid "match for %d directories.\n"
 msgstr "osumaa %d hakemistosta.\n"
 
-#: display.c:1396
+#: display.c:1397
 #, c-format
 msgid ""
 "\n"
