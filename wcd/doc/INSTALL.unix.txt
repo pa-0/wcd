@@ -9,9 +9,9 @@ PREREQUISITES
 
 	Only needed if you change the manual page:
 
-	* man         : Man, apropos en whatis
+	* perl        : Practical Extraction and Report Language (perlpod)
 	* groff       : GNU troff text formatting system.
-	* ghostscript : An interpreter for the PostScript language and for PDF
+	* ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
 
 	Check if you have GNU make(1) and GNU gcc(1) installed on your
 	system. On some systems GNU make may be installed as 'gmake' command.
