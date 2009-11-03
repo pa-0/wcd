@@ -99,10 +99,10 @@ Wcd supports following wildcards:
 A set is composed of characters or ranges; a range looks like
 I<character hyphen character> as in C<0-9> or C<A-Z>. The
 C<[0-9a-zA-Z_]> is the minimal set of characters allowed in the
-C<[..]> pattern construct. International characters are allowed if the
-system supports them. To suppress the special syntactic significance
-of any of C<[]*?!^-\> inside or outside a C<[..]> construct and match
-the character exactly, precede the character with a backslash (C<\>)
+C<[..]> pattern construct. International characters (i.e. 8 bit characters) are
+allowed if the system supports them. To suppress the special syntactic
+significance of any of C<[]*?!^-\> inside or outside a C<[..]> construct and
+match the character exactly, precede the character with a backslash (C<\>)
 marker.
 
 Using wildcards makes powerful searching possible. For instance this
