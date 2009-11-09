@@ -874,6 +874,8 @@ converted to Unicode wide characters. Wcd fully relies on libc functions
 and has no UTF-8 specific code. See also
 L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>
 
+Wcd Unicode name matching supports only binary equivalence. Matching with
+Unicode normalisation is not (yet) supported.
 
 =head3 UTF-8 on Unix/Linux
 
