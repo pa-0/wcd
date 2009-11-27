@@ -51,8 +51,7 @@ BASIC INSTALLATION
 			Only an expert should change this.
 
 	    EXT=.exe	Set executable extension
-			The default value is '.exe' for
-			historical reasons (DOS) and to
+			The default value is '.exe' to
 			make a distinction between the binary
 			and the function/alias.
 

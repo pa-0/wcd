@@ -525,7 +525,7 @@ off with the B<-t> option.
 =item B<-u USER>
 
 Scan treedata file of another user based on USER, do not scan your own default
-treedata file. See also section ENVIRONMENT for I<WCDUSERSHOME>.
+treedata file. See also section ENVIRONMENT VARIABLES for I<WCDUSERSHOME>.
 
 On Unix/Cygwin the base directory
 for user home directories is assumed to be C</home>, so wcd tries to scan
@@ -876,6 +876,8 @@ L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>
 
 Wcd Unicode name matching supports only binary equivalence. Matching with
 Unicode normalisation is not (yet) supported.
+
+
 
 =head3 UTF-8 on Unix/Linux
 
