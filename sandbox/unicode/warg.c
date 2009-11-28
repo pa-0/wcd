@@ -42,16 +42,7 @@ void wcd_printf( const char* format, ... ) {
       WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
    //WriteConsoleW(stduit, L"\n\r", 1, NULL, NULL);
 #else
-   if ( fwide(stdout,0) < 0 )
-   {
-      printf ("stdio is byte oriented.\n");
-      printf ("wide-char streams not permitted.\n");
-      printf ("wprintf will not work.\n");
-   }
-   else
-   {
-      vwprintf( format, args );
-   }
+    vprintf( format, args );
 #endif
    va_end( args );
 }

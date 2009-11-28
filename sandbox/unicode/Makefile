@@ -1,4 +1,3 @@
-#OBJ= wcddir.o warg.o
 OBJ= warg.o
 
 all : warg.exe
@@ -14,3 +13,6 @@ endif
 
 warg.exe : $(OBJ)
 	gcc $(OBJ) -o $@
+
+clean :
+	rm -rf *.bak *.exe *~
