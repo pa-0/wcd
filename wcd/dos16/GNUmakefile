@@ -25,7 +25,7 @@ ZIPFILE = ${PACKAGE}${VERSION_SHORT}${VERSIONSUFFIX}.zip
 
 
 all :
-	@echo "targets: install uninstall zippackage"
+	@echo "targets: install uninstall dist"
 
 install :
 	${MAKE} -C ../src docfiles
@@ -55,7 +55,7 @@ ZIPOBJ = bin/${PROGRAM} \
 	share/doc/${PACKAGE}-${VERSION_SHORT}
 
 
-zippackage :
+dist :
 	cd ${PREFIX} ; zip -r ${ZIPFILE} ${ZIPOBJ}
 	mv ${PREFIX}/${ZIPFILE} ../..
 

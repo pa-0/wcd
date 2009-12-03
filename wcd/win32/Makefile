@@ -39,8 +39,8 @@ uninstall :
 	-rm -f ${BINDIR}/wcd_win95.bat
 
 
-zippackage :
-	${MAKE} -C ../src zippackage ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" PROGRAM=${PROGRAM} PREFIX=${PREFIX} VERSIONSUFFIX=${VERSIONSUFFIX}
+dist :
+	${MAKE} -C ../src dist-zip ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" PROGRAM=${PROGRAM} PREFIX=${PREFIX} VERSIONSUFFIX=${VERSIONSUFFIX}
 
 strip:
 	${MAKE} -C ../src strip PROGRAM=${PROGRAM}

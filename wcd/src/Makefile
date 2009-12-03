@@ -405,9 +405,6 @@ dist-tgz:
 
 dist: dist-tgz
 
-tgzpackage: dist-tgz
-
-zippackage: dist-zip
 
 strip:
 	@echo "-- target: strip"

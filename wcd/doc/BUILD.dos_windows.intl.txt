@@ -213,21 +213,11 @@ win32psh : The default PREFIX is c:/usr/local
 cygwin   : The default PREFIX is /usr
 
 
-zip package
-===========
+distribution package
+====================
 
-After installation a zip file can be created that contains
-a ready-to-run wcd package.
+After installation a ready-to-run binary distribution package can be created.
 
-  Type `make zippackage' to create the .zip file.
+  Type `make dist' to create the package.
 
-
-
-tar.gz package
-==============
-
-After installation a tar gzip file can be created that contains
-a ready-to-run wcd package.
-
-  Type `make tgzpackage' to create the .tar.gz file.
 

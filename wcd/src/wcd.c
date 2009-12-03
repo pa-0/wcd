@@ -1337,6 +1337,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 #ifdef MSDOS
    if ((strlen(org_dir)>1) && (dd_match(org_dir,"[a-z]:*",1)))
    {
+     /* If user searches "c:bin" (a directory "bin" on drive c:) set path_str to "c:*bin" */
      strncpy(path_str,org_dir,2);
      path_str[DD_MAXDRIVE-1] = '\0';
      line_end = org_dir + DD_MAXDRIVE ;

@@ -24,11 +24,13 @@ uninstall :
 	${MAKE} -C ../src uninstall PROGRAM=${PROGRAM} PREFIX=${PREFIX}
 
 
-zippackage :
-	${MAKE} -C ../src zippackage PROGRAM=${PROGRAM} PREFIX=${PREFIX} VERSIONSUFFIX=${VERSIONSUFFIX}
+dist-zip :
+	${MAKE} -C ../src dist-zip PROGRAM=${PROGRAM} PREFIX=${PREFIX} VERSIONSUFFIX=${VERSIONSUFFIX}
 
-tgzpackage :
-	${MAKE} -C ../src tgzpackage PROGRAM=${PROGRAM} PREFIX=${PREFIX} VERSIONSUFFIX=${VERSIONSUFFIX}
+dist-tgz :
+	${MAKE} -C ../src dist-tgz PROGRAM=${PROGRAM} PREFIX=${PREFIX} VERSIONSUFFIX=${VERSIONSUFFIX}
+
+dist : dist-tgz
 
 strip:
 	${MAKE} -C ../src strip PROGRAM=${PROGRAM}

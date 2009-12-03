@@ -1,7 +1,7 @@
 include wcd/src/version.mk
 
 help:
-	@echo "${MAKE} release : Create source code packages."
+	@echo "${MAKE} dist    : Create source code distribution packages."
 	@echo "${MAKE} tag     : Create a tag copy of trunk."
 
 
@@ -19,7 +19,7 @@ RELEASE_DIR_SHORT = ../wcd${VERSION_SHORT}
 # don't have 'gettext' installed we do a few file touches
 # so that make doesn't run the gettext tools.
 
-release:
+dist:
 	rm -rf ${RELEASE_DIR}
 	rm -rf ${RELEASE_DIR_SHORT}
 	svn export https://wcd.svn.sourceforge.net/svnroot/wcd/trunk/wcd ${RELEASE_DIR}
@@ -57,7 +57,8 @@ tag:
 	    -m "Tagging release ${VERSION}."
 
 
-BRANCH=wcd-utf16
+# Branch name (example).
+BRANCH=wcd-unorm
 
 release_from_branch:
 	rm -rf ${RELEASE_DIR}

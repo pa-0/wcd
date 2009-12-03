@@ -31,8 +31,8 @@ uninstall :
 	-rm -f ${BINDIR}/wcd.cmd
 
 
-zippackage :
-	${MAKE} -C ../src zippackage ZIPOBJ_EXTRA=bin/wcd.cmd PROGRAM=${PROGRAM} PREFIX=${PREFIX} VERSIONSUFFIX=${VERSIONSUFFIX}
+dist :
+	${MAKE} -C ../src dist-zip ZIPOBJ_EXTRA=bin/wcd.cmd PROGRAM=${PROGRAM} PREFIX=${PREFIX} VERSIONSUFFIX=${VERSIONSUFFIX}
 
 strip:
 	${MAKE} -C ../src strip PROGRAM=${PROGRAM}
