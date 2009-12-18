@@ -1973,13 +1973,16 @@ int main(int argc,char** argv)
       strcpy(localedir,LOCALEDIR);
    else
    {
-      if (strlen(ptr) > DD_MAXPATH)
+      if (strlen(ptr) < sizeof(localedir))
+      {
+         strcpy(localedir,ptr);
+         wcd_fixpath(localedir,sizeof(localedir));
+      }
+      else
       {
          fprintf(stderr,_("Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"));
-         strcpy(localedir,"");
+         strcpy(localedir,LOCALEDIR);
       }
-      strcpy(localedir,ptr);
-      wcd_fixpath(localedir,sizeof(localedir));
    }
    setlocale (LC_ALL, "");
    bindtextdomain (PACKAGE, localedir);
