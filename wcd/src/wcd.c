@@ -12,7 +12,7 @@ WWW     : http://www.xs4all.nl/~waterlan/
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 1997-2009 Erwin Waterlander
+Copyright (C) 1997-2010 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -2265,7 +2265,7 @@ int main(int argc,char** argv)
         printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
         printf(_("\
 Chdir for Dos and Unix.\n\
-Copyright (C) 1997-2009 Erwin Waterlander\n\
+Copyright (C) 1997-2010 Erwin Waterlander\n\
 Copyright (C) 1994-2002 Ondrej Popp on C3PO\n\
 Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n\
 Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n\

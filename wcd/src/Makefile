@@ -1,7 +1,7 @@
 #
 #   Copyright information
 #
-#	Copyright (C) 2009 Erwin Waterlander
+#	Copyright (C) 2009-2010 Erwin Waterlander
 #	Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -396,12 +396,13 @@ tags: $(POT)
 merge: $(POFILES)
 
 dist-zip:
+	rm -f $(prefix)/$(ZIPFILE)
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
-	mv $(prefix)/$(ZIPFILE) ../..
+	mv -f $(prefix)/$(ZIPFILE) ../..
 
 dist-tgz:
 	cd $(prefix) ; tar cvzf $(TGZFILE) $(ZIPOBJ)
-	mv $(prefix)/$(TGZFILE) ../..
+	mv -f $(prefix)/$(TGZFILE) ../..
 
 dist: dist-tgz
 

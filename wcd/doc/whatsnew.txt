@@ -1,7 +1,9 @@
-5.1.1-beta2 Nov 9 2009
+5.1.1 2010-01-07
   - Alternate stack file support with environment variable WCDSTACKFILE (thanks to anonymous).
   - Minor documentation updates.
   - Standard GNU make target 'dist' in all makefiles for distribution package creation.
+    Replaces 'tgzpackage' and 'zippackage'.
+  - Version date in ISO 8601 format (thanks to Jari Aalto).
 
 5.1.0 Oct 22 2009
   - UTF-16 Unicode support for Windows PowerShell.
