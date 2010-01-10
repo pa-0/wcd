@@ -60,6 +60,11 @@ BASIC INSTALLATION
 
 	    make UCS=1 clean all
 
+	To disable Native Language Support,
+	reset the ENABLE_NLS variable:
+
+	    make ENABLE_NLS=
+
 	To disable curses and compile with plain stdin/stdout
 	interface type, reset the CURSES variable:
 

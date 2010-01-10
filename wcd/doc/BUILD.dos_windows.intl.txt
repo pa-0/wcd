@@ -1,4 +1,5 @@
-This file explains how to compile wcd for DOS and Windows with internationalization support.
+This file explains how to compile wcd for DOS and Windows
+with GNU C compiler (GCC). 
 
 For Unix compile instructions see file INSTALL.unix.txt
 
@@ -12,6 +13,9 @@ Prerequisites
 * make      : GNU make
 * sh        : POSIX type shell
 * coreutils : GNU core utilities package
+
+Optional:
+
 * gettext   : Framework to help GNU packages produce multi-lingual messages.
 * libiconv  : Character set conversion library.
 DOS/Windows
@@ -176,6 +180,20 @@ To start clean:
 
   Type `make clean'
 
+Native Language Support
+=======================
+
+NLS is by default enabled. To disable reset the ENABLE_NLS variable:
+
+  make ENABLE_NLS=
+
+Curses interface
+================
+
+The default interface is curses. To disable CURSES and compile
+with stdio interface, reset the CURSES variable.
+
+  make CURSES=
 
 Unicode support
 ===============
