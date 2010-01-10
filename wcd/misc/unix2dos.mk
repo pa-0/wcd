@@ -11,7 +11,8 @@ DOSVERSION=wcd${VERSION_SHORT}
 
 unix2dos:
 	cd ../.. ; cp -Rp ${UNIXVERSION} ${DOSVERSION}
-	cd ../../${DOSVERSION}/src ; unix2dos --keepdate *.h *.c Makefile *.mk
+	cd ../../${DOSVERSION}/src ; unix2dos --keepdate *.h *.c *.mk
+	cd ../../${DOSVERSION} ; unix2dos --keepdate */Makefile
 	cd ../../${DOSVERSION}/src/c3po ; unix2dos --keepdate *
 	cd ../../${DOSVERSION}/src/patch ; unix2dos --keepdate *.*
 	cd ../../${DOSVERSION}/src/po ; unix2dos --keepdate *.pot
