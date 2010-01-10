@@ -6,6 +6,11 @@ GCCFLAGS = -O3 -Wall
 CURSES = pdcurses
 ENABLE_NLS = 1
 
+ifdef CONIO
+CURSES=
+DEFS   += -DWCD_USECONIO
+endif
+
 ifdef CURSES
 LIB_CURSES = -l${CURSES}
 DEFS   = -DWCD_USECURSES

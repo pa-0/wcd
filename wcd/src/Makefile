@@ -304,10 +304,13 @@ OBJS1 = \
 	display.o \
 	dosdir.o \
 	wfixpath.o \
-	colors.o \
-	graphics.o \
 	wcddir.o \
 	$(EXTRA_OBJ)
+
+ifneq (,$(CURSES))
+OBJS1 += colors.o \
+	graphics.o
+endif
 
 all: $(BIN) $(MOFILES) $(DOCFILES)
 
