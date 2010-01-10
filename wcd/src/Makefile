@@ -49,6 +49,7 @@ include version.mk
 CC		= gcc
 STATIC		=
 
+ENABLE_NLS = 1
 
 PACKAGE		= wcd
 EXT		= .exe
@@ -133,10 +134,13 @@ TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX).tar.gz
 endif
 
 ZIPOBJ		= bin/$(BIN) \
-		  share/locale/*/LC_MESSAGES/$(PACKAGE).mo \
 		  share/man/man1/$(PACKAGE).1 \
 		  share/doc/$(PACKAGE)-$(VERSION) \
 		  $(ZIPOBJ_EXTRA)
+
+ifdef ENABLE_NLS
+ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
+endif
 
 # .......................................................... unicode ...
 
@@ -149,8 +153,6 @@ ifdef UCS
 	CFLAGS_UCS = -std=gnu99
 	WDEFS	   = -DWCD_UNICODE
 endif
-
-ENABLE_NLS = 1
 
 ifdef ENABLE_NLS
 	NLSDEFS    = -DENABLE_NLS -DLOCALEDIR=\"$(sharedir)/locale\" -DPACKAGE=\"$(PACKAGE)\"
@@ -470,12 +472,18 @@ install-bin: $(BIN)
 	$(MKDIR) -p -m 755 $(BINDIR)
 	$(INSTALL_BIN) $(INSTALL_OBJS_BIN) $(BINDIR)
 
+ifdef ENABLE_NLS
 install: install-bin install-man install-doc install-mo
+else
+install: install-bin install-man install-doc
+endif
 
 uninstall:
 	@echo "-- target: uninstall"
 	-rm -f $(BINDIR)/$(BIN)
+ifdef ENABLE_NLS
 	$(foreach mofile, $(MOFILES), rm -f $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+endif
 	-rm -f $(MANDIR)/man1/$(PACKAGE).1
 	-rm -rf $(DOCDIR)
 

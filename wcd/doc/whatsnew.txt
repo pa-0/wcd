@@ -1,3 +1,6 @@
+5.1.2-beta1 2010-01-10
+  - src/Makefile: Don't install language files when NLS is disabled.
+
 5.1.1 2010-01-07
   - Alternate stack file support with environment variable WCDSTACKFILE (thanks to anonymous).
   - Minor documentation updates.

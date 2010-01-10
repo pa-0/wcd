@@ -82,8 +82,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  define OP_DIR "."
 #endif /* ?MSDOS|VMS */
 
-#define VERSION      "5.1.1"
-#define VERSION_DATE "2010-01-07"
+#define VERSION      "5.1.2-beta1"
+#define VERSION_DATE "2010-01-10"
 
 
 /* Function prototypes */
