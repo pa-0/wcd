@@ -1,6 +1,7 @@
-This file explains how to compile wcd for DOS and Windows.
+This file explains how to compile wcd for DOS and Windows
+with compilers other than GNU GCC.
 
-To compile wcd with internationalization support see BUILD.dos_windows.intl.txt
+To compile wcd with GCC (DJGPP, MINGW, CYGWIN) see BUILD.dos_windows.gcc.txt
 
 For Unix compile instructions see file INSTALL.unix.txt.
 
@@ -70,29 +71,9 @@ To compile wcd with PDCurses interface type (Large memory model):
 DOS 32 bit
 ----------------------------------------------
 
-Go to directory dos32. The 32 bit version is compiled with DJGPP.
-DJGPP is a free C++ compiler. You can download it at http://www.delorie.com/
-A 32 bit DOS version can also be build with Watcom C compiler.
-Watcom C compiler is freely available at http://www.openwatcom.org/
-
-DJGPP supports long file and directory names under windows 95/98/ME,
-Watcom not.
-
-
---- DJGPP ---
-
-Go to directory dos32.
-
-To compile wcd with default conio interface type:
-
->  make -f conio.mak
-
-To compile wcd with PDCurses interface type:
-
->  make -f pdcurses.mak
-
-
 --- Watcom C ---
+
+Watcom C compiler is freely available at http://www.openwatcom.org/
 
 Go to directory dos32/watcom.
 
@@ -108,8 +89,6 @@ To compile wcd with PDCurses interface type:
 DOS 32 bit for BASH
 ----------------------------------------------
 
-Use the DJGPP compiler.
-
 Go to directory dos32bsh and use the same commands as with the
 normal dos 32 bit version.
 
@@ -119,12 +98,11 @@ Windows 32 bit console version.
 
 This version can be compiled with free compilers:
 Borland C++: http://www.borland.com/products/downloads/download_cbuilder.html
-MinGW      : http://www.mingw.org/
 LCC        : http://www.cs.virginia.edu/~lcc-win32/
 Watcom     : http://www.openwatcom.org/
 
 Go to directory win32.
-Cd to one of the compiler directories: borland, lcc, mingw or watcom.
+Cd to one of the compiler directories: borland, lcc or watcom.
 
 Edit the makefile you want to use first: set CC_HOME to the correct value.
 
@@ -151,24 +129,4 @@ Windows 32 bit MSYS and zsh version.
 
 Go to directory win32zsh.
 Same as win 32 console version.
-
-----------------------------------------------
-Cygwin version.
-----------------------------------------------
-
-Cygwin can be obtained from http://cygwin.com/
-
-Go to directory cygwin.
-
-To compile wcd with stdout interface:
-
-$ make -f stdout.mak
-
-To compile wcd with PDCurses interface:
-
-$ make -f pdcurses.mak
-
-To compile wcd with NCurses interface:
-
-$ make -f ncurses.mak
 

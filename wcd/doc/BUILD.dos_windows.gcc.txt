@@ -40,7 +40,7 @@ gcc
 
 dos     : DJGPP  : http://www.delorie.com/djgpp/
 windows : MINGW  : http://www.mingw.org/
-windows : CYGWIN : http://cygwin.com/
+cygwin  : CYGWIN : http://cygwin.com/
 
 
 make, coreutils, gettext and libiconv
@@ -180,20 +180,36 @@ To start clean:
 
   Type `make clean'
 
-Native Language Support
-=======================
+
+Native Language Support (NLS)
+=============================
 
 NLS is by default enabled. To disable reset the ENABLE_NLS variable:
 
   make ENABLE_NLS=
 
+
 Curses interface
 ================
 
-The default interface is curses. To disable CURSES and compile
-with stdio interface, reset the CURSES variable.
+The default interface is curses.
+
+win32* uses PDCurses (CURSES=pdcurses)
+cygwin, os2 uses NCurses (CURSES=ncurses)
+
+To disable CURSES and compile with stdio interface, reset the CURSES variable:
 
   make CURSES=
+
+
+Conio interface (DOS only)
+==========================
+
+To enable the conio interface instead of curses add CONIO=1:
+
+
+  make CONIO=1
+
 
 Unicode support
 ===============
