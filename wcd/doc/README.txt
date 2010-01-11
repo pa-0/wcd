@@ -1,24 +1,23 @@
 File list
 
-    README.txt                   : This file.
-    README.sourcecode.txt        : Notes about the source code.
-    BUILD.dos_windows.txt        : How to build wcd for DOS and Windows.
-    BUILD.dos_windows.intl.txt   : How to build wcd for DOS and Windows with
-                                   native language support.
-    INSTALL.dos_windows.txt      : How to install wcd on DOS and Windows.
-    INSTALL.unix.txt             : How to build and install wcd for Unix.
-    INSTALL.os2.txt              : How to install wcd for OS/2 Warp.
-    INSTALL.rpm.txt              : How to install wcd using an rpm package.
-    wcd.txt                      : Manual, text format.
-    wcd.ps                       : Manual, PostScript format.
-    wcd.pdf                      : Manual, PDF format.
-    wcd.html                     : Manual, HTML format.
-    whatsnew.txt                 : Change log.
-    faq.txt                      : Frequently Asked Questions.
-    translate.txt                : How to translate wcd.
-    copying.txt                  : distribution license.
-    problems.txt                 : Known problems.
-    todo.txt                     : Things to do.
+    README.txt                : This file.
+    README.sourcecode.txt     : Notes about the source code.
+    BUILD.dos_windows.gcc.txt : How to build wcd for DOS/Windows with GCC.
+    BUILD.dos_windows.txt     : How to build wcd for DOS/Windows with other compilers.
+    INSTALL.dos_windows.txt   : How to install wcd on DOS and Windows.
+    INSTALL.unix.txt          : How to build and install wcd for Unix/Linux.
+    INSTALL.os2.txt           : How to install wcd for OS/2 Warp.
+    INSTALL.rpm.txt           : How to install wcd using an rpm package.
+    wcd.txt                   : Manual, text format.
+    wcd.ps                    : Manual, PostScript format.
+    wcd.pdf                   : Manual, PDF format.
+    wcd.html                  : Manual, HTML format.
+    whatsnew.txt              : Change log.
+    faq.txt                   : Frequently Asked Questions.
+    translate.txt             : How to translate wcd.
+    copying.txt               : distribution license.
+    problems.txt              : Known problems.
+    todo.txt                  : Things to do.
 
 
 Table of Contents
