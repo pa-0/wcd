@@ -1,5 +1,5 @@
 This file explains how to compile wcd for DOS and Windows
-with GNU C compiler (GCC). 
+with GNU C compiler (GCC, DJGPP/MINGW/Cygwin). 
 
 For Unix compile instructions see file INSTALL.unix.txt
 
@@ -63,10 +63,9 @@ CYGWIN : download via the installer program setup.exe.
 
 
 For MINGW you can better install gettext and libiconv libraries from the
-GnuWin32 project.  The version is a bit older, but the GnuWin32 port
-automatically detects the language on Windows (no need to set the LANG
-variable), and can automatically find the LOCALEDIR if the wcd package
-was unpacked in a different PREFIX directory (relocation support is builtin).
+GnuWin32 project.  The version is a bit older, but the GnuWin32 port has
+relocation support builtin in libintl. It can automatically find the LOCALEDIR
+if the wcd binary package was unpacked in a different PREFIX directory.
 
 GnuWin32: http://gnuwin32.sourceforge.net/
 
@@ -112,7 +111,8 @@ Define SHELL, pointing to sh.exe.
 Now you have a proper shell for GNU make.
 
 See also file problems.txt.
-It is advised to use MSYS.
+
+It is advised to use the MSYS environment though.
 
 
 PDCurses
@@ -144,8 +144,8 @@ don't change the wcd manual, you don't need these packages.
 Man, groff and ghostscript are available in the Cygwin environment.
 
 
-Problems on Windows VISTA
-=========================
+Problems on Windows VISTA/7
+===========================
 
 To be able to run `gmake install' you may need adminstrator rights. You can get
 a command prompt with administrator rights if you right click on the command
@@ -221,6 +221,8 @@ To activate Unicode support add UCS=1 to the make command:
 This requires a (pd/n)curses installation with wide character support.
 Not supported for DOS versions of wcd.
 
+Unicode support makes only sense if you compile for Windows PowerShell
+or Cygwin 1.7 and up.
 
 
 Installation Names
