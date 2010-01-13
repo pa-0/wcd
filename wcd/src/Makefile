@@ -115,9 +115,11 @@ INSTALL_OBJS_DOC   = \
   $(INSTALL_OBJS_DOC_INSTALL) \
   $(INSTALL_OBJS_DOC_COPYING)
 
+ifdef ENABLE_NLS
 POT		= po/$(PACKAGE).pot
 POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
+endif
 DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf ../doc/$(PACKAGE).html
 
 CPP		= cpp
@@ -138,8 +140,11 @@ ZIPOBJ		= bin/$(BIN) \
 		  share/doc/$(PACKAGE)-$(VERSION) \
 		  $(ZIPOBJ_EXTRA)
 
+INSTALL_TARGETS = install-bin install-man install-doc
+
 ifdef ENABLE_NLS
-ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
+	INSTALL_TARGETS += install-mo
+	ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
 endif
 
 # .......................................................... unicode ...
@@ -312,7 +317,7 @@ OBJS1 += colors.o \
 	graphics.o
 endif
 
-all: $(BIN) $(MOFILES) $(DOCFILES)
+all: $(BIN) $(DOCFILES) $(MOFILES)
 
 status:
 	@echo "-- $(PACKAGE) Makefile settings begin --"
@@ -475,11 +480,7 @@ install-bin: $(BIN)
 	$(MKDIR) -p -m 755 $(BINDIR)
 	$(INSTALL_BIN) $(INSTALL_OBJS_BIN) $(BINDIR)
 
-ifdef ENABLE_NLS
-install: install-bin install-man install-doc install-mo
-else
-install: install-bin install-man install-doc
-endif
+install: $(INSTALL_TARGETS)
 
 uninstall:
 	@echo "-- target: uninstall"
