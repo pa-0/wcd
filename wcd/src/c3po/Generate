@@ -1,4 +1,4 @@
-#c3po-latest wcd.G 
+#c3po-latest wcd.G
 c3po-0.19.5 wcd.G
 
 # Solve conflicts with other definitions of type 'bool'. E.g. in (n)curses.
