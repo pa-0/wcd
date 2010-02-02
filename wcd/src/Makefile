@@ -273,20 +273,19 @@ endif
 # dynamically) comment the LDFLAGS line and add the 'libncurses.a' file
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
-GCCFLAGS	= -O2 -Wall
+CFLAGS	= -O2 -Wall
 
-ifdef STATIC
-	GCCFLAGS += -static
-endif
-
-CFLAGS		= -Ic3po \
-		  $(GCCFLAGS) \
+EXTRA_CFLAGS	= -Ic3po \
 		  $(CFLAGS_OS) \
 		  $(CFLAGS_UCS) \
 		  $(WDEFS) \
 		  $(NLSDEFS) \
 		  $(NCFLAG) \
 		  $(INCFLAGS)
+
+ifdef STATIC
+	EXTRA_CFLAGS += -static
+endif
 
 LDFLAGS		= $(LIB_CURSES) \
 	          $(LDFLAGS_EXTRA) \
@@ -335,6 +334,7 @@ status:
 	@echo "LDFLAGS_EXTRA = $(LDFLAGS_EXTRA)"
 	@echo "CFLAGS        = $(CFLAGS)"
 	@echo "CFLAGS_OS     = $(CFLAGS_OS)"
+	@echo "EXTRA_CFLAGS  = $(EXTRA_CFLAGS)"
 	@echo "-- $(PACKAGE) Makefile settings end --"
 
 $(BIN): $(OBJS1)
@@ -342,10 +342,10 @@ $(BIN): $(OBJS1)
 	$(CC) $(OBJS1) $(LDFLAGS) -o $@
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(DEFS) -c $< -o $@
+	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(DEFS) -c $< -o $@
 
 %.o: c3po/%.c
-	$(CC) $(CFLAGS) $(DEFS) -c $< -o $@
+	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(DEFS) -c $< -o $@
 
 %.pdf: %.ps
 	ps2pdf $< $@
