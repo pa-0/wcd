@@ -1,5 +1,7 @@
 
 PREFIX = c:/usr
+prefix = $(PREFIX)
+exec_prefix = $(prefix)
 MKDIR  = mkdir
 LDFLAGS_EXTRA =
 
@@ -27,25 +29,25 @@ LDFLAGS_EXTRA += -lintl -liconv
 EXTRA_OBJ += langinfo.o
 endif
 
-BINDIR    = ${PREFIX}/bin
+bindir    = ${exec_prefix}/bin
 PROGRAM = wcdos2.exe
 VERSIONSUFFIX = -os2
 ZIPOBJ_EXTRA=bin/wcd.cmd
 
 all :
-	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES="${LIB_CURSES}" DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" PREFIX=${PREFIX} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS}
+	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES="${LIB_CURSES}" DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS}
 
 install :
-	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES="${LIB_CURSES}" DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" PREFIX=${PREFIX} MKDIR=${MKDIR} EXTRA_OBJ="${EXTRA_OBJ}" INSTALL_OBJS_DOC_INSTALL=../doc/INSTALL.os2.txt ENABLE_NLS=${ENABLE_NLS}
-	install -m 755 wcd.cmd ${BINDIR}/wcd.cmd
+	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES="${LIB_CURSES}" DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} MKDIR=${MKDIR} EXTRA_OBJ="${EXTRA_OBJ}" INSTALL_OBJS_DOC_INSTALL=../doc/INSTALL.os2.txt ENABLE_NLS=${ENABLE_NLS}
+	install -m 755 wcd.cmd $(DESTDIR)${bindir}/wcd.cmd
 
 uninstall :
-	${MAKE} -C ../src uninstall PROGRAM=${PROGRAM} PREFIX=${PREFIX} ENABLE_NLS=${ENABLE_NLS}
-	-rm -f ${BINDIR}/wcd.cmd
+	${MAKE} -C ../src uninstall PROGRAM=${PROGRAM} prefix=${prefix} ENABLE_NLS=${ENABLE_NLS}
+	-rm -f $(DESTDIR)${bindir}/wcd.cmd
 
 
 dist :
-	${MAKE} -C ../src dist-zip ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" PROGRAM=${PROGRAM} PREFIX=${PREFIX} VERSIONSUFFIX=${VERSIONSUFFIX} ENABLE_NLS=${ENABLE_NLS}
+	${MAKE} -C ../src dist-zip ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" PROGRAM=${PROGRAM} prefix=${prefix} VERSIONSUFFIX=${VERSIONSUFFIX} ENABLE_NLS=${ENABLE_NLS}
 
 strip:
 	${MAKE} -C ../src strip PROGRAM=${PROGRAM}

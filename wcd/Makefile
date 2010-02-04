@@ -33,8 +33,10 @@ clean:
 distclean:
 	$(MAKE) -C $(OBJDIR) distclean
 
-realclean:
-	$(MAKE) -C $(OBJDIR) realclean
+maintainer-clean:
+	$(MAKE) -C $(OBJDIR) maintainer-clean
+
+realclean: maintainer-clean
 
 install:
 	$(MAKE) -C $(OBJDIR) install CC="$(CC)"

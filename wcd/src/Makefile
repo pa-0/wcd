@@ -56,35 +56,25 @@ EXT		= .exe
 PROGRAM         = $(PACKAGE)$(EXT)
 BIN		= $(PROGRAM)
 
-DESTDIR		=
 PREFIX		= /usr/local
 prefix		= $(PREFIX)
 exec_prefix	= $(prefix)
-man_prefix	= $(prefix)/share
-mandir		= $(man_prefix)/man
 bindir		= $(exec_prefix)/bin
-sharedir	= $(prefix)/share
+datarootdir	= $(prefix)/share
+datadir		= $(datarootdir)
 
-BINDIR		= $(DESTDIR)$(bindir)
-DOCDIR		= $(DESTDIR)$(sharedir)/doc/$(PACKAGE)-$(VERSION)
-SHAREDIR	= $(DESTDIR)$(sharedir)/$(PACKAGE)
-LOCALEDIR	= $(DESTDIR)$(sharedir)/locale
-LIBDIR		= $(DESTDIR)$(prefix)/lib/$(PACKAGE)
-SBINDIR		= $(DESTDIR)$(exec_prefix)/sbin
-ETCDIR		= $(DESTDIR)/etc/$(PACKAGE)
+docdir		= $(datarootdir)/doc/$(PACKAGE)-$(VERSION)
+localedir	= $(datarootdir)/locale
 
 # 1 = regular, 5 = conf, 6 = games, 8 = daemons
-MANDIR		= $(DESTDIR)$(mandir)
-MANDIR1		= $(MANDIR)/man1
-MANDIR5		= $(MANDIR)/man5
-MANDIR6		= $(MANDIR)/man6
-MANDIR8		= $(MANDIR)/man8
+mandir		= $(datarootdir)/man
+man1dir		= $(mandir)/man1
+
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
 INSTALL		= install
 # On some systems (e.g. GNU Win32) GNU mkdir is installed as `gmkdir'.
 MKDIR           = mkdir
-
 
 INSTALL_BIN	= $(INSTALL) -m 755
 INSTALL_DATA	= $(INSTALL) -m 644
@@ -160,7 +150,7 @@ ifdef UCS
 endif
 
 ifdef ENABLE_NLS
-	NLSDEFS    = -DENABLE_NLS -DLOCALEDIR=\"$(sharedir)/locale\" -DPACKAGE=\"$(PACKAGE)\"
+	NLSDEFS    = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
 endif
 
 # ........................................................... curses ...
@@ -452,44 +442,40 @@ maintainer-clean: distclean
 # 'maintainer-clean' was 'realclean' in old GNU standards.
 realclean: maintainer-clean
 
-install-etc:
-	@echo "-- target: install-etc, Nothing yet"
-	# $(INSTALL_BIN) -d $(ETCDIR)
-	# $(INSTALL_BIN)    $(INSTALL_OBJS_ETC) $(ETCDIR)
 
 # Old versions of install(1) don't support option -D. Use
 # mkdir instead. Was seen on HP-UX 11 and DOS DJGPP.
 
 install-mo: $(MOFILES)
 	@echo "-- target: install-mo"
-	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
-	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
+	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 
 install-doc: $(DOCFILES)
 	@echo "-- target: install-doc"
-	$(MKDIR) -p -m 755 $(DOCDIR)
-	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DOCDIR)
+	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
+	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
 
 install-man: $(INSTALL_OBJS_MAN1)
 	@echo "-- target: install-man"
-	$(MKDIR) -p -m 755 $(MANDIR1)
-	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(MANDIR1)
+	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
+	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(DESTDIR)$(man1dir)
 
 install-bin: $(BIN)
 	@echo "-- target: install-bin"
-	$(MKDIR) -p -m 755 $(BINDIR)
-	$(INSTALL_BIN) $(INSTALL_OBJS_BIN) $(BINDIR)
+	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
+	$(INSTALL_BIN) $(INSTALL_OBJS_BIN) $(DESTDIR)$(bindir)
 
 install: $(INSTALL_TARGETS)
 
 uninstall:
 	@echo "-- target: uninstall"
-	-rm -f $(BINDIR)/$(BIN)
+	-rm -f $(DESTDIR)$(bindir)/$(BIN)
 ifdef ENABLE_NLS
-	$(foreach mofile, $(MOFILES), rm -f $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 endif
-	-rm -f $(MANDIR)/man1/$(PACKAGE).1
-	-rm -rf $(DOCDIR)
+	-rm -f $(DESTDIR)$(mandir)/man1/$(PACKAGE).1
+	-rm -rf $(DESTDIR)$(docdir)
 
 .PHONY: status uninstall install install-doc dist dist-zip dist-tgz
 .PHONY: man pod ps txt html pdf

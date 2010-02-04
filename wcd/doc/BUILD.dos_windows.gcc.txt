@@ -231,14 +231,14 @@ Installation Names
 By default `make install' will install the program in /usr/local/bin, the
 language files in /usr/local/share/locale and the man file in
 /usr/local/share/man. You can specify an installation prefix other than
-`/usr/local' by giving `make' the option `PREFIX=PATH'.
+`/usr/local' by giving `make' the option `prefix=PATH'.
 
 
 Example:
 
   make clean
-  make PREFIX=c:/Users/waterlan
-  make install PREFIX=c:/Users/waterlan
+  make prefix=c:/Users/waterlan
+  make install prefix=c:/Users/waterlan
 
 
 dos32    : The default PREFIX is c:/djgpp

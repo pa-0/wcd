@@ -1,19 +1,18 @@
 include ../src/version.mk
 
 PREFIX = c:/usr/local
+prefix = $(PREFIX)
+exec_prefix = $(prefix)
 INSTALL=install
 MKDIR=mkdir
 
 PACKAGE = wcd
 PROGRAM = ${PACKAGE}.exe
-BINDIR    = ${PREFIX}/bin
-MANDIR    = ${PREFIX}/share/man
-DOCDIR    = ${PREFIX}/share/doc/${PACKAGE}-${VERSION_SHORT}
+bindir    = ${exec_prefix}/bin
+datarootdir = $(prefix)/share
+mandir    = ${datarootdir}/man
+docdir    = ${datarootdir}/doc/${PACKAGE}-${VERSION_SHORT}
 
-# install and uninstall destination folders.
-DESTBINDIR    = ${DESTDIR}${BINDIR}
-DESTMANDIR    = ${DESTDIR}${MANDIR}
-DESTDOCDIR    = ${DESTDIR}${DOCDIR}
 ifdef CONIO
 # binary conio
 VERSIONSUFFIX = bc
@@ -29,25 +28,25 @@ all :
 
 install :
 	${MAKE} -C ../src docfiles
-	${MKDIR} -p -m 755 ${DESTBINDIR}
-	${MKDIR} -p -m 755 ${DESTMANDIR}/man1
-	${MKDIR} -p -m 755 ${DESTDOCDIR}
-	${INSTALL} -m 755 ${PROGRAM} ${DESTBINDIR}/${PROGRAM}
-	${INSTALL} -m 644 ../src/man/man1/${PACKAGE}.1 ${DESTMANDIR}/man1/${PACKAGE}.1
-	${INSTALL} -m 644 ../doc/copying.txt "${DESTDOCDIR}/copying.txt"
-	${INSTALL} -m 644 ../doc/faq.txt ${DESTDOCDIR}/faq.txt
-	${INSTALL} -m 644 ../doc/wcd.txt ${DESTDOCDIR}/wcd.txt
-	${INSTALL} -m 644 ../doc/wcd.pdf ${DESTDOCDIR}/wcd.pdf
-	${INSTALL} -m 644 ../doc/whatsnew.txt ${DESTDOCDIR}/whatsnew.txt
-	${INSTALL} -m 644 ../doc/INSTALL.dos_windows.txt ${DESTDOCDIR}/INSTALL.txt
-	${INSTALL} -m 644 ../doc/README.txt ${DESTDOCDIR}/README.txt
-	${INSTALL} -m 644 ../doc/problems.txt ${DESTDOCDIR}/problems.txt
-	${INSTALL} -m 644 ../doc/todo.txt ${DESTDOCDIR}/todo.txt
+	${MKDIR} -p -m 755 ${DESTDIR}${bindir}
+	${MKDIR} -p -m 755 ${DESTDIR}${mandir}/man1
+	${MKDIR} -p -m 755 ${DESTDIR}${docdir}
+	${INSTALL} -m 755 ${PROGRAM} ${DESTDIR}${bindir}/${PROGRAM}
+	${INSTALL} -m 644 ../src/man/man1/${PACKAGE}.1 ${DESTDIR}${mandir}/man1/${PACKAGE}.1
+	${INSTALL} -m 644 ../doc/copying.txt "${DESTDIR}${docdir}/copying.txt"
+	${INSTALL} -m 644 ../doc/faq.txt ${DESTDIR}${docdir}/faq.txt
+	${INSTALL} -m 644 ../doc/wcd.txt ${DESTDIR}${docdir}/wcd.txt
+	${INSTALL} -m 644 ../doc/wcd.pdf ${DESTDIR}${docdir}/wcd.pdf
+	${INSTALL} -m 644 ../doc/whatsnew.txt ${DESTDIR}${docdir}/whatsnew.txt
+	${INSTALL} -m 644 ../doc/INSTALL.dos_windows.txt ${DESTDIR}${docdir}/INSTALL.txt
+	${INSTALL} -m 644 ../doc/README.txt ${DESTDIR}${docdir}/README.txt
+	${INSTALL} -m 644 ../doc/problems.txt ${DESTDIR}${docdir}/problems.txt
+	${INSTALL} -m 644 ../doc/todo.txt ${DESTDIR}${docdir}/todo.txt
 
 uninstall :
-	-rm -f ${DESTBINDIR}/${PROGRAM}
-	-rm -f ${DESTMANDIR}/man1/${PACKAGE}.1
-	-rm -rf ${DESTDOCDIR}
+	-rm -f ${DESTDIR}${bindir}/${PROGRAM}
+	-rm -f ${DESTDIR}${mandir}/man1/${PACKAGE}.1
+	-rm -rf ${DESTDIR}${docdir}
 
 
 ZIPOBJ = bin/${PROGRAM} \
@@ -56,6 +55,6 @@ ZIPOBJ = bin/${PROGRAM} \
 
 
 dist :
-	cd ${PREFIX} ; zip -r ${ZIPFILE} ${ZIPOBJ}
-	mv ${PREFIX}/${ZIPFILE} ../..
+	cd ${prefix} ; zip -r ${ZIPFILE} ${ZIPOBJ}
+	mv ${prefix}/${ZIPFILE} ../..
 
