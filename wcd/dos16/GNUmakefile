@@ -11,7 +11,8 @@ PROGRAM = ${PACKAGE}.exe
 bindir    = ${exec_prefix}/bin
 datarootdir = $(prefix)/share
 mandir    = ${datarootdir}/man
-docdir    = ${datarootdir}/doc/${PACKAGE}-${VERSION_SHORT}
+docsubdir = ${PACKAGE}-${VERSION_SHORT}
+docdir    = ${datarootdir}/doc/${docsubdir}
 
 ifdef CONIO
 # binary conio
@@ -51,7 +52,7 @@ uninstall :
 
 ZIPOBJ = bin/${PROGRAM} \
 	share/man/man1/${PACKAGE}.1 \
-	share/doc/${PACKAGE}-${VERSION_SHORT}
+	share/doc/${docsubdir}
 
 
 dist :

@@ -63,7 +63,8 @@ bindir		= $(exec_prefix)/bin
 datarootdir	= $(prefix)/share
 datadir		= $(datarootdir)
 
-docdir		= $(datarootdir)/doc/$(PACKAGE)-$(VERSION)
+docsubdir	= $(PACKAGE)-$(VERSION)
+docdir		= $(datarootdir)/doc/$(docsubdir)
 localedir	= $(datarootdir)/locale
 
 # 1 = regular, 5 = conf, 6 = games, 8 = daemons
@@ -127,7 +128,7 @@ endif
 
 ZIPOBJ		= bin/$(BIN) \
 		  share/man/man1/$(PACKAGE).1 \
-		  share/doc/$(PACKAGE)-$(VERSION) \
+		  share/doc/$(docsubdir) \
 		  $(ZIPOBJ_EXTRA)
 
 INSTALL_TARGETS = install-bin install-man install-doc
