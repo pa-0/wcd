@@ -1768,7 +1768,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
    sp = newterm(NULL,stdout,stdin);
    if (sp == NULL)
    {
-      fprintf(stderr,_("Wcd: warning: Error opening terminal, falling back to stdout interface.\n"));
+      fprintf(stderr, "%s", _("Wcd: warning: Error opening terminal, falling back to stdout interface.\n"));
       return NULL;
    }
 #endif
@@ -1801,7 +1801,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #ifdef XCURSES
       XCursesExit();
 #endif
-      fprintf(stderr,_("Wcd: error creating scroll window.\n"));
+      fprintf(stderr, "%s", _("Wcd: error creating scroll window.\n"));
       return NULL;
    }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-07 22:06+0100\n"
+"POT-Creation-Date: 2010-04-04 08:46+0200\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -60,7 +60,6 @@ msgstr ""
 "de rutas para %s\n"
 
 #: wcd.c:934
-#, c-format
 msgid ""
 "Wcd: error: Write access to tree-file denied.\n"
 "Wcd: Set TEMP environment variable if this is a read-only disk.\n"
@@ -384,14 +383,12 @@ msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: Creando directorio %s\n"
 
 #: wcd.c:1983
-#, c-format
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente WCDLOCALEDIR es demasiado "
 "largo.\n"
 
 #: wcd.c:2013 wcd.c:2081
-#, c-format
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
@@ -399,19 +396,16 @@ msgstr ""
 "largo.\n"
 
 #: wcd.c:2045 wcd.c:2074
-#, c-format
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: error: La variable de ambiente HOME o WCDHOME no tiene valor.\n"
 
 #: wcd.c:2144 wcd.c:2585 wcd.c:2602
-#, c-format
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente WCDUSERSHOME es demasiado "
 "largo.\n"
 
 #: wcd.c:2261
-#, c-format
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Modo gráfico sólo soportado en wcd con interfase basada en curses.\n"
@@ -506,38 +500,31 @@ msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "Wcd: Se encontraron %d directorios compartidos en el servidor %s\n"
 
 #: stack.c:99
-#, c-format
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Error al analizar la pila\n"
 
 #: display.c:199
-#, c-format
 msgid "Wcd: error in maxLength(), list == NULL\n"
 msgstr "Wcd: error en maxLength(), list == NULL\n"
 
 #: display.c:219
-#, c-format
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "Wcd: error en maxLengthStack(), s == NULL\n"
 
 #: display.c:1002 graphics.c:1771
-#, c-format
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr "Wcd: warning: Error al abrir la terminal, usando interfase stdout.\n"
 
 #: display.c:1020
-#, c-format
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: error: la altura de la pantalla debe ser mayor de 3 líneas.\n"
 
 #: display.c:1054 graphics.c:1804
-#, c-format
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: error al crear ventana deslizable.\n"
 
 #: display.c:1085
-#, c-format
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: error al crear ventana de entrada.\n"
 
@@ -858,7 +845,6 @@ msgid "Screenheight must be > 20 for help"
 msgstr "La altura de la pantalla debe ser > 20 para la ayuda"
 
 #: wfixpath.c:65
-#, c-format
 msgid "Wcd: malloc error in wcd_fixpath()\n"
 msgstr "Wcd: error de malloc en wcd_fixpath()\n"
 

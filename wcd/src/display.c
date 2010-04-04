@@ -196,7 +196,7 @@ int maxLength(nameset list)
 
    if (list == NULL)
    {
-      fprintf(stderr,_("Wcd: error in maxLength(), list == NULL\n"));
+      fprintf(stderr, "%s", _("Wcd: error in maxLength(), list == NULL\n"));
       return 32 ;
    }
 
@@ -216,7 +216,7 @@ int maxLengthStack(WcdStack s)
 
    if (s == NULL)
    {
-      fprintf(stderr,_("Wcd: error in maxLengthStack(), s == NULL\n"));
+      fprintf(stderr, "%s", _("Wcd: error in maxLengthStack(), s == NULL\n"));
       return 32 ;
    }
 
@@ -999,7 +999,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
    sp = newterm(NULL,stdout,stdin);
    if (sp == NULL)
    {
-      fprintf(stderr,_("Wcd: warning: Error opening terminal, falling back to stdout interface.\n"));
+      fprintf(stderr, "%s", _("Wcd: warning: Error opening terminal, falling back to stdout interface.\n"));
       return WCD_ERR_CURSES;
    }
 #endif
@@ -1017,7 +1017,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 #ifdef XCURSES
       XCursesExit();
 #endif
-      fprintf(stderr,_("Wcd: error: screen height must be larger than 3 lines.\n"));
+      fprintf(stderr, "%s", _("Wcd: error: screen height must be larger than 3 lines.\n"));
       return WCD_ERR_CURSES;
    }
 
@@ -1051,7 +1051,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 #ifdef XCURSES
       XCursesExit();
 #endif
-      fprintf(stderr,_("Wcd: error creating scroll window.\n"));
+      fprintf(stderr, "%s", _("Wcd: error creating scroll window.\n"));
       return WCD_ERR_CURSES;
    }
 
@@ -1082,7 +1082,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 #ifdef XCURSES
       XCursesExit();
 #endif
-      fprintf(stderr,_("Wcd: error creating input window.\n"));
+      fprintf(stderr, "%s", _("Wcd: error creating input window.\n"));
       return WCD_ERR_CURSES;
    }
 

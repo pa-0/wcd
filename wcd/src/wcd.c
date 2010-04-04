@@ -931,7 +931,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
 
    if (!outfile) /* Did we succeed? */
    {
-      fprintf(stderr,_("Wcd: error: Write access to tree-file denied.\nWcd: Set TEMP environment variable if this is a read-only disk.\n"));
+      fprintf(stderr, "%s", _("Wcd: error: Write access to tree-file denied.\nWcd: Set TEMP environment variable if this is a read-only disk.\n"));
       return ;
    }
 #else
@@ -1707,7 +1707,7 @@ void empty_wcdgo(char *go_file, int use_GoScript)
       exit(0);
    }
 
-   fprintf(outfile,"\n");
+   fprintf(outfile, "%s", "\n");
    fclose(outfile);
 
 }
@@ -1729,7 +1729,7 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript)
    if(changedrive == 1)
       fprintf(outfile,"cd %s\n",drive);
    else
-      fprintf(outfile,"\n");
+      fprintf(outfile, "%s", "\n");
    fclose(outfile);
 
 }
@@ -1821,11 +1821,11 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 #  ifdef WCD_WINPWRSH
 #    ifdef WCD_UTF16
    /* PowerShell can run UTF-8 encoded scripts when the UTF-8 BOM is in. */
-   fprintf(outfile,"\xEF\xBB\xBF");  /* UTF-8 BOM */
+   fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #    endif
    fprintf(outfile,"set-location %s", best_match);
 #  else
-   fprintf(outfile,"@echo off\n");
+   fprintf(outfile, "%s", "@echo off\n");
    if (*changedrive)
       fprintf(outfile,"%s\n",drive);
    if (strncmp(best_match,"\"\\\\",3) == 0)
@@ -1980,7 +1980,7 @@ int main(int argc,char** argv)
       }
       else
       {
-         fprintf(stderr,_("Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"));
+         fprintf(stderr, "%s", _("Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"));
          strcpy(localedir,LOCALEDIR);
       }
    }
@@ -2010,7 +2010,7 @@ int main(int argc,char** argv)
    {
       if (strlen(ptr) > (DD_MAXPATH -20))
       {
-         fprintf(stderr,_("Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"));
+         fprintf(stderr, "%s", _("Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"));
          return(1);
       }
 
@@ -2042,7 +2042,7 @@ int main(int argc,char** argv)
    else
    {
 # if (defined(WCD_WINZSH) || defined(WCD_WINPWRSH))
-     fprintf(stderr,_("Wcd: error: Environment variable HOME or WCDHOME is not set.\n"));
+     fprintf(stderr, "%s", _("Wcd: error: Environment variable HOME or WCDHOME is not set.\n"));
       return(1);
 # endif
 # if (defined(WIN32) || defined(WCD_DOSBASH) || defined(OS2))
@@ -2071,14 +2071,14 @@ int main(int argc,char** argv)
 
    if (ptr == NULL)
    {
-      fprintf(stderr,_("Wcd: error: Environment variable HOME or WCDHOME is not set.\n"));
+      fprintf(stderr, "%s", _("Wcd: error: Environment variable HOME or WCDHOME is not set.\n"));
       return(1);
    }
    else
    {
       if (strlen(ptr) > (DD_MAXPATH -20))
       {
-         fprintf(stderr,_("Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"));
+         fprintf(stderr, "%s", _("Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"));
          return(1);
       }
       strcpy(rootdir,ptr);
@@ -2141,7 +2141,7 @@ int main(int argc,char** argv)
    {
       if (strlen(ptr) > DD_MAXPATH)
       {
-         fprintf(stderr,_("Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"));
+         fprintf(stderr, "%s", _("Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"));
          return(1);
       }
       strcpy(homedir,ptr);
@@ -2258,7 +2258,7 @@ int main(int argc,char** argv)
             if (argv[i][2] == 'a') /* alternative navigation */
                graphics |= WCD_GRAPH_ALT ;
 #else
-            fprintf(stderr,_("Wcd: Graphics mode only supported in wcd with curses based interface.\n"));
+            fprintf(stderr, "%s", _("Wcd: Graphics mode only supported in wcd with curses based interface.\n"));
 #endif
             break;
          case 'L':
@@ -2582,7 +2582,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                   strcpy(tmp,homedir);
                if ((strlen(tmp)+strlen(argv[i])+strlen(TREEFILE)+1) > DD_MAXPATH )
                {
-                  fprintf(stderr,_("Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"));
+                  fprintf(stderr, "%s", _("Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"));
                   return(1);
                }
                strcat(tmp,"/");
@@ -2599,7 +2599,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                   strcpy(tmp,homedir);
                if ((strlen(tmp)+strlen(argv[i])+strlen(TREEFILE)+1) > DD_MAXPATH )
                {
-                  fprintf(stderr,_("Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"));
+                  fprintf(stderr, "%s", _("Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"));
                   return(1);
                }
                strcat(tmp,"/");

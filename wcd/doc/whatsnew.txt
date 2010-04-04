@@ -1,5 +1,6 @@
-5.1.2-beta2 2010-01-23
+5.1.2-beta3 2010-04-04
   - Cleanup Makefiles
+  - Fix compiler warnings "format not a string literal and no format arguments".
 
 5.1.1 2010-01-07
   - Alternate stack file support with environment variable WCDSTACKFILE (thanks to anonymous).

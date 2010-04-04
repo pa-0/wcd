@@ -96,7 +96,7 @@ int stack_read(WcdStack ws,char *stackfilename)
 		}
 		else
 		  {
-			fprintf(stderr,_("Wcd: Error parsing stack\n"));
+			fprintf(stderr, "%s", _("Wcd: Error parsing stack\n"));
 			ws->lastadded = -1;
 			ws->current = -1;
 		  }

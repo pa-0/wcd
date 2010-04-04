@@ -168,6 +168,12 @@ ifneq (,$(CURSES))
 	LIB_CURSES  = -l$(CURSES)
 endif
 
+ifeq ($(CURSES),ncurses)
+ifneq ($(wildcard /usr/include/ncurses/curses.h),)
+	INCFLAGS = -I/usr/include/ncurses
+endif
+endif
+
 ifeq ($(CURSES),ncursesw)
 	EXTRA_DEFS = -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED
 
@@ -175,7 +181,7 @@ ifeq ($(CURSES),ncursesw)
 	# libncurses5-dev: /usr/include/curses.h
 	# libncursesw5-dev: /usr/include/ncursesw/curses.h
 
-ifneq (,$(wildcard /usr/include/ncursesw/curses.h))
+ifneq ($(wildcard /usr/include/ncursesw/curses.h),)
 	INCFLAGS = -I/usr/include/ncursesw
 endif
 endif
