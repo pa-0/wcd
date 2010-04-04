@@ -137,6 +137,9 @@ Table of Contents
 
     2.3 Recmatch
 
+        I used the regular matching algorithm, recmatch(), of
+        Info-Zip's unzip program.
+
         recmatch() was written by Mark Adler.
 
         Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,
@@ -179,9 +182,6 @@ Table of Contents
 
         _fixpath() is a library function of libc for DJGPP. See also
         http://www.delorie.com/djgpp/
-
-        I used the regular matching algorithm, recmatch(), of
-        Info-Zip's unzip program.
 
         Source code to scan Windows LAN was originally written and
         placed in the Public Domain by Felix Kasza. Copied from Felix
