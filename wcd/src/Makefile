@@ -98,7 +98,7 @@ INSTALL_OBJS_DOC   = \
   ../doc/$(PACKAGE).txt \
   ../doc/$(PACKAGE).ps \
   ../doc/$(PACKAGE).pdf \
-  ../doc/$(PACKAGE).html \
+  ../doc/$(PACKAGE).htm \
   ../doc/whatsnew.txt \
   ../doc/README.txt \
   ../doc/problems.txt \
@@ -111,7 +111,7 @@ POT		= po/$(PACKAGE).pot
 POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 endif
-DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf ../doc/$(PACKAGE).html
+DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf ../doc/$(PACKAGE).htm
 
 CPP		= cpp
 CPP_FLAGS_POD	= ALL
@@ -386,7 +386,7 @@ man/man1/wcd.1 : man/man1/wcd1.pod
 ../doc/$(PACKAGE).ps : man/man1/wcd.1
 	groff -man $< -T ps > $@
 
-../doc/$(PACKAGE).html : man/man1/wcd1.pod
+../doc/$(PACKAGE).htm : man/man1/wcd1.pod
 	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
 
 
@@ -394,7 +394,7 @@ pod: man/man1/wcd1.pod
 
 man: man/man1/wcd.1
 
-html: ../doc/$(PACKAGE).html
+html: ../doc/$(PACKAGE).htm
 
 txt: ../doc/$(PACKAGE).txt
 

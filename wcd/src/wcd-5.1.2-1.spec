@@ -1,10 +1,10 @@
 Summary: chdir for DOS and Unix
 Name: wcd
-Version: 5.1.1
+Version: 5.1.2
 Release: 1
 License: GPL
 Group: Applications/File
-Source: wcd-5.1.1-src.tar.gz
+Source: wcd-5.1.2-src.tar.gz
 URL: http://www.xs4all.nl/~waterlan/
 Packager: Erwin Waterlander <waterlan@xs4all.nl>
 
@@ -43,5 +43,5 @@ fi
 /usr/share/man/man1/wcd.*
 /usr/share/locale/*/LC_MESSAGES/wcd.mo
 
-%doc doc/README.txt doc/wcd.txt doc/wcd.ps doc/wcd.pdf doc/wcd.html doc/INSTALL.unix.txt doc/INSTALL.rpm.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translate.txt
+%doc doc/README.txt doc/wcd.txt doc/wcd.ps doc/wcd.pdf doc/wcd.htm doc/INSTALL.unix.txt doc/INSTALL.rpm.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translate.txt
 
