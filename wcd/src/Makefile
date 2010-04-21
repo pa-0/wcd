@@ -364,7 +364,7 @@ $(BIN): $(OBJS1)
 $(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
-man/man1/wcd.1.pod : man/man1/wcd.1.pod.in
+man/man1/wcd1.pod : man/man1/wcd1pod.in
 ifeq ($(CPP_FLAGS_POD),ALL)
 	sed 	-e '/#ifdef/d' \
 		-e '/#endif/d' \
@@ -377,20 +377,20 @@ else
 	$(CPP) -traditional-cpp -P -fno-show-column $(CPP_FLAGS_POD) $< > $@
 endif
 
-man/man1/wcd.1 : man/man1/wcd.1.pod
+man/man1/wcd.1 : man/man1/wcd1.pod
 	$(MAKE) -C man/man1
 
-../doc/$(PACKAGE).txt : man/man1/wcd.1.pod
+../doc/$(PACKAGE).txt : man/man1/wcd1.pod
 	LC_CTYPE=C pod2text $< > $@
 
 ../doc/$(PACKAGE).ps : man/man1/wcd.1
 	groff -man $< -T ps > $@
 
-../doc/$(PACKAGE).html : man/man1/wcd.1.pod
+../doc/$(PACKAGE).html : man/man1/wcd1.pod
 	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
 
 
-pod: man/man1/wcd.1.pod
+pod: man/man1/wcd1.pod
 
 man: man/man1/wcd.1
 
@@ -448,7 +448,7 @@ distclean: clean
 maintainer-clean: distclean
 	@echo "-- target: maintainer-clean:"
 	rm -f \
-	  man/man1/wcd.1.pod \
+	  man/man1/wcd1.pod \
 	  po/*.mo \
 	  man/man1/wcd.1 \
 	  $(DOCFILES) \
