@@ -11,7 +11,7 @@ File list
     wcd.txt                   : Manual, text format.
     wcd.ps                    : Manual, PostScript format.
     wcd.pdf                   : Manual, PDF format.
-    wcd.html                  : Manual, HTML format.
+    wcd.htm                   : Manual, HTML format.
     whatsnew.txt              : Change log.
     faq.txt                   : Frequently Asked Questions.
     translate.txt             : How to translate wcd.
