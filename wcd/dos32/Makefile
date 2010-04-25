@@ -18,15 +18,17 @@ LIB_CURSES = -l${CURSES}
 DEFS   = -DWCD_USECURSES
 endif
 
+PROGRAM = wcd.exe
+VERSIONSUFFIX = -dos32
+ZIPFILE = wcd${VERSION_SHORT}pm.zip
+ZIPOBJ_EXTRA = bin/cwsdpmi.exe
+docsubdir = wcd-${VERSION_SHORT}
+
 ifdef ENABLE_NLS
 LDFLAGS_EXTRA = -lintl -liconv
 EXTRA_OBJ=langinfo.o
+ZIPFILE = wcd${VERSION_SHORT}pm-nls.zip
 endif
-
-PROGRAM = wcd.exe
-VERSIONSUFFIX = -dos32
-ZIPOBJ_EXTRA = bin/cwsdpmi.exe
-docsubdir = ${PACKAGE}-${VERSION_SHORT}
 
 all :
 	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS} docsubdir=$(docsubdir)
@@ -39,7 +41,7 @@ uninstall :
 
 
 dist :
-	${MAKE} -C ../src dist-zip ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" PROGRAM=${PROGRAM} prefix=${prefix} VERSIONSUFFIX=${VERSIONSUFFIX} ENABLE_NLS=${ENABLE_NLS} docsubdir=$(docsubdir)
+	${MAKE} -C ../src dist-zip ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" PROGRAM=${PROGRAM} prefix=${prefix} ZIPFILE=${ZIPFILE} ENABLE_NLS=${ENABLE_NLS} docsubdir=$(docsubdir)
 
 strip:
 	${MAKE} -C ../src strip PROGRAM=${PROGRAM}
