@@ -1,0 +1,337 @@
+Install wcd on DOS and Windows.
+
+For installation on Unix/Linux see UNIX.txt.
+
+
+Contents
+========
+
+   Package directory structure
+   Language selection
+ 1 DOS/Windows installation
+   - dos 16 bit
+   - dos 32 bit
+   - dos Bourne Again Shell (bash)
+   - Long directory name support
+   - Using default options
+   - Use of environment variable HOME / WCDHOME
+   - PDCurses interface
+ 2 Win32 console (Windows NT/2000/XP/Vista) installation
+   - Win32 console
+   - Windows VISTA
+   - Windows PowerShell
+   - MSYS (bash) and Z shell (zsh)
+   - UNC support
+ 3 Cygwin (Windows 9x / NT) installation
+
+
+Package directory structure
+===========================
+
+When you unpack the zip archive you will get the following
+directory structure:
+
+bin/                             Binary
+share/doc/                       Documentation
+share/locale/                    Locale directory
+share/locale/nl/LC_MESSAGES/     Locale directory with Dutch Language file
+share/locale/es/LC_MESSAGES/     Locale directory with Spanish Language file
+share/man/man1/                  Man page
+
+If wcd was build without Native Language support the share/locale
+folders are missing. Type 'wcd -V' to find out.
+
+Unzip the package in a directory which we will call PREFIX.
+
+Zip packages have been created with a default PREFIX:
+
+dos32    : c:/djgpp
+dos32bsh : c:/djgpp
+win32    : c:/usr/local
+win32zsh : c:/usr/local
+cygwin   : /usr
+
+You can install wcd in a different PREFIX directory if you want.
+
+Add directory PREFIX/bin to your PATH environment variable.
+
+
+Language selection
+==================
+
+See section LOCALIZATION of the wcd manual.
+
+The WIN32 version of wcd automatically detects the language and can find the
+LOCALEDIR if wcd was unpacked in a different PREFIX directory.
+
+
+======================================================================
+= 1 DOS/Windows installation                                         =
+======================================================================
+
+- dos 16 bit version:
+
+ Make sure that wcd.exe is in your path.
+
+ The dos 16 bit version of wcd has no internationalization support.
+
+......................................................................
+
+- dos 32 bit version:
+
+ Make sure that wcd.exe and cwsdpmi.exe are in your path.
+ (requires 80386 CPU or higher)
+
+......................................................................
+
+- dos Bourne Again Shell (bash):
+
+
+ Add the following function to your ~/_bashrc
+ file. Notice that under Windows 95/NT the ~/.bashrc
+ file overrides the ~/_bashrc file. In that case place
+ the function in ~/.bashrc
+
+function wcd
+{
+   PREFIX/bin/wcd.exe $*
+   . c:/wcd.go
+}
+
+Replace PREFIX with the prefix used during package installation.
+Start a new bash
+
+Attention!
+wcd 2.1 and later writes the wcd.go file now always on drive C: unless
+other specified with the -d option.
+
+If you use environment variable HOME make a function like this:
+
+function wcd
+{
+   PREFIX/bin/wcd.exe $*
+   . $HOME/wcd.go
+}
+
+......................................................................
+- Long directory name support
+
+The 32 bit DOS versions for DOS supports long directory names
+in a Windows 95/98 Dos-box.
+
+Wcd makes use of DJGPP's LFN (long filename) API, which works under
+Windows 95, 98 an ME. LFN support does not work if you started your PC
+in MS-DOS mode.
+
+LFN support can be controlled with the environment variable LFN.
+
+set LFN=y  enables LFN support.
+set LFN=n  disables LFN support.
+
+If variable LFN is not set, LFN is by default enabled.
+
+Notice that you need to have set LFN=y in your DJGPP.ENV file
+if you have the DJGPP compiler installed.
+
+...
+
+Current DOS version of Wcd does not support LFN under Windows NT.
+
+If you need LFN support under Windows NT use the win32 console
+version of wcd.
+
+......................................................................
+- Using default options
+
+If you want to use some options by default use an alias or macro to do that.
+Smarter shells like 4DOS and NDOS are able to set aliases like this:
+alias wcd=wcd.exe -Q
+
+In DOS BASH add the options in your function.
+
+In the MS-DOS COMMAND.COM shell you can use the 'doskey' command to define
+a macro. You could add the following line to you AUTOEXEC.BAT file:
+doskey wcd=wcd.exe -Q $*
+
+......................................................................
+- Use of environment variable HOME / WCDHOME
+
+The DOS versions of wcd can make use of environment variable HOME.
+(UNIX version always uses HOME.)
+
+set HOME=c:/home/waterlan
+
+If HOME is set, wcd will place all it's files (treedata.wcd, extra.wcd,
+alias.wcd, ban.wcd, wcd.go) in directory %HOME% .
+The behaviour of wcd is then equal to the UNIX version of wcd.
+Wcd will scan the disk default from %HOME%. Drives will not
+be automaticly scanned by changing to them.
+You need to tell wcd explicitly. E.g.:
+
+wcd -S c: -A d: -A e:
+
+Matching of directories is now global over all scanned drives.
+
+...
+
+If HOME is set, DJGPP bash will read '_bashrc' from %HOME%.
+Your wcd function could now look like:
+
+function wcd
+{
+   PREFIX/bin/wcd.exe $*
+   . $HOME/wcd.go
+}
+
+If the environment variable WCDHOME is set wcd will use
+WCDHOME instead of HOME.
+
+
+======================================================================
+= 2 Win32 console (Windows NT/2000/XP/Vista) installation            =
+======================================================================
+
+- Win32 console
+
+Notice that under Windows NT console (MS-DOS prompt) a win32-program cannot
+change the current work directory (although a DOS-program can on NT4).
+That is why wcd generates a batch script (c:\wcdgo.bat or %HOME%\wcdgo.bat)
+which must be executed in the current shell.
+
+To be sure that you execute the correct 'wcd.bat' you could
+optionally create a macro for wcd:
+
+ doskey wcd=c:\bin\wcd.bat $*
+
+
+Notice that environment variable WCDHOME overrides HOME.
+
+......................................................................
+- Windows VISTA
+
+In a Windows VISTA command prompt you may have limited access to directories.
+To get access to more directories you need adminstrator rights. You can get
+a command prompt with administrator rights if you right click on the command
+prompt icon and select `Run as administrator'.
+
+......................................................................
+- Windows PowerShell
+
+See http://en.wikipedia.org/wiki/Windows_PowerShell
+
+It  is  required that environment variable HOME or WCDHOME is set.  A function
+in your PowerShell user profile must be defined. The location of this profile
+is stored in the $profile variable.
+
+function wcd
+{
+  PREFIX\bin\wcdwin32psh.exe $args
+  & $env:HOME\wcdgo.ps1
+}
+
+Replace PREFIX with the prefix used during package installation.
+Start a new PowerShell
+
+
+......................................................................
+- MSYS (bash) and Z shell (zsh)
+
+MSYS, a contraction of "Minimal SYStem", is a Bourne Shell command line
+interpreter system. Offered as an alternative to Microsoft's cmd.exe, this
+provides a general purpose command line environment, which is particularly
+suited to use with MinGW, for porting of many Open Source applications to the
+MS-Windows platform. See also http://www.mingw.org/
+
+
+A native win32 port of Z shell has been made by Amol Deshpande.
+Download from http://www.xs4all.nl/~waterlan/
+
+
+It  is  required that environment variable HOME or WCDHOME is set.  A function
+must be defined like this:
+
+
+function wcd
+{
+   PREFIX/bin/wcdwin32zsh.exe $*
+   . $HOME/wcd.go
+}
+
+MSYS bash: put this function e.g. in $HOME/.bashrc
+Z Shell  : put this function e.g. in $HOME/.zshenv
+
+Replace PREFIX with the prefix used during package installation.
+
+
+You have to start MSYS like this: msys.bat --norxvt , because the default rxvt
+terminal doesn't accept standard input from native win32 programs. See also
+http://www.nabble.com/Accepting-standard-input-from-MSYS-with-native-Win32-programs-td19432889.html
+You need a recent version of msys.bat that supports option --norxvt.
+
+......................................................................
+
+- UNC support
+
+UNC stands for Universal Naming Convention.
+It is a Windows 9x/NT way of accessing network drives without
+using a drive letter.
+It's from Windows SMB LAN manager networking.
+A UNC path looks like: \\servername\sharename
+
+In Windows networking, you can map a drive letter to a UNC:
+  net use G: \\gui_fileserv\apps
+
+The win32 console version of wcd supports UNC paths since version 3.1.0.
+To change to the UNC path wcd makes use of the 'pushd' command in the
+wcdgo.bat script.
+
+Quote from John Savill's Windows NT/2000 FAQ (http://www.windows2000faq.com):
+
+"The 'pushd' command automatically maps a drive and navigates to it. If you
+run the 'net use' command after you run pushd, you'll see a new drive mapping.
+After you're done working in the UNC location, use the 'popd' command to
+navigate back to your original network location before you ran 'pushd'."
+
+Options -S, -A and -E can also work on servernames. For instance:
+
+  wcd -S \\servername
+
+will search for shared directories on the server and scan them all.
+
+
+The Windows PowerShell and MSYS/ZSH version of wcd have full support of UNC paths.
+One can change directly to UNC paths, without mapping to a drive letter.
+
+======================================================================
+= 3 Cygwin (Windows 9x / NT) installation                            =
+======================================================================
+
+
+1)
+Make sure that environment variable HOME is set.
+
+
+2)
+
+ Add the following function to your ~/.bashrc file.
+
+function wcd
+{
+   PREFIX/bin/wcd.exe $*
+   . $HOME/bin/wcd.go
+}
+
+Replace PREFIX with the prefix used during package installation.
+Start a new bash
+
+......................................................................
+
+The Cygwin version behaves exactly as the Unix version of wcd.
+
+o) regards case by default.
+   - Use option -i to ignore case.
+o) does not use drive letters.
+o) Uses the same filenames for treedata files etc.
+
+UNC paths are fully supported.
+

@@ -43,5 +43,5 @@ fi
 /usr/share/man/man1/wcd.*
 /usr/share/locale/*/LC_MESSAGES/wcd.mo
 
-%doc doc/README.txt doc/wcd.txt doc/wcd.ps doc/wcd.pdf doc/wcd.htm doc/INSTALL.unix.txt doc/INSTALL.rpm.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translate.txt
+%doc doc/README.txt doc/wcd.txt doc/wcd.ps doc/wcd.pdf doc/wcd.htm doc/INSTALL.txt doc/UNIX.txt doc/RPM.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translat.txt
 

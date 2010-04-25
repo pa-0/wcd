@@ -85,9 +85,10 @@ INSTALL_OBJS_BIN   = $(BIN)
 INSTALL_OBJS_MAN1  = man/man1/wcd.1
 
 INSTALL_OBJS_DOC_INSTALL = \
-  ../doc/INSTALL.unix.txt \
-  ../doc/INSTALL.rpm.txt \
-  ../doc/translate.txt
+  ../doc/INSTALL.txt \
+  ../doc/UNIX.txt \
+  ../doc/RPM.txt \
+  ../doc/translat.txt
 
 INSTALL_OBJS_DOC_COPYING = \
   ../doc/copying.txt

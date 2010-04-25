@@ -1,9 +1,9 @@
 This file explains how to compile wcd for DOS and Windows
 with GNU C compiler (GCC, DJGPP/MINGW/Cygwin). 
 
-For Unix compile instructions see file INSTALL.unix.txt
+For Unix/Linux compile instructions see file UNIX.txt
 
-For how to install the program see files INSTALL.txt.
+For how to install the program on DOS/Windows see file DOS.txt.
 
 
 Prerequisites
