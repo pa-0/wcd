@@ -699,14 +699,14 @@ Reload the shell initialization files or start new shell.
 
 =head2 Win32 console version
 
-In a Windows NT/XP/Vista console (Command prompt) a win32-program
+In a Windows NT console (Command prompt) a win32-program
 can't change the current work directory (although a DOS-program can).
 That is why wcd generates a batch script (C<wcdgo.bat>) which must be
 executed in the current shell.
 
-=head2 Windows VISTA
+=head2 Windows VISTA/7
 
-In a Windows VISTA command prompt you may have limited access to
+In a Windows VISTA/7 command prompt you may have limited access to
 directories. To get access to more directories you need administrator
 rights. You can get a command prompt with administrator rights if you right
 click on the command prompt icon and select I<Run as administrator>.

@@ -27,7 +27,7 @@ A: The problem is that ~/.bashrc is not executed because
    The solution is to define the wcd function in one of these
    files.
 
-DOS/Windows 3.1/9x/ME/NT/2000/XP/Vista
+Windows
 
 Q: How do I automatically start the explorer after wcd?
 
@@ -38,14 +38,14 @@ A: If you use the DOS 32 bit version on windows 95/98/ME this batch script will 
    explorer.exe .
 
    If you use the win32 console version add an extra line to your wcd.bat
-   script (on windows NT/2000/XP/Vista).
+   script (on windows NT/2000/XP/Vista/7).
 
    @echo off
    wcdwin32.exe %*
    echo explorer.exe . >> c:\wcdgo.bat
    c:\wcdgo.bat
 
-Windows NT/2000/XP/Vista
+Windows NT/2000/XP/Vista/7
 
 Q: The system administrator has set environment variable HOME,
    but I want the behaviour of wcd as if HOME and WCDHOME were

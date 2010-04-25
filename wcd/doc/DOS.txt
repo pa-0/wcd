@@ -16,9 +16,9 @@ Contents
    - Using default options
    - Use of environment variable HOME / WCDHOME
    - PDCurses interface
- 2 Win32 console (Windows NT/2000/XP/Vista) installation
+ 2 Windows NT console (Windows NT/2000/XP/Vista/7) installation
    - Win32 console
-   - Windows VISTA
+   - Windows VISTA/7
    - Windows PowerShell
    - MSYS (bash) and Z shell (zsh)
    - UNC support
@@ -39,7 +39,7 @@ share/locale/es/LC_MESSAGES/     Locale directory with Spanish Language file
 share/man/man1/                  Man page
 
 If wcd was build without Native Language support the share/locale
-folders are missing. Type 'wcd -V' to find out.
+folder is missing.
 
 Unzip the package in a directory which we will call PREFIX.
 
@@ -188,7 +188,7 @@ WCDHOME instead of HOME.
 
 
 ======================================================================
-= 2 Win32 console (Windows NT/2000/XP/Vista) installation            =
+= 2 Windows NT console (Windows NT/2000/XP/Vista/7) installation            =
 ======================================================================
 
 - Win32 console
@@ -207,9 +207,9 @@ optionally create a macro for wcd:
 Notice that environment variable WCDHOME overrides HOME.
 
 ......................................................................
-- Windows VISTA
+- Windows VISTA/7
 
-In a Windows VISTA command prompt you may have limited access to directories.
+In a Windows VISTA/7 command prompt you may have limited access to directories.
 To get access to more directories you need adminstrator rights. You can get
 a command prompt with administrator rights if you right click on the command
 prompt icon and select `Run as administrator'.
