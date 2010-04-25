@@ -1,4 +1,6 @@
-Install wcd with internationalization support.
+Install wcd on DOS and Windows.
+
+For installation on Unix/Linux see INSTALL.unix.txt.
 
 
 Contents
@@ -36,6 +38,8 @@ share/locale/nl/LC_MESSAGES/     Locale directory with Dutch Language file
 share/locale/es/LC_MESSAGES/     Locale directory with Spanish Language file
 share/man/man1/                  Man page
 
+If wcd was build without Native Language support the share/locale
+folders are missing. Type 'wcd -V' to find out.
 
 Unzip the package in a directory which we will call PREFIX.
 

@@ -3,7 +3,7 @@ with GNU C compiler (GCC, DJGPP/MINGW/Cygwin).
 
 For Unix compile instructions see file INSTALL.unix.txt
 
-For how to install the program see files INSTALL.dos_windows.txt.
+For how to install the program see files INSTALL.txt.
 
 
 Prerequisites

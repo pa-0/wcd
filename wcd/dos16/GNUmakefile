@@ -39,7 +39,7 @@ install :
 	${INSTALL} -m 644 ../doc/wcd.txt ${DESTDIR}${docdir}/wcd.txt
 	${INSTALL} -m 644 ../doc/wcd.pdf ${DESTDIR}${docdir}/wcd.pdf
 	${INSTALL} -m 644 ../doc/whatsnew.txt ${DESTDIR}${docdir}/whatsnew.txt
-	${INSTALL} -m 644 ../doc/INSTALL.dos_windows.txt ${DESTDIR}${docdir}/INSTALL.txt
+	${INSTALL} -m 644 ../doc/INSTALL.txt ${DESTDIR}${docdir}/INSTALL.txt
 	${INSTALL} -m 644 ../doc/README.txt ${DESTDIR}${docdir}/README.txt
 	${INSTALL} -m 644 ../doc/problems.txt ${DESTDIR}${docdir}/problems.txt
 	${INSTALL} -m 644 ../doc/todo.txt ${DESTDIR}${docdir}/todo.txt
