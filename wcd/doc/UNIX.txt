@@ -123,16 +123,16 @@ USING NATIVE OS TOOLS
 	compilation.
 
 	With HP-UX cc and ncurses:
-	  make -f Makefile.HP-UX.ncurses
+	  make -f old/Makefile.HP-UX.ncurses
 
 	With HP-UX cc and curses:
-	  make -f Makefile.HP-UX.curses
+	  make -f old/Makefile.HP-UX.curses
 
 	With SunOS cc and curses:
-	  make -f Makefile.SunOS.curses
+	  make -f old/Makefile.SunOS.curses
 
 	With SunOS gcc and curses:
-	  make -f Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
+	  make -f old/Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
 
 	QNX 4.25
 	  make4qnx
