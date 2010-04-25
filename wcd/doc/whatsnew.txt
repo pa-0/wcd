@@ -4,6 +4,7 @@
   - Fixed compilation on Darwin OS.
   - Support compilation in DOSBox (8.3 filenames where needed).
   - Dos32 version by default without Native Language Support.
+  - Renamed Dos32 BASH version to wcdbash.exe.
 
 5.1.1 2010-01-07
   - Alternate stack file support with environment variable WCDSTACKFILE (thanks to anonymous).

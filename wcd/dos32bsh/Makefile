@@ -19,7 +19,7 @@ LIB_CURSES = -l${CURSES}
 DEFS   += -DWCD_USECURSES
 endif
 
-PROGRAM = wcd.exe
+PROGRAM = wcdbash.exe
 VERSIONSUFFIX = -dos32bsh
 ZIPFILE = wcd${VERSION_SHORT}bh.zip
 docsubdir = wcd-${VERSION_SHORT}
