@@ -155,7 +155,7 @@ USING IMAKE
 
 PORTABILITY
 
-	See section "Source code" in file README.txt.
+	See also file SOURCE.txt.
 
 	--
 
