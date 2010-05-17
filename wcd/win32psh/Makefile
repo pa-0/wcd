@@ -37,9 +37,9 @@ PROGRAM = wcdwin32psh.exe
 VERSIONSUFFIX = -win32psh
 ZIPOBJ_EXTRA =
 # Using GnuWin32 gettext,iconv
-ZIPOBJ_EXTRA += bin/libintl3.dll bin/libiconv2.dll
+#ZIPOBJ_EXTRA += bin/libintl3.dll bin/libiconv2.dll
 # Using MinGW gettext,iconv
-#ZIPOBJ_EXTRA += bin/libintl-8.dll bin/libiconv-2.dll
+ZIPOBJ_EXTRA += bin/libintl-8.dll bin/libiconv-2.dll
 
 all :
 	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS}

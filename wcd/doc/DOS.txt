@@ -48,6 +48,7 @@ Zip packages have been created with a default PREFIX:
 dos32    : c:/djgpp
 dos32bsh : c:/djgpp
 win32    : c:/usr/local
+win32psh : c:/usr/local
 win32zsh : c:/usr/local
 cygwin   : /usr
 

@@ -57,17 +57,7 @@ not (yet) available for DJGPP.
 
 DJGPP  : http://www.delorie.com/pub/djgpp/current/v2gnu/
 MINGW  : http://sourceforge.net/project/showfiles.php?group_id=2435
-         coreutils under _MSYS Base System_
-         gettext, libiconv under _MSYS Supplementary Tools_.
 CYGWIN : download via the installer program setup.exe.
-
-
-For MINGW you can better install gettext and libiconv libraries from the
-GnuWin32 project.  The version is a bit older, but the GnuWin32 port has
-relocation support builtin in libintl. It can automatically find the LOCALEDIR
-if the wcd binary package was unpacked in a different PREFIX directory.
-
-GnuWin32: http://gnuwin32.sourceforge.net/
 
 
 sh
