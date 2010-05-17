@@ -5,7 +5,7 @@
   - Support compilation in DOSBox (8.3 filenames where needed).
   - Dos32 version by default without Native Language Support.
   - Renamed Dos32 BASH version to wcdbash.exe.
-  - Win32 binary packages use patched MinGW's libiconv, with builtin
+  - Win32 binary packages use patched MinGW's libintl, with builtin
     relocation support. See http://www.xs4all.nl/~waterlan/libintl.html
 
 5.1.1 2010-01-07
