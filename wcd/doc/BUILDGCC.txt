@@ -60,6 +60,13 @@ MINGW  : http://sourceforge.net/project/showfiles.php?group_id=2435
 CYGWIN : download via the installer program setup.exe.
 
 
+Until wcd version 5.1.1 I used GnuWin32's gettext/libiconv instead of MinGW's,
+because the GnuWin32 port of libintl (part of gettext) has builtin relocation
+support. From wcd version 5.1.2 I use MinGW's gettext/libiconv. Wcd win32
+binaries are packed with a patched version of MinGW's libintl-8.dll that also
+supports relocation. See also http://www.xs4all.nl/~waterlan/libintl.html
+
+
 sh
 ==
 
