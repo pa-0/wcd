@@ -1,0 +1,6 @@
+open sftp://waterlan,wcd@frs.sourceforge.net
+cd /home/frs/project/w/wc/wcd/wcd
+mkdir 5.1.2
+cd 5.1.2
+mput wcd-5.1.2.tar.gz wcd512s.zip wcd512b.zip wcd512pm.zip wcd512bh.zip wcd-5.1.2-win32.zip wcd-5.1.2-win32zsh.zip wcd-5.1.2-win32psh.zip wcd-5.1.2-cygwin1.7-ucs.tar.gz trunk/wcd/doc/whatsnew.txt
+exit
