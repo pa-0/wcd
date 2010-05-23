@@ -1,4 +1,4 @@
-5.1.2-beta4 2010-04-21
+5.1.2 2010-05-23
   - Cleanup Makefiles
   - Fix compiler warnings "format not a string literal and no format arguments".
   - Fixed compilation on Darwin OS.
