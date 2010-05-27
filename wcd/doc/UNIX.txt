@@ -6,9 +6,6 @@ PREREQUISITES
 	* coreutils : GNU core utilities package (chmod, install, mkdir, mv, rm, uname)
 	* gettext   : Framework to help GNU packages produce multi-lingual messages. (optional)
 	* ncurses   : CRT screen handling and optimization package. (optional)
-
-	Only needed if you change the manual page:
-
 	* perl        : Practical Extraction and Report Language (perlpod)
 	* groff       : GNU troff text formatting system.
 	* ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)

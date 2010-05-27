@@ -95,7 +95,7 @@ LOCALEDIR if wcd was unpacked in a different PREFIX directory.
 
 function wcd
 {
-   PREFIX/bin/wcd.exe $*
+   PREFIX/bin/wcdbash.exe $*
    . c:/wcd.go
 }
 
@@ -110,7 +110,7 @@ If you use environment variable HOME make a function like this:
 
 function wcd
 {
-   PREFIX/bin/wcd.exe $*
+   PREFIX/bin/wcdbash.exe $*
    . $HOME/wcd.go
 }
 

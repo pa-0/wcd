@@ -1,3 +1,7 @@
+5.1.3-beta1 2010-05-27
+  - Minor cleanup Makefile
+  - Unix source package excludes generated documentation and compiled gettext message files.
+
 5.1.2 2010-05-23
   - Cleanup Makefiles
   - Fix compiler warnings "format not a string literal and no format arguments".

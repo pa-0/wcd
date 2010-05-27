@@ -158,10 +158,11 @@ endif
 # ........................................................... curses ...
 
 # possible values: ncurses, curses, pdcurses or <empty>
-CURSES = ncurses
 
 ifdef UCS
 	CURSES  = ncursesw
+else
+	CURSES = ncurses
 endif
 
 ifneq (,$(CURSES))
@@ -337,6 +338,7 @@ status:
 	@echo "DEFS          = $(DEFS)"
 	@echo "DEFS_CURSES   = $(DEFS_CURSES)"
 	@echo "EXTRA_DEFS    = $(EXTRA_DEFS)"
+	@echo "LDFLAGS       = $(LDFLAGS)"
 	@echo "LDFLAGS_EXTRA = $(LDFLAGS_EXTRA)"
 	@echo "CFLAGS        = $(CFLAGS)"
 	@echo "CFLAGS_OS     = $(CFLAGS_OS)"
@@ -431,6 +433,7 @@ clean:
 	@echo "-- target: clean"
 	-rm -f \
 		$(BIN) \
+		*.exe \
 		*.o \
 		*/*.o \
 		../*/*.bck \
