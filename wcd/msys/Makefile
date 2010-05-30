@@ -8,7 +8,7 @@ LDFLAGS_EXTRA = -lkernel32 -luser32 -lmpr
 CFLAGS = -O3 -Wall
 CURSES = pdcurses
 ENABLE_NLS = 1
-DEFS   = -DMSDOS -DWCD_MSYS
+DEFS   = -DUNIX -DWCD_MSYS
 
 ifdef CURSES
 LIB_CURSES = -l${CURSES}
@@ -36,10 +36,7 @@ bindir    = ${exec_prefix}/bin
 PROGRAM = wcdmsys.exe
 VERSIONSUFFIX = -msys
 ZIPOBJ_EXTRA =
-# Using GnuWin32 gettext,iconv
-#ZIPOBJ_EXTRA += bin/libintl3.dll bin/libiconv2.dll
-# Using MinGW gettext,iconv
-ZIPOBJ_EXTRA += bin/msys-intl-8.dll bin/msys-iconv-2.dll
+#ZIPOBJ_EXTRA += bin/msys-intl-8.dll bin/msys-iconv-2.dll
 
 all :
 	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS}

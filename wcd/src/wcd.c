@@ -184,7 +184,7 @@ void stripTmpMnt(char* path)
 }
 #endif
 
-#if (defined(UNIX) || defined(WCD_WINZSH) || defined(WCD_DOSBASH) || defined(WCD_OS2BASH))
+#ifdef WCD_UNIXSHELL
 
 /*************************************************************
  *
@@ -1613,6 +1613,9 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
 #ifdef WCD_WINZSH
    printf(_("This version is for MSYS and win32 port of ZSH.\n"));
 #endif
+#ifdef WCD_MSYS
+   printf(_("This version is for MSYS.\n"));
+#endif
 #ifdef WCD_DOSBASH
    printf(_("This version is for DJGPP DOS bash.\n"));
 #endif
@@ -1630,6 +1633,8 @@ void print_version()
 #ifdef WIN32
 # ifdef WCD_WINZSH
    printf(_("This version is for MSYS and win32 port of ZSH.\n"));
+# elif defined(WCD_MSYS)
+   printf(_("This version is for MSYS.\n"));
 # elif defined(WCD_WINPWRSH)
    printf(_("This version is for Windows PowerShell.\n"));
 # else
@@ -1780,7 +1785,7 @@ int pickDir(nameset list, int *use_HOME)
  *
  ********************************************************************/
 
-#if defined(UNIX) || defined(WIN32) || defined(WCD_DOSBASH) || defined(OS2)
+#ifdef WCD_SHELL
 void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match, int use_GoScript)
 {
    FILE *outfile;
@@ -1817,14 +1822,34 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
       fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), go_file);
       return;
    }
-# if (defined(WIN32) && !defined(WCD_WINZSH)) || (defined(OS2) && !defined(WCD_OS2BASH))
+# ifdef WCD_UNIXSHELL
+   /* unix shell */
+#  ifdef WCD_DOSBASH
+   /* In DOS Bash $SHELL points to the windows command shell.
+      So we use $BASH instead. */
+   if ((ptr = getenv("BASH")) != NULL)
+      fprintf(outfile,"#!%s\n",ptr);
+   if (*changedrive)
+      fprintf(outfile,"cd %s ; ",drive);
+#  else
+   /* Printing of #!$SHELL is needed for 8 bit characters.
+      Some shells otherwise think that the go-script is a binary file
+      and will not source it. */
+   if ((ptr = getenv("SHELL")) != NULL)
+      fprintf(outfile,"#!%s\n",ptr);
+#  endif
+   fprintf(outfile,"cd %s\n", best_match);
+# else
+   /* Go-script required, but not unix shell type. */
 #  ifdef WCD_WINPWRSH
+   /* Windows powershell */
 #    ifdef WCD_UTF16
    /* PowerShell can run UTF-8 encoded scripts when the UTF-8 BOM is in. */
    fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #    endif
    fprintf(outfile,"set-location %s", best_match);
 #  else
+   /* Windows console, os/2 */
    fprintf(outfile, "%s", "@echo off\n");
    if (*changedrive)
       fprintf(outfile,"%s\n",drive);
@@ -1833,23 +1858,6 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
    else
       fprintf(outfile,"cd %s\n", best_match);
 #  endif
-#else
-#  if (defined(UNIX) && !defined(WCD_DOSBASH))
-   /* Printing of #!$SHELL is needed for 8 bit characters.
-      Some shells otherwise think that the go-script is a binary file
-      and will not source it. */
-   if ((ptr = getenv("SHELL")) != NULL)
-      fprintf(outfile,"#!%s\n",ptr);
-#  endif
-#  ifdef WCD_DOSBASH
-   /* In DOS Bash $SHELL points to the windows command shell.
-      So we use $BASH instead. */
-   if ((ptr = getenv("BASH")) != NULL)
-      fprintf(outfile,"#!%s\n",ptr);
-   if (*changedrive)
-      fprintf(outfile,"cd %s ; ",drive);
-#  endif
-   fprintf(outfile,"cd %s\n", best_match);
 # endif
    fclose(outfile);
 }

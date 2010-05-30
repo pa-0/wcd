@@ -70,7 +70,15 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  endif /* ?MSDOS */
 #endif /* ?VMS */
 
+#if defined(UNIX) || defined(WIN32) || defined(WCD_DOSBASH) || defined(OS2)
+/* A go-script is required */
+#define WCD_SHELL
+#endif
 #if (defined(UNIX) || defined(WCD_WINZSH) || defined(WCD_DOSBASH) || defined(WCD_OS2BASH))
+#define WCD_UNIXSHELL
+#endif
+
+#ifdef WCD_UNIXSHELL
 # define LIST_SEPARATOR ":"
 #else
 # define LIST_SEPARATOR ";"
