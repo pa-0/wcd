@@ -47,8 +47,6 @@ dist:
 	# Touch .mo files, they are already up to date.
 	sleep 2
 	cd ${RELEASE_DIR_SHORT}/src/po ; touch *.mo
-	# Remove generated files from Unix source package.
-	cd ${RELEASE_DIR}/src ; ${MAKE} maintainer-clean
 	# Create the packages.
 	cd .. ; tar cvzf wcd-${VERSION}-src.tar.gz wcd-${VERSION}
 	cd .. ; rm -f wcd${VERSION_SHORT}s.zip
