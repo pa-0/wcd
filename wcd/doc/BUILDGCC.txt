@@ -101,6 +101,8 @@ GnuWin32: http://gnuwin32.sourceforge.net/
 Instead of MSYS bash you can use the native zsh for windows:
 
 http://www.xs4all.nl/~waterlan/zsh-3.0.5-nt-beta-0.75.zip
+or an updated WinZsh at:
+http://zsh-nt.sourceforge.net/
 
 Copy `zsh.exe' as `sh.exe' somewhere in PATH.
 Define SHELL, pointing to sh.exe.
@@ -157,10 +159,11 @@ dos32bsh : DOS 32 bit for BASH
 win32    : Windows 32 bit console version.
 win32zsh : Windows 32 bit MSYS and ZSH version.
 win32psh : Windows 32 bit PowerShell version.
+msys     : Native MSYS version.
 cygwin   : Cygwin version.
 
 Change to the appropriate directory `dos32', `dos32bsh', `win32',
-`win32zsh', `win32psh'  or `cygwin'.
+`win32zsh', `win32psh', 'msys',  or `cygwin'.
 
 
 Build wcd:
@@ -243,6 +246,7 @@ dos32bsh : The default PREFIX is c:/djgpp
 win32    : The default PREFIX is c:/usr/local
 win32zsh : The default PREFIX is c:/usr/local
 win32psh : The default PREFIX is c:/usr/local
+msys     : The default PREFIX is /usr
 cygwin   : The default PREFIX is /usr
 
 
