@@ -35,8 +35,6 @@ endif
 bindir    = ${exec_prefix}/bin
 PROGRAM = wcdmsys.exe
 VERSIONSUFFIX = -msys
-ZIPOBJ_EXTRA =
-#ZIPOBJ_EXTRA += bin/msys-intl-8.dll bin/msys-iconv-2.dll
 
 all :
 	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS}
@@ -48,8 +46,13 @@ uninstall :
 	${MAKE} -C ../src uninstall PROGRAM=${PROGRAM} prefix=${prefix} ENABLE_NLS=${ENABLE_NLS}
 
 
-dist :
-	${MAKE} -C ../src dist-zip ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" PROGRAM=${PROGRAM} prefix=${prefix} VERSIONSUFFIX=${VERSIONSUFFIX} ENABLE_NLS=${ENABLE_NLS}
+dist-zip :
+	${MAKE} -C ../src dist-zip PROGRAM=${PROGRAM} prefix=${prefix} VERSIONSUFFIX=${VERSIONSUFFIX} ENABLE_NLS=${ENABLE_NLS}
+
+dist-tgz :
+	${MAKE} -C ../src dist-tgz PROGRAM=${PROGRAM} prefix=${prefix} VERSIONSUFFIX=${VERSIONSUFFIX} ENABLE_NLS=${ENABLE_NLS}
+
+dist : dist-tgz
 
 strip:
 	${MAKE} -C ../src strip PROGRAM=${PROGRAM}
