@@ -20,7 +20,8 @@ Contents
    - Win32 console
    - Windows VISTA/7
    - Windows PowerShell
-   - MSYS (bash) and Z shell (zsh)
+   - Z shell (zsh) and MSYS (bash)
+   - Native MSYS (bash)
    - UNC support
  3 Cygwin (Windows 9x / NT) installation
 
@@ -50,6 +51,7 @@ dos32bsh : c:/djgpp
 win32    : c:/usr/local
 win32psh : c:/usr/local
 win32zsh : c:/usr/local
+msys     : /usr
 cygwin   : /usr
 
 You can install wcd in a different PREFIX directory if you want.
@@ -235,7 +237,12 @@ Start a new PowerShell
 
 
 ......................................................................
-- MSYS (bash) and Z shell (zsh)
+- Z shell (zsh) and MSYS (bash)
+
+A native win32 port of Z shell has been made by Amol Deshpande.
+See http://www.xs4all.nl/~waterlan/#ZSH
+An updated version is available at:
+http://zsh-nt.sourceforge.net/
 
 MSYS, a contraction of "Minimal SYStem", is a Bourne Shell command line
 interpreter system. Offered as an alternative to Microsoft's cmd.exe, this
@@ -244,13 +251,9 @@ suited to use with MinGW, for porting of many Open Source applications to the
 MS-Windows platform. See also http://www.mingw.org/
 
 
-A native win32 port of Z shell has been made by Amol Deshpande.
-Download from http://www.xs4all.nl/~waterlan/
-
 
 It  is  required that environment variable HOME or WCDHOME is set.  A function
 must be defined like this:
-
 
 function wcd
 {
@@ -268,6 +271,28 @@ You have to start MSYS like this: msys.bat --norxvt , because the default rxvt
 terminal doesn't accept standard input from native win32 programs. See also
 http://www.nabble.com/Accepting-standard-input-from-MSYS-with-native-Win32-programs-td19432889.html
 You need a recent version of msys.bat that supports option --norxvt.
+
+......................................................................
+- Native MSYS (bash)
+
+The native MSYS version of wcd is linked against the MSYS runtime DLL.
+This version uses MSYS style directory paths: E.g. in MSYS the path
+"C:\Program Files" maps to "/c/Program Files"
+
+Define a function like this:
+
+function wcd
+{
+   PREFIX/bin/wcdmsys.exe $*
+   . $HOME/bin/wcd.go
+}
+
+The native MSYS version behaves exactly as the Unix version of wcd:
+
+o) regards case by default.
+   - Use option -i to ignore case.
+o) does not use drive letters.
+o) Uses the same filenames for treedata files etc.
 
 ......................................................................
 

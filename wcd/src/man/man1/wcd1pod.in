@@ -1016,8 +1016,8 @@ systems. The directory of this file can be changed with the option B<-G>.
     DOS BASH: c:/wcd.go or $HOME/wcd.go
     WIN32 CONSOLE: c:\wcdgo.bat or %HOME%\wcdgo.bat
     WINDOWS POWERSHELL: $env:HOME\wcdgo.ps1
-    WIN32 MSYS/ZSH: $HOME/wcd.go
-    CYGWIN: $HOME/bin/wcd.go
+    WIN32 ZSH/MSYS: $HOME/wcd.go
+    CYGWIN/MSYS: $HOME/bin/wcd.go
     OS/2 CONSOLE: c:\wcdgo.cmd or %HOME%\wcdgo.cmd
 #endif
 #ifdef unix

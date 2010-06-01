@@ -1613,8 +1613,8 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
 #ifdef WCD_WINZSH
    printf(_("This version is for MSYS and win32 port of ZSH.\n"));
 #endif
-#ifdef WCD_MSYS
-   printf(_("This version is for MSYS.\n"));
+#ifdef __MSYS__
+   printf(_("This version is for native MSYS.\n"));
 #endif
 #ifdef WCD_DOSBASH
    printf(_("This version is for DJGPP DOS bash.\n"));
@@ -1633,8 +1633,6 @@ void print_version()
 #ifdef WIN32
 # ifdef WCD_WINZSH
    printf(_("This version is for MSYS and win32 port of ZSH.\n"));
-# elif defined(WCD_MSYS)
-   printf(_("This version is for MSYS.\n"));
 # elif defined(WCD_WINPWRSH)
    printf(_("This version is for Windows PowerShell.\n"));
 # else
@@ -1642,6 +1640,9 @@ void print_version()
 # endif
 #elif defined(MSDOS) && defined(__FLAT__)
    printf(_("DOS 32 bit version.\n"));
+#endif
+#ifdef __MSYS__
+   printf(_("This version is for native MSYS.\n"));
 #endif
 #ifdef WCD_DOSBASH
    printf(_("This version is for DJGPP DOS bash.\n"));

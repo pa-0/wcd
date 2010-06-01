@@ -91,7 +91,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #endif /* ?MSDOS|VMS */
 
 #define VERSION      "5.1.3-beta1"
-#define VERSION_DATE "2010-05-27"
+#define VERSION_DATE "2010-06-01"
 
 
 /* Function prototypes */
