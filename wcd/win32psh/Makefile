@@ -28,6 +28,7 @@ endif
 ifdef UCS
 ifdef CURSES
 DEFS   += -DPDC_WIDE
+CURSES = pdcursesw
 endif
 EXTRA_OBJ += wcwidth.o
 endif
