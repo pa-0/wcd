@@ -78,10 +78,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #define WCD_UNIXSHELL
 #endif
 
-#ifdef WCD_UNIXSHELL
-# define LIST_SEPARATOR ":"
-#else
+/* Unix shells DJGPP-bash and WinZsh use Windows style paths, e.g. "c:/Program Files".
+ * So in these shells we have to use a semicolon ';' as list separator. */
+#ifdef MSDOS
 # define LIST_SEPARATOR ";"
+#else
+# define LIST_SEPARATOR ":"
 #endif
 
 #if defined(MSDOS) || defined(VMS)
@@ -90,8 +92,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  define OP_DIR "."
 #endif /* ?MSDOS|VMS */
 
-#define VERSION      "5.1.3-beta1"
-#define VERSION_DATE "2010-06-01"
+#define VERSION      "5.1.3-beta2"
+#define VERSION_DATE "2010-06-07"
 
 
 /* Function prototypes */
