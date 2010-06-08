@@ -1142,13 +1142,13 @@ An example for Csh type shells:
 
 The paths specified with environment I<WCDBAN> will be banned by wcd.
 See also option B<-b>. Specify a list of paths separated by shell
-path separator
+PATH separator
 
 =item B<WCDEXCLUDE>
 
 The paths specified with environment I<WCDEXCLUDE> will be excluded by
 wcd. See also options B<-x> and B<-xf>. Specify a list of paths
-separated by shell path separator
+separated by shell PATH separator
 
 
 #ifdef dos
