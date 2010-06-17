@@ -1636,7 +1636,11 @@ void print_version()
 # elif defined(WCD_WINPWRSH)
    printf(_("This version is for Windows PowerShell.\n"));
 # else
+#   ifdef __WIN64__
+   printf(_("Win64 console version.\n"));
+#   else
    printf(_("Win32 console version.\n"));
+#   endif
 # endif
 #elif defined(MSDOS) && defined(__FLAT__)
    printf(_("DOS 32 bit version.\n"));

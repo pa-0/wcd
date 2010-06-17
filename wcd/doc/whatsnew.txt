@@ -1,6 +1,7 @@
-5.1.3-beta2 2010-06-07
+5.1.3-beta2 2010-06-17
   - Minor cleanup Makefile
   - Port for native MSYS. See also http://www.mingw.org/
+  - Windows 64 bit port.
   - List separators for WCDFILTER, WCDBAN, and WCDEXCLUDE back to semicolon ';'
     for DOS-bash and Windows-zsh, because these shells use Windows style paths
     with colons like c:/windows.
