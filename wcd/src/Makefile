@@ -48,6 +48,7 @@ include version.mk
 
 CC		= gcc
 STATIC		=
+STRIP		= strip
 
 ENABLE_NLS = 1
 
@@ -432,7 +433,7 @@ dist: dist-tgz
 
 strip:
 	@echo "-- target: strip"
-	strip $(BIN)
+	$(STRIP) $(BIN)
 
 clean:
 	@echo "-- target: clean"

@@ -6,8 +6,9 @@ MKDIR  = mkdir
 LDFLAGS_EXTRA = -lkernel32 -luser32 -lmpr
 
 CC = x86_64-w64-mingw32-gcc
+STRIP = x86_64-w64-mingw32-strip
 CFLAGS = -O3 -Wall
-CURSES =
+CURSES = pdcurses
 ENABLE_NLS =
 DEFS   = -DMSDOS
 
@@ -58,7 +59,7 @@ dist :
 	${MAKE} -C ../src dist-zip ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" PROGRAM=${PROGRAM} prefix=${prefix} VERSIONSUFFIX=${VERSIONSUFFIX} ENABLE_NLS=${ENABLE_NLS}
 
 strip:
-	${MAKE} -C ../src strip PROGRAM=${PROGRAM}
+	${MAKE} -C ../src strip PROGRAM=${PROGRAM} STRIP=$(STRIP)
 
 clean :
 	${MAKE} -C ../src clean
