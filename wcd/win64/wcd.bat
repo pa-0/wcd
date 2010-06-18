@@ -6,7 +6,7 @@ rem set LANG=nl_NL
 rem set LANGUAGE=nl
 rem set WCDLOCALEDIR=c:/Program Files/wcd/share/locale
 
-wcdwin32.exe %*
+wcdwin64.exe %*
 
 IF DEFINED WCDHOME (
  %WCDHOME%\wcdgo.bat
