@@ -1611,7 +1611,7 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
    printf(_("This version is for Windows PowerShell.\n"));
 #endif
 #ifdef WCD_WINZSH
-   printf(_("This version is for MSYS and win32 port of ZSH.\n"));
+   printf(_("This version is for MSYS and WinZsh.\n"));
 #endif
 #ifdef __MSYS__
    printf(_("This version is for native MSYS.\n"));
@@ -1632,15 +1632,16 @@ void print_version()
    printf(_("Chdir for Dos and Unix.\n\n"));
 #ifdef WIN32
 # ifdef WCD_WINZSH
-   printf(_("This version is for MSYS and win32 port of ZSH.\n"));
+   printf(_("This version is for MSYS and WinZsh.\n"));
 # elif defined(WCD_WINPWRSH)
    printf(_("This version is for Windows PowerShell.\n"));
 # else
-#   ifdef __WIN64__
-   printf(_("Win64 console version.\n"));
-#   else
-   printf(_("Win32 console version.\n"));
-#   endif
+   printf(_("Windows console version.\n"));
+# endif
+# ifdef __WIN64__
+   printf(_("Win64 version.\n"));
+# else
+   printf(_("Win32 version.\n"));
 # endif
 #elif defined(MSDOS) && defined(__FLAT__)
    printf(_("DOS 32 bit version.\n"));
