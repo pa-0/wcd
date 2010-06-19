@@ -15,26 +15,24 @@ RELEASE_DIR_SHORT = ../wcd${VERSION_SHORT}
 
 # .po language files can be older than the .pot files, but
 # still be up-to-date. 'msgmerge' will be run by 'make', but
-# the .po files are not updated by msgmerge. For users that
-# don't have 'gettext' installed we do a few file touches
-# so that make doesn't run the gettext tools.
+# the .po files are not updated by msgmerge.
 
 dist:
 	rm -rf ${RELEASE_DIR}
 	rm -rf ${RELEASE_DIR_SHORT}
 	svn export https://wcd.svn.sourceforge.net/svnroot/wcd/trunk/wcd ${RELEASE_DIR}
-	# Include doc files and .mo files, to make it easier to
-	# build wcd.
-	cd ${RELEASE_DIR}/src ; ${MAKE} docfiles mofiles
+	# Include doc files, to make it easier to build wcd.
+	cd ${RELEASE_DIR}/src ; ${MAKE} docfiles
+	# Make sure .po files are up to date.
+	cd ${RELEASE_DIR}/src ; ${MAKE} merge
+	# cleanup.
+	cd ${RELEASE_DIR}/src ; ${MAKE} clean
 	# Touch .pot file, this is already up to date.
 	sleep 2
 	cd ${RELEASE_DIR}/src/po ; touch *.pot
 	# Touch .po files, they are already up to date.
 	sleep 2
 	cd ${RELEASE_DIR}/src/po ; touch *.po
-	# Touch .mo files, they are already up to date.
-	sleep 2
-	cd ${RELEASE_DIR}/src/po ; touch *.mo
 	# Create package in DOS text format.
 	cd ${RELEASE_DIR}/misc ; ${MAKE} -f unix2dos.mk
 	# Unix2dos does not keep original dates.
@@ -44,9 +42,6 @@ dist:
 	# Touch .po files, they are already up to date.
 	sleep 2
 	cd ${RELEASE_DIR_SHORT}/src/po ; touch *.po
-	# Touch .mo files, they are already up to date.
-	sleep 2
-	cd ${RELEASE_DIR_SHORT}/src/po ; touch *.mo
 	# Create the packages.
 	cd .. ; tar cvzf wcd-${VERSION}-src.tar.gz wcd-${VERSION}
 	cd .. ; rm -f wcd${VERSION_SHORT}s.zip

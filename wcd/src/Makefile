@@ -443,6 +443,7 @@ clean:
 		*.o \
 		*.tmp \
 		*/*.o \
+		po/*.mo \
 		../*/*.bck \
 		../*/*.bak \
 		../*/*[#~] \
@@ -460,10 +461,8 @@ maintainer-clean: distclean
 	@echo "-- target: maintainer-clean:"
 	rm -f \
 	  man/man1/wcd1.pod \
-	  po/*.mo \
 	  man/man1/wcd.1 \
-	  $(DOCFILES) \
-	  $(MOFILES)
+	  $(DOCFILES)
 
 # 'maintainer-clean' was 'realclean' in old GNU standards.
 realclean: maintainer-clean
