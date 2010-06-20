@@ -366,6 +366,8 @@ $(BIN): $(OBJS1)
 
 %.po : $(POT)
 	msgmerge -U $@ $(POT) --backup=numbered
+	# change timestamp in case .po file was not updated.
+	touch $@
 
 %.mo : %.po
 	msgfmt -c $< -o $@

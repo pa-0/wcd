@@ -13,9 +13,6 @@ RELEASE_DIR_SHORT = ../wcd${VERSION_SHORT}
 # Documentation creation only works properly on Cygwin or
 # a modern Linux distribution.
 
-# .po language files can be older than the .pot files, but
-# still be up-to-date. 'msgmerge' will be run by 'make', but
-# the .po files are not updated by msgmerge.
 
 dist:
 	rm -rf ${RELEASE_DIR}
@@ -27,21 +24,8 @@ dist:
 	cd ${RELEASE_DIR}/src ; ${MAKE} merge
 	# cleanup.
 	cd ${RELEASE_DIR}/src ; ${MAKE} clean
-	# Touch .pot file, this is already up to date.
-	sleep 2
-	cd ${RELEASE_DIR}/src/po ; touch *.pot
-	# Touch .po files, they are already up to date.
-	sleep 2
-	cd ${RELEASE_DIR}/src/po ; touch *.po
 	# Create package in DOS text format.
 	cd ${RELEASE_DIR}/misc ; ${MAKE} -f unix2dos.mk
-	# Unix2dos does not keep original dates.
-	# Touch .pot file, this is already up to date.
-	sleep 2
-	cd ${RELEASE_DIR_SHORT}/src/po ; touch *.pot
-	# Touch .po files, they are already up to date.
-	sleep 2
-	cd ${RELEASE_DIR_SHORT}/src/po ; touch *.po
 	# Create the packages.
 	cd .. ; tar cvzf wcd-${VERSION}-src.tar.gz wcd-${VERSION}
 	cd .. ; rm -f wcd${VERSION_SHORT}s.zip

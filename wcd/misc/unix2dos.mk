@@ -3,7 +3,7 @@ include ../src/version.mk
 UNIXVERSION=wcd-${VERSION}
 DOSVERSION=wcd${VERSION_SHORT}
 
-# Convert in order so that no make target is out of date.
+# Keep dates so that no make target is out of date.
 #
 # This Makefile requires 'dos2unix' with --keepdate option:
 # http://www.xs4all.nl/~waterlan/dos2unix.html
