@@ -1038,8 +1038,8 @@ void displayRefresh(int init)
   wclear(wcd_display.inputWin);
 
 
- if (init) {
-      if ( wcd_display.bottom < 0 ) /* initialise bottom only first time */
+ if (init || (wcd_display.bottom >= wcd_display.size)) {
+      if ( (wcd_display.bottom < 0)  || (wcd_display.bottom >= wcd_display.size) ) /* initialise bottom only first time */
          wcd_display.bottom = wcd_display.size -1; /* lowest match to print */
       wcd_display.top = wcd_display.bottom - wcd_display.lines_per_page + 1; /* top match to print */
       if (wcd_display.top < 0)
