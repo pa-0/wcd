@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-18 12:43+0200\n"
+"POT-Creation-Date: 2010-07-05 16:28+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1717 wcd.c:1737 wcd.c:1828 wcd.c:2502
+#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1718 wcd.c:1738 wcd.c:1829 wcd.c:2505
 #: stack.c:243
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
@@ -63,7 +63,7 @@ msgstr ""
 "Wcd: Aseta ympäristömuuttuja TEMP eri paikkaan, jos kyseessä on read-only "
 "levy.\n"
 
-#: wcd.c:1020 wcd.c:1820 stack.c:235
+#: wcd.c:1020 wcd.c:1821 stack.c:235
 #, c-format
 msgid "Wcd: error: Permission denied to create directory %s\n"
 msgstr "Wcd: virhe: Ei oikeutta luoda hamistoa%s\n"
@@ -144,7 +144,7 @@ msgstr ""
 "\n"
 
 #: wcd.c:1561
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "options:\n"
 "  -a             Add current path to treefile\n"
@@ -160,6 +160,7 @@ msgid ""
 "  +f             add extra treeFile\n"
 "  -g             Graphics\n"
 "  -ga            Graphics, alternative navigation\n"
+"  -gc            Graphics, centered mode\n"
 "  -gd            Graphics, dump tree\n"
 "  -G             set path Go-script\n"
 "  -GN            No Go-script\n"
@@ -251,33 +252,33 @@ msgstr ""
 "  +              Ota hakemisto pinosta (N kertaa)\n"
 "  =              Näitä pino: stackS\n"
 
-#: wcd.c:1611 wcd.c:1637
+#: wcd.c:1612 wcd.c:1638
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr "Tämä versio on tarkoitettu Windows PowerShell käyttöön.\n"
 
-#: wcd.c:1614 wcd.c:1635
+#: wcd.c:1615 wcd.c:1636
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr "Tämä versio on tarkoitettu MSYS ja WinZsh käyttöön.\n"
 
-#: wcd.c:1617 wcd.c:1650
+#: wcd.c:1618 wcd.c:1651
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr "Tämä versio on kotimainen MSYS.\n"
 
-#: wcd.c:1620 wcd.c:1653
+#: wcd.c:1621 wcd.c:1654
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Tämä versio on tarkoitettu DJGPP DOS bash käyttöön.\n"
 
-#: wcd.c:1631 wcd.c:2279
+#: wcd.c:1632 wcd.c:2282
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
 "wcd %s (%s) - Wherever Change Directory, siirry mihin tahansa hakemistoon\n"
 
-#: wcd.c:1632
+#: wcd.c:1633
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -286,141 +287,141 @@ msgstr ""
 "Hakemiston vaihto Dos and Unix -käyttöjärjestelmille.\n"
 "\n"
 
-#: wcd.c:1639
+#: wcd.c:1640
 #, c-format
 msgid "Windows console version.\n"
 msgstr "Windows konsoliversio.\n"
 
-#: wcd.c:1642
+#: wcd.c:1643
 #, c-format
 msgid "Win64 version.\n"
 msgstr "Win64 versio.\n"
 
-#: wcd.c:1644
+#: wcd.c:1645
 #, c-format
 msgid "Win32 version.\n"
 msgstr "Win32 versio.\n"
 
-#: wcd.c:1647
+#: wcd.c:1648
 #, c-format
 msgid "DOS 32 bit version.\n"
 msgstr "DOS 32 bit versio.\n"
 
-#: wcd.c:1656
+#: wcd.c:1657
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Tämä version on OS/2 bash käyttöön.\n"
 
-#: wcd.c:1658
+#: wcd.c:1659
 #, c-format
 msgid "Interface: "
 msgstr "Käyttöliittymä: "
 
-#: wcd.c:1660
+#: wcd.c:1661
 #, c-format
 msgid "conio\n"
 msgstr "conio (konsoli)\n"
 
-#: wcd.c:1664
+#: wcd.c:1665
 #, c-format
 msgid "ncurses version %s\n"
 msgstr "ncurses tuella varustettu versio %s\n"
 
-#: wcd.c:1667
+#: wcd.c:1668
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr "ncurses tuella varustettu versio %d\n"
 
-#: wcd.c:1669
+#: wcd.c:1670
 #, c-format
 msgid "curses\n"
 msgstr "curses\n"
 
-#: wcd.c:1673
+#: wcd.c:1674
 #, c-format
 msgid "stdout\n"
 msgstr "stdout (standardi ulostulo)\n"
 
-#: wcd.c:1677
+#: wcd.c:1678
 #, c-format
 msgid "Native language support included.\n"
 msgstr "Kieliasetusten tuki sisäänrakennettu.\n"
 
-#: wcd.c:1678
+#: wcd.c:1679
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr "LOCALEDIR=%s\n"
 
-#: wcd.c:1679
+#: wcd.c:1680
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr "Nykyinen lokaali käyttää %s koodaustapaa.\n"
 
-#: wcd.c:1681
+#: wcd.c:1682
 #, c-format
 msgid "No native language support included.\n"
 msgstr "Ei kieliasetusten tukea sisäänrakennettu.\n"
 
-#: wcd.c:1684
+#: wcd.c:1685
 #, c-format
 msgid "With Unicode support.\n"
 msgstr "Unicode-kirjaimiston tuki sisäänrakennettu.\n"
 
-#: wcd.c:1689
+#: wcd.c:1690
 #, c-format
 msgid "  Euro symbol: "
 msgstr "  Euro symboli: "
 
-#: wcd.c:1691
+#: wcd.c:1692
 #, c-format
 msgid "  Chinese characters: "
 msgstr "  Kiinalaiset kirjaimet: "
 
-#: wcd.c:1695
+#: wcd.c:1696
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr "Ei Unicode-kirjaimiston tukea sisäänrakennettu.\n"
 
-#: wcd.c:1698
+#: wcd.c:1699
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Lataa viimeisin versio ohjelmasta ja sen lähdekoodista osoitteesta:\n"
 
-#: wcd.c:1699
+#: wcd.c:1700
 #, c-format
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr "http://www.xs4all.nl/~waterlan/\n"
 
-#: wcd.c:1822 stack.c:237
+#: wcd.c:1823 stack.c:237
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: Luodaan hakemisto %s\n"
 
-#: wcd.c:1997
+#: wcd.c:1998
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujan WCDLOCALEDIR arvo on liian pitkä.\n"
 
-#: wcd.c:2027 wcd.c:2095
+#: wcd.c:2028 wcd.c:2096
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 "Wcd: virhe: Ympäristömuuttujien HOME ja WCDHOME arvot ovat liian pitkät.\n"
 
-#: wcd.c:2059 wcd.c:2088
+#: wcd.c:2060 wcd.c:2089
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujaa HOME tai WCDHOME is ole asetettu.\n"
 
-#: wcd.c:2158 wcd.c:2599 wcd.c:2616
+#: wcd.c:2159 wcd.c:2602 wcd.c:2619
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujan WCDUSERSHOME arvo on liian pitkä.\n"
 
-#: wcd.c:2275
+#: wcd.c:2278
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Graffinen moodi tuettu ainoastaan ohjelman curses-kirjaston "
 "versioissa.\n"
 
-#: wcd.c:2280
+#: wcd.c:2283
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -455,27 +456,27 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:2509
+#: wcd.c:2512
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s lisätty tiedostoon %s\n"
 
-#: wcd.c:2747
+#: wcd.c:2750
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: asetettu mustalle listalle {%s}\n"
 
-#: wcd.c:2749
+#: wcd.c:2752
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: jätetään ottamasta huomioon {%s}\n"
 
-#: wcd.c:2751
+#: wcd.c:2754
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteroidaan {%s}\n"
 
-#: wcd.c:3002
+#: wcd.c:3005
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -485,7 +486,7 @@ msgstr ""
 "Wcd: Mahdollisesti levy tulee skannata uudelleen tai hakemisto on mustalla "
 "listalla\n"
 
-#: wcd.c:3157
+#: wcd.c:3160
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Ei voi vaihtaa hakemistoon %s\n"
@@ -514,106 +515,106 @@ msgstr "Wcd: Köydetty %d hakemistoa palvelimelta %s\n"
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Error parsing stack\n"
 
-#: display.c:199
+#: display.c:200
 msgid "Wcd: error in maxLength(), list == NULL\n"
 msgstr "Wcd: error in maxLength(), list == NULL\n"
 
-#: display.c:219
+#: display.c:220
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "Wcd: error in maxLengthStack(), s == NULL\n"
 
-#: display.c:1002 graphics.c:1771
+#: display.c:1059
+msgid "Perfect "
+msgstr "Ok "
+
+#: display.c:1061
+msgid "Wild "
+msgstr "Villi "
+
+#: display.c:1062
+#, c-format
+msgid "match for %d directories."
+msgstr "osumaa %d hakemistossa."
+
+#: display.c:1067
+#, c-format
+msgid " w=up x=down ?=help  Page %d/%d "
+msgstr " w=yläs x=alas ?=help  Sivu %d/%d "
+
+#: display.c:1074 display.c:1433
+#, c-format
+msgid "Please choose one (<Enter> to abort): "
+msgstr "Valitse toiminta (<Enter> keskeytys): "
+
+#: display.c:1090
+msgid "Screenheight must be > 20 for help."
+msgstr ""
+"Help-ikkunan avaaminen ei onnistu. Ikkunan korkeuden tulee olla > 20 riviä."
+
+#: display.c:1093
+msgid "w or <Up>         Page Up."
+msgstr "w tai <Up>          Sivu ylös."
+
+#: display.c:1094
+msgid "x or z or <Down>  Page Down."
+msgstr "x tai z tai <Down>  Sivu alas."
+
+#: display.c:1095
+msgid ", or <Left>       Scroll 1 left."
+msgstr ", tai <Left>        Vieritys 1 vasemmalle."
+
+#: display.c:1096
+msgid ". or <Right>      Scroll 1 right."
+msgstr ". tai <Right>       Vieritys 1 oikealle."
+
+#: display.c:1097
+msgid "< or [            Scroll 10 left."
+msgstr "< tai [             Vieritys 10 vasemmalle."
+
+#: display.c:1098
+msgid "> or ]            Scroll 10 right."
+msgstr "> tai ]             Vieritys 10 oikealle."
+
+#: display.c:1099
+msgid "CTRL-a or <HOME>  Scroll to beginning."
+msgstr "CTRL-a tai <HOME>   Sivun alkuun."
+
+#: display.c:1100
+msgid "CTRL-e or <END>   Scroll to end."
+msgstr "CTRL-e tai <END>    Sivun loppuun."
+
+#: display.c:1101
+msgid "CTRL-c or <Esc>   Abort."
+msgstr "CTRL-c tai <Esc>    Keskeytys."
+
+#: display.c:1102
+msgid "<Enter>           Abort."
+msgstr "<Enter>             Keskeytys."
+
+#: display.c:1103
+msgid "Type w or x to quit help."
+msgstr "Type w tai x lopettaaksesi Help-toiminnan."
+
+#: display.c:1164 graphics.c:1772
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Wcd: varoitus: Terminaalin avaus ei onnistu, käytössä vain stdout.\n"
 "komentorivi.\n"
 
-#: display.c:1020
+#: display.c:1185
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: virhe: terminaalin korkeus ei ole vähintään 3 riviä.\n"
 
-#: display.c:1054 graphics.c:1804
+#: display.c:1219 graphics.c:1805
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: virhe: vierityspalkin luonti ei onnistu ikkunaan.\n"
 
-#: display.c:1085
+#: display.c:1238
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: virhe: input-ikkunaa ei voi luoda.\n"
 
-#: display.c:1095
-msgid "Perfect "
-msgstr "Ok "
-
-#: display.c:1097
-msgid "Wild "
-msgstr "Villi "
-
-#: display.c:1098
-#, c-format
-msgid "match for %d directories."
-msgstr "osumaa %d hakemistossa."
-
-#: display.c:1103 display.c:1145 display.c:1175
-#, c-format
-msgid " w=up x=down ?=help  Page %d/%d "
-msgstr " w=yläs x=alas ?=help  Sivu %d/%d "
-
-#: display.c:1110 display.c:1355
-#, c-format
-msgid "Please choose one (<Enter> to abort): "
-msgstr "Valitse toiminta (<Enter> keskeytys): "
-
-#: display.c:1229
-msgid "Screenheight must be > 20 for help."
-msgstr ""
-"Help-ikkunan avaaminen ei onnistu. Ikkunan korkeuden tulee olla > 20 riviä."
-
-#: display.c:1232
-msgid "w or <Up>         Page Up."
-msgstr "w tai <Up>          Sivu ylös."
-
-#: display.c:1233
-msgid "x or z or <Down>  Page Down."
-msgstr "x tai z tai <Down>  Sivu alas."
-
-#: display.c:1234
-msgid ", or <Left>       Scroll 1 left."
-msgstr ", tai <Left>        Vieritys 1 vasemmalle."
-
-#: display.c:1235
-msgid ". or <Right>      Scroll 1 right."
-msgstr ". tai <Right>       Vieritys 1 oikealle."
-
-#: display.c:1236
-msgid "< or [            Scroll 10 left."
-msgstr "< tai [             Vieritys 10 vasemmalle."
-
-#: display.c:1237
-msgid "> or ]            Scroll 10 right."
-msgstr "> tai ]             Vieritys 10 oikealle."
-
-#: display.c:1238
-msgid "CTRL-a or <HOME>  Scroll to beginning."
-msgstr "CTRL-a tai <HOME>   Sivun alkuun."
-
-#: display.c:1239
-msgid "CTRL-e or <END>   Scroll to end."
-msgstr "CTRL-e tai <END>    Sivun loppuun."
-
-#: display.c:1240
-msgid "CTRL-c or <Esc>   Abort."
-msgstr "CTRL-c tai <Esc>    Keskeytys."
-
-#: display.c:1241
-msgid "<Enter>           Abort."
-msgstr "<Enter>             Keskeytys."
-
-#: display.c:1242
-msgid "Type w or x to quit help."
-msgstr "Type w tai x lopettaaksesi Help-toiminnan."
-
-#: display.c:1351
+#: display.c:1429
 #, c-format
 msgid ""
 "\n"
@@ -622,7 +623,7 @@ msgstr ""
 "\n"
 "Ok "
 
-#: display.c:1353
+#: display.c:1431
 #, c-format
 msgid ""
 "\n"
@@ -631,12 +632,12 @@ msgstr ""
 "\n"
 "Villi "
 
-#: display.c:1354
+#: display.c:1432
 #, c-format
 msgid "match for %d directories.\n"
 msgstr "osumaa %d hakemistosta.\n"
 
-#: display.c:1397
+#: display.c:1475
 #, c-format
 msgid ""
 "\n"
@@ -723,140 +724,146 @@ msgid "d                 go half page down."
 msgstr "d                        puolisivua alas."
 
 #: graphics.c:1478
+#, fuzzy
+msgid "t                 switch centered mode on/off."
+msgstr "b                        sivu ylös."
+
+#: graphics.c:1479
 msgid "<Esc> or q        Abort."
 msgstr "<Esc> tai q              Keskeytä."
 
-#: graphics.c:1479
+#: graphics.c:1480
 msgid "/                 Search forward."
 msgstr "/                        haku eteenpäin."
 
-#: graphics.c:1480
+#: graphics.c:1481
 msgid "?                 Search backward."
 msgstr "?                        haku taaksepäin."
 
-#: graphics.c:1481
+#: graphics.c:1482
 msgid "n                 Repeat latest / or ? search."
 msgstr "n                        Toista viimeisen / tai ? etsintä."
 
-#: graphics.c:1482 graphics.c:1505
+#: graphics.c:1483 graphics.c:1506
 msgid "<Enter>           Select directory."
 msgstr "<Enter>                  valitse hakemisto."
 
-#: graphics.c:1483 graphics.c:1506 graphics.c:1523
+#: graphics.c:1484 graphics.c:1507 graphics.c:1524
 msgid "Press any key."
 msgstr "Paina jotakin näppäintä."
 
-#: graphics.c:1489
+#: graphics.c:1490
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "HAKUMOODI villikorttien ja alihakemistojen tuki:"
 
-#: graphics.c:1490
+#: graphics.c:1491
 msgid "<Left>            go left."
 msgstr "<Vasen>           vasemmalle."
 
-#: graphics.c:1491
+#: graphics.c:1492
 #, fuzzy
 msgid "<Down>            go down."
 msgstr "<Alas>            siirry alas."
 
-#: graphics.c:1492
+#: graphics.c:1493
 msgid "<Up>              go up."
 msgstr "<Ylös>            ylös."
 
-#: graphics.c:1493
+#: graphics.c:1494
 msgid "<Right>           go right."
 msgstr "<Right>           oikealle."
 
-#: graphics.c:1494
+#: graphics.c:1495
 msgid "CTRL-v            go forward to dir with same name."
 msgstr "CTRL-v            Seuraava hakemisto samalla nimellä."
 
-#: graphics.c:1495
+#: graphics.c:1496
 msgid "CTRL-p            go backward to dir with same name."
 msgstr "CTRL-p            edellinen hakemisto samalla nimellä."
 
-#: graphics.c:1496
+#: graphics.c:1497
 msgid "CTRL-a            go to beginning of line."
 msgstr "CTRL-a            rivin alkuun."
 
-#: graphics.c:1497
+#: graphics.c:1498
 msgid "CTRL-e            go to end of line."
 msgstr "CTRL-e            rivin loppuun."
 
-#: graphics.c:1498
+#: graphics.c:1499
 msgid "CTRL-g            go to last dir."
 msgstr "CTRL-g            siirry viimeiseen hakemistoon."
 
-#: graphics.c:1499
+#: graphics.c:1500
 msgid "CTRL-f            go page forward."
 msgstr "CTRL-f            sivu alas."
 
-#: graphics.c:1500
+#: graphics.c:1501
 msgid "CTRL-b            go page backward."
 msgstr "CTRL-b            sivu ylös."
 
-#: graphics.c:1501
+#: graphics.c:1502
 msgid "CTRL-u            go half page up."
 msgstr "CTRL-u            puolisivua ylös."
 
-#: graphics.c:1502
+#: graphics.c:1503
 msgid "CTRL-d            go half page down."
 msgstr "CTRL-d            puolisivua alas."
 
-#: graphics.c:1503
+#: graphics.c:1504
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
 msgstr "<Esc> tai CTRL-x  Keskeytä HAKUMOODI."
 
-#: graphics.c:1504
+#: graphics.c:1505
 msgid "CTRL-n            Repeat latest / or ? search."
 msgstr "CTRL-n            Toista viimeisin / tai ? etsintä."
 
-#: graphics.c:1512
+#: graphics.c:1513
 msgid "ZOOMING:"
 msgstr "ZOOMAUS:"
 
-#: graphics.c:1513
+#: graphics.c:1514
 msgid "z or i or CTRL-i  zoom in."
 msgstr "z tai i tai CTRL-i  zoom sisään."
 
-#: graphics.c:1514
+#: graphics.c:1515
 msgid "Z or o or CTRL-o  zoom out."
 msgstr "Z tai o tai CTRL-o  zoom ulos."
 
-#: graphics.c:1515
+#: graphics.c:1516
 msgid "c                 condense: fold current level."
 msgstr "c                   näkymä: tiivistä nykyinen taso."
 
-#: graphics.c:1516
+#: graphics.c:1517
 msgid "C                 condense: fold subdir level."
 msgstr "C                   näkymä: tiivistä alihakemiston taso."
 
-#: graphics.c:1517
+#: graphics.c:1518
 msgid "w                 condense: fold current and sub levels."
 msgstr "w                   näkymä: tiivistä nykyinen ja kaikki alitasot."
 
-#: graphics.c:1518
+#: graphics.c:1519
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
 msgstr "y tai CTRL-y        näkymä: avaa nykinen ja alitasot."
 
-#: graphics.c:1519
+#: graphics.c:1520
 msgid "r or CTRL-r       uncondense: unfold all directories."
 msgstr "r tai CTRL-r        näkymä: avaa kaikki hakemistot."
 
-#: graphics.c:1520
+#: graphics.c:1521
 msgid "-                 fold directory."
 msgstr "-                   näkymä: tiivistä hakemisto."
 
-#: graphics.c:1521
+#: graphics.c:1522
 msgid "+ or =            unfold directory."
 msgstr "+ tai =             näkymä: avaa hakemisto."
 
-#: graphics.c:1522
+#: graphics.c:1523
 msgid "l or <Right>      unfold and go right."
 msgstr "l tai <Right>       näkymä: avaa ja siirry oikealle."
 
-#: graphics.c:1526
-msgid "Screenheight must be > 20 for help"
+#: graphics.c:1527
+#, fuzzy
+msgid "Screenheight must be > 21 for help"
 msgstr ""
 "Help-ikkunan avaaminen ei onnistu. Ikkunan korkeuden tulee olla > 20 riviä"
 

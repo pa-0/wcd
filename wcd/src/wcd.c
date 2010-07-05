@@ -1572,6 +1572,7 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
   +f             add extra treeFile\n\
   -g             Graphics\n\
   -ga            Graphics, alternative navigation\n\
+  -gc            Graphics, centered mode\n\
   -gd            Graphics, dump tree\n\
   -G             set path Go-script\n\
   -GN            No Go-script\n\
@@ -2271,6 +2272,8 @@ int main(int argc,char** argv)
                graphics |= WCD_GRAPH_DUMP ;
             if (argv[i][2] == 'a') /* alternative navigation */
                graphics |= WCD_GRAPH_ALT ;
+            if (argv[i][2] == 'c') /* alternative navigation */
+               graphics |= WCD_GRAPH_CENTER ;
 #else
             fprintf(stderr, "%s", _("Wcd: Graphics mode only supported in wcd with curses based interface.\n"));
 #endif

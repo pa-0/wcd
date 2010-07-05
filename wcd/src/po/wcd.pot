@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-18 12:43+0200\n"
+"POT-Creation-Date: 2010-07-05 16:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1717 wcd.c:1737 wcd.c:1828 wcd.c:2502
+#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1718 wcd.c:1738 wcd.c:1829 wcd.c:2505
 #: stack.c:243
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
@@ -60,7 +60,7 @@ msgid ""
 "Wcd: Set TEMP environment variable if this is a read-only disk.\n"
 msgstr ""
 
-#: wcd.c:1020 wcd.c:1820 stack.c:235
+#: wcd.c:1020 wcd.c:1821 stack.c:235
 #, c-format
 msgid "Wcd: error: Permission denied to create directory %s\n"
 msgstr ""
@@ -141,6 +141,7 @@ msgid ""
 "  +f             add extra treeFile\n"
 "  -g             Graphics\n"
 "  -ga            Graphics, alternative navigation\n"
+"  -gc            Graphics, centered mode\n"
 "  -gd            Graphics, dump tree\n"
 "  -G             set path Go-script\n"
 "  -GN            No Go-script\n"
@@ -178,170 +179,170 @@ msgid ""
 "  =              Show stack\n"
 msgstr ""
 
-#: wcd.c:1611 wcd.c:1637
+#: wcd.c:1612 wcd.c:1638
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr ""
 
-#: wcd.c:1614 wcd.c:1635
+#: wcd.c:1615 wcd.c:1636
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr ""
 
-#: wcd.c:1617 wcd.c:1650
+#: wcd.c:1618 wcd.c:1651
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr ""
 
-#: wcd.c:1620 wcd.c:1653
+#: wcd.c:1621 wcd.c:1654
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr ""
 
-#: wcd.c:1631 wcd.c:2279
+#: wcd.c:1632 wcd.c:2282
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
 
-#: wcd.c:1632
+#: wcd.c:1633
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
 "\n"
 msgstr ""
 
-#: wcd.c:1639
+#: wcd.c:1640
 #, c-format
 msgid "Windows console version.\n"
 msgstr ""
 
-#: wcd.c:1642
+#: wcd.c:1643
 #, c-format
 msgid "Win64 version.\n"
 msgstr ""
 
-#: wcd.c:1644
+#: wcd.c:1645
 #, c-format
 msgid "Win32 version.\n"
 msgstr ""
 
-#: wcd.c:1647
+#: wcd.c:1648
 #, c-format
 msgid "DOS 32 bit version.\n"
 msgstr ""
 
-#: wcd.c:1656
+#: wcd.c:1657
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr ""
 
-#: wcd.c:1658
+#: wcd.c:1659
 #, c-format
 msgid "Interface: "
 msgstr ""
 
-#: wcd.c:1660
+#: wcd.c:1661
 #, c-format
 msgid "conio\n"
 msgstr ""
 
-#: wcd.c:1664
+#: wcd.c:1665
 #, c-format
 msgid "ncurses version %s\n"
 msgstr ""
 
-#: wcd.c:1667
+#: wcd.c:1668
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr ""
 
-#: wcd.c:1669
+#: wcd.c:1670
 #, c-format
 msgid "curses\n"
 msgstr ""
 
-#: wcd.c:1673
+#: wcd.c:1674
 #, c-format
 msgid "stdout\n"
 msgstr ""
 
-#: wcd.c:1677
+#: wcd.c:1678
 #, c-format
 msgid "Native language support included.\n"
 msgstr ""
 
-#: wcd.c:1678
+#: wcd.c:1679
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr ""
 
-#: wcd.c:1679
+#: wcd.c:1680
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr ""
 
-#: wcd.c:1681
+#: wcd.c:1682
 #, c-format
 msgid "No native language support included.\n"
 msgstr ""
 
-#: wcd.c:1684
+#: wcd.c:1685
 #, c-format
 msgid "With Unicode support.\n"
 msgstr ""
 
-#: wcd.c:1689
+#: wcd.c:1690
 #, c-format
 msgid "  Euro symbol: "
 msgstr ""
 
-#: wcd.c:1691
+#: wcd.c:1692
 #, c-format
 msgid "  Chinese characters: "
 msgstr ""
 
-#: wcd.c:1695
+#: wcd.c:1696
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr ""
 
-#: wcd.c:1698
+#: wcd.c:1699
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr ""
 
-#: wcd.c:1699
+#: wcd.c:1700
 #, c-format
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr ""
 
-#: wcd.c:1822 stack.c:237
+#: wcd.c:1823 stack.c:237
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr ""
 
-#: wcd.c:1997
+#: wcd.c:1998
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 
-#: wcd.c:2027 wcd.c:2095
+#: wcd.c:2028 wcd.c:2096
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2059 wcd.c:2088
+#: wcd.c:2060 wcd.c:2089
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 
-#: wcd.c:2158 wcd.c:2599 wcd.c:2616
+#: wcd.c:2159 wcd.c:2602 wcd.c:2619
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2275
+#: wcd.c:2278
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 
-#: wcd.c:2280
+#: wcd.c:2283
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -376,34 +377,34 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:2509
+#: wcd.c:2512
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr ""
 
-#: wcd.c:2747
+#: wcd.c:2750
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr ""
 
-#: wcd.c:2749
+#: wcd.c:2752
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr ""
 
-#: wcd.c:2751
+#: wcd.c:2754
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr ""
 
-#: wcd.c:3002
+#: wcd.c:3005
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 
-#: wcd.c:3157
+#: wcd.c:3160
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr ""
@@ -432,122 +433,122 @@ msgstr ""
 msgid "Wcd: Error parsing stack\n"
 msgstr ""
 
-#: display.c:199
+#: display.c:200
 msgid "Wcd: error in maxLength(), list == NULL\n"
 msgstr ""
 
-#: display.c:219
+#: display.c:220
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr ""
 
-#: display.c:1002 graphics.c:1771
-msgid ""
-"Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
-msgstr ""
-
-#: display.c:1020
-msgid "Wcd: error: screen height must be larger than 3 lines.\n"
-msgstr ""
-
-#: display.c:1054 graphics.c:1804
-msgid "Wcd: error creating scroll window.\n"
-msgstr ""
-
-#: display.c:1085
-msgid "Wcd: error creating input window.\n"
-msgstr ""
-
-#: display.c:1095
+#: display.c:1059
 msgid "Perfect "
 msgstr ""
 
-#: display.c:1097
+#: display.c:1061
 msgid "Wild "
 msgstr ""
 
-#: display.c:1098
+#: display.c:1062
 #, c-format
 msgid "match for %d directories."
 msgstr ""
 
-#: display.c:1103 display.c:1145 display.c:1175
+#: display.c:1067
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr ""
 
-#: display.c:1110 display.c:1355
+#: display.c:1074 display.c:1433
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr ""
 
-#: display.c:1229
+#: display.c:1090
 msgid "Screenheight must be > 20 for help."
 msgstr ""
 
-#: display.c:1232
+#: display.c:1093
 msgid "w or <Up>         Page Up."
 msgstr ""
 
-#: display.c:1233
+#: display.c:1094
 msgid "x or z or <Down>  Page Down."
 msgstr ""
 
-#: display.c:1234
+#: display.c:1095
 msgid ", or <Left>       Scroll 1 left."
 msgstr ""
 
-#: display.c:1235
+#: display.c:1096
 msgid ". or <Right>      Scroll 1 right."
 msgstr ""
 
-#: display.c:1236
+#: display.c:1097
 msgid "< or [            Scroll 10 left."
 msgstr ""
 
-#: display.c:1237
+#: display.c:1098
 msgid "> or ]            Scroll 10 right."
 msgstr ""
 
-#: display.c:1238
+#: display.c:1099
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr ""
 
-#: display.c:1239
+#: display.c:1100
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr ""
 
-#: display.c:1240
+#: display.c:1101
 msgid "CTRL-c or <Esc>   Abort."
 msgstr ""
 
-#: display.c:1241
+#: display.c:1102
 msgid "<Enter>           Abort."
 msgstr ""
 
-#: display.c:1242
+#: display.c:1103
 msgid "Type w or x to quit help."
 msgstr ""
 
-#: display.c:1351
+#: display.c:1164 graphics.c:1772
+msgid ""
+"Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
+msgstr ""
+
+#: display.c:1185
+msgid "Wcd: error: screen height must be larger than 3 lines.\n"
+msgstr ""
+
+#: display.c:1219 graphics.c:1805
+msgid "Wcd: error creating scroll window.\n"
+msgstr ""
+
+#: display.c:1238
+msgid "Wcd: error creating input window.\n"
+msgstr ""
+
+#: display.c:1429
 #, c-format
 msgid ""
 "\n"
 "Perfect "
 msgstr ""
 
-#: display.c:1353
+#: display.c:1431
 #, c-format
 msgid ""
 "\n"
 "Wild "
 msgstr ""
 
-#: display.c:1354
+#: display.c:1432
 #, c-format
 msgid "match for %d directories.\n"
 msgstr ""
 
-#: display.c:1397
+#: display.c:1475
 #, c-format
 msgid ""
 "\n"
@@ -632,139 +633,143 @@ msgid "d                 go half page down."
 msgstr ""
 
 #: graphics.c:1478
-msgid "<Esc> or q        Abort."
+msgid "t                 switch centered mode on/off."
 msgstr ""
 
 #: graphics.c:1479
-msgid "/                 Search forward."
+msgid "<Esc> or q        Abort."
 msgstr ""
 
 #: graphics.c:1480
-msgid "?                 Search backward."
+msgid "/                 Search forward."
 msgstr ""
 
 #: graphics.c:1481
+msgid "?                 Search backward."
+msgstr ""
+
+#: graphics.c:1482
 msgid "n                 Repeat latest / or ? search."
 msgstr ""
 
-#: graphics.c:1482 graphics.c:1505
+#: graphics.c:1483 graphics.c:1506
 msgid "<Enter>           Select directory."
 msgstr ""
 
-#: graphics.c:1483 graphics.c:1506 graphics.c:1523
+#: graphics.c:1484 graphics.c:1507 graphics.c:1524
 msgid "Press any key."
 msgstr ""
 
-#: graphics.c:1489
+#: graphics.c:1490
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr ""
 
-#: graphics.c:1490
+#: graphics.c:1491
 msgid "<Left>            go left."
 msgstr ""
 
-#: graphics.c:1491
+#: graphics.c:1492
 msgid "<Down>            go down."
 msgstr ""
 
-#: graphics.c:1492
+#: graphics.c:1493
 msgid "<Up>              go up."
 msgstr ""
 
-#: graphics.c:1493
+#: graphics.c:1494
 msgid "<Right>           go right."
 msgstr ""
 
-#: graphics.c:1494
+#: graphics.c:1495
 msgid "CTRL-v            go forward to dir with same name."
 msgstr ""
 
-#: graphics.c:1495
+#: graphics.c:1496
 msgid "CTRL-p            go backward to dir with same name."
 msgstr ""
 
-#: graphics.c:1496
+#: graphics.c:1497
 msgid "CTRL-a            go to beginning of line."
 msgstr ""
 
-#: graphics.c:1497
+#: graphics.c:1498
 msgid "CTRL-e            go to end of line."
 msgstr ""
 
-#: graphics.c:1498
+#: graphics.c:1499
 msgid "CTRL-g            go to last dir."
 msgstr ""
 
-#: graphics.c:1499
+#: graphics.c:1500
 msgid "CTRL-f            go page forward."
 msgstr ""
 
-#: graphics.c:1500
+#: graphics.c:1501
 msgid "CTRL-b            go page backward."
 msgstr ""
 
-#: graphics.c:1501
+#: graphics.c:1502
 msgid "CTRL-u            go half page up."
 msgstr ""
 
-#: graphics.c:1502
+#: graphics.c:1503
 msgid "CTRL-d            go half page down."
 msgstr ""
 
-#: graphics.c:1503
+#: graphics.c:1504
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
 msgstr ""
 
-#: graphics.c:1504
+#: graphics.c:1505
 msgid "CTRL-n            Repeat latest / or ? search."
 msgstr ""
 
-#: graphics.c:1512
+#: graphics.c:1513
 msgid "ZOOMING:"
 msgstr ""
 
-#: graphics.c:1513
+#: graphics.c:1514
 msgid "z or i or CTRL-i  zoom in."
 msgstr ""
 
-#: graphics.c:1514
+#: graphics.c:1515
 msgid "Z or o or CTRL-o  zoom out."
 msgstr ""
 
-#: graphics.c:1515
+#: graphics.c:1516
 msgid "c                 condense: fold current level."
 msgstr ""
 
-#: graphics.c:1516
+#: graphics.c:1517
 msgid "C                 condense: fold subdir level."
 msgstr ""
 
-#: graphics.c:1517
+#: graphics.c:1518
 msgid "w                 condense: fold current and sub levels."
 msgstr ""
 
-#: graphics.c:1518
+#: graphics.c:1519
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
 msgstr ""
 
-#: graphics.c:1519
+#: graphics.c:1520
 msgid "r or CTRL-r       uncondense: unfold all directories."
 msgstr ""
 
-#: graphics.c:1520
+#: graphics.c:1521
 msgid "-                 fold directory."
 msgstr ""
 
-#: graphics.c:1521
+#: graphics.c:1522
 msgid "+ or =            unfold directory."
 msgstr ""
 
-#: graphics.c:1522
+#: graphics.c:1523
 msgid "l or <Right>      unfold and go right."
 msgstr ""
 
-#: graphics.c:1526
-msgid "Screenheight must be > 20 for help"
+#: graphics.c:1527
+msgid "Screenheight must be > 21 for help"
 msgstr ""
 
 #: wfixpath.c:65

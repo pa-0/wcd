@@ -1458,7 +1458,7 @@ void dataRefresh(int ydiff, int init)
 void showHelp(WINDOW *win, int height)
 {
    wclear(win);
-   if (height > 20)
+   if (height > 21)
    {
       wcd_mvwaddstr(win, 0,0,_("NAVIGATE MODE:"));
       wcd_mvwaddstr(win, 1,0,_("h or <Left>       go left."));
@@ -1475,12 +1475,13 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win,12,0,_("b                 go page backward."));
       wcd_mvwaddstr(win,13,0,_("u                 go half page up."));
       wcd_mvwaddstr(win,14,0,_("d                 go half page down."));
-      wcd_mvwaddstr(win,15,0,_("<Esc> or q        Abort."));
-      wcd_mvwaddstr(win,16,0,_("/                 Search forward."));
-      wcd_mvwaddstr(win,17,0,_("?                 Search backward."));
-      wcd_mvwaddstr(win,18,0,_("n                 Repeat latest / or ? search."));
-      wcd_mvwaddstr(win,19,0,_("<Enter>           Select directory."));
-      wcd_mvwaddstr(win,20,0,_("Press any key."));
+      wcd_mvwaddstr(win,15,0,_("t                 switch centered mode on/off."));
+      wcd_mvwaddstr(win,16,0,_("<Esc> or q        Abort."));
+      wcd_mvwaddstr(win,17,0,_("/                 Search forward."));
+      wcd_mvwaddstr(win,18,0,_("?                 Search backward."));
+      wcd_mvwaddstr(win,19,0,_("n                 Repeat latest / or ? search."));
+      wcd_mvwaddstr(win,20,0,_("<Enter>           Select directory."));
+      wcd_mvwaddstr(win,21,0,_("Press any key."));
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
@@ -1523,7 +1524,7 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win,11,0,_("Press any key."));
    }
    else
-      wcd_mvwaddstr(win, 0,0,_("Screenheight must be > 20 for help"));
+      wcd_mvwaddstr(win, 0,0,_("Screenheight must be > 21 for help"));
 
 
    prefresh(win,0,0,0,0,height-1,COLS-1);
@@ -1967,6 +1968,9 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
      case KEY_BACKSPACE:
             wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
      break;
+      case 't':
+               graphics_mode ^= WCD_GRAPH_CENTER ;
+         break;
      default:
      break;
      }
@@ -2169,7 +2173,10 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
     ydiff -= (wcd_cwin.curNode->y);
 
-    dataRefresh(ydiff, 0);
+    if (graphics_mode & WCD_GRAPH_CENTER)
+       dataRefresh(0, 1);
+    else
+       dataRefresh(ydiff, 0);
    }
 
    endwin();

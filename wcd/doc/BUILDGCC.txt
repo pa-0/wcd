@@ -1,5 +1,5 @@
 This file explains how to compile wcd for DOS and Windows
-with GNU C compiler (GCC, DJGPP/MINGW/Cygwin). 
+with GNU C compiler (GCC, DJGPP/MinGW/Cygwin). 
 
 For Unix/Linux compile instructions see file UNIX.txt
 
@@ -38,33 +38,13 @@ Needed for building packages:
 gcc
 ===
 
-dos     : DJGPP  : http://www.delorie.com/djgpp/
-windows : MINGW  : http://www.mingw.org/
-cygwin  : CYGWIN : http://cygwin.com/
+dos            : DJGPP     : http://www.delorie.com/djgpp/
+windows        : MinGW     : http://www.mingw.org/
+windows 64 bit : MinGW-w64 : http://mingw-w64.sourceforge.net/
+cygwin         : CYGWIN    : http://cygwin.com/
 
-
-make, coreutils, gettext and libiconv
-=====================================
-
-make, coreutils, gettext and libiconv can be found as packages on the web site of
-the gcc compiler.
-
-Coreutiles is needed for `chmod', `install', `mkdir', `mv', `rm', and `uname'.
-install   : copy files and set their attributes (part of GNU `coreutils' package).
-
-For DJGPP compiler use package `fileutils' instead of `coreutils'. Coreutils is
-not (yet) available for DJGPP.
-
-DJGPP  : http://www.delorie.com/pub/djgpp/current/v2gnu/
-MINGW  : http://sourceforge.net/project/showfiles.php?group_id=2435
-CYGWIN : download via the installer program setup.exe.
-
-
-Until wcd version 5.1.1 I used GnuWin32's gettext/libiconv instead of MinGW's,
-because the GnuWin32 port of libintl (part of gettext) has builtin relocation
-support. From wcd version 5.1.2 I use MinGW's gettext/libiconv. Wcd win32
-binaries are packed with a patched version of MinGW's libintl-8.dll that also
-supports relocation. See also http://www.xs4all.nl/~waterlan/libintl.html
+MinGW-w64 provides a cross-compiler that you can run on 32 bit Windows.
+MinGW-w64 can produce programs for 32 and 64 bit Windows.
 
 
 sh
@@ -78,18 +58,37 @@ See also the GNU make manual:
 
 http://www.gnu.org/software/make/manual/make.html#Choosing-the-Shell
 
-DJGPP  : Includes bash
-MINGW  : Includes bash in the MSYS environment.
-CYGWIN : Includes bash and zsh.
+DJGPP     : Includes bash
+MinGW     : Includes bash in the MSYS environment.
+MinGW-w64 : You can use MinGW's MSYS
+CYGWIN    : Includes bash and zsh.
 
 In DJGPP it is certain that you get problems if you don't make the SHELL
 variable point to bash (c:/djgpp/bin/bash.exe).
 
 
-MINGW without MSYS
+make, coreutils
+===============
+
+make and coreutils can be found as packages on the web site of the gcc compiler.
+
+Coreutiles is needed for `chmod', `install', `mkdir', `mv', `rm', and `uname'.
+install   : copy files and set their attributes (part of GNU `coreutils' package).
+
+For DJGPP compiler use package `fileutils' instead of `coreutils'. Coreutils is
+not (yet) available for DJGPP.
+
+DJGPP     : http://www.delorie.com/pub/djgpp/current/v2gnu/
+MinGW     : http://sourceforge.net/projects/mingw/files/
+CYGWIN    : download via the installer program setup.exe.
+
+For MinGW(-w64) use MSYS-make in the MSYS environment.
+
+
+MinGW without MSYS
 ==================
 
-You can build wcd in a normal windows command prompt, using the MINGW gcc
+You can build wcd in a normal windows command prompt, using the MinGW gcc
 compiler without the MSYS environment. For this you need GNU make, the
 coreutils package and a POSIX type shell that works in the windows command
 prompt.
@@ -112,6 +111,26 @@ Now you have a proper shell for GNU make.
 See also file problems.txt.
 
 It is advised to use the MSYS environment though.
+
+
+gettext (libintl) and libiconv
+==============================
+
+gettext and libiconv can be found as packages on the web site of the gcc compiler.
+
+DJGPP     : http://www.delorie.com/pub/djgpp/current/v2gnu/
+MinGW     : http://sourceforge.net/projects/mingw/files/
+MinGW-w64 : http://sourceforge.net/projects/mingw-w64/files/
+CYGWIN    : download via the installer program setup.exe.
+
+
+Until wcd version 5.1.1 I used GnuWin32's gettext/libiconv instead of MinGW's,
+because the GnuWin32 port of libintl (part of gettext) has builtin relocation
+support. From wcd version 5.1.2 I use MinGW's gettext/libiconv. Wcd win32
+binaries are packed with a patched version of MinGW's libintl-8.dll that also
+supports relocation. See also http://www.xs4all.nl/~waterlan/libintl.html
+
+MinGW-w64 may not have all packages available yet.
 
 
 PDCurses
@@ -159,6 +178,8 @@ dos32bsh : DOS 32 bit for BASH
 win32    : Windows 32 bit console version.
 win32zsh : Windows 32 bit MSYS and ZSH version.
 win32psh : Windows 32 bit PowerShell version.
+win64    : Windows 64 bit console version.
+win64psh : Windows 64 bit PowerShell version.
 msys     : Native MSYS version.
 cygwin   : Cygwin version.
 
@@ -246,6 +267,8 @@ dos32bsh : The default PREFIX is c:/djgpp
 win32    : The default PREFIX is c:/usr/local
 win32zsh : The default PREFIX is c:/usr/local
 win32psh : The default PREFIX is c:/usr/local
+win64    : The default PREFIX is c:/usr/local
+win64psh : The default PREFIX is c:/usr/local
 msys     : The default PREFIX is /usr
 cygwin   : The default PREFIX is /usr
 
