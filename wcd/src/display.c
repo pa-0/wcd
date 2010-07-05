@@ -1031,7 +1031,7 @@ void print_list(WINDOW *scrollWin, int lines_per_page,int line, nameset list, Wc
 
 void displayRefresh(int init)
 {
-  int page, pageoffset, offset, n, err;
+  int page, pageoffset, offset, n;
   char buf[WCD_MAX_INPSTR];
 
   wclear(wcd_display.scrollWin);
@@ -1079,8 +1079,8 @@ void displayRefresh(int init)
    n = str_columns(wcd_display.number_str) ;
    wmove (wcd_display.inputWin, 2, offset + n);
 
-   err = prefresh(wcd_display.scrollWin,0,0,0,0,wcd_display.scrollWinHeight-1,COLS-1);
-   err = prefresh(wcd_display.inputWin,0,0,wcd_display.scrollWinHeight,0,wcd_display.scrollWinHeight+INPUT_WIN_HEIGHT-1,COLS-1);
+   prefresh(wcd_display.scrollWin,0,0,0,0,wcd_display.scrollWinHeight-1,COLS-1);
+   prefresh(wcd_display.inputWin,0,0,wcd_display.scrollWinHeight,0,wcd_display.scrollWinHeight+INPUT_WIN_HEIGHT-1,COLS-1);
 
 }
 void displayHelp(WINDOW *win, int height)
