@@ -1572,7 +1572,7 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
   +f             add extra treeFile\n\
   -g             Graphics\n\
   -ga            Graphics, alternative navigation\n\
-  -gc            Graphics, centered mode\n\
+  -gc            Graphics, centered\n\
   -gd            Graphics, dump tree\n\
   -G             set path Go-script\n\
   -GN            No Go-script\n\

@@ -1,4 +1,4 @@
-5.1.3-beta4 2010-07-05
+5.1.3-beta4 2010-07-09
   - Match window supports terminal resize (on systems that support it).
   - New command-line option -gc: Graphical mode with centered view.
   - New key in graphical mode: 't' switch centered mode on/off.

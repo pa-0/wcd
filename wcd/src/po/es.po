@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-05 16:28+0200\n"
+"POT-Creation-Date: 2010-07-09 11:04+0200\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -149,7 +149,6 @@ msgstr ""
 "\n"
 
 #: wcd.c:1561
-#, fuzzy, c-format
 msgid ""
 "options:\n"
 "  -a             Add current path to treefile\n"
@@ -165,7 +164,7 @@ msgid ""
 "  +f             add extra treeFile\n"
 "  -g             Graphics\n"
 "  -ga            Graphics, alternative navigation\n"
-"  -gc            Graphics, centered mode\n"
+"  -gc            Graphics, centered\n"
 "  -gd            Graphics, dump tree\n"
 "  -G             set path Go-script\n"
 "  -GN            No Go-script\n"
@@ -218,6 +217,7 @@ msgstr ""
 "  +f             Añade archivo de árbol extra\n"
 "  -g             Ambiente gráfico\n"
 "  -ga            Ambiente gráfico, navegación alterna\n"
+"  -gc            Ambiente gráfico, centrado\n"
 "  -gd            Ambiente gráfico, impresión del árbol\n"
 "  -G             Establece la ruta del script go\n"
 "  -GN            No emplees el script go\n"
@@ -725,9 +725,8 @@ msgid "d                 go half page down."
 msgstr "d                 retroceder media página."
 
 #: graphics.c:1478
-#, fuzzy
 msgid "t                 switch centered mode on/off."
-msgstr "b                 retroceder página."
+msgstr "t                 enciende/apaga el modo centrado."
 
 #: graphics.c:1479
 msgid "<Esc> or q        Abort."
@@ -862,9 +861,8 @@ msgid "l or <Right>      unfold and go right."
 msgstr "l o <Derecha>     cerrar e ir a la derecha."
 
 #: graphics.c:1527
-#, fuzzy
 msgid "Screenheight must be > 21 for help"
-msgstr "La altura de la pantalla debe ser > 20 para la ayuda"
+msgstr "La altura de la pantalla debe ser > 21 para la ayuda"
 
 #: wfixpath.c:65
 msgid "Wcd: malloc error in wcd_fixpath()\n"

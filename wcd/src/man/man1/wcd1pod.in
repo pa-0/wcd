@@ -333,6 +333,12 @@ tree.
 Graphical interface with alternative way of navigating. With this option
 one can't jump to unrelated directories.
 
+=item B<-gc>
+
+Graphical interface with centered view. The selected directory stays in
+the middle of the screen. The centered mode can be switched on and off
+with key 't'.
+
 =item B<-gd>
 
 Dump the treedata files as a tree to stdout.

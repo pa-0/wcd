@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-05 16:28+0200\n"
+"POT-Creation-Date: 2010-07-09 11:04+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -144,7 +144,6 @@ msgstr ""
 "\n"
 
 #: wcd.c:1561
-#, fuzzy, c-format
 msgid ""
 "options:\n"
 "  -a             Add current path to treefile\n"
@@ -160,7 +159,7 @@ msgid ""
 "  +f             add extra treeFile\n"
 "  -g             Graphics\n"
 "  -ga            Graphics, alternative navigation\n"
-"  -gc            Graphics, centered mode\n"
+"  -gc            Graphics, centered\n"
 "  -gd            Graphics, dump tree\n"
 "  -G             set path Go-script\n"
 "  -GN            No Go-script\n"
@@ -214,6 +213,7 @@ msgstr ""
 "  +f             Lisää extra treeFile\n"
 "  -g             Graafinen moodi\n"
 "  -ga            Graafinen moodi, vaihtoehtoinen navigointi\n"
+"  -gc            Graafinen moodi, keskitetty\n"
 "  -gd            Graafinen moodi, tulosta puuhierarkia\n"
 "  -G             Aseta go-tiedoston polku\n"
 "  -GN            Poista go-tiedosto käytöstä\n"
@@ -724,9 +724,8 @@ msgid "d                 go half page down."
 msgstr "d                        puolisivua alas."
 
 #: graphics.c:1478
-#, fuzzy
 msgid "t                 switch centered mode on/off."
-msgstr "b                        sivu ylös."
+msgstr "t                        kytkin keskittynyt moodi päälle/pois."
 
 #: graphics.c:1479
 msgid "<Esc> or q        Abort."
@@ -761,7 +760,6 @@ msgid "<Left>            go left."
 msgstr "<Vasen>           vasemmalle."
 
 #: graphics.c:1492
-#, fuzzy
 msgid "<Down>            go down."
 msgstr "<Alas>            siirry alas."
 
@@ -862,10 +860,9 @@ msgid "l or <Right>      unfold and go right."
 msgstr "l tai <Right>       näkymä: avaa ja siirry oikealle."
 
 #: graphics.c:1527
-#, fuzzy
 msgid "Screenheight must be > 21 for help"
 msgstr ""
-"Help-ikkunan avaaminen ei onnistu. Ikkunan korkeuden tulee olla > 20 riviä"
+"Help-ikkunan avaaminen ei onnistu. Ikkunan korkeuden tulee olla > 21 riviä"
 
 #: wfixpath.c:65
 msgid "Wcd: malloc error in wcd_fixpath()\n"
