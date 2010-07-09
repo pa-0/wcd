@@ -17,7 +17,7 @@ what has been typed. The use of wildcards is fully supported.
 * Alias directories.
 * Ban directories.
 * Exclude directories.
-* Free portable source-code.
+* Alternate stack per shell or terminal.
 * Multi user: Jump to folders of your colleagues.
 * Multi platform:
   * DOS 16 bit, DOS 32 bit, DOS bash
