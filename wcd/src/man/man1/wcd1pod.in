@@ -179,8 +179,8 @@ one go by preceding the directory name with the drive name.
 
 The Windows versions (console, PowerShell, MSYS, zsh, cygwin) support
 Windows SMB LAN UNC paths without drive letter such as
-C<\\servername\sharename>. Wcd for windows console makes use of the "pushd"
-command to automatically map a UNC path to a drive letter. In windows
+C<\\servername\sharename>. Wcd for Windows console makes use of the "pushd"
+command to automatically map a UNC path to a drive letter. In Windows
 PowerShell, MSYS, zsh and Cygwin UNC paths are fully supported. The
 current working directory can be a UNC path.
 
@@ -387,7 +387,7 @@ you have to use old style command substitution with backquotes.
 
 #ifdef dos
 
-On windows systems, if one is running 4NT shell, one could make the
+On Windows systems, if one is running 4NT shell, one could make the
 following alias:
 
     alias wcd `cd %@execstr[wcdwin32.exe -z 0 -j %1]`
@@ -705,17 +705,17 @@ Reload the shell initialization files or start new shell.
 
 =head2 Win32 console version
 
-In a Windows NT console (Command prompt) a win32-program
-can't change the current work directory (although a DOS-program can).
+In a Windows NT console (cmd.exe, Command prompt) a Windows program
+can't change the current work directory (although a DOS program can).
 That is why wcd generates a batch script (C<wcdgo.bat>) which must be
 executed in the current shell.
 
 =head2 Windows VISTA/7
 
-In a Windows VISTA/7 command prompt you may have limited access to
+In a Windows VISTA/7 Command prompt you may have limited access to
 directories. To get access to more directories you need administrator
-rights. You can get a command prompt with administrator rights if you right
-click on the command prompt icon and select I<Run as administrator>.
+rights. You can get a Command prompt with administrator rights if you right
+click on the Command prompt icon and select I<Run as administrator>.
 
 =head2 Windows powershell version
 
@@ -796,7 +796,7 @@ point to the locale directory.
 
 #ifdef dos
 
-An example for windows cmd:
+An example for Windows cmd:
 
     set WCDLOCALEDIR=c:/my_prefix/share/locale
 
@@ -849,8 +849,8 @@ notepad, use this default system ANSI code page. The Windows console uses
 by default an OEM code page (CP437 or CP850) for compatibility with DOS programs. If
 you use a DOS version of wcd in a Windows console it will work, because of
 the DOS code page. But the DOS version of wcd lacks support for long
-directory names and network drives on Windows. The windows version of wcd
-is a native windows program and will use the Windows system ANSI code page.
+directory names and network drives on Windows. The Windows version of wcd
+is a native Windows program and will use the Windows system ANSI code page.
 So on a Western regional Windows it will use CP1252 for directory names and
 messages. Therefore the code page of the console has to be made equal to
 the system code page (changed to 1252) to make wcd for Windows work
@@ -862,7 +862,7 @@ system code page can be changed via the Control Panel regional options. The
 Windows console code page is changed with the C<chcp> command.
 
 When you type C<wcd -V>, the actual character encoding used by wcd is
-shown. Type command C<chcp> to display the active code page of the windows
+shown. Type command C<chcp> to display the active code page of the Windows
 console.
 
 #endif
@@ -935,7 +935,7 @@ If the environment variable I<WCDHOME> is set wcd will use I<WCDHOME>
 instead of I<HOME>. All C<*.wcd> files are text files. They can be
 edited with a text-editor.
 #ifdef dos
-The win32 console version of wcd behaves as
+The Windows console version of wcd behaves as
 the DOS version. The Cygwin version of wcd behaves as the Unix
 version.
 #endif

@@ -17,7 +17,7 @@ Contents
    - Use of environment variable HOME / WCDHOME
    - PDCurses interface
  2 Windows NT console (Windows NT/2000/XP/Vista/7) installation
-   - Win32 console
+   - Windows console
    - Windows VISTA/7
    - Windows PowerShell
    - Z shell (zsh) and MSYS (bash)
@@ -51,6 +51,8 @@ dos32bsh : c:/djgpp
 win32    : c:/usr/local
 win32psh : c:/usr/local
 win32zsh : c:/usr/local
+win64    : c:/usr/local
+win64psh : c:/usr/local
 msys     : /usr
 cygwin   : /usr
 
@@ -140,7 +142,7 @@ if you have the DJGPP compiler installed.
 
 Current DOS version of Wcd does not support LFN under Windows NT.
 
-If you need LFN support under Windows NT use the win32 console
+If you need LFN support under Windows NT use the Windows console
 version of wcd.
 
 ......................................................................
@@ -191,13 +193,11 @@ WCDHOME instead of HOME.
 
 
 ======================================================================
-= 2 Windows NT console (Windows NT/2000/XP/Vista/7) installation            =
+= 2 Windows NT console (NT/2000/XP/Vista/7) installation             =
 ======================================================================
 
-- Win32 console
-
-Notice that under Windows NT console (MS-DOS prompt) a win32-program cannot
-change the current work directory (although a DOS-program can on NT4).
+Notice that in Windows NT console (cmd.exe, Command prompt) a Windows
+program cannot change the current work directory (although a DOS program can).
 That is why wcd generates a batch script (c:\wcdgo.bat or %HOME%\wcdgo.bat)
 which must be executed in the current shell.
 
@@ -212,9 +212,9 @@ Notice that environment variable WCDHOME overrides HOME.
 ......................................................................
 - Windows VISTA/7
 
-In a Windows VISTA/7 command prompt you may have limited access to directories.
+In a Windows VISTA/7 Command prompt you may have limited access to directories.
 To get access to more directories you need adminstrator rights. You can get
-a command prompt with administrator rights if you right click on the command
+a Command prompt with administrator rights if you right click on the Command
 prompt icon and select `Run as administrator'.
 
 ......................................................................
@@ -239,7 +239,7 @@ Start a new PowerShell
 ......................................................................
 - Z shell (zsh) and MSYS (bash)
 
-A native win32 port of Z shell has been made by Amol Deshpande.
+A native Windows port of Z shell has been made by Amol Deshpande.
 See http://www.xs4all.nl/~waterlan/#ZSH
 An updated version is available at:
 http://zsh-nt.sourceforge.net/
@@ -268,7 +268,7 @@ Replace PREFIX with the prefix used during package installation.
 
 
 You have to start MSYS like this: msys.bat --norxvt , because the default rxvt
-terminal doesn't accept standard input from native win32 programs. See also
+terminal doesn't accept standard input from native Windows programs. See also
 http://www.nabble.com/Accepting-standard-input-from-MSYS-with-native-Win32-programs-td19432889.html
 You need a recent version of msys.bat that supports option --norxvt.
 
@@ -307,7 +307,7 @@ A UNC path looks like: \\servername\sharename
 In Windows networking, you can map a drive letter to a UNC:
   net use G: \\gui_fileserv\apps
 
-The win32 console version of wcd supports UNC paths since version 3.1.0.
+The Windows console version of wcd supports UNC paths since version 3.1.0.
 To change to the UNC path wcd makes use of the 'pushd' command in the
 wcdgo.bat script.
 
