@@ -196,7 +196,7 @@ WCDHOME instead of HOME.
 = 2 Windows NT console (NT/2000/XP/Vista/7) installation             =
 ======================================================================
 
-Notice that in Windows NT console (cmd.exe, Command prompt) a Windows
+Notice that in Windows NT console (cmd.exe, Command Prompt) a Windows
 program cannot change the current work directory (although a DOS program can).
 That is why wcd generates a batch script (c:\wcdgo.bat or %HOME%\wcdgo.bat)
 which must be executed in the current shell.
@@ -212,10 +212,10 @@ Notice that environment variable WCDHOME overrides HOME.
 ......................................................................
 - Windows VISTA/7
 
-In a Windows VISTA/7 Command prompt you may have limited access to directories.
+In a Windows VISTA/7 Command Prompt you may have limited access to directories.
 To get access to more directories you need adminstrator rights. You can get
-a Command prompt with administrator rights if you right click on the Command
-prompt icon and select `Run as administrator'.
+a Command Prompt with administrator rights if you right click on the Command
+Prompt icon and select `Run as administrator'.
 
 ......................................................................
 - Windows PowerShell
