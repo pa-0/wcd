@@ -233,6 +233,8 @@ Table of Contents
         Jari Aalto          (Code cleanup)
         Jari Aalto          (Generate manual from Perl POD file)
         Jari Aalto          (Reformat README file.)
+        Jari Aalto          (Fix compilation on Solaris)
+        Jari Aalto          (Version date in ISO 8601 format)
         Gabor Grothendieck  (UNC paths support)
         Gabor Grothendieck  (automatically set PDC_RESTORE_SCREEN)
         Gabor Grothendieck  (original console colours on windows)
@@ -254,6 +256,7 @@ Table of Contents
 
         Jari Aalto                     (Finnish)
         Julio Augusto Freyre-Gonzalez  (Spanish)
+	Philipp Thomas                 (German)
 
     3.2 Works of others used in the program
 

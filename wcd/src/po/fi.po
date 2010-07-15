@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-09 18:47+0200\n"
+"POT-Creation-Date: 2010-07-14 19:31+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -542,7 +542,7 @@ msgstr "osumaa %d hakemistossa."
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=yläs x=alas ?=help  Sivu %d/%d "
 
-#: display.c:1074 display.c:1433
+#: display.c:1074 display.c:1435
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Valitse toiminta (<Enter> keskeytys): "
@@ -596,26 +596,26 @@ msgstr "<Enter>             Keskeytys."
 msgid "Type w or x to quit help."
 msgstr "Type w tai x lopettaaksesi Help-toiminnan."
 
-#: display.c:1164 graphics.c:1772
+#: display.c:1166 graphics.c:1772
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Wcd: varoitus: Terminaalin avaus ei onnistu, käytössä vain stdout.\n"
 "komentorivi.\n"
 
-#: display.c:1185
+#: display.c:1187
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: virhe: terminaalin korkeus ei ole vähintään 3 riviä.\n"
 
-#: display.c:1219 graphics.c:1805
+#: display.c:1221 graphics.c:1805
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: virhe: vierityspalkin luonti ei onnistu ikkunaan.\n"
 
-#: display.c:1238
+#: display.c:1240
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: virhe: input-ikkunaa ei voi luoda.\n"
 
-#: display.c:1429
+#: display.c:1431
 #, c-format
 msgid ""
 "\n"
@@ -624,7 +624,7 @@ msgstr ""
 "\n"
 "Ok "
 
-#: display.c:1431
+#: display.c:1433
 #, c-format
 msgid ""
 "\n"
@@ -633,12 +633,12 @@ msgstr ""
 "\n"
 "Villi "
 
-#: display.c:1432
+#: display.c:1434
 #, c-format
 msgid "match for %d directories.\n"
 msgstr "osumaa %d hakemistosta.\n"
 
-#: display.c:1475
+#: display.c:1477
 #, c-format
 msgid ""
 "\n"

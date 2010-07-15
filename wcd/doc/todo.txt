@@ -2,11 +2,14 @@
 TO DO
 =====
 
-* Translations.
+* Translate the program messages.
 
-  Translate wcd into more languages. Contact Erwin Waterlander
+  Translate wcd's messages into more languages. Contact Erwin Waterlander
   if you want to help (waterlan@xs4all.nl). Programming skills
   are not required.
+
+
+* Translate the manual.
 
 
 * Unicode matching with normalization.
@@ -18,20 +21,25 @@ TO DO
   For instance an 'e' should also match an 'e' with accent.
 
 
-* Support scripts that write from right to left like Arabic or Hebrew.
+* Support scripts that write from right to left like Arabic, Persian or Hebrew.
 
 
 
 I always kept this in mind while developing wcd:
 * keep it simple.
-  Wcd has to stay usable by by novice users.
+  Usable without knowing all the options.
 * wcd is a directory changer.
   The main goal is to change directory with a minimal amount of keystrokes.
   Don't change wcd into a directory/file manager.
 * low requirements.
-  A minimal wcd version can be build with just an ansi-C compiler. For
-  instance the graphical tree is drawn with ascii characters and colours
+  A minimal wcd version can be build with just an ansi-C compiler.
+  The graphical tree is drawn with ascii characters and colours
   are not required. This way wcd runs also on very old systems.
+* portable
+  So I can use wcd everywhere.
+* backwards compatible
+  Don't bother users.
+  In a multi-user environment, different versions can be used.
 
 
 NOT TO DO

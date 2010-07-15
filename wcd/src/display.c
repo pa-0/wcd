@@ -1102,6 +1102,8 @@ void displayHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win, 9,0,_("<Enter>           Abort."));
       wcd_mvwaddstr(win,11,0,_("Type w or x to quit help."));
    }
+   prefresh(win,0,0,0,0,height-1,COLS-1);
+   getch();
 
 }
 #define Key_CTRL(x)      ((x) & 31)

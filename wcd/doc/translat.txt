@@ -8,6 +8,7 @@ Translators.
 
 Dutch        Erwin Waterlander <waterlan@xs4all.nl>
 Finnish      Jari Aalto <jari.aalto@cante.net>
+German       Philipp Thomas <psmt@opensuse.org> <pth@suse.de>
 Spanish      Julio Augusto Freyre-Gonzalez <jfreyreg@gmail.com>
 
 
@@ -28,7 +29,7 @@ Prerequisites.
 
 Get the wcd source package.
 
-To add a new language you need to have the gettext tool installed on your
+To add a new language you need to have the gettext tools installed on your
 system.
 
 Linux:

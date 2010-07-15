@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-09 18:47+0200\n"
+"POT-Creation-Date: 2010-07-14 19:31+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -535,7 +535,7 @@ msgstr "gelijke voor %d mappen."
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=omhoog x=omlaag ?=help  Pagina %d/%d "
 
-#: display.c:1074 display.c:1433
+#: display.c:1074 display.c:1435
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Maak een keuze (<Enter> voor afbreken): "
@@ -588,25 +588,25 @@ msgstr "<Enter>            Afbreken."
 msgid "Type w or x to quit help."
 msgstr "Type w of x om help af te sluiten."
 
-#: display.c:1164 graphics.c:1772
+#: display.c:1166 graphics.c:1772
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Wcd: let op: Fout tijdens openen terminal, val terug op stdout interface.\n"
 
-#: display.c:1185
+#: display.c:1187
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: fout: scherm hoogte moet groter zijn dan 3 regels.\n"
 
-#: display.c:1219 graphics.c:1805
+#: display.c:1221 graphics.c:1805
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: fout tijdens maken rolvenster.\n"
 
-#: display.c:1238
+#: display.c:1240
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: fout aanmaken invoervenster.\n"
 
-#: display.c:1429
+#: display.c:1431
 #, c-format
 msgid ""
 "\n"
@@ -615,7 +615,7 @@ msgstr ""
 "\n"
 "Perfecte "
 
-#: display.c:1431
+#: display.c:1433
 #, c-format
 msgid ""
 "\n"
@@ -624,12 +624,12 @@ msgstr ""
 "\n"
 "Joker "
 
-#: display.c:1432
+#: display.c:1434
 #, c-format
 msgid "match for %d directories.\n"
 msgstr "gelijke voor %d mappen.\n"
 
-#: display.c:1475
+#: display.c:1477
 #, c-format
 msgid ""
 "\n"
