@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-14 19:31+0200\n"
+"POT-Creation-Date: 2010-07-16 07:29+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -592,9 +592,9 @@ msgstr "CTRL-c tai <Esc>    Keskeytys."
 msgid "<Enter>           Abort."
 msgstr "<Enter>             Keskeytys."
 
-#: display.c:1103
-msgid "Type w or x to quit help."
-msgstr "Type w tai x lopettaaksesi Help-toiminnan."
+#: display.c:1103 graphics.c:1484 graphics.c:1507 graphics.c:1524
+msgid "Press any key."
+msgstr "Paina jotakin näppäintä."
 
 #: display.c:1166 graphics.c:1772
 msgid ""
@@ -748,10 +748,6 @@ msgstr "n                        Toista viimeisen / tai ? etsintä."
 msgid "<Enter>           Select directory."
 msgstr "<Enter>                  valitse hakemisto."
 
-#: graphics.c:1484 graphics.c:1507 graphics.c:1524
-msgid "Press any key."
-msgstr "Paina jotakin näppäintä."
-
 #: graphics.c:1490
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "HAKUMOODI villikorttien ja alihakemistojen tuki:"
@@ -877,3 +873,6 @@ msgid ""
 msgstr ""
 "Wcd: virhe kohdassa '%s', muistin varaus ei onnistu\n"
 "Wcd: Riitämätön määrä muistia\n"
+
+#~ msgid "Type w or x to quit help."
+#~ msgstr "Type w tai x lopettaaksesi Help-toiminnan."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-14 19:31+0200\n"
+"POT-Creation-Date: 2010-07-16 07:29+0200\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -595,9 +595,9 @@ msgstr "CTRL-c o <Esc>    Aborta."
 msgid "<Enter>           Abort."
 msgstr "<Intro>           Aborta."
 
-#: display.c:1103
-msgid "Type w or x to quit help."
-msgstr "Presiona w o x para salir de la ayuda."
+#: display.c:1103 graphics.c:1484 graphics.c:1507 graphics.c:1524
+msgid "Press any key."
+msgstr "Presione alguna tecla."
 
 #: display.c:1166 graphics.c:1772
 msgid ""
@@ -749,10 +749,6 @@ msgstr "n                 Repetir la última búsqueda / o ?."
 msgid "<Enter>           Select directory."
 msgstr "<Intro>           Selecciona directorio."
 
-#: graphics.c:1484 graphics.c:1507 graphics.c:1524
-msgid "Press any key."
-msgstr "Presione alguna tecla."
-
 #: graphics.c:1490
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "MODO BUSQUEDA con soporte de comodines y subdirectorios:"
@@ -877,6 +873,9 @@ msgid ""
 msgstr ""
 "Wcd: error en '%s', no hay espacio para asignación\n"
 "Wcd: Memoria insuficiente\n"
+
+#~ msgid "Type w or x to quit help."
+#~ msgstr "Presiona w o x para salir de la ayuda."
 
 #~ msgid "  Current locale uses UTF-8 encoding.\n"
 #~ msgstr "  Localización actual emplea codificación UTF-8.\n"

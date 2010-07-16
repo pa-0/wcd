@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-15 15:22+0200\n"
+"POT-Creation-Date: 2010-07-16 07:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -508,8 +508,8 @@ msgstr ""
 msgid "<Enter>           Abort."
 msgstr ""
 
-#: display.c:1103
-msgid "Type w or x to quit help."
+#: display.c:1103 graphics.c:1484 graphics.c:1507 graphics.c:1524
+msgid "Press any key."
 msgstr ""
 
 #: display.c:1166 graphics.c:1772
@@ -654,10 +654,6 @@ msgstr ""
 
 #: graphics.c:1483 graphics.c:1506
 msgid "<Enter>           Select directory."
-msgstr ""
-
-#: graphics.c:1484 graphics.c:1507 graphics.c:1524
-msgid "Press any key."
 msgstr ""
 
 #: graphics.c:1490

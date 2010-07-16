@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-15 15:22+0200\n"
+"POT-Creation-Date: 2010-07-16 07:29+0200\n"
 "PO-Revision-Date: 2010-07-14 16:46+0200\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -375,7 +375,7 @@ msgstr "Mit Unterstützung für Unicode.\n"
 #: wcd.c:1690
 #, c-format
 msgid "  Euro symbol: "
-msgstr " Euro-Symbol: "
+msgstr "  Euro-Symbol: "
 
 #: wcd.c:1692
 #, c-format
@@ -593,7 +593,7 @@ msgstr "Bildschirmhöhe muss für Hilfe > 20 sein."
 
 #: display.c:1093
 msgid "w or <Up>         Page Up."
-msgstr "w oder <hoch>      Seite hoch.\""
+msgstr "w oder <hoch>      Seite hoch."
 
 #: display.c:1094
 msgid "x or z or <Down>  Page Down."
@@ -631,9 +631,9 @@ msgstr "Strg-c oder <Esc>  Abbruch."
 msgid "<Enter>           Abort."
 msgstr "<Eingabe>          Abbruch."
 
-#: display.c:1103
-msgid "Type w or x to quit help."
-msgstr "W oder x eingeben um die Hilfe zu verlassen."
+#: display.c:1103 graphics.c:1484 graphics.c:1507 graphics.c:1524
+msgid "Press any key."
+msgstr "Eine beliebige Taste drücken."
 
 #: display.c:1166 graphics.c:1772
 msgid ""
@@ -741,7 +741,7 @@ msgstr "$ oder e               gehe ans Ende der Zeile."
 
 #: graphics.c:1472
 msgid "1                 go to root dir."
-msgstr "1                 zum Wurzelverzeichnis gehen"
+msgstr "1                  zum Wurzelverzeichnis gehen"
 
 #: graphics.c:1473
 msgid "g or G            go to last dir."
@@ -749,47 +749,43 @@ msgstr "g oder G           zum letzten Verzeichnis gehen."
 
 #: graphics.c:1474
 msgid "f                 go page forward."
-msgstr "f                 eine Seite vorwärts."
+msgstr "f                  eine Seite vorwärts."
 
 #: graphics.c:1475
 msgid "b                 go page backward."
-msgstr "b                 eine Seite zurück."
+msgstr "b                  eine Seite zurück."
 
 #: graphics.c:1476
 msgid "u                 go half page up."
-msgstr "u                 eine halbe Seite nach oben."
+msgstr "u                  eine halbe Seite nach oben."
 
 #: graphics.c:1477
 msgid "d                 go half page down."
-msgstr "d                 eine halbe Seite nach unten."
+msgstr "d                  eine halbe Seite nach unten."
 
 #: graphics.c:1478
 msgid "t                 switch centered mode on/off."
-msgstr "t                 Zentrieren ein- bzw. ausschalten."
+msgstr "t                  Zentrieren ein- bzw. ausschalten."
 
 #: graphics.c:1479
 msgid "<Esc> or q        Abort."
-msgstr "<Esc> oder q      Abbruch."
+msgstr "<Esc> oder q       Abbruch."
 
 #: graphics.c:1480
 msgid "/                 Search forward."
-msgstr "/                 vorwärts suchen."
+msgstr "/                  vorwärts suchen."
 
 #: graphics.c:1481
 msgid "?                 Search backward."
-msgstr "?                 rúckwärts suchen."
+msgstr "?                  rúckwärts suchen."
 
 #: graphics.c:1482
 msgid "n                 Repeat latest / or ? search."
-msgstr "n                 letzte / oder ? Suche wiederholen."
+msgstr "n                  letzte / oder ? Suche wiederholen."
 
 #: graphics.c:1483 graphics.c:1506
 msgid "<Enter>           Select directory."
-msgstr "<Eingabe>         Verzeichnis auswählen."
-
-#: graphics.c:1484 graphics.c:1507 graphics.c:1524
-msgid "Press any key."
-msgstr "Eine beliebige Taste drücken."
+msgstr "<Eingabe>          Verzeichnis auswählen."
 
 #: graphics.c:1490
 msgid "SEARCH MODE with wildcard and subdir support:"
@@ -797,51 +793,51 @@ msgstr "SUCHMODUS mit Unterstützung für Platzhalte- und Unterverzeichnisse."
 
 #: graphics.c:1491
 msgid "<Left>            go left."
-msgstr "<Links>           nach links gehen."
+msgstr "<Links>            nach links gehen."
 
 #: graphics.c:1492
 msgid "<Down>            go down."
-msgstr "<Runter>          nach Unten."
+msgstr "<Runter>           nach Unten."
 
 #: graphics.c:1493
 msgid "<Up>              go up."
-msgstr "<Hoch>            nach oben gehen."
+msgstr "<Hoch>             nach oben gehen."
 
 #: graphics.c:1494
 msgid "<Right>           go right."
-msgstr "<Rechts>         nach rechts gehen."
+msgstr "<Rechts>           nach rechts gehen."
 
 #: graphics.c:1495
 msgid "CTRL-v            go forward to dir with same name."
-msgstr "Strg-v            vorwärts gehen zu Verzeichnis mit gleichem Namen."
+msgstr "Strg-v             vorwärts gehen zu Verzeichnis mit gleichem Namen."
 
 #: graphics.c:1496
 msgid "CTRL-p            go backward to dir with same name."
-msgstr "Strg-p            rückwärts gehen zu Verzeichnis mit gleichem Namen."
+msgstr "Strg-p             rückwärts gehen zu Verzeichnis mit gleichem Namen."
 
 #: graphics.c:1497
 msgid "CTRL-a            go to beginning of line."
-msgstr "Strg-a            An den Anfang der Zeile springen."
+msgstr "Strg-a             An den Anfang der Zeile springen."
 
 #: graphics.c:1498
 msgid "CTRL-e            go to end of line."
-msgstr "Strg-e            an das Ende der Zeile springen."
+msgstr "Strg-e             an das Ende der Zeile springen."
 
 #: graphics.c:1499
 msgid "CTRL-g            go to last dir."
-msgstr "Strg-g            zum letzten Verzeichnis gehen."
+msgstr "Strg-g             zum letzten Verzeichnis gehen."
 
 #: graphics.c:1500
 msgid "CTRL-f            go page forward."
-msgstr "Strg-f            eine Seite vorwärts."
+msgstr "Strg-f             eine Seite vorwärts."
 
 #: graphics.c:1501
 msgid "CTRL-b            go page backward."
-msgstr "Strg-b            eine Seite zurück."
+msgstr "Strg-b             eine Seite zurück."
 
 #: graphics.c:1502
 msgid "CTRL-u            go half page up."
-msgstr "Strg-u            eine halbe Seite nach oben"
+msgstr "Strg-u             eine halbe Seite nach oben"
 
 #: graphics.c:1503
 msgid "CTRL-d            go half page down."
@@ -849,11 +845,11 @@ msgstr "Strg-d             eine halbe Seite nach unten"
 
 #: graphics.c:1504
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
-msgstr "<Esc> oder Strg-x   SUCHMODUS abbrechen."
+msgstr "<Esc> oder Strg-x  SUCHMODUS abbrechen."
 
 #: graphics.c:1505
 msgid "CTRL-n            Repeat latest / or ? search."
-msgstr "Strg-n            Letzte / oder ? Suche wiederholen."
+msgstr "Strg-n             Letzte / oder ? Suche wiederholen."
 
 #: graphics.c:1513
 msgid "ZOOMING:"
@@ -869,37 +865,37 @@ msgstr "Z oder o oder Strg-o  rauszoomen."
 
 #: graphics.c:1516
 msgid "c                 condense: fold current level."
-msgstr "c                 verkürzen:: aktuelle Ebene falten."
+msgstr "c                     verkürzen:: aktuelle Ebene falten."
 
 #: graphics.c:1517
 msgid "C                 condense: fold subdir level."
-msgstr "C                 verkürzen: Unterverzeichnisebene falten."
+msgstr "C                     verkürzen: Unterverzeichnisebene falten."
 
 #: graphics.c:1518
 msgid "w                 condense: fold current and sub levels."
-msgstr "w                 verkürzen: aktuelle Ebene mit Unterebenen falten."
+msgstr "w                     verkürzen: aktuelle Ebene mit Unterebenen falten."
 
 #: graphics.c:1519
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
 msgstr ""
-"y oder Strg-y       dekomprimieren: aktuelle Ebene samt Unterebenen "
+"y oder Strg-y         dekomprimieren: aktuelle Ebene samt Unterebenen "
 "auffalten."
 
 #: graphics.c:1520
 msgid "r or CTRL-r       uncondense: unfold all directories."
-msgstr "r oder Strg-r    dekomprimieren: alle Ebenen ausfalten."
+msgstr "r oder Strg-r         dekomprimieren: alle Ebenen ausfalten."
 
 #: graphics.c:1521
 msgid "-                 fold directory."
-msgstr "-                 Verzeichnis einfalten."
+msgstr "-                     Verzeichnis einfalten."
 
 #: graphics.c:1522
 msgid "+ or =            unfold directory."
-msgstr "+ oder =          verzeinis auffalten."
+msgstr "+ oder =              Verzeinis auffalten."
 
 #: graphics.c:1523
 msgid "l or <Right>      unfold and go right."
-msgstr "l oder <Rechts>    auffalten und nach rechts gehen."
+msgstr "l oder <Rechts>       auffalten und nach rechts gehen."
 
 #: graphics.c:1527
 msgid "Screenheight must be > 21 for help"
@@ -915,3 +911,6 @@ msgid ""
 "Wcd: error in '%s', no space left for allocation\n"
 "Wcd: Insufficient memory\n"
 msgstr "wcd: Fehler in »%s«, kein freier Speicher verfügbar\n"
+
+#~ msgid "Type w or x to quit help."
+#~ msgstr "W oder x eingeben um die Hilfe zu verlassen."

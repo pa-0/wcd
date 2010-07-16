@@ -1100,7 +1100,7 @@ void displayHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win, 7,0,_("CTRL-e or <END>   Scroll to end."));
       wcd_mvwaddstr(win, 8,0,_("CTRL-c or <Esc>   Abort."));
       wcd_mvwaddstr(win, 9,0,_("<Enter>           Abort."));
-      wcd_mvwaddstr(win,11,0,_("Type w or x to quit help."));
+      wcd_mvwaddstr(win,11,0,_("Press any key."));
    }
    prefresh(win,0,0,0,0,height-1,COLS-1);
    getch();
