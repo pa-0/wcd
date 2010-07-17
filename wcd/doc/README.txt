@@ -249,6 +249,7 @@ Table of Contents
         Elbert Pol          Port to OS/2 Warp
         Billy Chen          Optional colours in graphical mode (option -K)
         Billy Chen          Less screen movement when navigating in graphical mode.
+        anonymous           Alternate stack file support.
 
     3.1 Translators
 
