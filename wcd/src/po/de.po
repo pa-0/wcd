@@ -145,9 +145,9 @@ msgstr ""
 "<Datei>]\n"
 "       [-z #] [-[#]] [+[#]] [=] [Laufwerk:][dir]\n"
 "\n"
-"  [dir]   Name oder Teil des Namens des Verzeichnisses, in welches /"
-"n          gewechselt werden soll. Die Platzhalter *, ? und [SET] werden "
-"Unterstützt!\n"
+"  [dir]   Name oder Teil des Namens des Verzeichnisses, in welches\n"
+"          gewechselt werden soll.\n"
+"          Die Platzhalter *, ? und [SET] werden Unterstützt!\n"
 "\n"
 
 #: wcd.c:1561
