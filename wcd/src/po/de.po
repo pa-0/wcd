@@ -310,7 +310,7 @@ msgstr "Win32 version.\n"
 #: wcd.c:1648
 #, c-format
 msgid "DOS 32 bit version.\n"
-msgstr "version für 32 Bit DOS.\n"
+msgstr "32 Bit DOS Version.\n"
 
 #: wcd.c:1657
 #, c-format
