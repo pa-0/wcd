@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-16 07:29+0200\n"
+"POT-Creation-Date: 2010-07-19 17:50+0200\n"
 "PO-Revision-Date: 2010-07-14 16:46+0200\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -564,97 +564,97 @@ msgstr "wcd: Fehler in maxLength(), list == NULL\n"
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "wcd: Fehler in maxLengthStack(), s == NULL\n"
 
-#: display.c:1059
+#: display.c:1060
 msgid "Perfect "
 msgstr "Perfekt "
 
-#: display.c:1061
+#: display.c:1062
 msgid "Wild "
 msgstr "Platzhalter "
 
-#: display.c:1062
+#: display.c:1063
 #, c-format
 msgid "match for %d directories."
 msgstr "passt auf %d Verzeichnisse."
 
-#: display.c:1067
+#: display.c:1068
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=hoch x=runter ?=Hilfe Seite %d/%d "
 
-#: display.c:1074 display.c:1435
+#: display.c:1075 display.c:1436
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Bitte wählen Sie eins aus (<Eingabe> bricht ab): "
 
-#: display.c:1090
+#: display.c:1091
 msgid "Screenheight must be > 20 for help."
 msgstr "Bildschirmhöhe muss für Hilfe > 20 sein."
 
-#: display.c:1093
+#: display.c:1094
 msgid "w or <Up>         Page Up."
 msgstr "w oder <hoch>      Seite hoch."
 
-#: display.c:1094
+#: display.c:1095
 msgid "x or z or <Down>  Page Down."
 msgstr "x,z oder <Runter>  Seite runter."
 
-#: display.c:1095
+#: display.c:1096
 msgid ", or <Left>       Scroll 1 left."
 msgstr ", oder <Links>     1 nach links rollen."
 
-#: display.c:1096
+#: display.c:1097
 msgid ". or <Right>      Scroll 1 right."
 msgstr ". oder <Rechts>    1 nach rechts rollen."
 
-#: display.c:1097
+#: display.c:1098
 msgid "< or [            Scroll 10 left."
 msgstr "< oder [           10 nach links rollen."
 
-#: display.c:1098
+#: display.c:1099
 msgid "> or ]            Scroll 10 right."
 msgstr "> oder ]           10 nach rechtsw rollen."
 
-#: display.c:1099
+#: display.c:1100
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr "Strg-a oder <Home> An den Anfang springen."
 
-#: display.c:1100
+#: display.c:1101
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr "Strg-e oder <Ende> Zum Ende springen."
 
-#: display.c:1101
+#: display.c:1102
 msgid "CTRL-c or <Esc>   Abort."
 msgstr "Strg-c oder <Esc>  Abbruch."
 
-#: display.c:1102
+#: display.c:1103
 msgid "<Enter>           Abort."
 msgstr "<Eingabe>          Abbruch."
 
-#: display.c:1103 graphics.c:1484 graphics.c:1507 graphics.c:1524
+#: display.c:1104 graphics.c:1484 graphics.c:1507 graphics.c:1524
 msgid "Press any key."
 msgstr "Eine beliebige Taste drücken."
 
-#: display.c:1166 graphics.c:1772
+#: display.c:1167 graphics.c:1772
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "wcd: Warnung: Fehler beim Öffnen des Terminals, es wird die\n"
 "Stdout-Schnittstelle verwendet.\n"
 
-#: display.c:1187
+#: display.c:1188
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "wcd: Fehler: die Bildschirmhöhe muss mehr als 3 Zeilen sein.\n"
 
-#: display.c:1221 graphics.c:1805
+#: display.c:1222 graphics.c:1805
 msgid "Wcd: error creating scroll window.\n"
 msgstr "wcd: Fehler beim Erzeugen des rollbaren Fensters.\n"
 
-#: display.c:1240
+#: display.c:1241
 msgid "Wcd: error creating input window.\n"
 msgstr "wcd: Fehler beim Erzeugen des Eingabefensters.\n"
 
-#: display.c:1431
+#: display.c:1432
 #, c-format
 msgid ""
 "\n"
@@ -663,7 +663,7 @@ msgstr ""
 "\n"
 "Perfekt "
 
-#: display.c:1433
+#: display.c:1434
 #, c-format
 msgid ""
 "\n"
@@ -672,12 +672,12 @@ msgstr ""
 "\n"
 "Platzhalter "
 
-#: display.c:1434
+#: display.c:1435
 #, c-format
 msgid "match for %d directories.\n"
 msgstr "passt auf %d Verzeichnisse.\n"
 
-#: display.c:1477
+#: display.c:1478
 #, c-format
 msgid ""
 "\n"
@@ -873,7 +873,8 @@ msgstr "C                     verkürzen: Unterverzeichnisebene falten."
 
 #: graphics.c:1518
 msgid "w                 condense: fold current and sub levels."
-msgstr "w                     verkürzen: aktuelle Ebene mit Unterebenen falten."
+msgstr ""
+"w                     verkürzen: aktuelle Ebene mit Unterebenen falten."
 
 #: graphics.c:1519
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
