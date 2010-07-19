@@ -97,7 +97,7 @@ msgstr "wcd: %s ist kein Verzeichnis.\n"
 #: wcd.c:1129
 #, c-format
 msgid "Wcd: Recursively remove %s  Are you sure? y/n :"
-msgstr "wcd: Rekursives Löschen von %s. Sind Sie sicher?"
+msgstr "wcd: Rekursives Löschen von %s. Sind Sie sicher? y(ja)/n(nein)"
 
 #: wcd.c:1156
 #, c-format
