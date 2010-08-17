@@ -703,7 +703,7 @@ Reload the shell initialization files or start new shell.
 
 #ifdef dos
 
-=head2 Win32 console version
+=head2 Windows console version
 
 In a Windows NT console (cmd.exe, Command Prompt) a Windows program
 can't change the current work directory (although a DOS program can).
@@ -958,7 +958,7 @@ not readable wcd will create a new one.
     DOS: \treedata.wcd or %HOME%\treedata.wcd
 #endif
 #ifdef unix
-    UNIX: $HOME/.treedata.wcd
+    Unix: $HOME/.treedata.wcd
 #endif
 
 =item B<extra treedata file>
@@ -970,7 +970,7 @@ to find matches in this file also.
     DOS: \extra.wcd or %HOME%\extra.wcd
 #endif
 #ifdef unix
-    UNIX: $HOME/.extra.wcd
+    Unix: $HOME/.extra.wcd
 #endif
 
 =item B<ban file>
@@ -982,7 +982,7 @@ supported.
     DOS: \ban.wcd or %HOME%\ban.wcd
 #endif
 #ifdef unix
-    UNIX: $HOME/.ban.wcd
+    Unix: $HOME/.ban.wcd
 #endif
 
 =item B<alias file>
@@ -993,7 +993,7 @@ Optional file with wcd aliases. See option B<-l>.
     DOS: \alias.wcd or %HOME%\alias.wcd
 #endif
 #ifdef unix
-    UNIX: $HOME/.alias.wcd
+    Unix: $HOME/.alias.wcd
 #endif
 
 =item B<stack file>
@@ -1005,7 +1005,7 @@ the B<-d> option.
     DOS: c:\stack.wcd or %HOME%\stack.wcd
 #endif
 #ifdef unix
-    UNIX: $HOME/.stack.wcd
+    Unix: $HOME/.stack.wcd
 #endif
 
 The name of the stack file can be changed with environment variable I<WCDSTACKFILE>.
@@ -1019,15 +1019,15 @@ For history reasons it is placed by default in C<$HOME/bin> on Unix
 systems. The directory of this file can be changed with the option B<-G>.
 
 #ifdef dos
-    DOS BASH: c:/wcd.go or $HOME/wcd.go
-    WIN32 CONSOLE: c:\wcdgo.bat or %HOME%\wcdgo.bat
-    WINDOWS POWERSHELL: $env:HOME\wcdgo.ps1
-    WIN32 ZSH/MSYS: $HOME/wcd.go
-    CYGWIN/MSYS: $HOME/bin/wcd.go
-    OS/2 CONSOLE: c:\wcdgo.cmd or %HOME%\wcdgo.cmd
+    DOS bash: c:/wcd.go or $HOME/wcd.go
+    Windows Console: c:\wcdgo.bat or %HOME%\wcdgo.bat
+    Windows PowerShell: $env:HOME\wcdgo.ps1
+    WinZsh: $HOME/wcd.go
+    Cygwin/MSYS: $HOME/bin/wcd.go
+    OS/2 Console: c:\wcdgo.cmd or %HOME%\wcdgo.cmd
 #endif
 #ifdef unix
-    UNIX: $HOME/bin/wcd.go
+    Unix: $HOME/bin/wcd.go
 #endif
 
 =item B<relative treedata file>
@@ -1039,7 +1039,7 @@ B<+n>.
     DOS: <path>\rtdata.wcd
 #endif
 #ifdef unix
-    UNIX: <path>/.rtdata.wcd
+    Unix: <path>/.rtdata.wcd
 #endif
 
 =back
@@ -1057,13 +1057,13 @@ I<HOME>. See also section FILES.
 
 #ifdef dos
 
-For the Unix, Cygwin, Windows PowerShell and Windows MSYS/ZSH version
+For the Unix, Cygwin, Windows PowerShell, WinZsh and MSYS version
 it is required that I<HOME> or I<WCDHOME> is set. For the other
 versions of wcd the use of these variables is optional.
 
 If HOME is set on DOS/Windows, wcd will place all its files
 (treedata.wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) in directory
-I<HOME>. The behaviour of wcd is then equal to the UNIX version of
+I<HOME>. The behaviour of wcd is then equal to the Unix version of
 wcd. Wcd will scan the disk default from I<HOME>. Drives will not be
 automatically scanned by changing to them. You need to tell wcd
 explicitly. E.g.:
