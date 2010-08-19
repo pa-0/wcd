@@ -717,7 +717,7 @@ msgstr "d                 ga halve pagina omlaag."
 
 #: graphics.c:1478
 msgid "t                 switch centered mode on/off."
-msgstr "t                 schakel gecentreerde modus aan/uit."
+msgstr "t                 in- uitschakelen gecentreerde modus."
 
 #: graphics.c:1479
 msgid "<Esc> or q        Abort."
