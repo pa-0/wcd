@@ -74,7 +74,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 /* A go-script is required */
 #define WCD_SHELL
 #endif
-#if (defined(UNIX) || defined(WCD_WINZSH) || defined(WCD_DOSBASH) || defined(WCD_OS2BASH))
+/* OS/2 GCC environment defines UNIX. Don't define WCD_UNIXSHELL when we build
+ * for standard OS/2 cmd.exe shell */
+#if ((defined(UNIX) && !defined(OS2)) || defined(WCD_WINZSH) || defined(WCD_DOSBASH) || defined(WCD_OS2BASH))
 #define WCD_UNIXSHELL
 #endif
 
