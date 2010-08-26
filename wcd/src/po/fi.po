@@ -726,7 +726,7 @@ msgstr "d                        puolisivua alas."
 
 #: graphics.c:1478
 msgid "t                 switch centered mode on/off."
-msgstr "t                        kytkin keskittynyt moodi päälle/pois."
+msgstr "t                        Keskitetty moodi päälle/pois."
 
 #: graphics.c:1479
 msgid "<Esc> or q        Abort."
