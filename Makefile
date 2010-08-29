@@ -24,6 +24,8 @@ dist:
 	cd ${RELEASE_DIR}/src ; ${MAKE} merge
 	# cleanup.
 	cd ${RELEASE_DIR}/src ; ${MAKE} clean
+	# fix some file mods.
+	cd ${RELEASE_DIR} ; chmod -x */Makefile */*.txt */*.c */*.h src/po/*.* src/man/man1/*.*
 	# Create package in DOS text format.
 	cd ${RELEASE_DIR}/misc ; ${MAKE} -f unix2dos.mk
 	# Create the packages.
