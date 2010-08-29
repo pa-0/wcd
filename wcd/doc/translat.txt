@@ -33,17 +33,18 @@ To add a new language you need to have the gettext tools installed on your
 system.
 
 Linux:
-Gettext is available on almost all Linux distributions.
+  Gettext is available on almost all Linux distributions.
 
 Windows:
-The best way to use gettext on Windows is in the Cygwin environment.
-See http://cygwin.com/
-You can get also a ready-to-run native Windows gettext package from the
-GnuWin32 project at http://gnuwin32.sourceforge.net/
+* The simplest way to use gettext on Windows is in the Cygwin environment.
+  See http://cygwin.com/
+* The MinGW/MSYS environment also has gettext available (http://www.mingw.org/).
+* You can get a ready-to-run native Windows gettext package for Windows
+  Console at the GnuWin32 project at http://gnuwin32.sourceforge.net/
 
 DOS:
-The DJGPP project has a gettext package, but it is quite old.
-http://www.delorie.com/djggp/
+  The DJGPP project has a gettext package, but it is quite old.
+  http://www.delorie.com/djggp/
 
 
 Add a new language.

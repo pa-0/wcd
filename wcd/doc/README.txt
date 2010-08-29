@@ -57,8 +57,8 @@ Table of Contents
         internet. In March 1998 the GNU distribution license was
         attached.
 
-        Later I installed Linux (RedHat 5.0) on my PC and that became
-        my main development platform.
+        Later I installed Linux (RedHat 5.0) on my PC at home and
+        that became my main development platform.
 
         Because eventually most DOS users will migrate to Windows I
         ported wcd to Windows NT. I started with Borland C 4.0, but

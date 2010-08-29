@@ -1,11 +1,11 @@
-5.1.3-beta5 2010-07-16
+5.1.3 2010-08-29
   - Added German language file (thanks to Philipp Thomas)
   - Match window supports terminal resize (on systems that support it).
   - New command-line option -gc: Graphical mode with centered view
     (like it was in wcd 3.2.1 and before).
   - New key in graphical mode: 't' switch centered mode on/off.
   - Fix: List separators for WCDFILTER, WCDBAN, and WCDEXCLUDE back to
-    semicolon ';' (like in wcd 5.0.4 and before) for DOS-bash and Windows-zsh.
+    semicolon ';' (like in wcd 5.0.4 and before) for DOS-bash and WinZsh.
     These shells use Windows style paths with colons like c:/windows.
   - Don't ship po/*.mo files in source package.
   - Port for native MSYS. See also http://www.mingw.org/
