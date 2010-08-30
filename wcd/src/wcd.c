@@ -1637,7 +1637,7 @@ void print_version()
 # elif defined(WCD_WINPWRSH)
    printf(_("This version is for Windows PowerShell.\n"));
 # else
-   printf(_("Windows console version.\n"));
+   printf(_("This version is for Windows Command Prompt (cmd.exe).\n"));
 # endif
 # ifdef __WIN64__
    printf(_("Win64 version.\n"));
@@ -1856,7 +1856,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 #    endif
    fprintf(outfile,"set-location %s", best_match);
 #  else
-   /* Windows console, os/2 */
+   /* Windows Command Prompt, os/2 */
    fprintf(outfile, "%s", "@echo off\n");
    if (*changedrive)
       fprintf(outfile,"%s\n",drive);

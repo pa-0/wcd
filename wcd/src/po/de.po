@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-19 17:50+0200\n"
+"POT-Creation-Date: 2010-08-30 22:52+0200\n"
 "PO-Revision-Date: 2010-07-14 16:46+0200\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -293,9 +293,8 @@ msgstr ""
 "\n"
 
 #: wcd.c:1640
-#, c-format
-msgid "Windows console version.\n"
-msgstr "Version für Windows Konsole.\n"
+msgid "This version is for Windows Command Prompt (cmd.exe).\n"
+msgstr "Diese Version ist für Windows Eingabeaufforderung (cmd.exe).\n"
 
 #: wcd.c:1643
 #, c-format
@@ -912,6 +911,3 @@ msgid ""
 "Wcd: error in '%s', no space left for allocation\n"
 "Wcd: Insufficient memory\n"
 msgstr "wcd: Fehler in »%s«, kein freier Speicher verfügbar\n"
-
-#~ msgid "Type w or x to quit help."
-#~ msgstr "W oder x eingeben um die Hilfe zu verlassen."

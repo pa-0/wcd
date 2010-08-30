@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-19 17:50+0200\n"
+"POT-Creation-Date: 2010-08-30 22:52+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -289,9 +289,9 @@ msgstr ""
 "\n"
 
 #: wcd.c:1640
-#, c-format
-msgid "Windows console version.\n"
-msgstr "Windows konsoliversio.\n"
+#, fuzzy, c-format
+msgid "This version is for Windows Command Prompt (cmd.exe).\n"
+msgstr "Tämä versio on tarkoitettu Windows PowerShell käyttöön.\n"
 
 #: wcd.c:1643
 #, c-format
@@ -874,5 +874,7 @@ msgstr ""
 "Wcd: virhe kohdassa '%s', muistin varaus ei onnistu\n"
 "Wcd: Riitämätön määrä muistia\n"
 
-#~ msgid "Type w or x to quit help."
-#~ msgstr "Type w tai x lopettaaksesi Help-toiminnan."
+#, fuzzy
+#~ msgid "Windows Command Prompt version.\n"
+#~ msgstr "Windows konsoliversio.\n"
+
