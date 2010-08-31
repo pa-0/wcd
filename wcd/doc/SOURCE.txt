@@ -21,10 +21,10 @@
         DJGPP would make scanning the disk very slow. A 32 bit DOS wcd
         can also be build with the Open Watcom compiler.
 
-        The win32 console version is by default compiled with MinGW.
+        The Windows versions are by default compiled with MinGW.
         Win32 versions can also be compiled with Borland, LCC, Open
         Watcom and Cygwin. Although Borland 4 can compile wcd with
-        conio interface for windows console, it doesn't work well. The
+        conio interface for Windows console, it doesn't work well. The
         screen gets garbled after exit.
 
         Wcd for Unix compiles with gcc and with the native system C

@@ -8,7 +8,7 @@ Contents
 
    Package directory structure
    Language selection
- 1 DOS/Windows installation
+ 1 Installation on DOS and Windows 9x/ME
    - dos 16 bit
    - dos 32 bit
    - dos Bourne Again Shell (bash)
@@ -16,14 +16,14 @@ Contents
    - Using default options
    - Use of environment variable HOME / WCDHOME
    - PDCurses interface
- 2 Windows NT console (Windows NT/2000/XP/Vista/7) installation
-   - Windows console
+ 2 Installation on Windows NT (NT/2000/XP/Vista/7)
+   - Windows Command Prompt (cmd.exe)
    - Windows VISTA/7
    - Windows PowerShell
-   - Z shell (zsh) and MSYS (bash)
+   - WinZsh (zsh) and MSYS (bash)
    - Native MSYS (bash)
    - UNC support
- 3 Cygwin (Windows 9x / NT) installation
+ 3 Installation on Cygwin
 
 
 Package directory structure
@@ -71,7 +71,7 @@ LOCALEDIR if wcd was unpacked in a different PREFIX directory.
 
 
 ======================================================================
-= 1 DOS/Windows installation                                         =
+= 1 Installation on DOS and Windows 9x/ME                            =
 ======================================================================
 
 - dos 16 bit version:
@@ -142,7 +142,7 @@ if you have the DJGPP compiler installed.
 
 Current DOS version of Wcd does not support LFN under Windows NT.
 
-If you need LFN support under Windows NT use the Windows console
+If you need LFN support under Windows NT use the Windows Command Prompt
 version of wcd.
 
 ......................................................................
@@ -193,10 +193,11 @@ WCDHOME instead of HOME.
 
 
 ======================================================================
-= 2 Windows NT console (NT/2000/XP/Vista/7) installation             =
+= 2 Installation on Windows NT (NT/2000/XP/Vista/7)                  =
 ======================================================================
+- Windows Command Prompt (cmd.exe)
 
-Notice that in Windows NT console (cmd.exe, Command Prompt) a Windows
+Notice that in Windows NT Command Prompt a Windows
 program cannot change the current work directory (although a DOS program can).
 That is why wcd generates a batch script (c:\wcdgo.bat or %HOME%\wcdgo.bat)
 which must be executed in the current shell.
@@ -237,7 +238,7 @@ Start a new PowerShell
 
 
 ......................................................................
-- Z shell (zsh) and MSYS (bash)
+- WinZsh (zsh) and MSYS (bash)
 
 A native Windows port of Z shell has been made by Amol Deshpande.
 See http://www.xs4all.nl/~waterlan/#ZSH
@@ -307,7 +308,7 @@ A UNC path looks like: \\servername\sharename
 In Windows networking, you can map a drive letter to a UNC:
   net use G: \\gui_fileserv\apps
 
-The Windows console version of wcd supports UNC paths since version 3.1.0.
+The Windows Command Prompt version of wcd supports UNC paths since version 3.1.0.
 To change to the UNC path wcd makes use of the 'pushd' command in the
 wcdgo.bat script.
 
@@ -329,7 +330,7 @@ The Windows PowerShell and MSYS/ZSH version of wcd have full support of UNC path
 One can change directly to UNC paths, without mapping to a drive letter.
 
 ======================================================================
-= 3 Cygwin (Windows 9x / NT) installation                            =
+= 3 Installation on Cygwin                                           =
 ======================================================================
 
 
