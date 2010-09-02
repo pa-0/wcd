@@ -294,7 +294,7 @@ msgstr ""
 
 #: wcd.c:1640
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
-msgstr "Diese Version ist für Windows Eingabeaufforderung (cmd.exe).\n"
+msgstr "Diese Version ist für die Windows Eingabeaufforderung (cmd.exe).\n"
 
 #: wcd.c:1643
 #, c-format
