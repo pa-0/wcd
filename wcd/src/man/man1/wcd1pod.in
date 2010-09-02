@@ -717,7 +717,7 @@ directories. To get access to more directories you need administrator
 rights. You can get a Command Prompt with administrator rights if you right
 click on the Command Prompt icon and select I<Run as administrator>.
 
-=head2 Windows powershell version
+=head2 Windows PowerShell version
 
 Add the following function to your PowerShell user profile. The location of
 this profile is stored in the $profile variable. It is required that
