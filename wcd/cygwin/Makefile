@@ -48,8 +48,8 @@ dist : dist-tgz
 strip:
 	${MAKE} -C ../src strip PROGRAM=${PROGRAM}
 
-docfiles :
-	${MAKE} -C ../src docfiles
+doc :
+	${MAKE} -C ../src doc
 
 mofiles :
 	${MAKE} -C ../src mofiles

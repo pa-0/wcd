@@ -97,10 +97,6 @@ INSTALL_OBJS_DOC_COPYING = \
 # Documents for end users, not for developers:
 INSTALL_OBJS_DOC   = \
   ../doc/faq.txt \
-  ../doc/$(PACKAGE).txt \
-  ../doc/$(PACKAGE).ps \
-  ../doc/$(PACKAGE).pdf \
-  ../doc/$(PACKAGE).htm \
   ../doc/whatsnew.txt \
   ../doc/README.txt \
   ../doc/problems.txt \
@@ -113,7 +109,7 @@ POT		= po/$(PACKAGE).pot
 POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 endif
-DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf ../doc/$(PACKAGE).htm
+DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).htm ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf
 
 CPP		= cpp
 CPP_FLAGS_POD	= ALL
@@ -415,7 +411,7 @@ pdf: ../doc/$(PACKAGE).pdf
 
 mofiles: $(MOFILES)
 
-docfiles: $(DOCFILES)
+doc: $(DOCFILES)
 
 tags: $(POT)
 
@@ -478,7 +474,27 @@ install-mo: $(MOFILES)
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
 	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 
-install-doc: $(DOCFILES)
+install-txt: ../doc/$(PACKAGE).txt
+	@echo "-- target: install-txt"
+	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
+	$(INSTALL_DATA) $< $(DESTDIR)$(docdir)
+
+install-html: ../doc/$(PACKAGE).htm
+	@echo "-- target: install-html"
+	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
+	$(INSTALL_DATA) $< $(DESTDIR)$(docdir)
+
+install-pdf: ../doc/$(PACKAGE).pdf
+	@echo "-- target: install-pdf"
+	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
+	$(INSTALL_DATA) $< $(DESTDIR)$(docdir)
+
+install-ps: ../doc/$(PACKAGE).ps
+	@echo "-- target: install-ps"
+	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
+	$(INSTALL_DATA) $< $(DESTDIR)$(docdir)
+
+install-doc: install-txt install-html install-ps install-pdf
 	@echo "-- target: install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
