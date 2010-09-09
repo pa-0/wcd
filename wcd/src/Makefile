@@ -113,6 +113,7 @@ DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).htm ../doc/$(PACKAGE).ps ../d
 
 CPP		= cpp
 CPP_FLAGS_POD	= ALL
+CFLAGS_VERSION	= -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 
 VERSIONSUFFIX	= -bin
 
@@ -285,6 +286,7 @@ endif
 CFLAGS	= -O2 -Wall
 
 EXTRA_CFLAGS	= -Ic3po \
+		  $(CFLAGS_VERSION) \
 		  $(CFLAGS_OS) \
 		  $(CFLAGS_UCS) \
 		  $(WDEFS) \
