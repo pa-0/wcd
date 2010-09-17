@@ -217,6 +217,17 @@ interface.
 
 =over 4
 
+=item B<-a>
+
+Add current path to default treedata file.
+
+Use this option to quickly add the current path to the default treedata
+file. Re-scanning the complete disk can take a long time in some cases.
+
+=item B<-aa>
+
+Add current and all parent paths to default treedata.
+
 =item B<-A PATH>
 
 Scan directory tree from PATH and append to the default treedata
@@ -233,17 +244,6 @@ typing something like: C<wcd -A \\servername>.
 #endif
 
 See also option B<-S> and B<-s> and B<-E>.
-
-=item B<-a>
-
-Add current path to default treedata file.
-
-Use this option to quickly add the current path to the default treedata
-file. Re-scanning the complete disk can take a long time in some cases.
-
-=item B<-aa>
-
-Add current and all parent paths to default treedata.
 
 =item B<-b>
 
@@ -282,11 +282,6 @@ read-only drive. This option must be used in front of the stack options B<->,
 B<+> and B<=>.
 #endif
 
-=item B<-E DIR>
-
-Scan directory tree from DIR and append to Extra treedata file. See
-also options B<-A> and B<-S>.
-
 =item B<-e>
 
 Add current path to extra treedata file.
@@ -297,6 +292,11 @@ Use this option to quickly add the current path to the extra treedata file.
 
 Add current and all parent paths to extra treedata file.
 
+=item B<-E DIR>
+
+Scan directory tree from DIR and append to Extra treedata file. See
+also options B<-A> and B<-S>.
+
 =item B<-f FILE>
 
 Read treedata FILE. Do not read the default treedata file.
@@ -304,15 +304,6 @@ Read treedata FILE. Do not read the default treedata file.
 =item B<+f FILE>
 
 Read treedata FILE in addition to the default treedata file.
-
-=item B<-G DIR>
-
-Set directory path of go-script equal to DIR.
-
-=item B<-GN>
-
-Do not create go-script. This option can be used in combination with the
-option B<-j> if one does not want wcd to create a go-script.
 
 =item B<-g>
 
@@ -342,6 +333,15 @@ with key 't'.
 =item B<-gd>
 
 Dump the treedata files as a tree to stdout.
+
+=item B<-G DIR>
+
+Set directory path of go-script equal to DIR.
+
+=item B<-GN>
+
+Do not create go-script. This option can be used in combination with the
+option B<-j> if one does not want wcd to create a go-script.
 
 =item B<-h, --help>
 
@@ -397,10 +397,6 @@ following alias:
 This method eliminates the need of the go-script, so one can use option B<-GN>
 in combination with B<-j>.
 
-=item B<-K>
-
-Use colors in graphical mode.
-
 =item B<-k>
 
 Keep paths.
@@ -409,27 +405,22 @@ Keep paths in treedata when wcd can't change to them. The default
 behaviour of wcd is that it tries to remove paths from the treedata when
 wcd can't change to them. With this option this behaviour is turned off.
 
+=item B<-K>
+
+Use colors in graphical mode.
+
 =item  B<-l ALIAS>
 
 Name the current path with ALIAS. Wcd places the current path with alias
 ALIAS in the alias file. Aliases are case sensitive.
 
-=item B<-M DIR>
-
-Make directory and add to extra treedata file.
-
 =item B<-m DIR>
 
 Make directory and add to treedata file.
 
-=item B<-N>
+=item B<-M DIR>
 
-Use numbers instead of letters.
-
-Wcd with a conio or curses based interface (see section INTERFACE) presents
-a match list default numbered with letters. When the B<-N> option is used
-the match list is numbered with numbers. Regardless of the B<-N> option one
-can type a letter or numbers to make a selection from the list of matches.
+Make directory and add to extra treedata file.
 
 =item B<-n DIR>
 
@@ -451,6 +442,15 @@ relative from that point.
 
 Read relative treedata file in addition to the default treedata file. See
 option B<-n>.
+
+=item B<-N>
+
+Use numbers instead of letters.
+
+Wcd with a conio or curses based interface (see section INTERFACE) presents
+a match list default numbered with letters. When the B<-N> option is used
+the match list is numbered with numbers. Regardless of the B<-N> option one
+can type a letter or numbers to make a selection from the list of matches.
 
 =item B<-o>
 
@@ -482,6 +482,16 @@ Recursively remove directory and remove from treedata file.
 Wcd will remove the directory and all its sub directories and files, and
 remove the directories from the treedata file.
 
+=item B<-s>
+
+(re)Scan disk from C<$HOME> directory. This is the default scanning mode.
+
+#ifdef dos
+Wcd for DOS or Windows scans the current disk from DOS root \ or from
+I<%HOME%> if it is set.
+#endif
+The existing default treedata file is overwritten.
+
 =item B<-S DIR>
 
 Scan directory tree from DIR and overwrite the default treedata file.
@@ -507,18 +517,6 @@ LAN server by typing something like: C<wcd -S \\servername>.
 Scan disk from DIR and place relative paths in a relative treedata file.
 This file is used by the B<-n> and +n options of wcd. E.g. C<wcd -n DIR
 +src>,
-
-=item B<-s>
-
-(re)Scan disk from C<$HOME> directory. This is the default scanning mode.
-
-#ifdef dos
-Wcd for DOS or Windows scans the current disk from DOS root \ or from
-I<%HOME%> if it is set.
-#endif
-The existing default treedata file is overwritten.
-
-
 
 =item B<-t>
 
@@ -547,14 +545,14 @@ C<\\users\USER\treedata.wcd>.
 Read default treedata file of USER in addition to your own treedata
 file.
 
-=item B<-V, --version>
-
-Print version information and exit.
-
 =item B<-v, --verbose>
 
 Display verbose messages. With this option wcd prints all filters, bans and
 excludes.
+
+=item B<-V, --version>
+
+Print version information and exit.
 
 =item B<-w>
 

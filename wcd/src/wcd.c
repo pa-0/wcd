@@ -1580,8 +1580,8 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
   -i             Ignore case\n\
   +i             Regard case\n\
   -j             Just go mode\n\
-  -K             Colors\n\
   -k             Keep paths\n\
+  -K             Colors\n\
   -l             aLias current directory\n\
   -L             print software License\n\
   -m             Make <dir>, add to treefile\n\
@@ -1608,19 +1608,6 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
   -              Push dir (# times)\n\
   +              Pop dir (# times)\n\
   =              Show stack\n"));
-#ifdef WCD_WINPWRSH
-   printf(_("This version is for Windows PowerShell.\n"));
-#endif
-#ifdef WCD_WINZSH
-   printf(_("This version is for MSYS and WinZsh.\n"));
-#endif
-#ifdef __MSYS__
-   printf(_("This version is for native MSYS.\n"));
-#endif
-#ifdef WCD_DOSBASH
-   printf(_("This version is for DJGPP DOS bash.\n"));
-#endif
-
 }
 
 #ifdef ENABLE_NLS
