@@ -4,6 +4,8 @@
 
 .AUTODEPEND
 
+!include ..\src\version.mk
+
 #		*Translator Definitions*
 CC = bcc +PDCURSES.CFG
 TASM = TASM
@@ -119,6 +121,11 @@ wcdstack.obj: pdcurses.cfg ..\src\c3po\wcdstack.c
 dirnode.obj: pdcurses.cfg ..\src\c3po\dirnode.c 
 	$(CC) -c ..\src\c3po\dirnode.c
 
+clean:
+	del *.obj
+	del *.cfg
+	del wcd.exe
+
 #		*Compiler Configuration File*
 pdcurses.cfg: pdcurses.mak
   copy &&|
@@ -131,6 +138,8 @@ pdcurses.cfg: pdcurses.mak
 -I$(INCLUDEPATH)
 -L$(LIBPATH)
 -DDOSWILD;WCD_USECURSES
+-DVERSION="$(VERSION)"
+-DVERSION_DATE="$(VERSION_DATE)"
 | pdcurses.cfg
 
 

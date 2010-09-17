@@ -1,6 +1,8 @@
-CC      = bcc
-DEFINES = -DDOSWILD;WCD_USECONIO
-CFLAGS  = $(DEFINES) -I../src -I../src/c3po -Z -O -w -mc -1
+!include ..\src\version.mk
+
+CC      = bcc +WCD.CFG
+LIBPATH = C:\BC4\LIB;
+INCLUDEPATH = ..\SRC;..\SRC\C3PO;C:\BC4\INCLUDE
 OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj
 
 all: wcd.exe
@@ -17,51 +19,68 @@ wcd.exe: $(OBJS)
 # significant, provided your source is C only.
 
 
-#.c.obj:
-#	$(CC) -c $(CFLAGS) $<
+#.c.obj: wcd.cfg
+#	$(CC) -c $<
 
-stack.obj :  ..\src\stack.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\stack.c
+stack.obj : wcd.cfg  ..\src\stack.c
+	$(CC) -c -o$@ ..\src\stack.c
 
-match.obj :  ..\src\match.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\match.c
+match.obj : wcd.cfg  ..\src\match.c
+	$(CC) -c -o$@ ..\src\match.c
 
-wfixpath.obj :  ..\src\wfixpath.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\wfixpath.c
+wfixpath.obj : wcd.cfg  ..\src\wfixpath.c
+	$(CC) -c -o$@ ..\src\wfixpath.c
 
-dosdir.obj :  ..\src\dosdir.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\dosdir.c
+dosdir.obj : wcd.cfg  ..\src\dosdir.c
+	$(CC) -c -o$@ ..\src\dosdir.c
 
-display.obj :  ..\src\display.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\display.c
+display.obj : wcd.cfg  ..\src\display.c
+	$(CC) -c -o$@ ..\src\display.c
 
-wcd.obj :  ..\src\wcd.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\wcd.c
+wcd.obj : wcd.cfg  ..\src\wcd.c
+	$(CC) -c -o$@ ..\src\wcd.c
 
-wcddir.obj :  ..\src\wcddir.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\wcddir.c
+wcddir.obj : wcd.cfg  ..\src\wcddir.c
+	$(CC) -c -o$@ ..\src\wcddir.c
 
 
-WcdStack.obj :  ..\src\c3po\WcdStack.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\c3po\WcdStack.c
+WcdStack.obj : wcd.cfg  ..\src\c3po\WcdStack.c
+	$(CC) -c -o$@ ..\src\c3po\WcdStack.c
 
-Text.obj :  ..\src\c3po\Text.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\c3po\Text.c
+Text.obj : wcd.cfg  ..\src\c3po\Text.c
+	$(CC) -c -o$@ ..\src\c3po\Text.c
 
-nameset.obj :  ..\src\c3po\nameset.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\c3po\nameset.c
+nameset.obj : wcd.cfg  ..\src\c3po\nameset.c
+	$(CC) -c -o$@ ..\src\c3po\nameset.c
 
-Error.obj :  ..\src\c3po\Error.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\c3po\Error.c
+Error.obj : wcd.cfg  ..\src\c3po\Error.c
+	$(CC) -c -o$@ ..\src\c3po\Error.c
 
-intset.obj :  ..\src\c3po\intset.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\c3po\intset.c
+intset.obj : wcd.cfg  ..\src\c3po\intset.c
+	$(CC) -c -o$@ ..\src\c3po\intset.c
 
-command.obj :  ..\src\c3po\command.c
-	$(CC) -c $(CFLAGS) -o$@ ..\src\c3po\command.c
+command.obj : wcd.cfg  ..\src\c3po\command.c
+	$(CC) -c -o$@ ..\src\c3po\command.c
 
 strip :
 	tdstrip wcd.exe
 
 clean:
 	del *.obj
+	del *.cfg
+	del wcd.exe
+
+#		*Compiler Configuration File*
+wcd.cfg: makefile
+  copy &&|
+-Z
+-O
+-w
+-mc
+-1
+-I$(INCLUDEPATH)
+-L$(LIBPATH)
+-DDOSWILD;WCD_USECONIO
+-DVERSION="$(VERSION)"
+-DVERSION_DATE="$(VERSION_DATE)"
+| wcd.cfg

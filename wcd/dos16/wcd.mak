@@ -1,6 +1,8 @@
 # Makefile for Borland C++
 .AUTODEPEND
 
+!include ..\src\version.mk
+
 #		*Translator Definitions*
 CC = bcc +WCD.CFG
 TASM = TASM
@@ -100,6 +102,11 @@ text.obj: wcd.cfg ..\src\c3po\text.c
 wcdstack.obj: wcd.cfg ..\src\c3po\wcdstack.c 
 	$(CC) -c ..\src\c3po\wcdstack.c
 
+clean:
+	del *.obj
+	del *.cfg
+	del wcd.exe
+
 #		*Compiler Configuration File*
 wcd.cfg: wcd.mak
   copy &&|
@@ -112,6 +119,8 @@ wcd.cfg: wcd.mak
 -I$(INCLUDEPATH)
 -L$(LIBPATH)
 -DDOSWILD;WCD_USECONIO
+-DVERSION="$(VERSION)"
+-DVERSION_DATE="$(VERSION_DATE)"
 | wcd.cfg
 
 

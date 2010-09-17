@@ -1,11 +1,12 @@
-CC_HOME = c:\Borland\Bcc55
-#CC_HOME = c:\bc4
+!include ..\..\src\version.mk
+
+#CC_HOME = c:\Borland\Bcc55
+CC_HOME = c:\bc4
 
 
-CC      = BCC32
-DEFINES = -DMSDOS;WCD_USECURSES
-CFLAGS  = $(DEFINES) -w -WC -I..\..\src -I..\..\src\c3po -I$(CC_HOME)\include
-LFLAGS  = -L$(CC_HOME)\lib
+CC      = BCC32 +PDCURSES.CFG
+LIBPATH = $(CC_HOME)\lib;
+INCLUDEPATH = ..\..\src;..\..\src\c3po;$(CC_HOME)\include
 
 all: wcdwin32.exe
 
@@ -32,53 +33,70 @@ wcdwin32.exe : objlist.txt $(OBJS)
 
 
 
-WcdStack.obj :  ..\..\src\c3po\WcdStack.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\c3po\WcdStack.c
+WcdStack.obj : pdcurses.cfg  ..\..\src\c3po\WcdStack.c
+	$(CC) -c -o$@ ..\..\src\c3po\WcdStack.c
 
-Text.obj :  ..\..\src\c3po\Text.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\c3po\Text.c
+Text.obj : pdcurses.cfg  ..\..\src\c3po\Text.c
+	$(CC) -c -o$@ ..\..\src\c3po\Text.c
 
-nameset.obj :  ..\..\src\c3po\nameset.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\c3po\nameset.c
+nameset.obj : pdcurses.cfg  ..\..\src\c3po\nameset.c
+	$(CC) -c -o$@ ..\..\src\c3po\nameset.c
 
-dirnode.obj :  ..\..\src\c3po\dirnode.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\c3po\dirnode.c
+dirnode.obj : pdcurses.cfg  ..\..\src\c3po\dirnode.c
+	$(CC) -c -o$@ ..\..\src\c3po\dirnode.c
 
-Error.obj :  ..\..\src\c3po\Error.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\c3po\Error.c
+Error.obj : pdcurses.cfg  ..\..\src\c3po\Error.c
+	$(CC) -c -o$@ ..\..\src\c3po\Error.c
 
-intset.obj :  ..\..\src\c3po\intset.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\c3po\intset.c
+intset.obj : pdcurses.cfg  ..\..\src\c3po\intset.c
+	$(CC) -c -o$@ ..\..\src\c3po\intset.c
 
-stack.obj :  ..\..\src\stack.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\stack.c
+stack.obj : pdcurses.cfg  ..\..\src\stack.c
+	$(CC) -c -o$@ ..\..\src\stack.c
 
-match.obj :  ..\..\src\match.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\match.c
+match.obj : pdcurses.cfg  ..\..\src\match.c
+	$(CC) -c -o$@ ..\..\src\match.c
 
-wfixpath.obj :  ..\..\src\wfixpath.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\wfixpath.c
+wfixpath.obj : pdcurses.cfg  ..\..\src\wfixpath.c
+	$(CC) -c -o$@ ..\..\src\wfixpath.c
 
-dosdir.obj :  ..\..\src\dosdir.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\dosdir.c
+dosdir.obj : pdcurses.cfg  ..\..\src\dosdir.c
+	$(CC) -c -o$@ ..\..\src\dosdir.c
 
-display.obj :  ..\..\src\display.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\display.c
+display.obj : pdcurses.cfg  ..\..\src\display.c
+	$(CC) -c -o$@ ..\..\src\display.c
 
-colors.obj :  ..\..\src\colors.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\colors.c
+colors.obj : pdcurses.cfg  ..\..\src\colors.c
+	$(CC) -c -o$@ ..\..\src\colors.c
 
-graphics.obj :  ..\..\src\graphics.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\graphics.c
+graphics.obj : pdcurses.cfg  ..\..\src\graphics.c
+	$(CC) -c -o$@ ..\..\src\graphics.c
 
-wcd.obj :  ..\..\src\wcd.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\wcd.c
+wcd.obj : pdcurses.cfg  ..\..\src\wcd.c
+	$(CC) -c -o$@ ..\..\src\wcd.c
 
-wcddir.obj :  ..\..\src\wcddir.c
-	$(CC) -c $(CFLAGS) -o$@ ..\..\src\wcddir.c
+wcddir.obj : pdcurses.cfg  ..\..\src\wcddir.c
+	$(CC) -c -o$@ ..\..\src\wcddir.c
+
+clean:
+	del *.obj
+	del *.cfg
+	del *.exe
+	del objlist.txt
 
 objlist.txt : 
   copy &&|
 $(OBJS)
 | objlist.txt
 
+#		*Compiler Configuration File*
+pdcurses.cfg: makefile
+  copy &&|
+-w
+-WC
+-I$(INCLUDEPATH)
+-L$(LIBPATH)
+-DMSDOS;WCD_USECURSES
+-DVERSION="$(VERSION)"
+-DVERSION_DATE="$(VERSION_DATE)"
+| pdcurses.cfg
