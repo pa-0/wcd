@@ -1,8 +1,9 @@
-
+include version.mk
 
 CC	= cc
 
 CFLAGS  = -O -Aa -Ic3po
+CFLAGS_VERSION = -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 LFLAGS  = -lcurses
 DEFS    = -DUNIX -DWCD_USECURSES -D_XOPEN_SOURCE_EXTENDED -Dhpux -DSYSV -D_HPUX_SOURCE
 OBJS1	= wcd.o match.o stack.o nameset.o intset.o Error.o Text.o WcdStack.o dirnode.o display.o dosdir.o wfixpath.o colors.o graphics.o wcddir.o
@@ -38,7 +39,7 @@ dirnode.o : c3po/dirnode.c
 
 
 wcd.o : wcd.c
-	$(CC) $(CFLAGS) $(DEFS) -c $<
+	$(CC) $(CFLAGS) $(CFLAGS_VERSION) $(DEFS) -c $<
 
 match.o : match.c
 	$(CC) $(CFLAGS) $(DEFS) -c $<

@@ -1,3 +1,5 @@
+include version.mk
+
 CC	= gcc
 
 # if ncurses is not on a default place edit the two following
@@ -13,6 +15,7 @@ CC	= gcc
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
 CFLAGS	= -O -Wall -Ic3po $(NCFLAG)
+CFLAGS_VERSION = -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 LFLAGS  = -lncurses $(NLFLAG)
 DEFS    = -DUNIX -DWCD_USECURSES
 OBJS1	= \
@@ -38,10 +41,10 @@ wcd.exe: $(OBJS1)
 	$(CC) $(OBJS1) $(LFLAGS) -o $@
 
 %.o : %.c
-	$(CC) -c $(CFLAGS) $(DEFS) $< -o $@
+	$(CC) -c $(CFLAGS) $(CFLAGS_VERSION) $(DEFS) $< -o $@
 
 %.o : c3po/%.c
-	$(CC) -c $(CFLAGS) $(DEFS) $< -o $@
+	$(CC) -c $(CFLAGS) $(CFLAGS_VERSION) $(DEFS) $< -o $@
 
 
 clean:

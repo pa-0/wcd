@@ -1,3 +1,5 @@
+include version.mk
+
 CC	= cc
 
 # if ncurses is not on a default place edit the two following
@@ -7,6 +9,7 @@ CC	= cc
 #NLFLAG = -L/home/waterlan/lib      # Place where libncurses.* resides.
 
 CFLAGS  = -O -Aa -Ic3po $(NCFLAG)
+CFLAGS_VERSION = -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 LFLAGS  = $(NLFLAG) -lncurses
 DEFS    = -DUNIX -DWCD_USECURSES -Dhpux -DSYSV -D_HPUX_SOURCE
 OBJS1	= wcd.o match.o stack.o nameset.o intset.o Error.o Text.o WcdStack.o dirnode.o display.o dosdir.o wfixpath.o colors.o graphics.o wcddir.o
@@ -41,7 +44,7 @@ dirnode.o : c3po/dirnode.c
 
 
 wcd.o : wcd.c
-	$(CC) $(CFLAGS) $(DEFS) -c $<
+	$(CC) $(CFLAGS) $(CFLAGS_VERSION) $(DEFS) -c $<
 
 match.o : match.c
 	$(CC) $(CFLAGS) $(DEFS) -c $<

@@ -1,3 +1,5 @@
+include version.mk
+
 CC	= gcc
 
 # if pdcurses is not on a default place edit the two following
@@ -7,6 +9,7 @@ CC	= gcc
 #NLFLAG = -L/home/waterlan/lib      # Place where libXCurses.* resides.
 
 CFLAGS	= -O -Wall -Ic3po $(NCFLAG) -fomit-frame-pointer -DXCURSES
+CFLAGS_VERSION = -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 LFLAGS  = $(NLFLAG) -lXCurses -L/usr/X11R6/lib -lXaw -lXmu -lXt -lX11 -lSM -lICE -lXext
 DEFS    = -DUNIX -DWCD_USECURSES
 OBJS1	= \
@@ -33,10 +36,10 @@ wcd.exe: $(OBJS1)
 
 
 %.o : %.c
-	$(CC) -c $(CFLAGS) $(DEFS) $< -o $@
+	$(CC) -c $(CFLAGS) $(CFLAGS_VERSION) $(DEFS) $< -o $@
 
 %.o : c3po/%.c
-	$(CC) -c $(CFLAGS) $(DEFS) $< -o $@
+	$(CC) -c $(CFLAGS) $(CFLAGS_VERSION) $(DEFS) $< -o $@
 
 
 

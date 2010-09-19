@@ -1,5 +1,8 @@
+include version.mk
+
 CC	= gcc
 CFLAGS	= -O -Wall -Ic3po
+CFLAGS_VERSION = -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 DEFS    = -DUNIX
 OBJS1	= \
 	nameset.o \
@@ -22,10 +25,10 @@ wcd.exe: $(OBJS1)
 
 
 %.o : %.c
-	$(CC) -c $(CFLAGS) $(DEFS) $< -o $@
+	$(CC) -c $(CFLAGS) $(CFLAGS_VERSION) $(DEFS) $< -o $@
 
 %.o : c3po/%.c
-	$(CC) -c $(CFLAGS) $(DEFS) $< -o $@
+	$(CC) -c $(CFLAGS) $(CFLAGS_VERSION) $(DEFS) $< -o $@
 
 clean:
 	/bin/rm -f *.o *.bck *.bak *.exe
