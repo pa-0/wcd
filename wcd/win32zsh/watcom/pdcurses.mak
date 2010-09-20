@@ -1,7 +1,10 @@
+!include ..\..\src\version.mk
+
 CC      = wcc386
 SRCDIR = ..\..\src
 DEFINES = -dMSDOS -dWCD_USECURSES -dWCD_WINZSH
 CFLAGS  = $(DEFINES) -i=$(SRCDIR) -i=$(SRCDIR)\c3po -w4 -e25 -zq -od -d2 -5r -bt=nt -mf
+CFLAGS_VERSION = -DVERSION="$(VERSION)" -DVERSION_DATE="$(VERSION_DATE)"
 OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj dirnode.obj colors.obj graphics.obj
 LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.obj,display.obj,dosdir.obj,wfixpath.obj,intset.obj,wcddir.obj,command.obj,dirnode.obj,colors.obj,graphics.obj
 
@@ -33,11 +36,14 @@ dosdir.obj :  $(SRCDIR)\dosdir.c
 display.obj :  $(SRCDIR)\display.c
 	$(CC) $(CFLAGS) $(SRCDIR)\display.c
 
+colors.obj :  $(SRCDIR)\colors.c
+	$(CC) $(CFLAGS) $(SRCDIR)\colors.c
+
 graphics.obj :  $(SRCDIR)\graphics.c
 	$(CC) $(CFLAGS) $(SRCDIR)\graphics.c
 
 wcd.obj :  $(SRCDIR)\wcd.c
-	$(CC) $(CFLAGS) $(SRCDIR)\wcd.c
+	$(CC) $(CFLAGS) $(CFLAGS_VERSION) $(SRCDIR)\wcd.c
 
 wcddir.obj :  $(SRCDIR)\wcddir.c
 	$(CC) $(CFLAGS) $(SRCDIR)\wcddir.c
