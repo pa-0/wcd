@@ -1,7 +1,11 @@
 # Wedit Makefile for project wcd
+# LCC make does not support include ?
+!include ..\..\src\version.mk
+
 CC_HOME=c:\lcc
 SRCDIR=..\..\src
 CFLAGS=-I$(CC_HOME)\include -I"$(SRCDIR)" -I"$(SRCDIR)\c3po" -DMSDOS -DWCD_USECURSES -g2 
+CFLAGS_VERSION = -DVERSION="$(VERSION)" -DVERSION_DATE="$(VERSION_DATE)"
 CC=$(CC_HOME)\bin\lcc.exe
 LINKER=$(CC_HOME)\bin\lcclnk.exe
 OBJS=\
@@ -59,10 +63,11 @@ WCD_C=\
 	$(SRCDIR)\stack.h\
 	$(SRCDIR)\display.h\
 	$(SRCDIR)\wfixpath.h\
+	$(SRCDIR)\colors.h\
 	$(SRCDIR)\graphics.h\
 
 wcd.obj: $(WCD_C) $(SRCDIR)\wcd.c
-	$(CC) -c $(CFLAGS) $(SRCDIR)\wcd.c
+	$(CC) -c $(CFLAGS) $(CFLAGS_VERSION) $(SRCDIR)\wcd.c
 
 # Build STACK.C
 STACK_C=\
