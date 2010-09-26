@@ -1,7 +1,10 @@
+!include ..\..\src\version.mk
+
 CC      = wcc
 SRCDIR = ..\..\src
 DEFINES =
 CFLAGS  = $(DEFINES) -i=$(SRCDIR) -i=$(SRCDIR)\c3po -w4 -e25 -zq -od -d2 -bt=dos -ml
+CFLAGS_VERSION = -DVERSION="$(VERSION)" -DVERSION_DATE="$(VERSION_DATE)"
 OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj
 LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.obj,display.obj,dosdir.obj,wfixpath.obj,intset.obj,wcddir.obj,command.obj
 
@@ -32,7 +35,7 @@ display.obj :  $(SRCDIR)\display.c
 	$(CC) $(CFLAGS) $(SRCDIR)\display.c
 
 wcd.obj :  $(SRCDIR)\wcd.c
-	$(CC) $(CFLAGS) $(SRCDIR)\wcd.c
+	$(CC) $(CFLAGS) $(CFLAGS_VERSION) $(SRCDIR)\wcd.c
 
 wcddir.obj :  $(SRCDIR)\wcddir.c
 	$(CC) $(CFLAGS) $(SRCDIR)\wcddir.c

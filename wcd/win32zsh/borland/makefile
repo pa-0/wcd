@@ -9,7 +9,7 @@ CC      = BCC32 +WCD.CFG
 LIBPATH = $(CC_HOME)\lib;
 INCLUDEPATH = ..\..\src;..\..\src\c3po;$(CC_HOME)\include
 
-all: wcdwin32.exe
+all: wcdwin32zsh.exe
 
 OBJS = wcd.obj \
 	wfixpath.obj\
@@ -27,7 +27,7 @@ OBJS = wcd.obj \
 
 
 
-wcdwin32.exe : objlist.txt $(OBJS)
+wcdwin32zsh.exe : objlist.txt $(OBJS)
 	$(CC) -L$(CC_HOME)\lib -e$@ @objlist.txt
 
 

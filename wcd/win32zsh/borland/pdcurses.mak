@@ -8,7 +8,7 @@ CC      = BCC32 +PDCURSES.CFG
 LIBPATH = $(CC_HOME)\lib;
 INCLUDEPATH = ..\..\src;..\..\src\c3po;$(CC_HOME)\include
 
-all: wcdwin32.exe
+all: wcdwin32zsh.exe
 
 OBJS = wcd.obj \
 	wfixpath.obj\
@@ -28,7 +28,7 @@ OBJS = wcd.obj \
 
 LIBS=pdcurses.lib
 
-wcdwin32.exe : objlist.txt $(OBJS)
+wcdwin32zsh.exe : objlist.txt $(OBJS)
 	$(CC) -L$(CC_HOME)\lib -e$@ @objlist.txt $(LIBS)
 
 

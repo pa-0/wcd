@@ -20,7 +20,7 @@ ifdef CONIO
 endif
 
 
-CFLAGS=-I$(CC_HOME_I)\include -I"$(SRCDIR)" -I"$(SRCDIR)\c3po" -DMSDOS $(DEFS_CURSES) $(DEFS_CONIO) -g2
+CFLAGS=-I$(CC_HOME_I)\include -I"$(SRCDIR)" -I"$(SRCDIR)\c3po" -DMSDOS -DWCD_WINZSH $(DEFS_CURSES) $(DEFS_CONIO) -g2
 CFLAGS_VERSION	= -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 
 OBJS=\
@@ -42,8 +42,8 @@ OBJS=\
 
 LIBS=mpr.lib $(LIB_CURSES) $(LIB_CONIO)
 
-wcdwin32.exe:	$(OBJS) Makefile
-	$(LINKER) -s -subsystem console -o wcdwin32.exe $(OBJS) $(LIBS)
+wcdwin32zsh.exe:	$(OBJS) Makefile
+	$(LINKER) -s -subsystem console -o wcdwin32zsh.exe $(OBJS) $(LIBS)
 
 # Build WFIXPATH.C
 WFIXPATH_C=\
@@ -221,7 +221,7 @@ dirnode.obj: $(DIRNODE_C) $(SRCDIR)\\c3po\\dirnode.c
 	$(CC) -c $(CFLAGS) $(SRCDIR)\\c3po\\dirnode.c
 
 link:
-	$(LINKER)  -subsystem console -o $(SRCDIR)\\lcc/wcdwin32.exe $(OBJS) $(LIBS)
+	$(LINKER)  -subsystem console -o $(SRCDIR)\\lcc/wcdwin32zsh.exe $(OBJS) $(LIBS)
 
 clean:
 	-rm *.obj
