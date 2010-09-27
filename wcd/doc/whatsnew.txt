@@ -1,5 +1,9 @@
-5.1.4-beta1 2010-09-03
+5.1.4-beta1 2010-09-27
   - Minor updates translations.
+  - Minor updates man page.
+  - Version number is only defined in version.mk.
+  - LCC-WIN32 makefiles replaced by GNUmakefile, because lcc make
+    doesn't support the 'include' directive.
 
 5.1.3 2010-08-29
   - Added German language file (thanks to Philipp Thomas)

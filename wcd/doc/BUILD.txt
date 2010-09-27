@@ -136,7 +136,7 @@ WATCOM
 
 LCC
 
-    Because LCC make doesn't support an 'include' statement we
+    Because LCC make doesn't support an 'include' directive we
     have to use GNU make. You can get GNU make for Windows from
     the GnuWin32 project or the MinGW project.
 
