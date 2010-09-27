@@ -61,15 +61,30 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include "colors.h"             /* add colors for the tree on MS platform */
 #endif
 
+# define WCD_ACS_HL 1          /* line art codes */
+# define WCD_ACS_VL 2
+# define WCD_ACS_LT 3
+# define WCD_ACS_LLC 4
+# define WCD_ACS_TT 5
+
 # define WCD_SEL_ON 6           /* selection on/off codes */
 # define WCD_SEL_OFF 7
 
-#define WCD_ONESUBDIR  "---"
-#define WCD_SPLITDIR   "-+-"
-#define WCD_SUBDIR    "  |-"
-#define WCD_MOREDIR   "  |  "
-#define WCD_ENDDIR    "  `-"
-#define WCD_OVERDIR   "     "
+#ifdef ASCII_TREE
+static const char WCD_ONESUBDIR[] = "---" ;
+static const char WCD_SPLITDIR[] =  "-+-" ;
+static const char WCD_SUBDIR[] =   "  |-" ;
+static const char WCD_MOREDIR[] =  "  |  " ;
+static const char WCD_ENDDIR[] =   "  `-" ;
+static const char WCD_OVERDIR[] =  "     " ;
+#else
+static const char WCD_ONESUBDIR[] = { WCD_ACS_HL, WCD_ACS_HL, WCD_ACS_HL, 0} ;
+static const char WCD_SPLITDIR[] =  { WCD_ACS_HL, WCD_ACS_TT, WCD_ACS_HL, 0} ;
+static const char WCD_SUBDIR[] =    { 32, 32, WCD_ACS_LT, WCD_ACS_HL, 0} ;
+static const char WCD_MOREDIR[] =   { 32, 32, WCD_ACS_VL, 32, 32, 0} ;
+static const char WCD_ENDDIR[] =    { 32, 32, WCD_ACS_LLC, WCD_ACS_HL, 0} ;
+static const char WCD_OVERDIR[] =  "     " ;
+#endif
 
 #define WCD_GRAPH_MAX_LINE_LENGTH  DD_MAXPATH * 2
 
@@ -1284,6 +1299,21 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
       {
          switch(s[j])
          {
+            case WCD_ACS_HL:
+                  waddch(win,ACS_HLINE);
+               break;
+            case WCD_ACS_VL:
+                  waddch (win,ACS_VLINE);
+               break;
+            case WCD_ACS_LT:
+                  waddch (win,ACS_LTEE);
+               break;
+            case WCD_ACS_LLC:
+                  waddch (win,ACS_LLCORNER);
+               break;
+            case WCD_ACS_TT:
+                  waddch (win,ACS_TTEE);
+               break;
             case WCD_SEL_ON:
                   wattron(win,A_REVERSE);
                   waddch(win,'<');
