@@ -3006,7 +3006,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
          rootNode = createRootNode();
          buildTreeFromNameset(perfect_list, rootNode);
          setXYTree(rootNode);
-         ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics);
+         if (graphics & WCD_GRAPH_DUMP)
+         {
+            dumpTree(rootNode);
+            ptr = NULL;
+         }
+	 else
+            ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics);
          if (ptr != NULL)
             strcpy(best_match,ptr);
          else
@@ -3051,7 +3057,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
          rootNode = createRootNode();
          buildTreeFromNameset(wild_list, rootNode);
          setXYTree(rootNode);
-         ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics);
+         if (graphics & WCD_GRAPH_DUMP)
+         {
+            dumpTree(rootNode);
+            ptr = NULL;
+         }
+	 else
+            ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics);
          if (ptr != NULL)
             strcpy(best_match,ptr);
          else

@@ -1,5 +1,7 @@
 5.1.4-beta1 2010-09-28
   - Use line drawing characters for graphical tree.
+  - Option -gd in combination with a search pattern will dump
+    the tree of matches.
   - Minor updates translations.
   - Minor updates man page.
   - Version number is only defined in version.mk.

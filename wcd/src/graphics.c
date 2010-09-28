@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2000-2008 Erwin Waterlander
+Copyright (C) 2000-2010 Erwin Waterlander
 
 Ideas and source code of NCD (Ninux Czo Directory) have been
 used in the WCD graphical interface.
@@ -60,6 +60,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #ifdef WCD_USECURSES
 #include "colors.h"             /* add colors for the tree on MS platform */
 #endif
+
+/*
+ * The following codes are below 20 and don't interfere with 8 bit normal
+ * characters.  They will also not interfere with UTF-8 encoded characters,
+ * because All UCS characters >U+007F are encoded as a sequence of several
+ * bytes, each of which has the most significant bit set. No ASCII byte
+ * (0x00-0x7F) can appear as part of any other UTF-8 encode character.
+ */
 
 # define WCD_ACS_HL 1          /* line art codes */
 # define WCD_ACS_VL 2
