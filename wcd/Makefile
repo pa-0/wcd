@@ -25,7 +25,7 @@ endif
 OBJDIR	= src
 
 all:
-	$(MAKE) -C $(OBJDIR) CC="$(CC)"
+	$(MAKE) -C $(OBJDIR)
 
 clean:
 	$(MAKE) -C $(OBJDIR) clean
@@ -39,7 +39,7 @@ maintainer-clean:
 realclean: maintainer-clean
 
 install:
-	$(MAKE) -C $(OBJDIR) install CC="$(CC)"
+	$(MAKE) -C $(OBJDIR) install
 
 uninstall:
 	$(MAKE) -C $(OBJDIR) uninstall

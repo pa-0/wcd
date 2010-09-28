@@ -298,6 +298,10 @@ ifdef STATIC
 	EXTRA_CFLAGS += -static
 endif
 
+ifdef ASCII_TREE
+	EXTRA_CFLAGS += -DASCII_TREE
+endif
+
 LDFLAGS		= $(LIB_CURSES) \
 	          $(LDFLAGS_EXTRA) \
 		  $(NLFLAG)

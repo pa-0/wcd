@@ -47,6 +47,10 @@ BASIC INSTALLATION
 			The default value is 'ncurses'.
 			Only an expert should change this.
 
+	    ASCII_TREE=1	Draw graphical tree with
+				ASCII characters.
+				The default value is empty.
+
 	    EXT=.exe	Set executable extension
 			The default value is '.exe' to
 			make a distinction between the binary

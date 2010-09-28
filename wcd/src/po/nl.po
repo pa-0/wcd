@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-28 00:11+0200\n"
+"POT-Creation-Date: 2010-09-28 11:10+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -584,11 +584,11 @@ msgstr "CTRL-c of <Esc>    Afbreken."
 msgid "<Enter>           Abort."
 msgstr "<Enter>            Afbreken."
 
-#: display.c:1104 graphics.c:1514 graphics.c:1537 graphics.c:1554
+#: display.c:1104 graphics.c:1587 graphics.c:1610 graphics.c:1627
 msgid "Press any key."
 msgstr "Druk een toets."
 
-#: display.c:1167 graphics.c:1802
+#: display.c:1167 graphics.c:1875
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
@@ -598,7 +598,7 @@ msgstr ""
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: fout: scherm hoogte moet groter zijn dan 3 regels.\n"
 
-#: display.c:1222 graphics.c:1835
+#: display.c:1222 graphics.c:1908
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: fout tijdens maken rolvenster.\n"
 
@@ -643,211 +643,211 @@ msgstr ""
 msgid "Wcd: error: line too long in function getTreeLine()"
 msgstr "Wcd: fout: regel te lang in functie getTreeLine()"
 
-#: graphics.c:1469
+#: graphics.c:1542
 msgid "/ = search forward,  ? = search backward,  : = help"
 msgstr "/ = zoek vooruit,  ? = zoek achteruit,  : = help"
 
-#: graphics.c:1474
+#: graphics.c:1547
 msgid "SEARCH: "
 msgstr "ZOEK: "
 
-#: graphics.c:1477
+#: graphics.c:1550
 msgid "Search: "
 msgstr "Zoek: "
 
-#: graphics.c:1493
+#: graphics.c:1566
 msgid "NAVIGATE MODE:"
 msgstr "NAVIGATIE MODUS:"
 
-#: graphics.c:1494
+#: graphics.c:1567
 msgid "h or <Left>       go left."
 msgstr "h of <Links>      ga naar links."
 
-#: graphics.c:1495
+#: graphics.c:1568
 msgid "j or <Down>       go down."
 msgstr "j of <Omlaag>     ga omlaag."
 
-#: graphics.c:1496
+#: graphics.c:1569
 msgid "k or <Up>         go up."
 msgstr "k of <Omhoog>     ga omhoog."
 
-#: graphics.c:1497
+#: graphics.c:1570
 msgid "l or <Right>      go right."
 msgstr "l of <Rechts>     ga naar rechts."
 
-#: graphics.c:1498
+#: graphics.c:1571
 msgid "* or v or <Space> go forward to dir with same name."
 msgstr "* of v of <Spatie> ga vooruit naar map met dezelfde naam."
 
-#: graphics.c:1499
+#: graphics.c:1572
 msgid "# or p or <BS>    go backward to dir with same name."
 msgstr "# of p of <BS>    ga achteruit naar map met dezelfde naam."
 
-#: graphics.c:1500
+#: graphics.c:1573
 msgid "^ or a            go to beginning of line."
 msgstr "^ of a            ga naar begin van regel."
 
-#: graphics.c:1501
+#: graphics.c:1574
 msgid "$ or e            go to end of line."
 msgstr "$ of e            ga naar einde van regel."
 
-#: graphics.c:1502
+#: graphics.c:1575
 msgid "1                 go to root dir."
 msgstr "1                 ga naar eerste map."
 
-#: graphics.c:1503
+#: graphics.c:1576
 msgid "g or G            go to last dir."
 msgstr "g of G            ga naar laatste map."
 
-#: graphics.c:1504
+#: graphics.c:1577
 msgid "f                 go page forward."
 msgstr "f                 ga pagina vooruit."
 
-#: graphics.c:1505
+#: graphics.c:1578
 msgid "b                 go page backward."
 msgstr "b                 ga pagina achteruit."
 
-#: graphics.c:1506
+#: graphics.c:1579
 msgid "u                 go half page up."
 msgstr "u                 ga halve pagina omhoog."
 
-#: graphics.c:1507
+#: graphics.c:1580
 msgid "d                 go half page down."
 msgstr "d                 ga halve pagina omlaag."
 
-#: graphics.c:1508
+#: graphics.c:1581
 msgid "t                 switch centered mode on/off."
 msgstr "t                 in- uitschakelen gecentreerde modus."
 
-#: graphics.c:1509
+#: graphics.c:1582
 msgid "<Esc> or q        Abort."
 msgstr "<Esc> of q        Afbreken."
 
-#: graphics.c:1510
+#: graphics.c:1583
 msgid "/                 Search forward."
 msgstr "/                 Zoek vooruit."
 
-#: graphics.c:1511
+#: graphics.c:1584
 msgid "?                 Search backward."
 msgstr "?                 Zoek achteruit."
 
-#: graphics.c:1512
+#: graphics.c:1585
 msgid "n                 Repeat latest / or ? search."
 msgstr "n                 Herhaal laatste / of ? zoekopdracht."
 
-#: graphics.c:1513 graphics.c:1536
+#: graphics.c:1586 graphics.c:1609
 msgid "<Enter>           Select directory."
 msgstr "<Enter>           Kies map."
 
-#: graphics.c:1520
+#: graphics.c:1593
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "ZOEK MODUS met jokertekens en submap ondersteuning:"
 
-#: graphics.c:1521
+#: graphics.c:1594
 msgid "<Left>            go left."
 msgstr "<Links>           ga naar links."
 
-#: graphics.c:1522
+#: graphics.c:1595
 msgid "<Down>            go down."
 msgstr "<Omlaag>          ga omlaag."
 
-#: graphics.c:1523
+#: graphics.c:1596
 msgid "<Up>              go up."
 msgstr "<Omhoog>          ga omhoog."
 
-#: graphics.c:1524
+#: graphics.c:1597
 msgid "<Right>           go right."
 msgstr "<Rechts>          ga naar rechts."
 
-#: graphics.c:1525
+#: graphics.c:1598
 msgid "CTRL-v            go forward to dir with same name."
 msgstr "CTRL-v            ga vooruit naar map met dezelfde naam."
 
-#: graphics.c:1526
+#: graphics.c:1599
 msgid "CTRL-p            go backward to dir with same name."
 msgstr "CTRL-p            ga achteruit naar map met dezelfde naam."
 
-#: graphics.c:1527
+#: graphics.c:1600
 msgid "CTRL-a            go to beginning of line."
 msgstr "CTRL-a            ga naar begin van regel."
 
-#: graphics.c:1528
+#: graphics.c:1601
 msgid "CTRL-e            go to end of line."
 msgstr "CTRL-e            ga naar einde van regel."
 
-#: graphics.c:1529
+#: graphics.c:1602
 msgid "CTRL-g            go to last dir."
 msgstr "CTRL-g            ga naar laatste map."
 
-#: graphics.c:1530
+#: graphics.c:1603
 msgid "CTRL-f            go page forward."
 msgstr "CTRL-f            ga pagina vooruit."
 
-#: graphics.c:1531
+#: graphics.c:1604
 msgid "CTRL-b            go page backward."
 msgstr "CTRL-b            ga pagina achteruit."
 
-#: graphics.c:1532
+#: graphics.c:1605
 msgid "CTRL-u            go half page up."
 msgstr "CTRL-u            ga halve pagina omhoog."
 
-#: graphics.c:1533
+#: graphics.c:1606
 msgid "CTRL-d            go half page down."
 msgstr "CTRL-d            ga halve pagina omlaag."
 
-#: graphics.c:1534
+#: graphics.c:1607
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
 msgstr "<Esc> of CTRL-x   ZOEK MODUS afbreken."
 
-#: graphics.c:1535
+#: graphics.c:1608
 msgid "CTRL-n            Repeat latest / or ? search."
 msgstr "CTRL-n            Herhaal laatste / of ? zoekopdracht."
 
-#: graphics.c:1543
+#: graphics.c:1616
 msgid "ZOOMING:"
 msgstr "ZOOMEN:"
 
-#: graphics.c:1544
+#: graphics.c:1617
 msgid "z or i or CTRL-i  zoom in."
 msgstr "z of i of CTRL-i  zoom in."
 
-#: graphics.c:1545
+#: graphics.c:1618
 msgid "Z or o or CTRL-o  zoom out."
 msgstr "Z of o of CTRL-o  zoom uit."
 
-#: graphics.c:1546
+#: graphics.c:1619
 msgid "c                 condense: fold current level."
 msgstr "c                 huidig niveau vouwen."
 
-#: graphics.c:1547
+#: graphics.c:1620
 msgid "C                 condense: fold subdir level."
 msgstr "C                 submap niveau vouwen."
 
-#: graphics.c:1548
+#: graphics.c:1621
 msgid "w                 condense: fold current and sub levels."
 msgstr "w                 huidig en subniveaus vouwen."
 
-#: graphics.c:1549
+#: graphics.c:1622
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
 msgstr "y of CTRL-y       huidig en subniveaus ontvouwen."
 
-#: graphics.c:1550
+#: graphics.c:1623
 msgid "r or CTRL-r       uncondense: unfold all directories."
 msgstr "r of CTRL-r       alle mappen ontvouwen."
 
-#: graphics.c:1551
+#: graphics.c:1624
 msgid "-                 fold directory."
 msgstr "-                 vouw map."
 
-#: graphics.c:1552
+#: graphics.c:1625
 msgid "+ or =            unfold directory."
 msgstr "+ of =            ontvouw map."
 
-#: graphics.c:1553
+#: graphics.c:1626
 msgid "l or <Right>      unfold and go right."
 msgstr "l of <Rechts>     ontvouwen en naar rechts gaan."
 
-#: graphics.c:1557
+#: graphics.c:1630
 msgid "Screenheight must be > 21 for help"
 msgstr "Schermhoogte moet groter dan 21 zijn voor help"
 

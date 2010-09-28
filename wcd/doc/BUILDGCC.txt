@@ -223,6 +223,17 @@ To disable CURSES and compile with stdio interface, reset the CURSES variable:
   make CURSES=
 
 
+Graphical tree
+==============
+
+By default the graphical tree is drawn with line drawing
+characters. If these are not available on your system you
+can set ASCII_TREE=1 so that ASCII characters are used instead.
+
+  make ASCII_TREE=1
+
+
+
 Conio interface (DOS only)
 ==========================
 
@@ -237,7 +248,7 @@ Unicode support
 
 To activate Unicode support add UCS=1 to the make command:
 
- `make UCS=1'
+  make UCS=1
 
 This requires a (pd/n)curses installation with wide character support.
 Not supported for DOS versions of wcd.

@@ -348,6 +348,7 @@ void dumpTree(dirnode d)
    int index, size;
    dirnode n;
    int y;
+   char *l;
 
 
    index = 0;
@@ -365,7 +366,38 @@ void dumpTree(dirnode d)
    else
    {
       y = dirnodeGetY(d);
-      printf("%s\n",getTreeLine(d,y,&y,NULL,false));
+      l = getTreeLine(d,y,&y,NULL,false);
+      while ( *l != '\0')
+         {
+            switch(*l)
+            {
+               case WCD_ACS_HL:
+                putc('-', stdout);
+                  break;
+               case WCD_ACS_VL:
+                putc('|', stdout);
+                  break;
+               case WCD_ACS_LT:
+                putc('|', stdout);
+                  break;
+               case WCD_ACS_LLC:
+                putc('`', stdout);
+                  break;
+               case WCD_ACS_TT:
+                putc('+', stdout);
+                  break;
+               case WCD_SEL_ON:
+                putc('<', stdout);
+                  break;
+               case WCD_SEL_OFF:
+                putc('>', stdout);
+                  break;
+               default:
+                putc(*l, stdout);
+            }
+	    l++;
+         }
+      printf("\n");
    }
 
 
@@ -1211,6 +1243,21 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
          {
             switch(s[j])
             {
+               case WCD_ACS_HL:
+                waddch(win,ACS_HLINE);
+                  break;
+               case WCD_ACS_VL:
+                waddch (win,ACS_VLINE);
+                  break;
+               case WCD_ACS_LT:
+                waddch (win,ACS_LTEE);
+                  break;
+               case WCD_ACS_LLC:
+                waddch (win,ACS_LLCORNER);
+                  break;
+               case WCD_ACS_TT:
+                waddch (win,ACS_TTEE);
+                  break;
                case WCD_SEL_ON:
                 wattron(win,A_REVERSE);
                 waddch(win,'[');
@@ -1232,9 +1279,14 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
          {
             switch(wstr[j])
             {
+               case WCD_ACS_HL:
+               case WCD_ACS_VL:
+               case WCD_ACS_LT:
+               case WCD_ACS_LLC:
+               case WCD_ACS_TT:
                case WCD_SEL_ON:
-                  break;
                case WCD_SEL_OFF:
+                  c = c + 1;
                   break;
                default:
                   c = c + wcwidth(wstr[j]);
@@ -1256,9 +1308,12 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
          if (j<len)
             switch(wstr[j])
             {
+               case WCD_ACS_HL:
+               case WCD_ACS_VL:
+               case WCD_ACS_LT:
+               case WCD_ACS_LLC:
+               case WCD_ACS_TT:
                case WCD_SEL_ON:
-                width = 1;
-                  break;
                case WCD_SEL_OFF:
                 width = 1;
                   break;
@@ -1269,6 +1324,21 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
          {
             switch(wstr[j])
             {
+               case WCD_ACS_HL:
+                waddch(win,ACS_HLINE);
+                  break;
+               case WCD_ACS_VL:
+                waddch (win,ACS_VLINE);
+                  break;
+               case WCD_ACS_LT:
+                waddch (win,ACS_LTEE);
+                  break;
+               case WCD_ACS_LLC:
+                waddch (win,ACS_LLCORNER);
+                  break;
+               case WCD_ACS_TT:
+                waddch (win,ACS_TTEE);
+                  break;
                case WCD_SEL_ON:
                 wattron(win,A_REVERSE);
                 waddch(win,'<');
@@ -1283,9 +1353,12 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
             j++;
             switch(wstr[j])
             {
+               case WCD_ACS_HL:
+               case WCD_ACS_VL:
+               case WCD_ACS_LT:
+               case WCD_ACS_LLC:
+               case WCD_ACS_TT:
                case WCD_SEL_ON:
-                width = width + 1;
-                  break;
                case WCD_SEL_OFF:
                 width = width + 1;
                   break;
