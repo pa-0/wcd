@@ -19,7 +19,7 @@ dist:
 	rm -rf ${RELEASE_DIR_SHORT}
 	svn export https://wcd.svn.sourceforge.net/svnroot/wcd/trunk/wcd ${RELEASE_DIR}
 	# Include doc files, to make it easier to build wcd.
-	cd ${RELEASE_DIR}/src ; ${MAKE} docfiles
+	cd ${RELEASE_DIR}/src ; ${MAKE} doc
 	# Make sure .po files are up to date.
 	cd ${RELEASE_DIR}/src ; ${MAKE} merge
 	# cleanup.
@@ -48,7 +48,7 @@ release_from_branch:
 	svn export https://wcd.svn.sourceforge.net/svnroot/wcd/branches/${BRANCH}/wcd ${RELEASE_DIR}
 	# Include doc files and .mo files, to make it easier to
 	# build wcd.
-	cd ${RELEASE_DIR}/src ; ${MAKE} docfiles mofiles
+	cd ${RELEASE_DIR}/src ; ${MAKE} doc
 	# Create package in DOS text format.
 	cd ${RELEASE_DIR}/misc ; ${MAKE} -f unix2dos.mk
 	# Touch .mo files, they are already up to date.
