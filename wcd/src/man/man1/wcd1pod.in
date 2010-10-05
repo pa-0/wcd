@@ -1089,7 +1089,7 @@ I<PDC_RESTORE_SCREEN>. If this environment variable is set, PDCurses
 will take a copy of the contents of the screen at the time that wcd is
 started; when wcd exits, the screen will be restored.
 #ifdef dos
-This variable can be set e.g. in C<AUTOEXEC.BAT>. An example:
+An example for Windows Command Prompt:
 
     set PDC_RESTORE_SCREEN=1
 
@@ -1173,15 +1173,7 @@ An example for Csh type shells:
 
 =item B<WCDUSERSHOME>
 
-With this variable one can set the base directory where the users home
-directories are. If this variable is not set wcd will assume
-#ifdef dos
-C<\\users> on DOS/Windows and
-#endif
-C</home> on Unix, This variable is used to scan treedata files of
-other users. See also options B<-u> an B<+u>.
-
-Set the base of home directories.
+Set the base of user's home directories.
 #ifdef dos
 On DOS/Windows the default value is C<\\users>.
 #endif
