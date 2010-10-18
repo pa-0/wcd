@@ -1570,7 +1570,7 @@ Usage: wcd [options] [drive:][dir]\n\
   -ga            Graphics, alternative navigation\n\
   -gc            Graphics, centered\n\
   -gd            Graphics, dump tree\n\
-  -G DIR         set path Go-script\n\
+  -G PATH        set PATH Go-script\n\
   -GN            No Go-script\n\
   -h, --help     show this Help\n\
   -i             Ignore case\n\
@@ -1588,23 +1588,23 @@ Usage: wcd [options] [drive:][dir]\n\
   -o             use stdOut\n\
   -od            dump matches\n\
   -q             Quieter operation\n\
-  -r             Remove <dir>\n\
-  -rmtree        Remove <dir> recursive\n\
+  -r DIR         Remove DIR\n\
+  -rmtree DIR    Remove DIR recursive\n\
   -s             Scan disk from $HOME\n\
-  -S             Scan disk from <path>\n\
-  +S             Scan disk from <path>, create relative treefile\n\
+  -S PATH        Scan disk from PATH\n\
+  +S PATH        Scan disk from PATH, create relative treefile\n\
   -t             Don't strip /tmp_mnt from paths\n\
   -T             Draw tree with ASCII characters\n\
-  -u             use <user> treefile\n\
-  +u             add <user> treefile\n\
+  -u USER        use USER treefile\n\
+  +u USER        add USER treefile\n\
   -v, --verbose  Verbose operation\n\
   -V, --version  print Version info\n\
   -w             Wild matching only\n\
-  -x             eXclude <path> during disk scan\n\
-  -xf            eXclude paths from <file>\n\
-  -z             set max stack siZe\n\
-  -              Push dir (# times)\n\
-  +              Pop dir (# times)\n\
+  -x PATH        eXclude PATH during disk scan\n\
+  -xf FILE       eXclude paths from FILE\n\
+  -z NUMBER      set max stack siZe\n\
+  -[NUMBER]      Push dir (NUMBER times)\n\
+  +[NUMBER]      Pop dir (NUMBER times)\n\
   =              Show stack\n"));
 }
 
