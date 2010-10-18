@@ -1597,6 +1597,8 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
   -s             Scan disk from $HOME\n\
   -S             Scan disk from <path>\n\
   +S             Scan disk from <path>, create relative treefile\n\
+  -t             Don't strip /tmp_mnt from paths\n\
+  -T             Draw tree with ASCII characters\n\
   -u             use <user> treefile\n\
   +u             add <user> treefile\n\
   -v, --verbose  Verbose operation\n\
@@ -2349,6 +2351,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                 strip_mount_string = 0;
             break;
 #endif
+         case 'T':
+               graphics |= WCD_GRAPH_ASCII ;
+            break;
 #ifdef MSDOS
          case 'd':
             break;

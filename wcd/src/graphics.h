@@ -32,6 +32,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #define WCD_GRAPH_ALT    4 /* alternative navigating */
 #define WCD_GRAPH_COLOR  8 /* colors */
 #define WCD_GRAPH_CENTER 16 /* center current directory */
+#define WCD_GRAPH_ASCII  32 /* draw tree with ASCII characters */
 
 #endif
 
