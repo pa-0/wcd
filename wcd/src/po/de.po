@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-18 22:40+0200\n"
+"POT-Creation-Date: 2010-10-18 23:59+0200\n"
 "PO-Revision-Date: 2010-07-14 16:46+0200\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1707 wcd.c:1727 wcd.c:1818 wcd.c:2497
+#: wcd.c:151 wcd.c:398 wcd.c:946 wcd.c:1703 wcd.c:1723 wcd.c:1814 wcd.c:2493
 #: stack.c:243
 #, c-format
 msgid "Wcd: error: Write access to file %s denied.\n"
@@ -69,7 +69,7 @@ msgstr ""
 "wcd: Setzen Sie bitte die Umgebungsvariable TEMP wenn dies ein nur lesbares "
 "Laufwerk ist.\n"
 
-#: wcd.c:1020 wcd.c:1810 stack.c:235
+#: wcd.c:1020 wcd.c:1806 stack.c:235
 #, c-format
 msgid "Wcd: error: Permission denied to create directory %s\n"
 msgstr "wcd: Fehler: Das Anlegen von Verzeichnis %s wurde verweigert\n"
@@ -122,54 +122,33 @@ msgstr "wcd: Fehler: Das Öffnen von Datei %s wurde verweigert\n"
 #, c-format
 msgid ""
 "wcd  %s  (%s) - Wherever Change Directory\n"
-"Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n"
-"       [-f <treefile>] [-g[a|d]] [-G <path>] [-h] [-i] [-j] [-k] [-l "
-"<alias>]\n"
-"       [-[m|M] <dir>] [-n <path>] [-N] [-o[d]] [-q] [-[r|rmtree] <dir>] [-"
-"s]\n"
-"       [-S <path>] [-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>]\n"
-"       [-z #] [-[#]] [+[#]] [=] [drive:][dir]\n"
+"Usage: wcd [options] [drive:][dir]\n"
 "\n"
 "  [dir]   (partial) name of directory to change to.\n"
 "          Wildcards *, ? and [SET] are supported!\n"
 "\n"
 msgstr ""
-"wcd  %s  (%s) - Wherever Change Directory\n"
-"Aufruf: wcd [-a[a]] [-A <Pfad>] [-b] [-c] [-d <Laufwerk>] [-e[e]] [-E "
-"<Pfad>]\n"
-"       [-f <Baumdatei>] [-g[a|d]] [-G <Pfad>] [-h] [-i] [-j] [-k] [-l "
-"<Alias>]\n"
-"       [-[m|M] <Verzeichnis>] [-n <Pfad>] [-N] [-o[d]] [-q] [-[r|rmtree] "
-"<Verzeichnis>] [-s]\n"
-"       [-S <Pfad>] [-t] [-u <Benutzer>] [-v] [-V] [-w] [-x <Pfad>] [-xf "
-"<Datei>]\n"
-"       [-z #] [-[#]] [+[#]] [=] [Laufwerk:][dir]\n"
-"\n"
-"  [dir]   Name oder Teil des Namens des Verzeichnisses, in welches\n"
-"          gewechselt werden soll.\n"
-"          Die Platzhalter *, ? und [SET] werden Unterstützt!\n"
-"\n"
 
-#: wcd.c:1561
+#: wcd.c:1557
 #, fuzzy, c-format
 msgid ""
 "options:\n"
 "  -a             Add current path to treefile\n"
 "  -aa            Add current and all parent paths to treefile\n"
-"  -A             Add tree from <path>\n"
+"  -A PATH        Add tree from PATH\n"
 "  -b             Ban current path\n"
 "  -c             direct CD mode\n"
-"  -d             set <drive> for stack & go files (DOS)\n"
+"  -d DRIVE       set DRIVE for stack & go files (DOS)\n"
 "  -e             add current path to Extra treefile\n"
 "  -ee            add current and all parent paths to Extra treefile\n"
-"  -E             add tree from <path> to Extra treefile\n"
-"  -f             use extra treeFile\n"
-"  +f             add extra treeFile\n"
+"  -E PATH        add tree from PATH to Extra treefile\n"
+"  -f FILE        use extra treeFile\n"
+"  +f FILE        add extra treeFile\n"
 "  -g             Graphics\n"
 "  -ga            Graphics, alternative navigation\n"
 "  -gc            Graphics, centered\n"
 "  -gd            Graphics, dump tree\n"
-"  -G             set path Go-script\n"
+"  -G DIR         set path Go-script\n"
 "  -GN            No Go-script\n"
 "  -h, --help     show this Help\n"
 "  -i             Ignore case\n"
@@ -177,12 +156,12 @@ msgid ""
 "  -j             Just go mode\n"
 "  -k             Keep paths\n"
 "  -K             Colors\n"
-"  -l             aLias current directory\n"
+"  -l ALIAS       aLias current directory\n"
 "  -L             print software License\n"
-"  -m             Make <dir>, add to treefile\n"
-"  -M             Make <dir>, add to extra treefile\n"
-"  -n             use relative treefile in <path>\n"
-"  +n             add relative treefile in <path>\n"
+"  -m DIR         Make DIR, add to treefile\n"
+"  -M DIR         Make DIR, add to extra treefile\n"
+"  -n PATH        use relative treefile in PATH\n"
+"  +n PATH        add relative treefile in PATH\n"
 "  -N             use Numbers\n"
 "  -o             use stdOut\n"
 "  -od            dump matches\n"
@@ -260,12 +239,12 @@ msgstr ""
 "  +              Verzeinis vom Stapel nehemn (# mal)\n"
 "  =              Zeige den verzeichnisstapel an\n"
 
-#: wcd.c:1621 wcd.c:2271
+#: wcd.c:1617 wcd.c:2267
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
 
-#: wcd.c:1622
+#: wcd.c:1618
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -274,166 +253,166 @@ msgstr ""
 "Chdir für Dos und Unix.\n"
 "\n"
 
-#: wcd.c:1625
+#: wcd.c:1621
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr "Dies ist die Version für die MSYS und WinZSH.\n"
 
-#: wcd.c:1627
+#: wcd.c:1623
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr "Dies ist die Version für die Windows PowerShell.\n"
 
-#: wcd.c:1629
+#: wcd.c:1625
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
 msgstr "Diese Version ist für die Windows Eingabeaufforderung (cmd.exe).\n"
 
-#: wcd.c:1632
+#: wcd.c:1628
 #, c-format
 msgid "Win64 version.\n"
 msgstr "Win64 Version.\n"
 
-#: wcd.c:1634
+#: wcd.c:1630
 #, c-format
 msgid "Win32 version.\n"
 msgstr "Win32 version.\n"
 
-#: wcd.c:1637
+#: wcd.c:1633
 #, c-format
 msgid "DOS 32 bit version.\n"
 msgstr "32 Bit DOS Version.\n"
 
-#: wcd.c:1640
+#: wcd.c:1636
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr "Diese Version ist für MSYS.\n"
 
-#: wcd.c:1643
+#: wcd.c:1639
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Dies ist die Version für die DJGPP DOS Bash.\n"
 
-#: wcd.c:1646
+#: wcd.c:1642
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Diese Version ist für die OS/2 Bash.\n"
 
-#: wcd.c:1648
+#: wcd.c:1644
 #, c-format
 msgid "Interface: "
 msgstr "Schnittstelle: "
 
-#: wcd.c:1650
+#: wcd.c:1646
 #, c-format
 msgid "conio\n"
 msgstr "conio\n"
 
-#: wcd.c:1654
+#: wcd.c:1650
 #, c-format
 msgid "ncurses version %s\n"
 msgstr "ncurses Version %s\n"
 
-#: wcd.c:1657
+#: wcd.c:1653
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr "PDCurses version %d\n"
 
-#: wcd.c:1659
+#: wcd.c:1655
 #, c-format
 msgid "curses\n"
 msgstr "curses\n"
 
-#: wcd.c:1663
+#: wcd.c:1659
 #, c-format
 msgid "stdout\n"
 msgstr "stdout\n"
 
-#: wcd.c:1667
+#: wcd.c:1663
 #, c-format
 msgid "Native language support included.\n"
 msgstr "Landessprachen werden unterstützt.\n"
 
-#: wcd.c:1668
+#: wcd.c:1664
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr "LOCALEDIR=%s\n"
 
-#: wcd.c:1669
+#: wcd.c:1665
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr "Aktuelle locale verwendet %s Encoding.\n"
 
-#: wcd.c:1671
+#: wcd.c:1667
 #, c-format
 msgid "No native language support included.\n"
 msgstr "Landessprachen werden nicht unterstützt.\n"
 
-#: wcd.c:1674
+#: wcd.c:1670
 #, c-format
 msgid "With Unicode support.\n"
 msgstr "Mit Unterstützung für Unicode.\n"
 
-#: wcd.c:1679
+#: wcd.c:1675
 #, c-format
 msgid "  Euro symbol: "
 msgstr "  Euro-Symbol: "
 
-#: wcd.c:1681
+#: wcd.c:1677
 #, c-format
 msgid "  Chinese characters: "
 msgstr "  Chinesische Schriftzeichen: "
 
-#: wcd.c:1685
+#: wcd.c:1681
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr "Ohne Unterstützung für Unicode.\n"
 
-#: wcd.c:1688
+#: wcd.c:1684
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr ""
 "Die neuesten Programme und Quellen können heruntergeladen werden von:\n"
 
-#: wcd.c:1689
+#: wcd.c:1685
 #, c-format
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr "http://www.xs4all.nl/~waterlan/\n"
 
-#: wcd.c:1812 stack.c:237
+#: wcd.c:1808 stack.c:237
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "wcd: Verzeichnis %s wird erzeugt\n"
 
-#: wcd.c:1987
+#: wcd.c:1983
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDLOCALEDIR ist zu lang.\n"
 
-#: wcd.c:2017 wcd.c:2085
+#: wcd.c:2013 wcd.c:2081
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariablen HOME oder WCDHOME ist zu "
 "lang.\n"
 
-#: wcd.c:2049 wcd.c:2078
+#: wcd.c:2045 wcd.c:2074
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 "wcd: Fehler: Die Umgebungsvariablen HOME oder WCDHOOME sind nicht gesetzt.\n"
 
-#: wcd.c:2148 wcd.c:2594 wcd.c:2611
+#: wcd.c:2144 wcd.c:2590 wcd.c:2607
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDUSERHOME ist zu lang.\n"
 
-#: wcd.c:2267
+#: wcd.c:2263
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "wcd: Grafikmodus wird nur von wcd mit Curses basierter Oberfläche\n"
 "     unterstützt.\n"
 
-#: wcd.c:2272
+#: wcd.c:2268
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -498,27 +477,27 @@ msgstr ""
 "Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,\n"
 "MA 02110-1301 USA.\n"
 
-#: wcd.c:2504
+#: wcd.c:2500
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "wcd: %s wurde zur Aliasdatei %s hinzugefügt\n"
 
-#: wcd.c:2742
+#: wcd.c:2738
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "wcd: {%s} wird verbannt\n"
 
-#: wcd.c:2744
+#: wcd.c:2740
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "wcd: {%s} wird ausgeschlossen\n"
 
-#: wcd.c:2746
+#: wcd.c:2742
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "wcd\" {%s} wird gefiltert\n"
 
-#: wcd.c:2997
+#: wcd.c:2993
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -528,7 +507,7 @@ msgstr ""
 "wcd: Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist\n"
 "     verbannt.\n"
 
-#: wcd.c:3164
+#: wcd.c:3160
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "wcd: Zu %s kann nicht gewechselt werden\n"
@@ -914,3 +893,35 @@ msgid ""
 "Wcd: error in '%s', no space left for allocation\n"
 "Wcd: Insufficient memory\n"
 msgstr "wcd: Fehler in »%s«, kein freier Speicher verfügbar\n"
+
+#~ msgid ""
+#~ "wcd  %s  (%s) - Wherever Change Directory\n"
+#~ "Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E "
+#~ "<path>]\n"
+#~ "       [-f <treefile>] [-g[a|d]] [-G <path>] [-h] [-i] [-j] [-k] [-l "
+#~ "<alias>]\n"
+#~ "       [-[m|M] <dir>] [-n <path>] [-N] [-o[d]] [-q] [-[r|rmtree] <dir>] [-"
+#~ "s]\n"
+#~ "       [-S <path>] [-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf "
+#~ "<file>]\n"
+#~ "       [-z #] [-[#]] [+[#]] [=] [drive:][dir]\n"
+#~ "\n"
+#~ "  [dir]   (partial) name of directory to change to.\n"
+#~ "          Wildcards *, ? and [SET] are supported!\n"
+#~ "\n"
+#~ msgstr ""
+#~ "wcd  %s  (%s) - Wherever Change Directory\n"
+#~ "Aufruf: wcd [-a[a]] [-A <Pfad>] [-b] [-c] [-d <Laufwerk>] [-e[e]] [-E "
+#~ "<Pfad>]\n"
+#~ "       [-f <Baumdatei>] [-g[a|d]] [-G <Pfad>] [-h] [-i] [-j] [-k] [-l "
+#~ "<Alias>]\n"
+#~ "       [-[m|M] <Verzeichnis>] [-n <Pfad>] [-N] [-o[d]] [-q] [-[r|rmtree] "
+#~ "<Verzeichnis>] [-s]\n"
+#~ "       [-S <Pfad>] [-t] [-u <Benutzer>] [-v] [-V] [-w] [-x <Pfad>] [-xf "
+#~ "<Datei>]\n"
+#~ "       [-z #] [-[#]] [+[#]] [=] [Laufwerk:][dir]\n"
+#~ "\n"
+#~ "  [dir]   Name oder Teil des Namens des Verzeichnisses, in welches\n"
+#~ "          gewechselt werden soll.\n"
+#~ "          Die Platzhalter *, ? und [SET] werden Unterstützt!\n"
+#~ "\n"

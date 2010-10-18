@@ -1549,11 +1549,7 @@ void print_help()
 {
         printf(_("\
 wcd  %s  (%s) - Wherever Change Directory\n\
-Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
-       [-f <treefile>] [-g[a|d]] [-G <path>] [-h] [-i] [-j] [-k] [-l <alias>]\n\
-       [-[m|M] <dir>] [-n <path>] [-N] [-o[d]] [-q] [-[r|rmtree] <dir>] [-s]\n\
-       [-S <path>] [-t] [-u <user>] [-v] [-V] [-w] [-x <path>] [-xf <file>]\n\
-       [-z #] [-[#]] [+[#]] [=] [drive:][dir]\n\
+Usage: wcd [options] [drive:][dir]\n\
 \n\
   [dir]   (partial) name of directory to change to.\n\
           Wildcards *, ? and [SET] are supported!\n\n"),VERSION,VERSION_DATE);
@@ -1561,20 +1557,20 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
   printf(_("options:\n\
   -a             Add current path to treefile\n\
   -aa            Add current and all parent paths to treefile\n\
-  -A             Add tree from <path>\n\
+  -A PATH        Add tree from PATH\n\
   -b             Ban current path\n\
   -c             direct CD mode\n\
-  -d             set <drive> for stack & go files (DOS)\n\
+  -d DRIVE       set DRIVE for stack & go files (DOS)\n\
   -e             add current path to Extra treefile\n\
   -ee            add current and all parent paths to Extra treefile\n\
-  -E             add tree from <path> to Extra treefile\n\
-  -f             use extra treeFile\n\
-  +f             add extra treeFile\n\
+  -E PATH        add tree from PATH to Extra treefile\n\
+  -f FILE        use extra treeFile\n\
+  +f FILE        add extra treeFile\n\
   -g             Graphics\n\
   -ga            Graphics, alternative navigation\n\
   -gc            Graphics, centered\n\
   -gd            Graphics, dump tree\n\
-  -G             set path Go-script\n\
+  -G DIR         set path Go-script\n\
   -GN            No Go-script\n\
   -h, --help     show this Help\n\
   -i             Ignore case\n\
@@ -1582,12 +1578,12 @@ Usage: wcd [-a[a]] [-A <path>] [-b] [-c] [-d <drive>] [-e[e]] [-E <path>]\n\
   -j             Just go mode\n\
   -k             Keep paths\n\
   -K             Colors\n\
-  -l             aLias current directory\n\
+  -l ALIAS       aLias current directory\n\
   -L             print software License\n\
-  -m             Make <dir>, add to treefile\n\
-  -M             Make <dir>, add to extra treefile\n\
-  -n             use relative treefile in <path>\n\
-  +n             add relative treefile in <path>\n\
+  -m DIR         Make DIR, add to treefile\n\
+  -M DIR         Make DIR, add to extra treefile\n\
+  -n PATH        use relative treefile in PATH\n\
+  +n PATH        add relative treefile in PATH\n\
   -N             use Numbers\n\
   -o             use stdOut\n\
   -od            dump matches\n\

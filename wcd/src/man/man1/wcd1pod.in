@@ -292,9 +292,9 @@ Use this option to quickly add the current path to the extra treedata file.
 
 Add current and all parent paths to extra treedata file.
 
-=item B<-E DIR>
+=item B<-E PATH>
 
-Scan directory tree from DIR and append to Extra treedata file. See
+Scan directory tree from PATH and append to Extra treedata file. See
 also options B<-A> and B<-S>.
 
 =item B<-f FILE>
@@ -334,9 +334,9 @@ with key 't'.
 
 Dump the treedata files as a tree to stdout.
 
-=item B<-G DIR>
+=item B<-G PATH>
 
-Set directory path of go-script equal to DIR.
+Set directory path of go-script equal to PATH.
 
 =item B<-GN>
 
@@ -422,13 +422,13 @@ Make directory and add to treedata file.
 
 Make directory and add to extra treedata file.
 
-=item B<-n DIR>
+=item B<-n PATH>
 
-Read relative treedata file from DIR.
+Read relative treedata file from PATH.
 
 Do not read the default treedata file. The relative treedata file
 should already have been created using the wcd B<+S> option.
-DIR may also point to a file directly.
+PATH may also point to a file directly.
 
 An example: Suppose another system has been mounted to mount point
 C</mnt/network>:
@@ -438,7 +438,7 @@ C</mnt/network>:
 Wcd opens the relative treedata file in C</mnt/network/>. The file contains the paths
 relative from that point.
 
-=item B<+n DIR>
+=item B<+n PATH>
 
 Read relative treedata file in addition to the default treedata file. See
 option B<-n>.
@@ -492,9 +492,9 @@ I<%HOME%> if it is set.
 #endif
 The existing default treedata file is overwritten.
 
-=item B<-S DIR>
+=item B<-S PATH>
 
-Scan directory tree from DIR and overwrite the default treedata file.
+Scan directory tree from PATH and overwrite the default treedata file.
 See also options B<-A>, B<-s> and B<-E>. E.g. with option B<-A> you
 can create a default treedata file of your choice. Examples:
 
@@ -512,10 +512,10 @@ LAN server by typing something like: C<wcd -S \\servername>.
 
 #endif
 
-=item B<+S DIR>
+=item B<+S PATH>
 
-Scan disk from DIR and place relative paths in a relative treedata file.
-This file is used by the B<-n> and +n options of wcd. E.g. C<wcd -n DIR
+Scan disk from PATH and place relative paths in a relative treedata file.
+This file is used by the B<-n> and +n options of wcd. E.g. C<wcd -n PATH
 +src>,
 
 =item B<-t>
@@ -525,6 +525,11 @@ Do not strip tmp mount dir C</tmp_mnt> (Unix only)
 Wcd strips by default C</tmp_mnt/> from the match. Directory
 C</tmp_mnt> is used by the automounter. This behaviour can be turned
 off with the B<-t> option.
+
+=item B<-T>
+
+Draw tree with ASCII characters. Use this option if line drawing characters
+are not displayed properly in your terminal.
 
 =item B<-u USER>
 
@@ -558,11 +563,11 @@ Print version information and exit.
 
 Wild matching only. Treat all matches as wild matches.
 
-=item B<-x DIR>
+=item B<-x PATH>
 
-Exclude DIR from scanning.
+Exclude PATH from scanning.
 
-When this option is used wcd will exclude DIR and all its subdirectories
+When this option is used wcd will exclude PATH and all its subdirectories
 when wcd is scanning a disk. Wildcards are supported and matched against
 absolute paths. Option -x can be used multiple times.
 
