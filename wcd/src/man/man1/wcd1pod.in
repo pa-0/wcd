@@ -48,7 +48,7 @@ chdir for DOS and Unix
 
 =head1 SYNOPSIS
 
-    wcd [options] [directory pattern to change to]
+    wcd [options] [directory]
 
 =head1 DESCRIPTION
 

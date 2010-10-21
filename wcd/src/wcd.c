@@ -1549,10 +1549,10 @@ void print_help()
 {
         printf(_("\
 wcd  %s  (%s) - Wherever Change Directory\n\
-Usage: wcd [options] [drive:][dir]\n\
+Usage: wcd [options] [directory]\n\
 \n\
-  [dir]   (partial) name of directory to change to.\n\
-          Wildcards *, ? and [SET] are supported!\n\n"),VERSION,VERSION_DATE);
+directory:  Name of directory to change to.\n\
+            Wildcards *, ? and [SET] are supported.\n\n"),VERSION,VERSION_DATE);
 
   printf(_("options:\n\
   -a             Add current path to treefile\n\
@@ -1595,8 +1595,8 @@ Usage: wcd [options] [drive:][dir]\n\
   +S PATH        Scan disk from PATH, create relative treefile\n\
   -t             Don't strip /tmp_mnt from paths\n\
   -T             Draw tree with ASCII characters\n\
-  -u USER        use USER treefile\n\
-  +u USER        add USER treefile\n\
+  -u USER        use USER's treefile\n\
+  +u USER        add USER's treefile\n\
   -v, --verbose  Verbose operation\n\
   -V, --version  print Version info\n\
   -w             Wild matching only\n\
