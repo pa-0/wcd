@@ -33,13 +33,13 @@ I always kept this in mind while developing wcd:
   Don't change wcd into a directory/file manager.
 * low requirements.
   A minimal wcd version can be build with just an ansi-C compiler.
-  The graphical tree is drawn with ascii characters and colours
+  The graphical tree can be drawn with ascii characters and colours
   are not required. This way wcd runs also on very old systems.
 * portable
   So I can use wcd everywhere.
 * backwards compatible
   Don't bother users.
-  In a multi-user environment, different versions can be used.
+  In a multi-user environment, old and new versions can be used together.
 
 
 NOT TO DO
