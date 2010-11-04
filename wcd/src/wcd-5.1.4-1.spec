@@ -1,10 +1,10 @@
 Summary: chdir for DOS and Unix
 Name: wcd
-Version: 5.1.3
+Version: 5.1.4
 Release: 1
 License: GPL
 Group: Applications/File
-Source: wcd-5.1.3-src.tar.gz
+Source: wcd-5.1.4-src.tar.gz
 URL: http://www.xs4all.nl/~waterlan/
 Packager: Erwin Waterlander <waterlan@xs4all.nl>
 
@@ -12,13 +12,13 @@ Packager: Erwin Waterlander <waterlan@xs4all.nl>
 Wcd.   Directory changer for DOS and Unix.  Another Norton
 Change Directory (NCD) clone.
 
-Wcd is a program to change directory fast. It  saves  time
-typing at the keyboard. One needs to type only a part of a
-directory name and wcd will jump to it.  Wcd  has  a  fast
-selection  method  in  case of multiple matches and allows
-aliasing and banning of directories. Wcd also  includes  a
-full-screen interactive directory tree browser with  speed
-search.
+Wcd is a command-line program to change directory fast. It
+saves time typing at the keyboard.  One needs to type only
+a part of a directory  name and wcd  will jump to it.  Wcd
+has a fast selection  method  in  case of multiple matches
+and allows aliasing and  banning of directories.  Wcd also
+includes a full-screen interactive  directory tree browser
+with speed search.
 
 %prep
 %setup
