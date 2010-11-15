@@ -28,6 +28,13 @@ dist:
 	cd ${RELEASE_DIR} ; chmod -x */Makefile */*.txt */*.c */*.h src/po/*.* src/man/man1/*.*
 	# Create package in DOS text format.
 	cd ${RELEASE_DIR}/misc ; ${MAKE} -f unix2dos.mk
+	# Create doc package for people who are not able to create it.
+	cd .. ; tar cvzf wcd-${VERSION}-doc.tar.gz \
+		wcd-${VERSION}/doc/wcd.* \
+		wcd-${VERSION}/src/man/man1/wcd.1 \
+		wcd-${VERSION}/src/man/man1/wcd1.pod
+	# Remove generated doc files from Unix package.
+	cd ${RELEASE_DIR}/src ; ${MAKE} maintainer-clean
 	# Create the packages.
 	cd .. ; tar cvzf wcd-${VERSION}-src.tar.gz wcd-${VERSION}
 	cd .. ; rm -f wcd${VERSION_SHORT}s.zip

@@ -8,6 +8,7 @@
   - Version number is only defined in version.mk. (also thanks to Jari Aalto)
   - LCC-WIN32 makefiles replaced by GNUmakefile, because lcc make
     doesn't support the 'include' directive.
+  - Don't include generated documentation files in Unix source package.
 
 5.1.3 2010-08-29
   - Added German language file (thanks to Philipp Thomas)
