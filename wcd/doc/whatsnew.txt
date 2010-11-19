@@ -1,4 +1,4 @@
-5.1.4-beta2 2010-10-21
+5.1.4 2010-11-19
   - Use line drawing characters for graphical tree.
   - New option -T. Draw tree with ASCII characters.
   - Option -gd in combination with a search pattern will dump
