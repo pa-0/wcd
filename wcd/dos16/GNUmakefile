@@ -28,7 +28,7 @@ all :
 	@echo "targets: install uninstall dist"
 
 install :
-	${MAKE} -C ../src docfiles
+	${MAKE} -C ../src doc
 	${MKDIR} -p -m 755 ${DESTDIR}${bindir}
 	${MKDIR} -p -m 755 ${DESTDIR}${mandir}/man1
 	${MKDIR} -p -m 755 ${DESTDIR}${docdir}
