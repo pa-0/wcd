@@ -16,7 +16,12 @@ PREREQUISITES
 	    make --version
 	    gcc --version
 
-	If you can't meet the prerequisites, see section USING NATIVE OS TOOLS below.
+	If you are not able to generate the documentation files, download the documentation
+	package wcd-<version>-doc.tar.gz with the generated documentation files and unpack
+	it over the source package.
+
+	As a last resort there are some simple GNU and native Unix Makefiles included
+	which allow you to build a minimal version of Wcd. See below.
 
 
 BASIC INSTALLATION
