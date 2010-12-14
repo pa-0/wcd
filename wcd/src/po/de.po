@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.4\n"
-"Report-Msgid-Bugs-To: Erwin Waterlander <waterlan@xs4all.nl>\n"
-"POT-Creation-Date: 2010-10-20 11:00+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-14 07:54+0100\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -621,11 +621,11 @@ msgstr "Strg-c oder <Esc>  Abbruch."
 msgid "<Enter>           Abort."
 msgstr "<Eingabe>          Abbruch."
 
-#: display.c:1104 graphics.c:1640 graphics.c:1663 graphics.c:1680
+#: display.c:1104 graphics.c:1641 graphics.c:1664 graphics.c:1681
 msgid "Press any key."
 msgstr "Eine beliebige Taste drücken."
 
-#: display.c:1167 graphics.c:1928
+#: display.c:1167 graphics.c:1929
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
@@ -636,7 +636,7 @@ msgstr ""
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "wcd: Fehler: die Bildschirmhöhe muss mehr als 3 Zeilen sein.\n"
 
-#: display.c:1222 graphics.c:1961
+#: display.c:1222 graphics.c:1962
 msgid "Wcd: error creating scroll window.\n"
 msgstr "wcd: Fehler beim Erzeugen des rollbaren Fensters.\n"
 
@@ -758,137 +758,141 @@ msgid "t                 switch centered mode on/off."
 msgstr "t                  Zentrieren ein- bzw. ausschalten."
 
 #: graphics.c:1635
+msgid "T                 toggle between line drawing and ASCII characters."
+msgstr ""
+
+#: graphics.c:1636
 msgid "<Esc> or q        Abort."
 msgstr "<Esc> oder q       Abbruch."
 
-#: graphics.c:1636
+#: graphics.c:1637
 msgid "/                 Search forward."
 msgstr "/                  vorwärts suchen."
 
-#: graphics.c:1637
+#: graphics.c:1638
 msgid "?                 Search backward."
 msgstr "?                  rúckwärts suchen."
 
-#: graphics.c:1638
+#: graphics.c:1639
 msgid "n                 Repeat latest / or ? search."
 msgstr "n                  letzte / oder ? Suche wiederholen."
 
-#: graphics.c:1639 graphics.c:1662
+#: graphics.c:1640 graphics.c:1663
 msgid "<Enter>           Select directory."
 msgstr "<Eingabe>          Verzeichnis auswählen."
 
-#: graphics.c:1646
+#: graphics.c:1647
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "SUCHMODUS mit Unterstützung für Platzhalte- und Unterverzeichnisse."
 
-#: graphics.c:1647
+#: graphics.c:1648
 msgid "<Left>            go left."
 msgstr "<Links>            nach links gehen."
 
-#: graphics.c:1648
+#: graphics.c:1649
 msgid "<Down>            go down."
 msgstr "<Runter>           nach Unten."
 
-#: graphics.c:1649
+#: graphics.c:1650
 msgid "<Up>              go up."
 msgstr "<Hoch>             nach oben gehen."
 
-#: graphics.c:1650
+#: graphics.c:1651
 msgid "<Right>           go right."
 msgstr "<Rechts>           nach rechts gehen."
 
-#: graphics.c:1651
+#: graphics.c:1652
 msgid "CTRL-v            go forward to dir with same name."
 msgstr "Strg-v             vorwärts gehen zu Verzeichnis mit gleichem Namen."
 
-#: graphics.c:1652
+#: graphics.c:1653
 msgid "CTRL-p            go backward to dir with same name."
 msgstr "Strg-p             rückwärts gehen zu Verzeichnis mit gleichem Namen."
 
-#: graphics.c:1653
+#: graphics.c:1654
 msgid "CTRL-a            go to beginning of line."
 msgstr "Strg-a             An den Anfang der Zeile springen."
 
-#: graphics.c:1654
+#: graphics.c:1655
 msgid "CTRL-e            go to end of line."
 msgstr "Strg-e             an das Ende der Zeile springen."
 
-#: graphics.c:1655
+#: graphics.c:1656
 msgid "CTRL-g            go to last dir."
 msgstr "Strg-g             zum letzten Verzeichnis gehen."
 
-#: graphics.c:1656
+#: graphics.c:1657
 msgid "CTRL-f            go page forward."
 msgstr "Strg-f             eine Seite vorwärts."
 
-#: graphics.c:1657
+#: graphics.c:1658
 msgid "CTRL-b            go page backward."
 msgstr "Strg-b             eine Seite zurück."
 
-#: graphics.c:1658
+#: graphics.c:1659
 msgid "CTRL-u            go half page up."
 msgstr "Strg-u             eine halbe Seite nach oben"
 
-#: graphics.c:1659
+#: graphics.c:1660
 msgid "CTRL-d            go half page down."
 msgstr "Strg-d             eine halbe Seite nach unten"
 
-#: graphics.c:1660
+#: graphics.c:1661
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
 msgstr "<Esc> oder Strg-x  SUCHMODUS abbrechen."
 
-#: graphics.c:1661
+#: graphics.c:1662
 msgid "CTRL-n            Repeat latest / or ? search."
 msgstr "Strg-n             Letzte / oder ? Suche wiederholen."
 
-#: graphics.c:1669
+#: graphics.c:1670
 msgid "ZOOMING:"
 msgstr "VERGRÖSSERN:"
 
-#: graphics.c:1670
+#: graphics.c:1671
 msgid "z or i or CTRL-i  zoom in."
 msgstr "z oder i oder Strg-i  hineinzoomen."
 
-#: graphics.c:1671
+#: graphics.c:1672
 msgid "Z or o or CTRL-o  zoom out."
 msgstr "Z oder o oder Strg-o  rauszoomen."
 
-#: graphics.c:1672
+#: graphics.c:1673
 msgid "c                 condense: fold current level."
 msgstr "c                     verkürzen:: aktuelle Ebene falten."
 
-#: graphics.c:1673
+#: graphics.c:1674
 msgid "C                 condense: fold subdir level."
 msgstr "C                     verkürzen: Unterverzeichnisebene falten."
 
-#: graphics.c:1674
+#: graphics.c:1675
 msgid "w                 condense: fold current and sub levels."
 msgstr ""
 "w                     verkürzen: aktuelle Ebene mit Unterebenen falten."
 
-#: graphics.c:1675
+#: graphics.c:1676
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
 msgstr ""
 "y oder Strg-y         dekomprimieren: aktuelle Ebene samt Unterebenen "
 "auffalten."
 
-#: graphics.c:1676
+#: graphics.c:1677
 msgid "r or CTRL-r       uncondense: unfold all directories."
 msgstr "r oder Strg-r         dekomprimieren: alle Ebenen ausfalten."
 
-#: graphics.c:1677
+#: graphics.c:1678
 msgid "-                 fold directory."
 msgstr "-                     Verzeichnis einfalten."
 
-#: graphics.c:1678
+#: graphics.c:1679
 msgid "+ or =            unfold directory."
 msgstr "+ oder =              Verzeinis auffalten."
 
-#: graphics.c:1679
+#: graphics.c:1680
 msgid "l or <Right>      unfold and go right."
 msgstr "l oder <Rechts>       auffalten und nach rechts gehen."
 
-#: graphics.c:1683
+#: graphics.c:1684
 msgid "Screenheight must be > 21 for help"
 msgstr "Bildschirmhöhe muss für die Hilfe > 21 sein."
 

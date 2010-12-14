@@ -1632,12 +1632,13 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win,13,0,_("u                 go half page up."));
       wcd_mvwaddstr(win,14,0,_("d                 go half page down."));
       wcd_mvwaddstr(win,15,0,_("t                 switch centered mode on/off."));
-      wcd_mvwaddstr(win,16,0,_("<Esc> or q        Abort."));
-      wcd_mvwaddstr(win,17,0,_("/                 Search forward."));
-      wcd_mvwaddstr(win,18,0,_("?                 Search backward."));
-      wcd_mvwaddstr(win,19,0,_("n                 Repeat latest / or ? search."));
-      wcd_mvwaddstr(win,20,0,_("<Enter>           Select directory."));
-      wcd_mvwaddstr(win,21,0,_("Press any key."));
+      wcd_mvwaddstr(win,16,0,_("T                 toggle between line drawing and ASCII characters."));
+      wcd_mvwaddstr(win,17,0,_("<Esc> or q        Abort."));
+      wcd_mvwaddstr(win,18,0,_("/                 Search forward."));
+      wcd_mvwaddstr(win,19,0,_("?                 Search backward."));
+      wcd_mvwaddstr(win,20,0,_("n                 Repeat latest / or ? search."));
+      wcd_mvwaddstr(win,21,0,_("<Enter>           Select directory."));
+      wcd_mvwaddstr(win,22,0,_("Press any key."));
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
@@ -2126,6 +2127,9 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
      break;
       case 't':
                graphics_mode ^= WCD_GRAPH_CENTER ;
+         break;
+      case 'T':
+               wcd_cwin.graphics_mode ^= WCD_GRAPH_ASCII ;
          break;
      default:
      break;
