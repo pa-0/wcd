@@ -102,14 +102,16 @@ INSTALL_OBJS_DOC   = \
   ../doc/problems.txt \
   ../doc/todo.txt \
   $(INSTALL_OBJS_DOC_INSTALL) \
-  $(INSTALL_OBJS_DOC_COPYING)
+  $(INSTALL_OBJS_DOC_COPYING) \
+  ../doc/$(PACKAGE).txt \
+  ../doc/$(PACKAGE).htm
 
 ifdef ENABLE_NLS
 POT		= po/$(PACKAGE).pot
 POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 endif
-DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).htm ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf
+DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).htm
 
 CPP		= cpp
 CPP_FLAGS_POD	= ALL
@@ -466,7 +468,7 @@ maintainer-clean: distclean
 	rm -f \
 	  man/man1/wcd1.pod \
 	  man/man1/wcd.1 \
-	  $(DOCFILES)
+	  $(DOCFILES)  ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf
 
 # 'maintainer-clean' was 'realclean' in old GNU standards.
 realclean: maintainer-clean
@@ -480,30 +482,10 @@ install-mo: $(MOFILES)
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
 	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 
-install-txt: ../doc/$(PACKAGE).txt
-	@echo "-- target: install-txt"
-	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
-	$(INSTALL_DATA) $< $(DESTDIR)$(docdir)
-
-install-html: ../doc/$(PACKAGE).htm
-	@echo "-- target: install-html"
-	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
-	$(INSTALL_DATA) $< $(DESTDIR)$(docdir)
-
-install-pdf: ../doc/$(PACKAGE).pdf
-	@echo "-- target: install-pdf"
-	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
-	$(INSTALL_DATA) $< $(DESTDIR)$(docdir)
-
-install-ps: ../doc/$(PACKAGE).ps
-	@echo "-- target: install-ps"
-	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
-	$(INSTALL_DATA) $< $(DESTDIR)$(docdir)
-
-install-doc: install-txt install-html install-ps install-pdf
+install-doc:
 	@echo "-- target: install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
-	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
+	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(wildcard ../doc/$(PACKAGE).ps) $(wildcard ../doc/$(PACKAGE).pdf) $(DESTDIR)$(docdir)
 
 install-man: $(INSTALL_OBJS_MAN1)
 	@echo "-- target: install-man"

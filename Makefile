@@ -19,7 +19,7 @@ dist:
 	rm -rf ${RELEASE_DIR_SHORT}
 	svn export https://wcd.svn.sourceforge.net/svnroot/wcd/trunk/wcd ${RELEASE_DIR}
 	# Include doc files, to make it easier to build wcd.
-	cd ${RELEASE_DIR}/src ; ${MAKE} doc
+	cd ${RELEASE_DIR}/src ; ${MAKE} doc pdf
 	# Make sure .po files are up to date.
 	cd ${RELEASE_DIR}/src ; ${MAKE} merge
 	# cleanup.

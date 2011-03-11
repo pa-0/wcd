@@ -93,6 +93,16 @@ INSTALLATION NAMES
 	    make prefix=$HOME clean all
 	    make prefix=$HOME strip install
 
+DOCUMENTATION
+
+    Manual pages are generated from Perl POD files. By default
+    the manual pages are are created in text and html format.
+    To create a manual in PDF format type:
+
+        make pdf
+
+    PDF generation requires GhostScript to be installed.
+
 DISTRIBUTION PACKAGE CREATION
 
 	After installation a package can be created that contains
