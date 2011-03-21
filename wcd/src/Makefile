@@ -213,7 +213,7 @@ endif
 endif
 
 ifndef OS
-ifneq (, $(wildcard /cygdrive))
+ifeq ($(findstring CYGWIN,$(shell uname)),CYGWIN)
 	OS = cygwin
 endif
 endif
