@@ -866,7 +866,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
       return ;
    }
 
-   printf(_("Wcd: Please wait. Scanning disk. Building treedata-file from %s\n"),path);
+   printf(_("Wcd: Please wait. Scanning disk. Building treedata-file %s from %s\n"),treefile, path);
 
 #ifdef MSDOS
       changeDisk(path,&changedrive,drive,use_HOME);
@@ -1684,6 +1684,36 @@ void print_version()
    printf(_("Download the latest executables and sources from:\n"));
    printf(_("http://www.xs4all.nl/~waterlan/\n"));
 }
+
+#ifdef WCD_SHELL
+void create_go_dir(char *go_file)
+{
+   char path[DD_MAXPATH];
+   char *ptr ;
+#if (defined(UNIX) || defined(DJGPP) || defined(OS2))
+   mode_t m;
+#endif
+
+   strncpy(path, go_file, sizeof(path));
+   if ( (ptr = strrchr(path,DIR_SEPARATOR)) != NULL)
+   {
+      *ptr = '\0' ;
+       if (wcd_isdir(path) != 0) /* is it a dir */
+       {
+#if (defined(UNIX) || defined(DJGPP) || defined(OS2))
+          m = S_IRWXU | S_IRWXG | S_IRWXO;
+          if (wcd_mkdir(path,m)!=0)
+#else
+          if (wcd_mkdir(path)!=0)
+#endif
+             fprintf(stderr,_("Wcd: error: Permission denied to create directory %s\n"), path);
+          else
+             fprintf(stderr,_("Wcd: creating directory %s\n"), path);
+       }
+   }
+}
+#endif
+
 /********************************************************************
  *
  *             empty wcd.go file
@@ -1697,6 +1727,9 @@ void empty_wcdgo(char *go_file, int use_GoScript)
 
    if (use_GoScript == 0)
       return;
+
+   /* try to create directory for go-script if it doesn't exist */
+   create_go_dir(go_file);
 
    if  ((outfile = fopen(go_file,"w")) == NULL)
    {
@@ -1717,6 +1750,9 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript)
 
    if (use_GoScript == 0)
       return;
+
+   /* try to create directory for go-script if it doesn't exist */
+   create_go_dir(go_file);
 
    if  ((outfile = fopen(go_file,"w")) == NULL)
    {
@@ -1782,32 +1818,13 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 {
    FILE *outfile;
    char *ptr ;
-   char path[DD_MAXPATH];
-#if (defined(UNIX) || defined(DJGPP) || defined(OS2))
-   mode_t m;
-#endif
 
    if (use_GoScript == 0)
       return;
 
    /* try to create directory for go-script if it doesn't exist */
-   strncpy(path, go_file, sizeof(path));
-   if ( (ptr = strrchr(path,DIR_SEPARATOR)) != NULL)
-   {
-      *ptr = '\0' ;
-       if (wcd_isdir(path) != 0) /* is it a dir */
-       {
-#if (defined(UNIX) || defined(DJGPP) || defined(OS2))
-          m = S_IRWXU | S_IRWXG | S_IRWXO;
-          if (wcd_mkdir(path,m)!=0)
-#else
-          if (wcd_mkdir(path)!=0)
-#endif
-             fprintf(stderr,_("Wcd: error: Permission denied to create directory %s\n"), path);
-          else
-             fprintf(stderr,_("Wcd: creating directory %s\n"), path);
-       }
-   }
+   create_go_dir(go_file);
+
    /* open go-script */
    if  ((outfile = fopen(go_file,"w")) == NULL)
    {
@@ -1924,6 +1941,7 @@ int main(int argc,char** argv)
    char rootdir[DD_MAXPATH],treefile[DD_MAXPATH],banfile[DD_MAXPATH],aliasfile[DD_MAXPATH];
    char stackfile[DD_MAXPATH];
    char scandir[DD_MAXPATH];
+   char rootscandir[DD_MAXPATH];
    char extratreefile[DD_MAXPATH];
    char homedir[DD_MAXPATH];
    char dir[DD_MAXPATH];  /* directory to go to, or dir to scan, make or remove */
@@ -2000,6 +2018,18 @@ int main(int argc,char** argv)
       Don't assume user has PDCurses 2.7, so don't set PDC_RESTORE_SCREEN by default.
       Erwin */
 #endif
+
+    if ((ptr = getenv("HOME")) == NULL)
+    {
+       strcpy(rootscandir,ROOTDIR);
+    } else {
+       if (strlen(ptr) > (DD_MAXPATH -20))
+       {
+         fprintf(stderr, "%s", _("Wcd: error: Value of environment variable HOME is too long.\n"));
+         return(1);
+       }
+       strncpy(rootscandir,ptr,sizeof(rootscandir));
+    }
 
 #ifdef MSDOS
 
@@ -2198,7 +2228,7 @@ int main(int argc,char** argv)
             }
             break;
          case 's':
-            scanDisk(rootdir,treefile,0,0,&use_HOME,exclude);
+            scanDisk(rootscandir,treefile,0,0,&use_HOME,exclude);
             scan_mk_rm = 1;
             break ;
          case 'S':
@@ -2862,7 +2892,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
    if  (use_default_treedata)
    {
      if ((infile = fopen(treefile,"r")) == NULL)
-       scanDisk(rootdir,treefile,0,0,&use_HOME,exclude);
+       scanDisk(rootscandir,treefile,0,0,&use_HOME,exclude);
      else fclose(infile);
     }
 

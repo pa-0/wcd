@@ -207,7 +207,7 @@ endif
 OS =
 
 ifndef OS
-ifneq (, $(wildcard /boot/vmlinuz*))
+ifeq (Linux, $(shell uname -s))
 	OS = linux
 endif
 endif
