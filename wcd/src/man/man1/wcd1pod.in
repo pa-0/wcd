@@ -336,7 +336,8 @@ Dump the treedata files as a tree to stdout.
 
 =item B<-G PATH>
 
-Set directory path of go-script equal to PATH.
+Write go-script in directory PATH. For instance on Unix, C<wcd -G PATH> will write
+a go-script PATH/wcd.go.
 
 =item B<-GN>
 
@@ -484,7 +485,8 @@ remove the directories from the treedata file.
 
 =item B<-s>
 
-(re)Scan disk from C<$HOME> directory. This is the default scanning mode.
+(re)Scan disk from C<$HOME> directory. If HOME is not defined the disk is
+scanned from root directory /. This is the default scanning mode.
 
 #ifdef dos
 Wcd for DOS or Windows scans the current disk from DOS root \ or from
