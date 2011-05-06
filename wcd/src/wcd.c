@@ -12,7 +12,7 @@ WWW     : http://www.xs4all.nl/~waterlan/
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 1997-2010 Erwin Waterlander
+Copyright (C) 1997-2011 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -37,6 +37,7 @@ TAB = 3 spaces
 */
 
 #include <stdio.h>
+#include <errno.h>
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
@@ -85,6 +86,24 @@ TAB = 3 spaces
 /* Global variables */
 
 const wcd_char *default_mask = ALL_FILES_MASK;
+
+FILE *wcd_fopen(const char *filename, const char *m, int quiet)
+{
+  FILE *f;
+  char *errstr;
+
+  //printf("wcd_fopen %s %d\n",filename, quiet);
+  f = fopen(filename, m);
+  if ( !quiet && (f == NULL))
+  {
+    errstr = strerror(errno);
+    if (strcmp(m,"r") == 0)
+      fprintf(stderr,_("Wcd: error: Unable to read file %s: %s\n"), filename, errstr);
+    else
+      fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
+  }
+  return(f);
+}
 
 /********************************************************************
  * void cleanPath(char path[], int len, minlength)
@@ -146,12 +165,7 @@ void writeList(char * filename, nameset n)
    int i;
    FILE *outfile;
 
-   if ( (outfile = fopen(filename,"w")) == NULL)
-   {
-      fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), filename);
-      return;
-   }
-   else
+   if ( (outfile = wcd_fopen(filename,"w",0)) != NULL)
    {
       for(i=0;(i<n->size);i++)
       {
@@ -391,13 +405,8 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
 
  if(tmp != NULL)
  {
-
    /* open the treedata file */
-   if  ((outfile = fopen(filename,"a")) == NULL)
-   {
-      fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), filename);
-   }
-   else
+   if  ((outfile = wcd_fopen(filename,"a",0)) != NULL)
    {
      fprintf(outfile,"%s\n",tmp);
      printf(_("Wcd: %s added to file %s\n"),tmp,filename);
@@ -417,7 +426,6 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
          }
       }
      }
-
      fclose(outfile);
    }
  }
@@ -893,9 +901,9 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
 
    /* open the output file */
    if (append)
-   outfile = fopen(treefile,"a");  /* append to database */
+     outfile = fopen(treefile,"a");  /* append to database */
    else
-   outfile = fopen(treefile,"w");  /* create new database */
+     outfile = fopen(treefile,"w");  /* create new database */
 
    if (!outfile) /* Try to open in a temp dir */
    {
@@ -937,15 +945,12 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
 #else
    /* open the output file */
    if (append)
-   outfile = fopen(treefile,"a");  /* append to database */
+     outfile = wcd_fopen(treefile,"a",0);  /* append to database */
    else
-   outfile = fopen(treefile,"w");  /* create new database */
+     outfile = wcd_fopen(treefile,"w",0);  /* create new database */
 
-   if  (!outfile)
-   {
-      fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), treefile);
+   if  (outfile == NULL)
       return ;
-   }
 #endif
    finddirs( path, &offset, outfile, use_HOME, exclude); /* Build treedata-file */
    fclose(outfile);
@@ -1032,6 +1037,7 @@ void deleteLink(char *path, char *treefile)
 {
    static struct stat buf ;
    char tmp2[DD_MAXPATH];
+   char *errstr;
 
  if (stat(path, &buf) == 0)
  {
@@ -1039,9 +1045,9 @@ void deleteLink(char *path, char *treefile)
    {
         char *line_end ;
 
-         /* get the parent path of the link */
+        /* get the parent path of the link */
 
-         if( (line_end = strrchr(path,DIR_SEPARATOR)) != NULL)
+        if( (line_end = strrchr(path,DIR_SEPARATOR)) != NULL)
           {
             *line_end = '\0' ;
             line_end++;
@@ -1050,26 +1056,29 @@ void deleteLink(char *path, char *treefile)
         else
           line_end = path;  /* we were are already there */
 
-           strcpy(tmp2,line_end);
-         wcd_getcwd(path, DD_MAXPATH);  /* get the full path of parent dir*/
-         strcat(path,"/");
-         strcat(path,tmp2);
-         wcd_fixpath(path,DD_MAXPATH);
+        strcpy(tmp2,line_end);
+        wcd_getcwd(path, DD_MAXPATH);  /* get the full path of parent dir*/
+        strcat(path,"/");
+        strcat(path,tmp2);
+        wcd_fixpath(path,DD_MAXPATH);
 
-         if (remove(tmp2)==0)    /* delete the link */
-           {
-             printf(_("Wcd: Removed link %s\n"),path);
-             cleanTreeFile(treefile,path);
-           }
+        if (remove(tmp2)==0)    /* delete the link */
+          {
+            printf(_("Wcd: Removed link %s\n"),path);
+            cleanTreeFile(treefile,path);
+          }
         else
-           fprintf(stderr,_("Wcd: error: Permission denied to remove link %s\n"),path);
-     }
-
+          fprintf(stderr,_("Wcd: error: Permission denied to remove link %s\n"),path);
+   }
    else
       fprintf(stderr,_("Wcd: %s is a link to a file.\n"),path);
  }
  else
-   fprintf(stderr,_("Wcd: %s is not a directory.\n"),path);
+ {
+   errstr = strerror(errno);
+   fprintf(stderr,"Wcd: %s: %s\n",path,errstr);
+ }
+
 }
 #endif
 
@@ -1197,14 +1206,14 @@ int wcd_getline(char s[], int lim, FILE* infile)
  *
  ********************************************************************/
 
-void read_treefile(char* filename, nameset bd, int silent)
+void read_treefile(char* filename, nameset bd, int quiet)
 {
    FILE *infile;
    char path[DD_MAXPATH];
    int len;
 
    /* open treedata-file */
-   if  ((infile = fopen(filename,"r")) != NULL)
+   if  ((infile = wcd_fopen(filename,"r", quiet)) != NULL)
    {
       while (!feof(infile) )
       {
@@ -1219,12 +1228,6 @@ void read_treefile(char* filename, nameset bd, int silent)
       } /* while (!feof(infile) ) */
       fclose(infile);
    }
-   else
-   {
-      if (!silent)
-         fprintf(stderr,_("Wcd: error: Permission denied to open file %s\n"),filename);
-   }
-
 }
 /********************************************************************
  *
@@ -1322,11 +1325,8 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    int wild = 0;
 
    /* open treedata-file */
-   if  ((infile = fopen(filename,"r")) == NULL)
-   {
-      fprintf(stderr,_("Wcd: error: Permission denied to open file %s\n"),filename);
+   if  ((infile = wcd_fopen(filename,"r",0)) == NULL)
       return;
-   }
 
    if( (dir_str = strrchr(org_dir,DIR_SEPARATOR)) != NULL)
       dir_str++;
@@ -1731,11 +1731,8 @@ void empty_wcdgo(char *go_file, int use_GoScript)
    /* try to create directory for go-script if it doesn't exist */
    create_go_dir(go_file);
 
-   if  ((outfile = fopen(go_file,"w")) == NULL)
-   {
-      fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), go_file);
+   if  ((outfile = wcd_fopen(go_file,"w",0)) == NULL)
       exit(0);
-   }
 
    fprintf(outfile, "%s", "\n");
    fclose(outfile);
@@ -1754,11 +1751,9 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript)
    /* try to create directory for go-script if it doesn't exist */
    create_go_dir(go_file);
 
-   if  ((outfile = fopen(go_file,"w")) == NULL)
-   {
-      fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), go_file);
+   if  ((outfile = wcd_fopen(go_file,"w",0)) == NULL)
       exit(0);
-   }
+
    if(changedrive == 1)
       fprintf(outfile,"cd %s\n",drive);
    else
@@ -1826,11 +1821,9 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
    create_go_dir(go_file);
 
    /* open go-script */
-   if  ((outfile = fopen(go_file,"w")) == NULL)
-   {
-      fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), go_file);
+   if  ((outfile = wcd_fopen(go_file,"w",0)) == NULL)
       return;
-   }
+
 # ifdef WCD_UNIXSHELL
    /* unix shell */
 #  ifdef WCD_DOSBASH
@@ -2297,7 +2290,7 @@ int main(int argc,char** argv)
         printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
         printf(_("\
 Chdir for Dos and Unix.\n\
-Copyright (C) 1997-2010 Erwin Waterlander\n\
+Copyright (C) 1997-2011 Erwin Waterlander\n\
 Copyright (C) 1994-2002 Ondrej Popp on C3PO\n\
 Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n\
 Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n\
@@ -2518,11 +2511,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                   tmp[len] = '\0';
 
                /* open the treedata file */
-               if  ((outfile = fopen(aliasfile,"a")) == NULL)
-               {
-                  fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"), aliasfile);
-               }
-               else
+               if  ((outfile = wcd_fopen(aliasfile,"a",0)) != NULL)
                {
                   wcd_fixpath(tmp,sizeof(tmp)) ;
                   rmDriveLetter(tmp,&use_HOME);
@@ -2892,9 +2881,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
    if  (use_default_treedata)
    {
      if ((infile = fopen(treefile,"r")) == NULL)
-       scanDisk(rootscandir,treefile,0,0,&use_HOME,exclude);
-     else fclose(infile);
-    }
+       scanDisk(rootscandir,treefile,0,0,&use_HOME,exclude); /* create treefile */
+     else
+       fclose(infile);
+   }
 
 
 
@@ -3042,7 +3032,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             dumpTree(rootNode);
             ptr = NULL;
          }
-	 else
+         else
             ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics);
          if (ptr != NULL)
             strcpy(best_match,ptr);
@@ -3093,7 +3083,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             dumpTree(rootNode);
             ptr = NULL;
          }
-	 else
+         else
             ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics);
          if (ptr != NULL)
             strcpy(best_match,ptr);

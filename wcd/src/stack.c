@@ -238,9 +238,8 @@ int stack_write(WcdStack ws,char *stackfilename)
 			}
 		}
 
-		if ( (outfile = fopen(stackfilename,"w")) == NULL)
+		if ( (outfile = wcd_fopen(stackfilename,"w",0)) == NULL)
 		{
-			fprintf(stderr,_("Wcd: error: Write access to file %s denied.\n"),stackfilename);
 			return(0);
 		}
 		else

@@ -114,6 +114,7 @@ typedef char wcd_char;
 #  define MBSTOWCS mbstowcs
 #endif
 
+FILE *wcd_fopen(const char *filename, const char *m, int quiet);
 void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude);
 void read_treefile(char *filename, nameset bd, int silent);
 void rmDirFromList(char *string, nameset n);
