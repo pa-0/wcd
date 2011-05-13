@@ -8,7 +8,7 @@ Author: Erwin Waterlander
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 2002-2009 Erwin Waterlander
+Copyright (C) 2002-2011 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -43,6 +43,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "wcddir.h"
 #include "match.h"
 #include <string.h>
+#include <errno.h>
 
 #if (defined(WIN32) && defined(WCD_UNICODE))
 #include <wchar.h>
@@ -239,12 +240,15 @@ char *wcd_getcwd(char *buf, int size)
 #endif
 
    if (err == 0)
-      return(NULL);  /* fail */
+   {
+     fprintf(stderr,_("Wcd: error: Unable to get current working directory\n"));
+     return(NULL);  /* fail */
+   }
    else
       return(buf);   /* success */
 }
 
-int wcd_chdir(char *buf)
+int wcd_chdir(char *buf, int quiet)
 {
    BOOL err;
 #ifdef WCD_UNICODE
@@ -259,12 +263,18 @@ int wcd_chdir(char *buf)
 #endif
 
    if (err == 0)
+   {
+      if ( !quiet )
+      {
+         fprintf(stderr,_("Wcd: error: Unable to change to directory %s\n"), buf);
+      }
       return(1);   /* fail */
+   }
    else
       return(0);   /* success */
 }
 
-int wcd_mkdir(char *buf)
+int wcd_mkdir(char *buf, int quiet)
 {
    BOOL err;
 #ifdef WCD_UNICODE
@@ -281,10 +291,16 @@ int wcd_mkdir(char *buf)
    if (err == TRUE)
       return(0);  /* success */
    else
-      return(1);  /* fail */
+   {
+     if ( !quiet )
+     {
+       fprintf(stderr,_("Wcd: error: Unable to create directory %s\n"), buf);
+     }
+     return(1);  /* fail */
+   }
 }
 
-int wcd_rmdir(char *buf)
+int wcd_rmdir(char *buf, int quiet)
 {
    BOOL err;
 #ifdef WCD_UNICODE
@@ -301,43 +317,13 @@ int wcd_rmdir(char *buf)
    if (err == TRUE)
       return(0);  /* success */
    else
-      return(1);  /* fail */
-}
-
-/******************************************************************
- *
- * int wcd_isdir(char *dir)
- *
- * test if *dir points to a directory.
- *
- * returns 0 on success, -1 when it fails.
- *
- * - The following method using POSIX API fails on UNC share paths
- *   like //servername/sharename on MS-Windows systems.
- *
- *       stat(path, &buf) ;
- *          if (S_ISDIR(buf.st_mode)) { ... }
- *
- * - The function 'opendir()' from <dirent.h> works on all systems,
- *   also on Windows UNC paths as above, but not all compilers have 'dirent'
- *   included. E.g. LCC 3.8 and Open Watcom 1.3 don't have it.
- *
- * - Using 'wcd_chdir()' is a portable solution.
- *
- ******************************************************************/
-int wcd_isdir(char *dir)
-{
-   char tmp[DD_MAXDIR];
-
-   wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
-
-   if (wcd_chdir(dir) == 0) /* just try to change to dir */
    {
-     wcd_chdir(tmp); /* go back */
-     return(0);
+     if ( !quiet )
+     {
+       fprintf(stderr,_("Wcd: error: Unable to remove directory %s\n"), buf);
+     }
+     return(1);  /* fail */
    }
-   else
-      return(-1);
 }
 
 
@@ -347,16 +333,36 @@ int wcd_isdir(char *dir)
 
 #if defined(UNIX) || defined(DJGPP) || defined(__OS2__)
 
-int wcd_mkdir(char *buf, mode_t m)
+int wcd_mkdir(char *buf, mode_t m, int quiet)
 {
-   return(mkdir(buf, m));
+  char *errstr;
+  int err;
+
+  err = mkdir(buf, m);
+
+  if ( !quiet && err)
+  {
+    errstr = strerror(errno);
+    fprintf(stderr,_("Wcd: error: Unable to create directory %s: %s\n"), buf, errstr);
+  }
+  return(err);
 }
 
 #else
 
-int wcd_mkdir(char *buf)
+int wcd_mkdir(char *buf, int quiet)
 {
-   return(mkdir(buf));
+  char *errstr;
+  int err;
+
+  err = mkdir(buf);
+
+  if ( !quiet && err)
+  {
+    errstr = strerror(errno);
+    fprintf(stderr,_("Wcd: error: Unable to create directory %s: %s\n"), buf, errstr);
+  }
+  return(err);
 }
 
 #endif
@@ -390,7 +396,7 @@ char *replace_volume_path_HOME(char *buf, int size)
       if ((home = getenv("HOME")) != NULL )
       {
          getcwd(tmp, sizeof(tmp)); /* remember current dir */
-         if (wcd_chdir(home) == 0)
+         if (wcd_chdir(home,0) == 0)
          {
             if (getcwd(home_abs, sizeof(home_abs)) == NULL)
             {
@@ -423,7 +429,7 @@ char *replace_volume_path_HOME(char *buf, int size)
                   }
                }
             }
-         wcd_chdir(tmp); /* go back */
+         wcd_chdir(tmp,0); /* go back */
          } else {
             status = 5; /* fail */
          }
@@ -472,23 +478,53 @@ char *replace_volume_path_HOME(char *buf, int size)
 char *wcd_getcwd(char *buf, int size)
 {
    char *err;
+   char *errstr;
 
    err = getcwd(buf, size);
+   if ( err == NULL)
+   {
+     errstr = strerror(errno);
+     fprintf(stderr,_("Wcd: error: Unable to get current working directory: %s\n"), errstr);
+   }
 #ifdef UNIX
-   replace_volume_path_HOME(buf,size);
+   else
+     replace_volume_path_HOME(buf,size);
 #endif
    return(err);
 }
 
-int wcd_chdir(char *buf)
+int wcd_chdir(char *buf, int quiet)
 {
-   return(chdir(buf));
+  char *errstr;
+  int err;
+
+  err = chdir(buf);
+
+  if ( !quiet && err)
+  {
+    errstr = strerror(errno);
+    fprintf(stderr,_("Wcd: error: Unable to change to directory %s: %s\n"), buf, errstr);
+  }
+  return(err);
 }
 
-int wcd_rmdir(char *buf)
+int wcd_rmdir(char *buf, int quiet)
 {
-   return(rmdir(buf));
+  char *errstr;
+  int err;
+
+  err = rmdir(buf);
+
+  if ( !quiet && err)
+  {
+    errstr = strerror(errno);
+    fprintf(stderr,_("Wcd: error: Unable to remove directory %s: %s\n"), buf, errstr);
+  }
+  return(err);
 }
+
+
+#endif
 
 /******************************************************************
  *
@@ -502,13 +538,20 @@ int wcd_rmdir(char *buf)
 int wcd_isdir(char *dir)
 {
    struct stat buf;
+   char *errstr;
 
-   if ((stat(dir, &buf) == 0) && S_ISDIR(buf.st_mode))
-      return(0);
+   if (stat(dir, &buf) == 0)
+   {
+      if (S_ISDIR(buf.st_mode))
+         return(0);
+      else
+         return(-1);
+   }
    else
+   {
+      errstr = strerror(errno);
+      fprintf(stderr,"Wcd: %s: %s\n", dir, errstr);
       return(-1);
+   }
 }
-
-
-#endif
 

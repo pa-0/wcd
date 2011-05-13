@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2005 Erwin Waterlander
+Copyright (C) 1997-2011 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -75,7 +75,7 @@ int stack_read(WcdStack ws,char *stackfilename)
 	/* open stack-file */
 	if  ((ws->maxsize <= 0)||((infile = fopen(stackfilename,"r")) == NULL))
 	{
-		/* fprintf(stderr,"Wcd: error: Permission denied to read file %s\n",stackfilename); */
+		/* fprintf(stderr,"Wcd: error: Unable to read file %s\n",stackfilename); */
 		ws->lastadded = -1;
 		ws->current = -1;
 	}
@@ -228,12 +228,10 @@ int stack_write(WcdStack ws,char *stackfilename)
 			{
 #if (defined(UNIX) || defined(DJGPP) || defined(OS2))
 			m = S_IRWXU | S_IRWXG | S_IRWXO;
-				if (wcd_mkdir(path,m)!=0)
+				if (wcd_mkdir(path,m,0)==0)
 #else
-				if (wcd_mkdir(path)!=0)
+				if (wcd_mkdir(path,0)==0)
 #endif
-					fprintf(stderr,_("Wcd: error: Permission denied to create directory %s\n"), path);
-				else
 					fprintf(stderr,_("Wcd: creating directory %s\n"), path);
 			}
 		}

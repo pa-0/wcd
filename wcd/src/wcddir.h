@@ -8,7 +8,7 @@ Author: Erwin Waterlander
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 2002 Erwin Waterlander
+Copyright (C) 2002-2011 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -36,21 +36,21 @@ void wcd_getshares(char* path, nameset n);
 
 #if (defined(WIN32) && !defined(__CYGWIN__))
 
-int wcd_mkdir(char *buf);
+int wcd_mkdir(char *buf, int quiet);
 
 #else  /* not WIN32 API */
 
 
 #  if defined(UNIX) || defined(DJGPP)
-   int wcd_mkdir(char *buf, mode_t m);
+   int wcd_mkdir(char *buf, mode_t m, int quiet);
 #  else
-   int wcd_mkdir(char *buf);
+   int wcd_mkdir(char *buf, int quiet);
 #  endif
 
 #endif
 
 char *wcd_getcwd(char *buf, int size);
-int wcd_chdir(char *buf);
-int wcd_rmdir(char *buf);
+int wcd_chdir(char *buf, int quiet);
+int wcd_rmdir(char *buf, int quiet);
 int wcd_isdir(char *dir);
 

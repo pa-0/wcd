@@ -41,6 +41,7 @@ TAB = 3 spaces
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
+#include <unistd.h>
 #ifdef DJGPP
 # include <dir.h>
 #endif
@@ -97,7 +98,7 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
   if ( !quiet && (f == NULL))
   {
     errstr = strerror(errno);
-    if (strcmp(m,"r") == 0)
+    if (m[0] == 'r')
       fprintf(stderr,_("Wcd: error: Unable to read file %s: %s\n"), filename, errstr);
     else
       fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
@@ -381,8 +382,7 @@ void getCurPath(char *buffer, int size, int *use_HOME)
 {
    int len;
 
- wcd_getcwd(buffer, size);
- if(buffer != NULL)
+ if(wcd_getcwd(buffer, size) != NULL)
  {
    len = strlen(buffer);
    if (len==0)
@@ -527,10 +527,11 @@ void rmTree(char *dir)
    char tmp[DD_MAXPATH];                /* tmp string */
    int rc;                       /* error code */
    TDirList list;                /* directory queue */
+   char *errstr;
 
    if (dir)
    {
-      if (wcd_chdir(dir)) return; /* Go to the dir, else return */
+      if (wcd_chdir(dir,0)) return; /* Go to the dir, else return */
    }
    else
        return ;  /* dir == NULL */
@@ -552,8 +553,11 @@ void rmTree(char *dir)
             q_insert(&list, fb.ff_name);   /* add all directories in current dir to list */
       }
       else
-      if ( remove(fb.ff_name) != 0)  /* not a directory */
-         fprintf(stderr,_("Wcd: error: Permission denied to remove file %s\n"), fb.ff_name);
+      if ( unlink(fb.ff_name) != 0)  /* not a directory */
+      {
+         errstr = strerror(errno);
+         fprintf(stderr,_("Wcd: error: Unable to remove file %s: %s\n"), fb.ff_name, errstr);
+      }
 
       rc = findnext(&fb);
    } /* while !rc */
@@ -562,11 +566,10 @@ void rmTree(char *dir)
    while (q_remove(&list, tmp))
       {
         rmTree(tmp);
-        if (wcd_rmdir(tmp) != 0)
-         fprintf(stderr,_("Wcd: error: Permission denied to remove directory %s\n"), tmp);
+        wcd_rmdir(tmp,0);
       }
 
-   wcd_chdir(DIR_PARENT); /* go to parent directory */
+   wcd_chdir(DIR_PARENT,0); /* go to parent directory */
 }
 
 #else /* not DJGPP */
@@ -576,11 +579,12 @@ void rmTree(char *dir)
    static dd_ffblk fb;       /* file block structure */
    char tmp[DD_MAXPATH];                /* tmp string */
    int rc;                       /* error code */
+   char *errstr;
    TDirList list;                /* directory queue */
 
    if (dir)
    {
-      if (wcd_chdir(dir)) return; /* Go to the dir, else return */
+      if (wcd_chdir(dir,0)) return; /* Go to the dir, else return */
    }
    else
        return ;  /* dir == NULL */
@@ -614,8 +618,11 @@ void rmTree(char *dir)
             q_insert(&list, fb.dd_name);   /* add all directories in current dir to list */
       }
       else
-      if ( remove(fb.dd_name) != 0)  /* not a directory */
-         fprintf(stderr,_("Wcd: error: Permission denied to remove file %s\n"), fb.dd_name);
+      if ( unlink(fb.dd_name) != 0)  /* not a directory */
+      {
+         errstr = strerror(errno);
+         fprintf(stderr,_("Wcd: error: Unable to remove file %s: %s\n"), fb.dd_name, errstr);
+      }
 
       rc = dd_findnext(&fb);
    } /* while !rc */
@@ -624,11 +631,10 @@ void rmTree(char *dir)
    while (q_remove(&list, tmp))
       {
         rmTree(tmp);
-        if (wcd_rmdir(tmp) != 0)
-         fprintf(stderr,_("Wcd: error: Permission denied to remove directory %s\n"), tmp);
+        wcd_rmdir(tmp,0);
       }
 
-   wcd_chdir(DIR_PARENT); /* go to parent directory */
+   wcd_chdir(DIR_PARENT,0); /* go to parent directory */
 }
 #endif
 
@@ -697,7 +703,7 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
    if (dir)
    {
-      if (wcd_chdir(dir)) return; /* ?err */
+      if (wcd_chdir(dir,0)) return; /* ?err */
    }
    else
      return ;  /* dir == NULL */
@@ -705,7 +711,7 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
    {
       fprintf(stdout,_("Wcd: error: finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
-      wcd_chdir(DIR_PARENT); /* go to parent directory */
+      wcd_chdir(DIR_PARENT,0); /* go to parent directory */
       return;
    };
 
@@ -714,7 +720,7 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
    if (pathInNameset(tmp,exclude) >= 0)
    {
-      wcd_chdir(DIR_PARENT); /* go to parent directory */
+      wcd_chdir(DIR_PARENT,0); /* go to parent directory */
       return;
    }
 
@@ -747,7 +753,7 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
    while (q_remove(&list, tmp))
       finddirs(tmp,offset, outfile, use_HOME, exclude);
 
-   if (dir) wcd_chdir(DIR_PARENT); /* go to parent directory */
+   if (dir) wcd_chdir(DIR_PARENT,0); /* go to parent directory */
 }
 
 #else /* not DJGPP */
@@ -763,7 +769,7 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
    if (dir)
    {
-      if (wcd_chdir(dir)) return; /* Go to the dir, else return */
+      if (wcd_chdir(dir,0)) return; /* Go to the dir, else return */
    }
    else
      return ;  /* dir == NULL */
@@ -772,7 +778,7 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
    {
       fprintf(stdout,_("Wcd: error: finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
-      wcd_chdir(DIR_PARENT); /* go to parent directory */
+      wcd_chdir(DIR_PARENT,0); /* go to parent directory */
       return;
    };
 
@@ -783,7 +789,7 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
    if (pathInNameset(tmp,exclude) >= 0)
    {
-      wcd_chdir(DIR_PARENT); /* go to parent directory */
+      wcd_chdir(DIR_PARENT,0); /* go to parent directory */
       return;
    }
 
@@ -841,7 +847,7 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
    while (q_remove(&list, tmp))
       finddirs(tmp,offset, outfile, use_HOME, exclude);
 
-   wcd_chdir(DIR_PARENT); /* go to parent directory */
+   wcd_chdir(DIR_PARENT,0); /* go to parent directory */
 }
 #endif
 
@@ -870,7 +876,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
 
    if(wcd_isdir(path) != 0)
    {
-      fprintf(stderr,_("Wcd: error: Permission denied to open directory %s\n"),path);
+      fprintf(stderr,_("Wcd: %s is not a directory.\n"),path);
       return ;
    }
 
@@ -881,7 +887,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
 #endif
    if (scanreldir)
    {
-     if ( !wcd_chdir(path) )
+     if ( !wcd_chdir(path,0) )
      {
       wcd_getcwd(tmp, sizeof(tmp)); /* get full path */
 #ifdef MSDOS
@@ -894,7 +900,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
         offset--;
       offset++;
      }
-     wcd_chdir(tmp2);          /* go back */
+     wcd_chdir(tmp2,0);          /* go back */
     }
 
 #ifdef MSDOS
@@ -954,7 +960,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
 #endif
    finddirs( path, &offset, outfile, use_HOME, exclude); /* Build treedata-file */
    fclose(outfile);
-   wcd_chdir(tmp2);          /* go back */
+   wcd_chdir(tmp2,0);          /* go back */
 }
 
 #if (defined(WIN32) || defined(__CYGWIN__))
@@ -1005,24 +1011,20 @@ void makeDir(char *path, char *treefile, int *use_HOME)
    /* is there a drive to go to ? */
    changeDisk(path,&changedrive,drive,use_HOME);
    m = S_IRWXU | S_IRWXG | S_IRWXO;
-   if (wcd_mkdir(path,m)==0)
+   if (wcd_mkdir(path,m,0)==0)
 #elif defined(UNIX)
    m = S_IRWXU | S_IRWXG | S_IRWXO;
-   if (wcd_mkdir(path,m)==0)
+   if (wcd_mkdir(path,m,0)==0)
 #else
    /* is there a drive to go to ? */
    changeDisk(path,&changedrive,drive,use_HOME);
-   if (wcd_mkdir(path)==0)
+   if (wcd_mkdir(path,0)==0)
 #endif
    {
       wcd_getcwd(tmp2, DD_MAXPATH);  /* remember current dir */
-      if(wcd_chdir(path)==0)        /* goto dir and add */
+      if(wcd_chdir(path,0)==0)        /* goto dir and add */
        addCurPathToFile(treefile,use_HOME,0);
-      wcd_chdir(tmp2) ;                /* go back */
-   }
-   else
-   {
-      fprintf(stderr,_("Wcd: error: Permission denied to create directory %s\n"),path);
+      wcd_chdir(tmp2,0) ;                /* go back */
    }
 }
 
@@ -1051,7 +1053,7 @@ void deleteLink(char *path, char *treefile)
           {
             *line_end = '\0' ;
             line_end++;
-            wcd_chdir(path);  /* change to parent dir of link */
+            wcd_chdir(path,0);  /* change to parent dir of link */
           }
         else
           line_end = path;  /* we were are already there */
@@ -1062,13 +1064,16 @@ void deleteLink(char *path, char *treefile)
         strcat(path,tmp2);
         wcd_fixpath(path,DD_MAXPATH);
 
-        if (remove(tmp2)==0)    /* delete the link */
+        if (unlink(tmp2)==0)    /* delete the link */
           {
-            printf(_("Wcd: Removed link %s\n"),path);
+            printf(_("Wcd: Removed symbolic link %s\n"),path);
             cleanTreeFile(treefile,path);
           }
         else
-          fprintf(stderr,_("Wcd: error: Permission denied to remove link %s\n"),path);
+        {
+          errstr = strerror(errno);
+          fprintf(stderr,_("Wcd: error: Unable to remove symbolic link %s: %s\n"),path, errstr);
+        }
    }
    else
       fprintf(stderr,_("Wcd: %s is a link to a file.\n"),path);
@@ -1116,15 +1121,15 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
    {
       wcd_getcwd(tmp2, DD_MAXPATH);  /* remember current path */
 
-      if(wcd_chdir(path)==0)
+      if(wcd_chdir(path,0)==0)
       {
-          wcd_getcwd(path, DD_MAXPATH);   /* path to remove */
+         wcd_getcwd(path, DD_MAXPATH);   /* path to remove */
 
 #ifdef MSDOS
-      wcd_fixpath(path,DD_MAXPATH);
-      rmDriveLetter(path,use_HOME);
+         wcd_fixpath(path,DD_MAXPATH);
+         rmDriveLetter(path,use_HOME);
 #endif
-      wcd_chdir(tmp2);
+         wcd_chdir(tmp2,0);
       }
 
       if(recursive)
@@ -1148,28 +1153,25 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
             if ( (c == 'y') ||  (c == 'Y') )
             {
 
-            wcd_chdir(tmp2);       /* go back */
+            wcd_chdir(tmp2,0);       /* go back */
             rmTree(path);       /* delete the stuff */
-            wcd_chdir(tmp2);       /* go back */
+            wcd_chdir(tmp2,0);       /* go back */
 
-               if (wcd_rmdir(path) != 0)
-             fprintf(stderr,_("Wcd: error: Permission denied to remove directory %s\n"), path);
+            wcd_rmdir(path,0);
 
             cleanTreeFile(treefile,path);
 
          } /* ( (c != 'y') ||  (c != 'Y') ) */
       }
       else
-         if (wcd_rmdir(path)==0)
-          {
-         printf(_("Wcd: Removed directory %s\n"),path);
-         cleanTreeFile(treefile,path);
+        if (wcd_rmdir(path,0)==0)
+        {
+          printf(_("Wcd: Removed directory %s\n"),path);
+          cleanTreeFile(treefile,path);
         }
-         else
-         fprintf(stderr,_("Wcd: error: Permission denied to remove directory %s\n"),path);
-    }
+   }
    else
-    fprintf(stderr,_("Wcd: %s is not a directory.\n"),path);
+     fprintf(stderr,_("Wcd: %s is not a directory.\n"),path);
 
 #ifdef UNIX
     }
@@ -1702,12 +1704,10 @@ void create_go_dir(char *go_file)
        {
 #if (defined(UNIX) || defined(DJGPP) || defined(OS2))
           m = S_IRWXU | S_IRWXG | S_IRWXO;
-          if (wcd_mkdir(path,m)!=0)
+          if (wcd_mkdir(path,m,0)==0)
 #else
-          if (wcd_mkdir(path)!=0)
+          if (wcd_mkdir(path,0)==0)
 #endif
-             fprintf(stderr,_("Wcd: error: Permission denied to create directory %s\n"), path);
-          else
              fprintf(stderr,_("Wcd: creating directory %s\n"), path);
        }
    }
@@ -2503,8 +2503,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
       {
          if (strcmp(argv[i-1],"-l") == 0 )
          {
-            wcd_getcwd(tmp, sizeof(tmp));
-            if(tmp != NULL)
+            if (wcd_getcwd(tmp, sizeof(tmp)) != NULL)
             {
                len = strlen(tmp);
                if (len==0)
@@ -2796,7 +2795,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             wcd_printf("%s\n",best_match);
          writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript);
 #else
-         wcd_chdir(best_match); /* change to directory */
+         wcd_chdir(best_match,0); /* change to directory */
 #endif
 
          stack_write(DirStack,stackfile);
@@ -2830,9 +2829,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
            /* is there a drive to go to ? */
            changeDisk(best_match,&changedrive,drive,&use_HOME);
 #endif
-         wcd_chdir(dir);
-         wcd_getcwd(tmp, sizeof(tmp));
-         if(tmp != NULL)
+         wcd_chdir(dir,0);
+         if(wcd_getcwd(tmp, sizeof(tmp)) != NULL)
          {
             len = strlen(tmp);
             if (len==0)
@@ -2860,7 +2858,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             wcd_printf("%s\n",best_match);
          writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript);
 #else
-         wcd_chdir(best_match); /* change to directory */
+         wcd_chdir(best_match,0); /* change to directory */
 #endif
          return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
       } /* ? (wcd_isdir(dir) == 0) */
@@ -3147,13 +3145,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
          changeDisk(tmp,&changedrive,drive,&use_HOME);
 #endif
 
-         if ( wcd_chdir(best_match) == 0)  /* change to dir to get full path */
+         if ( wcd_chdir(best_match,0) == 0)  /* change to dir to get full path */
          {
-         wcd_getcwd(tmp, sizeof(tmp));
-         if(tmp != NULL)
+            if(wcd_getcwd(tmp, sizeof(tmp)) != NULL)
             {
-            if ((!quieter)&&(!justGo))
-               wcd_printf("-> %s\n",best_match); /* print match without /tmp_mnt string */
+               if ((!quieter)&&(!justGo))
+                  wcd_printf("-> %s\n",best_match); /* print match without /tmp_mnt string */
 
                len = strlen(tmp);
                if (len==0)
@@ -3195,7 +3192,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             wcd_printf("%s\n",best_match);
          writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript);
 #else
-         wcd_chdir(best_match); /* change to directory */
+         wcd_chdir(best_match,0); /* change to directory */
 #endif
 
 

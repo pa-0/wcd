@@ -3,6 +3,7 @@
     characters.
   - Installation of PDF and PostScript manual is optional.
   - Default scan directory is $HOME, even when WCDHOME is defined.
+  - Improved error reporting.
 
 5.1.4 2010-11-19
   - Use line drawing characters for graphical tree.
