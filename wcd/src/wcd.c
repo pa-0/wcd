@@ -90,11 +90,35 @@ const wcd_char *default_mask = ALL_FILES_MASK;
 
 FILE *wcd_fopen(const char *filename, const char *m, int quiet)
 {
+  struct stat buf;
   FILE *f;
   char *errstr;
 
   //printf("wcd_fopen %s %d\n",filename, quiet);
-  f = fopen(filename, m);
+ 
+  if (m[0] == 'r') /* we try to read an existing file */
+  {
+    if (stat(filename, &buf) != 0) /* check if file exists */
+    {
+      if ( !quiet )
+      {
+        errstr = strerror(errno);
+        fprintf(stderr,_("Wcd: error: Unable to read file %s: %s\n"), filename, errstr);
+      }
+      return(NULL);
+    }
+
+    if (!S_ISREG(buf.st_mode)) /* check if it is a file */
+    {
+      if ( !quiet )
+      {
+        fprintf(stderr,_("Wcd: error: Unable to read file %s: Not a file.\n"), filename);
+      }
+      return(NULL);
+    }
+  }
+
+  f = fopen(filename, m); /* open the file */
   if ( !quiet && (f == NULL))
   {
     errstr = strerror(errno);
@@ -919,25 +943,25 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
       {
       strcpy(treefile,ptr);
       strcat(treefile,TREEFILE);
-      outfile = fopen(treefile,"w");
+      outfile = wcd_fopen(treefile,"w",1);
       }
 
-      if (!outfile)
+      if (outfile == NULL)
       {
          if  ( (ptr = getenv("TMP")) != NULL )
             {
             strcpy(treefile,ptr);
             strcat(treefile,TREEFILE);
-            outfile = fopen(treefile,"w");
+            outfile = wcd_fopen(treefile,"w",1);
             }
 
-         if (!outfile)
+         if (outfile == NULL)
          {
             if  ( (ptr = getenv("TMPDIR")) != NULL )
                {
                strcpy(treefile,ptr);
                strcat(treefile,TREEFILE);
-               outfile = fopen(treefile,"w");
+               outfile = wcd_fopen(treefile,"w",1);
                }
          }
       }
@@ -1081,7 +1105,7 @@ void deleteLink(char *path, char *treefile)
  else
  {
    errstr = strerror(errno);
-   fprintf(stderr,"Wcd: %s: %s\n",path,errstr);
+   fprintf(stderr,"Wcd: error: %s: %s\n",path,errstr);
  }
 
 }
@@ -1110,7 +1134,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
    if (lstat(path, &buf) != 0)
    {
      errstr = strerror(errno);
-     fprintf(stderr,"Wcd: %s: %s\n",path,errstr);
+     fprintf(stderr,"Wcd: error: %s: %s\n",path,errstr);
      return;
    }
 
@@ -1472,7 +1496,7 @@ void scanaliasfile(char *org_dir, char *filename,
 #endif
 
    /* open treedata-file */
-   if  ((infile = fopen(filename,"r")) != NULL)
+   if  ((infile = wcd_fopen(filename,"r",1)) != NULL)
    {
 
       while (!feof(infile) )
@@ -2615,7 +2639,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                strcat(tmp,"/");
                strcat(tmp,argv[i]);
                strcat(tmp,TREEFILE);
-               if ((infile = fopen(tmp,"r")) != NULL)
+               if ((infile = wcd_fopen(tmp,"r",1)) != NULL)
                {
                   fclose(infile);
                   addToNamesetArray(textNew(tmp),extra_files);
@@ -2635,7 +2659,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                   strcat(tmp2,argv[i]);
                   strcat(tmp2,"/.wcd");
                   strcat(tmp2,TREEFILE);
-                  if ((infile = fopen(tmp2,"r")) != NULL)
+                  if ((infile = wcd_fopen(tmp2,"r",1)) != NULL)
                   {
                      fclose(infile);
                      addToNamesetArray(textNew(tmp2),extra_files);
@@ -2894,7 +2918,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
    if  (use_default_treedata)
    {
-     if ((infile = fopen(treefile,"r")) == NULL)
+     if ((infile = wcd_fopen(treefile,"r",1)) == NULL)
      {
         /* create treefile */
         if (getSizeOfNamesetArray(scan_dirs) == 0)
@@ -2940,7 +2964,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
          scanfile(dir, treefile,ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly); /* scan the treedata file */
 
 
-      if  ((outfile = fopen(extratreefile,"r")) != NULL)
+      if  ((outfile = wcd_fopen(extratreefile,"r",1)) != NULL)
       {
          fclose(outfile);
          scanfile(dir, extratreefile,ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly); /* scan the extra treedata file */

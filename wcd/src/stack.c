@@ -73,7 +73,7 @@ int stack_read(WcdStack ws,char *stackfilename)
 
 
 	/* open stack-file */
-	if  ((ws->maxsize <= 0)||((infile = fopen(stackfilename,"r")) == NULL))
+	if  ((ws->maxsize <= 0)||((infile = wcd_fopen(stackfilename,"r",1)) == NULL))
 	{
 		/* fprintf(stderr,"Wcd: error: Unable to read file %s\n",stackfilename); */
 		ws->lastadded = -1;
