@@ -1930,7 +1930,7 @@ int main(int argc,char** argv)
    FILE *outfile;
    char best_match[DD_MAXPATH];
    char verbose = 0;
-   int  i;
+   int  i,j;
    int exit_wcd = 0;
    int use_default_treedata = 1;
    int use_numbers = 0; /* use numbers instead of letters in conio or curses interface */
@@ -1955,7 +1955,7 @@ int main(int argc,char** argv)
    char tmp2[DD_MAXPATH];      /* tmp string buffer */
    int  stack_is_read = 0;
    WcdStack DirStack;
-   nameset extra_files, banned_dirs;
+   nameset extra_files, banned_dirs, scan_dirs;
    nameset perfect_list, wild_list ;  /* match lists */
    nameset relative_files;
    nameset exclude; /* list of paths to exclude from scanning */
@@ -2145,12 +2145,17 @@ int main(int argc,char** argv)
    wild_list = namesetNew();
    extra_files = namesetNew();
    banned_dirs = namesetNew();
+   scan_dirs = namesetNew();
    relative_files = namesetNew();
    exclude = namesetNew();
    filter = namesetNew();
    DirStack = WcdStackNew(WCD_STACK_SIZE);
 
    read_treefile(banfile,banned_dirs,1);
+
+   ptr = getenv("WCDSCAN");
+
+   addListToNameset(scan_dirs, ptr);
 
    ptr = getenv("WCDEXCLUDE");
 
@@ -2230,7 +2235,20 @@ int main(int argc,char** argv)
             }
             break;
          case 's':
-            scanDisk(rootscandir,treefile,0,0,&use_HOME,exclude);
+            if (getSizeOfNamesetArray(scan_dirs) == 0)
+               scanDisk(rootscandir,treefile,0,0,&use_HOME,exclude);
+            else
+            {
+               j = 0;
+               while (j<getSizeOfNamesetArray(scan_dirs))
+               {
+                  if (j == 0)
+                     scanDisk(elementAtNamesetArray(j,scan_dirs),treefile, 0, 0, &use_HOME, exclude);
+                  else
+                     scanDisk(elementAtNamesetArray(j,scan_dirs),treefile, 0, 1, &use_HOME, exclude);
+                  ++j;
+               }
+            }
             scan_mk_rm = 1;
             break ;
          case 'S':
@@ -2748,6 +2766,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
    if (verbose > 0)
    {
+      for (i=0; i<scan_dirs->size; ++i)
+         printf(_("Wcd: WCDSCAN directory {%s}\n"),elementAtNamesetArray(i, scan_dirs));
       for (i=0; i<banned_dirs->size; ++i)
          printf(_("Wcd: banning {%s}\n"),elementAtNamesetArray(i, banned_dirs));
       for (i=0; i<exclude->size; ++i)
@@ -2875,7 +2895,23 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
    if  (use_default_treedata)
    {
      if ((infile = fopen(treefile,"r")) == NULL)
-       scanDisk(rootscandir,treefile,0,0,&use_HOME,exclude); /* create treefile */
+     {
+        /* create treefile */
+        if (getSizeOfNamesetArray(scan_dirs) == 0)
+           scanDisk(rootscandir,treefile,0,0,&use_HOME,exclude);
+        else
+        {
+           j = 0;
+           while (j<getSizeOfNamesetArray(scan_dirs))
+           {
+              if (j == 0)
+                 scanDisk(elementAtNamesetArray(j,scan_dirs),treefile, 0, 0, &use_HOME, exclude);
+              else
+                 scanDisk(elementAtNamesetArray(j,scan_dirs),treefile, 0, 1, &use_HOME, exclude);
+              ++j;
+           }
+        }
+     }
      else
        fclose(infile);
    }

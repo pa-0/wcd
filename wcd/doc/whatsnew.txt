@@ -1,9 +1,10 @@
 5.1.5-beta1 2010-12-14
-  - New key in graphical mode: 'T' toggle between line drawing and ASCII
-    characters.
   - Default scan directory is $HOME, even when WCDHOME is defined.
     WCDHOME is only to change location of wcd's files.
+  - Environment WCDSCAN can be used to overrule the default scan directory.
   - Option -u tries to read tree-file from /home/USER/, and /home/USER/.wcd/.
+  - New key in graphical mode: 'T' toggle between line drawing and ASCII
+    characters.
   - Improved error reporting.
   - Installation of PDF and PostScript manual is optional.
 

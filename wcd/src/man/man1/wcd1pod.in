@@ -495,6 +495,9 @@ I<%HOME%> if it is set.
 
 The existing default treedata file is overwritten.
 
+The default scan directory can be overruled with environment variable
+C<WCDSCAN>. See section ENVIRONMENT VARIABLES.
+
 =item B<-S PATH>
 
 Scan directory tree from PATH and overwrite the default treedata file.
@@ -1066,7 +1069,8 @@ of I<HOME>.
 
 In wcd versions prior to 5.1.5 WCDHOME also changed the default scan directory.
 This has changed. Since version 5.1.5 WCDHOME does not change the default scan
-directory. See option -s.
+directory. See option -s. From version 5.1.5, use environment I<WCDSCAN> to
+overrule the default scan directory.
 
 #ifdef dos
 
@@ -1086,6 +1090,31 @@ explicitly. E.g.:
 Matching of directories is now global over all scanned drives.
 
 #endif
+
+=item B<WCDSCAN>
+
+Use environment variable I<WCDSCAN> to overrule the default scan
+directory I<HOME>. Define a colon separated list (Unix) to define more
+than one directory.
+#ifdef dos
+On DOS/Windows make the list semi-colon separated.
+#endif
+
+#ifdef dos
+Examples for DOS, Windows, OS/2 Command Prompt:
+
+    set WCDSCAN=C:/Users/erwin;D:/data
+
+    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;//projectdrive/projectX
+#endif
+
+An example for POSIX type shells:
+
+    export WCDSCAN="$HOME:/projectdisk/projectX"
+
+An example for Csh type shells:
+
+    setenv WCDSCAN "$HOME:/projectdisk/projectX"
 
 =item B<TERMINFO>
 
@@ -1140,11 +1169,9 @@ separator. Similar as specifying the PATH variable.
 The case sensitivity is mandated by the Operating system.
 
 #ifdef dos
-
 An example for DOS, Windows, OS/2 Command Prompt:
 
     set WCDFILTER=projects;doc
-
 #endif
 
 An example for POSIX type shells:
@@ -1169,11 +1196,9 @@ separated by shell PATH separator
 
 
 #ifdef dos
-
 An example for DOS, Windows, OS/2 Command Prompt:
 
     set WCDEXCLUDE=*/windows;*/temp;*CVS
-
 #endif
 
 An example for POSIX type shells:
