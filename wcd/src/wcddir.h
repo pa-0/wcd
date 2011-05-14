@@ -52,5 +52,5 @@ int wcd_mkdir(char *buf, int quiet);
 char *wcd_getcwd(char *buf, int size);
 int wcd_chdir(char *buf, int quiet);
 int wcd_rmdir(char *buf, int quiet);
-int wcd_isdir(char *dir);
+int wcd_isdir(char *dir, int quiet);
 

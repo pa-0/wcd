@@ -535,7 +535,7 @@ int wcd_rmdir(char *buf, int quiet)
  * returns 0 on success, -1 when it fails.
  *
  ******************************************************************/
-int wcd_isdir(char *dir)
+int wcd_isdir(char *dir, int quiet)
 {
    struct stat buf;
    char *errstr;
@@ -549,8 +549,11 @@ int wcd_isdir(char *dir)
    }
    else
    {
-      errstr = strerror(errno);
-      fprintf(stderr,"Wcd: %s: %s\n", dir, errstr);
+      if (!quiet)
+      {
+        errstr = strerror(errno);
+        fprintf(stderr,"Wcd: %s: %s\n", dir, errstr);
+      }
       return(-1);
    }
 }

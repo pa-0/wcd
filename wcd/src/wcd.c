@@ -874,7 +874,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
    wcd_fixpath(treefile,DD_MAXPATH);
    wcd_getcwd(tmp2, sizeof(tmp2)); /* remember current dir */
 
-   if(wcd_isdir(path) != 0)
+   if(wcd_isdir(path,0) != 0)
    {
       fprintf(stderr,_("Wcd: %s is not a directory.\n"),path);
       return ;
@@ -907,9 +907,9 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
 
    /* open the output file */
    if (append)
-     outfile = fopen(treefile,"a");  /* append to database */
+     outfile = wcd_fopen(treefile,"a",0);  /* append to database */
    else
-     outfile = fopen(treefile,"w");  /* create new database */
+     outfile = wcd_fopen(treefile,"w",0);  /* create new database */
 
    if (!outfile) /* Try to open in a temp dir */
    {
@@ -943,7 +943,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
       }
    }
 
-   if (!outfile) /* Did we succeed? */
+   if (outfile == NULL) /* Did we succeed? */
    {
       fprintf(stderr, "%s", _("Wcd: error: Write access to tree-file denied.\nWcd: Set TEMP environment variable if this is a read-only disk.\n"));
       return ;
@@ -1096,6 +1096,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
 {
 #ifdef UNIX
    static struct stat buf ;
+   char *errstr;
 #endif
 #ifdef MSDOS
    char drive[DD_MAXDRIVE];
@@ -1106,7 +1107,14 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
    wcd_fixpath(path,DD_MAXPATH);
 
 #ifdef UNIX
-   if ((lstat(path, &buf) == 0) && S_ISLNK(buf.st_mode))  /* is it a link? */
+   if (lstat(path, &buf) != 0)
+   {
+     errstr = strerror(errno);
+     fprintf(stderr,"Wcd: %s: %s\n",path,errstr);
+     return;
+   }
+
+   if (S_ISLNK(buf.st_mode))  /* is it a link? */
    {
       deleteLink(path,treefile);
    }
@@ -1117,7 +1125,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
    changeDisk(path,&changedrive,drive,use_HOME);
 #endif
 
-   if (wcd_isdir(path) == 0) /* is it a dir */
+   if (wcd_isdir(path,0) == 0) /* is it a dir */
    {
       wcd_getcwd(tmp2, DD_MAXPATH);  /* remember current path */
 
@@ -1700,7 +1708,7 @@ void create_go_dir(char *go_file)
    if ( (ptr = strrchr(path,DIR_SEPARATOR)) != NULL)
    {
       *ptr = '\0' ;
-       if (wcd_isdir(path) != 0) /* is it a dir */
+       if (wcd_isdir(path,1) != 0) /* is it a dir */
        {
 #if (defined(UNIX) || defined(DJGPP) || defined(OS2))
           m = S_IRWXU | S_IRWXG | S_IRWXO;
@@ -1944,6 +1952,7 @@ int main(int argc,char** argv)
    int  quieter = 0, cd = 0 ;
    int len;
    char tmp[DD_MAXPATH];      /* tmp string buffer */
+   char tmp2[DD_MAXPATH];      /* tmp string buffer */
    int  stack_is_read = 0;
    WcdStack DirStack;
    nameset extra_files, banned_dirs;
@@ -2528,9 +2537,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
          }
          else
-         if (strcmp(argv[i-1],"-f") == 0 )
+         if ((strcmp(argv[i-1],"-f") == 0 ) || (strcmp(argv[i-1],"+f") == 0 ))
          {
-            use_default_treedata = 0;
+            if (argv[i-1][0] == '-')
+               use_default_treedata = 0;
             addToNamesetArray(textNew(argv[i]),extra_files);
          }
          else
@@ -2546,16 +2556,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
              /* printNameset("exclude ==>",exclude,stderr,true);  */
          }
-         else
-         if (strcmp(argv[i-1],"+f") == 0 )
-
-         {
-            addToNamesetArray(textNew(argv[i]),extra_files);
-         }
             else
-            if (strcmp(argv[i-1],"-n") == 0 )
+            if ((strcmp(argv[i-1],"-n") == 0 ) || (strcmp(argv[i-1],"+n") == 0 ))
             {
-               use_default_treedata = 0;
+               if (argv[i-1][0] == '-')
+                  use_default_treedata = 0;
 
                strncpy(tmp,argv[i],sizeof(tmp));
                wcd_fixpath(tmp,sizeof(tmp));
@@ -2563,7 +2568,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                /* is there a drive to go to ? */
                changeDisk(tmp,&changedrive,drive,&use_HOME);
 #endif
-               if (wcd_isdir(tmp) == 0) /* is it a dir */
+               if (wcd_isdir(tmp,1) == 0) /* is it a dir */
                {
                   strcat(tmp,RELTREEFILE);
                   wcd_fixpath(tmp,sizeof(tmp));
@@ -2575,29 +2580,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                }
             }
             else
-            if (strcmp(argv[i-1],"+n") == 0 )
+            if ((strcmp(argv[i-1],"-u") == 0 ) || (strcmp(argv[i-1],"+u") == 0 ))
             {
-               strncpy(tmp,argv[i],sizeof(tmp));
-               wcd_fixpath(tmp,sizeof(tmp)) ;
-#ifdef MSDOS
-               /* is there a drive to go to ? */
-               changeDisk(tmp,&changedrive,drive,&use_HOME);
-#endif
-               if (wcd_isdir(tmp) == 0) /* is it a dir */
-               {
-                  strcat(tmp,RELTREEFILE);
-                  wcd_fixpath(tmp,sizeof(tmp)) ;
-                  addToNamesetArray(textNew(tmp),relative_files);
-               }
-               else  /* it is a file */
-               {
-                  addToNamesetArray(textNew(tmp),relative_files);
-               }
-            }
-            else
-            if (strcmp(argv[i-1],"-u") == 0 )
-            {
-               use_default_treedata = 0;
+               if (argv[i-1][0] == '-')
+                  use_default_treedata = 0;
 
                if (strcmp(argv[i],"root") == 0)
                   strcpy(tmp,"/");
@@ -2611,24 +2597,34 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                strcat(tmp,"/");
                strcat(tmp,argv[i]);
                strcat(tmp,TREEFILE);
-               addToNamesetArray(textNew(tmp),extra_files);
-            }
-            else
-            if (strcmp(argv[i-1],"+u") == 0 )
-            {
-               if (strcmp(argv[i],"root") == 0)
-                  strcpy(tmp,"/");
-               else
-                  strcpy(tmp,homedir);
-               if ((strlen(tmp)+strlen(argv[i])+strlen(TREEFILE)+1) > DD_MAXPATH )
+               if ((infile = fopen(tmp,"r")) != NULL)
                {
-                  fprintf(stderr, "%s", _("Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"));
-                  return(1);
+                  fclose(infile);
+                  addToNamesetArray(textNew(tmp),extra_files);
                }
-               strcat(tmp,"/");
-               strcat(tmp,argv[i]);
-               strcat(tmp,TREEFILE);
-               addToNamesetArray(textNew(tmp),extra_files);
+               else
+               {
+                  if (strcmp(argv[i],"root") == 0)
+                     strcpy(tmp2,"/");
+                  else
+                     strcpy(tmp2,homedir);
+                  if ((strlen(tmp2)+strlen(argv[i])+strlen(TREEFILE)+1+5) > DD_MAXPATH )
+                  {
+                     fprintf(stderr, "%s", _("Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"));
+                     return(1);
+                  }
+                  strcat(tmp2,"/");
+                  strcat(tmp2,argv[i]);
+                  strcat(tmp2,"/.wcd");
+                  strcat(tmp2,TREEFILE);
+                  if ((infile = fopen(tmp2,"r")) != NULL)
+                  {
+                     fclose(infile);
+                     addToNamesetArray(textNew(tmp2),extra_files);
+                  }
+                  else
+                     fprintf(stderr, _("Wcd: error: Unable to open file %s or %s\n"), tmp, tmp2);
+               }
             }
             else
 #ifdef MSDOS
@@ -2808,7 +2804,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
    if ((cd==1)&&(strcmp(dir,"")!=0)) /* Try open dir direct. */
    {
-      if(wcd_isdir(dir) == 0) /* GJM */
+      if(wcd_isdir(dir,1) == 0) /* GJM */
       {
          if ( use_stdout & WCD_STDOUT_DUMP ) /* just dump the match and exit */
          {
@@ -2826,8 +2822,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             wcd_printf("-> %s\n",best_match);
 
 #ifdef MSDOS
-           /* is there a drive to go to ? */
-           changeDisk(best_match,&changedrive,drive,&use_HOME);
+         /* is there a drive to go to ? */
+         changeDisk(best_match,&changedrive,drive,&use_HOME);
 #endif
          wcd_chdir(dir,0);
          if(wcd_getcwd(tmp, sizeof(tmp)) != NULL)
@@ -2994,7 +2990,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
    if ((perfect_list->size==0)&&(wild_list->size == 0)&&(cd==0)) /* No match at all & no direct CD mode */
    {
-      if(wcd_isdir(dir) == 0) /* GJM */
+      if(wcd_isdir(dir,1) == 0) /* GJM */
       {
          /* typed directory exists */
          addToNamesetArray(textNew(dir),perfect_list);

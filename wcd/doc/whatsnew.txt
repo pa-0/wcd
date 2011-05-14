@@ -1,9 +1,11 @@
 5.1.5-beta1 2010-12-14
   - New key in graphical mode: 'T' toggle between line drawing and ASCII
     characters.
-  - Installation of PDF and PostScript manual is optional.
   - Default scan directory is $HOME, even when WCDHOME is defined.
+    WCDHOME is only to change location of wcd's files.
+  - Option -u tries to read tree-file from /home/USER/, and /home/USER/.wcd/.
   - Improved error reporting.
+  - Installation of PDF and PostScript manual is optional.
 
 5.1.4 2010-11-19
   - Use line drawing characters for graphical tree.

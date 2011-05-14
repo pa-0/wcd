@@ -224,7 +224,7 @@ int stack_write(WcdStack ws,char *stackfilename)
 		if ( (ptr = strrchr(path,DIR_SEPARATOR)) != NULL)
 		{
 			*ptr = '\0' ;
-			if (wcd_isdir(path) != 0) /* is it a dir */
+			if (wcd_isdir(path,1) != 0) /* is it a dir */
 			{
 #if (defined(UNIX) || defined(DJGPP) || defined(OS2))
 			m = S_IRWXU | S_IRWXG | S_IRWXO;

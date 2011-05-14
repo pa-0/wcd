@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#      Copyright (C) 1997-2009 Erwin Waterlander
+#      Copyright (C) 1997-2011 Erwin Waterlander
 #      Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -492,6 +492,7 @@ scanned from root directory /. This is the default scanning mode.
 Wcd for DOS or Windows scans the current disk from DOS root \ or from
 I<%HOME%> if it is set.
 #endif
+
 The existing default treedata file is overwritten.
 
 =item B<-S PATH>
@@ -539,12 +540,13 @@ Scan treedata file of another user based on USER, do not scan your own default
 treedata file. See also section ENVIRONMENT VARIABLES for I<WCDUSERSHOME>.
 
 On Unix/Cygwin the base directory
-for user home directories is assumed to be C</home>, so wcd tries to scan
-C</home/USER/.treedata.wcd>.
+for user home directories is assumed to be C</home>. Wcd will look for
+C</home/USER/.treedata.wcd> and C</home/USER/.wcd/.treedata.wcd>, in that
+order, and read the first one that exists and is readable.
 #ifdef dos
 On DOS/Windows the base directory for user
-home directories is assumed to be C<\\users>, so wcd tries to scan
-C<\\users\USER\treedata.wcd>.
+home directories is assumed to be C<\\users>, so wcd tries to read
+C<\\users\USER\treedata.wcd> and C<\\users\USER\.wcd\treedata.wcd>.
 #endif
 
 =item B<+u USER>
@@ -1056,9 +1058,15 @@ B<+n>.
 =item B<HOME> and B<WCDHOME>
 
 Wcd uses environment variable I<HOME> to determine where to store its
-files. Environment variable I<WCDHOME> overrides I<HOME>. If both
-I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead of
-I<HOME>. See also section FILES.
+files. See also section FILES.
+
+Environment variable I<WCDHOME> can be used to change the location of wcd's
+files. If both I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead
+of I<HOME>.
+
+In wcd versions prior to 5.1.5 WCDHOME also changed the default scan directory.
+This has changed. Since version 5.1.5 WCDHOME does not change the default scan
+directory. See option -s.
 
 #ifdef dos
 
@@ -1075,9 +1083,7 @@ explicitly. E.g.:
 
     wcd -S c: -A d: -A e:
 
-Matching of directories is now global over all scanned drives. If the
-environment variable I<WCDHOME> is set wcd will use I<WCDHOME> instead
-of I<HOME>.
+Matching of directories is now global over all scanned drives.
 
 #endif
 
