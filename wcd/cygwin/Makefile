@@ -3,7 +3,7 @@ PREFIX = /usr
 prefix = $(PREFIX)
 LDFLAGS_EXTRA = -lmpr -Wl,--enable-auto-import
 
-CFLAGS = -O3 -Wall
+CFLAGS = -O2 -Wall
 CURSES = ncurses
 #CURSES = pdcurses
 ENABLE_NLS = 1

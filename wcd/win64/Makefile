@@ -7,7 +7,7 @@ LDFLAGS_EXTRA = -lkernel32 -luser32 -lmpr
 
 CC = x86_64-w64-mingw32-gcc
 STRIP = x86_64-w64-mingw32-strip
-CFLAGS = -O3 -Wall
+CFLAGS = -O2 -Wall
 CURSES = pdcurses
 ENABLE_NLS =
 DEFS   = -DMSDOS

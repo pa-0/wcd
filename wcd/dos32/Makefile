@@ -4,7 +4,7 @@ PREFIX = c:/djgpp
 prefix = $(PREFIX)
 MKDIR  = mkdir
 
-CFLAGS = -O3 -Wall
+CFLAGS = -O2 -Wall
 CURSES = pdcurses
 ENABLE_NLS =
 

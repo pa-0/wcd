@@ -5,7 +5,7 @@ exec_prefix = $(prefix)
 MKDIR  = mkdir
 LDFLAGS_EXTRA =
 
-CFLAGS = -O3 -Wall
+CFLAGS = -O2 -Wall
 
 # PDcurses
 #CURSES = pdcurses

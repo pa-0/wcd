@@ -5,7 +5,7 @@ exec_prefix = $(prefix)
 MKDIR  = mkdir
 LDFLAGS_EXTRA = -lkernel32 -luser32 -lmpr
 
-CFLAGS = -O3 -Wall
+CFLAGS = -O2 -Wall
 CURSES = pdcurses
 ENABLE_NLS = 1
 DEFS   = -DMSDOS -DWCD_WINPWRSH
