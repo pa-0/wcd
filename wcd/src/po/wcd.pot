@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-14 19:47+0200\n"
+"POT-Creation-Date: 2011-05-14 20:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: wcd.c:115
 #, c-format
-msgid "Wcd: error: Unable to read file %s: Not a file.\n"
+msgid "Wcd: error: Unable to read file %s: Not a regular file.\n"
 msgstr ""
 
 #: wcd.c:128

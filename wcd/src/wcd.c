@@ -112,7 +112,7 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
     {
       if ( !quiet )
       {
-        fprintf(stderr,_("Wcd: error: Unable to read file %s: Not a file.\n"), filename);
+        fprintf(stderr,_("Wcd: error: Unable to read file %s: Not a regular file.\n"), filename);
       }
       return(NULL);
     }

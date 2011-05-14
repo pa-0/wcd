@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-14 19:47+0200\n"
+"POT-Creation-Date: 2011-05-14 20:03+0200\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -25,7 +25,7 @@ msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
 
 #: wcd.c:115
 #, fuzzy, c-format
-msgid "Wcd: error: Unable to read file %s: Not a file.\n"
+msgid "Wcd: error: Unable to read file %s: Not a regular file.\n"
 msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
 
 #: wcd.c:128

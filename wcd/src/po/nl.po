@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-14 19:47+0200\n"
+"POT-Creation-Date: 2011-05-14 20:03+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -23,8 +23,8 @@ msgstr "Wcd: fout: Kan bestand %s niet lezen: %s\n"
 
 #: wcd.c:115
 #, c-format
-msgid "Wcd: error: Unable to read file %s: Not a file.\n"
-msgstr "Wcd: fout: Kan bestand %s niet lezen: Geen bestand.\n"
+msgid "Wcd: error: Unable to read file %s: Not a regular file.\n"
+msgstr "Wcd: fout: Kan bestand %s niet lezen: Geen regulier bestand.\n"
 
 #: wcd.c:128
 #, c-format
@@ -903,4 +903,3 @@ msgid ""
 msgstr ""
 "Wcd: fout in '%s', geen ruimte meer voor toewijzing\n"
 "Wcd: Onvoldoende geheugen\n"
-

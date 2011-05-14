@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-14 19:47+0200\n"
+"POT-Creation-Date: 2011-05-14 20:03+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -21,7 +21,7 @@ msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
 
 #: wcd.c:115
 #, fuzzy, c-format
-msgid "Wcd: error: Unable to read file %s: Not a file.\n"
+msgid "Wcd: error: Unable to read file %s: Not a regular file.\n"
 msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
 
 #: wcd.c:128
