@@ -24,7 +24,7 @@ msgstr "Wcd: fout: Kan bestand %s niet lezen: %s\n"
 #: wcd.c:115
 #, c-format
 msgid "Wcd: error: Unable to read file %s: Not a file.\n"
-msgstr "Wcd: fout: Kan bestand %s of %s niet lezen: Geen bestand.\n"
+msgstr "Wcd: fout: Kan bestand %s niet lezen: Geen bestand.\n"
 
 #: wcd.c:128
 #, c-format
