@@ -241,7 +241,7 @@ char *wcd_getcwd(char *buf, int size)
 
    if (err == 0)
    {
-     fprintf(stderr,_("Wcd: error: Unable to get current working directory\n"));
+     fprintf(stderr,_("Wcd: error: Unable to get current working directory.\n"));
      return(NULL);  /* fail */
    }
    else

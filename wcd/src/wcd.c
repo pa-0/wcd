@@ -1076,7 +1076,7 @@ void deleteLink(char *path, char *treefile)
         }
    }
    else
-      fprintf(stderr,_("Wcd: %s is a link to a file.\n"),path);
+      fprintf(stderr,_("Wcd: %s is a symbolic link to a file.\n"),path);
  }
  else
  {
@@ -2641,7 +2641,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                      addToNamesetArray(textNew(tmp2),extra_files);
                   }
                   else
-                     fprintf(stderr, _("Wcd: error: Unable to open file %s or %s\n"), tmp, tmp2);
+                     fprintf(stderr, _("Wcd: error: Unable to read file %s or %s\n"), tmp, tmp2);
                }
             }
             else
