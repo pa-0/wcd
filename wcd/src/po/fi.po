@@ -15,19 +15,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:106 wcd.c:126
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to read file %s: %s\n"
-msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
+msgstr "Wcd: virhe: Ei oikeutta lukea tiedostosta %s: %s\n"
 
 #: wcd.c:115
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to read file %s: Not a regular file.\n"
-msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
+msgstr "Wcd: virhe: Ei voi lukea tiedostoa %s: ei epätavallinen tiedosto.\n"
 
 #: wcd.c:128
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to write file %s: %s\n"
-msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
+msgstr "Wcd: virhe: Ei oikeutta kirjoittaa tiedostoa %s: %s\n"
 
 #: wcd.c:436 wcd.c:449
 #, c-format
@@ -35,9 +35,9 @@ msgid "Wcd: %s added to file %s\n"
 msgstr "Wcd: %s lisätty tiedostoon %s\n"
 
 #: wcd.c:583 wcd.c:648
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to remove file %s: %s\n"
-msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
+msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s: %s\n"
 
 #: wcd.c:737 wcd.c:804
 #, c-format
@@ -64,18 +64,18 @@ msgid ""
 "Wcd: Set TEMP environment variable if this is a read-only disk.\n"
 msgstr ""
 "Wcd: virhe: Ei kirjoitusoikeuttaa tree-file tiedostoon.\n"
-"Wcd: Aseta ympäristömuuttuja TEMP eri paikkaan, jos kyseessä on read-only "
+"Wcd: Aseta ympäristömuuttuja TEMP eri paikkaan, jos kyseessä on kirjoitussuojattu "
 "levy.\n"
 
 #: wcd.c:1093
 #, fuzzy, c-format
 msgid "Wcd: Removed symbolic link %s\n"
-msgstr "Wcd: Linkki poistettu %s\n"
+msgstr "Wcd: Tiedostolinkki poistettu %s\n"
 
 #: wcd.c:1099
 #, fuzzy, c-format
 msgid "Wcd: error: Unable to remove symbolic link %s: %s\n"
-msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
+msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostolinkkiä %s: %s\n"
 
 #: wcd.c:1103
 #, fuzzy, c-format
@@ -382,9 +382,8 @@ msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujan WCDLOCALEDIR arvo on liian pitkä.\n"
 
 #: wcd.c:2054
-#, fuzzy
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
-msgstr "Wcd: virhe: Ympäristömuuttujan WCDUSERSHOME arvo on liian pitkä.\n"
+msgstr "Wcd: virhe: Ympäristömuuttujan HOME arvo on liian pitkä.\n"
 
 #: wcd.c:2069 wcd.c:2137
 msgid ""
@@ -447,14 +446,14 @@ msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s lisätty tiedostoon %s\n"
 
 #: wcd.c:2668
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
-msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
+msgstr "Wcd: virhe: Ei oikeutta lukea tiedostoa %s tai %s\n"
 
 #: wcd.c:2794
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
-msgstr "Wcd: jätetään ottamasta huomioon {%s}\n"
+msgstr "Wcd: WCDSCAN hakemisto {%s}\n"
 
 #: wcd.c:2796
 #, c-format
@@ -507,44 +506,44 @@ msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "Wcd: Köydetty %d hakemistoa palvelimelta %s\n"
 
 #: wcddir.c:244
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to get current working directory.\n"
-msgstr "Wcd: virhe: Ei oikeutta luoda hamistoa%s\n"
+msgstr "Wcd: virhe: Nykyisen hakemiston sijaintia ei voi lukea.\n"
 
 #: wcddir.c:269
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to change to directory %s\n"
-msgstr "Wcd: virhe: Ei oikeutta luoda hamistoa%s\n"
+msgstr "Wcd: virhe: Ei oikeutta siirtyä hakemistoon %s\n"
 
 #: wcddir.c:297
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to create directory %s\n"
 msgstr "Wcd: virhe: Ei oikeutta luoda hamistoa%s\n"
 
 #: wcddir.c:323
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to remove directory %s\n"
 msgstr "Wcd: virhe: Ei oikeutta poistaa hakemistoa %s\n"
 
 #: wcddir.c:346 wcddir.c:363
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to create directory %s: %s\n"
-msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
+msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s: %s\n"
 
 #: wcddir.c:487
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
-msgstr "Wcd: virhe: Ei oikeutta luoda hamistoa%s\n"
+msgstr "Wcd: virhe: Nykyisen hakemiston sijaintia ei voi lukea: %s\n"
 
 #: wcddir.c:506
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to change to directory %s: %s\n"
-msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
+msgstr "Wcd: virhe: Ei voi siirtyä hakemistoon %s: %s\n"
 
 #: wcddir.c:521
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to remove directory %s: %s\n"
-msgstr "Wcd: virhe: Ei oikeutta poistaa hakemistoa %s\n"
+msgstr "Wcd: virhe: Ei oikeutta poistaa hakemistoa %s: %s\n"
 
 #: stack.c:99
 msgid "Wcd: Error parsing stack\n"
@@ -764,7 +763,7 @@ msgstr "t                        Keskitetty moodi päälle/pois."
 
 #: graphics.c:1635
 msgid "T                 toggle between line drawing and ASCII characters."
-msgstr ""
+msgstr "T                 kytke viivanpiirto ASCII kirjaimin päälle/pois."
 
 #: graphics.c:1636
 msgid "<Esc> or q        Abort."
@@ -911,37 +910,3 @@ msgid ""
 msgstr ""
 "Wcd: virhe kohdassa '%s', muistin varaus ei onnistu\n"
 "Wcd: Riitämätön määrä muistia\n"
-
-#, fuzzy
-#~ msgid "Wcd: error: Unable to write file %s: Not a file.\n"
-#~ msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
-
-#, fuzzy
-#~ msgid "Wcd: error: %s is not a regular file.\n"
-#~ msgstr "Wcd: %s ei ole hakemisto.\n"
-
-#, fuzzy
-#~ msgid "Wcd: error: Unable to open file %s or %s\n"
-#~ msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
-
-#, fuzzy
-#~ msgid "Wcd: error: Unable to open directory %s\n"
-#~ msgstr "Wcd: virhe: Ei oikeutta poistaa hakemistoa %s\n"
-
-#~ msgid "Wcd: error: Permission denied to open directory %s\n"
-#~ msgstr "Wcd: virhe: Ei oikeutta avata hakemistoa %s\n"
-
-#~ msgid "Wcd: error: Permission denied to remove directory %s\n"
-#~ msgstr "Wcd: virhe: Ei oikeutta poistaa hakemistoa %s\n"
-
-#~ msgid "Wcd: error: Permission denied to remove file %s\n"
-#~ msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s\n"
-
-#~ msgid "Wcd: error: Permission denied to remove link %s\n"
-#~ msgstr "Wcd: virhe: Ei oikeuttaa poistaa linkkiä %s\n"
-
-#~ msgid "Wcd: error: Write access to file %s denied.\n"
-#~ msgstr "Wcd: virhe: Ei kirjoitusoikeutta %s tiedostoon.\n"
-
-#~ msgid "Wcd: error: Permission denied to open file %s\n"
-#~ msgstr "Wcd: virhe: Ei oikeutta avata tiedostoa %s\n"
