@@ -1,12 +1,12 @@
 # Deutsche Meldungen für WCD
-# Copyright 2010 Erwin Waterlander
+# Copyright 2010,2011 Erwin Waterlander
 # This file is distributed under the same license as the PACKAGE package.
 # 
-# Philipp Thomas <psmt@opensuse.org>, 2010.
-# Philipp Thomas <pth@suse.de>, 2010.
+# Philipp Thomas <psmt@opensuse.org>, 2010, 2011
+# Philipp Thomas <pth@suse.de>, 2010, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.1.4\n"
+"Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-05-16 11:44+0200\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
@@ -19,19 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: wcd.c:106 wcd.c:126
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to read file %s: %s\n"
-msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
+msgstr "wcd: Fehler: Die Datei %s konnte nicht gelesen werden: %s\n"
 
 #: wcd.c:115
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to read file %s: Not a regular file.\n"
-msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
+msgstr "wcd: Fehler: Die Datei %s konnte nicht gelesen werden: Keine normale Datei.\n"
 
 #: wcd.c:128
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to write file %s: %s\n"
-msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
+msgstr "wcd: Fehler: Die Datei %s konnte nicht geschrieben werden: %s\n"
 
 #: wcd.c:436 wcd.c:449
 #, c-format
@@ -39,9 +39,9 @@ msgid "Wcd: %s added to file %s\n"
 msgstr "wcd: %s wurde zu Datei %s hinzugefügt\n"
 
 #: wcd.c:583 wcd.c:648
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to remove file %s: %s\n"
-msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
+msgstr "wcd: Fehler: Die Datei %s konnte nicht entfernt werden: %s\n"
 
 #: wcd.c:737 wcd.c:804
 #, c-format
@@ -59,11 +59,11 @@ msgid "Wcd: %s is not a directory.\n"
 msgstr "wcd: %s ist kein Verzeichnis.\n"
 
 #: wcd.c:907
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr ""
-"wcd: Bitte warten Sie. Das Laufwerk wird durchsucht und erstelle aus %s die "
-"Datei mit den Dateibaumdaten.\n"
+"wcd: Bitte warten Sie. Das Laufwerk wird durchsucht und aus %2$s die "
+"Datei mit den Dateibaumdaten %1$s erstellt .\n"
 
 #: wcd.c:972
 msgid ""
@@ -75,19 +75,19 @@ msgstr ""
 "Laufwerk ist.\n"
 
 #: wcd.c:1093
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: Removed symbolic link %s\n"
-msgstr "wcd: Die Verknüpfung %s wurde entfernt.\n"
+msgstr "wcd: Die SYBOLISCHE Verknüpfung %s wurde entfernt.\n"
 
 #: wcd.c:1099
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to remove symbolic link %s: %s\n"
-msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
+msgstr "wcd: Fehler: Das Löschen der symbolischen Verknüpfung %s wurde verweigert: %s\n"
 
 #: wcd.c:1103
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: %s is a symbolic link to a file.\n"
-msgstr "wcd: %s ist eine Verknüpfung mit einer Datei.\n"
+msgstr "wcd: %s ist eine symbolische Verknüpfung mit einer Datei.\n"
 
 #: wcd.c:1175
 #, c-format
@@ -388,10 +388,9 @@ msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDLOCALEDIR ist zu lang.\n"
 
 #: wcd.c:2054
-#, fuzzy
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr ""
-"wcd: Fehler: Der Inhalt der Umgebungsvariable WCDUSERHOME ist zu lang.\n"
+"wcd: Fehler: Der Inhalt der Umgebungsvariable HOME ist zu lang.\n"
 
 #: wcd.c:2069 wcd.c:2137
 msgid ""
@@ -417,7 +416,7 @@ msgstr ""
 "     unterstützt.\n"
 
 #: wcd.c:2342
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
 "Copyright (C) 1997-2011 Erwin Waterlander\n"
@@ -451,7 +450,7 @@ msgid ""
 "USA.\n"
 msgstr ""
 "Chdir für Dos und Unix.\n"
-"Copyright © 1997-2010 Erwin Waterlander\n"
+"Copyright © 1997-2011 Erwin Waterlander\n"
 "Copyright © 1994-2002 Ondrej Popp auf C3PO\n"
 "Copyright © 1995-1996 DJ Delorie auf _fixpath()\n"
 "Copyright © 1995-1996 Borja Etxebarria & Olivier Sirol auf Ninux Czo "
@@ -487,14 +486,14 @@ msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "wcd: %s wurde zur Aliasdatei %s hinzugefügt\n"
 
 #: wcd.c:2668
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
-msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
+msgstr "wcd: Fehler: Weder die Datei %s noch die Datei %s konnten gelesen werden\n"
 
 #: wcd.c:2794
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
-msgstr "wcd: {%s} wird ausgeschlossen\n"
+msgstr "wcd: WCDSCAN Verzeichnis {%s}\n"
 
 #: wcd.c:2796
 #, c-format
@@ -548,44 +547,45 @@ msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "wcd Es wurden %d freigegebene Verzeichnisse auf Server %s gefunden.\n"
 
 #: wcddir.c:244
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to get current working directory.\n"
-msgstr "wcd: Fehler: Das Anlegen von Verzeichnis %s wurde verweigert\n"
+msgstr "wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden\n"
 
 #: wcddir.c:269
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to change to directory %s\n"
-msgstr "wcd: Fehler: Das Anlegen von Verzeichnis %s wurde verweigert\n"
+msgstr "wcd: Fehler: Das Wechseln zu Verzeichnis %s war nicht möglich\n"
 
 #: wcddir.c:297
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to create directory %s\n"
 msgstr "wcd: Fehler: Das Anlegen von Verzeichnis %s wurde verweigert\n"
 
 #: wcddir.c:323
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to remove directory %s\n"
 msgstr "wcd: Fehler: Das Löschen von Verzeichnis %s wurde verweigert\n"
 
 #: wcddir.c:346 wcddir.c:363
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to create directory %s: %s\n"
-msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
+msgstr "wcd: Fehler: Das Verzeicnis %s konnte nicht angelegt werden: %s\n"
 
 #: wcddir.c:487
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
-msgstr "wcd: Fehler: Das Anlegen von Verzeichnis %s wurde verweigert\n"
+msgstr ""
+"wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden: %s\n"
 
 #: wcddir.c:506
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to change to directory %s: %s\n"
-msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
+msgstr "wcd: Fehler: Das Wechseln zu Verzeichnis %s war nicht möglich: %s\n"
 
 #: wcddir.c:521
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to remove directory %s: %s\n"
-msgstr "wcd: Fehler: Das Löschen von Verzeichnis %s wurde verweigert\n"
+msgstr "wcd: Fehler: Das Löschen von Verzeichnis %s wurde verweigert: %s\n"
 
 #: stack.c:99
 msgid "Wcd: Error parsing stack\n"
@@ -804,7 +804,7 @@ msgstr "t                  Zentrieren ein- bzw. ausschalten."
 
 #: graphics.c:1635
 msgid "T                 toggle between line drawing and ASCII characters."
-msgstr ""
+msgstr "T                  Wechseln zwischen Sonderzeichen und ASCII für das Zeichnen"
 
 #: graphics.c:1636
 msgid "<Esc> or q        Abort."
