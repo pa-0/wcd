@@ -1720,7 +1720,9 @@ void print_version()
 }
 
 #ifdef WCD_SHELL
-void create_go_dir(char *go_file)
+/* Recurively create directory path, to enable writing
+ * the file */
+void create_dir_for_file(char *f)
 {
    char path[DD_MAXPATH];
    char *ptr ;
@@ -1728,12 +1730,13 @@ void create_go_dir(char *go_file)
    mode_t m;
 #endif
 
-   strncpy(path, go_file, sizeof(path));
+   strncpy(path, f, sizeof(path));
    if ( (ptr = strrchr(path,DIR_SEPARATOR)) != NULL)
    {
       *ptr = '\0' ;
        if (wcd_isdir(path,1) != 0) /* is it a dir */
        {
+          create_dir_for_file(path);
 #if (defined(UNIX) || defined(DJGPP) || defined(OS2))
           m = S_IRWXU | S_IRWXG | S_IRWXO;
           if (wcd_mkdir(path,m,0)==0)
@@ -1761,7 +1764,7 @@ void empty_wcdgo(char *go_file, int use_GoScript)
       return;
 
    /* try to create directory for go-script if it doesn't exist */
-   create_go_dir(go_file);
+   create_dir_for_file(go_file);
 
    if  ((outfile = wcd_fopen(go_file,"w",0)) == NULL)
       exit(0);
@@ -1781,7 +1784,7 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript)
       return;
 
    /* try to create directory for go-script if it doesn't exist */
-   create_go_dir(go_file);
+   create_dir_for_file(go_file);
 
    if  ((outfile = wcd_fopen(go_file,"w",0)) == NULL)
       exit(0);
@@ -1850,7 +1853,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
       return;
 
    /* try to create directory for go-script if it doesn't exist */
-   create_go_dir(go_file);
+   create_dir_for_file(go_file);
 
    /* open go-script */
    if  ((outfile = wcd_fopen(go_file,"w",0)) == NULL)
@@ -2161,6 +2164,7 @@ int main(int argc,char** argv)
    }
 #endif
 
+   create_dir_for_file(treefile);
    strncpy(scandir,rootdir,DD_MAXPATH);
 
    strcpy(dir,"");

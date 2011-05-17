@@ -4,6 +4,7 @@
   - Environment variable WCDSCAN can be used to overrule the default scan
     directory.
   - Option -u tries to read /home/USER/TREEFILE, and /home/USER/.wcd/TREEFILE.
+  - Automatically create directory for tree-file and go-script.
   - New key in graphical mode: 'T' toggle between line drawing and ASCII
     characters.
   - Improved error reporting.

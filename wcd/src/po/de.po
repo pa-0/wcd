@@ -1,14 +1,14 @@
 # Deutsche Meldungen für WCD
 # Copyright 2010,2011 Erwin Waterlander
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Philipp Thomas <psmt@opensuse.org>, 2010, 2011
 # Philipp Thomas <pth@suse.de>, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-16 11:44+0200\n"
+"POT-Creation-Date: 2011-05-17 14:45+0200\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -26,7 +26,8 @@ msgstr "wcd: Fehler: Die Datei %s konnte nicht gelesen werden: %s\n"
 #: wcd.c:115
 #, c-format
 msgid "Wcd: error: Unable to read file %s: Not a regular file.\n"
-msgstr "wcd: Fehler: Die Datei %s konnte nicht gelesen werden: Keine normale Datei.\n"
+msgstr ""
+"wcd: Fehler: Die Datei %s konnte nicht gelesen werden: Keine normale Datei.\n"
 
 #: wcd.c:128
 #, c-format
@@ -62,8 +63,8 @@ msgstr "wcd: %s ist kein Verzeichnis.\n"
 #, c-format
 msgid "Wcd: Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr ""
-"wcd: Bitte warten Sie. Das Laufwerk wird durchsucht und aus %2$s die "
-"Datei mit den Dateibaumdaten %1$s erstellt .\n"
+"wcd: Bitte warten Sie. Das Laufwerk wird durchsucht und aus %2$s die Datei "
+"mit den Dateibaumdaten %1$s erstellt .\n"
 
 #: wcd.c:972
 msgid ""
@@ -82,7 +83,9 @@ msgstr "wcd: Die SYBOLISCHE Verknüpfung %s wurde entfernt.\n"
 #: wcd.c:1099
 #, c-format
 msgid "Wcd: error: Unable to remove symbolic link %s: %s\n"
-msgstr "wcd: Fehler: Das Löschen der symbolischen Verknüpfung %s wurde verweigert: %s\n"
+msgstr ""
+"wcd: Fehler: Das Löschen der symbolischen Verknüpfung %s wurde verweigert: %"
+"s\n"
 
 #: wcd.c:1103
 #, c-format
@@ -237,7 +240,7 @@ msgstr ""
 "  +[ZAHL]        Verzeinis vom Stapel nehemn (ZAHL mal)\n"
 "  =              Zeige den verzeichnisstapel an\n"
 
-#: wcd.c:1651 wcd.c:2341
+#: wcd.c:1651 wcd.c:2345
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
@@ -377,45 +380,44 @@ msgstr ""
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr "http://www.xs4all.nl/~waterlan/\n"
 
-#: wcd.c:1743 stack.c:235
+#: wcd.c:1746 stack.c:235
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "wcd: Verzeichnis %s wird erzeugt\n"
 
-#: wcd.c:2027
+#: wcd.c:2030
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDLOCALEDIR ist zu lang.\n"
 
-#: wcd.c:2054
+#: wcd.c:2057
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
-msgstr ""
-"wcd: Fehler: Der Inhalt der Umgebungsvariable HOME ist zu lang.\n"
+msgstr "wcd: Fehler: Der Inhalt der Umgebungsvariable HOME ist zu lang.\n"
 
-#: wcd.c:2069 wcd.c:2137
+#: wcd.c:2072 wcd.c:2140
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariablen HOME oder WCDHOME ist zu "
 "lang.\n"
 
-#: wcd.c:2101 wcd.c:2130
+#: wcd.c:2104 wcd.c:2133
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 "wcd: Fehler: Die Umgebungsvariablen HOME oder WCDHOOME sind nicht gesetzt.\n"
 
-#: wcd.c:2205 wcd.c:2636 wcd.c:2655
+#: wcd.c:2209 wcd.c:2640 wcd.c:2659
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDUSERHOME ist zu lang.\n"
 
-#: wcd.c:2337
+#: wcd.c:2341
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "wcd: Grafikmodus wird nur von wcd mit Curses basierter Oberfläche\n"
 "     unterstützt.\n"
 
-#: wcd.c:2342
+#: wcd.c:2346
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -480,37 +482,38 @@ msgstr ""
 "Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,\n"
 "MA 02110-1301 USA.\n"
 
-#: wcd.c:2569
+#: wcd.c:2573
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "wcd: %s wurde zur Aliasdatei %s hinzugefügt\n"
 
-#: wcd.c:2668
+#: wcd.c:2672
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
-msgstr "wcd: Fehler: Weder die Datei %s noch die Datei %s konnten gelesen werden\n"
+msgstr ""
+"wcd: Fehler: Weder die Datei %s noch die Datei %s konnten gelesen werden\n"
 
-#: wcd.c:2794
+#: wcd.c:2798
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "wcd: WCDSCAN Verzeichnis {%s}\n"
 
-#: wcd.c:2796
+#: wcd.c:2800
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "wcd: {%s} wird verbannt\n"
 
-#: wcd.c:2798
+#: wcd.c:2802
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "wcd: {%s} wird ausgeschlossen\n"
 
-#: wcd.c:2800
+#: wcd.c:2804
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "wcd\" {%s} wird gefiltert\n"
 
-#: wcd.c:3067
+#: wcd.c:3071
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -520,7 +523,7 @@ msgstr ""
 "wcd: Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist\n"
 "     verbannt.\n"
 
-#: wcd.c:3233
+#: wcd.c:3237
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "wcd: Zu %s kann nicht gewechselt werden\n"
@@ -549,7 +552,8 @@ msgstr "wcd Es wurden %d freigegebene Verzeichnisse auf Server %s gefunden.\n"
 #: wcddir.c:244
 #, c-format
 msgid "Wcd: error: Unable to get current working directory.\n"
-msgstr "wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden\n"
+msgstr ""
+"wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden\n"
 
 #: wcddir.c:269
 #, c-format
@@ -575,7 +579,8 @@ msgstr "wcd: Fehler: Das Verzeicnis %s konnte nicht angelegt werden: %s\n"
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr ""
-"wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden: %s\n"
+"wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden: %"
+"s\n"
 
 #: wcddir.c:506
 #, c-format
@@ -804,7 +809,8 @@ msgstr "t                  Zentrieren ein- bzw. ausschalten."
 
 #: graphics.c:1635
 msgid "T                 toggle between line drawing and ASCII characters."
-msgstr "T                  Wechseln zwischen Sonderzeichen und ASCII für das Zeichnen"
+msgstr ""
+"T                  Wechseln zwischen Sonderzeichen und ASCII für das Zeichnen"
 
 #: graphics.c:1636
 msgid "<Esc> or q        Abort."

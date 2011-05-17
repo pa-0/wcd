@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-16 11:44+0200\n"
+"POT-Creation-Date: 2011-05-17 14:45+0200\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -235,7 +235,7 @@ msgstr ""
 "  +[NÚMERO]      Saca directorio de la pila (NÚMERO veces)\n"
 "  =              Muestra la pila\n"
 
-#: wcd.c:1651 wcd.c:2341
+#: wcd.c:1651 wcd.c:2345
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
@@ -374,47 +374,47 @@ msgstr "Descarga los últimos ejecutables y archivos fuente de:\n"
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr ""
 
-#: wcd.c:1743 stack.c:235
+#: wcd.c:1746 stack.c:235
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: Creando directorio %s\n"
 
-#: wcd.c:2027
+#: wcd.c:2030
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente WCDLOCALEDIR es demasiado "
 "largo.\n"
 
-#: wcd.c:2054
+#: wcd.c:2057
 #, fuzzy
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente WCDUSERSHOME es demasiado "
 "largo.\n"
 
-#: wcd.c:2069 wcd.c:2137
+#: wcd.c:2072 wcd.c:2140
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente HOME o WCDHOME es demasiado "
 "largo.\n"
 
-#: wcd.c:2101 wcd.c:2130
+#: wcd.c:2104 wcd.c:2133
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: error: La variable de ambiente HOME o WCDHOME no tiene valor.\n"
 
-#: wcd.c:2205 wcd.c:2636 wcd.c:2655
+#: wcd.c:2209 wcd.c:2640 wcd.c:2659
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente WCDUSERSHOME es demasiado "
 "largo.\n"
 
-#: wcd.c:2337
+#: wcd.c:2341
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Modo gráfico sólo soportado en wcd con interfase basada en curses.\n"
 
-#: wcd.c:2342
+#: wcd.c:2346
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -449,37 +449,37 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:2569
+#: wcd.c:2573
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s se añadió al archivo de alias %s\n"
 
-#: wcd.c:2668
+#: wcd.c:2672
 #, fuzzy, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr "Wcd: error: Permiso denegado para eliminar el archivo %s\n"
 
-#: wcd.c:2794
+#: wcd.c:2798
 #, fuzzy, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "Wcd: excluyendo {%s}\n"
 
-#: wcd.c:2796
+#: wcd.c:2800
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: prohibiendo {%s}\n"
 
-#: wcd.c:2798
+#: wcd.c:2802
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: excluyendo {%s}\n"
 
-#: wcd.c:2800
+#: wcd.c:2804
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filtrando {%s}\n"
 
-#: wcd.c:3067
+#: wcd.c:3071
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -488,7 +488,7 @@ msgstr ""
 "Wcd: No se encontró algún directorio que concordara con %s\n"
 "Wcd: Quizá necesite reexplorar el disco o la ruta.\n"
 
-#: wcd.c:3233
+#: wcd.c:3237
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: No puedo cambiar el directorio a %s\n"

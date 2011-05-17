@@ -2,12 +2,12 @@
 # Copyright (C) 2008-2011 THE wcd'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the wcd package.
 # Erwin Waterlander <waterlan@xs4all.nl>, 2008-2011.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-16 11:44+0200\n"
+"POT-Creation-Date: 2011-05-17 14:45+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -231,7 +231,7 @@ msgstr ""
 "  +[NUMMER]      Haal map van stapel (NUMMER keer)\n"
 "  =              Laat stapel zien\n"
 
-#: wcd.c:1651 wcd.c:2341
+#: wcd.c:1651 wcd.c:2345
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
@@ -370,39 +370,39 @@ msgstr "Download de nieuwste versie met broncode van:\n"
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr ""
 
-#: wcd.c:1743 stack.c:235
+#: wcd.c:1746 stack.c:235
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: aanmaken map %s\n"
 
-#: wcd.c:2027
+#: wcd.c:2030
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDLOCALEDIR is te lang.\n"
 
-#: wcd.c:2054
+#: wcd.c:2057
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME is te lang.\n"
 
-#: wcd.c:2069 wcd.c:2137
+#: wcd.c:2072 wcd.c:2140
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
 
-#: wcd.c:2101 wcd.c:2130
+#: wcd.c:2104 wcd.c:2133
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
 
-#: wcd.c:2205 wcd.c:2636 wcd.c:2655
+#: wcd.c:2209 wcd.c:2640 wcd.c:2659
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
 
-#: wcd.c:2337
+#: wcd.c:2341
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
 "interface.\n"
 
-#: wcd.c:2342
+#: wcd.c:2346
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -437,37 +437,37 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:2569
+#: wcd.c:2573
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s toegevoegd aan aliasbestand %s\n"
 
-#: wcd.c:2668
+#: wcd.c:2672
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr "Wcd: fout: Kan bestand %s of %s niet lezen.\n"
 
-#: wcd.c:2794
+#: wcd.c:2798
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "Wcd: WCDSCAN map {%s}\n"
 
-#: wcd.c:2796
+#: wcd.c:2800
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: verbannen {%s}\n"
 
-#: wcd.c:2798
+#: wcd.c:2802
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: uitsluiten {%s}\n"
 
-#: wcd.c:2800
+#: wcd.c:2804
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteren {%s}\n"
 
-#: wcd.c:3067
+#: wcd.c:3071
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -476,7 +476,7 @@ msgstr ""
 "Wcd: Geen map gevonden gelijk aan %s\n"
 "Wcd: Misschien moet u de schijf opnieuw aftasten of is het pad verbannen.\n"
 
-#: wcd.c:3233
+#: wcd.c:3237
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Kan niet veranderen naar %s\n"
