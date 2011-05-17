@@ -85,34 +85,6 @@ CYGWIN    : download via the installer program setup.exe.
 For MinGW(-w64) use MSYS-make in the MSYS environment.
 
 
-MinGW without MSYS
-==================
-
-You can build wcd in a normal Windows Command Prompt, using the MinGW gcc
-compiler without the MSYS environment. For this you need GNU make, the
-coreutils package and a POSIX type shell that works in the Windows Command
-Prompt.
-
-Get GNU Make and the coreutils package from the GnuWin32 project.
-
-GnuWin32: http://gnuwin32.sourceforge.net/
-
-Instead of MSYS bash you can use the native zsh for Windows:
-
-http://www.xs4all.nl/~waterlan/zsh-3.0.5-nt-beta-0.75.zip
-or an updated WinZsh at:
-http://zsh-nt.sourceforge.net/
-
-Copy `zsh.exe' as `sh.exe' somewhere in PATH.
-Define SHELL, pointing to sh.exe.
-
-Now you have a proper shell for GNU make.
-
-See also file problems.txt.
-
-It is advised to use the MSYS environment though.
-
-
 gettext (libintl) and libiconv
 ==============================
 

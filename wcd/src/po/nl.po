@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-14 20:03+0200\n"
+"POT-Creation-Date: 2011-05-16 11:44+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -620,11 +620,11 @@ msgstr "CTRL-c of <Esc>    Afbreken."
 msgid "<Enter>           Abort."
 msgstr "<Enter>            Afbreken."
 
-#: display.c:1104 graphics.c:1641 graphics.c:1664 graphics.c:1681
+#: display.c:1104 graphics.c:1642 graphics.c:1665 graphics.c:1682
 msgid "Press any key."
 msgstr "Druk een toets."
 
-#: display.c:1167 graphics.c:1929
+#: display.c:1167 graphics.c:1930
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
@@ -634,7 +634,7 @@ msgstr ""
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: fout: scherm hoogte moet groter zijn dan 3 regels.\n"
 
-#: display.c:1222 graphics.c:1962
+#: display.c:1222 graphics.c:1963
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: fout tijdens maken rolvenster.\n"
 
@@ -775,119 +775,119 @@ msgstr "?                 Zoek achteruit."
 msgid "n                 Repeat latest / or ? search."
 msgstr "n                 Herhaal laatste / of ? zoekopdracht."
 
-#: graphics.c:1640 graphics.c:1663
+#: graphics.c:1640 graphics.c:1664
 msgid "<Enter>           Select directory."
 msgstr "<Enter>           Kies map."
 
-#: graphics.c:1647
+#: graphics.c:1648
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "ZOEK MODUS met jokertekens en submap ondersteuning:"
 
-#: graphics.c:1648
+#: graphics.c:1649
 msgid "<Left>            go left."
 msgstr "<Links>           ga naar links."
 
-#: graphics.c:1649
+#: graphics.c:1650
 msgid "<Down>            go down."
 msgstr "<Omlaag>          ga omlaag."
 
-#: graphics.c:1650
+#: graphics.c:1651
 msgid "<Up>              go up."
 msgstr "<Omhoog>          ga omhoog."
 
-#: graphics.c:1651
+#: graphics.c:1652
 msgid "<Right>           go right."
 msgstr "<Rechts>          ga naar rechts."
 
-#: graphics.c:1652
+#: graphics.c:1653
 msgid "CTRL-v            go forward to dir with same name."
 msgstr "CTRL-v            ga vooruit naar map met dezelfde naam."
 
-#: graphics.c:1653
+#: graphics.c:1654
 msgid "CTRL-p            go backward to dir with same name."
 msgstr "CTRL-p            ga achteruit naar map met dezelfde naam."
 
-#: graphics.c:1654
+#: graphics.c:1655
 msgid "CTRL-a            go to beginning of line."
 msgstr "CTRL-a            ga naar begin van regel."
 
-#: graphics.c:1655
+#: graphics.c:1656
 msgid "CTRL-e            go to end of line."
 msgstr "CTRL-e            ga naar einde van regel."
 
-#: graphics.c:1656
+#: graphics.c:1657
 msgid "CTRL-g            go to last dir."
 msgstr "CTRL-g            ga naar laatste map."
 
-#: graphics.c:1657
+#: graphics.c:1658
 msgid "CTRL-f            go page forward."
 msgstr "CTRL-f            ga pagina vooruit."
 
-#: graphics.c:1658
+#: graphics.c:1659
 msgid "CTRL-b            go page backward."
 msgstr "CTRL-b            ga pagina achteruit."
 
-#: graphics.c:1659
+#: graphics.c:1660
 msgid "CTRL-u            go half page up."
 msgstr "CTRL-u            ga halve pagina omhoog."
 
-#: graphics.c:1660
+#: graphics.c:1661
 msgid "CTRL-d            go half page down."
 msgstr "CTRL-d            ga halve pagina omlaag."
 
-#: graphics.c:1661
+#: graphics.c:1662
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
 msgstr "<Esc> of CTRL-x   ZOEK MODUS afbreken."
 
-#: graphics.c:1662
+#: graphics.c:1663
 msgid "CTRL-n            Repeat latest / or ? search."
 msgstr "CTRL-n            Herhaal laatste / of ? zoekopdracht."
 
-#: graphics.c:1670
+#: graphics.c:1671
 msgid "ZOOMING:"
 msgstr "ZOOMEN:"
 
-#: graphics.c:1671
+#: graphics.c:1672
 msgid "z or i or CTRL-i  zoom in."
 msgstr "z of i of CTRL-i  zoom in."
 
-#: graphics.c:1672
+#: graphics.c:1673
 msgid "Z or o or CTRL-o  zoom out."
 msgstr "Z of o of CTRL-o  zoom uit."
 
-#: graphics.c:1673
+#: graphics.c:1674
 msgid "c                 condense: fold current level."
 msgstr "c                 huidig niveau vouwen."
 
-#: graphics.c:1674
+#: graphics.c:1675
 msgid "C                 condense: fold subdir level."
 msgstr "C                 submap niveau vouwen."
 
-#: graphics.c:1675
+#: graphics.c:1676
 msgid "w                 condense: fold current and sub levels."
 msgstr "w                 huidig en subniveaus vouwen."
 
-#: graphics.c:1676
+#: graphics.c:1677
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
 msgstr "y of CTRL-y       huidig en subniveaus ontvouwen."
 
-#: graphics.c:1677
+#: graphics.c:1678
 msgid "r or CTRL-r       uncondense: unfold all directories."
 msgstr "r of CTRL-r       alle mappen ontvouwen."
 
-#: graphics.c:1678
+#: graphics.c:1679
 msgid "-                 fold directory."
 msgstr "-                 vouw map."
 
-#: graphics.c:1679
+#: graphics.c:1680
 msgid "+ or =            unfold directory."
 msgstr "+ of =            ontvouw map."
 
-#: graphics.c:1680
+#: graphics.c:1681
 msgid "l or <Right>      unfold and go right."
 msgstr "l of <Rechts>     ontvouwen en naar rechts gaan."
 
-#: graphics.c:1684
+#: graphics.c:1685
 msgid "Screenheight must be > 21 for help"
 msgstr "Schermhoogte moet groter dan 21 zijn voor help"
 

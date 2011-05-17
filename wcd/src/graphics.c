@@ -1638,7 +1638,8 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win,19,0,_("?                 Search backward."));
       wcd_mvwaddstr(win,20,0,_("n                 Repeat latest / or ? search."));
       wcd_mvwaddstr(win,21,0,_("<Enter>           Select directory."));
-      wcd_mvwaddstr(win,22,0,_("Press any key."));
+      if (height > 22)
+        wcd_mvwaddstr(win,22,0,_("Press any key."));
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();

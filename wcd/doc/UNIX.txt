@@ -1,14 +1,17 @@
 PREREQUISITES
 
-	* gcc       : GNU C compiler
-	* make      : GNU make
-	* sh        : POSIX type shell
-	* coreutils : GNU core utilities package (chmod, install, mkdir, mv, rm, uname)
-	* gettext   : Framework to help GNU packages produce multi-lingual messages. (optional)
-	* ncurses   : CRT screen handling and optimization package. (optional)
-	* perl        : Practical Extraction and Report Language (perlpod)
-	* groff       : GNU troff text formatting system.
-	* ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
+	Required
+	    * gcc       : GNU C compiler
+	    * make      : GNU make
+	    * sh        : POSIX type shell
+	    * coreutils : GNU core utilities package (chmod, install, mkdir, mv, rm, uname)
+	    * perl      : Practical Extraction and Report Language (perlpod)
+
+	Optional (depending on build targets):
+	    * gettext   : Framework to help GNU packages produce multi-lingual messages.
+	    * ncurses   : CRT screen handling and optimization package.
+	    * groff       : GNU troff text formatting system.
+	    * ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
 
 	Check if you have GNU make(1) and GNU gcc(1) installed on your
 	system. On some systems GNU make may be installed as 'gmake' command.
@@ -103,9 +106,9 @@ DOCUMENTATION
 
     PDF generation requires GhostScript to be installed.
 
-DISTRIBUTION PACKAGE CREATION
+BINARY DISTRIBUTION PACKAGE CREATION
 
-	After installation a package can be created that contains
+	After installation, a package can be created that contains
 	a ready-to-run wcd binary.
 
 	  Type `make dist' to create a .tar.gz file.
