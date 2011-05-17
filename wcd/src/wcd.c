@@ -41,7 +41,13 @@ TAB = 3 spaces
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
-#include <unistd.h>
+#ifndef __TURBOC__
+# include <unistd.h>
+#endif
+#ifdef __TURBOC__
+#define __FLAT__
+#endif
+#include <sys/stat.h>
 #ifdef DJGPP
 # include <dir.h>
 #endif
@@ -1719,7 +1725,6 @@ void print_version()
    printf(_("http://www.xs4all.nl/~waterlan/\n"));
 }
 
-#ifdef WCD_SHELL
 /* Recurively create directory path, to enable writing
  * the file */
 void create_dir_for_file(char *f)
@@ -1747,7 +1752,6 @@ void create_dir_for_file(char *f)
        }
    }
 }
-#endif
 
 /********************************************************************
  *
@@ -1847,7 +1851,9 @@ int pickDir(nameset list, int *use_HOME)
 void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match, int use_GoScript)
 {
    FILE *outfile;
+#ifdef WCD_UNIXSHELL
    char *ptr ;
+#endif
 
    if (use_GoScript == 0)
       return;

@@ -1058,10 +1058,10 @@ B<+n>.
 
 =over 4
 
-=item B<HOME> and B<WCDHOME>
+=item B<WCDHOME>
 
-Wcd uses environment variable I<HOME> to determine where to store its
-files. See also section FILES.
+Wcd uses by default environment variable I<HOME> to determine where to store
+its files. See also section FILES.
 
 Environment variable I<WCDHOME> can be used to change the location of wcd's
 files. If both I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead
@@ -1091,6 +1091,20 @@ Matching of directories is now global over all scanned drives.
 
 #endif
 
+#ifdef dos
+Example for DOS, Windows, OS/2 Command Prompt:
+
+    set WCDHOME=C:\Users\erwin\wcd
+#endif
+
+An example for POSIX type shells:
+
+    export WCDHOME="$HOME/.wcd"
+
+An example for Csh type shells:
+
+    setenv WCDHOME "$HOME/.wcd"
+
 =item B<WCDSCAN>
 
 Use environment variable I<WCDSCAN> to overrule the default scan
@@ -1103,9 +1117,9 @@ On DOS/Windows make the list semi-colon separated.
 #ifdef dos
 Examples for DOS, Windows, OS/2 Command Prompt:
 
-    set WCDSCAN=C:/Users/erwin;D:/data
+    set WCDSCAN=C:\Users\erwin;D:\data
 
-    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;//projectdrive/projectX
+    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\projectdrive\projectX
 #endif
 
 An example for POSIX type shells:
@@ -1115,50 +1129,6 @@ An example for POSIX type shells:
 An example for Csh type shells:
 
     setenv WCDSCAN "$HOME:/projectdisk/projectX"
-
-=item B<TERMINFO>
-
-If the environment variable I<TERMINFO> is defined, wcd with ncurses
-interface checks for a local terminal definition before checking in
-the standard place. This is useful if terminal definitions are not on
-a standard place. Often used standard places are C</usr/lib/terminfo>
-and C</usr/share/terminfo>.
-
-=item B<PDC_RESTORE_SCREEN>
-
-Wcd with PDCurses interface recognizes the environment variable
-I<PDC_RESTORE_SCREEN>. If this environment variable is set, PDCurses
-will take a copy of the contents of the screen at the time that wcd is
-started; when wcd exits, the screen will be restored.
-#ifdef dos
-An example for Windows Command Prompt:
-
-    set PDC_RESTORE_SCREEN=1
-
-Windows allows only a small buffer to be saved. So it is not always
-possible to restore everything. Some garbage data may be printed in
-the console after wcd exists if you have set a large buffer width.
-
-#endif
-
-=item B<SHELL>
-
-Printing of C<#!$SHELL> on the first line of the go-script for POSIX
-type shell or C shell is needed for 8 bit characters. Some shells
-otherwise think that the go-script is a binary file and will not
-source it. In Cygwin Bash the variable I<SHELL> must be set in
-environtment using the C<export> command, otherwise wcd can't read the
-variable.
-
-#ifdef dos
-
-=item B<BASH>
-
-Wcd for DOS bash uses C<$BASH> instead of C<$SHELL>, because C<$SHELL>
-points to the DOS command shell. One may need to define C<$BASH> with
-an C<export> command, otherwise wcd can't read the variable.
-
-#endif
 
 =item B<WCDFILTER>
 
@@ -1238,6 +1208,50 @@ For a stack per xterm(1), use the xterm WINDOWID environment variable:
 For GNU screen(1), to use stack per screen:
 
     export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOW
+
+=item B<TERMINFO>
+
+If the environment variable I<TERMINFO> is defined, wcd with ncurses
+interface checks for a local terminal definition before checking in
+the standard place. This is useful if terminal definitions are not on
+a standard place. Often used standard places are C</usr/lib/terminfo>
+and C</usr/share/terminfo>.
+
+=item B<PDC_RESTORE_SCREEN>
+
+Wcd with PDCurses interface recognizes the environment variable
+I<PDC_RESTORE_SCREEN>. If this environment variable is set, PDCurses
+will take a copy of the contents of the screen at the time that wcd is
+started; when wcd exits, the screen will be restored.
+#ifdef dos
+An example for Windows Command Prompt:
+
+    set PDC_RESTORE_SCREEN=1
+
+Windows allows only a small buffer to be saved. So it is not always
+possible to restore everything. Some garbage data may be printed in
+the console after wcd exists if you have set a large buffer width.
+
+#endif
+
+=item B<SHELL>
+
+Printing of C<#!$SHELL> on the first line of the go-script for POSIX
+type shell or C shell is needed for 8 bit characters. Some shells
+otherwise think that the go-script is a binary file and will not
+source it. In Cygwin Bash the variable I<SHELL> must be set in
+environtment using the C<export> command, otherwise wcd can't read the
+variable.
+
+#ifdef dos
+
+=item B<BASH>
+
+Wcd for DOS bash uses C<$BASH> instead of C<$SHELL>, because C<$SHELL>
+points to the DOS command shell. One may need to define C<$BASH> with
+an C<export> command, otherwise wcd can't read the variable.
+
+#endif
 
 =back
 
