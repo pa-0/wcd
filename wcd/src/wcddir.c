@@ -326,6 +326,42 @@ int wcd_rmdir(char *buf, int quiet)
    }
 }
 
+/******************************************************************
+ *
+ * int wcd_isdir(char *dir)
+ *
+ * test if *dir points to a directory.
+ *
+ * returns 0 on success, -1 when it fails.
+ *
+ * - The following method using POSIX API fails on UNC share paths
+ *   like //servername/sharename on MS-Windows systems.
+ *
+ *       stat(path, &buf) ;
+ *          if (S_ISDIR(buf.st_mode)) { ... }
+ *
+ * - The function 'opendir()' from <dirent.h> works on all systems,
+ *   also on Windows UNC paths as above, but not all compilers have 'dirent'
+ *   included. E.g. LCC 3.8 and Open Watcom 1.3 don't have it.
+ *
+ * - Using 'wcd_chdir()' is a portable solution.
+ *
+ ******************************************************************/
+int wcd_isdir(char *dir, int quiet)
+{
+   char tmp[DD_MAXDIR];
+
+   wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
+
+   if (wcd_chdir(dir, quiet) == 0) /* just try to change to dir */
+   {
+     wcd_chdir(tmp, quiet); /* go back */
+     return(0);
+   }
+   else
+      return(-1);
+}
+
 
 #else   /************************************************************/
 
@@ -523,9 +559,6 @@ int wcd_rmdir(char *buf, int quiet)
   return(err);
 }
 
-
-#endif
-
 /******************************************************************
  *
  * int wcd_isdir(char *dir)
@@ -557,4 +590,7 @@ int wcd_isdir(char *dir, int quiet)
       return(-1);
    }
 }
+
+
+#endif
 

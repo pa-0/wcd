@@ -1009,10 +1009,7 @@ void scanServer(char *path, char *treefile, int append, int *use_HOME, nameset e
    i = 0;
    while (i<getSizeOfNamesetArray(shares))
    {
-      if (i == 0)
-         scanDisk(elementAtNamesetArray(i,shares),treefile, 0, append, use_HOME, exclude);
-      else
-         scanDisk(elementAtNamesetArray(i,shares),treefile, 0, 1, use_HOME, exclude);
+      scanDisk(elementAtNamesetArray(i,shares),treefile, 0, i, use_HOME, exclude);
       ++i;
    }
    freeNameset(shares, 1);
@@ -2282,10 +2279,14 @@ int main(int argc,char** argv)
                j = 0;
                while (j<getSizeOfNamesetArray(scan_dirs))
                {
-                  if (j == 0)
-                     scanDisk(elementAtNamesetArray(j,scan_dirs),treefile, 0, 0, &use_HOME, exclude);
+#if (defined(WIN32) || defined(__CYGWIN__))
+                  if (wcd_isServerPath(elementAtNamesetArray(j,scan_dirs)))
+                  {
+                     scanServer(elementAtNamesetArray(j,scan_dirs),treefile,j,&use_HOME,exclude);
+                  }
                   else
-                     scanDisk(elementAtNamesetArray(j,scan_dirs),treefile, 0, 1, &use_HOME, exclude);
+#endif
+                     scanDisk(elementAtNamesetArray(j,scan_dirs),treefile, 0, j, &use_HOME, exclude);
                   ++j;
                }
             }
