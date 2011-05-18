@@ -34,7 +34,7 @@ if ! /bin/grep "function wcd" /etc/bashrc > /dev/null ; then
  echo "function wcd"          >> /etc/bashrc
  echo "{"                       >> /etc/bashrc
  echo "   /usr/bin/wcd.exe \$*" >> /etc/bashrc
- echo "   . \$HOME/bin/wcd.go"  >> /etc/bashrc
+ echo "   . \${WCDHOME:-\${HOME}}/bin/wcd.go"  >> /etc/bashrc
  echo "}"                       >> /etc/bashrc ; 
 fi
 

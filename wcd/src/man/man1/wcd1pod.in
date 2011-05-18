@@ -644,7 +644,7 @@ for the a POSIX compatible shell this would be:
     wcd ()
     {
 	wcd.exe -z 50 "$@"
-	. $HOME/bin/wcd.go
+	. ${WCDHOME:-${HOME}}/bin/wcd.go
     }
 
 =item B<-[NUMBER]>
@@ -693,7 +693,7 @@ function to the shell startup file (e.g. Bash uses C<$HOME/.bashrc>):
     wcd ()
     {
 	<PATH>/wcd.exe "$@"
-	. $HOME/bin/wcd.go
+	. ${WCDHOME:-${HOME}}/bin/wcd.go
     }
 
 Replace <PATH> with the location where the wcd executable has been
@@ -706,7 +706,11 @@ See section FILES for more information.
 Add the following alias to the shell startup file C<$HOME/.cshrc> or
 C<$HOME/.tcshrc> :
 
-    alias wcd "<PATH>/wcd.exe \!* ; source $HOME/bin/wcd.go"
+    if ( ${?WCDHOME} ) then
+        alias wcd "<PATH>/wcd.exe \!* ; source $WCDHOME/bin/wcd.go"
+    else
+        alias wcd "<PATH>/wcd.exe \!* ; source $HOME/bin/wcd.go"
+    endif
 
 Replace <PATH> with the location where wcd executable have been installed.
 Reload the shell initialization files or start new shell.
