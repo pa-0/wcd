@@ -1,7 +1,7 @@
 #
 #   Copyright information
 #
-#	Copyright (C) 2009-2010 Erwin Waterlander
+#	Copyright (C) 2009-2011 Erwin Waterlander
 #	Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -57,7 +57,7 @@ EXT		= .exe
 PROGRAM         = $(PACKAGE)$(EXT)
 BIN		= $(PROGRAM)
 
-PREFIX		= /usr/local
+PREFIX		= /usr
 prefix		= $(PREFIX)
 exec_prefix	= $(prefix)
 bindir		= $(exec_prefix)/bin

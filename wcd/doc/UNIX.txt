@@ -88,9 +88,9 @@ BASIC INSTALLATION
 INSTALLATION NAMES
 
 	By default the 'install' target will install the program in
-	/usr/local/bin, the language files in /usr/local/share/locale
-	and the man page in /usr/local/share/man. You can specify an
-	installation prefix other than /usr/local by modifying the
+	/usr/bin, the language files in /usr/share/locale
+	and the man page in /usr/share/man. You can specify an
+	installation prefix other than /usr by modifying the
 	'prefix' variable. An Example:
 
 	    make prefix=$HOME clean all

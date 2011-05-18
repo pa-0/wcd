@@ -1,5 +1,5 @@
 This file explains how to compile wcd for DOS and Windows
-with GNU C compiler (GCC, DJGPP/MinGW/Cygwin). 
+with GNU C compiler (GCC, DJGPP/MinGW). 
 
 For Unix/Linux compile instructions see file UNIX.txt
 
@@ -18,10 +18,7 @@ Optional:
 
 * gettext   : Framework to help GNU packages produce multi-lingual messages.
 * libiconv  : Character set conversion library.
-DOS/Windows
 * pdcurses  : CRT screen handling and optimization package
-Cygwin
-* ncurses   : CRT screen handling and optimization package
 
 
 Only needed if you change the manual page:
@@ -41,7 +38,6 @@ gcc
 DOS            : DJGPP     : http://www.delorie.com/djgpp/
 Windows        : MinGW     : http://www.mingw.org/
 Windows 64 bit : MinGW-w64 : http://mingw-w64.sourceforge.net/
-Cygwin         : CYGWIN    : http://cygwin.com/
 
 MinGW-w64 provides a cross-compiler that you can run on 32 bit Windows.
 MinGW-w64 can produce programs for 32 and 64 bit Windows.
@@ -61,7 +57,6 @@ http://www.gnu.org/software/make/manual/make.html#Choosing-the-Shell
 DJGPP     : Includes bash
 MinGW     : Includes bash in the MSYS environment.
 MinGW-w64 : You can use MinGW's MSYS
-CYGWIN    : Includes bash and zsh.
 
 In DJGPP it is certain that you get problems if you don't make the SHELL
 variable point to bash (c:/djgpp/bin/bash.exe).
@@ -80,7 +75,6 @@ not (yet) available for DJGPP.
 
 DJGPP     : http://www.delorie.com/pub/djgpp/current/v2gnu/
 MinGW     : http://sourceforge.net/projects/mingw/files/
-CYGWIN    : download via the installer program setup.exe.
 
 For MinGW(-w64) use MSYS-make in the MSYS environment.
 
@@ -93,7 +87,6 @@ gettext and libiconv can be found as packages on the web site of the gcc compile
 DJGPP     : http://www.delorie.com/pub/djgpp/current/v2gnu/
 MinGW     : http://sourceforge.net/projects/mingw/files/
 MinGW-w64 : http://sourceforge.net/projects/mingw-w64/files/
-CYGWIN    : download via the installer program setup.exe.
 
 
 Until wcd version 5.1.1 I used GnuWin32's gettext/libiconv instead of MinGW's,
@@ -131,7 +124,7 @@ text, PostScript and PDF format in the `doc' directory.
 The converted manual pages are included in the wcd source package. So if you
 don't change the wcd manual, you don't need these packages.
 
-Man, groff and ghostscript are available in the Cygwin environment.
+Man, groff and ghostscript are available in the Cygwin environment (http://cygwin.com).
 
 
 Problems on Windows VISTA/7
@@ -153,10 +146,9 @@ win32psh : Windows 32 bit PowerShell version.
 win64    : Windows 64 bit console version.
 win64psh : Windows 64 bit PowerShell version.
 msys     : Native MSYS version.
-cygwin   : Cygwin version.
 
 Change to the appropriate directory `dos32', `dos32bsh', `win32',
-`win32zsh', `win32psh', 'msys',  or `cygwin'.
+`win32zsh', `win32psh', 'msys'.
 
 
 Build wcd:
@@ -188,7 +180,7 @@ Curses interface
 The default interface is curses.
 
 win32* uses PDCurses (CURSES=pdcurses)
-cygwin, os2 uses NCurses (CURSES=ncurses)
+OS/2 uses NCurses (CURSES=ncurses)
 
 To disable CURSES and compile with stdio interface, reset the CURSES variable:
 
@@ -225,8 +217,7 @@ To activate Unicode support add UCS=1 to the make command:
 This requires a (pd/n)curses installation with wide character support.
 Not supported for DOS versions of wcd.
 
-Unicode support makes only sense if you compile for Windows PowerShell
-or Cygwin 1.7 and up.
+Unicode support makes only sense if you compile for Windows PowerShell.
 
 
 Installation Names
@@ -253,7 +244,6 @@ win32psh : The default PREFIX is c:/usr/local
 win64    : The default PREFIX is c:/usr/local
 win64psh : The default PREFIX is c:/usr/local
 msys     : The default PREFIX is /usr
-cygwin   : The default PREFIX is /usr
 
 
 distribution package

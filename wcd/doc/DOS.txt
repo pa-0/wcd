@@ -23,7 +23,6 @@ Contents
    - WinZsh (zsh) and MSYS (bash)
    - Native MSYS (bash)
    - UNC support
- 3 Installation on Cygwin
 
 
 Package directory structure
@@ -54,7 +53,6 @@ win32zsh : c:/usr/local
 win64    : c:/usr/local
 win64psh : c:/usr/local
 msys     : /usr
-cygwin   : /usr
 
 You can install wcd in a different PREFIX directory if you want.
 
@@ -328,37 +326,4 @@ will search for shared directories on the server and scan them all.
 
 The Windows PowerShell and MSYS/ZSH version of wcd have full support of UNC paths.
 One can change directly to UNC paths, without mapping to a drive letter.
-
-======================================================================
-= 3 Installation on Cygwin                                           =
-======================================================================
-
-
-1)
-Make sure that environment variable HOME is set.
-
-
-2)
-
- Add the following function to your ~/.bashrc file.
-
-function wcd
-{
-   PREFIX/bin/wcd.exe $*
-   . $HOME/bin/wcd.go
-}
-
-Replace PREFIX with the prefix used during package installation.
-Start a new bash
-
-......................................................................
-
-The Cygwin version behaves exactly as the Unix version of wcd.
-
-o) regards case by default.
-   - Use option -i to ignore case.
-o) does not use drive letters.
-o) Uses the same filenames for treedata files etc.
-
-UNC paths are fully supported.
 

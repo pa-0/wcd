@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-17 23:04+0200\n"
+"POT-Creation-Date: 2011-05-18 09:39+0200\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -240,7 +240,7 @@ msgstr ""
 "  +[ZAHL]        Verzeinis vom Stapel nehemn (ZAHL mal)\n"
 "  =              Zeige den verzeichnisstapel an\n"
 
-#: wcd.c:1657 wcd.c:2351
+#: wcd.c:1657 wcd.c:2357
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
@@ -380,44 +380,44 @@ msgstr ""
 msgid "http://www.xs4all.nl/~waterlan/\n"
 msgstr "http://www.xs4all.nl/~waterlan/\n"
 
-#: wcd.c:1751 stack.c:235
+#: wcd.c:1757 stack.c:235
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "wcd: Verzeichnis %s wird erzeugt\n"
 
-#: wcd.c:2036
+#: wcd.c:2042
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDLOCALEDIR ist zu lang.\n"
 
-#: wcd.c:2063
+#: wcd.c:2069
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr "wcd: Fehler: Der Inhalt der Umgebungsvariable HOME ist zu lang.\n"
 
-#: wcd.c:2078 wcd.c:2146
+#: wcd.c:2084 wcd.c:2152
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariablen HOME oder WCDHOME ist zu "
 "lang.\n"
 
-#: wcd.c:2110 wcd.c:2139
+#: wcd.c:2116 wcd.c:2145
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 "wcd: Fehler: Die Umgebungsvariablen HOME oder WCDHOOME sind nicht gesetzt.\n"
 
-#: wcd.c:2215 wcd.c:2646 wcd.c:2665
+#: wcd.c:2221 wcd.c:2652 wcd.c:2671
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDUSERHOME ist zu lang.\n"
 
-#: wcd.c:2347
+#: wcd.c:2353
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "wcd: Grafikmodus wird nur von wcd mit Curses basierter Oberfläche\n"
 "     unterstützt.\n"
 
-#: wcd.c:2352
+#: wcd.c:2358
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -482,38 +482,38 @@ msgstr ""
 "Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,\n"
 "MA 02110-1301 USA.\n"
 
-#: wcd.c:2579
+#: wcd.c:2585
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "wcd: %s wurde zur Aliasdatei %s hinzugefügt\n"
 
-#: wcd.c:2678
+#: wcd.c:2684
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr ""
 "wcd: Fehler: Weder die Datei %s noch die Datei %s konnten gelesen werden\n"
 
-#: wcd.c:2804
+#: wcd.c:2810
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "wcd: WCDSCAN Verzeichnis {%s}\n"
 
-#: wcd.c:2806
+#: wcd.c:2812
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "wcd: {%s} wird verbannt\n"
 
-#: wcd.c:2808
+#: wcd.c:2814
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "wcd: {%s} wird ausgeschlossen\n"
 
-#: wcd.c:2810
+#: wcd.c:2816
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "wcd\" {%s} wird gefiltert\n"
 
-#: wcd.c:3077
+#: wcd.c:3083
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -523,7 +523,7 @@ msgstr ""
 "wcd: Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist\n"
 "     verbannt.\n"
 
-#: wcd.c:3243
+#: wcd.c:3249
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "wcd: Zu %s kann nicht gewechselt werden\n"
@@ -959,37 +959,3 @@ msgid ""
 msgstr ""
 "wcd: Fehler in »%s«, kein freier Speicher verfügbar\n"
 "wcd: Hauptspeicher reicht nicht aus\n"
-
-#, fuzzy
-#~ msgid "Wcd: error: Unable to write file %s: Not a file.\n"
-#~ msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
-
-#, fuzzy
-#~ msgid "Wcd: error: %s is not a regular file.\n"
-#~ msgstr "wcd: %s ist kein Verzeichnis.\n"
-
-#, fuzzy
-#~ msgid "Wcd: error: Unable to open file %s or %s\n"
-#~ msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
-
-#, fuzzy
-#~ msgid "Wcd: error: Unable to open directory %s\n"
-#~ msgstr "wcd: Fehler: Das Löschen von Verzeichnis %s wurde verweigert\n"
-
-#~ msgid "Wcd: error: Permission denied to open directory %s\n"
-#~ msgstr "wcd: Fehler: Das Öffnen von Verzeichnis %s wurde verweigert\n"
-
-#~ msgid "Wcd: error: Permission denied to remove directory %s\n"
-#~ msgstr "wcd: Fehler: Das Löschen von Verzeichnis %s wurde verweigert\n"
-
-#~ msgid "Wcd: error: Permission denied to remove file %s\n"
-#~ msgstr "wcd: Fehler: Das Löschen der Datei %s wurde verweigert\n"
-
-#~ msgid "Wcd: error: Permission denied to remove link %s\n"
-#~ msgstr "wcd: Fehler: Das Löschen von Verknüpfung %s wurde verweigert\n"
-
-#~ msgid "Wcd: error: Write access to file %s denied.\n"
-#~ msgstr "wcd: Fehler: Schreibzugriff auf Datei %s wurde verweigert.\n"
-
-#~ msgid "Wcd: error: Permission denied to open file %s\n"
-#~ msgstr "wcd: Fehler: Das Öffnen von Datei %s wurde verweigert\n"

@@ -1739,7 +1739,13 @@ void create_dir_for_file(char *f)
    if ( (ptr = strrchr(path,DIR_SEPARATOR)) != NULL)
    {
       *ptr = '\0' ;
-       if (wcd_isdir(path,1) != 0) /* is it a dir */
+       if (
+           (path[0] != '\0') && /* not an empty string */
+#ifdef MSDOS
+	   (!dd_match(path,"[a-z]:",1)) && /* not a drive letter */
+#endif
+           (wcd_isdir(path,1) != 0) /* dir does not exist */
+          )
        {
           create_dir_for_file(path);
 #if (defined(UNIX) || defined(DJGPP) || defined(OS2))
