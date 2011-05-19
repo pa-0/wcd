@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-18 23:24+0200\n"
+"POT-Creation-Date: 2011-05-19 15:00+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -508,7 +508,6 @@ msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "Wcd: Köydetty %d hakemistoa palvelimelta %s\n"
 
 #: wcddir.c:244
-#, c-format
 msgid "Wcd: error: Unable to get current working directory.\n"
 msgstr "Wcd: virhe: Nykyisen hakemiston sijaintia ei voi lukea.\n"
 

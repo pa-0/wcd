@@ -1009,7 +1009,7 @@ void scanServer(char *path, char *treefile, int append, int *use_HOME, nameset e
    i = 0;
    while (i<getSizeOfNamesetArray(shares))
    {
-      scanDisk(elementAtNamesetArray(i,shares),treefile, 0, i, use_HOME, exclude);
+      scanDisk(elementAtNamesetArray(i,shares),treefile, 0, i + append, use_HOME, exclude);
       ++i;
    }
    freeNameset(shares, 1);

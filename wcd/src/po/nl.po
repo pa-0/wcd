@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-18 23:24+0200\n"
+"POT-Creation-Date: 2011-05-19 15:00+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -502,7 +502,6 @@ msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "Wcd: %d gedeelde mappen gevonden op server %s\n"
 
 #: wcddir.c:244
-#, c-format
 msgid "Wcd: error: Unable to get current working directory.\n"
 msgstr "Wcd: fout: Kan huidige werkmap niet verkrijgen.\n"
 
