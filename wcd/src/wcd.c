@@ -2826,7 +2826,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
    }
 
    if ((strcmp(dir,"") == 0 )&& !(graphics & WCD_GRAPH_NORMAL)) /* no directory given, no graphics, so we go HOME */
-      addToNamesetArray(textNew(rootdir),perfect_list);
+      addToNamesetArray(textNew(rootscandir),perfect_list);
 
 
    /*--- stack hit ? ------------------------*/
