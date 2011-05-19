@@ -11,6 +11,9 @@
   - Installation of PDF and PostScript manual is optional.
   - Default installation prefix for Unix is '/usr' i.s.o. '/usr/local'.
   - Removed directory 'cygwin'. Install on Cygwin from directory 'src'.
+  - Added shell functions for /etc/profile.d to define the wcd function
+    or alias. Type 'make install-profile' to install. See also UNIX.txt.
+    (thanks to Jari Aalto)
   - Smarter wcd function for Unix.
 
 5.1.4 2010-11-19
