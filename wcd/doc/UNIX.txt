@@ -96,15 +96,35 @@ INSTALLATION NAMES
 	    make prefix=$HOME clean all
 	    make prefix=$HOME strip install
 
+SHELL INTEGRATION
+
+	See manual page section "INSTALLATION" how to manually configure the
+	shell to use the program.  It is required to configure your shell,
+	otherwise wcd cannot work.
+
+	Alternatively you can use the shell scripts that are provided to
+	install the wcd function (sh) or alias (csh) under /etc/profile.d/.
+	To install these scripts type:
+
+	    make install-profile
+
+	If you wish that Wcd stores its files under $HOME/.wcd instead of
+	$HOME, add DOTWCD=1. This will add a definition of WCDHOME=$HOME/.wcd
+	(see manual).
+
+	    make install-profile DOTWCD=1
+
+	Under Cygwin these shell scripts are always installed.
+
 DOCUMENTATION
 
-    Manual pages are generated from Perl POD files. By default
-    the manual pages are are created in text and html format.
-    To create a manual in PDF format type:
+	Manual pages are generated from Perl POD files. By default
+	the manual pages are are created in text and html format.
+	To create a manual in PDF format type:
 
-        make pdf
+	    make pdf
 
-    PDF generation requires GhostScript to be installed.
+	PDF generation requires GhostScript to be installed.
 
 BINARY DISTRIBUTION PACKAGE CREATION
 
@@ -197,11 +217,5 @@ PORTABILITY
 	This problem was seen on a BSDI BSD/OS 4.0 system.
 	/usr/local/include/ncurses.h
 
-
-SHELL INTEGRATION
-
-	See manual page section "INSTALLATION" how to configure the shell to
-	use the program.  It is required to configure your shell, otherwise wcd
-	cannot work.
 
 End of file

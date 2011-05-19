@@ -222,6 +222,7 @@ ifeq (cygwin,$(OS))
 ifdef ENABLE_NLS
 	LDFLAGS_EXTRA = -lintl -liconv -lmpr -Wl,--enable-auto-import
 endif
+	INSTALL_TARGETS += install-profile
 endif
 
 
@@ -473,6 +474,19 @@ maintainer-clean: distclean
 # 'maintainer-clean' was 'realclean' in old GNU standards.
 realclean: maintainer-clean
 
+# Install shell function (sh) and alias (csh).
+# If DOTWCD=1, the shell scripts define WCDHOME=$HOME/.wcd
+install-profile:
+	@echo "-- target: install-profile"
+	mkdir -p $(DESTDIR)/etc/profile.d
+ifdef DOTWCD
+	sed -e "s#BINDIR#$(bindir)#" -e 's/#export/export/' etc/profile.d/wcd.sh > $(DESTDIR)/etc/profile.d/wcd.sh
+	sed -e "s#BINDIR#$(bindir)#" -e 's/#setenv/setenv/' etc/profile.d/wcd.csh > $(DESTDIR)/etc/profile.d/wcd.csh
+else
+	sed -e "s#BINDIR#$(bindir)#" etc/profile.d/wcd.sh > $(DESTDIR)/etc/profile.d/wcd.sh
+	sed -e "s#BINDIR#$(bindir)#" etc/profile.d/wcd.csh > $(DESTDIR)/etc/profile.d/wcd.csh
+endif
+	chmod +x $(DESTDIR)/etc/profile.d/wcd.sh $(DESTDIR)/etc/profile.d/wcd.csh
 
 # Old versions of install(1) don't support option -D. Use
 # mkdir instead. Was seen on HP-UX 11 and DOS DJGPP.

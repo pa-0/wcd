@@ -30,13 +30,7 @@ make -C src prefix=/usr UCS=1
 make -C src install DESTDIR=${RPM_BUILD_ROOT} prefix=/usr
 
 %post
-if ! /bin/grep "function wcd" /etc/bashrc > /dev/null ; then
- echo "function wcd"          >> /etc/bashrc
- echo "{"                       >> /etc/bashrc
- echo "   /usr/bin/wcd.exe \$*" >> /etc/bashrc
- echo "   . \${WCDHOME:-\${HOME}}/bin/wcd.go"  >> /etc/bashrc
- echo "}"                       >> /etc/bashrc ; 
-fi
+make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=/usr
 
 %files
 /usr/bin/wcd.exe
