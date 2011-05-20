@@ -9,7 +9,7 @@
 
 #export WCDHOME="$HOME/.wcd"
 
-if [ -x "BINDIR/wcd" ] && [[ -n ${WCDHOME:-${HOME}} ]]
+if [ -x "BINDIR/wcd" ]
 then
 
     wcd ()

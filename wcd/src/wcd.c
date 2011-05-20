@@ -714,14 +714,14 @@ int pathInNameset (text path, nameset set)
 
 /********************************************************************
  *
- *                    finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME)
+ *  finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, int quiet)
  *
  ********************************************************************/
 #ifdef DJGPP
 /*
  * See comment above function rmTree().
  */
-void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude)
+void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
 {
    static struct ffblk fb;       /* file block structure */
    static char tmp[DD_MAXPATH];      /* tmp string buffer */
@@ -733,7 +733,7 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
    if (dir)
    {
-      if (wcd_chdir(dir,0)) return; /* ?err */
+      if (wcd_chdir(dir,quiet)) return; /* ?err */
    }
    else
      return ;  /* dir == NULL */
@@ -741,7 +741,7 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
    {
       fprintf(stdout,_("Wcd: error: finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
-      wcd_chdir(DIR_PARENT,0); /* go to parent directory */
+      wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
       return;
    };
 
@@ -750,7 +750,7 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
    if (pathInNameset(tmp,exclude) >= 0)
    {
-      wcd_chdir(DIR_PARENT,0); /* go to parent directory */
+      wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
       return;
    }
 
@@ -779,16 +779,16 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
       rc = findnext(&fb);
    } /* while !rc */
 
-   /* recursively parse subdirectories (if any) */
+   /* recursively parse subdirectories (if any) (quiet) */
    while (q_remove(&list, tmp))
-      finddirs(tmp,offset, outfile, use_HOME, exclude);
+      finddirs(tmp,offset, outfile, use_HOME, exclude, 1);
 
-   if (dir) wcd_chdir(DIR_PARENT,0); /* go to parent directory */
+   if (dir) wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
 }
 
 #else /* not DJGPP */
 
-void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude)
+void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
 {
    static dd_ffblk fb;       /* file block structure */
    static char tmp[DD_MAXPATH];      /* tmp string buffer */
@@ -799,7 +799,7 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
    if (dir)
    {
-      if (wcd_chdir(dir,0)) return; /* Go to the dir, else return */
+      if (wcd_chdir(dir,quiet)) return; /* Go to the dir, else return */
    }
    else
      return ;  /* dir == NULL */
@@ -808,7 +808,7 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
    {
       fprintf(stdout,_("Wcd: error: finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
-      wcd_chdir(DIR_PARENT,0); /* go to parent directory */
+      wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
       return;
    };
 
@@ -819,7 +819,7 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
    if (pathInNameset(tmp,exclude) >= 0)
    {
-      wcd_chdir(DIR_PARENT,0); /* go to parent directory */
+      wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
       return;
    }
 
@@ -873,11 +873,11 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
       rc = dd_findnext(&fb);
    } /* while !rc */
 
-   /* recursively parse subdirectories (if any) */
+   /* recursively parse subdirectories (if any) (quiet) */
    while (q_remove(&list, tmp))
-      finddirs(tmp,offset, outfile, use_HOME, exclude);
+      finddirs(tmp,offset, outfile, use_HOME, exclude, 1);
 
-   wcd_chdir(DIR_PARENT,0); /* go to parent directory */
+   wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
 }
 #endif
 
@@ -988,7 +988,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
    if  (outfile == NULL)
       return ;
 #endif
-   finddirs( path, &offset, outfile, use_HOME, exclude); /* Build treedata-file */
+   finddirs( path, &offset, outfile, use_HOME, exclude, 0); /* Build treedata-file */
    fclose(outfile);
    wcd_chdir(tmp2,0);          /* go back */
 }
