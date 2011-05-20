@@ -334,7 +334,7 @@ OBJS1 += colors.o \
 	graphics.o
 endif
 
-all: $(BIN) $(DOCFILES) $(MOFILES)
+all: $(BIN) $(DOCFILES) $(MOFILES) $(INSTALL_OBJS_MAN1)
 
 status:
 	@echo "-- $(PACKAGE) Makefile settings begin --"
@@ -496,7 +496,7 @@ install-mo: $(MOFILES)
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
 	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 
-install-doc:
+install-doc: $(DOCFILES)
 	@echo "-- target: install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(wildcard ../doc/$(PACKAGE).ps) $(wildcard ../doc/$(PACKAGE).pdf) $(DESTDIR)$(docdir)
