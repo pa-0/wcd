@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-19 15:00+0200\n"
+"POT-Creation-Date: 2011-05-20 10:50+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -507,41 +507,41 @@ msgstr "Wcd: Etsitään jaettuja hakemistoja palvelimelta %s\n"
 msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "Wcd: Köydetty %d hakemistoa palvelimelta %s\n"
 
-#: wcddir.c:244
+#: wcddir.c:276
 msgid "Wcd: error: Unable to get current working directory.\n"
 msgstr "Wcd: virhe: Nykyisen hakemiston sijaintia ei voi lukea.\n"
 
-#: wcddir.c:269
+#: wcddir.c:301
 #, c-format
 msgid "Wcd: error: Unable to change to directory %s\n"
 msgstr "Wcd: virhe: Ei oikeutta siirtyä hakemistoon %s\n"
 
-#: wcddir.c:297
+#: wcddir.c:329
 #, c-format
 msgid "Wcd: error: Unable to create directory %s\n"
 msgstr "Wcd: virhe: Ei oikeutta luoda hamistoa%s\n"
 
-#: wcddir.c:323
+#: wcddir.c:355
 #, c-format
 msgid "Wcd: error: Unable to remove directory %s\n"
 msgstr "Wcd: virhe: Ei oikeutta poistaa hakemistoa %s\n"
 
-#: wcddir.c:382 wcddir.c:399
+#: wcddir.c:439 wcddir.c:456
 #, c-format
 msgid "Wcd: error: Unable to create directory %s: %s\n"
 msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s: %s\n"
 
-#: wcddir.c:523
+#: wcddir.c:580
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr "Wcd: virhe: Nykyisen hakemiston sijaintia ei voi lukea: %s\n"
 
-#: wcddir.c:542
+#: wcddir.c:599
 #, c-format
 msgid "Wcd: error: Unable to change to directory %s: %s\n"
 msgstr "Wcd: virhe: Ei voi siirtyä hakemistoon %s: %s\n"
 
-#: wcddir.c:557
+#: wcddir.c:614
 #, c-format
 msgid "Wcd: error: Unable to remove directory %s: %s\n"
 msgstr "Wcd: virhe: Ei oikeutta poistaa hakemistoa %s: %s\n"

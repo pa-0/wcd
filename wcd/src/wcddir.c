@@ -221,6 +221,38 @@ void wcd_getshares(char* path, nameset n)
 /* WIN32, not CYGWIN
    Use WIN32 API */
 
+/*
+   int wcd_isSharePath (char* path)
+   check if path is a possible UNC share path
+   like \\servername\sharename
+   RETURNS  1 if true
+   RETURNS  0 if false
+ */
+int wcd_isSharePath (char* path)
+{
+   char *ptr;
+
+   /* Assume the path has been fixed by wcd_fixpath(). Only forward slashes. */
+   if ((strlen(path) > 2) && (wcd_is_slash(*path)) && (wcd_is_slash(*(path+1))))
+   {
+      ptr = strchr(path+2,'/');
+      if (ptr == NULL)
+        return(0);
+      else
+      {
+        ptr = strchr(ptr+1,'/');
+        if (ptr == NULL)
+        {
+           return(1);
+        }
+        else
+           return(0);
+      }
+   }
+   else
+     return(0);
+}
+
 /* If WCD_UNICODE is defined we assume that all multi-byte
  * strings are encoded in UTF-8.
  */
@@ -340,26 +372,51 @@ int wcd_rmdir(char *buf, int quiet)
  *       stat(path, &buf) ;
  *          if (S_ISDIR(buf.st_mode)) { ... }
  *
+ * See also bug report at http://sourceforge.net/projects/mingw/
+ *   http://sourceforge.net/tracker/?func=detail&atid=102435&aid=3304800&group_id=2435
+ *
  * - The function 'opendir()' from <dirent.h> works on all systems,
  *   also on Windows UNC paths as above, but not all compilers have 'dirent'
  *   included. E.g. LCC 3.8 and Open Watcom 1.3 don't have it.
  *
- * - Using 'wcd_chdir()' is a portable solution.
+ * - Using 'wcd_chdir()' is a portable solution to check \\servername\sharename.
  *
  ******************************************************************/
 int wcd_isdir(char *dir, int quiet)
 {
+   struct stat buf;
+   char *errstr;
    char tmp[DD_MAXDIR];
 
-   wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
-
-   if (wcd_chdir(dir, quiet) == 0) /* just try to change to dir */
+   if (wcd_isSharePath(dir))
    {
-     wcd_chdir(tmp, quiet); /* go back */
-     return(0);
+      wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
+
+      if (wcd_chdir(dir, quiet) == 0) /* just try to change to dir */
+      {
+        wcd_chdir(tmp, quiet); /* go back */
+        return(0);
+      }
+      else
+         return(-1);
+   } else {
+      if (stat(dir, &buf) == 0)
+      {
+         if (S_ISDIR(buf.st_mode))
+            return(0);
+         else
+            return(-1);
+      }
+      else
+      {
+         if (!quiet)
+         {
+           errstr = strerror(errno);
+           fprintf(stderr,"Wcd: %s: %s\n", dir, errstr);
+         }
+         return(-1);
+      }
    }
-   else
-      return(-1);
 }
 
 

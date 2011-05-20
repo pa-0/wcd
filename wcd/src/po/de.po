@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-19 15:00+0200\n"
+"POT-Creation-Date: 2011-05-20 10:50+0200\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -549,44 +549,44 @@ msgstr ""
 msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "wcd Es wurden %d freigegebene Verzeichnisse auf Server %s gefunden.\n"
 
-#: wcddir.c:244
+#: wcddir.c:276
 msgid "Wcd: error: Unable to get current working directory.\n"
 msgstr ""
 "wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden\n"
 
-#: wcddir.c:269
+#: wcddir.c:301
 #, c-format
 msgid "Wcd: error: Unable to change to directory %s\n"
 msgstr "wcd: Fehler: Das Wechseln zu Verzeichnis %s war nicht möglich\n"
 
-#: wcddir.c:297
+#: wcddir.c:329
 #, c-format
 msgid "Wcd: error: Unable to create directory %s\n"
 msgstr "wcd: Fehler: Das Anlegen von Verzeichnis %s wurde verweigert\n"
 
-#: wcddir.c:323
+#: wcddir.c:355
 #, c-format
 msgid "Wcd: error: Unable to remove directory %s\n"
 msgstr "wcd: Fehler: Das Löschen von Verzeichnis %s wurde verweigert\n"
 
-#: wcddir.c:382 wcddir.c:399
+#: wcddir.c:439 wcddir.c:456
 #, c-format
 msgid "Wcd: error: Unable to create directory %s: %s\n"
 msgstr "wcd: Fehler: Das Verzeicnis %s konnte nicht angelegt werden: %s\n"
 
-#: wcddir.c:523
+#: wcddir.c:580
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr ""
 "wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden: %"
 "s\n"
 
-#: wcddir.c:542
+#: wcddir.c:599
 #, c-format
 msgid "Wcd: error: Unable to change to directory %s: %s\n"
 msgstr "wcd: Fehler: Das Wechseln zu Verzeichnis %s war nicht möglich: %s\n"
 
-#: wcddir.c:557
+#: wcddir.c:614
 #, c-format
 msgid "Wcd: error: Unable to remove directory %s: %s\n"
 msgstr "wcd: Fehler: Das Löschen von Verzeichnis %s wurde verweigert: %s\n"
