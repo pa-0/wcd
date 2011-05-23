@@ -1,7 +1,7 @@
 This file explains how to compile wcd for DOS and Windows
 with GNU C compiler (GCC, DJGPP/MinGW). 
 
-For Unix/Linux compile instructions see file UNIX.txt
+For Unix/Linux/Cygwin compile instructions see file UNIX.txt
 
 For how to install the program on DOS/Windows see file DOS.txt.
 
@@ -24,6 +24,9 @@ Optional:
 Only needed if you change the manual page:
 
 * perl        : Practical Extraction and Report Language (perlpod)
+
+And if you want to generate PostScript or PDF versions of the manual:
+
 * groff       : GNU troff text formatting system.
 * ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
 
@@ -106,6 +109,8 @@ library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
 Compile it and copy the library file into the \lib directory of your
 compiler and the curses.h file in the \include directory.
 
+The DJGPP and MinGW project also provide ready-to-use binary PDCurses packages.
+
 To get support for the original console colours for the Windows 32 bit
 version you need PDCurses 2.7 or higher.
 
@@ -114,7 +119,7 @@ I reported the following bug on http://sourceforge.net/projects/pdcurses/
 This bug is solved in PDCurses 2.7.
 
 
-man, groff and ghostscript
+groff and ghostscript
 ==========================
 
 These packages are needed if you want to work on the wcd manual page. Using man,
@@ -124,7 +129,7 @@ text, PostScript and PDF format in the `doc' directory.
 The converted manual pages are included in the wcd source package. So if you
 don't change the wcd manual, you don't need these packages.
 
-Man, groff and ghostscript are available in the Cygwin environment (http://cygwin.com).
+Groff and ghostscript are available in the Cygwin environment (http://cygwin.com).
 
 
 Problems on Windows VISTA/7
@@ -223,10 +228,10 @@ Unicode support makes only sense if you compile for Windows PowerShell.
 Installation Names
 ==================
 
-By default `make install' will install the program in /usr/local/bin, the
-language files in /usr/local/share/locale and the man file in
-/usr/local/share/man. You can specify an installation prefix other than
-`/usr/local' by giving `make' the option `prefix=PATH'.
+By default `make install' will install the program in /usr/bin, the
+language files in /usr/share/locale and the man file in
+/usr/share/man. You can specify an installation prefix other than
+`/usr' by giving `make' the option `prefix=PATH'.
 
 
 Example:
@@ -252,5 +257,4 @@ distribution package
 After installation a ready-to-run binary distribution package can be created.
 
   Type `make dist' to create the package.
-
 

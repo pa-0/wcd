@@ -1,9 +1,9 @@
 This file explains how to compile wcd for DOS and Windows
 with compilers other than GNU GCC.
 
-To compile wcd with GCC (DJGPP, MINGW, CYGWIN) see BUILDGCC.txt
+To compile wcd with GCC (DJGPP, MINGW) see BUILDGCC.txt
 
-For Unix/Linux compile instructions see file UNIX.txt.
+For Unix/Linux/Cygwin compile instructions see file UNIX.txt.
 
 For how to install the program on DOS/Windows see file DOS.txt.
 
@@ -165,5 +165,5 @@ Windows 32 bit MSYS and zsh version.
 ----------------------------------------------
 
 Go to directory win32zsh.
-Same as win 32 console version.
+Same as win32 console version.
 
