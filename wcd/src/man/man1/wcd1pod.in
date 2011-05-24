@@ -687,8 +687,9 @@ VARIABLES.
 
 =head2 Install for POSIX type shells
 
-For a POSIX shell (ksh, bash, zsh, etc.), add the following
-function to the shell startup file (e.g. Bash uses C<$HOME/.bashrc>):
+For a POSIX shell (ksh, bash, zsh, etc.) on Unix, Linux, Cygwin, or native MSYS
+add the following function to the shell startup file (e.g. Bash uses
+C<$HOME/.bashrc>):
 
     wcd ()
     {
@@ -698,7 +699,29 @@ function to the shell startup file (e.g. Bash uses C<$HOME/.bashrc>):
 
 Replace <PATH> with the location where the wcd executable has been
 installed. Reload the shell initialization files or start new shell.
+
 The location of the go-script C<wcd.go> differs per shell.
+
+#ifdef dos
+Wcd for DJGPP DOS bash requires a different function. The go script is not
+written in a directory C<bin>, and if WCDHOME and HOME are both not defined the
+go-script is written on c:/.
+
+    wcd ()
+    {
+	<PATH>/wcd.exe "$@"
+	. ${WCDHOME:-${HOME:-"c:"}}/wcd.go
+    }
+
+The WinZsh version of wcd is also a bit different. No C<bin> directory.
+
+    wcd ()
+    {
+	<PATH>/wcd.exe "$@"
+	. ${WCDHOME:-${HOME}}/wcd.go
+    }
+#endif
+
 See section FILES for more information.
 
 =head2 Install for C-alike shells (csh, tcsh)

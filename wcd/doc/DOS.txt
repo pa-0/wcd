@@ -99,7 +99,7 @@ LOCALEDIR if wcd was unpacked in a different PREFIX directory.
 function wcd
 {
    PREFIX/bin/wcdbash.exe $*
-   . c:/wcd.go
+   . ${WCDHOME:-${HOME:-"c:"}}/wcd.go
 }
 
 Replace PREFIX with the prefix used during package installation.
@@ -109,13 +109,6 @@ Attention!
 wcd 2.1 and later writes the wcd.go file now always on drive C: unless
 other specified with the -d option.
 
-If you use environment variable HOME make a function like this:
-
-function wcd
-{
-   PREFIX/bin/wcdbash.exe $*
-   . ${WCDHOME:-${HOME}}/wcd.go
-}
 
 ......................................................................
 - Long directory name support
