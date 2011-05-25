@@ -480,8 +480,8 @@ install-profile:
 	@echo "-- target: install-profile"
 	mkdir -p $(DESTDIR)/etc/profile.d
 ifdef DOTWCD
-	sed -e "s#BINDIR#$(bindir)#" -e 's/#export/export/' etc/profile.d/wcd.sh > $(DESTDIR)/etc/profile.d/wcd.sh
-	sed -e "s#BINDIR#$(bindir)#" -e 's/#setenv/setenv/' etc/profile.d/wcd.csh > $(DESTDIR)/etc/profile.d/wcd.csh
+	sed -e "s#BINDIR#$(bindir)#" -e 's/##//' etc/profile.d/wcd.sh > $(DESTDIR)/etc/profile.d/wcd.sh
+	sed -e "s#BINDIR#$(bindir)#" -e 's/##//' etc/profile.d/wcd.csh > $(DESTDIR)/etc/profile.d/wcd.csh
 else
 	sed -e "s#BINDIR#$(bindir)#" etc/profile.d/wcd.sh > $(DESTDIR)/etc/profile.d/wcd.sh
 	sed -e "s#BINDIR#$(bindir)#" etc/profile.d/wcd.csh > $(DESTDIR)/etc/profile.d/wcd.csh

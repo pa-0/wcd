@@ -1,5 +1,5 @@
 #
-#	Copyright (C) 2009 Erwin Waterlander
+#	Copyright (C) 2009-2011 Erwin Waterlander
 #	Copyright (C) 2009 Jari Aalto
 #
 #	This program is free software; you can redistribute it and/or
