@@ -61,3 +61,6 @@ command.obj :  $(SRCDIR)\c3po\command.c
 
 clean
 	-del *.obj
+	-del *.map
+	-del *.sym
+	-del *.exe

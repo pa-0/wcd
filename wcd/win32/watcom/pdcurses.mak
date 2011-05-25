@@ -72,3 +72,7 @@ dirnode.obj :  $(SRCDIR)\c3po\dirnode.c
 
 clean
 	-del *.obj
+	-del *.map
+	-del *.ilk
+	-del *.sym
+	-del *.exe

@@ -42,7 +42,7 @@ OBJS=\
 
 LIBS=mpr.lib $(LIB_CURSES) $(LIB_CONIO)
 
-wcdwin32zsh.exe:	$(OBJS) Makefile
+wcdwin32zsh.exe:	$(OBJS) GNUmakefile
 	$(LINKER) -s -subsystem console -o wcdwin32zsh.exe $(OBJS) $(LIBS)
 
 # Build WFIXPATH.C
