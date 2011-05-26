@@ -27,7 +27,7 @@
 #       a shell startup file: ~/.<shell>rc
 
 
-##if [[ -z $WCDHOME ]]
+##if [ -z "$WCDHOME" ]
 ##then
 ##    export WCDHOME="$HOME/.wcd"
 ##fi

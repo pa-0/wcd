@@ -1,6 +1,6 @@
 Begin4
-Title:            wcd      
-Version:          5.1.4
+Title:            wcd
+Version:          5.1.5
 Entered-date:     2010-11-19
 Description:      chdir for DOS and Unix,
                   another Norton Change Directory (NCD) clone.
@@ -8,9 +8,9 @@ Keywords:         chdir, cd, change directory, fast
 Author:           waterlan@xs4all.nl (Erwin Waterlander)
 Maintained-by:    waterlan@xs4all.nl (Erwin Waterlander)
 Primary-site:     ibiblio.org /pub/Linux/utils/shell
-                  160626 wcd-5.1.4.tar.gz
-                     625 wcd-5.1.4.lsm
-Alternate-site:   
+                  160626 wcd-5.1.5.tar.gz
+                     616 wcd-5.1.5.lsm
+Alternate-site:
 Original-site:    http://www.xs4all.nl/~waterlan/
 Platforms:        DOS, Windows, Unix
 Copying-policy:   GPL

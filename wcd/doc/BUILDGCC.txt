@@ -1,5 +1,5 @@
 This file explains how to compile wcd for DOS and Windows
-with GNU C compiler (GCC, DJGPP/MinGW). 
+with GNU C compiler (GCC, DJGPP/MinGW).
 
 For Unix/Linux/Cygwin compile instructions see file UNIX.txt
 

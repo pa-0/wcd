@@ -3,14 +3,14 @@
 @@ -41,8 +41,10 @@
  #define    EOF      -1              /* end of file                            */
  #endif
- 
+
 -#define    true       1
 -#define    false      0
 +/* Change by KMR to support build on Debian */
 +#include <stdbool.h>
 +/* #define    true       1 */
 +/* #define    false      0 */
- 
+
  #define    expvar                   /* export variable                        */
  #define    expfun                   /* export function                        */
 
