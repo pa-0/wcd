@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-22 21:20+0200\n"
+"POT-Creation-Date: 2011-05-28 21:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -408,61 +408,61 @@ msgstr ""
 msgid "Wcd: Cannot change to %s\n"
 msgstr ""
 
-#: wcddir.c:98
+#: wcddir.c:99
 #, c-format
 msgid "Wcd: Error %lu (\"%s\") reported by \"%s\".\n"
 msgstr ""
 
-#: wcddir.c:121
+#: wcddir.c:122
 #, c-format
 msgid "Wcd: access denied.\n"
 msgstr ""
 
-#: wcddir.c:202
+#: wcddir.c:203
 #, c-format
 msgid "Wcd: Searching for shared directories on server %s\n"
 msgstr ""
 
-#: wcddir.c:214
+#: wcddir.c:215
 #, c-format
 msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr ""
 
-#: wcddir.c:276
-msgid "Wcd: error: Unable to get current working directory.\n"
+#: wcddir.c:306
+msgid "Wcd: error: Unable to get current working directory: "
 msgstr ""
 
-#: wcddir.c:301
+#: wcddir.c:334
 #, c-format
-msgid "Wcd: error: Unable to change to directory %s\n"
+msgid "Wcd: error: Unable to change to directory %s: "
 msgstr ""
 
-#: wcddir.c:329
+#: wcddir.c:365
 #, c-format
-msgid "Wcd: error: Unable to create directory %s\n"
+msgid "Wcd: error: Unable to create directory %s: "
 msgstr ""
 
-#: wcddir.c:355
+#: wcddir.c:394
 #, c-format
-msgid "Wcd: error: Unable to remove directory %s\n"
+msgid "Wcd: error: Unable to remove directory %s: "
 msgstr ""
 
-#: wcddir.c:439 wcddir.c:456
+#: wcddir.c:479 wcddir.c:496
 #, c-format
 msgid "Wcd: error: Unable to create directory %s: %s\n"
 msgstr ""
 
-#: wcddir.c:580
+#: wcddir.c:620
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr ""
 
-#: wcddir.c:599
+#: wcddir.c:639
 #, c-format
 msgid "Wcd: error: Unable to change to directory %s: %s\n"
 msgstr ""
 
-#: wcddir.c:614
+#: wcddir.c:654
 #, c-format
 msgid "Wcd: error: Unable to remove directory %s: %s\n"
 msgstr ""

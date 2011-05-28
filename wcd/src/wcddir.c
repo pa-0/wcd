@@ -65,6 +65,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "dosdir.h"
 #include <string.h>
 #include <windows.h>
+//#include <strsafe.h>
 #include "wcd.h"
 #include "display.h"
 
@@ -221,6 +222,33 @@ void wcd_getshares(char* path, nameset n)
 /* WIN32, not CYGWIN
    Use WIN32 API */
 
+
+void PrintError(DWORD dw) 
+{ 
+    /* Retrieve the system error message for the last-error code */
+
+    LPVOID lpMsgBuf;
+
+    FormatMessage(
+        FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+        FORMAT_MESSAGE_FROM_SYSTEM |
+        FORMAT_MESSAGE_IGNORE_INSERTS,
+        NULL,
+        dw,
+        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+        (LPTSTR) &lpMsgBuf,
+        0, NULL );
+
+    /* Display the error message */
+
+    /* MessageBox(NULL, (LPCTSTR)lpMsgBuf, TEXT("Error"), MB_OK); */
+    fprintf(stderr, "%s\n",(LPCTSTR)lpMsgBuf);
+
+    LocalFree(lpMsgBuf);
+}
+
+
+
 /*
    int wcd_isSharePath (char* path)
    check if path is a possible UNC share path
@@ -260,6 +288,7 @@ int wcd_isSharePath (char* path)
 char *wcd_getcwd(char *buf, int size)
 {
    BOOL err;
+   DWORD dw; 
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
@@ -273,7 +302,9 @@ char *wcd_getcwd(char *buf, int size)
 
    if (err == 0)
    {
-     fprintf(stderr, "%s", _("Wcd: error: Unable to get current working directory.\n"));
+     dw = GetLastError(); 
+     fprintf(stderr, "%s", _("Wcd: error: Unable to get current working directory: "));
+     PrintError(dw);
      return(NULL);  /* fail */
    }
    else
@@ -283,6 +314,7 @@ char *wcd_getcwd(char *buf, int size)
 int wcd_chdir(char *buf, int quiet)
 {
    BOOL err;
+   DWORD dw; 
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
@@ -298,7 +330,9 @@ int wcd_chdir(char *buf, int quiet)
    {
       if ( !quiet )
       {
-         fprintf(stderr,_("Wcd: error: Unable to change to directory %s\n"), buf);
+         dw = GetLastError(); 
+         fprintf(stderr,_("Wcd: error: Unable to change to directory %s: "), buf);
+         PrintError(dw);
       }
       return(1);   /* fail */
    }
@@ -309,6 +343,7 @@ int wcd_chdir(char *buf, int quiet)
 int wcd_mkdir(char *buf, int quiet)
 {
    BOOL err;
+   DWORD dw; 
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
@@ -326,7 +361,9 @@ int wcd_mkdir(char *buf, int quiet)
    {
      if ( !quiet )
      {
-       fprintf(stderr,_("Wcd: error: Unable to create directory %s\n"), buf);
+       dw = GetLastError(); 
+       fprintf(stderr,_("Wcd: error: Unable to create directory %s: "), buf);
+       PrintError(dw);
      }
      return(1);  /* fail */
    }
@@ -335,6 +372,7 @@ int wcd_mkdir(char *buf, int quiet)
 int wcd_rmdir(char *buf, int quiet)
 {
    BOOL err;
+   DWORD dw; 
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
@@ -352,7 +390,9 @@ int wcd_rmdir(char *buf, int quiet)
    {
      if ( !quiet )
      {
-       fprintf(stderr,_("Wcd: error: Unable to remove directory %s\n"), buf);
+       dw = GetLastError(); 
+       fprintf(stderr,_("Wcd: error: Unable to remove directory %s: "), buf);
+       PrintError(dw);
      }
      return(1);  /* fail */
    }

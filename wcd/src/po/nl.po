@@ -2,12 +2,12 @@
 # Copyright (C) 2008-2011 THE wcd'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the wcd package.
 # Erwin Waterlander <waterlan@xs4all.nl>, 2008-2011.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-20 10:50+0200\n"
+"POT-Creation-Date: 2011-05-28 21:09+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -481,61 +481,61 @@ msgstr ""
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Kan niet veranderen naar %s\n"
 
-#: wcddir.c:98
+#: wcddir.c:99
 #, c-format
 msgid "Wcd: Error %lu (\"%s\") reported by \"%s\".\n"
 msgstr "Wcd: Fout %lu (\"%s\") gerapporteerd door \"%s\".\n"
 
-#: wcddir.c:121
+#: wcddir.c:122
 #, c-format
 msgid "Wcd: access denied.\n"
 msgstr "Wcd: toegang geweigerd.\n"
 
-#: wcddir.c:202
+#: wcddir.c:203
 #, c-format
 msgid "Wcd: Searching for shared directories on server %s\n"
 msgstr "Wcd: Zoeken naar gedeelde mappen op server %s\n"
 
-#: wcddir.c:214
+#: wcddir.c:215
 #, c-format
 msgid "Wcd: Found %d shared directories on server %s\n"
 msgstr "Wcd: %d gedeelde mappen gevonden op server %s\n"
 
-#: wcddir.c:276
-msgid "Wcd: error: Unable to get current working directory.\n"
-msgstr "Wcd: fout: Kan huidige werkmap niet verkrijgen.\n"
+#: wcddir.c:306
+msgid "Wcd: error: Unable to get current working directory: "
+msgstr "Wcd: fout: Kan huidige werkmap niet verkrijgen: "
 
-#: wcddir.c:301
+#: wcddir.c:334
 #, c-format
-msgid "Wcd: error: Unable to change to directory %s\n"
-msgstr "Wcd: fout: Kan niet veranderen naar map %s\n"
+msgid "Wcd: error: Unable to change to directory %s: "
+msgstr "Wcd: fout: Kan niet veranderen naar map %s: "
 
-#: wcddir.c:329
+#: wcddir.c:365
 #, c-format
-msgid "Wcd: error: Unable to create directory %s\n"
-msgstr "Wcd: fout: Kan map %s niet aanmaken.\n"
+msgid "Wcd: error: Unable to create directory %s: "
+msgstr "Wcd: fout: Kan map %s niet aanmaken: "
 
-#: wcddir.c:355
+#: wcddir.c:394
 #, c-format
-msgid "Wcd: error: Unable to remove directory %s\n"
-msgstr "Wcd: fout: Kan map %s niet verwijderen.\n"
+msgid "Wcd: error: Unable to remove directory %s: "
+msgstr "Wcd: fout: Kan map %s niet verwijderen: "
 
-#: wcddir.c:439 wcddir.c:456
+#: wcddir.c:479 wcddir.c:496
 #, c-format
 msgid "Wcd: error: Unable to create directory %s: %s\n"
 msgstr "Wcd: fout: Kan map %s niet aanmaken: %s\n"
 
-#: wcddir.c:580
+#: wcddir.c:620
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr "Wcd: fout: Kan huidige werkmap niet verkrijgen: %s\n"
 
-#: wcddir.c:599
+#: wcddir.c:639
 #, c-format
 msgid "Wcd: error: Unable to change to directory %s: %s\n"
 msgstr "Wcd: fout: Kan niet veranderen naar map %s: %s\n"
 
-#: wcddir.c:614
+#: wcddir.c:654
 #, c-format
 msgid "Wcd: error: Unable to remove directory %s: %s\n"
 msgstr "Wcd: fout: Kan map %s niet verwijderen: %s\n"
