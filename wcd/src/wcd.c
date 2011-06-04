@@ -1692,6 +1692,11 @@ void print_version()
    printf(_("curses\n"));
 #   endif
 #  endif
+#  ifdef ASCII_TREE
+   printf("ASCII_TREE=1\n");
+#  else
+   printf("ASCII_TREE=0\n");
+#  endif
 # else
    printf(_("stdout\n"));
 # endif

@@ -15,6 +15,7 @@
     or alias. Type 'make install-profile' to install. See also UNIX.txt.
     (thanks to Jari Aalto)
   - Smarter wcd function for Unix.
+  - Enable Unicode by default on Cygwin.
 
 5.1.4 2010-11-19
   - Use line drawing characters for graphical tree.

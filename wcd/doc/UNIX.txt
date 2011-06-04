@@ -1,221 +1,223 @@
 PREREQUISITES
 
-	Required
-	    * gcc       : GNU C compiler
-	    * make      : GNU make
-	    * sh        : POSIX type shell
-	    * coreutils : GNU core utilities package (chmod, install, mkdir, mv, rm, uname)
-	    * perl      : Practical Extraction and Report Language (perlpod)
+        Required
+            * gcc       : GNU C compiler
+            * make      : GNU make
+            * sh        : POSIX type shell
+            * coreutils : GNU core utilities package (chmod, install, mkdir, mv, rm, uname)
+            * perl      : Practical Extraction and Report Language (perlpod)
 
-	Optional (depending on build targets):
-	    * gettext   : Framework to help GNU packages produce multi-lingual messages.
-	    * ncurses   : CRT screen handling and optimization package.
-	    * groff       : GNU troff text formatting system.
-	    * ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
+        Optional (depending on build targets):
+            * gettext   : Framework to help GNU packages produce multi-lingual messages.
+            * ncurses   : CRT screen handling and optimization package.
+            * groff       : GNU troff text formatting system.
+            * ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
 
-	Check if you have GNU make(1) and GNU gcc(1) installed on your
-	system. On some systems GNU make may be installed as 'gmake' command.
+        Check if you have GNU make(1) and GNU gcc(1) installed on your
+        system. On some systems GNU make may be installed as 'gmake' command.
 
-	    make --version
-	    gcc --version
+            make --version
+            gcc --version
 
-	If you are not able to generate the documentation files, download the documentation
-	package wcd-<version>-doc.tar.gz with the generated documentation files and unpack
-	it over the source package.
+        If you are not able to generate the documentation files, download the documentation
+        package wcd-<version>-doc.tar.gz with the generated documentation files and unpack
+        it over the source package.
 
-	As a last resort there are some simple GNU and native Unix Makefiles included
-	which allow you to build a minimal version of Wcd. See below.
+        As a last resort there are some simple GNU and native Unix Makefiles included
+        which allow you to build a minimal version of Wcd. See below.
 
 
 BASIC INSTALLATION
 
-	Change to directory src/
+        Change to directory src/
 
-	To compile using GNU make:
+        To compile using GNU make:
 
-	    make all
+            make all
 
-	Options that can be enabled during compiling
+        Options that can be enabled during compiling
 
-	    UCS=1	Enable unicode (UTF8) support
-			The default value is empty.
+            UCS=1       Enable Unicode (UTF8) support
+                        The default value is empty.
+                        On Cygwin the default value is 1.
 
-	    ENABLE_NLS=1
-			Enable native language support.
-			That is, use locale files.
-			The default value is 1.
+            ENABLE_NLS=1
+                        Enable native language support.
+                        That is, use locale files.
+                        The default value is 1.
 
-	    STATIC=1	Enable static linking. Make a
-			standalone wcd binary.
-			The default value is empty.
+            STATIC=1    Enable static linking. Make a
+                        standalone wcd binary.
+                        The default value is empty.
 
-	    CURSES=<curses|ncurses|ncursesw|pdcurses>
+            CURSES=<curses|ncurses|ncursesw|pdcurses>
 
-			Select curses library.
-			The default value is 'ncurses'.
-			Only an expert should change this.
+                        Select curses library.
+                        The default value is 'ncurses'.
+                        Only an expert should change this.
 
-	    ASCII_TREE=1	Draw graphical tree with
-				ASCII characters.
-				The default value is empty.
+            ASCII_TREE=1
+                        Draw graphical tree with
+                        ASCII characters.
+                        The default value is empty.
 
-	    EXT=.exe	Set executable extension
-			The default value is '.exe' to
-			make a distinction between the binary
-			and the function/alias.
+            EXT=.exe    Set executable extension
+                        The default value is '.exe' to
+                        make a distinction between the binary
+                        and the function/alias.
 
-	An example to enable unicode support, provided that the library
-	libncursesw is also available:
+        An example to enable unicode support, provided that the library
+        libncursesw is also available:
 
-	    make UCS=1 clean all
+            make UCS=1 clean all
 
-	To disable Native Language Support,
-	reset the ENABLE_NLS variable:
+        To disable Native Language Support,
+        reset the ENABLE_NLS variable:
 
-	    make ENABLE_NLS=
+            make ENABLE_NLS=
 
-	To disable curses and compile with plain stdin/stdout
-	interface type, reset the CURSES variable:
+        To disable curses and compile with plain stdin/stdout
+        interface type, reset the CURSES variable:
 
-	    make CURSES=
+            make CURSES=
 
-	To install:
+        To install:
 
-	    make all strip install
+            make all strip install
 
-	Now go to section SHELL INTEGRATION below.
+        Now go to section SHELL INTEGRATION below.
 
 INSTALLATION NAMES
 
-	By default the 'install' target will install the program in
-	/usr/bin, the language files in /usr/share/locale
-	and the man page in /usr/share/man. You can specify an
-	installation prefix other than /usr by modifying the
-	'prefix' variable. An Example:
+        By default the 'install' target will install the program in
+        /usr/bin, the language files in /usr/share/locale
+        and the man page in /usr/share/man. You can specify an
+        installation prefix other than /usr by modifying the
+        'prefix' variable. An Example:
 
-	    make prefix=$HOME clean all
-	    make prefix=$HOME strip install
+            make prefix=$HOME clean all
+            make prefix=$HOME strip install
 
 SHELL INTEGRATION
 
-	See manual page section "INSTALLATION" how to manually configure the
-	shell to use the program.  It is required to configure your shell,
-	otherwise wcd cannot work.
+        See manual page section "INSTALLATION" how to manually configure the
+        shell to use the program.  It is required to configure your shell,
+        otherwise wcd cannot work.
 
-	Alternatively you can use the shell scripts that are provided to
-	install the wcd function (sh) or alias (csh) under /etc/profile.d/.
-	To install these scripts type:
+        Alternatively you can use the shell scripts that are provided to
+        install the wcd function (sh) or alias (csh) under /etc/profile.d/.
+        To install these scripts type:
 
-	    make install-profile
+            make install-profile
 
-	If you wish that Wcd stores its files under $HOME/.wcd instead of
-	$HOME, add DOTWCD=1. This will add a definition of WCDHOME=$HOME/.wcd
-	(see manual).
+        If you wish that Wcd stores its files under $HOME/.wcd instead of
+        $HOME, add DOTWCD=1. This will add a definition of WCDHOME=$HOME/.wcd
+        (see manual).
 
-	    make install-profile DOTWCD=1
+            make install-profile DOTWCD=1
 
-	Under Cygwin these shell scripts are always installed.
+        Under Cygwin these shell scripts are always installed.
 
 DOCUMENTATION
 
-	Manual pages are generated from Perl POD files. By default
-	the manual pages are are created in text and html format.
-	To create a manual in PDF format type:
+        Manual pages are generated from Perl POD files. By default
+        the manual pages are are created in text and html format.
+        To create a manual in PDF format type:
 
-	    make pdf
+            make pdf
 
-	PDF generation requires GhostScript to be installed.
+        PDF generation requires GhostScript to be installed.
 
 BINARY DISTRIBUTION PACKAGE CREATION
 
-	After installation, a package can be created that contains
-	a ready-to-run wcd binary.
+        After installation, a package can be created that contains
+        a ready-to-run wcd binary.
 
-	  Type `make dist' to create a .tar.gz file.
+          Type `make dist' to create a .tar.gz file.
 
-	  Type `make dist-zip' to create a .zip file.
+          Type `make dist-zip' to create a .zip file.
 
 
 USING SIMPLE GNU MAKEFILES
 
-	If the above command failed to recognize your system, the
-	options are after below.
+        If the above command failed to recognize your system, the
+        options are after below.
 
-	With gcc compiler and ncurses:
-	  make -f old/Makefile.gnu.ncurses
+        With gcc compiler and ncurses:
+          make -f old/Makefile.gnu.ncurses
 
-	With gcc compiler and stdin/stdout interface:
-	  make -f old/Makefile.gnu.std
+        With gcc compiler and stdin/stdout interface:
+          make -f old/Makefile.gnu.std
 
-	With gcc compiler and PDcurses:
-	  make -f old/Makefile.gnu.pdcurses
+        With gcc compiler and PDcurses:
+          make -f old/Makefile.gnu.pdcurses
 
-	Note: using PDcurses on Unix makes not much sense for wcd,
-	because it runs in its own separate window, not in the
-	current terminal.
+        Note: using PDcurses on Unix makes not much sense for wcd,
+        because it runs in its own separate window, not in the
+        current terminal.
 
-	Now go to section SHELL INTEGRATION below.
+        Now go to section SHELL INTEGRATION below.
 
 USING NATIVE OS TOOLS
 
-	If you don't have GNU tools, see these files for native OS
-	compilation.
+        If you don't have GNU tools, see these files for native OS
+        compilation.
 
-	With HP-UX cc and ncurses:
-	  make -f old/Makefile.HP-UX.ncurses
+        With HP-UX cc and ncurses:
+          make -f old/Makefile.HP-UX.ncurses
 
-	With HP-UX cc and curses:
-	  make -f old/Makefile.HP-UX.curses
+        With HP-UX cc and curses:
+          make -f old/Makefile.HP-UX.curses
 
-	With SunOS cc and curses:
-	  make -f old/Makefile.SunOS.curses
+        With SunOS cc and curses:
+          make -f old/Makefile.SunOS.curses
 
-	With SunOS gcc and curses:
-	  make -f old/Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
+        With SunOS gcc and curses:
+          make -f old/Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
 
-	QNX 4.25
-	  make4qnx
+        QNX 4.25
+          make4qnx
 
-	Now go to section SHELL INTEGRATION below.
+        Now go to section SHELL INTEGRATION below.
 
 USING IMAKE
 
-	Wcd can also be compiled with Imake:
+        Wcd can also be compiled with Imake:
 
-	    xmkmf
-	    make depend
-	    make
-	    make install
+            xmkmf
+            make depend
+            make
+            make install
 
-	The last command copies wcd.exe to your $HOME/bin directory.
-	Note: Imake will overwrite the makefile "Makefile".
+        The last command copies wcd.exe to your $HOME/bin directory.
+        Note: Imake will overwrite the makefile "Makefile".
 
-	Now go to section SHELL INTEGRATION below.
+        Now go to section SHELL INTEGRATION below.
 
 PORTABILITY
 
-	See also file SOURCE.txt.
+        See also file SOURCE.txt.
 
-	--
+        --
 
-	A compile error occurs when you use gcc < 3.0 and
-	<stdbool.h> is included somewhere (e.g. in curses.h).
+        A compile error occurs when you use gcc < 3.0 and
+        <stdbool.h> is included somewhere (e.g. in curses.h).
 
-	Thanks to Kevin M. Rosenberg, apply the following patch:
+        Thanks to Kevin M. Rosenberg, apply the following patch:
 
-	    patch -p1 < patch/wcd_bool.diff
+            patch -p1 < patch/wcd_bool.diff
 
-	--
+        --
 
-	Conflicting curses.h ncurses.h
+        Conflicting curses.h ncurses.h
 
-	On some systems curses.h is conflicting with ncurses.h. To
-	compile wcd you can solve this by creating a symbolic link
-	curses.h in the wcd source directory pointing to the ncurses.h
-	file and adding -I. to CFLAGS in old/Makefile.ncurses.gcc.
+        On some systems curses.h is conflicting with ncurses.h. To
+        compile wcd you can solve this by creating a symbolic link
+        curses.h in the wcd source directory pointing to the ncurses.h
+        file and adding -I. to CFLAGS in old/Makefile.ncurses.gcc.
 
-	This problem was seen on a BSDI BSD/OS 4.0 system.
-	/usr/local/include/ncurses.h
+        This problem was seen on a BSDI BSD/OS 4.0 system.
+        /usr/local/include/ncurses.h
 
 
 End of file

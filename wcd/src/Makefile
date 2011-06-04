@@ -119,6 +119,11 @@ CFLAGS_VERSION	= -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 
 VERSIONSUFFIX	= -bin
 
+# Enble Unicode for Cygwin
+ifeq ($(findstring CYGWIN,$(shell uname)),CYGWIN)
+UCS = 1
+endif
+
 ifdef UCS
 ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.zip
 TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.tar.gz
