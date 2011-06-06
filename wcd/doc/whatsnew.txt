@@ -1,4 +1,4 @@
-5.1.5-beta3 2011-05-22
+5.1.5 2011-06-06
   - Default scan directory is $HOME, even when WCDHOME is defined.
     WCDHOME is only to change location of wcd's files.
   - Environment variable WCDSCAN can be used to overrule the default scan
