@@ -1666,7 +1666,7 @@ void print_version()
 # else
    printf(_("Win32 version.\n"));
 # endif
-#elif defined(MSDOS) && defined(__FLAT__)
+#elif defined(MSDOS) && defined(GO32)
    printf(_("DOS 32 bit version.\n"));
 #endif
 #ifdef __MSYS__
