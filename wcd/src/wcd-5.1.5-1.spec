@@ -28,14 +28,15 @@ make -C src prefix=/usr UCS=1
 
 %install
 make -C src install DESTDIR=${RPM_BUILD_ROOT} prefix=/usr
+make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=/usr
 
 %post
-make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=/usr
 
 %files
 /usr/bin/wcd.exe
 /usr/share/man/man1/wcd.*
 /usr/share/locale/*/LC_MESSAGES/wcd.mo
+/etc/profile.d/wcd.*
 
 %doc doc/README.txt doc/wcd.txt doc/wcd.htm doc/INSTALL.txt doc/UNIX.txt doc/RPM.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translat.txt
 
