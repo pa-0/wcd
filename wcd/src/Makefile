@@ -491,7 +491,6 @@ else
 	sed -e "s#BINDIR#$(bindir)#" -e "s/PROGRAM/$(BIN)/" etc/profile.d/wcd.sh > $(DESTDIR)/etc/profile.d/wcd.sh
 	sed -e "s#BINDIR#$(bindir)#" -e "s/PROGRAM/$(BIN)/" etc/profile.d/wcd.csh > $(DESTDIR)/etc/profile.d/wcd.csh
 endif
-	chmod +x $(DESTDIR)/etc/profile.d/wcd.sh $(DESTDIR)/etc/profile.d/wcd.csh
 
 # Old versions of install(1) don't support option -D. Use
 # mkdir instead. Was seen on HP-UX 11 and DOS DJGPP.

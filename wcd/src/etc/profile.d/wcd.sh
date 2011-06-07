@@ -32,22 +32,17 @@
 ##    export WCDHOME="$HOME/.wcd"
 ##fi
 
-if [ -x "BINDIR/PROGRAM" ]
-then
+wcd ()
+{
+    go="${WCDHOME:-${HOME}}/bin/wcd.go"
 
-    wcd ()
-    {
-        go="${WCDHOME:-${HOME}}/bin/wcd.go"
+    rm -f "$go" 2> /dev/null
 
-        rm -f "$go" 2> /dev/null
+    BINDIR/PROGRAM "$@"
 
-        BINDIR/PROGRAM "$@"
+    [ -f "$go" ] && . "$go"
 
-        [ -f "$go" ] && . "$go"
-
-        unset go
-    }
-
-fi
+    unset go
+}
 
 # End of file
