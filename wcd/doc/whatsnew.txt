@@ -1,5 +1,6 @@
 
   - URL home page changed to http://waterlan.home.xs4all.nl/
+  - Makefile use RPM_OPT_FLAGS.
 
 5.1.5 2011-06-06
   - Default scan directory is $HOME, even when WCDHOME is defined.
