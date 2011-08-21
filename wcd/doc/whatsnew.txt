@@ -1,3 +1,6 @@
+
+  - URL home page changed to http://waterlan.home.xs4all.nl/
+
 5.1.5 2011-06-06
   - Default scan directory is $HOME, even when WCDHOME is defined.
     WCDHOME is only to change location of wcd's files.
@@ -50,7 +53,7 @@
   - Dos32 version by default without Native Language Support.
   - Renamed Dos32 BASH version to wcdbash.exe.
   - Win32 binary packages use patched MinGW's libintl, with builtin
-    relocation support. See http://www.xs4all.nl/~waterlan/libintl.html
+    relocation support. See http://waterlan.home.xs4all.nl/libintl.html
 
 5.1.1 2010-01-07
   - Alternate stack file support with environment variable WCDSTACKFILE (thanks to anonymous).

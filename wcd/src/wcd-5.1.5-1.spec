@@ -5,7 +5,7 @@ Release: 1
 License: GPL
 Group: Applications/File
 Source: wcd-5.1.5-src.tar.gz
-URL: http://www.xs4all.nl/~waterlan/
+URL: http://waterlan.home.xs4all.nl/
 Packager: Erwin Waterlander <waterlan@xs4all.nl>
 
 %description

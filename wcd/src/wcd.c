@@ -7,7 +7,7 @@
 Author: Erwin Waterlander
 
 E-mail  : waterlan@xs4all.nl
-WWW     : http://www.xs4all.nl/~waterlan/
+WWW     : http://waterlan.home.xs4all.nl/
 
 ======================================================================
 = Copyright                                                          =
@@ -1724,7 +1724,7 @@ void print_version()
 #endif
    printf("\n");
    printf(_("Download the latest executables and sources from:\n"));
-   printf(_("http://www.xs4all.nl/~waterlan/\n"));
+   printf(_("http://waterlan.home.xs4all.nl/\n"));
 }
 
 /* Recurively create directory path, to enable writing

@@ -5,14 +5,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-07 00:22+0200\n"
+"POT-Creation-Date: 2011-08-21 08:39+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:112 wcd.c:132
@@ -371,8 +371,8 @@ msgid "Download the latest executables and sources from:\n"
 msgstr "Lataa viimeisin versio ohjelmasta ja sen lähdekoodista osoitteesta:\n"
 
 #: wcd.c:1727
-#, c-format
-msgid "http://www.xs4all.nl/~waterlan/\n"
+#, fuzzy, c-format
+msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr "http://www.xs4all.nl/~waterlan/\n"
 
 #: wcd.c:1759 stack.c:235

@@ -128,7 +128,7 @@ Table of Contents
            Email: mathews@mitre.org, mathews@computer.org
 
         DOSDIR can be download from my own homepage
-        http://www.xs4all.nl/~waterlan/
+        http://waterlan.home.xs4all.nl/
 
     2.3 Recmatch
 
@@ -295,7 +295,7 @@ Table of Contents
         The latest WCD packages, executables and sources, can be downloaded from
         this internet-page:
 
-        http://www.xs4all.nl/~waterlan/
+        http://waterlan.home.xs4all.nl/
 
         --
 

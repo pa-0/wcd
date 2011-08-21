@@ -233,7 +233,7 @@ Start a new PowerShell
 - WinZsh (zsh) and MSYS (bash)
 
 A native Windows port of Z shell has been made by Amol Deshpande.
-See http://www.xs4all.nl/~waterlan/#ZSH
+See http://waterlan.home.xs4all.nl/#ZSH
 An updated version is available at:
 http://zsh-nt.sourceforge.net/
 
