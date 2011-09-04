@@ -333,6 +333,8 @@ OBJS1 = \
 	dosdir.o \
 	wfixpath.o \
 	wcddir.o \
+	matchl.o \
+	querycp.o \
 	$(EXTRA_OBJ)
 
 ifneq (,$(CURSES))

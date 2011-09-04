@@ -63,6 +63,7 @@ TAB = 3 spaces
 #endif
 #include "dosdir.h"
 #include "match.h"
+#include "matchl.h"
 #include "std_macr.h"
 #include "structur.h"
 #include "Error.h"
@@ -79,6 +80,8 @@ TAB = 3 spaces
 #include "config.h"
 #ifdef WCD_UTF16
 #  include <wchar.h>
+#endif
+#if defined (WIN32) && !defined(__CYGWIN__)
 #  include <windows.h>
 #endif
 
@@ -1428,8 +1431,8 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 
       /* test for a perfect match */
 
-      if ( (wild == 0) && (dd_match(line_end,dir_str,ignore_case))  &&
-           (dd_match(line,path_str,ignore_case)) )
+      if ( (wild == 0) && (dd_matchl(line_end,dir_str,ignore_case))  &&
+           (dd_matchl(line,path_str,ignore_case)) )
             {
 
                if (relative)
@@ -1451,8 +1454,8 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 
             /* test for a wild match if no perfect match */
 
-            if ( (dd_match(line_end,dirwild_str,ignore_case)) &&
-                 (dd_match(line,path_str,ignore_case)) && (pm->size == 0))
+            if ( (dd_matchl(line_end,dirwild_str,ignore_case)) &&
+                 (dd_matchl(line,path_str,ignore_case)) && (pm->size == 0))
                {
 
                    if (relative)
@@ -1862,6 +1865,12 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 #ifdef WCD_UNIXSHELL
    char *ptr ;
 #endif
+#if defined (WIN32) && !defined(__CYGWIN__)
+   unsigned int codepage_ansi, codepage_dos;
+
+   codepage_ansi = GetACP();
+   codepage_dos  = GetConsoleOutputCP();
+#endif
 
    if (use_GoScript == 0)
       return;
@@ -1904,10 +1913,18 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
    fprintf(outfile, "%s", "@echo off\n");
    if (*changedrive)
       fprintf(outfile,"%s\n",drive);
+#   ifdef WIN32
+   if (codepage_ansi != codepage_dos)
+      fprintf(outfile,"chcp %d>nul\n", codepage_ansi);
+#   endif
    if (strncmp(best_match,"\"\\\\",3) == 0)
       fprintf(outfile,"pushd %s\n", best_match); /* UNC path */
    else
       fprintf(outfile,"cd %s\n", best_match);
+#   ifdef WIN32
+   if (codepage_ansi != codepage_dos)
+      fprintf(outfile,"chcp %d>nul\n", codepage_dos);
+#   endif
 #  endif
 # endif
    fclose(outfile);

@@ -84,20 +84,27 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #define Case(x)  (ic? tolower(x) : (x))
 
 /* dd_matchl() is a shell to recmatch() to return only Boolean values. */
-static int recmatchl(uch *pattern, uch *string, int ignore_case, int *CPTable);
+static int recmatchl(uch *pattern, uch *string, int ignore_case, uch *CPTable);
 
 int dd_matchl(const char *string,const char *pattern,int ignore_case)
 {
 #if (defined(MSDOS) && defined(DOSWILD))
     char *dospattern;
     int j = strlen(pattern);
+#endif
     int code_page;
-    int *CPTable;
+    uch *CPTable;
 
     code_page = (int)query_con_codepage();
 
     switch (code_page)
     {
+      case 437: /* DOS Latin-US */
+        CPTable = match_CP850;
+        break;
+      case 850: /* DOS Latin-1 */
+        CPTable = match_CP850;
+        break;
       case 1252: /* Windows Latin-1 */
         CPTable = match_CP1252;
         break;
@@ -105,6 +112,7 @@ int dd_matchl(const char *string,const char *pattern,int ignore_case)
         CPTable = match_C;
     }
 
+#if (defined(MSDOS) && defined(DOSWILD))
 /*---------------------------------------------------------------------------
     Optional MS-DOS preprocessing section:  compare last three chars of the
     wildcard to "*.*" and translate to "*" if found; else compare the last
@@ -137,7 +145,7 @@ int dd_matchl(const char *string,const char *pattern,int ignore_case)
 }
 
 
-static int recmatchl(uch *p,uch *s,int ic, int *CPTable)
+static int recmatchl(uch *p,uch *s,int ic, uch *CPTable)
    /*  uch *p;  			 sh pattern to match */
    /*  uch *s;  			 string to which to match it */
    /*  int ic;  			 true for case insensitivity */
@@ -221,7 +229,7 @@ static int recmatchl(uch *p,uch *s,int ic, int *CPTable)
         return 0;
 
     /* just a character--compare it */
-    return Case((uch)c) == Case(*s) ? recmatchl(p, ++s, ic, CPTable) : 0;
+    return Case(CPTable[c]) == Case(CPTable[*s]) ? recmatchl(p, ++s, ic, CPTable) : 0;
 
 } /* end function recmatch() */
 
