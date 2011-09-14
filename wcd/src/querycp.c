@@ -105,11 +105,22 @@ unsigned short query_con_codepage(void) {
 
 #include <windows.h>
 unsigned short query_con_codepage(void) {
+#ifdef WCD_UNICODE
+   return(0);
+#else
    return((unsigned short)GetACP());
+#endif
 }
 #else
 
+#include <langinfo.h>
 unsigned short query_con_codepage(void) {
+   if (strcmp(nl_langinfo(CODESET), "ISO-8859-1") == 0)
+     return(8591);
+
+   if (strcmp(nl_langinfo(CODESET), "ISO-8859-2") == 0)
+     return(8592);
+   
    return(0);
 }
 #endif
