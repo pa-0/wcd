@@ -113,6 +113,7 @@ unsigned short query_con_codepage(void) {
 }
 #else
 
+#include <string.h>
 #include <langinfo.h>
 unsigned short query_con_codepage(void) {
    if (strcmp(nl_langinfo(CODESET), "ISO-8859-1") == 0)

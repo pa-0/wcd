@@ -81,7 +81,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
                        * to be macro (using isupper()); otherwise just use
                        * tolower() */
 
-#define Case(x)  (ic? tolower(x) : (x))
+#define Case(x)  (ic? tolower(x) : (int)(x))
 
 /* dd_match() is a shell to recmatch() to return only Boolean values. */
 static int recmatch(uch *pattern, uch *string, int ignore_case);
@@ -133,7 +133,7 @@ static int recmatch(uch *p,uch *s,int ic)
  * pattern.  This routine recurses on itself no more deeply than the number
  * of characters in the pattern. */
 {
-    unsigned int c;       /* pattern char or start of range in [-] loop */
+    int c;       /* pattern char or start of range in [-] loop */
 
     /* Get first character, the pattern for new recmatch calls follows */
     c = *p++;
@@ -190,7 +190,7 @@ static int recmatch(uch *p,uch *s,int ic)
             else if (e == 0 && *p == '-')         /* set start of range if - */
                 c = *(p-1);
             else {
-                unsigned int cc = Case(*s);
+                int cc = Case(*s);
 
                 if (*(p+1) != '-')
                     for (c = c ? c : *p; c <= *p; c++)  /* compare range */
