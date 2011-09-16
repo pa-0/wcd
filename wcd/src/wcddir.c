@@ -285,7 +285,7 @@ int wcd_isSharePath (char* path)
  * strings are encoded in UTF-8.
  */
 
-char *wcd_getcwd(char *buf, int size)
+char *wcd_getcwd(char *buf, size_t size)
 {
    BOOL err;
    DWORD dw; 
@@ -506,14 +506,15 @@ int wcd_mkdir(char *buf, int quiet)
  * a volume manager. Replace the absolute volume path by $HOME.
  */
 
-char *replace_volume_path_HOME(char *buf, int size)
+char *replace_volume_path_HOME(char *buf, size_t size)
 {
    static char *home = NULL;      /* value of $HOME env variable */
    static char home_abs[DD_MAXPATH];  /* absolute volume path of $HOME */
    static char status = 0;
-   static int  len_home = 0;
-   static int  len_home_abs = 0;
-   int i, j, len_buf;
+   static size_t  len_home = 0;
+   static size_t  len_home_abs = 0;
+   size_t i, len_buf;
+   int j;
    char tmp[DD_MAXPATH];
    static char pattern[DD_MAXPATH];
    char *ptr1, *ptr2;
@@ -608,7 +609,7 @@ char *replace_volume_path_HOME(char *buf, int size)
 }
 #endif
 
-char *wcd_getcwd(char *buf, int size)
+char *wcd_getcwd(char *buf, size_t size)
 {
    char *err;
    char *errstr;

@@ -2,6 +2,6 @@
 #define _WFIXPATH_H_
 
 int wcd_is_slash(int c);
-void wcd_fixpath(char *in, int lim) ;
+void wcd_fixpath(char *in, size_t lim) ;
 
 #endif

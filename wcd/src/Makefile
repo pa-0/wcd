@@ -291,7 +291,7 @@ endif
 # dynamically) comment the LDFLAGS line and add the 'libncurses.a' file
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
-CFLAGS	= -O2 -Wall -Wextra -Wconversion $(RPM_OPT_FLAGS)
+CFLAGS	= -O2 -Wall -Wextra -Wno-unused-parameter -Wconversion $(RPM_OPT_FLAGS)
 
 EXTRA_CFLAGS	= -Ic3po \
 		  $(CFLAGS_VERSION) \

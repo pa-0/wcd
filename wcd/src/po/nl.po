@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-04 21:31+0200\n"
+"POT-Creation-Date: 2011-09-16 09:50+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -526,17 +526,17 @@ msgstr "Wcd: fout: Kan map %s niet verwijderen: "
 msgid "Wcd: error: Unable to create directory %s: %s\n"
 msgstr "Wcd: fout: Kan map %s niet aanmaken: %s\n"
 
-#: wcddir.c:620
+#: wcddir.c:621
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr "Wcd: fout: Kan huidige werkmap niet verkrijgen: %s\n"
 
-#: wcddir.c:639
+#: wcddir.c:640
 #, c-format
 msgid "Wcd: error: Unable to change to directory %s: %s\n"
 msgstr "Wcd: fout: Kan niet veranderen naar map %s: %s\n"
 
-#: wcddir.c:654
+#: wcddir.c:655
 #, c-format
 msgid "Wcd: error: Unable to remove directory %s: %s\n"
 msgstr "Wcd: fout: Kan map %s niet verwijderen: %s\n"
@@ -891,7 +891,7 @@ msgstr "l of <Rechts>     ontvouwen en naar rechts gaan."
 msgid "Screenheight must be > 21 for help"
 msgstr "Schermhoogte moet groter dan 21 zijn voor help"
 
-#: wfixpath.c:65
+#: wfixpath.c:66
 msgid "Wcd: malloc error in wcd_fixpath()\n"
 msgstr "Wcd: malloc fout in wcd_fixpath()\n"
 

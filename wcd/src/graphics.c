@@ -1229,7 +1229,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
    if (s != NULL)
    {
 #ifdef WCD_UNICODE
-      len = MBSTOWCS(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
+      len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
 #endif
@@ -1253,44 +1253,44 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
             {
                case WCD_ACS_HL:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '-');
+                  waddch(win, (chtype)'-');
                 else
                   waddch(win,ACS_HLINE);
                   break;
                case WCD_ACS_VL:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '|');
+                  waddch(win, (chtype)'|');
                 else
                   waddch (win,ACS_VLINE);
                   break;
                case WCD_ACS_LT:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '|');
+                  waddch(win, (chtype)'|');
                 else
                   waddch (win,ACS_LTEE);
                   break;
                case WCD_ACS_LLC:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '`');
+                  waddch(win, (chtype)'`');
                 else
                   waddch (win,ACS_LLCORNER);
                   break;
                case WCD_ACS_TT:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '+');
+                  waddch(win, (chtype)'+');
                 else
                   waddch (win,ACS_TTEE);
                   break;
                case WCD_SEL_ON:
                 wattron(win,A_REVERSE);
-                waddch(win,'['); /* square brackets indicate there was an error. */
+                waddch(win,(chtype)'['); /* square brackets indicate there was an error. */
                   break;
                case WCD_SEL_OFF:
-                waddch(win,']');
+                waddch(win,(chtype)']');
                 wattroff(win,A_REVERSE);
                   break;
                default:
-                waddch(win,s[j]);
+                waddch(win,(chtype)s[j]);
             }
          }
       }
@@ -1349,40 +1349,40 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
             {
                case WCD_ACS_HL:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '-');
+                  waddch(win, (chtype)'-');
                 else
                   waddch(win,ACS_HLINE);
                   break;
                case WCD_ACS_VL:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '|');
+                  waddch(win, (chtype)'|');
                 else
                   waddch (win,ACS_VLINE);
                   break;
                case WCD_ACS_LT:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '|');
+                  waddch(win, (chtype)'|');
                 else
                   waddch (win,ACS_LTEE);
                   break;
                case WCD_ACS_LLC:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '`');
+                  waddch(win, (chtype)'`');
                 else
                   waddch (win,ACS_LLCORNER);
                   break;
                case WCD_ACS_TT:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '+');
+                  waddch(win, (chtype)'+');
                 else
                   waddch (win,ACS_TTEE);
                   break;
                case WCD_SEL_ON:
                 wattron(win,A_REVERSE);
-                waddch(win,'<');
+                waddch(win,(chtype)'<');
                   break;
                case WCD_SEL_OFF:
-                waddch(win,'>');
+                waddch(win,(chtype)'>');
                 wattroff(win,A_REVERSE);
                   break;
                default:
@@ -1412,44 +1412,44 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
          {
             case WCD_ACS_HL:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '-');
+                  waddch(win, (chtype)'-');
                 else
                   waddch(win,ACS_HLINE);
                break;
             case WCD_ACS_VL:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '|');
+                  waddch(win, (chtype)'|');
                 else
                   waddch (win,ACS_VLINE);
                break;
             case WCD_ACS_LT:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '|');
+                  waddch(win, (chtype)'|');
                 else
                   waddch (win,ACS_LTEE);
                break;
             case WCD_ACS_LLC:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '`');
+                  waddch(win, (chtype)'`');
                 else
                   waddch (win,ACS_LLCORNER);
                break;
             case WCD_ACS_TT:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
-                  waddch(win, '+');
+                  waddch(win, (chtype)'+');
                 else
                   waddch (win,ACS_TTEE);
                break;
             case WCD_SEL_ON:
                   wattron(win,A_REVERSE);
-                  waddch(win,'<');
+                  waddch(win,(chtype)'<');
                break;
             case WCD_SEL_OFF:
-                  waddch(win,'>');
+                  waddch(win,(chtype)'>');
                   wattroff(win,A_REVERSE);
                break;
             default:
-                  waddch(win,s[j]);
+                  waddch(win,(chtype)s[j]);
          }
       }
 #endif
@@ -1554,26 +1554,26 @@ void dataRefresh(int ydiff, int init)
   for (i = 0; i < COLS; i++)
   {
     wmove(wcd_cwin.inputWin, 0, i);
-    waddch(wcd_cwin.inputWin, '-');
+    waddch(wcd_cwin.inputWin, (chtype)'-');
   }
 
   /* mvwprintw(inputWin, 1,0,"%s",getNodeFullPath(curNode)); */
   s = (wcd_uchar *)getZoomStackPath(wcd_cwin.zoomStack); /* s has size DD_MAXPATH */
   strcat((char *)s, getNodeFullPath(wcd_cwin.curNode));
-  wcd_fixpath((char *)s, DD_MAXPATH);
+  wcd_fixpath((char *)s, (size_t)DD_MAXPATH);
 
   if (s != NULL)
   {
     wmove(wcd_cwin.inputWin, 1, 0);
 #ifdef WCD_UNICODE
-   len = MBSTOWCS(wstr,(char *)s,DD_MAXPATH); /* number of wide characters */
+   len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
    if (len < 0)
    {
       /* Erroneous multi-byte sequence */
       /* Try 8 bit characters */
       len = strlen((char *)s);
       for (i = 0; (i < len) && (i < (COLS - 1)); i++)
-        waddch(wcd_cwin.inputWin, s[i]);
+        waddch(wcd_cwin.inputWin, (chtype)s[i]);
    } else {
       i = 0;
       width = wcwidth(wstr[i]);
@@ -1587,7 +1587,7 @@ void dataRefresh(int ydiff, int init)
 #else
     len = strlen((char *)s);
     for (i = 0; (i < len) && (i < (COLS - 1)); i++)
-      waddch(wcd_cwin.inputWin, s[i]);
+      waddch(wcd_cwin.inputWin, (chtype)s[i]);
 #endif
   }
 
@@ -1912,7 +1912,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
    ptr=NULL;
 
-   getCurPath(curPath,DD_MAXPATH,use_HOME);
+   getCurPath(curPath, (size_t)DD_MAXPATH, use_HOME);
    wcd_cwin.curNode = locatePathOrSo(curPath,tree);
 
    wcd_cwin.zoomStack = dirnodeNew(NULL,NULL,NULL);
@@ -2280,7 +2280,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
             c = 13;
             ptr = getZoomStackPath(wcd_cwin.zoomStack); /* s has size DD_MAXPATH */
             strcat(ptr,getNodeFullPath(wcd_cwin.curNode));
-            wcd_fixpath(ptr,DD_MAXPATH);
+            wcd_fixpath(ptr, (size_t)DD_MAXPATH);
       break;
      case 8:  /* backspace */
      case KEY_BACKSPACE:
@@ -2310,7 +2310,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          n++;
          wcd_cwin.wstr[n] = '\0';
          /* Convert wide-character input string to byte string. Needed for searching. */
-         if (WCSTOMBS(wcd_cwin.str, wcd_cwin.wstr, WCD_MAX_INPSTR) < 0)
+         if (WCSTOMBS(wcd_cwin.str, wcd_cwin.wstr, (size_t)WCD_MAX_INPSTR) == (size_t)(-1))
          {
             n=1;
             wcd_cwin.str[n] = '\0';
@@ -2353,7 +2353,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          (*(ptr+1) != '/'))  /* UNC path */
       ptr++;
 #endif
-   wcd_fixpath(ptr,DD_MAXPATH);
+   wcd_fixpath(ptr, (size_t)DD_MAXPATH);
    return(ptr);
 
 }

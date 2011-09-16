@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-04 21:31+0200\n"
+"POT-Creation-Date: 2011-09-16 09:50+0200\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -536,17 +536,17 @@ msgstr "Wcd: error: Imposible remover el directorio %s: "
 msgid "Wcd: error: Unable to create directory %s: %s\n"
 msgstr "Wcd: error: Imposible cambiarse al directorio %s: %s\n"
 
-#: wcddir.c:620
+#: wcddir.c:621
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr "Wcd: error: Imposible obtener el directorio actual de trabajo: %s\n"
 
-#: wcddir.c:639
+#: wcddir.c:640
 #, c-format
 msgid "Wcd: error: Unable to change to directory %s: %s\n"
 msgstr "Wcd: error: Imposible cambiarse al directorio %s: %s\n"
 
-#: wcddir.c:654
+#: wcddir.c:655
 #, c-format
 msgid "Wcd: error: Unable to remove directory %s: %s\n"
 msgstr "Wcd: error: Imposible remover el directorio %s: %s\n"
@@ -900,7 +900,7 @@ msgstr "l o <Derecha>     cerrar e ir a la derecha."
 msgid "Screenheight must be > 21 for help"
 msgstr "La altura de la pantalla debe ser > 21 para la ayuda"
 
-#: wfixpath.c:65
+#: wfixpath.c:66
 msgid "Wcd: malloc error in wcd_fixpath()\n"
 msgstr "Wcd: error de malloc en wcd_fixpath()\n"
 

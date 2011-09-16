@@ -49,7 +49,7 @@ int wcd_mkdir(char *buf, int quiet);
 
 #endif
 
-char *wcd_getcwd(char *buf, int size);
+char *wcd_getcwd(char *buf, size_t size);
 int wcd_chdir(char *buf, int quiet);
 int wcd_rmdir(char *buf, int quiet);
 int wcd_isdir(char *dir, int quiet);

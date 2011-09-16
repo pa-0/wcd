@@ -411,7 +411,7 @@ int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
 }
 #endif
 /*****************************************************************/
-void getCurPath(char *buffer, int size, int *use_HOME)
+void getCurPath(char *buffer, size_t size, int *use_HOME)
 {
    int len;
 
@@ -434,7 +434,7 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
  char tmp[DD_MAXPATH];      /* tmp string buffer */
  FILE *outfile;
 
- getCurPath(tmp,DD_MAXPATH,use_HOME);
+ getCurPath(tmp,(size_t)DD_MAXPATH,use_HOME);
 
  if(tmp != NULL)
  {
@@ -498,7 +498,7 @@ int SpecialDir(const char *path)
 void q_insert(TDirList *list,const char *s)
 {
    TDirEntry *ptr;
-   int len = strlen(s);
+   size_t len = strlen(s);
    if (!len) return;
    if ((ptr = (TDirEntry*) malloc(sizeof(TDirEntry))) == NULL )
    {
@@ -903,8 +903,8 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
    int  changedrive = 0;
 #endif
 
-   wcd_fixpath(path,DD_MAXPATH);
-   wcd_fixpath(treefile,DD_MAXPATH);
+   wcd_fixpath(path,(size_t)DD_MAXPATH);
+   wcd_fixpath(treefile,(size_t)DD_MAXPATH);
    wcd_getcwd(tmp2, sizeof(tmp2)); /* remember current dir */
 
    if(wcd_isdir(path,0) != 0)
@@ -1035,7 +1035,7 @@ void makeDir(char *path, char *treefile, int *use_HOME)
    int  changedrive = 0;
 #endif
 
-   wcd_fixpath(path,DD_MAXPATH);
+   wcd_fixpath(path,(size_t)DD_MAXPATH);
 
 #if (defined(DJGPP) || defined(__OS2__))
    /* is there a drive to go to ? */
@@ -1051,7 +1051,7 @@ void makeDir(char *path, char *treefile, int *use_HOME)
    if (wcd_mkdir(path,0)==0)
 #endif
    {
-      wcd_getcwd(tmp2, DD_MAXPATH);  /* remember current dir */
+      wcd_getcwd(tmp2, (size_t)DD_MAXPATH);  /* remember current dir */
       if(wcd_chdir(path,0)==0)        /* goto dir and add */
        addCurPathToFile(treefile,use_HOME,0);
       wcd_chdir(tmp2,0) ;                /* go back */
@@ -1089,10 +1089,10 @@ void deleteLink(char *path, char *treefile)
           line_end = path;  /* we were are already there */
 
         strcpy(tmp2,line_end);
-        wcd_getcwd(path, DD_MAXPATH);  /* get the full path of parent dir*/
+        wcd_getcwd(path, (size_t)DD_MAXPATH);  /* get the full path of parent dir*/
         strcat(path,"/");
         strcat(path,tmp2);
-        wcd_fixpath(path,DD_MAXPATH);
+        wcd_fixpath(path,(size_t)DD_MAXPATH);
 
         if (unlink(tmp2)==0)    /* delete the link */
           {
@@ -1134,7 +1134,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
 #endif
    char tmp2[DD_MAXPATH];
 
-   wcd_fixpath(path,DD_MAXPATH);
+   wcd_fixpath(path,(size_t)DD_MAXPATH);
 
 #ifdef UNIX
    if (lstat(path, &buf) != 0)
@@ -1157,11 +1157,11 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
 
    if (wcd_isdir(path,0) == 0) /* is it a dir */
    {
-      wcd_getcwd(tmp2, DD_MAXPATH);  /* remember current path */
+      wcd_getcwd(tmp2, (size_t)DD_MAXPATH);  /* remember current path */
 
       if(wcd_chdir(path,0)==0)
       {
-         wcd_getcwd(path, DD_MAXPATH);   /* path to remove */
+         wcd_getcwd(path, (size_t)DD_MAXPATH);   /* path to remove */
 
 #ifdef MSDOS
          wcd_fixpath(path,DD_MAXPATH);
@@ -1838,7 +1838,7 @@ int pickDir(nameset list, int *use_HOME)
 
    sort_list(list);
 
-   getCurPath(curDir,DD_MAXPATH,use_HOME); /* get previous dirname from file */
+   getCurPath(curDir,(size_t)DD_MAXPATH,use_HOME); /* get previous dirname from file */
 
    if (curDir == NULL)  /* no dirname found */
       return(1);            /* return first of list */
@@ -2196,7 +2196,7 @@ int main(int argc,char** argv)
 #endif
 
    create_dir_for_file(treefile);
-   strncpy(scandir,rootdir,DD_MAXPATH);
+   strncpy(scandir,rootdir,(size_t)DD_MAXPATH);
 
    strcpy(dir,"");
 
@@ -2625,7 +2625,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             addToNamesetArray(textNew(argv[i]),extra_files);
          }
          else
-         if (strncmp(argv[i-1],"-x",2) == 0 )  /* exclude paths from scanning */
+         if (strncmp(argv[i-1],"-x",(size_t)2) == 0 )  /* exclude paths from scanning */
          {
             strncpy(tmp,argv[i],sizeof(tmp));
             wcd_fixpath(tmp,sizeof(tmp));

@@ -489,7 +489,7 @@ int dd_findfirst( const char *path,dd_ffblk* fb,int attrib)
   if (s)
 	{
 	strcpy(fb->dd_filespec, s+1);
-	strncpy(dir, path, s-path);
+	strncpy(dir, path, (size_t)(s-path));
 	}
   else
 	{

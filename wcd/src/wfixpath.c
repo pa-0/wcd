@@ -9,6 +9,8 @@
  *              Erwin Waterlander
  * Sep 8 2005:  Keep first two slashes also for Cygwin (UNC path)
  *              Erwin Waterlander
+ * Sep 15 2011: changed parameter 'lim' to size_t type.
+ *              Erwin Waterlander
  */
 
 #include <stdio.h>		/* For FILENAME_MAX */
@@ -50,14 +52,15 @@ static int is_term(int c)
   10. Don't fix path "."
 */
 
-void wcd_fixpath(char *in, int lim)
+void wcd_fixpath(char *in, size_t lim)
 {
-  int	i=0,drive_number= -1;
+  size_t i=0;
+  int	drive_number= -1;
   const char	*ip = in;
   char  *out;
   char	*op;
 
-  if (in == NULL)
+  if ((in == NULL) || (lim == 0))
    	return ;
 
   if ((out = (char *) malloc(lim)) == NULL)

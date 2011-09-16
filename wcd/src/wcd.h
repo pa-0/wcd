@@ -136,7 +136,7 @@ void print_version(void);
 int  wcd_get_int(void);
 int wcd_getline(char s[], int lim, FILE* infile);
 int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdStack ws, nameset excl);
-void getCurPath(char *buffer, int size, int *use_HOME);
+void getCurPath(char *buffer, size_t size, int *use_HOME);
 
 #ifdef WCD_DOSBASH
 	void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript);

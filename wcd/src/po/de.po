@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-04 21:31+0200\n"
+"POT-Creation-Date: 2011-09-16 09:50+0200\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -575,19 +575,19 @@ msgstr "wcd: Fehler: Das Löschen von Verzeichnis %s wurde verweigert: "
 msgid "Wcd: error: Unable to create directory %s: %s\n"
 msgstr "wcd: Fehler: Das Verzeicnis %s konnte nicht angelegt werden: %s\n"
 
-#: wcddir.c:620
+#: wcddir.c:621
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr ""
 "wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden: %"
 "s\n"
 
-#: wcddir.c:639
+#: wcddir.c:640
 #, c-format
 msgid "Wcd: error: Unable to change to directory %s: %s\n"
 msgstr "wcd: Fehler: Das Wechseln zu Verzeichnis %s war nicht möglich: %s\n"
 
-#: wcddir.c:654
+#: wcddir.c:655
 #, c-format
 msgid "Wcd: error: Unable to remove directory %s: %s\n"
 msgstr "wcd: Fehler: Das Löschen von Verzeichnis %s wurde verweigert: %s\n"
@@ -947,7 +947,7 @@ msgstr "l oder <Rechts>       auffalten und nach rechts gehen."
 msgid "Screenheight must be > 21 for help"
 msgstr "Bildschirmhöhe muss für die Hilfe > 21 sein."
 
-#: wfixpath.c:65
+#: wfixpath.c:66
 msgid "Wcd: malloc error in wcd_fixpath()\n"
 msgstr "wcd: Malloc-Fehler in wcd_fixpath()\n"
 
