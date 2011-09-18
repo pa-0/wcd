@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2009 Erwin Waterlander
+Copyright (C) 1997-2011 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -83,31 +83,32 @@ void wcd_printf( const char* format, ... ) {
 
 
 /*
- * int str_columns (char *s)
+ * size_t str_columns (char *s)
  *
  * Return number of colums a string takes. In case
  * of erroneous multi-byte sequence, return number of
  * 8 bit characters.
  */
 
-int str_columns (char *s)
+size_t str_columns (char *s)
 {
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
-   int i;
+   size_t i;
+   int j;
 
    /* convert to wide characters. i = nr. of characters */
    i= MBSTOWCS(wstr,s,(size_t)DD_MAXPATH);
-   if ( i < 0)
+   if ( i == (size_t)(-1))
       return(strlen(s));
    else
    {
-      i = wcswidth(wstr,(size_t)DD_MAXPATH);
-      /* i =  nr. of columns */
-      if ( i < 0)
+      j = wcswidth(wstr,(size_t)DD_MAXPATH);
+      /* j =  nr. of columns */
+      if ( j < 0)
          return(strlen(s));
       else
-         return(i);
+         return((size_t)j);
    }
 #else
    return(strlen(s));
@@ -136,7 +137,7 @@ void ssort (nameset list, int left, int right)
 #ifdef WCD_UNICODE
  static wchar_t wstr_left[DD_MAXPATH];
  static wchar_t wstr_right[DD_MAXPATH];
- int len1,len2;
+ size_t len1,len2;
 #endif
 
   if (left >= right) return; /* fewer than 2 elements */
@@ -149,7 +150,7 @@ void ssort (nameset list, int left, int right)
 #ifdef WCD_UNICODE
    len1 = MBSTOWCS(wstr_left, list->array[left],(size_t)DD_MAXPATH);
    len2 = MBSTOWCS(wstr_right,list->array[i],(size_t)DD_MAXPATH);
-   if ((len1<0)||(len2<0))
+   if ((len1 == (size_t)(-1)) || (len2 == (size_t)(-1)))
    {
       /* Erroneous multi-byte sequence */
       /* Try 8 bit characters */
@@ -191,9 +192,10 @@ void sort_list(nameset list)
  ************************************************************************/
 
 #if (defined(WCD_USECONIO) || defined(WCD_USECURSES))
-int maxLength(nameset list)
+size_t maxLength(nameset list)
 {
-   int i,len,maxlen = 0;
+   int i;
+   size_t len, maxlen = 0;
 
    if (list == NULL)
    {
@@ -211,9 +213,10 @@ int maxLength(nameset list)
    else
       return 32 ;     /* minimal width for help screen */
 }
-int maxLengthStack(WcdStack s)
+size_t maxLengthStack(WcdStack s)
 {
-   int i,len,maxlen = 0;
+   int i;
+   size_t len,maxlen = 0;
 
    if (s == NULL)
    {
@@ -821,11 +824,11 @@ void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
 {
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
-   int i;
+   size_t i;
 
    /* convert to wide characters. i = nr. of characters */
    i= mbstowcs(wstr,str,(size_t)DD_MAXPATH);
-   if ( i < 0)
+   if ( i == (size_t)(-1))
    {
       /* Erroneous multi-byte sequence */
       /* Try 8 bit characters */
@@ -841,7 +844,8 @@ void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
 void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbers)
 {
    wcd_uchar *s;
-   int len, j, nr_offset;
+   size_t len;
+   int j, nr_offset;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
@@ -861,31 +865,31 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
       else
          nr_offset = 3;
 
-      wmove(win,y,nr_offset);
+      wmove(win,y,(int)nr_offset);
 
 #ifdef WCD_UNICODE
-      if (len<0)
+      if (len == (size_t)(-1))
       {
          /* Erroneous multi-byte sequence */
          /* Try 8 bit characters */
          len = strlen((char *)s);
-         for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
+         for(j=xoffset;(j<(int)len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
          {
             waddch(win,(chtype)s[j]);
          }
       } else {
          c = 0; /* count characters with width > 0 from beginning of string. */
          j = 0;
-         while ((j<len)&&(c<xoffset))
+         while ((j<(int)len)&&(c<xoffset))
          {
             if (wcwidth(wstr[j]) != 0 )
                c++;
             j++; /* j advances over combining characters */
          }
-         while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
+         while ((j<(int)len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
            j++;
          width = wcwidth(wstr[j]);
-         while ((j<len)&&((nr_offset+width)<(COLS-1)))
+         while ((j<(int)len)&&((nr_offset+width)<(COLS-1)))
          {
             waddnwstr(win,wstr+j,1);
             j++;
@@ -893,7 +897,7 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
          }
       }
 #else
-      for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
+      for(j=xoffset;(j<(int)len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
       {
          waddch(win,(chtype)s[j]);
       }
@@ -904,7 +908,8 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *use_numbers)
 {
    wcd_uchar *s;
-   int len, j, nr_offset;
+   size_t len;
+   int j, nr_offset;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
@@ -927,12 +932,12 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
       wmove(win,y,nr_offset);
 
 #ifdef WCD_UNICODE
-      if (len<0)
+      if (len == (size_t)(-1))
       {
          /* Erroneous multi-byte sequence */
          /* Try 8 bit characters */
          len = strlen((char *)s);
-         for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
+         for(j=xoffset;(j<(int)len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
          {
             waddch(win,(chtype)s[j]);
          }
@@ -941,16 +946,16 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
       } else {
          c = 0; /* count characters with width > 0 from beginning of string. */
          j = 0;
-         while ((j<len)&&(c<xoffset))
+         while ((j<(int)len)&&(c<xoffset))
          {
             if (wcwidth(wstr[j]) != 0 )
                c++;
             j++; /* j advances over combining characters */
          }
-         while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
+         while ((j<(int)len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
            j++;
          width = wcwidth(wstr[j]);
-         while ((j<len)&&((nr_offset+width)<(COLS-1)))
+         while ((j<(int)len)&&((nr_offset+width)<(COLS-1)))
          {
             waddnwstr(win,wstr+j,1);
             j++;
@@ -960,7 +965,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
             wprintw(win," *");
       }
 #else
-      for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
+      for(j=xoffset;(j<(int)len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
       {
          waddch(win,(chtype)s[j]);
       }
@@ -1066,7 +1071,7 @@ void displayRefresh(int init)
    page = wcd_display.bottom / wcd_display.lines_per_page + 1 ;
 
    sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(wcd_display.size -1)/wcd_display.lines_per_page +1);
-   pageoffset = COLS - str_columns(buf);
+   pageoffset = COLS - (int)str_columns(buf);
    if (pageoffset < 0)
       pageoffset = 0;
    wmove (wcd_display.inputWin, 0, pageoffset);
@@ -1074,10 +1079,10 @@ void displayRefresh(int init)
 
    sprintf(buf,_("Please choose one (<Enter> to abort): "));
    wcd_mvwaddstr(wcd_display.inputWin,2,0,buf);
-   offset = str_columns(buf) ;
+   offset = (int)str_columns(buf) ;
    wmove (wcd_display.inputWin, 2, offset);
    waddstr(wcd_display.inputWin, wcd_display.number_str);
-   n = str_columns(wcd_display.number_str) ;
+   n = (int)str_columns(wcd_display.number_str) ;
    wmove (wcd_display.inputWin, 2, offset + n);
 
    prefresh(wcd_display.scrollWin,0,0,0,0,wcd_display.scrollWinHeight-1,COLS-1);
@@ -1113,7 +1118,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 {
   int i, n=0, c=0;
   int displayed_list;
-  int len ;
+  size_t len ;
 #ifndef __PDCURSES__
   SCREEN *sp;
 #endif
@@ -1297,7 +1302,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
          break;
       case '.':
       case KEY_RIGHT:
-         if (wcd_display.shift < len)
+         if (wcd_display.shift < (int)len)
             wcd_display.shift++;
          break;
        case '<':
@@ -1309,8 +1314,8 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
       case ']':
       case '>':
          wcd_display.shift +=10;
-         if (wcd_display.shift > len)
-            wcd_display.shift=len;
+         if (wcd_display.shift > (int)len)
+            wcd_display.shift=(int)len;
          break;
       case Key_CTRL ('a'):
       case KEY_HOME:
@@ -1320,7 +1325,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 #ifdef KEY_END
       case KEY_END:
 #endif
-         wcd_display.shift = len - COLS/2;
+         wcd_display.shift = (int)len - COLS/2;
           if (wcd_display.shift < 0)
              wcd_display.shift=0;
          break;

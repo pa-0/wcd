@@ -35,7 +35,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 int wcstoutf8(char *mbstr, wchar_t *wcstr, int len);
 int utf8towcs(wchar_t *wcstr, char *mbstr, int len);
 void wcd_printf( const char* format, ... );
-int str_columns (char *s);
+size_t str_columns (char *s);
 void sort_list(nameset list);
 int display_list(nameset list,int perfect, int use_numbers, int use_stdout);
 int display_list_conio(nameset list,WcdStack ws, int perfect,int use_numbers);

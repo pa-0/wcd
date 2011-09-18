@@ -259,7 +259,8 @@ void stripTmpMnt(char* path)
 
 void quoteString(char *string)
 {
- int i,j,k,kmax;
+ size_t i, j;
+ int k,kmax;
  char help1_str[DD_MAXPATH];
 
  j = strlen(string);
@@ -413,7 +414,7 @@ int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
 /*****************************************************************/
 void getCurPath(char *buffer, size_t size, int *use_HOME)
 {
-   int len;
+ size_t len;
 
  if(wcd_getcwd(buffer, size) != NULL)
  {
@@ -724,12 +725,12 @@ int pathInNameset (text path, nameset set)
 /*
  * See comment above function rmTree().
  */
-void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
+void finddirs(char* dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
 {
    static struct ffblk fb;       /* file block structure */
    static char tmp[DD_MAXPATH];      /* tmp string buffer */
    int rc;                       /* error code */
-   int len ;
+   size_t len ;
    TDirList list;                /* directory queue */
    char *tmp_ptr ;
 
@@ -791,12 +792,12 @@ void finddirs(char* dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
 
 #else /* not DJGPP */
 
-void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
+void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
 {
    static dd_ffblk fb;       /* file block structure */
    static char tmp[DD_MAXPATH];      /* tmp string buffer */
    int rc;                       /* error code */
-   int len ;
+   size_t len ;
    TDirList list;                /* directory queue */
    char *tmp_ptr ;
 
@@ -894,7 +895,7 @@ void finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, nameset excl
  ********************************************************************/
 void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_HOME, nameset exclude)
 {
-   int  offset = 0 ;       /* offset to remove scanned from path */
+   size_t  offset = 0 ;     /* offset to remove scanned from path */
    char tmp[DD_MAXPATH];    /* tmp string buffer */
    char tmp2[DD_MAXPATH];   /* tmp string buffer */
    FILE *outfile;
@@ -1172,7 +1173,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
 
       if(recursive)
       {
-         char c ;
+         int c ;
 
          c = 'x' ;
 
@@ -1228,7 +1229,7 @@ int wcd_getline(char s[], int lim, FILE* infile)
 
    for (i=0; i<lim-1 && ((c=getc(infile)) != '\n') && (!feof(infile)) ; ++i)
       {
-      s[i] = c ;
+      s[i] = (char)c ;
       if (c == '\r') i--;
    }
 
@@ -1513,7 +1514,7 @@ void scanaliasfile(char *org_dir, char *filename,
          {
 
          /* skip spaces between alias and path */
-         while ((line[0]=getc(infile)) == ' '){};
+         while ((line[0]=(char)getc(infile)) == ' '){};
 
          /* read a line */
          len = wcd_getline(line+1,DD_MAXPATH,infile);
@@ -2008,7 +2009,7 @@ int main(int argc,char** argv)
    char scan_mk_rm = 0; /* scan disk, or make dir, or remove dir */
    char *ptr, *stackptr;
    int  quieter = 0, cd = 0 ;
-   int len;
+   size_t len;
    char tmp[DD_MAXPATH];      /* tmp string buffer */
    char tmp2[DD_MAXPATH];      /* tmp string buffer */
    int  stack_is_read = 0;
