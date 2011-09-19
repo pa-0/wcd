@@ -81,7 +81,7 @@ expfun c3po_bool namesetHasArray(nameset n)
    else
       return false;
 }
-expfun int getSizeOfNamesetArray(nameset n)
+expfun size_t getSizeOfNamesetArray(nameset n)
 {
    if (n != NULL)
       return n->size;
@@ -89,9 +89,9 @@ expfun int getSizeOfNamesetArray(nameset n)
       return 0;
 }
 expfun void setSizeOfNamesetArray(nameset n,
-                                  int size)
+                                  size_t size)
 {
-   int index;
+   size_t index;
    if (n != NULL)
    {
       if (size <= 0)
@@ -148,7 +148,7 @@ expfun void addToNamesetArray(text t,
    }
 }
 expfun void putElementAtNamesetArray(text t,
-                                     int position,
+                                     size_t position,
                                      nameset set)
 {
    if (set != NULL)
@@ -162,10 +162,10 @@ expfun void putElementAtNamesetArray(text t,
    }
 }
 expfun void insertElementAtNamesetArray(text t,
-                                        int position,
+                                        size_t position,
                                         nameset set)
 {
-   int index;
+   size_t index;
    if (set != NULL)
    {
       index = set->size;
@@ -177,14 +177,14 @@ expfun void insertElementAtNamesetArray(text t,
       putElementAtNamesetArray(t, position, set);
    }
 }
-expfun void removeElementAtNamesetArray(int position,
+expfun void removeElementAtNamesetArray(size_t position,
                                         nameset set,
                                         c3po_bool FreeAtPos)
 {
-   int index;
+   size_t index;
    if (set != NULL)
    {
-      if ((position >= 0) and (position < set->size))
+      if (position < set->size)
       {
          if (FreeAtPos eq true)
          {
@@ -202,12 +202,12 @@ expfun void removeElementAtNamesetArray(int position,
       }
    }
 }
-expfun text elementAtNamesetArray(int position,
+expfun text elementAtNamesetArray(size_t position,
                                   nameset set)
 {
    if (set != NULL)
    {
-      if ((0 <= position) && (position < set->size))
+      if (position < set->size)
          return set->array[position];
    }
 
@@ -218,7 +218,7 @@ expfun void extendNamesetArray(nameset src,
 {
    if (src != NULL)
    {
-      int index = 0;
+      size_t index = 0;
       while(index < src->size)
       {
          addToNamesetArray(elementAtNamesetArray(index, src), dest);
@@ -231,7 +231,7 @@ expfun void deepExtendNamesetArray(nameset src,
 {
    if (src != NULL)
    {
-      int index = 0;
+      size_t index = 0;
       while(index < src->size)
       {
          addToNamesetArray(textNew(elementAtNamesetArray(index, src)), dest);
@@ -244,7 +244,7 @@ expfun void printNameset(text Offset,
                          FILE* fp,
                          c3po_bool showEmpty)
 {
-   int index;
+   size_t index;
 
    text increment = " ";
    text new_Offset = (text) malloc(sizeof(char) * (strlen(Offset) + strlen(increment) + 1));
@@ -292,7 +292,7 @@ expfun void printNameset(text Offset,
 expfun void freeNameset(nameset n,
                         c3po_bool Deep)
 {
-   int index;
+   size_t index;
 
    if (n ne NULL)
    {

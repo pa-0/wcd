@@ -81,7 +81,7 @@ expfun c3po_bool namesetwHasArray(namesetw n)
    else
       return false;
 }
-expfun int getSizeOfNamesetwArray(namesetw n)
+expfun size_t getSizeOfNamesetwArray(namesetw n)
 {
    if (n != NULL)
       return n->size;
@@ -89,9 +89,9 @@ expfun int getSizeOfNamesetwArray(namesetw n)
       return 0;
 }
 expfun void setSizeOfNamesetwArray(namesetw n,
-                                  int size)
+                                  size_t size)
 {
-   int index;
+   size_t index;
    if (n != NULL)
    {
       if (size <= 0)
@@ -148,7 +148,7 @@ expfun void addToNamesetwArray(textw t,
    }
 }
 expfun void putElementAtNamesetwArray(textw t,
-                                     int position,
+                                     size_t position,
                                      namesetw set)
 {
    if (set != NULL)
@@ -162,10 +162,10 @@ expfun void putElementAtNamesetwArray(textw t,
    }
 }
 expfun void insertElementAtNamesetwArray(textw t,
-                                        int position,
+                                        size_t position,
                                         namesetw set)
 {
-   int index;
+   size_t index;
    if (set != NULL)
    {
       index = set->size;
@@ -177,14 +177,14 @@ expfun void insertElementAtNamesetwArray(textw t,
       putElementAtNamesetwArray(t, position, set);
    }
 }
-expfun void removeElementAtNamesetwArray(int position,
+expfun void removeElementAtNamesetwArray(size_t position,
                                         namesetw set,
                                         c3po_bool FreeAtPos)
 {
-   int index;
+   size_t index;
    if (set != NULL)
    {
-      if ((position >= 0) and (position < set->size))
+      if (position < set->size)
       {
          if (FreeAtPos eq true)
          {
@@ -202,12 +202,12 @@ expfun void removeElementAtNamesetwArray(int position,
       }
    }
 }
-expfun textw elementAtNamesetwArray(int position,
+expfun textw elementAtNamesetwArray(size_t position,
                                   namesetw set)
 {
    if (set != NULL)
    {
-      if ((0 <= position) && (position < set->size))
+      if (position < set->size)
          return set->array[position];
    }
 
@@ -218,7 +218,7 @@ expfun void extendNamesetwArray(namesetw src,
 {
    if (src != NULL)
    {
-      int index = 0;
+      size_t index = 0;
       while(index < src->size)
       {
          addToNamesetwArray(elementAtNamesetwArray(index, src), dest);
@@ -231,7 +231,7 @@ expfun void deepExtendNamesetwArray(namesetw src,
 {
    if (src != NULL)
    {
-      int index = 0;
+      size_t index = 0;
       while(index < src->size)
       {
          addToNamesetwArray(textwNew(elementAtNamesetwArray(index, src)), dest);
@@ -244,7 +244,7 @@ expfun void printNamesetw(textw Offset,
                          FILE* fp,
                          c3po_bool showEmpty)
 {
-   int index;
+   size_t index;
 
    textw increment = L" ";
    textw new_Offset = (textw) malloc(sizeof(char) * (wcslen(Offset) + wcslen(increment) + 1));
@@ -292,7 +292,7 @@ expfun void printNamesetw(textw Offset,
 expfun void freeNamesetw(namesetw n,
                         c3po_bool Deep)
 {
-   int index;
+   size_t index;
 
    if (n ne NULL)
    {

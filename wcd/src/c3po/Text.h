@@ -19,15 +19,15 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 */
-   extern text textNewSize(int size);
+   extern text textNewSize(size_t size);
    extern text textNew(text string);
    extern c3po_bool eqText(text a,
                       text b);
-   extern int inNameset(text name,
+   extern size_t inNameset(text name,
                         nameset set);
    extern intset matchNameset(text name,
                               nameset set);
-   extern int matchCountNameset(text name,
+   extern size_t matchCountNameset(text name,
                                 nameset set);
    extern text concat(text a,
                       text b);
@@ -39,16 +39,16 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
                        text c,
                        text d);
    extern text repeatOnBuffer(text pattern,
-                              int amount,
-                              int bufferNr);
+                              size_t amount,
+                              size_t bufferNr);
    extern text repeat(text pattern,
-                      int amount);
-   extern text spacesOnBuffer(int amount,
-                              int bufferNr);
-   extern text spaces(int amount);
-   extern text TabOnBuffer(int amount,
-                           int bufferNr);
-   extern text Tab(int amount);
+                      size_t amount);
+   extern text spacesOnBuffer(size_t amount,
+                              size_t bufferNr);
+   extern text spaces(size_t amount);
+   extern text TabOnBuffer(size_t amount,
+                           size_t bufferNr);
+   extern text Tab(size_t amount);
    extern text intToString(int i);
    extern text doubleToString(double d);
 #endif

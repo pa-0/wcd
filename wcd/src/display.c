@@ -181,7 +181,7 @@ void ssort (nameset list, int left, int right)
 
 void sort_list(nameset list)
 {
- ssort(list,0,(list->size)-1);
+ ssort(list,0,(int)(list->size)-1);
 }
 
 /************************************************************************
@@ -194,8 +194,7 @@ void sort_list(nameset list)
 #if (defined(WCD_USECONIO) || defined(WCD_USECURSES))
 size_t maxLength(nameset list)
 {
-   int i;
-   size_t len, maxlen = 0;
+   size_t i, len, maxlen = 0;
 
    if (list == NULL)
    {
@@ -215,8 +214,7 @@ size_t maxLength(nameset list)
 }
 size_t maxLengthStack(WcdStack s)
 {
-   int i;
-   size_t len,maxlen = 0;
+   size_t i, len,maxlen = 0;
 
    if (s == NULL)
    {
@@ -1001,7 +999,7 @@ void print_list_stack(WINDOW *scrollWin, int lines_per_page,int line, WcdStack w
    {
       for (i=top;i<=bottom;i++)
       {
-        j = (i + start)%(ws->size);
+        j = (i + start)%(int)(ws->size);
         mvwprintw(scrollWin,line,0,"%c ",(char)(((i-top)%lines_per_page) + 'a'));
         printStackLine(scrollWin, ws, j, line, xoffset, &use_numbers);
         line++;
@@ -1011,7 +1009,7 @@ void print_list_stack(WINDOW *scrollWin, int lines_per_page,int line, WcdStack w
    {
       for (i=top;i<=bottom;i++)
       {
-        j = (i + start)%(ws->size);
+        j = (i + start)%(int)(ws->size);
         /* mvwprintw(scrollWin,line,0,"%d  %s",i + 1,ws->dir[j]); */
         mvwprintw(scrollWin,line,0,"%2d ",(i-top)%lines_per_page + 1);
         printStackLine(scrollWin, ws, j, line, xoffset, &use_numbers);
@@ -1137,18 +1135,18 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
    if (list != NULL)    /* normal list */
    {
       sort_list(list);
-      wcd_display.size = list->size;
+      wcd_display.size = (int)list->size;
    }
    else
       if (ws != NULL)   /* stack */
       {
-         if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) || ((ws->size) > ws->maxsize) )
+         if( ((int)(ws->size) == 0) || ((int)(ws->size) > ws->maxsize) )
             return(WCD_ERR_LIST); /* in case stack file was corrupt */
          else
          {
-            wcd_display.size = ws->size;
+            wcd_display.size = (int)ws->size;
 
-            if (ws->size < ws->maxsize)
+            if ((int)ws->size < ws->maxsize)
                wcd_display.start = 0;
             else
                wcd_display.start = ws->lastadded + 1;
@@ -1392,13 +1390,13 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
    if ((ws != NULL)&&(list == NULL)) /* stack */
    {
-      if (( i <=0)||(i > ws->size)) /* fail */
+      if (( i <=0)||(i > (int)ws->size)) /* fail */
       {
         return(WCD_ERR_LIST);
        }
       else    /* succes */
       {
-        i = ( i - 1 + wcd_display.start)%(ws->size);
+        i = ( i - 1 + wcd_display.start)%(int)(ws->size);
         ws->current = i;
       }
    }
@@ -1412,6 +1410,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
 {
    int i;
+   size_t ii;
    int k, start, j;
 
    if (list != NULL) /* normal list */
@@ -1420,13 +1419,13 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
 
       if ( use_stdout & WCD_STDOUT_DUMP )
       {
-         for (i=0;i<list->size;i++)
-            wcd_printf("%s\n", list->array[i]);
+         for (ii=0;ii<list->size;ii++)
+            wcd_printf("%s\n", list->array[ii]);
       }
       else
       {
-         for (i=0;i<list->size;i++)
-            printf("%d  %s\n",i+1,list->array[i]);
+         for (ii=0;ii<list->size;ii++)
+            printf("%d  %s\n",ii+1,list->array[ii]);
       }
 
       if ( use_stdout & WCD_STDOUT_DUMP )
@@ -1450,12 +1449,12 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
       if(ws->maxsize <= 0)
          return (WCD_ERR_LIST);
       else
-         if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) )
+         if( ((ws->size) == 0) || ((ws->size) > (size_t)ws->maxsize) )
          return (WCD_ERR_LIST);
          else
          {
 
-            if (ws->size < ws->maxsize)
+            if (ws->size < (size_t)ws->maxsize)
                 start = 0;
              else
                  start = ws->lastadded + 1;
@@ -1464,9 +1463,9 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
                  start = 0;
 
             k=1;
-            for(i=0; i < (ws->size) ; i++)
+            for(i=0; i < (int)(ws->size) ; i++)
             {
-               j = (i + start)%(ws->size);
+               j = (i + start)%(int)(ws->size);
                if ( !(use_stdout & WCD_STDOUT_DUMP) )
                   printf("%2d ",k);
                k++;
@@ -1483,13 +1482,13 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
             printf(_("\nPlease choose one (<Enter> to abort): "));
             i = wcd_get_int();
 
-            if (( i <=0)||(i > ws->size)) /* fail */
+            if (( i <=0)||(i > (int)ws->size)) /* fail */
             {
               return(WCD_ERR_LIST);
              }
             else    /* succes */
             {
-              i = ( i - 1 + start)%(ws->size);
+              i = ( i - 1 + start)%(int)(ws->size);
               ws->current = i;
               return(i);
             }

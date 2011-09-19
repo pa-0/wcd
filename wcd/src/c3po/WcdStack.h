@@ -33,22 +33,22 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
    extern WcdStack WcdStackSetCurrent(int current,
                                       WcdStack w);
    extern c3po_bool WcdStackHasDir(WcdStack w);
-   extern int getSizeOfWcdStackDir(WcdStack w);
+   extern size_t getSizeOfWcdStackDir(WcdStack w);
    extern void setSizeOfWcdStackDir(WcdStack w,
-                                    int size);
+                                    size_t size);
    extern c3po_bool isEmptyWcdStackDir(WcdStack w);
    extern void addToWcdStackDir(text t,
                                 WcdStack set);
    extern void putElementAtWcdStackDir(text t,
-                                       int position,
+                                       size_t position,
                                        WcdStack set);
    extern void insertElementAtWcdStackDir(text t,
-                                          int position,
+                                          size_t position,
                                           WcdStack set);
-   extern void removeElementAtWcdStackDir(int position,
+   extern void removeElementAtWcdStackDir(size_t position,
                                           WcdStack set,
                                           c3po_bool FreeAtPos);
-   extern text elementAtWcdStackDir(int position,
+   extern text elementAtWcdStackDir(size_t position,
                                     WcdStack set);
    extern void extendWcdStackDir(WcdStack src,
                                  WcdStack dest);

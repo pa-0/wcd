@@ -24,22 +24,22 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
                               c3po_bool Deep);
    extern text* namesetGetArray(nameset n);
    extern c3po_bool namesetHasArray(nameset n);
-   extern int getSizeOfNamesetArray(nameset n);
+   extern size_t getSizeOfNamesetArray(nameset n);
    extern void setSizeOfNamesetArray(nameset n,
-                                     int size);
+                                     size_t size);
    extern c3po_bool isEmptyNamesetArray(nameset n);
    extern void addToNamesetArray(text t,
                                  nameset set);
    extern void putElementAtNamesetArray(text t,
-                                        int position,
+                                        size_t position,
                                         nameset set);
    extern void insertElementAtNamesetArray(text t,
-                                           int position,
+                                           size_t position,
                                            nameset set);
-   extern void removeElementAtNamesetArray(int position,
+   extern void removeElementAtNamesetArray(size_t position,
                                            nameset set,
                                            c3po_bool FreeAtPos);
-   extern text elementAtNamesetArray(int position,
+   extern text elementAtNamesetArray(size_t position,
                                      nameset set);
    extern void extendNamesetArray(nameset src,
                                   nameset dest);

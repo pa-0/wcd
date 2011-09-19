@@ -54,23 +54,23 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
    extern dirnode endOfRecursionOfDirnodeParent(dirnode d);
    extern dirnode endOfRecursionOfDirnodeUp(dirnode d);
    extern dirnode endOfRecursionOfDirnodeDown(dirnode d);
-   extern int getSizeOfDirnode(dirnode d);
+   extern size_t getSizeOfDirnode(dirnode d);
    extern void setSizeOfDirnode(dirnode d,
-                                int size);
+                                size_t size);
    extern c3po_bool isEmptyDirnode(dirnode d);
    extern void addToDirnode(dirnode d,
                             dirnode set);
    extern void putElementAtDirnode(dirnode d,
-                                   int position,
+                                   size_t position,
                                    dirnode set);
    extern void insertElementAtDirnode(dirnode d,
-                                      int position,
+                                      size_t position,
                                       dirnode set);
-   extern void removeElementAtDirnode(int position,
+   extern void removeElementAtDirnode(size_t position,
                                       dirnode set,
                                       c3po_bool FreeAtPos,
                                       c3po_bool Deep);
-   extern dirnode elementAtDirnode(int position,
+   extern dirnode elementAtDirnode(size_t position,
                                    dirnode set);
    extern void extendDirnode(dirnode src,
                              dirnode dest);

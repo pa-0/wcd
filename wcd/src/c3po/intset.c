@@ -62,7 +62,7 @@ expfun intset copyIntset(intset src)
       return i;
    }
 }
-expfun int* intsetGetArray(intset i)
+expfun size_t* intsetGetArray(intset i)
 {
    if (i != NULL)
       return i->array;
@@ -76,7 +76,7 @@ expfun c3po_bool intsetHasArray(intset i)
    else
       return false;
 }
-expfun int getSizeOfIntset(intset i)
+expfun size_t getSizeOfIntset(intset i)
 {
    if (i != NULL)
       return i->size;
@@ -84,9 +84,9 @@ expfun int getSizeOfIntset(intset i)
       return 0;
 }
 expfun void setSizeOfIntset(intset i,
-                            int size)
+                            size_t size)
 {
-   int index;
+   size_t index;
    if (i != NULL)
    {
       if (size <= 0)
@@ -101,9 +101,9 @@ expfun void setSizeOfIntset(intset i,
       else if (size ne i->size)
       {
          if (isEmptyIntset(i) eq true)
-            i->array = (int*) malloc(sizeof(int) * size);
+            i->array = (size_t*) malloc(sizeof(size_t) * size);
          else
-            i->array = (int*) realloc((void *) i->array, sizeof(int) * size);
+            i->array = (size_t*) realloc((void *) i->array, sizeof(size_t) * size);
 
          if (i->array ne NULL)
          {
@@ -130,7 +130,7 @@ expfun c3po_bool isEmptyIntset(intset i)
    else
       return true;
 }
-expfun void addToIntset(int i,
+expfun void addToIntset(size_t i,
                         intset set)
 {
    if (set != NULL)
@@ -142,8 +142,8 @@ expfun void addToIntset(int i,
          malloc_error("addToIntset()");
    }
 }
-expfun void putElementAtIntset(int i,
-                               int position,
+expfun void putElementAtIntset(size_t i,
+                               size_t position,
                                intset set)
 {
    if (set != NULL)
@@ -156,11 +156,11 @@ expfun void putElementAtIntset(int i,
          malloc_error("putElementAtIntset(i, position, set)");
    }
 }
-expfun void insertElementAtIntset(int i,
-                                  int position,
+expfun void insertElementAtIntset(size_t i,
+                                  size_t position,
                                   intset set)
 {
-   int index;
+   size_t index;
    if (set != NULL)
    {
       index = set->size;
@@ -172,13 +172,13 @@ expfun void insertElementAtIntset(int i,
       putElementAtIntset(i, position, set);
    }
 }
-expfun void removeElementAtIntset(int position,
+expfun void removeElementAtIntset(size_t position,
                                   intset set)
 {
-   int index;
+   size_t index;
    if (set != NULL)
    {
-      if ((position >= 0) and (position < set->size))
+      if (position < set->size)
       {
          index = position + 1;
          while(index < set->size)
@@ -190,12 +190,12 @@ expfun void removeElementAtIntset(int position,
       }
    }
 }
-expfun int elementAtIntset(int position,
+expfun size_t elementAtIntset(size_t position,
                            intset set)
 {
    if (set != NULL)
    {
-      if ((0 <= position) && (position < set->size))
+      if (position < set->size)
          return set->array[position];
    }
 
@@ -206,7 +206,7 @@ expfun void extendIntset(intset src,
 {
    if (src != NULL)
    {
-      int index = 0;
+      size_t index = 0;
       while(index < src->size)
       {
          addToIntset(elementAtIntset(index, src), dest);
@@ -219,7 +219,7 @@ expfun void printIntset(text Offset,
                         FILE* fp,
                         c3po_bool showEmpty)
 {
-   int index;
+   size_t index;
 
    text increment = " ";
    text new_Offset = (text) malloc(sizeof(char) * (strlen(Offset) + strlen(increment) + 1));

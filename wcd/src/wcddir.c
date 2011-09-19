@@ -514,7 +514,7 @@ char *replace_volume_path_HOME(char *buf, size_t size)
    static size_t  len_home = 0;
    static size_t  len_home_abs = 0;
    size_t i, len_buf;
-   int j;
+   size_t j;
    char tmp[DD_MAXPATH];
    static char pattern[DD_MAXPATH];
    char *ptr1, *ptr2;

@@ -65,10 +65,10 @@ expfun c3po_bool eqText(text a,
    else
       return false;
 }
-expfun int inNameset(text name,
+expfun size_t inNameset(text name,
                      nameset set)
 {
-   int index;
+   size_t index;
    if (isEmptyNamesetArray(set) eq false)
    {
       index = 0;
@@ -80,12 +80,12 @@ expfun int inNameset(text name,
          index = index + 1;
       }
    }
-   return -1;
+   return (size_t)-1;
 }
 expfun intset matchNameset(text name,
                            nameset set)
 {
-   int index;
+   size_t index;
 
    static intset i_set = NULL;
 
@@ -107,11 +107,11 @@ expfun intset matchNameset(text name,
    }
    return i_set;
 }
-expfun int matchCountNameset(text name,
+expfun size_t matchCountNameset(text name,
                              nameset set)
 {
-   int count = 0;
-   int index;
+   size_t count = 0;
+   size_t index;
    if (isEmptyNamesetArray(set) eq false)
    {
       index = 0;
@@ -177,21 +177,15 @@ expfun text concat4(text a,
    return res;
 }
 expfun text repeatOnBuffer(text pattern,
-                           int amount,
-                           int bufferNr)
+                           size_t amount,
+                           size_t bufferNr)
 {
-   int count = 0;
+   size_t count = 0;
    static nameset buffers = NULL;
    text buffer;
 
    if (buffers eq NULL)
       buffers = namesetNew();
-
-   if (bufferNr < 0)
-      bufferNr = 0;
-
-   if (amount < 0)
-      amount = 0;
 
    buffer = elementAtNamesetArray(bufferNr, buffers);
 
@@ -212,26 +206,26 @@ expfun text repeatOnBuffer(text pattern,
    return buffer;
 }
 expfun text repeat(text pattern,
-                   int amount)
+                   size_t amount)
 {
    return repeatOnBuffer(pattern, amount, 0);
 }
-expfun text spacesOnBuffer(int amount,
-                           int bufferNr)
+expfun text spacesOnBuffer(size_t amount,
+                           size_t bufferNr)
 {
    return repeatOnBuffer(" ", amount, bufferNr);
 }
-expfun text spaces(int amount)
+expfun text spaces(size_t amount)
 {
    return spacesOnBuffer(amount, 0);
 }
-expfun text TabOnBuffer(int amount,
-                        int bufferNr)
+expfun text TabOnBuffer(size_t amount,
+                        size_t bufferNr)
 {
-   int tabSize = 3;
+   size_t tabSize = 3;
    return spacesOnBuffer(tabSize*amount, bufferNr);
 }
-expfun text Tab(int amount)
+expfun text Tab(size_t amount)
 {
    return TabOnBuffer(amount, 0);
 }

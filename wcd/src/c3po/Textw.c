@@ -27,7 +27,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "namesetw.h"
 #include "intset.h"
 
-expfun textw textwNewSize(int size)
+expfun textw textwNewSize(size_t size)
 {
    textw t = NULL;
 
@@ -65,10 +65,10 @@ expfun c3po_bool eqTextw(textw a,
    else
       return false;
 }
-expfun int inNamesetw(textw name,
+expfun size_t inNamesetw(textw name,
                      namesetw set)
 {
-   int index;
+   size_t index;
    if (isEmptyNamesetwArray(set) eq false)
    {
       index = 0;
@@ -80,12 +80,12 @@ expfun int inNamesetw(textw name,
          index = index + 1;
       }
    }
-   return -1;
+   return (size_t)-1;
 }
 expfun intset matchNamesetw(textw name,
                            namesetw set)
 {
-   int index;
+   size_t index;
 
    static intset i_set = NULL;
 
@@ -107,11 +107,11 @@ expfun intset matchNamesetw(textw name,
    }
    return i_set;
 }
-expfun int matchCountNamesetw(textw name,
+expfun size_t matchCountNamesetw(textw name,
                              namesetw set)
 {
-   int count = 0;
-   int index;
+   size_t count = 0;
+   size_t index;
    if (isEmptyNamesetwArray(set) eq false)
    {
       index = 0;
@@ -177,10 +177,10 @@ expfun textw concatw4(textw a,
    return res;
 }
 expfun textw repeatOnBufferw(textw pattern,
-                           int amount,
-                           int bufferNr)
+                           size_t amount,
+                           size_t bufferNr)
 {
-   int count = 0;
+   size_t count = 0;
    static namesetw buffers = NULL;
    textw buffer;
 
@@ -212,26 +212,26 @@ expfun textw repeatOnBufferw(textw pattern,
    return buffer;
 }
 expfun textw repeatw(textw pattern,
-                   int amount)
+                   size_t amount)
 {
    return repeatOnBufferw(pattern, amount, 0);
 }
-expfun textw spacesOnBufferw(int amount,
-                           int bufferNr)
+expfun textw spacesOnBufferw(size_t amount,
+                           size_t bufferNr)
 {
    return repeatOnBufferw(L" ", amount, bufferNr);
 }
-expfun textw spacesw(int amount)
+expfun textw spacesw(size_t amount)
 {
    return spacesOnBufferw(amount, 0);
 }
-expfun textw TabOnBufferw(int amount,
-                        int bufferNr)
+expfun textw TabOnBufferw(size_t amount,
+                        size_t bufferNr)
 {
-   int tabSize = 3;
+   size_t tabSize = 3;
    return spacesOnBufferw(tabSize*amount, bufferNr);
 }
-expfun textw Tabw(int amount)
+expfun textw Tabw(size_t amount)
 {
    return TabOnBufferw(amount, 0);
 }

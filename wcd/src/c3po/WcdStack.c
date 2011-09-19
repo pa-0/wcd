@@ -140,7 +140,7 @@ expfun c3po_bool WcdStackHasDir(WcdStack w)
    else
       return false;
 }
-expfun int getSizeOfWcdStackDir(WcdStack w)
+expfun size_t getSizeOfWcdStackDir(WcdStack w)
 {
    if (w != NULL)
       return w->size;
@@ -148,9 +148,9 @@ expfun int getSizeOfWcdStackDir(WcdStack w)
       return 0;
 }
 expfun void setSizeOfWcdStackDir(WcdStack w,
-                                 int size)
+                                 size_t size)
 {
-   int index;
+   size_t index;
    if (w != NULL)
    {
       if (size <= 0)
@@ -207,7 +207,7 @@ expfun void addToWcdStackDir(text t,
    }
 }
 expfun void putElementAtWcdStackDir(text t,
-                                    int position,
+                                    size_t position,
                                     WcdStack set)
 {
    if (set != NULL)
@@ -221,10 +221,10 @@ expfun void putElementAtWcdStackDir(text t,
    }
 }
 expfun void insertElementAtWcdStackDir(text t,
-                                       int position,
+                                       size_t position,
                                        WcdStack set)
 {
-   int index;
+   size_t index;
    if (set != NULL)
    {
       index = set->size;
@@ -236,14 +236,14 @@ expfun void insertElementAtWcdStackDir(text t,
       putElementAtWcdStackDir(t, position, set);
    }
 }
-expfun void removeElementAtWcdStackDir(int position,
+expfun void removeElementAtWcdStackDir(size_t position,
                                        WcdStack set,
                                        c3po_bool FreeAtPos)
 {
-   int index;
+   size_t index;
    if (set != NULL)
    {
-      if ((position >= 0) and (position < set->size))
+      if (position < set->size)
       {
          if (FreeAtPos eq true)
          {
@@ -261,12 +261,12 @@ expfun void removeElementAtWcdStackDir(int position,
       }
    }
 }
-expfun text elementAtWcdStackDir(int position,
+expfun text elementAtWcdStackDir(size_t position,
                                  WcdStack set)
 {
    if (set != NULL)
    {
-      if ((0 <= position) && (position < set->size))
+      if (position < set->size)
          return set->dir[position];
    }
 
@@ -277,7 +277,7 @@ expfun void extendWcdStackDir(WcdStack src,
 {
    if (src != NULL)
    {
-      int index = 0;
+      size_t index = 0;
       while(index < src->size)
       {
          addToWcdStackDir(elementAtWcdStackDir(index, src), dest);
@@ -290,7 +290,7 @@ expfun void deepExtendWcdStackDir(WcdStack src,
 {
    if (src != NULL)
    {
-      int index = 0;
+      size_t index = 0;
       while(index < src->size)
       {
          addToWcdStackDir(textNew(elementAtWcdStackDir(index, src)), dest);
@@ -303,7 +303,7 @@ expfun void printWcdStack(text Offset,
                           FILE* fp,
                           c3po_bool showEmpty)
 {
-   int index;
+   size_t index;
 
    text increment = " ";
    text new_Offset = (text) malloc(sizeof(char) * (strlen(Offset) + strlen(increment) + 1));
@@ -357,7 +357,7 @@ expfun void printWcdStack(text Offset,
 expfun void freeWcdStack(WcdStack w,
                          c3po_bool Deep)
 {
-   int index;
+   size_t index;
 
    if (w ne NULL)
    {

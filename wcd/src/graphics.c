@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2000-2010 Erwin Waterlander
+Copyright (C) 2000-2011 Erwin Waterlander
 
 Ideas and source code of NCD (Ninux Czo Directory) have been
 used in the WCD graphical interface.
@@ -190,7 +190,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
    static text line = NULL;
    static text tline = NULL;
    dirnode n;
-   int i,len,clen;
+   size_t i,len,clen;
 
    if (d == NULL)
       return(NULL);
@@ -353,7 +353,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
 
 void dumpTree(dirnode d)
 {
-   int index, size;
+   size_t index, size;
    dirnode n;
    int y;
    char *l;
@@ -418,7 +418,8 @@ void dumpTree(dirnode d)
 
 void setXYTree(dirnode d)
 {
-   int index, x, len, size;
+   size_t index, len, size;
+   int x;
    static int y;
    dirnode n;
 
@@ -432,7 +433,7 @@ void setXYTree(dirnode d)
       while(index < size)
       {
          n = elementAtDirnode(index,d);
-         x = dirnodeGetX(d) + len + 5;
+         x = dirnodeGetX(d) + (int)len + 5;
          dirnodeSetX(x,n);
          dirnodeSetY(y,n);
          setXYTree(n);
@@ -449,9 +450,9 @@ c3po_bool eqTextDirnode(text t, dirnode d)
    return(eqText(t,dirnodeGetName(d)));
 }
 
-int inDirnode(text t, dirnode d)
+size_t inDirnode(text t, dirnode d)
 {
-   int index, size;
+   size_t index, size;
 
    index = 0;
 
@@ -465,7 +466,7 @@ int inDirnode(text t, dirnode d)
          index++;
       }
    }
-   return -1;
+   return (size_t) -1;
 }
 
 void addPath(text path, dirnode d)
@@ -473,7 +474,7 @@ void addPath(text path, dirnode d)
    char *s;
    dirnode n,n_up;
    text t;
-   int index;
+   size_t index;
 #if (defined(WIN32) || defined(__CYGWIN__))
    static char buf[DD_MAXPATH] = "//" ;
 
@@ -496,7 +497,7 @@ void addPath(text path, dirnode d)
    if (s != NULL)
    {
       index = inDirnode(s,d);
-      if (index < 0)
+      if (index == (size_t) -1)
       {
          n = dirnodeNew(d,NULL,NULL);
          t = textNew(s);
@@ -520,7 +521,7 @@ void addPath(text path, dirnode d)
 
 void buildTreeFromNameset(nameset set, dirnode d)
 {
-   int i;
+   size_t i;
 
    if ((set == NULL)||(d == NULL))
       return;
@@ -604,7 +605,7 @@ dirnode searchNodeForDir(text path, dirnode d, dirnode rNode)
 {
    char *s;
    dirnode n;
-   int index;
+   size_t index;
    dirnode rootnode;
 #if (defined(WIN32) || defined(__CYGWIN__))
    static char buf[DD_MAXPATH] = "//" ;
@@ -639,7 +640,7 @@ dirnode searchNodeForDir(text path, dirnode d, dirnode rNode)
    if (s != NULL)
    {
       index = inDirnode(s,d);
-      if (index < 0)
+      if (index == (size_t) -1)
       {
          return(d);
       }
@@ -1218,7 +1219,8 @@ dirnode findDirInCicle(char *dir, dirnode curNode, int exact, int ignore_case)
 void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffset)
 {
    wcd_uchar *s;
-   int len, j;
+   size_t len;
+   int j;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
@@ -1234,7 +1236,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
       len = strlen((char *)s);
 #endif
       wmove(win,y,0);
-    /*  if (len <0 )
+    /*  if (len == (size_t) -1 )
       {
          fprintf(stderr,"len = %d\n",len);
          fprintf(stderr,"s = %s\n",s);
@@ -1242,12 +1244,12 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
 
 #ifdef WCD_UNICODE
       /* xoffset is horizontal offset measured in nr. of columns. */
-      if (len < 0)
+      if (len == (size_t) -1)
       {
          /* Erroneous multi-byte sequence */
          /* Try 8 bit characters */
          len = strlen((char *)s);
-         for(j=xoffset;(j<len)&&((j-xoffset)<(COLS-1));j++)
+         for(j=xoffset;(j<(int)len)&&((j-xoffset)<(COLS-1));j++)
          {
             switch(s[j])
             {
@@ -1298,7 +1300,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
       {
          c = 0; /* count width from beginning of string. */
          j = 0;
-         while ((j<len)&&(c<xoffset))
+         while ((j<(int)len)&&(c<xoffset))
          {
             switch(wstr[j])
             {
@@ -1325,10 +1327,10 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
             j--;
             wstr[j] = ' ';
          }
-         while ((j<len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
+         while ((j<(int)len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
            j++;
          width = 0;
-         if (j<len)
+         if (j<(int)len)
             switch(wstr[j])
             {
                case WCD_ACS_HL:
@@ -1343,7 +1345,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
                default:
                 width = wcwidth(wstr[j]);
             }
-         while ((j<len)&&(width<COLS))
+         while ((j<(int)len)&&(width<COLS))
          {
             switch(wstr[j])
             {
@@ -1406,7 +1408,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
          }
       }
 #else
-      for(j=xoffset;(j<len)&&((j-xoffset)<(COLS-1));j++)
+      for(j=xoffset;(j<(int)len)&&((j-xoffset)<(COLS-1));j++)
       {
          switch(s[j])
          {
@@ -1464,7 +1466,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
 char *getZoomStackPath(dirnode stack)
 {
    static text line = NULL;
-   int i, size;
+   size_t i, size;
    text name;
 
 
@@ -1534,7 +1536,7 @@ void dataRefresh(int ydiff, int init)
 
   if (yoffset < 0) yoffset = 0;
 
-  len=dirnodeGetX(wcd_cwin.curNode)+str_columns(dirnodeGetName(wcd_cwin.curNode))+3;
+  len=dirnodeGetX(wcd_cwin.curNode)+(int)str_columns(dirnodeGetName(wcd_cwin.curNode))+3;
   /* len is total nr of colums of current node plus 3 */
   if (len > COLS)
   {
@@ -1566,12 +1568,12 @@ void dataRefresh(int ydiff, int init)
   {
     wmove(wcd_cwin.inputWin, 1, 0);
 #ifdef WCD_UNICODE
-   len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
+   len = (int)MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
    if (len < 0)
    {
       /* Erroneous multi-byte sequence */
       /* Try 8 bit characters */
-      len = strlen((char *)s);
+      len = (int)strlen((char *)s);
       for (i = 0; (i < len) && (i < (COLS - 1)); i++)
         waddch(wcd_cwin.inputWin, (chtype)s[i]);
    } else {
@@ -1585,7 +1587,7 @@ void dataRefresh(int ydiff, int init)
       }
    }
 #else
-    len = strlen((char *)s);
+    len = (int)strlen((char *)s);
     for (i = 0; (i < len) && (i < (COLS - 1)); i++)
       waddch(wcd_cwin.inputWin, (chtype)s[i]);
 #endif
@@ -1728,7 +1730,7 @@ dirnode popZoom(dirnode zoomStack, dirnode curNode, int *ymax)
    dirnode zlast;  /* element on zoom stack */
    dirnode top; /* the current top node */
    dirnode newtop; /* the new top node */
-   int size;
+   size_t size;
 
    if ((zoomStack == NULL)||(curNode == NULL))
       return(NULL);
@@ -1791,7 +1793,7 @@ void setFold(dirnode n, c3po_bool f, int *ymax)
  ****************************************************************/
 void setFold_tree(dirnode d, c3po_bool *f)
 {
-   int index,size;
+   size_t index,size;
    dirnode n;
 
    if(dirnodeHasSubdirs(d) eq true) /* only (un)fold directories that have subdirs */
@@ -1857,7 +1859,7 @@ void setFold_all(dirnode n, c3po_bool f, int *ymax)
  *****************************************************************/
 void condenseSubdirs(dirnode n, int *ymax)
 {
-   int i;
+   size_t i;
    dirnode d;
 
    if ((n == NULL)||(dirHasSubdirs(n) eq false))
@@ -2306,7 +2308,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
       if ((wcd_cwin.mode == WCD_SEARCH) && (n < WCD_MAX_INPSTR))
       {
 #ifdef WCD_UNICODE
-         wcd_cwin.wstr[n] = ch;
+         wcd_cwin.wstr[n] = (wchar_t)ch;
          n++;
          wcd_cwin.wstr[n] = '\0';
          /* Convert wide-character input string to byte string. Needed for searching. */

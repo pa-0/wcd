@@ -21,23 +21,23 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
    extern intset intsetNew(void);
    extern intset copyIntset(intset src);
-   extern int* intsetGetArray(intset i);
+   extern size_t* intsetGetArray(intset i);
    extern c3po_bool intsetHasArray(intset i);
-   extern int getSizeOfIntset(intset i);
+   extern size_t getSizeOfIntset(intset i);
    extern void setSizeOfIntset(intset i,
-                               int size);
+                               size_t size);
    extern c3po_bool isEmptyIntset(intset i);
-   extern void addToIntset(int i,
+   extern void addToIntset(size_t i,
                            intset set);
-   extern void putElementAtIntset(int i,
-                                  int position,
+   extern void putElementAtIntset(size_t i,
+                                  size_t position,
                                   intset set);
-   extern void insertElementAtIntset(int i,
-                                     int position,
+   extern void insertElementAtIntset(size_t i,
+                                     size_t position,
                                      intset set);
-   extern void removeElementAtIntset(int position,
+   extern void removeElementAtIntset(size_t position,
                                      intset set);
-   extern int elementAtIntset(int position,
+   extern size_t elementAtIntset(size_t position,
                               intset set);
    extern void extendIntset(intset src,
                             intset dest);

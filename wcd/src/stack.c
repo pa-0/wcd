@@ -52,10 +52,10 @@ int stack_add(WcdStack ws, char *dir)
 
 	/* free old dir string if present */
 	if (ws->dir != NULL)
-	if((ws->dir[ws->lastadded] != NULL) && (ws->size == ws->maxsize))
+	if((ws->dir[ws->lastadded] != NULL) && (ws->size == (size_t)ws->maxsize))
 	free (ws->dir[ws->lastadded]);
 
-	putElementAtWcdStackDir(textNew(dir), ws->lastadded, ws);
+	putElementAtWcdStackDir(textNew(dir), (size_t)ws->lastadded, ws);
 
 	return(0);
 }
@@ -84,7 +84,7 @@ int stack_read(WcdStack ws,char *stackfilename)
 		if(fscanf(infile,"%d %d",&ws->lastadded,&ws->current)==2)
 		{
 
-			while( !feof(infile)&&(ws->size < ws->maxsize) )
+			while( !feof(infile)&&(ws->size < (size_t)ws->maxsize) )
 			{
 			int len ;
 			/* read a line */
@@ -103,9 +103,9 @@ int stack_read(WcdStack ws,char *stackfilename)
 
 		fclose(infile);
 
-		if (ws->lastadded >= ws->size)
+		if (ws->lastadded >= (int)ws->size)
 		ws->lastadded = 0;
-		if (ws->current >= ws->size)
+		if (ws->current >= (int)ws->size)
 		ws->current = 0;
 	}
 
@@ -148,17 +148,17 @@ char* stack_push(WcdStack ws, int push_ntimes)
 	if(ws == NULL)
 	return (NULL);
 	else
-		if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) )
+		if( ((ws->size) == 0) || ((ws->size) > (size_t)ws->maxsize) )
 		return (NULL);
 		else
 		{
 
-			  push_ntimes = push_ntimes % ws->size;
+			  push_ntimes = push_ntimes % (int)ws->size;
 
 			  new_stack_nr = ws->current - push_ntimes;
 
 			  if(new_stack_nr < 0)
-			  new_stack_nr = ws->size + new_stack_nr;
+			  new_stack_nr = (int)ws->size + new_stack_nr;
 
 			  ws->current = new_stack_nr;
 
@@ -182,16 +182,16 @@ char* stack_pop(WcdStack ws, int pop_ntimes)
 	if(ws == NULL)
 	return (NULL);
 	else
-		if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) )
+		if( ((ws->size) == 0) || ((ws->size) > (size_t)ws->maxsize) )
 		return (NULL);
 		else
 		{
-	         pop_ntimes = pop_ntimes % ws->size;
+	         pop_ntimes = pop_ntimes % (int)ws->size;
 
 	         new_stack_nr = ws->current + pop_ntimes;
 
-	         if(new_stack_nr > (ws->size -1))
-	         new_stack_nr =  new_stack_nr - ws->size;
+	         if(new_stack_nr > (int)(ws->size -1))
+	         new_stack_nr =  new_stack_nr - (int)ws->size;
 
 	         ws->current = new_stack_nr;
 	         return(ws->dir[ws->current]);
@@ -243,7 +243,7 @@ int stack_write(WcdStack ws,char *stackfilename)
 		else
 		{
 			fprintf(outfile,"%d %d\n",ws->lastadded,ws->current);
-			for(i=0;((i<ws->size)&&(i<ws->maxsize));i++)
+			for(i=0;((i<(int)ws->size)&&(i<ws->maxsize));i++)
 			{
 			/* printf("writing line %d\n",i);  */
 				fprintf(outfile,"%s\n",ws->dir[i]);

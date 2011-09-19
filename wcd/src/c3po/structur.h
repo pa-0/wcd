@@ -28,13 +28,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
    typedef struct nameset_struct
    {
       text *array;
-      int size;
+      size_t size;
    } nameset_struct, *nameset;
 
    typedef struct intset_struct
    {
-      int *array;
-      int size;
+      size_t *array;
+      size_t size;
    } intset_struct, *intset;
 
 #endif
@@ -45,7 +45,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
       int lastadded;
       int current;
       text *dir;
-      int size;
+      size_t size;
    } WcdStack_struct, *WcdStack;
 
    typedef struct dirnode_struct
@@ -55,7 +55,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
       int y;
       struct dirnode_struct *parent;
       struct dirnode_struct **subdirs;
-      int size;
+      size_t size;
       struct dirnode_struct *up;
       struct dirnode_struct *down;
       c3po_bool fold;
@@ -67,7 +67,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
    typedef struct namesetw_struct
    {
       textw *array;
-      int size;
+      size_t size;
    } namesetw_struct, *namesetw;
 #endif
 

@@ -170,7 +170,7 @@ void rmDirFromList(char *string, nameset n)
 {
    char dir[DD_MAXPATH];
    char subdir[DD_MAXPATH];
-   int i;
+   size_t i;
 
    strcpy(dir,string);
 
@@ -196,7 +196,7 @@ void rmDirFromList(char *string, nameset n)
 /********************************/
 void writeList(char * filename, nameset n)
 {
-   int i;
+   size_t i;
    FILE *outfile;
 
    if ( (outfile = wcd_fopen(filename,"w",0)) != NULL)
@@ -683,17 +683,17 @@ void rmTree(char *dir)
  *  wildcards are supported.
  *
  *
- *  Returns -1 if directory is not in nameset.
+ *  Returns (size_t)-1 if directory is not in nameset.
  *  Returns index number (>=0) of first match found if directory is in nameset.
  *
  ********************************************************************/
-int pathInNameset (text path, nameset set)
+size_t pathInNameset (text path, nameset set)
 {
    char tmp[DD_MAXPATH+2];
-   int size, index = 0;
+   size_t size, index = 0;
 
    if ((path == NULL)||(set == NULL))
-      return(-1);
+      return((size_t)-1);
 
    size = getSizeOfNamesetArray(set);
 
@@ -712,13 +712,12 @@ int pathInNameset (text path, nameset set)
       }
       ++index;
    }
-   return(-1);
-
+   return((size_t)-1);
 }
 
 /********************************************************************
  *
- *  finddirs(char *dir, int *offset, FILE *outfile, int *use_HOME, int quiet)
+ *  finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, int quiet)
  *
  ********************************************************************/
 #ifdef DJGPP
@@ -752,7 +751,7 @@ void finddirs(char* dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    wcd_fixpath(tmp,sizeof(tmp));
    rmDriveLetter(tmp,use_HOME);
 
-   if (pathInNameset(tmp,exclude) >= 0)
+   if (pathInNameset(tmp,exclude) != (size_t)-1)
    {
       wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
       return;
@@ -821,7 +820,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    rmDriveLetter(tmp,use_HOME);
 #endif
 
-   if (pathInNameset(tmp,exclude) >= 0)
+   if (pathInNameset(tmp,exclude) != (size_t)-1)
    {
       wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
       return;
@@ -887,13 +886,13 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 
 /********************************************************************
  *
- *     scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_HOME)
+ *     scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *use_HOME)
  *
  *     append == 1        : append to treefile
  *     scanreldir == 1    : write relative paths in rtdata.wcd
  *
  ********************************************************************/
-void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_HOME, nameset exclude)
+void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *use_HOME, nameset exclude)
 {
    size_t  offset = 0 ;     /* offset to remove scanned from path */
    char tmp[DD_MAXPATH];    /* tmp string buffer */
@@ -1002,9 +1001,9 @@ void scanDisk(char *path, char *treefile, int scanreldir, int append, int *use_H
  * scanServer()
  * scan all the shared directories on a server
  ***********************************************************************/
-void scanServer(char *path, char *treefile, int append, int *use_HOME, nameset exclude)
+void scanServer(char *path, char *treefile, size_t append, int *use_HOME, nameset exclude)
 {
-   int i;
+   size_t i;
    nameset shares;
 
    shares = namesetNew();
@@ -1301,7 +1300,7 @@ void cleanTreeFile(char *filename, char *dir)
 
 int check_double_match(char *dir, nameset set)
 {
-   int i = 0;
+   size_t i = 0;
 
    if ((dir == NULL) || (set == NULL))
       return(0);
@@ -1329,7 +1328,7 @@ int check_double_match(char *dir, nameset set)
  ********************************************************************/
 int check_filter(char *dir, nameset filter)
 {
-   int index = 0;
+   size_t index = 0;
 
    if (filter->size == 0) return (0);
 
@@ -1443,7 +1442,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
                   strcpy(line,tmp);
                }
 
-               if ((pathInNameset(line,bd) == -1) &&
+               if ((pathInNameset(line,bd) == (size_t)-1) &&
                   (check_double_match(line,pm)==0)&&
                   (check_filter(line,filter)==0))
                {
@@ -1466,7 +1465,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
                       strcpy(line,tmp);
                    }
 
-                  if((pathInNameset(line,bd) == -1) &&
+                  if((pathInNameset(line,bd) == (size_t)-1) &&
                      (check_double_match(line,wm)==0) &&
                      (check_filter(line,filter)==0))
                   {
@@ -1829,10 +1828,10 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript)
  * ******************************************************************/
 
 
-int pickDir(nameset list, int *use_HOME)
+size_t pickDir(nameset list, int *use_HOME)
 {
    char curDir[DD_MAXPATH];
-   int i;
+   size_t i;
 
    if (list == NULL) /* there is no list */
       return(0);
@@ -1844,7 +1843,7 @@ int pickDir(nameset list, int *use_HOME)
    if (curDir == NULL)  /* no dirname found */
       return(1);            /* return first of list */
 
-   if ((i = inNameset(curDir,list)) == -1)  /* not in list */
+   if ((i = inNameset(curDir,list)) == (size_t)-1)  /* not in list */
       return(1);                            /* return first of list */
 
    i++;  /* next dirname */
@@ -1989,7 +1988,8 @@ int main(int argc,char** argv)
    FILE *outfile;
    char best_match[DD_MAXPATH];
    char verbose = 0;
-   int  i,j;
+   int i;
+   size_t ii, j;
    int exit_wcd = 0;
    int use_default_treedata = 1;
    int use_numbers = 0; /* use numbers instead of letters in conio or curses interface */
@@ -2747,7 +2747,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             else
             if (strcmp(argv[i-1],"-z") == 0 )
             {
-             if (stack_is_read == 0)
+             if ((stack_is_read == 0) && (atoi(argv[i]) >= 0))
                DirStack->maxsize = atoi(argv[i]);
             }
             else
@@ -2830,14 +2830,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
    if (verbose > 0)
    {
-      for (i=0; i<scan_dirs->size; ++i)
-         printf(_("Wcd: WCDSCAN directory {%s}\n"),elementAtNamesetArray(i, scan_dirs));
-      for (i=0; i<banned_dirs->size; ++i)
-         printf(_("Wcd: banning {%s}\n"),elementAtNamesetArray(i, banned_dirs));
-      for (i=0; i<exclude->size; ++i)
-         printf(_("Wcd: excluding {%s}\n"),elementAtNamesetArray(i, exclude));
-      for (i=0; i<filter->size; ++i)
-         printf(_("Wcd: filtering {%s}\n"),elementAtNamesetArray(i, filter));
+      for (ii=0; ii<scan_dirs->size; ++ii)
+         printf(_("Wcd: WCDSCAN directory {%s}\n"),elementAtNamesetArray(ii, scan_dirs));
+      for (ii=0; ii<banned_dirs->size; ++ii)
+         printf(_("Wcd: banning {%s}\n"),elementAtNamesetArray(ii, banned_dirs));
+      for (ii=0; ii<exclude->size; ++ii)
+         printf(_("Wcd: excluding {%s}\n"),elementAtNamesetArray(ii, exclude));
+      for (ii=0; ii<filter->size; ++ii)
+         printf(_("Wcd: filtering {%s}\n"),elementAtNamesetArray(ii, filter));
    }
 
 
@@ -3013,15 +3013,15 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
       /* search extra files */
 
-      for (i=0;i<extra_files->size;i++)
+      for (ii=0;ii<extra_files->size;ii++)
       {
-         scanfile(dir, extra_files->array[i],ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly); /* scan the extra treedata file */
+         scanfile(dir, extra_files->array[ii],ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly); /* scan the extra treedata file */
       }
       /* search relative files */
 
-      for (i=0;i<relative_files->size;i++)
+      for (ii=0;ii<relative_files->size;ii++)
       {
-         scanfile(dir, relative_files->array[i],ignore_case,perfect_list,wild_list,banned_dirs,filter,1,wildOnly); /* scan the nfs treedata file */
+         scanfile(dir, relative_files->array[ii],ignore_case,perfect_list,wild_list,banned_dirs,filter,1,wildOnly); /* scan the nfs treedata file */
       }
 
       /* search alias file */
@@ -3045,13 +3045,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             if (use_default_treedata)
                read_treefile(treefile,dirs,0);
             read_treefile(extratreefile,dirs,1);
-            for (i=0;i<extra_files->size;i++)
+            for (ii=0;ii<extra_files->size;ii++)
             {
-               read_treefile(extra_files->array[i],dirs,0);
+               read_treefile(extra_files->array[ii],dirs,0);
             }
-            for (i=0;i<relative_files->size;i++)
+            for (ii=0;ii<relative_files->size;ii++)
             {
-               read_treefile(relative_files->array[i],dirs,0);
+               read_treefile(relative_files->array[ii],dirs,0);
             }
 
             buildTreeFromNameset(dirs, rootNode);
@@ -3137,11 +3137,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 #endif
       {
          if (justGo)
-            i = pickDir(perfect_list,&use_HOME);
+            i = (int)pickDir(perfect_list,&use_HOME);
          else
-         i= display_list(perfect_list,1,use_numbers,use_stdout);
+            i = display_list(perfect_list,1,use_numbers,use_stdout);
 
-         if ( (i>0) && (i<=perfect_list->size))
+         if ( (i>0) && (i <= (int)perfect_list->size))
          {
             i--;
             strcpy(best_match,perfect_list->array[i]);
@@ -3188,11 +3188,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 #endif
       {
          if (justGo)
-            i = pickDir(wild_list,&use_HOME);
+            i = (int)pickDir(wild_list,&use_HOME);
          else
             i = display_list(wild_list,0,use_numbers,use_stdout);
 
-         if ( (i>0) && (i<=wild_list->size))
+         if ( (i>0) && (i <= (int)wild_list->size))
          {
             i--;
             strcpy(best_match,wild_list->array[i]);
