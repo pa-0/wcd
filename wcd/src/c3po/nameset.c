@@ -272,15 +272,15 @@ expfun void printNameset(text Offset,
       {
          if ((isEmptyNamesetArray(n) == false) || (showEmpty == true))
          {
-            fprintf(fp, "%sint size : %d\n", new_Offset, n->size);
+            fprintf(fp, "%sint size : %zu\n", new_Offset, n->size);
 
             index = 0;
             while(index < n->size)
             {
                if (n->array[index] ne NULL)
-               fprintf(fp, "%stext array[%d] : %s\n", new_Offset, index, n->array[index]);
+               fprintf(fp, "%stext array[%zu] : %s\n", new_Offset, index, n->array[index]);
                else if (showEmpty == true)
-                  fprintf(fp, "%stext array[%d] : NULL\n", new_Offset, index);
+                  fprintf(fp, "%stext array[%zu] : NULL\n", new_Offset, index);
                index = index + 1;
             }
          }

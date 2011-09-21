@@ -92,7 +92,7 @@ expfun intset matchNameset(text name,
    if (i_set eq NULL)
       i_set = intsetNew();
    else
-      setSizeOfIntset(i_set, 0);
+      setSizeOfIntset(i_set, (size_t)0);
 
    if (isEmptyNamesetArray(set) eq false)
    {
@@ -208,7 +208,7 @@ expfun text repeatOnBuffer(text pattern,
 expfun text repeat(text pattern,
                    size_t amount)
 {
-   return repeatOnBuffer(pattern, amount, 0);
+   return repeatOnBuffer(pattern, amount, (size_t)0);
 }
 expfun text spacesOnBuffer(size_t amount,
                            size_t bufferNr)
@@ -217,7 +217,7 @@ expfun text spacesOnBuffer(size_t amount,
 }
 expfun text spaces(size_t amount)
 {
-   return spacesOnBuffer(amount, 0);
+   return spacesOnBuffer(amount, (size_t)0);
 }
 expfun text TabOnBuffer(size_t amount,
                         size_t bufferNr)
@@ -227,7 +227,7 @@ expfun text TabOnBuffer(size_t amount,
 }
 expfun text Tab(size_t amount)
 {
-   return TabOnBuffer(amount, 0);
+   return TabOnBuffer(amount, (size_t)0);
 }
 expfun text intToString(int i)
 {

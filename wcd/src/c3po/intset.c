@@ -247,12 +247,12 @@ expfun void printIntset(text Offset,
       {
          if ((isEmptyIntset(i) == false) || (showEmpty == true))
          {
-            fprintf(fp, "%sint size : %d\n", new_Offset, i->size);
+            fprintf(fp, "%sint size : %zu\n", new_Offset, i->size);
 
             index = 0;
             while(index < i->size)
             {
-               fprintf(fp, "%sint array[%d] : %d\n", new_Offset, index, i->array[index]);
+               fprintf(fp, "%sint array[%zu] : %zu\n", new_Offset, index, i->array[index]);
                index = index + 1;
             }
          }

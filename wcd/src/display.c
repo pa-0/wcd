@@ -1425,7 +1425,7 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
       else
       {
          for (ii=0;ii<list->size;ii++)
-            printf("%d  %s\n",ii+1,list->array[ii]);
+            printf("%zu  %s\n",ii+1,list->array[ii]);
       }
 
       if ( use_stdout & WCD_STDOUT_DUMP )
@@ -1436,7 +1436,7 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
            printf(_("\nPerfect "));
          else
            printf(_("\nWild "));
-         printf(_("match for %d directories.\n"),list->size);
+         printf(_("match for %zu directories.\n"),list->size);
          printf(_("Please choose one (<Enter> to abort): "));
       }
 

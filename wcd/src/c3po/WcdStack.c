@@ -337,15 +337,15 @@ expfun void printWcdStack(text Offset,
       {
          if ((isEmptyWcdStackDir(w) == false) || (showEmpty == true))
          {
-            fprintf(fp, "%sint size : %d\n", new_Offset, w->size);
+            fprintf(fp, "%sint size : %zu\n", new_Offset, w->size);
 
             index = 0;
             while(index < w->size)
             {
                if (w->dir[index] ne NULL)
-               fprintf(fp, "%stext dir[%d] : %s\n", new_Offset, index, w->dir[index]);
+               fprintf(fp, "%stext dir[%zu] : %s\n", new_Offset, index, w->dir[index]);
                else if (showEmpty == true)
-                  fprintf(fp, "%stext dir[%d] : NULL\n", new_Offset, index);
+                  fprintf(fp, "%stext dir[%zu] : NULL\n", new_Offset, index);
                index = index + 1;
             }
          }

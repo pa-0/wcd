@@ -23,11 +23,11 @@ void initcolor(void)
 
     /* foreground, background */
 #if 1
-    init_pair(MENU_COLOR      & ~A_ATTR, COLOR_WHITE,   COLOR_BLUE);
-    init_pair(BODY_COLOR      & ~A_ATTR, COLOR_WHITE,   COLOR_RED);
+    init_pair((short)(MENU_COLOR      & ~A_ATTR), (short)COLOR_WHITE,   (short)COLOR_BLUE);
+    init_pair((short)(BODY_COLOR      & ~A_ATTR), (short)COLOR_WHITE,   (short)COLOR_RED);
 #else
-    init_pair(MENU_COLOR      & ~A_ATTR, COLOR_WHITE,   COLOR_RED);
-    init_pair(BODY_COLOR      & ~A_ATTR, COLOR_CYAN,    COLOR_BLUE);
+    init_pair((short)(MENU_COLOR      & ~A_ATTR), (short)COLOR_WHITE,   (short)COLOR_RED);
+    init_pair((short)(BODY_COLOR      & ~A_ATTR), (short)COLOR_CYAN,    (short)COLOR_BLUE);
 #endif
 
 #endif
@@ -72,7 +72,7 @@ void colorbox(WINDOW *win, chtype color, int hasbox)
     getmaxyx(win, maxy, maxx);
 #endif
     if (hasbox && (maxy > 2))
-        box(win, 0, 0);
+        box(win, (chtype)0, (chtype)0);
 
     touchwin(win);
     wrefresh(win);

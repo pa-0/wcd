@@ -92,7 +92,7 @@ expfun intset matchNamesetw(textw name,
    if (i_set eq NULL)
       i_set = intsetNew();
    else
-      setSizeOfIntset(i_set, 0);
+      setSizeOfIntset(i_set, (size_t)0);
 
    if (isEmptyNamesetwArray(set) eq false)
    {
@@ -187,12 +187,6 @@ expfun textw repeatOnBufferw(textw pattern,
    if (buffers eq NULL)
       buffers = namesetwNew();
 
-   if (bufferNr < 0)
-      bufferNr = 0;
-
-   if (amount < 0)
-      amount = 0;
-
    buffer = elementAtNamesetwArray(bufferNr, buffers);
 
    if (buffer eq NULL)
@@ -214,7 +208,7 @@ expfun textw repeatOnBufferw(textw pattern,
 expfun textw repeatw(textw pattern,
                    size_t amount)
 {
-   return repeatOnBufferw(pattern, amount, 0);
+   return repeatOnBufferw(pattern, amount, (size_t)0);
 }
 expfun textw spacesOnBufferw(size_t amount,
                            size_t bufferNr)
@@ -223,7 +217,7 @@ expfun textw spacesOnBufferw(size_t amount,
 }
 expfun textw spacesw(size_t amount)
 {
-   return spacesOnBufferw(amount, 0);
+   return spacesOnBufferw(amount, (size_t)0);
 }
 expfun textw TabOnBufferw(size_t amount,
                         size_t bufferNr)
@@ -233,7 +227,7 @@ expfun textw TabOnBufferw(size_t amount,
 }
 expfun textw Tabw(size_t amount)
 {
-   return TabOnBufferw(amount, 0);
+   return TabOnBufferw(amount, (size_t)0);
 }
 expfun textw intToStringw(int i)
 {

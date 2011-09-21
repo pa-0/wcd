@@ -471,14 +471,14 @@ expfun void printDirnode(text Offset,
       {
          if ((isEmptyDirnode(d) == false) || (showEmpty == true))
          {
-            fprintf(fp, "%sint size : %d\n", new_Offset, d->size);
+            fprintf(fp, "%sint size : %zu\n", new_Offset, d->size);
 
             index = 0;
             while(index < d->size)
             {
-               fprintf(fp, "%sdirnode subdirs[%d],\n", new_Offset, index);
+               fprintf(fp, "%sdirnode subdirs[%zu],\n", new_Offset, index);
                printDirnode(new_Offset, d->subdirs[index], fp, showEmpty);
-               fprintf(fp, "%s\\end dirnode[%d]\n", new_Offset, index);
+               fprintf(fp, "%s\\end dirnode[%zu]\n", new_Offset, index);
                index = index + 1;
             }
          }

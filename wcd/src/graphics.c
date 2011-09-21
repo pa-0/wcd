@@ -200,12 +200,12 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
 
    if (line == NULL)
    {
-      line = textNewSize(WCD_GRAPH_MAX_LINE_LENGTH);
+      line = textNewSize((size_t)WCD_GRAPH_MAX_LINE_LENGTH);
       line[0] = '\0';
    }
    if (tline == NULL)
    {
-      tline = textNewSize(WCD_GRAPH_MAX_LINE_LENGTH);
+      tline = textNewSize((size_t)WCD_GRAPH_MAX_LINE_LENGTH);
       tline[0] = '\0';
    }
 
@@ -238,7 +238,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
 
             strcat(tline,WCD_ONESUBDIR);
 
-            n = elementAtDirnode(0,d);
+            n = elementAtDirnode((size_t)0,d);
             if (fold eq true)
                tline[strlen(tline)-1] = '+';
 
@@ -269,7 +269,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
 
                strcat(tline,WCD_SPLITDIR);
 
-               n = elementAtDirnode(0,d);
+               n = elementAtDirnode((size_t)0,d);
                if (fold eq true)
                   tline[strlen(tline)-1] = '+';
 
@@ -293,7 +293,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
                if (y == *y_orig)
                {
                   strcat(tline,WCD_ENDDIR);
-                  n = elementAtDirnode(0,d);
+                  n = elementAtDirnode((size_t)0,d);
                   if (fold eq true)
                      tline[strlen(tline)-1] = '+';
                }
@@ -305,7 +305,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
                if (y == *y_orig)
                {
                   strcat(tline,WCD_SUBDIR);
-                  n = elementAtDirnode(0,d);
+                  n = elementAtDirnode((size_t)0,d);
                   if (fold eq true)
                      tline[strlen(tline)-1] = '+';
                }
@@ -680,11 +680,11 @@ char *getNodeFullPath(dirnode node)
 
    if (line == NULL)
    {
-      line = textNewSize(DD_MAXPATH+1);
+      line = textNewSize((size_t)(DD_MAXPATH+1));
    }
    if (tline == NULL)
    {
-      tline = textNewSize(DD_MAXPATH+1);
+      tline = textNewSize((size_t)(DD_MAXPATH+1));
    }
 
    line[0] = '\0';
@@ -745,7 +745,7 @@ dirnode Right(dirnode node)
 {
 
    if(dirnodeFold(node) eq false)
-      return elementAtDirnode(0,node);
+      return elementAtDirnode((size_t)0,node);
    else
       return(NULL);
 }
@@ -819,7 +819,7 @@ dirnode getLastNodeInSameLevel(dirnode node)
    if (dirHasSubdirs(node) eq false)
       return(node);
    else
-      return getLastNodeInSameLevel(elementAtDirnode(0,node));
+      return getLastNodeInSameLevel(elementAtDirnode((size_t)0,node));
 }
 
 /******************************************************/
@@ -1472,7 +1472,7 @@ char *getZoomStackPath(dirnode stack)
 
    if (line == NULL)
    {
-      line = textNewSize(DD_MAXPATH);
+      line = textNewSize((size_t)DD_MAXPATH);
    }
 
    line[0] = '\0';
@@ -1484,7 +1484,7 @@ char *getZoomStackPath(dirnode stack)
       if(i != 0)
          strcat(line,"/");
       name = dirnodeGetName(elementAtDirnode(i,stack));
-      if((strlen(line)+strlen(name)) < DD_MAXPATH)
+      if((strlen(line)+strlen(name)) < (size_t)DD_MAXPATH)
          strcat(line,name);
    }
 

@@ -2296,7 +2296,7 @@ int main(int argc,char** argv)
             break;
          case 's':
             if (getSizeOfNamesetArray(scan_dirs) == 0)
-               scanDisk(rootscandir,treefile,0,0,&use_HOME,exclude);
+               scanDisk(rootscandir,treefile,0,(size_t)0,&use_HOME,exclude);
             else
             {
                j = 0;
@@ -2733,7 +2733,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                }
                else
 #endif
-               scanDisk(scandir,treefile,0,0,&use_HOME,exclude);
+               scanDisk(scandir,treefile,0,(size_t)0,&use_HOME,exclude);
             }
             else
             if (strcmp(argv[i-1],"+S") == 0 )
@@ -2742,7 +2742,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                strncpy(treefile,scandir,sizeof(treefile) - strlen(RELTREEFILE));
                strcat(treefile,RELTREEFILE);
 
-               scanDisk(scandir,treefile,1,0,&use_HOME,exclude);
+               scanDisk(scandir,treefile,1,(size_t)0,&use_HOME,exclude);
             }
             else
             if (strcmp(argv[i-1],"-z") == 0 )
@@ -2761,7 +2761,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                }
                else
 #endif
-               scanDisk(scandir,treefile,0,1,&use_HOME,exclude);
+               scanDisk(scandir,treefile,0,(size_t)1,&use_HOME,exclude);
             }
             else
             if (strcmp(argv[i-1],"-E") == 0 )
@@ -2774,7 +2774,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                }
                else
 #endif
-               scanDisk(scandir,extratreefile,0,1,&use_HOME,exclude);
+               scanDisk(scandir,extratreefile,0,(size_t)1,&use_HOME,exclude);
             }
             else
             if (strcmp(argv[i-1],"-m") == 0 )
@@ -2962,16 +2962,16 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
      {
         /* create treefile */
         if (getSizeOfNamesetArray(scan_dirs) == 0)
-           scanDisk(rootscandir,treefile,0,0,&use_HOME,exclude);
+           scanDisk(rootscandir,treefile,0,(size_t)0,&use_HOME,exclude);
         else
         {
            j = 0;
            while (j<getSizeOfNamesetArray(scan_dirs))
            {
               if (j == 0)
-                 scanDisk(elementAtNamesetArray(j,scan_dirs),treefile, 0, 0, &use_HOME, exclude);
+                 scanDisk(elementAtNamesetArray(j,scan_dirs),treefile, 0, (size_t)0, &use_HOME, exclude);
               else
-                 scanDisk(elementAtNamesetArray(j,scan_dirs),treefile, 0, 1, &use_HOME, exclude);
+                 scanDisk(elementAtNamesetArray(j,scan_dirs),treefile, 0, (size_t)1, &use_HOME, exclude);
               ++j;
            }
         }
