@@ -3,7 +3,7 @@
 CC      = bcc +WCD.CFG
 LIBPATH = C:\BC4\LIB;
 INCLUDEPATH = ..\SRC;..\SRC\C3PO;C:\BC4\INCLUDE
-OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj
+OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj matchl.obj querycp.obj
 
 all: wcd.exe
 
@@ -27,6 +27,12 @@ stack.obj : wcd.cfg  ..\src\stack.c
 
 match.obj : wcd.cfg  ..\src\match.c
 	$(CC) -c -o$@ ..\src\match.c
+
+matchl.obj : wcd.cfg  ..\src\matchl.c
+	$(CC) -c -o$@ ..\src\matchl.c
+
+querycp.obj : wcd.cfg  ..\src\querycp.c
+	$(CC) -c -o$@ ..\src\querycp.c
 
 wfixpath.obj : wcd.cfg  ..\src\wfixpath.c
 	$(CC) -c -o$@ ..\src\wfixpath.c

@@ -86,7 +86,7 @@ void wcd_fixpath(char *in, size_t lim)
     {
       drive_number = *ip - 'A';
       if (*ip <= 'Z')
-	*op++ = drive_number + 'a';
+	*op++ = (char)(drive_number + 'a');
       else
 	*op++ = *ip;
       ++ip;

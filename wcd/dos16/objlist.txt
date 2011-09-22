@@ -1,5 +1,6 @@
 wcd.obj
 match.obj
+matchl.obj
 stack.obj
 nameset.obj
 error.obj
@@ -11,6 +12,7 @@ wfixpath.obj
 intset.obj
 wcddir.obj
 command.obj
+querycp.obj
 noehc.lib
 
 

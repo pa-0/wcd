@@ -26,6 +26,7 @@ EXE_dependencies =  \
  display.obj \
  dosdir.obj \
  match.obj \
+ matchl.obj \
  stack.obj \
  wcd.obj \
  wfixpath.obj \
@@ -35,6 +36,7 @@ EXE_dependencies =  \
  nameset.obj \
  text.obj \
  wcdstack.obj \
+ querycp.obj \
  wcddir.obj
 
 #		*Explicit Rules*
@@ -44,6 +46,7 @@ c0l.obj+
 display.obj+
 dosdir.obj+
 match.obj+
+matchl.obj+
 stack.obj+
 wcd.obj+
 wfixpath.obj+
@@ -53,7 +56,8 @@ intset.obj+
 nameset.obj+
 text.obj+
 wcdstack.obj+
-wcddir.obj
+wcddir.obj+
+querycp.obj
 wcd
 		# no map file
 emu.lib+
@@ -71,6 +75,12 @@ dosdir.obj: wcd.cfg ..\src\dosdir.c
 
 match.obj: wcd.cfg ..\src\match.c 
 	$(CC) -c ..\src\match.c
+
+matchl.obj : wcd.cfg  ..\src\matchl.c
+	$(CC) -c -o$@ ..\src\matchl.c
+
+querycp.obj : wcd.cfg  ..\src\querycp.c
+	$(CC) -c -o$@ ..\src\querycp.c
 
 stack.obj: wcd.cfg ..\src\stack.c 
 	$(CC) -c ..\src\stack.c

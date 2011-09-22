@@ -316,7 +316,8 @@ void quoteString(char *string)
 #if (defined(WIN32) && !defined(WCD_WINZSH)) || (defined(OS2) && !defined(WCD_OS2BASH))
 void quoteString(char *string)
 {
- int i,j,k,kmax;
+ size_t i, j;
+ int k,kmax;
  char help1_str[DD_MAXPATH];
 
  j = strlen(string);
@@ -1907,7 +1908,11 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
    /* PowerShell can run UTF-8 encoded scripts when the UTF-8 BOM is in. */
    fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #    endif
+   if (codepage_ansi != codepage_dos)
+      fprintf(outfile,"chcp %d>nul\n", codepage_ansi);
    fprintf(outfile,"set-location %s", best_match);
+   if (codepage_ansi != codepage_dos)
+      fprintf(outfile,"chcp %d>nul\n", codepage_dos);
 #  else
    /* Windows Command Prompt, os/2 */
    fprintf(outfile, "%s", "@echo off\n");

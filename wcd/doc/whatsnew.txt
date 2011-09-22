@@ -1,8 +1,9 @@
-5.2.0-beta1 2011-09-14
+5.2.0-beta1 2011-09-22
   - URL home page changed to http://waterlan.home.xs4all.nl/
   - Makefile use RPM_OPT_FLAGS.
   - Locale matching of accented characters for
     CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, ISO-8859-2.
+  - Code cleanup for -Wextra -Wconversion.
 
 5.1.5 2011-06-06
   - Default scan directory is $HOME, even when WCDHOME is defined.

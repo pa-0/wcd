@@ -452,13 +452,13 @@ expfun void printDirnode(text Offset,
       fprintf(fp, "%sint y : %d\n", new_Offset, d->y);
 
       if ((dirnodeHasParent(d) == true) || (showEmpty == true))
-         fprintf(fp, "%sdirnode parent : %lu (reference)\n", new_Offset, (long) d->parent);
+         fprintf(fp, "%sdirnode parent : %lu (reference)\n", new_Offset, (unsigned long) d->parent);
 
       if ((dirnodeHasUp(d) == true) || (showEmpty == true))
-         fprintf(fp, "%sdirnode up : %lu (reference)\n", new_Offset, (long) d->up);
+         fprintf(fp, "%sdirnode up : %lu (reference)\n", new_Offset, (unsigned long) d->up);
 
       if ((dirnodeHasDown(d) == true) || (showEmpty == true))
-         fprintf(fp, "%sdirnode down : %lu (reference)\n", new_Offset, (long) d->down);
+         fprintf(fp, "%sdirnode down : %lu (reference)\n", new_Offset, (unsigned long) d->down);
 
       fprintf(fp, "%sc3po_bool fold : %d\n", new_Offset, d->fold);
 
@@ -471,14 +471,14 @@ expfun void printDirnode(text Offset,
       {
          if ((isEmptyDirnode(d) == false) || (showEmpty == true))
          {
-            fprintf(fp, "%sint size : %zu\n", new_Offset, d->size);
+            fprintf(fp, "%sint size : %lu\n", new_Offset, (unsigned long)d->size);
 
             index = 0;
             while(index < d->size)
             {
-               fprintf(fp, "%sdirnode subdirs[%zu],\n", new_Offset, index);
+               fprintf(fp, "%sdirnode subdirs[%lu],\n", new_Offset, (unsigned long)index);
                printDirnode(new_Offset, d->subdirs[index], fp, showEmpty);
-               fprintf(fp, "%s\\end dirnode[%zu]\n", new_Offset, index);
+               fprintf(fp, "%s\\end dirnode[%lu]\n", new_Offset, (unsigned long)index);
                index = index + 1;
             }
          }

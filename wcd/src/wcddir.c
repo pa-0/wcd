@@ -112,7 +112,7 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
    HANDLE hEnum;
    DWORD count, bufsize, ui;
    NETRESOURCE buf[MAX_NR_BUF];
-   const char *type;
+   /* const char *type; */
    char path[DD_MAXPATH];
 
    rc = WNetOpenEnum( RESOURCE_GLOBALNET, RESOURCETYPE_DISK, 0, pnr, &hEnum );
@@ -144,20 +144,20 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
          switch ( buf[ui].dwDisplayType )
          {
             case RESOURCEDISPLAYTYPE_DOMAIN:
-               type = "domain"; break;
+               /* type = "domain"; */ break;
             case RESOURCEDISPLAYTYPE_GENERIC:
-               type = "generic"; break;
+               /* type = "generic"; */ break;
             case RESOURCEDISPLAYTYPE_SERVER:
-               type = "server"; break;
+               /* type = "server"; */ break;
             case RESOURCEDISPLAYTYPE_SHARE:
-               type = "share";
+               /* type = "share"; */
                printf( "Wcd: %s\n", buf[ui].lpRemoteName );
                strncpy(path, buf[ui].lpRemoteName, DD_MAXPATH);
                wcd_fixpath(path, DD_MAXPATH);
                addToNamesetArray(textNew(path), n);
                break;
             default:
-               type = "unknown"; break;
+               /* type = "unknown"; */ break;
          }
          /* now we recurse if it's a container */
          if ( buf[ui].dwUsage & RESOURCEUSAGE_CONTAINER )
@@ -212,7 +212,7 @@ void wcd_getshares(char* path, nameset n)
 
       doEnum( 0, &nr, n );
    }
-   printf(_("Wcd: Found %d shared directories on server %s\n"), getSizeOfNamesetArray(n), path);
+   printf(_("Wcd: Found %lu shared directories on server %s\n"), (unsigned long)getSizeOfNamesetArray(n), path);
 }
 
 #endif
@@ -287,7 +287,7 @@ int wcd_isSharePath (char* path)
 
 char *wcd_getcwd(char *buf, size_t size)
 {
-   BOOL err;
+   DWORD err;
    DWORD dw; 
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];

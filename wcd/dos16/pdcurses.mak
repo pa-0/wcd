@@ -29,6 +29,7 @@ EXE_dependencies =  \
  display.obj \
  dosdir.obj \
  match.obj \
+ matchl.obj \
  stack.obj \
  wcd.obj \
  wfixpath.obj \
@@ -41,7 +42,8 @@ EXE_dependencies =  \
  dirnode.obj \
  colors.obj \
  graphics.obj \
- wcddir.obj
+ wcddir.obj \
+ querycp.obj
 
 #		*Explicit Rules*
 wcd.exe: pdcurses.cfg $(EXE_dependencies)
@@ -50,6 +52,7 @@ c0l.obj+
 display.obj+
 dosdir.obj+
 match.obj+
+matchl.obj+
 stack.obj+
 wcd.obj+
 wfixpath.obj+
@@ -62,7 +65,8 @@ wcdstack.obj+
 dirnode.obj+
 colors.obj+
 graphics.obj+
-wcddir.obj
+wcddir.obj+
+querycp.obj
 wcd
 		# no map file
 emu.lib+
@@ -81,6 +85,12 @@ dosdir.obj: pdcurses.cfg ..\src\dosdir.c
 
 match.obj: pdcurses.cfg ..\src\match.c 
 	$(CC) -c ..\src\match.c
+
+matchl.obj : pdcurses.cfg  ..\src\matchl.c
+	$(CC) -c -o$@ ..\src\matchl.c
+
+querycp.obj : pdcurses.cfg  ..\src\querycp.c
+	$(CC) -c -o$@ ..\src\querycp.c
 
 stack.obj: pdcurses.cfg ..\src\stack.c 
 	$(CC) -c ..\src\stack.c

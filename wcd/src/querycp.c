@@ -113,14 +113,18 @@ unsigned short query_con_codepage(void) {
 }
 #else
 
+#ifndef __MSDOS__
 #include <string.h>
 #include <langinfo.h>
+#endif
 unsigned short query_con_codepage(void) {
+#ifndef __MSDOS__
    if (strcmp(nl_langinfo(CODESET), "ISO-8859-1") == 0)
      return(8591);
 
    if (strcmp(nl_langinfo(CODESET), "ISO-8859-2") == 0)
      return(8592);
+#endif
    
    return(0);
 }
