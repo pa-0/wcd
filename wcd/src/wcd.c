@@ -1909,10 +1909,10 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
    fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #    endif
    if (codepage_ansi != codepage_dos)
-      fprintf(outfile,"chcp %d>nul\n", codepage_ansi);
+      fprintf(outfile,"chcp %d > null\n", codepage_ansi);
    fprintf(outfile,"set-location %s", best_match);
    if (codepage_ansi != codepage_dos)
-      fprintf(outfile,"chcp %d>nul\n", codepage_dos);
+      fprintf(outfile,"chcp %d > null\n", codepage_dos);
 #  else
    /* Windows Command Prompt, os/2 */
    fprintf(outfile, "%s", "@echo off\n");
@@ -1920,7 +1920,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
       fprintf(outfile,"%s\n",drive);
 #   ifdef WIN32
    if (codepage_ansi != codepage_dos)
-      fprintf(outfile,"chcp %d>nul\n", codepage_ansi);
+      fprintf(outfile,"chcp %d > nul\n", codepage_ansi);
 #   endif
    if (strncmp(best_match,"\"\\\\",3) == 0)
       fprintf(outfile,"pushd %s\n", best_match); /* UNC path */
@@ -1928,7 +1928,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
       fprintf(outfile,"cd %s\n", best_match);
 #   ifdef WIN32
    if (codepage_ansi != codepage_dos)
-      fprintf(outfile,"chcp %d>nul\n", codepage_dos);
+      fprintf(outfile,"chcp %d > nul\n", codepage_dos);
 #   endif
 #  endif
 # endif
