@@ -1910,7 +1910,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 #    endif
    if (codepage_ansi != codepage_dos)
       fprintf(outfile,"chcp %d > null\n", codepage_ansi);
-   fprintf(outfile,"set-location %s", best_match);
+   fprintf(outfile,"set-location %s\n", best_match);
    if (codepage_ansi != codepage_dos)
       fprintf(outfile,"chcp %d > null\n", codepage_dos);
 #  else
