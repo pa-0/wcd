@@ -5,8 +5,8 @@ SRCDIR = ..\..\src
 DEFINES =
 CFLAGS  = $(DEFINES) -i=$(SRCDIR) -i=$(SRCDIR)\c3po -w4 -e25 -zq -od -d2 -5r -bt=dos -mf
 CFLAGS_VERSION = -DVERSION="$(VERSION)" -DVERSION_DATE="$(VERSION_DATE)"
-OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj
-LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.obj,display.obj,dosdir.obj,wfixpath.obj,intset.obj,wcddir.obj,command.obj
+OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj matchl.obj querycp.obj
+LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.obj,display.obj,dosdir.obj,wfixpath.obj,intset.obj,wcddir.obj,command.obj,matchl.obj,querycp.obj
 
 TARGET = causeway
 #TARGET = dos4g
@@ -25,6 +25,12 @@ stack.obj :  $(SRCDIR)\stack.c
 
 match.obj :  $(SRCDIR)\match.c
 	$(CC) $(CFLAGS) $(SRCDIR)\match.c
+
+matchl.obj :  $(SRCDIR)\matchl.c
+	$(CC) $(CFLAGS) $(SRCDIR)\matchl.c
+
+querycp.obj :  $(SRCDIR)\querycp.c
+	$(CC) $(CFLAGS) $(SRCDIR)\querycp.c
 
 wfixpath.obj :  $(SRCDIR)\wfixpath.c
 	$(CC) $(CFLAGS) $(SRCDIR)\wfixpath.c

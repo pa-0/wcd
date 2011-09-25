@@ -1,5 +1,7 @@
 /* The code in this file is Public Domain */
 
+#include "tailor.h"
+
 #ifdef DJGPP
 
 #include <dpmi.h>
@@ -63,7 +65,7 @@ unsigned short query_con_codepage(void) {
 
    return param_block[1];
 }
-#elif defined(__WATCOMC__) && defined(MSDOS)
+#elif defined(__WATCOMC__) && defined(__I86__) /* Watcom C, 16 bit Intel */
 
 /* rugxulo _AT_ gmail _DOT_ com */
 
@@ -113,12 +115,12 @@ unsigned short query_con_codepage(void) {
 }
 #else
 
-#ifndef __MSDOS__
+#ifndef MSDOS
 #include <string.h>
 #include <langinfo.h>
 #endif
 unsigned short query_con_codepage(void) {
-#ifndef __MSDOS__
+#ifndef MSDOS
    if (strcmp(nl_langinfo(CODESET), "ISO-8859-1") == 0)
      return(8591);
 

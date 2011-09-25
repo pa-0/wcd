@@ -94,7 +94,7 @@ expfun void setSizeOfNamesetArray(nameset n,
    size_t index;
    if (n != NULL)
    {
-      if (size <= 0)
+      if (size == 0)
       {
          if (isEmptyNamesetArray(n) eq false)
          {

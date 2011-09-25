@@ -89,7 +89,7 @@ expfun void setSizeOfIntset(intset i,
    size_t index;
    if (i != NULL)
    {
-      if (size <= 0)
+      if (size == 0)
       {
          if (isEmptyIntset(i) eq false)
          {

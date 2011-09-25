@@ -153,7 +153,7 @@ expfun void setSizeOfWcdStackDir(WcdStack w,
    size_t index;
    if (w != NULL)
    {
-      if (size <= 0)
+      if (size == 0)
       {
          if (isEmptyWcdStackDir(w) eq false)
          {

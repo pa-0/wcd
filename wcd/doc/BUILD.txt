@@ -30,7 +30,7 @@ DOS 16 bit
 
 Wcd 16 bit can be build with Borland and Watcom compiler.
 Borland C compiler version 3.1 and 4.0 work (I always use 4.0).
-A free version of Borland 2.01 can be downloaded at http://community.borland.com/museum/
+
 Watcom C compiler is freely available at http://www.openwatcom.org/
 
 BORLAND
@@ -97,32 +97,15 @@ Windows 32 bit console version.
 ----------------------------------------------
 
 This version can be compiled with free compilers:
-Borland C++: http://www.borland.com/products/downloads/download_cbuilder.html
 LCC        : http://www.cs.virginia.edu/~lcc-win32/
 Watcom     : http://www.openwatcom.org/
 
 Go to directory win32.
-Cd to one of the compiler directories: borland, lcc or watcom.
+Cd to one of the compiler directories: lcc or watcom.
 
 The makefiles that use PDCurses (pdcurses.mak) assume that curses.h has been
 copied into the include directory of the compiler and the pdcurses library in
 the compiler's lib directory.
-
-BORLAND
-
-    Edit the makefile you want to use first: set CC_HOME to the correct value.
-
-    The default makefile (makefile) compiles wcd with stdout interface.
-
-    > make
-
-    To compile wcd with curses interface type:
-
-    > make -f pdcurses.mak
-
-    To compile wcd with conio interface type:
-
-    >  make -f conio.mak
 
 WATCOM
 

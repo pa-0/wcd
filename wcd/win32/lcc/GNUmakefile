@@ -28,6 +28,7 @@ OBJS=\
 	wcd.obj \
 	stack.obj \
 	match.obj \
+	matchl.obj \
 	colors.obj \
 	graphics.obj \
 	dosdir.obj \
@@ -38,7 +39,8 @@ OBJS=\
 	intset.obj \
 	error.obj \
 	dirnode.obj \
-	wcddir.obj
+	wcddir.obj \
+	querycp.obj
 
 LIBS=mpr.lib $(LIB_CURSES) $(LIB_CONIO)
 
@@ -65,6 +67,7 @@ WCD_C=\
 	$(SRCDIR)\\wcddir.h\
 	$(SRCDIR)\\tailor.h\
 	$(SRCDIR)\\match.h\
+	$(SRCDIR)\\matchl.h\
 	$(SRCDIR)\\tailor.h\
 	$(SRCDIR)\\c3po\\std_macr.h\
 	$(SRCDIR)\\c3po\\structur.h\
@@ -80,6 +83,7 @@ WCD_C=\
 	$(SRCDIR)\\wfixpath.h\
 	$(SRCDIR)\\colors.h\
 	$(SRCDIR)\\graphics.h\
+	$(SRCDIR)\\querycp.h\
 
 wcd.obj: $(WCD_C) $(SRCDIR)\\wcd.c
 	$(CC) -c $(CFLAGS) $(CFLAGS_VERSION) $(SRCDIR)\\wcd.c
@@ -108,6 +112,22 @@ MATCH_C=\
 
 match.obj: $(MATCH_C) $(SRCDIR)\\match.c
 	$(CC) -c $(CFLAGS) $(SRCDIR)\\match.c
+
+# Build MATCHL.C
+MATCHL_C=\
+	$(SRCDIR)\\matchl.h\
+	$(SRCDIR)\\tailor.h\
+
+matchl.obj: $(MATCHL_C) $(SRCDIR)\\matchl.c
+	$(CC) -c $(CFLAGS) $(SRCDIR)\\matchl.c
+
+# Build QUERYCP.C
+QUERYCP_C=\
+	$(SRCDIR)\\querycp.h\
+	$(SRCDIR)\\tailor.h\
+
+querycp.obj: $(QUERYCP_C) $(SRCDIR)\\querycp.c
+	$(CC) -c $(CFLAGS) $(SRCDIR)\\querycp.c
 
 # Build COLORS.C
 COLORS_C=\

@@ -41,6 +41,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  define WIN32
 #endif /* Watcom C Windows NT and 95 target.  EW */
 
+#if (defined(__DOS__) && !defined(MSDOS))
+#  define MSDOS
+#endif /* Watcom C DOS target.  EW */
+
 #ifdef ATARI_ST
 #  undef MSDOS   /* avoid the MS-DOS specific includes */
 #endif

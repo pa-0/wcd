@@ -272,7 +272,7 @@ expfun void setSizeOfDirnode(dirnode d,
    size_t index;
    if (d != NULL)
    {
-      if (size <= 0)
+      if (size == 0)
       {
          if (isEmptyDirnode(d) eq false)
          {

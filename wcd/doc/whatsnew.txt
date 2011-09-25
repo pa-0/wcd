@@ -4,6 +4,7 @@
   - Locale matching of accented characters for
     CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, ISO-8859-2.
   - Code cleanup for -Wextra -Wconversion.
+  - Drop support for Borland 32 bit Windows compiler.
 
 5.1.5 2011-06-06
   - Default scan directory is $HOME, even when WCDHOME is defined.
