@@ -28,34 +28,12 @@ This bug is solved in PDCurses 2.7.
 DOS 16 bit
 ----------------------------------------------
 
-Wcd 16 bit can be build with Borland and Watcom compiler.
-Borland C compiler version 3.1 and 4.0 work (I always use 4.0).
-
 Watcom C compiler is freely available at http://www.openwatcom.org/
-
-BORLAND
-
-    Go to directory dos16.
-
-    To compile wcd with default conio interface type (Compact memory model):
-
-    >  make
-
-    To compile wcd with default conio interface type (Large memory model):
-
-    >  make -f wcd.mak
-
-    or open wcd.prj file in Borland 3.1 IDE.
-
-
-    To compile wcd with PDCurses interface type (Large memory model):
-
-    >  make -f pdcurses.mak
 
 
 WATCOM
 
-    Go to directory dos16/watcom
+    Go to directory dos16
 
 
     To compile wcd with standard out interface type (Large memory model):
@@ -142,11 +120,4 @@ LCC
 
     Conio version compiled with LCC does not work properly.
     Preferably compile stdout or pdcurses version.
-
-----------------------------------------------
-Windows 32 bit MSYS and zsh version.
-----------------------------------------------
-
-Go to directory win32zsh.
-Same as win32 console version.
 

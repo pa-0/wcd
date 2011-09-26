@@ -138,62 +138,6 @@ BINARY DISTRIBUTION PACKAGE CREATION
           Type `make dist-zip' to create a .zip file.
 
 
-USING SIMPLE GNU MAKEFILES
-
-        If the above command failed to recognize your system, the
-        options are after below.
-
-        With gcc compiler and ncurses:
-          make -f old/Makefile.gnu.ncurses
-
-        With gcc compiler and stdin/stdout interface:
-          make -f old/Makefile.gnu.std
-
-        With gcc compiler and PDcurses:
-          make -f old/Makefile.gnu.pdcurses
-
-        Note: using PDcurses on Unix makes not much sense for wcd,
-        because it runs in its own separate window, not in the
-        current terminal.
-
-        Now go to section SHELL INTEGRATION below.
-
-USING NATIVE OS TOOLS
-
-        If you don't have GNU tools, see these files for native OS
-        compilation.
-
-        With HP-UX cc and ncurses:
-          make -f old/Makefile.HP-UX.ncurses
-
-        With HP-UX cc and curses:
-          make -f old/Makefile.HP-UX.curses
-
-        With SunOS cc and curses:
-          make -f old/Makefile.SunOS.curses
-
-        With SunOS gcc and curses:
-          make -f old/Makefile.SunOS.curses CC=gcc CFLAGS=-Ic3po LFLAGS=-lcurses
-
-        QNX 4.25
-          make4qnx
-
-        Now go to section SHELL INTEGRATION below.
-
-USING IMAKE
-
-        Wcd can also be compiled with Imake:
-
-            xmkmf
-            make depend
-            make
-            make install
-
-        The last command copies wcd.exe to your $HOME/bin directory.
-        Note: Imake will overwrite the makefile "Makefile".
-
-        Now go to section SHELL INTEGRATION below.
-
 PORTABILITY
 
         See also file SOURCE.txt.

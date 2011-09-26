@@ -1,10 +1,16 @@
 5.2.0-beta1 2011-09-22
   - URL home page changed to http://waterlan.home.xs4all.nl/
   - Makefile use RPM_OPT_FLAGS.
-  - Locale matching of accented characters for
-    CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, ISO-8859-2.
+  - Locale matching of accented characters for Eastern and Western
+    European languages. CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1,
+    ISO-8859-2.
   - Code cleanup for -Wextra -Wconversion.
-  - Drop support for Borland 32 bit Windows compiler.
+  - Drop support for Borland C compiler, because it's hard to get
+    now and not developed any more since a long time. Default to
+    OpenWatcom for DOS 16 bit.
+  - Removed Imakefile, because imake is depreciated.
+  - Removed old makefiles for native HP-UX and Solaris C compiler.
+    I'm not able to test these compilers.
 
 5.1.5 2011-06-06
   - Default scan directory is $HOME, even when WCDHOME is defined.

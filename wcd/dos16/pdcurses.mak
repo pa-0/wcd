@@ -1,155 +1,82 @@
-# Makefile for Borland C++
-# PDCurses is installed in C:\CURSES
-# pdcurses.lib has been copied to $(LIBPATH)
-
-.AUTODEPEND
-
 !include ..\src\version.mk
 
-#		*Translator Definitions*
-CC = bcc +PDCURSES.CFG
-TASM = TASM
-TLIB = tlib
-TLINK = tlink
-LIBPATH = C:\BC4\LIB;
-INCLUDEPATH = ..\SRC;..\SRC\C3PO;C:\BC4\INCLUDE;C:\CURSES
+CC      = wcc
+SRCDIR = ..\src
+DEFINES = -dWCD_USECURSES
+CFLAGS  = $(DEFINES) -i=$(SRCDIR) -i=$(SRCDIR)\c3po -w4 -e25 -zq -od -d2 -bt=dos -ml
+CFLAGS_VERSION = -DVERSION="$(VERSION)" -DVERSION_DATE="$(VERSION_DATE)"
+OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj dirnode.obj colors.obj graphics.obj matchl.obj querycp.obj
+LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.obj,display.obj,dosdir.obj,wfixpath.obj,intset.obj,wcddir.obj,command.obj,dirnode.obj,colors.obj,graphics.obj,matchl.obj,querycp.obj
+
+TARGET = dos
+
+all: wcd.exe
+
+wcd.exe: $(OBJS)
+	@%create wcd.lnk
+	@%append wcd.lnk FIL $(LOBJS)
+	@%append wcd.lnk library pdcurses.lib
+	wlink name wcd d all SYS $(TARGET) op m op st=32k op maxe=25 op q op symf @wcd.lnk
+	del wcd.lnk
 
 
-#		*Implicit Rules*
-.c.obj:
-  $(CC) -c {$< }
+stack.obj :  $(SRCDIR)\stack.c
+	$(CC) $(CFLAGS) $(SRCDIR)\stack.c
 
-.cpp.obj:
-  $(CC) -c {$< }
+match.obj :  $(SRCDIR)\match.c
+	$(CC) $(CFLAGS) $(SRCDIR)\match.c
 
-#		*List Macros*
+matchl.obj :  $(SRCDIR)\matchl.c
+	$(CC) $(CFLAGS) $(SRCDIR)\matchl.c
 
+querycp.obj :  $(SRCDIR)\querycp.c
+	$(CC) $(CFLAGS) $(SRCDIR)\querycp.c
 
-EXE_dependencies =  \
- display.obj \
- dosdir.obj \
- match.obj \
- matchl.obj \
- stack.obj \
- wcd.obj \
- wfixpath.obj \
- command.obj \
- error.obj \
- intset.obj \
- nameset.obj \
- text.obj \
- wcdstack.obj \
- dirnode.obj \
- colors.obj \
- graphics.obj \
- wcddir.obj \
- querycp.obj
+wfixpath.obj :  $(SRCDIR)\wfixpath.c
+	$(CC) $(CFLAGS) $(SRCDIR)\wfixpath.c
 
-#		*Explicit Rules*
-wcd.exe: pdcurses.cfg $(EXE_dependencies)
-  $(TLINK) /v/x/c/P-/L$(LIBPATH) @&&|
-c0l.obj+
-display.obj+
-dosdir.obj+
-match.obj+
-matchl.obj+
-stack.obj+
-wcd.obj+
-wfixpath.obj+
-command.obj+
-error.obj+
-intset.obj+
-nameset.obj+
-text.obj+
-wcdstack.obj+
-dirnode.obj+
-colors.obj+
-graphics.obj+
-wcddir.obj+
-querycp.obj
-wcd
-		# no map file
-emu.lib+
-mathl.lib+
-cl.lib+
-pdcurses.lib
-|
+dosdir.obj :  $(SRCDIR)\dosdir.c
+	$(CC) $(CFLAGS) $(SRCDIR)\dosdir.c
+
+display.obj :  $(SRCDIR)\display.c
+	$(CC) $(CFLAGS) $(SRCDIR)\display.c
+
+colors.obj :  $(SRCDIR)\colors.c
+	$(CC) $(CFLAGS) $(SRCDIR)\colors.c
+
+graphics.obj :  $(SRCDIR)\graphics.c
+	$(CC) $(CFLAGS) $(SRCDIR)\graphics.c
+
+wcd.obj :  $(SRCDIR)\wcd.c
+	$(CC) $(CFLAGS) $(CFLAGS_VERSION) $(SRCDIR)\wcd.c
+
+wcddir.obj :  $(SRCDIR)\wcddir.c
+	$(CC) $(CFLAGS) $(SRCDIR)\wcddir.c
 
 
-#		*Individual File Dependencies*
-display.obj: pdcurses.cfg ..\src\display.c 
-	$(CC) -c ..\src\display.c
+WcdStack.obj :  $(SRCDIR)\c3po\WcdStack.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\WcdStack.c
 
-dosdir.obj: pdcurses.cfg ..\src\dosdir.c 
-	$(CC) -c ..\src\dosdir.c
+Text.obj :  $(SRCDIR)\c3po\Text.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\Text.c
 
-match.obj: pdcurses.cfg ..\src\match.c 
-	$(CC) -c ..\src\match.c
+nameset.obj :  $(SRCDIR)\c3po\nameset.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\nameset.c
 
-matchl.obj : pdcurses.cfg  ..\src\matchl.c
-	$(CC) -c -o$@ ..\src\matchl.c
+Error.obj :  $(SRCDIR)\c3po\Error.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\Error.c
 
-querycp.obj : pdcurses.cfg  ..\src\querycp.c
-	$(CC) -c -o$@ ..\src\querycp.c
+intset.obj :  $(SRCDIR)\c3po\intset.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\intset.c
 
-stack.obj: pdcurses.cfg ..\src\stack.c 
-	$(CC) -c ..\src\stack.c
+command.obj :  $(SRCDIR)\c3po\command.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\command.c
 
-colors.obj: pdcurses.cfg ..\src\colors.c 
-	$(CC) -c ..\src\colors.c
+dirnode.obj :  $(SRCDIR)\c3po\dirnode.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\dirnode.c
 
-graphics.obj: pdcurses.cfg ..\src\graphics.c 
-	$(CC) -c ..\src\graphics.c
-
-wcd.obj: pdcurses.cfg ..\src\wcd.c 
-	$(CC) -c ..\src\wcd.c
-
-wfixpath.obj: pdcurses.cfg ..\src\wfixpath.c 
-	$(CC) -c ..\src\wfixpath.c
-
-wcddir.obj: pdcurses.cfg ..\src\wcddir.c 
-	$(CC) -c ..\src\wcddir.c
-
-command.obj: pdcurses.cfg ..\src\c3po\command.c 
-	$(CC) -c ..\src\c3po\command.c
-
-error.obj: pdcurses.cfg ..\src\c3po\error.c 
-	$(CC) -c ..\src\c3po\error.c
-
-intset.obj: pdcurses.cfg ..\src\c3po\intset.c 
-	$(CC) -c ..\src\c3po\intset.c
-
-nameset.obj: pdcurses.cfg ..\src\c3po\nameset.c 
-	$(CC) -c ..\src\c3po\nameset.c
-
-text.obj: pdcurses.cfg ..\src\c3po\text.c 
-	$(CC) -c ..\src\c3po\text.c
-
-wcdstack.obj: pdcurses.cfg ..\src\c3po\wcdstack.c 
-	$(CC) -c ..\src\c3po\wcdstack.c
-
-dirnode.obj: pdcurses.cfg ..\src\c3po\dirnode.c 
-	$(CC) -c ..\src\c3po\dirnode.c
-
-clean:
-	del *.obj
-	del *.cfg
-	del wcd.exe
-
-#		*Compiler Configuration File*
-pdcurses.cfg: pdcurses.mak
-  copy &&|
--ml
--v
--vi-
--wpro
--weas
--wpre
--I$(INCLUDEPATH)
--L$(LIBPATH)
--DDOSWILD;WCD_USECURSES
--DVERSION="$(VERSION)"
--DVERSION_DATE="$(VERSION_DATE)"
-| pdcurses.cfg
-
-
+clean
+	-del *.obj
+	-del *.map
+	-del *.sym
+	-del *.exe

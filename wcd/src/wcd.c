@@ -54,13 +54,16 @@ TAB = 3 spaces
 #ifdef ENABLE_NLS
 #include <locale.h>
 #endif
-#if defined(ENABLE_NLS) || defined(WCD_UNICODE)
-#if (defined(MSDOS))   /* DOS, Windows (not Cygwin), OS/2 */
+
+#if (defined (WIN32) && !defined(__CYGWIN__)) || defined(OS2) /* Windows (not Cygwin), OS/2 */
 # include "langinfo.h"
 #else
-# include <langinfo.h>
+# ifndef MSDOS
+#  include <langinfo.h>
+# endif
 #endif
-#endif
+
+#include "querycp.h"
 #include "dosdir.h"
 #include "match.h"
 #include "matchl.h"
@@ -1708,9 +1711,13 @@ void print_version()
 #ifdef ENABLE_NLS
    printf(_("Native language support included.\n"));
    printf(_("LOCALEDIR=%s\n"),localedir);
-   printf(_("Current locale uses %s encoding.\n"),nl_langinfo(CODESET));
 #else
    printf(_("No native language support included.\n"));
+#endif
+#if defined(MSDOS) && !defined(WIN32)
+   printf(_("Current locale uses CP%d encoding.\n"),query_con_codepage());
+#else
+   printf(_("Current locale uses %s encoding.\n"),nl_langinfo(CODESET));
 #endif
 #ifdef WCD_UNICODE
    printf(_("With Unicode support.\n"));

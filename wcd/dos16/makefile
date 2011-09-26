@@ -1,92 +1,72 @@
 !include ..\src\version.mk
 
-CC      = bcc +WCD.CFG
-LIBPATH = C:\BC4\LIB;
-INCLUDEPATH = ..\SRC;..\SRC\C3PO;C:\BC4\INCLUDE
+CC      = wcc
+SRCDIR = ..\src
+DEFINES =
+CFLAGS  = $(DEFINES) -i=$(SRCDIR) -i=$(SRCDIR)\c3po -w4 -e25 -zq -od -d2 -bt=dos -ml
+CFLAGS_VERSION = -DVERSION="$(VERSION)" -DVERSION_DATE="$(VERSION_DATE)"
 OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj matchl.obj querycp.obj
+LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.obj,display.obj,dosdir.obj,wfixpath.obj,intset.obj,wcddir.obj,command.obj,matchl.obj,querycp.obj
+
+TARGET = dos
 
 all: wcd.exe
 
 wcd.exe: $(OBJS)
-	#bcc -mc $(OBJS) noehc.lib
-	bcc -mc @objlist.txt
-
-# remove noehc.lib if you are using Borland C version prior
-# to 4.0. noeh?.lib, where ? stands for the memory model,
-# removes the C++ exception handling from the startup-code
-# which is included by default since Borland 4.0 and
-# higher. Including noeh?.lib reduces the executable size
-# significant, provided your source is C only.
+	@%create wcd.lnk
+	@%append wcd.lnk FIL $(LOBJS)
+	wlink name wcd d all SYS $(TARGET) op m op st=32k op maxe=25 op q op symf @wcd.lnk
+	del wcd.lnk
 
 
-#.c.obj: wcd.cfg
-#	$(CC) -c $<
+stack.obj :  $(SRCDIR)\stack.c
+	$(CC) $(CFLAGS) $(SRCDIR)\stack.c
 
-stack.obj : wcd.cfg  ..\src\stack.c
-	$(CC) -c -o$@ ..\src\stack.c
+match.obj :  $(SRCDIR)\match.c
+	$(CC) $(CFLAGS) $(SRCDIR)\match.c
 
-match.obj : wcd.cfg  ..\src\match.c
-	$(CC) -c -o$@ ..\src\match.c
+matchl.obj :  $(SRCDIR)\matchl.c
+	$(CC) $(CFLAGS) $(SRCDIR)\matchl.c
 
-matchl.obj : wcd.cfg  ..\src\matchl.c
-	$(CC) -c -o$@ ..\src\matchl.c
+querycp.obj :  $(SRCDIR)\querycp.c
+	$(CC) $(CFLAGS) $(SRCDIR)\querycp.c
 
-querycp.obj : wcd.cfg  ..\src\querycp.c
-	$(CC) -c -o$@ ..\src\querycp.c
+wfixpath.obj :  $(SRCDIR)\wfixpath.c
+	$(CC) $(CFLAGS) $(SRCDIR)\wfixpath.c
 
-wfixpath.obj : wcd.cfg  ..\src\wfixpath.c
-	$(CC) -c -o$@ ..\src\wfixpath.c
+dosdir.obj :  $(SRCDIR)\dosdir.c
+	$(CC) $(CFLAGS) $(SRCDIR)\dosdir.c
 
-dosdir.obj : wcd.cfg  ..\src\dosdir.c
-	$(CC) -c -o$@ ..\src\dosdir.c
+display.obj :  $(SRCDIR)\display.c
+	$(CC) $(CFLAGS) $(SRCDIR)\display.c
 
-display.obj : wcd.cfg  ..\src\display.c
-	$(CC) -c -o$@ ..\src\display.c
+wcd.obj :  $(SRCDIR)\wcd.c
+	$(CC) $(CFLAGS) $(CFLAGS_VERSION) $(SRCDIR)\wcd.c
 
-wcd.obj : wcd.cfg  ..\src\wcd.c
-	$(CC) -c -o$@ ..\src\wcd.c
-
-wcddir.obj : wcd.cfg  ..\src\wcddir.c
-	$(CC) -c -o$@ ..\src\wcddir.c
+wcddir.obj :  $(SRCDIR)\wcddir.c
+	$(CC) $(CFLAGS) $(SRCDIR)\wcddir.c
 
 
-WcdStack.obj : wcd.cfg  ..\src\c3po\WcdStack.c
-	$(CC) -c -o$@ ..\src\c3po\WcdStack.c
+WcdStack.obj :  $(SRCDIR)\c3po\WcdStack.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\WcdStack.c
 
-Text.obj : wcd.cfg  ..\src\c3po\Text.c
-	$(CC) -c -o$@ ..\src\c3po\Text.c
+Text.obj :  $(SRCDIR)\c3po\Text.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\Text.c
 
-nameset.obj : wcd.cfg  ..\src\c3po\nameset.c
-	$(CC) -c -o$@ ..\src\c3po\nameset.c
+nameset.obj :  $(SRCDIR)\c3po\nameset.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\nameset.c
 
-Error.obj : wcd.cfg  ..\src\c3po\Error.c
-	$(CC) -c -o$@ ..\src\c3po\Error.c
+Error.obj :  $(SRCDIR)\c3po\Error.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\Error.c
 
-intset.obj : wcd.cfg  ..\src\c3po\intset.c
-	$(CC) -c -o$@ ..\src\c3po\intset.c
+intset.obj :  $(SRCDIR)\c3po\intset.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\intset.c
 
-command.obj : wcd.cfg  ..\src\c3po\command.c
-	$(CC) -c -o$@ ..\src\c3po\command.c
+command.obj :  $(SRCDIR)\c3po\command.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\command.c
 
-strip :
-	tdstrip wcd.exe
-
-clean:
-	del *.obj
-	del *.cfg
-	del wcd.exe
-
-#		*Compiler Configuration File*
-wcd.cfg: makefile
-  copy &&|
--Z
--O
--w
--mc
--1
--I$(INCLUDEPATH)
--L$(LIBPATH)
--DDOSWILD;WCD_USECONIO
--DVERSION="$(VERSION)"
--DVERSION_DATE="$(VERSION_DATE)"
-| wcd.cfg
+clean
+	-del *.obj
+	-del *.map
+	-del *.sym
+	-del *.exe
