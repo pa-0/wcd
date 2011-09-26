@@ -11,7 +11,7 @@ PROGRAM = ${PACKAGE}.exe
 bindir    = ${exec_prefix}/bin
 datarootdir = $(prefix)/share
 mandir    = ${datarootdir}/man
-docsubdir = ${PACKAGE}-${VERSION_SHORT}
+docsubdir = ${PACKAGE}
 docdir    = ${datarootdir}/doc/${docsubdir}
 
 ifdef CONIO
@@ -37,7 +37,7 @@ install :
 	${INSTALL} -m 644 ../doc/copying.txt "${DESTDIR}${docdir}/copying.txt"
 	${INSTALL} -m 644 ../doc/faq.txt ${DESTDIR}${docdir}/faq.txt
 	${INSTALL} -m 644 ../doc/wcd.txt ${DESTDIR}${docdir}/wcd.txt
-	${INSTALL} -m 644 ../doc/wcd.pdf ${DESTDIR}${docdir}/wcd.pdf
+	${INSTALL} -m 644 ../doc/wcd.htm ${DESTDIR}${docdir}/wcd.htm
 	${INSTALL} -m 644 ../doc/whatsnew.txt ${DESTDIR}${docdir}/whatsnew.txt
 	${INSTALL} -m 644 ../doc/INSTALL.txt ${DESTDIR}${docdir}/INSTALL.txt
 	${INSTALL} -m 644 ../doc/DOS.txt ${DESTDIR}${docdir}/DOS.txt
