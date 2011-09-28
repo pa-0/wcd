@@ -131,10 +131,10 @@ static wchar_t match_Unicode[256] =
 };
 
 
-/* dd_matchw() is a shell to recmatch() to return only Boolean values. */
-static int recmatchw(wchar_t *pattern, wchar_t *string, int ignore_case, wchar_t *CPTable);
+/* dd_matchwcs() is a shell to recmatch() to return only Boolean values. */
+static int recmatchwcs(wchar_t *pattern, wchar_t *string, int ignore_case, wchar_t *CPTable);
 
-int dd_matchw(const wchar_t *string,const wchar_t *pattern,int ignore_case)
+int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case)
 {
 #if (defined(MSDOS) && defined(DOSWILD))
     wchar_t *dospattern;
@@ -173,16 +173,16 @@ int dd_matchw(const wchar_t *string,const wchar_t *pattern,int ignore_case)
             }
             dospattern[j-1] = '\0';                    /* nuke the end "." */
         }
-        j = recmatchw((wchar_t *)dospattern, (wchar_t *)string, ignore_case, CPTable);
+        j = recmatchwcs((wchar_t *)dospattern, (wchar_t *)string, ignore_case, CPTable);
         free(dospattern);
         return j == 1;
     } else
 #endif /* MSDOS && DOSWILD */
-    return recmatchw((wchar_t *)pattern, (wchar_t *)string, ignore_case, CPTable) == 1;
+    return recmatchwcs((wchar_t *)pattern, (wchar_t *)string, ignore_case, CPTable) == 1;
 }
 
 
-static int recmatchw(wchar_t *p,wchar_t *s,int ic, wchar_t *CPTable)
+static int recmatchwcs(wchar_t *p,wchar_t *s,int ic, wchar_t *CPTable)
    /*  wchar_t *p;  			 sh pattern to match */
    /*  wchar_t *s;  			 string to which to match it */
    /*  int ic;  			 true for case insensitivity */
@@ -207,7 +207,7 @@ static int recmatchw(wchar_t *p,wchar_t *s,int ic, wchar_t *CPTable)
 #else /* !VMS */
     if (c == L'?')
 #endif /* ?VMS */
-        return *s ? recmatchw(p, s + 1, ic, CPTable) : 0;
+        return *s ? recmatchwcs(p, s + 1, ic, CPTable) : 0;
 
     /* '*' matches any number of characters, including zero */
 #ifdef AMIGA
@@ -218,7 +218,7 @@ static int recmatchw(wchar_t *p,wchar_t *s,int ic, wchar_t *CPTable)
         if (*p == 0)
             return 1;
         for (; *s; s++)
-            if ((result = recmatchw(p, s, ic, CPTable)) != 0)
+            if ((result = recmatchwcs(p, s, ic, CPTable)) != 0)
                 return result;
         return 2;       /* 2 means give up--match will return false */
     }
@@ -226,9 +226,9 @@ static int recmatchw(wchar_t *p,wchar_t *s,int ic, wchar_t *CPTable)
 #ifndef VMS             /* No bracket matching in VMS */
     /* Parse and process the list of characters and ranges in brackets */
     if (c == L'[') {
-        wchar_t e;      /* flag true if next char to be taken literally */
-        wchar_t *q;     /* pointer to end of [-] group */
-        wchar_t r;      /* flag true to match anything but the range */
+        wint_t e;      /* flag true if next char to be taken literally */
+        wchar_t *q;    /* pointer to end of [-] group */
+        wint_t r;      /* flag true to match anything but the range */
 
         if (*s == 0)                           /* need a character to match */
             return 0;
@@ -243,7 +243,7 @@ static int recmatchw(wchar_t *p,wchar_t *s,int ic, wchar_t *CPTable)
                     break;
         if (*q != L']')               /* nothing matches if bad syntax */
             return 0;
-        for (c = 0, e = *p == '-'; p < q; p++) {  /* go through the list */
+        for (c = 0, e = *p == L'-'; p < q; p++) {  /* go through the list */
             if (e == 0 && *p == L'\\')             /* set escape flag if \ */
                 e = 1;
             else if (e == 0 && *p == L'-')         /* set start of range if - */
@@ -259,12 +259,12 @@ static int recmatchw(wchar_t *p,wchar_t *s,int ic, wchar_t *CPTable)
                         else
                             result = Case(c) == Case(cc);
                         if (result)
-                            return r ? 0 : recmatchw(q + 1, s + 1, ic, CPTable);
+                            return r ? 0 : recmatchwcs(q + 1, s + 1, ic, CPTable);
                     }
                 c = e = 0;   /* clear range, escape flags */
             }
         }
-        return r ? recmatchw(q + 1, s + 1, ic, CPTable) : 0;  /* bracket match failed */
+        return r ? recmatchwcs(q + 1, s + 1, ic, CPTable) : 0;  /* bracket match failed */
     }
 #endif /* !VMS */
 
@@ -277,7 +277,7 @@ static int recmatchw(wchar_t *p,wchar_t *s,int ic, wchar_t *CPTable)
         result = Case(CPTable[c]) == Case(CPTable[*s]);
     else
         result = Case(c) == Case(*s);
-    return result ? recmatchw(p, ++s, ic, CPTable) : 0;
+    return result ? recmatchwcs(p, ++s, ic, CPTable) : 0;
 
 } /* end function recmatch() */
 
@@ -334,8 +334,8 @@ void main(void)
             if (!str[0])
                 break;
             printf("Case sensitive: %s  insensitive: %s\n",
-              dd_matchw(str, pat, 0) ? "YES" : "NO",
-              dd_matchw(str, pat, 1) ? "YES" : "NO");
+              dd_matchwcs(str, pat, 0) ? "YES" : "NO",
+              dd_matchwcs(str, pat, 1) ? "YES" : "NO");
         }
     }
     exit(0);
