@@ -1,9 +1,9 @@
-5.2.0-beta1 2011-09-22
+5.2.0-beta1 2011-09-28
   - URL home page changed to http://waterlan.home.xs4all.nl/
   - Makefile use RPM_OPT_FLAGS.
   - Locale matching of accented characters for Eastern and Western
     European languages. CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1,
-    ISO-8859-2.
+    ISO-8859-2, and Unicode Latin-1 and Latin Extended-A.
   - Code cleanup for -Wextra -Wconversion.
   - Drop support for Borland C compiler, because it's hard to get
     now and not developed any more since a long time. Default to

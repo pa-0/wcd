@@ -14,6 +14,6 @@ terms of the GNU General Public License, see the file COPYING.
 
 #include "match.h"
 
-int dd_matchl(const char *pattern, const char *string, int ignore_case);
+int dd_matchl(const char *string, const char *pattern, int ignore_case);
 
 #endif /* _MATCHL_H */

@@ -66,7 +66,11 @@ TAB = 3 spaces
 #include "querycp.h"
 #include "dosdir.h"
 #include "match.h"
-#include "matchl.h"
+#ifdef WCD_UNICODE
+#  include "matchw.h"
+#else
+#  include "matchl.h"
+#endif
 #include "std_macr.h"
 #include "structur.h"
 #include "Error.h"
@@ -1435,8 +1439,13 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 
       /* test for a perfect match */
 
+#ifdef WCD_UNICODE
+      if ( (wild == 0) && (dd_matchmbs(line_end,dir_str,ignore_case))  &&
+           (dd_matchmbs(line,path_str,ignore_case)) )
+#else
       if ( (wild == 0) && (dd_matchl(line_end,dir_str,ignore_case))  &&
            (dd_matchl(line,path_str,ignore_case)) )
+#endif
             {
 
                if (relative)
@@ -1458,8 +1467,13 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 
             /* test for a wild match if no perfect match */
 
+#ifdef WCD_UNICODE
+            if ( (dd_matchmbs(line_end,dirwild_str,ignore_case)) &&
+                 (dd_matchmbs(line,path_str,ignore_case)) && (pm->size == 0))
+#else
             if ( (dd_matchl(line_end,dirwild_str,ignore_case)) &&
                  (dd_matchl(line,path_str,ignore_case)) && (pm->size == 0))
+#endif
                {
 
                    if (relative)

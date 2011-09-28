@@ -15,9 +15,10 @@ LIB_CURSES = -l${CURSES}
 DEFS   += -DWCD_USECURSES -DPDC_STATIC_BUILD
 endif
 
+EXTRA_OBJ += langinfo.o
+
 ifdef ENABLE_NLS
 LDFLAGS_EXTRA += -lintl -liconv
-EXTRA_OBJ += langinfo.o
 endif
 
 ifdef WCD_UTF8
@@ -30,7 +31,7 @@ ifdef CURSES
 DEFS   += -DPDC_WIDE
 CURSES = pdcursesw
 endif
-EXTRA_OBJ += wcwidth.o
+EXTRA_OBJ += matchw.o wcwidth.o
 endif
 
 bindir    = ${exec_prefix}/bin

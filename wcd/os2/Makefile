@@ -24,9 +24,10 @@ LIB_CURSES = -lncurses -Zomf
 DEFS   += -DWCD_USECURSES
 endif
 
+EXTRA_OBJ += langinfo.o
+
 ifdef ENABLE_NLS
 LDFLAGS_EXTRA += -lintl -liconv
-EXTRA_OBJ += langinfo.o
 endif
 
 bindir    = ${exec_prefix}/bin

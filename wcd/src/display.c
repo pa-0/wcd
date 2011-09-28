@@ -44,13 +44,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 #ifdef WCD_UTF16
 /* wide char to UTF-8 */
-int wcstoutf8(char *mbstr, wchar_t *wcstr, int len)
+size_t wcstoutf8(char *mbstr, wchar_t *wcstr, int len)
 {
-   return(WideCharToMultiByte(CP_UTF8, 0, wcstr, -1, mbstr, len, NULL, NULL) -1);
+   return((size_t)(WideCharToMultiByte(CP_UTF8, 0, wcstr, -1, mbstr, len, NULL, NULL) -1));
 }
-int utf8towcs(wchar_t *wcstr, char *mbstr, int len)
+size_t utf8towcs(wchar_t *wcstr, char *mbstr, int len)
 {
-   return(MultiByteToWideChar(CP_UTF8, 0, mbstr, -1, wcstr, len) -1);
+   return((size_t)(MultiByteToWideChar(CP_UTF8, 0, mbstr, -1, wcstr, len) -1));
 }
 #endif
 

@@ -33,7 +33,7 @@ typedef unsigned long     ulg;  /*  predefined on some systems) & match zip  */
 extern "C" {
 #endif
 
-int dd_match(const char *pattern, const char *string, int ignore_case);
+int dd_match(const char *string, const char *pattern, int ignore_case);
 int dd_iswild(const char *p);
 
 #ifdef __cplusplus

@@ -4,7 +4,7 @@ PREFIX = c:/djgpp
 prefix = $(PREFIX)
 MKDIR  = mkdir
 
-CFLAGS = -O2 -Wall
+CFLAGS = -O2 -Wall -Wextra -Wconversion
 CURSES = pdcurses
 ENABLE_NLS =
 DEFS   = -DWCD_DOSBASH
