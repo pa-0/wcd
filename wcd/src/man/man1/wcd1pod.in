@@ -360,6 +360,19 @@ versions regard case by default.
 
 Regard case.  See also option B<-i>.
 
+=item B<-I>
+
+Ignore diacritics.
+Letters with diacritical marks match their base letter without diacritical
+mark.  Only Latin-based scripts are supported, the following Latin encodings:
+CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, ISO-8859-2, and Unicode
+Latin-1, Latin Extended-A, and Latin Extended-B.
+See also L<http://en.wikipedia.org/wiki/Diacritic>
+
+=item  B<+I>
+
+Regard diacritics (default).  See also option B<-I>.
+
 =item B<-j>
 
 Just go mode.

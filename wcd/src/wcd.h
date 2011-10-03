@@ -124,7 +124,7 @@ void cleanTreeFile(char *filename, char *dir);
 char *removeBackSlash(char *string);
 void addCurPathToFile(char *filename, int *use_HOME, int parents);
 int check_double_match(char *dir, nameset set);
-void scanfile(char *org_dir, char *filename, int ignore_case, nameset pm, nameset wm, nameset bd, nameset filter, int relative, int wildOnly);
+void scanfile(char *org_dir, char *filename, int ignore_case, nameset pm, nameset wm, nameset bd, nameset filter, int relative, int wildOnly, int ignore_diacritics);
 void scanaliasfile(char *org_dir, char *filename, nameset pm, nameset wm, int wildOnly);
 int  strcompare(const char*, const char*, int);
 void print_help(void);

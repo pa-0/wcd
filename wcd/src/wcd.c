@@ -1360,7 +1360,7 @@ int check_filter(char *dir, nameset filter)
  ********************************************************************/
 
 void scanfile(char *org_dir, char *filename, int ignore_case,
-              nameset pm, nameset wm, nameset bd, nameset filter, int relative, int wildOnly)
+              nameset pm, nameset wm, nameset bd, nameset filter, int relative, int wildOnly, int ignore_diacritics)
 {
    FILE *infile;
    char line[DD_MAXPATH];            /* database path */
@@ -1440,11 +1440,11 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
       /* test for a perfect match */
 
 #ifdef WCD_UNICODE
-      if ( (wild == 0) && (dd_matchmbs(line_end,dir_str,ignore_case))  &&
-           (dd_matchmbs(line,path_str,ignore_case)) )
+      if ( (wild == 0) && (dd_matchmbs(line_end,dir_str,ignore_case,ignore_diacritics))  &&
+           (dd_matchmbs(line,path_str,ignore_case,ignore_diacritics)) )
 #else
-      if ( (wild == 0) && (dd_matchl(line_end,dir_str,ignore_case))  &&
-           (dd_matchl(line,path_str,ignore_case)) )
+      if ( (wild == 0) && (dd_matchl(line_end,dir_str,ignore_case,ignore_diacritics))  &&
+           (dd_matchl(line,path_str,ignore_case,ignore_diacritics)) )
 #endif
             {
 
@@ -1468,11 +1468,11 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
             /* test for a wild match if no perfect match */
 
 #ifdef WCD_UNICODE
-            if ( (dd_matchmbs(line_end,dirwild_str,ignore_case)) &&
-                 (dd_matchmbs(line,path_str,ignore_case)) && (pm->size == 0))
+            if ( (dd_matchmbs(line_end,dirwild_str,ignore_case,ignore_diacritics)) &&
+                 (dd_matchmbs(line,path_str,ignore_case,ignore_diacritics)) && (pm->size == 0))
 #else
-            if ( (dd_matchl(line_end,dirwild_str,ignore_case)) &&
-                 (dd_matchl(line,path_str,ignore_case)) && (pm->size == 0))
+            if ( (dd_matchl(line_end,dirwild_str,ignore_case,ignore_diacritics)) &&
+                 (dd_matchl(line,path_str,ignore_case,ignore_diacritics)) && (pm->size == 0))
 #endif
                {
 
@@ -1633,6 +1633,8 @@ directory:  Name of directory to change to.\n\
   -h, --help     show this Help\n\
   -i             Ignore case\n\
   +i             Regard case\n\
+  -I             Ignore diacritics\n\
+  +I             Regard diacritics (default)\n\
   -j             Just go mode\n\
   -k             Keep paths\n\
   -K             Colors\n\
@@ -2055,6 +2057,7 @@ int main(int argc,char** argv)
 #endif
    int  changedrive = 0;
    char drive[DD_MAXDRIVE];
+   int ignore_diacritics = 0;
 #ifdef MSDOS
    int ignore_case = 1;
 # if (defined(WIN32) || defined(WCD_DOSBASH) || defined(OS2))
@@ -2468,6 +2471,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
          case 'i':
             ignore_case = 1;
             break;
+         case 'I':
+            ignore_diacritics = 1;
+            break;
          case 'k':
             keep_paths = 1;
             break;
@@ -2581,6 +2587,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             break;
          case 'i':
             ignore_case = 0;
+            break;
+         case 'I':
+            ignore_diacritics = 0;
             break;
          case 'u':
              break;
@@ -3027,13 +3036,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
    if (strcmp(dir,"")!=0) /* Is there a directory to go to? */
    {
       if (use_default_treedata)
-         scanfile(dir, treefile,ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly); /* scan the treedata file */
+         scanfile(dir, treefile,ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly,ignore_diacritics); /* scan the treedata file */
 
 
       if  ((outfile = wcd_fopen(extratreefile,"r",1)) != NULL)
       {
          fclose(outfile);
-         scanfile(dir, extratreefile,ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly); /* scan the extra treedata file */
+         scanfile(dir, extratreefile,ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly,ignore_diacritics); /* scan the extra treedata file */
       }
 
 
@@ -3041,13 +3050,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
       for (ii=0;ii<extra_files->size;ii++)
       {
-         scanfile(dir, extra_files->array[ii],ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly); /* scan the extra treedata file */
+         scanfile(dir, extra_files->array[ii],ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly,ignore_diacritics); /* scan the extra treedata file */
       }
       /* search relative files */
 
       for (ii=0;ii<relative_files->size;ii++)
       {
-         scanfile(dir, relative_files->array[ii],ignore_case,perfect_list,wild_list,banned_dirs,filter,1,wildOnly); /* scan the nfs treedata file */
+         scanfile(dir, relative_files->array[ii],ignore_case,perfect_list,wild_list,banned_dirs,filter,1,wildOnly,ignore_diacritics); /* scan the nfs treedata file */
       }
 
       /* search alias file */

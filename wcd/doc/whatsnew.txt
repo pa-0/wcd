@@ -1,9 +1,13 @@
-5.2.0-beta1 2011-09-28
+5.2.0-beta4 2011-10-03
   - URL home page changed to http://waterlan.home.xs4all.nl/
+  - New option -I: Ignore diacritics.
+    Letters with diacritical marks match their base letter without
+    diacritical mark. See also http://en.wikipedia.org/wiki/Diacritic
+    Only Latin-based scripts are supported, the following Latin
+    encodings: CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1,
+    ISO-8859-2, and Unicode Latin-1, Latin Extended-A, and Latin Extended-B.
+  - New option +I: Regard diacritics (default).
   - Makefile use RPM_OPT_FLAGS.
-  - Locale matching of accented characters for Eastern and Western
-    European languages. CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1,
-    ISO-8859-2, and Unicode Latin-1 and Latin Extended-A.
   - Code cleanup for -Wextra -Wconversion.
   - Drop support for Borland C compiler, because it's hard to get
     now and not developed any more since a long time. Default to

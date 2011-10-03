@@ -16,11 +16,6 @@ TO DO
   See also http://en.wikipedia.org/wiki/Unicode_normalization
 
 
-* Matching with locale support.
-
-  For instance an 'e' should also match an 'e' with accent.
-
-
 * Support scripts that write from right to left like Arabic, Persian or Hebrew.
 
 

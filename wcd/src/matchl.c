@@ -254,7 +254,7 @@ static uch match_ISO88592[256] =
 /* dd_matchl() is a shell to recmatch() to return only Boolean values. */
 static int recmatchl(uch *pattern, uch *string, int ignore_case, uch *CPTable);
 
-int dd_matchl(const char *string,const char *pattern,int ignore_case)
+int dd_matchl(const char *string,const char *pattern,int ignore_case, int ignore_diacritics)
 {
 #if (defined(MSDOS) && defined(DOSWILD))
     char *dospattern;
@@ -263,33 +263,40 @@ int dd_matchl(const char *string,const char *pattern,int ignore_case)
     int code_page;
     uch *CPTable;
 
-    code_page = (int)query_con_codepage();
 
-    switch (code_page)
+    if (ignore_diacritics == 0)
     {
-      case 437: /* DOS Latin-US (United States) */
-        CPTable = match_CP437;
-        break;
-      case 850: /* DOS Latin-1 (Western European) */
-        CPTable = match_CP850;
-        break;
-      case 852: /* DOS Latin-2 (Eastern European) */
-        CPTable = match_CP852;
-        break;
-      case 1250: /* Windows Latin-2 (Eastern European) */
-        CPTable = match_CP1250;
-        break;
-      case 1252: /* Windows Latin-1 (Western European) */
-        CPTable = match_CP1252;
-        break;
-      case 8591: /* ISO Latin-1 (Western European) */
-        CPTable = match_ISO88591;
-        break;
-      case 8592: /* ISO Latin-2 (Eastern European) */
-        CPTable = match_ISO88592;
-        break;
-      default: /* C */
         CPTable = match_C;
+    }
+    else
+    {
+        code_page = (int)query_con_codepage();
+        switch (code_page)
+        {
+          case 437: /* DOS Latin-US (United States) */
+            CPTable = match_CP437;
+            break;
+          case 850: /* DOS Latin-1 (Western European) */
+            CPTable = match_CP850;
+            break;
+          case 852: /* DOS Latin-2 (Eastern European) */
+            CPTable = match_CP852;
+            break;
+          case 1250: /* Windows Latin-2 (Eastern European) */
+            CPTable = match_CP1250;
+            break;
+          case 1252: /* Windows Latin-1 (Western European) */
+            CPTable = match_CP1252;
+            break;
+          case 8591: /* ISO Latin-1 (Western European) */
+            CPTable = match_ISO88591;
+            break;
+          case 8592: /* ISO Latin-2 (Eastern European) */
+            CPTable = match_ISO88592;
+            break;
+          default: /* C */
+            CPTable = match_C;
+        }
     }
 
 #if (defined(MSDOS) && defined(DOSWILD))
