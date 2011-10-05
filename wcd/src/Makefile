@@ -119,6 +119,9 @@ CFLAGS_VERSION	= -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 
 VERSIONSUFFIX	= -bin
 
+# Large File Support (LFS)
+LFS             = 1
+
 # Enble Unicode for Cygwin
 ifeq ($(findstring CYGWIN,$(shell uname)),CYGWIN)
 UCS = 1
@@ -307,6 +310,10 @@ EXTRA_CFLAGS	= -Ic3po \
 
 ifdef STATIC
 	EXTRA_CFLAGS += -static
+endif
+
+ifdef LFS
+	EXTRA_CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
 endif
 
 ifdef ASCII_TREE

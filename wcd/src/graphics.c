@@ -56,6 +56,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include "display.h"
 #include "wfixpath.h"
 #include "match.h"
+#ifdef WCD_UNICODE
+#  include "matchw.h"
+#else
+#  include "matchl.h"
+#endif
 #include "config.h"
 #ifdef WCD_USECURSES
 #include "colors.h"             /* add colors for the tree on MS platform */
@@ -1141,7 +1146,7 @@ dirnode getNodeCursUpNatural(dirnode curNode, int graphics_mode)
 
 /******************************************************/
 
-int validSearchDir(char *dir, dirnode curNode, int exact, int ignore_case)
+int validSearchDir(char *dir, dirnode curNode, int exact, int ignore_case, int ignore_diacritics)
 {
    char path[WCD_MAX_INPSTR+2];
    char *name;
@@ -1165,9 +1170,15 @@ int validSearchDir(char *dir, dirnode curNode, int exact, int ignore_case)
       name = path + 1;
 
    /* matching with wildcard support !!! */
-   if ( (dd_match(dirnodeGetName(curNode),name,ignore_case)) &&
-        (dd_match(getNodeFullPath(curNode),path,ignore_case))
-         )
+   if (
+#ifdef WCD_UNICODE
+        (dd_matchmbs(dirnodeGetName(curNode),name,ignore_case,ignore_diacritics)) &&
+        (dd_matchmbs(getNodeFullPath(curNode),path,ignore_case,ignore_diacritics))
+#else
+        (dd_matchl(dirnodeGetName(curNode),name,ignore_case,ignore_diacritics)) &&
+        (dd_matchl(getNodeFullPath(curNode),path,ignore_case,ignore_diacritics))
+#endif
+      )
       return(1);
    else
       return(0);
@@ -1175,7 +1186,7 @@ int validSearchDir(char *dir, dirnode curNode, int exact, int ignore_case)
 
 /******************************************************/
 
-dirnode findDirInCiclePrev(char *dir, dirnode curNode, int exact, int ignore_case)
+dirnode findDirInCiclePrev(char *dir, dirnode curNode, int exact, int ignore_case, int ignore_diacritics)
 {
    dirnode node;
    int valid;
@@ -1184,7 +1195,7 @@ dirnode findDirInCiclePrev(char *dir, dirnode curNode, int exact, int ignore_cas
 
    do{
       node = prevNodeCiclic(node);
-      valid = validSearchDir(dir,node,exact,ignore_case);
+      valid = validSearchDir(dir,node,exact,ignore_case,ignore_diacritics);
    } while((!valid)&&(node!=curNode));
 
    return(node);
@@ -1192,7 +1203,7 @@ dirnode findDirInCiclePrev(char *dir, dirnode curNode, int exact, int ignore_cas
 
 /******************************************************/
 
-dirnode findDirInCicle(char *dir, dirnode curNode, int exact, int ignore_case)
+dirnode findDirInCicle(char *dir, dirnode curNode, int exact, int ignore_case, int ignore_diacritics)
 {
    dirnode node;
    int valid;
@@ -1201,7 +1212,7 @@ dirnode findDirInCicle(char *dir, dirnode curNode, int exact, int ignore_case)
 
    do{
       node = nextNodeCiclic(node);
-      valid = validSearchDir(dir,node,exact,ignore_case);
+      valid = validSearchDir(dir,node,exact,ignore_case,ignore_diacritics);
    } while((!valid)&&(node!=curNode));
 
    return(node);
@@ -1892,7 +1903,7 @@ void condense(dirnode n, int *ymax)
 
 #define Key_CTRL(x)      ((x) & 31)
 
-char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mode)
+char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mode,int ignore_diacritics)
 {
   int c = 0, n =0, y, ymax;
   int ydiff;
@@ -2079,12 +2090,12 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          break;
       case 'p':
       case '#':
-            wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
+            wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case,ignore_diacritics);
          break;
       case ' ':
       case 'v':
       case '*':
-            wcd_cwin.curNode = findDirInCicle(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
+            wcd_cwin.curNode = findDirInCicle(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case,ignore_diacritics);
          break;
       case '/':
             wcd_cwin.mode = WCD_SEARCH;
@@ -2101,9 +2112,9 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
             if (n>1)
             {
                if (wcd_cwin.str[0] == '/')
-                  wcd_cwin.curNode = findDirInCicle(ptr2,wcd_cwin.curNode,0,ignore_case);
+                  wcd_cwin.curNode = findDirInCicle(ptr2,wcd_cwin.curNode,0,ignore_case,ignore_diacritics);
                else
-                  wcd_cwin.curNode = findDirInCiclePrev(ptr2,wcd_cwin.curNode,0,ignore_case);
+                  wcd_cwin.curNode = findDirInCiclePrev(ptr2,wcd_cwin.curNode,0,ignore_case,ignore_diacritics);
             }
          break;
       case ':':
@@ -2126,7 +2137,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          break;
      case 8:  /* backspace */
      case KEY_BACKSPACE:
-            wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
+            wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case,ignore_diacritics);
      break;
       case 't':
                graphics_mode ^= WCD_GRAPH_CENTER ;
@@ -2243,19 +2254,19 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          wcd_cwin.curNode = getLastDescendant(wcd_cwin.curNode);
          break;
       case Key_CTRL ('p'):
-         wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
+         wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case,ignore_diacritics);
          break;
       case Key_CTRL ('v'):
-         wcd_cwin.curNode = findDirInCicle(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case);
+         wcd_cwin.curNode = findDirInCicle(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case,ignore_diacritics);
          break;
       case Key_CTRL ('n'):
          ptr2 = wcd_cwin.str + 1;
          if (n>1)
          {
             if (wcd_cwin.str[0] == '/')
-               wcd_cwin.curNode = findDirInCicle(ptr2,wcd_cwin.curNode,0,ignore_case);
+               wcd_cwin.curNode = findDirInCicle(ptr2,wcd_cwin.curNode,0,ignore_case,ignore_diacritics);
             else
-               wcd_cwin.curNode = findDirInCiclePrev(ptr2,wcd_cwin.curNode,0,ignore_case);
+               wcd_cwin.curNode = findDirInCiclePrev(ptr2,wcd_cwin.curNode,0,ignore_case,ignore_diacritics);
          }
          break;
       case KEY_F (1):
@@ -2326,9 +2337,9 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          if (n>1)
          {
             if (wcd_cwin.str[0] == '/')
-               wcd_cwin.curNode = findDirInCicle(ptr2,wcd_cwin.curNode,0,ignore_case);
+               wcd_cwin.curNode = findDirInCicle(ptr2,wcd_cwin.curNode,0,ignore_case,ignore_diacritics);
             else
-               wcd_cwin.curNode = findDirInCiclePrev(ptr2,wcd_cwin.curNode,0,ignore_case);
+               wcd_cwin.curNode = findDirInCiclePrev(ptr2,wcd_cwin.curNode,0,ignore_case,ignore_diacritics);
          }
       }
      break;

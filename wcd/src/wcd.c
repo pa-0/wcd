@@ -51,6 +51,7 @@ TAB = 3 spaces
 #ifdef DJGPP
 # include <dir.h>
 #endif
+#include "wcd.h"
 #if !defined(MSDOS) || defined(WIN32) || defined(OS2) /* Win32, OS/2, Unix, Cygwin */
 #include <locale.h>
 #endif
@@ -78,7 +79,6 @@ TAB = 3 spaces
 #include "nameset.h"
 #include "WcdStack.h"
 #include "dirnode.h"
-#include "wcd.h"
 #include "stack.h"
 #include "display.h"
 #include "wfixpath.h"
@@ -3104,7 +3104,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             ptr = NULL;
          }
          else
-            ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics);
+            ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
 
          if (ptr != NULL)
             addToNamesetArray(textNew(ptr),perfect_list);
@@ -3166,7 +3166,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             ptr = NULL;
          }
          else
-            ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics);
+            ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
          if (ptr != NULL)
             strcpy(best_match,ptr);
          else
@@ -3217,7 +3217,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             ptr = NULL;
          }
          else
-            ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics);
+            ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
          if (ptr != NULL)
             strcpy(best_match,ptr);
          else

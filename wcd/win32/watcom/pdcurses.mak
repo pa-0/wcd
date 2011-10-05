@@ -5,8 +5,8 @@ SRCDIR = ..\..\src
 DEFINES = -dMSDOS -dWCD_USECURSES
 CFLAGS  = $(DEFINES) -i=$(SRCDIR) -i=$(SRCDIR)\c3po -w4 -e25 -zq -od -d2 -5r -bt=nt -mf
 CFLAGS_VERSION = -DVERSION="$(VERSION)" -DVERSION_DATE="$(VERSION_DATE)"
-OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj dirnode.obj colors.obj graphics.obj matchl.obj querycp.obj
-LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.obj,display.obj,dosdir.obj,wfixpath.obj,intset.obj,wcddir.obj,command.obj,dirnode.obj,colors.obj,graphics.obj,matchl.obj,querycp.obj
+OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj dirnode.obj colors.obj graphics.obj matchl.obj querycp.obj langinfo.obj
+LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.obj,display.obj,dosdir.obj,wfixpath.obj,intset.obj,wcddir.obj,command.obj,dirnode.obj,colors.obj,graphics.obj,matchl.obj,querycp.obj,langinfo.obj
 
 TARGET = nt
 
@@ -32,6 +32,9 @@ matchl.obj :  $(SRCDIR)\matchl.c
 
 querycp.obj :  $(SRCDIR)\querycp.c
 	$(CC) $(CFLAGS) $(SRCDIR)\querycp.c
+
+langinfo.obj :  $(SRCDIR)\langinfo.c
+	$(CC) $(CFLAGS) $(SRCDIR)\langinfo.c
 
 wfixpath.obj :  $(SRCDIR)\wfixpath.c
 	$(CC) $(CFLAGS) $(SRCDIR)\wfixpath.c

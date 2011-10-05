@@ -294,7 +294,7 @@ char *wcd_getcwd(char *buf, size_t size)
 
    err = GetCurrentDirectoryW(size, wstr);
    if ( err != 0)
-      if (wcstoutf8(buf, wstr, DD_MAXPATH) < 0)
+      if (wcstoutf8(buf, wstr, DD_MAXPATH) == (size_t)(-1))
          err = 0;
 #else
    err = GetCurrentDirectory(size, buf);
@@ -318,7 +318,7 @@ int wcd_chdir(char *buf, int quiet)
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
-   if (utf8towcs(wstr, buf, DD_MAXPATH) < 0)
+   if (utf8towcs(wstr, buf, DD_MAXPATH) == (size_t)(-1))
       err = 0;
    else
       err = SetCurrentDirectoryW(wstr);
@@ -347,7 +347,7 @@ int wcd_mkdir(char *buf, int quiet)
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
-   if (utf8towcs(wstr, buf, DD_MAXPATH) < 0)
+   if (utf8towcs(wstr, buf, DD_MAXPATH) == (size_t)(-1))
       err = FALSE;
    else
       err = CreateDirectoryW(wstr, NULL);
@@ -376,7 +376,7 @@ int wcd_rmdir(char *buf, int quiet)
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
-   if (utf8towcs(wstr, buf, DD_MAXPATH) < 0)
+   if (utf8towcs(wstr, buf, DD_MAXPATH) == (size_t)(-1))
       err = FALSE;
    else
       err = RemoveDirectoryW(wstr);

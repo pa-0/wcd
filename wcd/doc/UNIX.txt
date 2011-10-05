@@ -50,6 +50,17 @@ BASIC INSTALLATION
                         standalone wcd binary.
                         The default value is empty.
 
+            LFS=
+                        Large File Support (LFS) is by default enabled. This
+                        enables the use of 64 bit file system interface on 32
+                        bit systems.  This makes it possible to open files
+                        larger than 2GB on 32 bit systems, provided the OS
+                        has LFS support builtin. To disable LFS make the LFS
+                        variable empty. Example:
+
+                        Disable LFS:
+                        make clean install LFS=
+
             CURSES=<curses|ncurses|ncursesw|pdcurses>
 
                         Select curses library.

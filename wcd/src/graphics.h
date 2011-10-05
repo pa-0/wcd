@@ -24,7 +24,7 @@ void buildTreeFromFile(char *filename, dirnode d);
 void buildTreeFromNameset(nameset set, dirnode d);
 void setXYTree(dirnode d);
 void dumpTree(dirnode d);
-char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mode);
+char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mode,int ignore_diacritics);
 
 #define WCD_GRAPH_NO     0 /* no graphics */
 #define WCD_GRAPH_NORMAL 1 /* graphics mode */

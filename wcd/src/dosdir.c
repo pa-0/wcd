@@ -496,7 +496,7 @@ int dd_findfirst( const char *path,dd_ffblk* fb,int attrib)
 	strcpy(dir, ".");		/* use current directory */
 	strcpy(fb->dd_filespec, path);
 	}
-  fb->dd_attribs = attrib;
+  fb->dd_attribs = (char)attrib;
   fb->dd_dirp    = opendir(dir);
   return dd_findnext(fb);
 }  /** dd_findfirst **/

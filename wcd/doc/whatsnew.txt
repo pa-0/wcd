@@ -8,6 +8,7 @@
     ISO-8859-2, and Unicode Latin-1, Latin Extended-A, and Latin Extended-B.
   - New option +I: Regard diacritics (default).
   - Makefile use RPM_OPT_FLAGS.
+  - Enable Large File Support.
   - Code cleanup for -Wextra -Wconversion.
   - Drop support for Borland C compiler, because it's hard to get
     now and not developed any more since a long time. Default to

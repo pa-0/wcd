@@ -40,7 +40,8 @@ OBJS=\
 	error.obj \
 	dirnode.obj \
 	wcddir.obj \
-	querycp.obj
+	querycp.obj \
+	langinfo.obj
 
 LIBS=mpr.lib $(LIB_CURSES) $(LIB_CONIO)
 
@@ -128,6 +129,13 @@ QUERYCP_C=\
 
 querycp.obj: $(QUERYCP_C) $(SRCDIR)\\querycp.c
 	$(CC) -c $(CFLAGS) $(SRCDIR)\\querycp.c
+
+# Build LANGINFO.C
+LANGINFO_C=\
+	$(SRCDIR)\\langinfo.h\
+
+langinfo.obj: $(LANGINFO_C) $(SRCDIR)\\langinfo.c
+	$(CC) -c $(CFLAGS) $(SRCDIR)\\langinfo.c
 
 # Build COLORS.C
 COLORS_C=\

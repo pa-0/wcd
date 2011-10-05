@@ -32,8 +32,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  include <curses.h>
 #endif
 
-size_t wcstoutf8(char *mbstr, wchar_t *wcstr, int len);
-size_t utf8towcs(wchar_t *wcstr, char *mbstr, int len);
+size_t wcstoutf8(char *mbstr, const wchar_t *wcstr, int len);
+size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len);
 void wcd_printf( const char* format, ... );
 size_t str_columns (char *s);
 void sort_list(nameset list);
