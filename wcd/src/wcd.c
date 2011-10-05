@@ -51,14 +51,14 @@ TAB = 3 spaces
 #ifdef DJGPP
 # include <dir.h>
 #endif
-#ifdef ENABLE_NLS
+#if !defined(MSDOS) || defined(WIN32) || defined(OS2) /* Win32, OS/2, Unix, Cygwin */
 #include <locale.h>
 #endif
 
 #if (defined (WIN32) && !defined(__CYGWIN__)) || defined(OS2) /* Windows (not Cygwin), OS/2 */
 # include "langinfo.h"
 #else
-# ifndef MSDOS
+# ifndef MSDOS  /* Unix, Cygwin */
 #  include <langinfo.h>
 # endif
 #endif
@@ -2074,6 +2074,11 @@ int main(int argc,char** argv)
     wchar_t **wargv;
 #endif
 
+#if !defined(MSDOS) || defined(WIN32) || defined(OS2) /* Win32, OS/2, Unix, Cygwin */
+   /* setlocale is required for correct working of nl_langinfo()
+      DOS versions of wcd will use query_con_codepage(). */
+   setlocale (LC_ALL, "");
+#endif
 #ifdef ENABLE_NLS
    char localedir[DD_MAXPATH];
    ptr = getenv("WCDLOCALEDIR");
@@ -2092,7 +2097,6 @@ int main(int argc,char** argv)
          strcpy(localedir,LOCALEDIR);
       }
    }
-   setlocale (LC_ALL, "");
    bindtextdomain (PACKAGE, localedir);
    textdomain (PACKAGE);
 #endif
