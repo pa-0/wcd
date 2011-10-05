@@ -227,6 +227,8 @@ endif
 ifeq (cygwin,$(OS))
 ifdef ENABLE_NLS
 	LDFLAGS_EXTRA = -lintl -liconv -lmpr -Wl,--enable-auto-import
+else
+	LDFLAGS_EXTRA = -lmpr -Wl,--enable-auto-import
 endif
 	INSTALL_TARGETS += install-profile
 endif
