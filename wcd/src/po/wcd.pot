@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-05 21:45+0200\n"
+"POT-Creation-Date: 2011-10-09 14:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -166,7 +167,7 @@ msgid ""
 "  =              Show stack\n"
 msgstr ""
 
-#: wcd.c:1677 wcd.c:2414
+#: wcd.c:1677 wcd.c:2419
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
@@ -300,45 +301,55 @@ msgstr ""
 
 #: wcd.c:1753
 #, c-format
+msgid "With Unicode normalization.\n"
+msgstr ""
+
+#: wcd.c:1755
+#, c-format
+msgid "Without Unicode normalization.\n"
+msgstr ""
+
+#: wcd.c:1758
+#, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr ""
 
-#: wcd.c:1754
+#: wcd.c:1759
 #, c-format
 msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr ""
 
-#: wcd.c:1786 stack.c:235
+#: wcd.c:1791 stack.c:235
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr ""
 
-#: wcd.c:2096
+#: wcd.c:2101
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 
-#: wcd.c:2122
+#: wcd.c:2127
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2137 wcd.c:2205
+#: wcd.c:2142 wcd.c:2210
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2169 wcd.c:2198
+#: wcd.c:2174 wcd.c:2203
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 
-#: wcd.c:2274 wcd.c:2715 wcd.c:2734
+#: wcd.c:2279 wcd.c:2720 wcd.c:2739
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2410
+#: wcd.c:2415
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 
-#: wcd.c:2415
+#: wcd.c:2420
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -373,44 +384,44 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:2648
+#: wcd.c:2653
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr ""
 
-#: wcd.c:2747
+#: wcd.c:2752
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr ""
 
-#: wcd.c:2873
+#: wcd.c:2878
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr ""
 
-#: wcd.c:2875
+#: wcd.c:2880
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr ""
 
-#: wcd.c:2877
+#: wcd.c:2882
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr ""
 
-#: wcd.c:2879
+#: wcd.c:2884
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr ""
 
-#: wcd.c:3146
+#: wcd.c:3151
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 
-#: wcd.c:3312
+#: wcd.c:3317
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr ""

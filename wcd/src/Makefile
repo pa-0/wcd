@@ -125,6 +125,7 @@ LFS             = 1
 # Enble Unicode for Cygwin
 ifeq ($(findstring CYGWIN,$(shell uname)),CYGWIN)
 UCS = 1
+UNINORM = 1
 endif
 
 ifdef UCS
@@ -158,7 +159,12 @@ endif
 ifdef UCS
 	CFLAGS_UCS = -std=gnu99
 	WDEFS	   = -DWCD_UNICODE
+ifdef UNINORM
+	WDEFS	   += -DWCD_UNINORM
+	LIB_UNISTRING  = -lunistring
 endif
+endif
+
 
 ifdef ENABLE_NLS
 	NLSDEFS    = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
@@ -322,6 +328,7 @@ endif
 
 LDFLAGS		= $(RPM_OPT_FLAGS) \
 	          $(LIB_CURSES) \
+	          $(LIB_UNISTRING) \
 	          $(LDFLAGS_EXTRA) \
 		  $(NLFLAG)
 

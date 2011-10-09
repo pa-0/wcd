@@ -1749,6 +1749,11 @@ void print_version()
 #else
    printf(_("Without Unicode support.\n"));
 #endif
+#ifdef WCD_UNINORM
+   printf(_("With Unicode normalization.\n"));
+#else
+   printf(_("Without Unicode normalization.\n"));
+#endif
    printf("\n");
    printf(_("Download the latest executables and sources from:\n"));
    printf(_("http://waterlan.home.xs4all.nl/\n"));

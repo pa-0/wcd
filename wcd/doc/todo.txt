@@ -12,10 +12,6 @@ TO DO
 * Translate the manual.
 
 
-* Unicode matching with normalization.
-  See also http://en.wikipedia.org/wiki/Unicode_normalization
-
-
 * Support scripts that write from right to left like Arabic, Persian or Hebrew.
 
 

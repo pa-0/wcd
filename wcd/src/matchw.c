@@ -85,6 +85,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 #include <string.h>
 #include <wctype.h>
+#ifdef WCD_UNINORM
+#  include <uninorm.h>  /* part of libunistring */
+#endif
 #include "wcd.h"
 #include "display.h"
 #include "dosdir.h"
@@ -191,6 +194,7 @@ int dd_matchmbs(const char *string, const char *pattern, int ignore_case, int ig
         return 0;
     return(dd_matchwcs(wstr_string, wstr_pattern, ignore_case, ignore_diacritics));
 }
+
 int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, int ignore_diacritics)
 {
 #if (defined(MSDOS) && defined(DOSWILD))
@@ -198,8 +202,68 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
     size_t j = wcslen(pattern);
 #endif
     wchar_t *CPTable;
+/*    char s[DD_MAXPATH];
+    char p[DD_MAXPATH]; */
+    int result;
 
+#ifdef WCD_UNINORM
+    static wchar_t string_buffer[DD_MAXPATH];
+    static wchar_t pattern_buffer[DD_MAXPATH];
+    size_t lengthp = DD_MAXPATH;
+    wchar_t *string_normalized;
+    wchar_t *pattern_normalized;
+/*
+    WCSTOMBS(s, string, (size_t)DD_MAXPATH);
+    WCSTOMBS(p, pattern, (size_t)DD_MAXPATH);
+    printf("A string  = >%s<\n", s);
+    printf("A pattern = >%s<\n", p);
+    printf("A string_buffer pointer  = %lx\n", string_buffer);
+    printf("A pattern_buffer pointer  = %lx\n", pattern_buffer);
+    printf("A string length = %d\n",wcslen(string));
+    if (wcslen(string) == 3)
+      printf("A string %x %x %x\n", string[0], string[1], string[2]);
+*/
+#  if defined(WIN32) || defined(__CYGWIN__)
+    string_normalized  = u16_normalize (UNINORM_NFKC, string,  wcslen(string) +1, string_buffer,  &lengthp);
+    if (string_normalized == NULL)
+        return(0);
+    pattern_normalized = u16_normalize (UNINORM_NFKC, pattern, wcslen(pattern) +1, pattern_buffer, &lengthp);
+    if (pattern_normalized == NULL)
+        return(0);
+#  else
+    string_normalized  = u32_normalize (UNINORM_NFKC, string,  wcslen(string) +1, string_buffer,  &lengthp);
+    if (string_normalized == NULL)
+        return(0);
+    pattern_normalized = u32_normalize (UNINORM_NFKC, pattern, wcslen(pattern) +1, pattern_buffer, &lengthp);
+    if (pattern_normalized == NULL)
+        return(0);
+#  endif
+#else
+    /* No normalization */
+    wchar_t *string_normalized;
+    wchar_t *pattern_normalized;
 
+    string_normalized = string;
+    pattern_normalized = pattern;
+#endif
+/* WCSTOMBS(s, string_buffer, (size_t)DD_MAXPATH);
+    WCSTOMBS(p, pattern_buffer, (size_t)DD_MAXPATH);
+    printf("B string_buffer  = >%s<\n", s);
+    printf("B pattern_buffer = >%s<\n", p);
+    WCSTOMBS(s, string_normalized, (size_t)DD_MAXPATH);
+    WCSTOMBS(p, pattern_normalized, (size_t)DD_MAXPATH);
+    printf("B string_normalized= >%s<\n", s);
+    printf("B pattern_normalized= >%s<\n", p);
+    printf("B string_normalized  pointer  = %lx\n", string_normalized);
+    printf("B pattern_normalized pointer  = %lx\n", pattern_normalized);
+    printf("B string_buffer length = %d\n",wcslen(string_buffer));
+    printf("B string_normalized length = %d\n",wcslen(string_normalized));
+    if (wcslen(string) == 3)
+      printf("B string %x %x %x\n", string_buffer[0], string_buffer[1], string_buffer[2]);
+    if (wcslen(string) == 3)
+      printf("B string %x %x %x\n", string_normalized[0], string_normalized[1], string_normalized[2]);
+    printf("\n");
+*/
     if (ignore_diacritics == 0)
         CPTable = match_C;
     else
@@ -217,11 +281,11 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
   ---------------------------------------------------------------------------*/
 
     if ((dospattern = (wchar_t *)malloc((j+1) * sizeof(wchar_t))) != NULL) {
-        wcscpy(dospattern, pattern);
+        wcscpy(dospattern, pattern_normalized);
         if (!wcscmp(dospattern+j-3, L"*.*")) {
             dospattern[j-2] = '\0';                    /* nuke the ".*" */
         } else if (!wcscmp(dospattern+j-2, L"*.")) {
-            wchar_t *p = wcschr(string, L'.');
+            wchar_t *p = wcschr(string_normalized, L'.');
 
             if (p) {   /* found a dot:  match fails */
                 free(dospattern);
@@ -229,12 +293,25 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
             }
             dospattern[j-1] = '\0';                    /* nuke the end "." */
         }
-        j = recmatchwcs((wchar_t *)dospattern, (wchar_t *)string, ignore_case, CPTable);
+        result = recmatchwcs((wchar_t *)dospattern, (wchar_t *)string_normalized, ignore_case, CPTable);
         free(dospattern);
-        return j == 1;
+#ifdef WCD_UNINORM
+        if (string_normalized != string_buffer)
+            free(string_normalized);
+        if (pattern_normalized != pattern_buffer)
+            free(pattern_normalized);
+#endif
+        return result == 1;
     } else
 #endif /* MSDOS && DOSWILD */
-    return recmatchwcs((wchar_t *)pattern, (wchar_t *)string, ignore_case, CPTable) == 1;
+    result = recmatchwcs((wchar_t *)pattern_normalized, (wchar_t *)string_normalized, ignore_case, CPTable) == 1;
+#ifdef WCD_UNINORM
+    if (string_normalized != string_buffer)
+        free(string_normalized);
+    if (pattern_normalized != pattern_buffer)
+        free(pattern_normalized);
+#endif
+    return(result);
 }
 
 

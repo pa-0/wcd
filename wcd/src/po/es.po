@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-05 21:33+0200\n"
+"POT-Creation-Date: 2011-10-09 14:31+0200\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:122 wcd.c:142
@@ -240,7 +240,7 @@ msgstr ""
 "  +[NÚMERO]      Saca directorio de la pila (NÚMERO veces)\n"
 "  =              Muestra la pila\n"
 
-#: wcd.c:1677 wcd.c:2414
+#: wcd.c:1677 wcd.c:2419
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
@@ -375,54 +375,64 @@ msgid "Without Unicode support.\n"
 msgstr "Sin soporte para Unicode.\n"
 
 #: wcd.c:1753
+#, fuzzy, c-format
+msgid "With Unicode normalization.\n"
+msgstr "Con soporte para Unicode.\n"
+
+#: wcd.c:1755
+#, fuzzy, c-format
+msgid "Without Unicode normalization.\n"
+msgstr "Sin soporte para Unicode.\n"
+
+#: wcd.c:1758
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Descarga los últimos ejecutables y archivos fuente de:\n"
 
-#: wcd.c:1754
+#: wcd.c:1759
 #, c-format
 msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr ""
 
-#: wcd.c:1786 stack.c:235
+#: wcd.c:1791 stack.c:235
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: Creando directorio %s\n"
 
-#: wcd.c:2096
+#: wcd.c:2101
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente WCDLOCALEDIR es demasiado "
 "largo.\n"
 
-#: wcd.c:2122
+#: wcd.c:2127
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente HOME es demasiado largo.\n"
 
-#: wcd.c:2137 wcd.c:2205
+#: wcd.c:2142 wcd.c:2210
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente HOME o WCDHOME es demasiado "
 "largo.\n"
 
-#: wcd.c:2169 wcd.c:2198
+#: wcd.c:2174 wcd.c:2203
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: error: La variable de ambiente HOME o WCDHOME no tiene valor.\n"
 
-#: wcd.c:2274 wcd.c:2715 wcd.c:2734
+#: wcd.c:2279 wcd.c:2720 wcd.c:2739
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 "Wcd: error: El valor de la variable de ambiente WCDUSERSHOME es demasiado "
 "largo.\n"
 
-#: wcd.c:2410
+#: wcd.c:2415
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Modo gráfico sólo soportado en wcd con interfase basada en curses.\n"
 
-#: wcd.c:2415
+#: wcd.c:2420
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -457,37 +467,37 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:2648
+#: wcd.c:2653
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s se añadió al archivo de alias %s\n"
 
-#: wcd.c:2747
+#: wcd.c:2752
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr "Wcd: error: Imposible leer el archivo %s o %s\n"
 
-#: wcd.c:2873
+#: wcd.c:2878
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "Wcd: Directorio de WCDSCAN {%s}\n"
 
-#: wcd.c:2875
+#: wcd.c:2880
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: prohibiendo {%s}\n"
 
-#: wcd.c:2877
+#: wcd.c:2882
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: excluyendo {%s}\n"
 
-#: wcd.c:2879
+#: wcd.c:2884
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filtrando {%s}\n"
 
-#: wcd.c:3146
+#: wcd.c:3151
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -496,7 +506,7 @@ msgstr ""
 "Wcd: No se encontró algún directorio que concordara con %s\n"
 "Wcd: Quizá necesite reexplorar el disco o la ruta.\n"
 
-#: wcd.c:3312
+#: wcd.c:3317
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: No puedo cambiar el directorio a %s\n"

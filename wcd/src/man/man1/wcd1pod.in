@@ -362,9 +362,9 @@ Regard case.  See also option B<-i>.
 
 =item B<-I>
 
-Ignore diacritics.
+Ignore diacritics for Latin-based scripts.
 Letters with diacritical marks match their base letter without diacritical
-mark.  Only Latin-based scripts are supported, the following Latin encodings:
+mark.  The following Latin encodings are supported:
 CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, ISO-8859-2, and Unicode
 Latin-1, Latin Extended-A, and Latin Extended-B.
 See also L<http://en.wikipedia.org/wiki/Diacritic>
@@ -930,10 +930,9 @@ converted to Unicode wide characters. Wcd fully relies on libc functions
 and has no UTF-8 specific code. See also
 L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>
 
-Wcd Unicode name matching supports only binary equivalence. Matching with
-Unicode normalisation is not (yet) supported.
-
-
+Wcd has optional support for Unicode matching with normalisation. To find
+out whether Wcd has normalisation support type C<wcd -V>.
+See also L<http://en.wikipedia.org/wiki/Unicode_normalization>
 
 =head3 UTF-8 on Unix/Linux
 

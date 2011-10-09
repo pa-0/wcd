@@ -1,12 +1,16 @@
-5.2.0-beta4 2011-10-03
+5.2.0-beta6 2011-10-09
   - URL home page changed to http://waterlan.home.xs4all.nl/
-  - New option -I: Ignore diacritics.
+  - New option -I: Ignore  diacritics.
+    Ignore diacritics for Latin-based scripts.
     Letters with diacritical marks match their base letter without
     diacritical mark. See also http://en.wikipedia.org/wiki/Diacritic
-    Only Latin-based scripts are supported, the following Latin
-    encodings: CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1,
+    The following Latin encodings are supported:
+    CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1,
     ISO-8859-2, and Unicode Latin-1, Latin Extended-A, and Latin Extended-B.
   - New option +I: Regard diacritics (default).
+  - Matching with Unicode normalisation. Compile with UNINORM=1.
+    See also http://en.wikipedia.org/wiki/Unicode_normalization
+    Requires libunistring. http://www.gnu.org/s/libunistring/
   - Makefile use RPM_OPT_FLAGS.
   - Enable Large File Support.
   - Code cleanup for -Wextra -Wconversion.
