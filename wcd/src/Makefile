@@ -315,7 +315,7 @@ EXTRA_CFLAGS	= -Ic3po \
 		  $(INCFLAGS)
 
 ifdef STATIC
-	EXTRA_CFLAGS += -static
+	LDFLAG_STATIC = -static
 endif
 
 ifdef LFS
@@ -330,7 +330,8 @@ LDFLAGS		= $(RPM_OPT_FLAGS) \
 	          $(LIB_CURSES) \
 	          $(LIB_UNISTRING) \
 	          $(LDFLAGS_EXTRA) \
-		  $(NLFLAG)
+		  $(NLFLAG) \
+		  $(LDFLAG_STATIC)
 
 DEFS		= -DUNIX $(DEFS_CURSES) $(EXTRA_DEFS)
 
