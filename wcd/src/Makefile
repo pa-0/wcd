@@ -159,10 +159,11 @@ endif
 ifdef UCS
 	CFLAGS_UCS = -std=gnu99
 	WDEFS	   = -DWCD_UNICODE
-ifdef UNINORM
-	WDEFS	   += -DWCD_UNINORM
-	LIB_UNISTRING  = -lunistring
 endif
+ifdef UNINORM
+	CFLAGS_UCS = -std=gnu99
+	WDEFS	   = -DWCD_UNICODE -DWCD_UNINORM
+	LIB_UNISTRING  = -lunistring
 endif
 
 

@@ -19,10 +19,10 @@
 
   ---------------------------------------------------------------------------
 
-  matchw.c : A modified version of match.c with Unicode locale matching.
+  matchw.c : A modified version of match.c with Unicode matching.
 
-  EW:   Characters with accents a.s.o. match
-        the corresponding ASCII chararcter without accent .
+  EW:   * Option to ignore diacritics.
+        * Unicode normalistion.
 
   ---------------------------------------------------------------------------
 
@@ -202,8 +202,6 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
     size_t j = wcslen(pattern);
 #endif
     wchar_t *CPTable;
-/*    char s[DD_MAXPATH];
-    char p[DD_MAXPATH]; */
     int result;
 
 #ifdef WCD_UNINORM
@@ -212,18 +210,9 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
     size_t lengthp = DD_MAXPATH;
     wchar_t *string_normalized;
     wchar_t *pattern_normalized;
-/*
-    WCSTOMBS(s, string, (size_t)DD_MAXPATH);
-    WCSTOMBS(p, pattern, (size_t)DD_MAXPATH);
-    printf("A string  = >%s<\n", s);
-    printf("A pattern = >%s<\n", p);
-    printf("A string_buffer pointer  = %lx\n", string_buffer);
-    printf("A pattern_buffer pointer  = %lx\n", pattern_buffer);
-    printf("A string length = %d\n",wcslen(string));
-    if (wcslen(string) == 3)
-      printf("A string %x %x %x\n", string[0], string[1], string[2]);
-*/
+
 #  if defined(WIN32) || defined(__CYGWIN__)
+    /* Normalization. Composition, such that we can ignore diacritics. */
     string_normalized  = u16_normalize (UNINORM_NFKC, string,  wcslen(string) +1, string_buffer,  &lengthp);
     if (string_normalized == NULL)
         return(0);
@@ -246,24 +235,6 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
     string_normalized = string;
     pattern_normalized = pattern;
 #endif
-/* WCSTOMBS(s, string_buffer, (size_t)DD_MAXPATH);
-    WCSTOMBS(p, pattern_buffer, (size_t)DD_MAXPATH);
-    printf("B string_buffer  = >%s<\n", s);
-    printf("B pattern_buffer = >%s<\n", p);
-    WCSTOMBS(s, string_normalized, (size_t)DD_MAXPATH);
-    WCSTOMBS(p, pattern_normalized, (size_t)DD_MAXPATH);
-    printf("B string_normalized= >%s<\n", s);
-    printf("B pattern_normalized= >%s<\n", p);
-    printf("B string_normalized  pointer  = %lx\n", string_normalized);
-    printf("B pattern_normalized pointer  = %lx\n", pattern_normalized);
-    printf("B string_buffer length = %d\n",wcslen(string_buffer));
-    printf("B string_normalized length = %d\n",wcslen(string_normalized));
-    if (wcslen(string) == 3)
-      printf("B string %x %x %x\n", string_buffer[0], string_buffer[1], string_buffer[2]);
-    if (wcslen(string) == 3)
-      printf("B string %x %x %x\n", string_normalized[0], string_normalized[1], string_normalized[2]);
-    printf("\n");
-*/
     if (ignore_diacritics == 0)
         CPTable = match_C;
     else

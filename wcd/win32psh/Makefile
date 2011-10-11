@@ -26,6 +26,10 @@ ifdef WCD_UTF8
 UCS=1
 endif
 
+ifdef UNINORM
+UCS=1
+endif
+
 ifdef UCS
 ifdef CURSES
 DEFS   += -DPDC_WIDE

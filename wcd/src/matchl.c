@@ -19,10 +19,9 @@
 
   ---------------------------------------------------------------------------
 
-  matchl.c : A modified version of match.c with locale matching.
+  matchl.c : A modified version of match.c.
 
-  EW:   For several 8 bit encodings characters with accents a.s.o. match
-        the corresponding ASCII chararcter without accent .
+  EW:   * Option to ignore diacritics.
 
   ---------------------------------------------------------------------------
 
