@@ -128,15 +128,6 @@ UCS = 1
 UNINORM = 1
 endif
 
-ifdef UCS
-ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.zip
-TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.tar.gz
-EXTRA_OBJ += matchw.o
-else
-ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX).zip
-TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX).tar.gz
-endif
-
 ZIPOBJ		= bin/$(BIN) \
 		  share/man/man1/$(PACKAGE).1 \
 		  share/doc/$(docsubdir) \
@@ -161,9 +152,19 @@ ifdef UCS
 	WDEFS	   = -DWCD_UNICODE
 endif
 ifdef UNINORM
+	UCS = 1
 	CFLAGS_UCS = -std=gnu99
 	WDEFS	   = -DWCD_UNICODE -DWCD_UNINORM
 	LIB_UNISTRING  = -lunistring
+endif
+
+ifdef UCS
+ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.zip
+TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)-ucs.tar.gz
+EXTRA_OBJ += matchw.o
+else
+ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX).zip
+TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX).tar.gz
 endif
 
 
