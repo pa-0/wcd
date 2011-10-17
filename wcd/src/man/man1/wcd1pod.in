@@ -932,6 +932,9 @@ L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>
 
 Wcd has optional support for Unicode matching with normalisation. To find
 out whether Wcd has normalisation support type C<wcd -V>.
+Wcd with Unicode normalization support will match Unicode names based on I<compatible>
+equivalence. Without Unicode normalization support names are matched
+when they are binary equivalent.
 See also L<http://en.wikipedia.org/wiki/Unicode_normalization>
 
 =head3 UTF-8 on Unix/Linux

@@ -46,6 +46,7 @@ BASIC INSTALLATION
                         On Cygwin the default value is 1.
                         Requires libunistring, see
                         http://www.gnu.org/s/libunistring/
+                        http://en.wikipedia.org/wiki/Unicode_normalization
 
             ENABLE_NLS=1
                         Enable native language support.

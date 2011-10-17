@@ -225,6 +225,15 @@ Not supported for DOS versions of wcd.
 Unicode support makes only sense if you compile for Windows PowerShell.
 
 
+Enable Unicode normalization with UNINORM=1. This implies UCS=1.
+
+  make UNINORM=1
+
+
+Unicode normalization requires libunistring, see
+  http://www.gnu.org/s/libunistring/
+  http://en.wikipedia.org/wiki/Unicode_normalization
+
 Installation Names
 ==================
 
