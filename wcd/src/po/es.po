@@ -206,8 +206,8 @@ msgstr ""
 "  -h, --help     Despliega esta ayuda\n"
 "  -i             Ignora las diferencias entre mayúsculas y minúsculas\n"
 "  +i             Distingue entre mayúsculas y minúsculas\n"
-"  -I             Ignorar los signos diacríticos\n"
-"  +I             Respecto los signos diacríticos (por defecto)\n"
+"  -I             Ignora signos diacríticos\n"
+"  +I             Contempla signos diacríticos (por defecto)\n"
 "  -j             Modo directo\n"
 "  -k             Retén las rutas\n"
 "  -K             Colores\n"
@@ -375,14 +375,14 @@ msgid "Without Unicode support.\n"
 msgstr "Sin soporte para Unicode.\n"
 
 #: wcd.c:1753
-#, fuzzy, c-format
+#, c-format
 msgid "With Unicode normalization.\n"
-msgstr "Con soporte para Unicode.\n"
+msgstr "Con normalización Unicode.\n"
 
 #: wcd.c:1755
-#, fuzzy, c-format
+#, c-format
 msgid "Without Unicode normalization.\n"
-msgstr "Sin soporte para Unicode.\n"
+msgstr "Sin normalización Unicode.\n"
 
 #: wcd.c:1758
 #, c-format
