@@ -203,8 +203,8 @@ msgstr ""
 "  -h, --help     Näytä tämä Help\n"
 "  -i             Isot ja pienet kirjaimet - eivät merkityksellisiä\n"
 "  +i             Isot ja pienet kirjaimet - merkityksellisiä\n"
-"  -I             Ignore diacritics\n"
-"  +I             Regard diacritics (default)\n"
+"  -I             Ohita diakrittiset merkit\n"
+"  +I             Ota huomioon diakriittiset merkit (oletus)\n"
 "  -j             Ainoastaan go-tieston moodi\n"
 "  -k             Säilytä koko polku\n"
 "  -K             Näytä värit\n"
@@ -375,14 +375,14 @@ msgid "Without Unicode support.\n"
 msgstr "Ei Unicode-kirjaimiston tukea sisäänrakennettu.\n"
 
 #: wcd.c:1753
-#, fuzzy, c-format
+#, c-format
 msgid "With Unicode normalization.\n"
-msgstr "Unicode-kirjaimiston tuki sisäänrakennettu.\n"
+msgstr "Unicode normalisointi käytössä.\n"
 
 #: wcd.c:1755
-#, fuzzy, c-format
+#, c-format
 msgid "Without Unicode normalization.\n"
-msgstr "Ei Unicode-kirjaimiston tukea sisäänrakennettu.\n"
+msgstr "Ilman unicode normalisointia.\n"
 
 #: wcd.c:1758
 #, c-format
