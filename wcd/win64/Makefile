@@ -39,8 +39,10 @@ bindir    = ${exec_prefix}/bin
 PROGRAM = wcdwin64.exe
 VERSIONSUFFIX = -win64
 ZIPOBJ_EXTRA = bin/wcd.bat
+ifdef ENABLE_NLS
 # Using MinGW gettext,iconv
-#ZIPOBJ_EXTRA += bin/libintl-8.dll bin/libiconv-2.dll
+ZIPOBJ_EXTRA += bin/libintl-8.dll bin/libiconv-2.dll
+endif
 
 all :
 	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS} CC=$(CC)
