@@ -371,14 +371,14 @@ msgid "Without Unicode support.\n"
 msgstr "Zonder Unicode ondersteuning.\n"
 
 #: wcd.c:1753
-#, fuzzy, c-format
+#, c-format
 msgid "With Unicode normalization.\n"
-msgstr "Met Unicode ondersteuning.\n"
+msgstr "Met Unicode-normalisatie.\n"
 
 #: wcd.c:1755
-#, fuzzy, c-format
+#, c-format
 msgid "Without Unicode normalization.\n"
-msgstr "Zonder Unicode ondersteuning.\n"
+msgstr "Zonder Unicode-normalisatie.\n"
 
 #: wcd.c:1758
 #, c-format

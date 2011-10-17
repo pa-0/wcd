@@ -211,8 +211,8 @@ msgstr ""
 "  -h, --help     Diese Hilfe anzeigen\n"
 "  -i             Gross-/Kleinschreibung ignorieren\n"
 "  +i             Gross-/Kleinschreibung beachten\n"
-"  -I             Diakritika ignorieren\n"
-"  +I             Diakritika beachten (Vorgabe)\n"
+"  -I             Diakritische Zeichen ignorieren\n"
+"  +I             Diakritische Zeichen nicht ignorieren (Standardeinstellung)\n"
 "  -j             Geh-einfach Modus\n"
 "  -k             Pfade behalten\n"
 "  -K             Farben\n"
@@ -380,14 +380,14 @@ msgid "Without Unicode support.\n"
 msgstr "Ohne Unterstützung für Unicode.\n"
 
 #: wcd.c:1753
-#, fuzzy, c-format
+#, c-format
 msgid "With Unicode normalization.\n"
-msgstr "Mit Unterstützung für Unicode.\n"
+msgstr "Mit Unicode-Normalisierung.\n"
 
 #: wcd.c:1755
-#, fuzzy, c-format
+#, c-format
 msgid "Without Unicode normalization.\n"
-msgstr "Ohne Unterstützung für Unicode.\n"
+msgstr "Ohne Unicode-Normalisierung.\n"
 
 #: wcd.c:1758
 #, c-format

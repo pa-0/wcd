@@ -1,12 +1,16 @@
 Summary: chdir for DOS and Unix
 Name: wcd
-Version: 5.1.5
+Version: 5.2.0
 Release: 1
 License: GPL
 Group: Applications/File
-Source: wcd-5.1.5-src.tar.gz
+Source: wcd-5.2.0-src.tar.gz
 URL: http://waterlan.home.xs4all.nl/
 Packager: Erwin Waterlander <waterlan@xs4all.nl>
+BuildRequires: gettext
+BuildRequires: perl
+BuildRequires: ncursesw-devel
+BuildRequires: libunistring-devel
 
 %description
 Wcd.   Directory changer for DOS and Unix.  Another Norton
@@ -24,7 +28,7 @@ with speed search.
 %setup
 
 %build
-make -C src prefix=/usr UCS=1
+make -C src prefix=/usr UCS=1 UNINORM=1
 
 %install
 make -C src install DESTDIR=${RPM_BUILD_ROOT} prefix=/usr
