@@ -17,7 +17,6 @@ endif
 
 ifdef ENABLE_NLS
 LDFLAGS_EXTRA += -lintl -liconv
-EXTRA_OBJ += langinfo.o
 endif
 
 ifdef WCD_UTF8

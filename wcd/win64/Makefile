@@ -17,7 +17,6 @@ LIB_CURSES = -l${CURSES}
 DEFS   += -DWCD_USECURSES -DPDC_STATIC_BUILD
 endif
 
-EXTRA_OBJ += langinfo.o
 
 ifdef ENABLE_NLS
 LDFLAGS_EXTRA += -lintl -liconv

@@ -56,12 +56,8 @@ TAB = 3 spaces
 #include <locale.h>
 #endif
 
-#if (defined (WIN32) && !defined(__CYGWIN__)) /* Windows (not Cygwin) */
-# include "langinfo.h"
-#else
-# if !defined(MSDOS) || defined(OS2)  /* Unix, Cygwin, OS/2 */
-#  include <langinfo.h>
-# endif
+#if !defined(MSDOS)  /* Unix, Cygwin */
+# include <langinfo.h>
 #endif
 
 #include "querycp.h"
@@ -1731,7 +1727,7 @@ void print_version()
    printf(_("No native language support included.\n"));
 #endif
 #if defined(MSDOS) && !defined(WIN32)
-   printf(_("Current locale uses CP%d encoding.\n"),query_con_codepage());
+   printf(_("Current locale uses CP%u encoding.\n"),query_con_codepage());
 #else
    printf(_("Current locale uses %s encoding.\n"),nl_langinfo(CODESET));
 #endif
@@ -2430,8 +2426,7 @@ Source code to scan Windows LAN was originally written and placed\n\
 in the public domain by Felix Kasza.\n\
 Markus Kuhn's free wcwidth() implementation is used\n\
 in Wcd for Windows with Unicode support.\n\
-Copyright (C) 2007-2008 Keith Marshall on nl_langinfo()\n\
-in Wcd for DOS/Windows/OS2 with native language support.\n\n\
+Rugxulo is the original author of query_con_codepage() (public domain).\n\n\
 \
 This program is free software; you can redistribute it and/or\n\
 modify it under the terms of the GNU General Public License\n\

@@ -125,7 +125,7 @@ unsigned short query_con_codepage(void) {
   ULONG cp[3];
   ULONG cplen;
 
-  DosQueryCP(sizeof(cp), cp, &cplen);
+  DosQueryCp(sizeof(cp), cp, &cplen);
   return((unsigned short)cp[0]);
 }
 

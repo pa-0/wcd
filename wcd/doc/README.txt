@@ -192,9 +192,8 @@ Table of Contents
         Windows with Unicode support. See also
         http://www.cl.cam.ac.uk/~mgk25/unicode.html
 
-        Keith Marshall's nl_langinfo() implementation is used in Wcd
-        for DOS, Windows, OS/2 with native language support. Taken
-        from package mingw-catgets.
+        Rugxulo is the original autor of query_con_codepage(),
+        which is in the public domain.
 
 3.0 Acknowledgements
 
@@ -272,7 +271,8 @@ Table of Contents
                                           MVPS.ORG http://www.mvps.org/win32/
         Markus Kuhn                       wcwidth(), used in Windows version of Wcd.
                                           http://www.cl.cam.ac.uk/~mgk25/unicode.html
-        Keith Marshall                    nl_langinfo(), for DOS, Windows, OS/2
+        Rugxulo                           query_con_codepage()
+                                          http://sites.google.com/site/rugxulo/
 
 4.0 Contact and Download information
 
