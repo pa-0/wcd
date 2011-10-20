@@ -1726,7 +1726,7 @@ void print_version()
 #else
    printf(_("No native language support included.\n"));
 #endif
-#if defined(MSDOS) && !defined(WIN32)
+#if defined(MSDOS)
    printf(_("Current locale uses CP%u encoding.\n"),query_con_codepage());
 #else
    printf(_("Current locale uses %s encoding.\n"),nl_langinfo(CODESET));
