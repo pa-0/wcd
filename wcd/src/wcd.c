@@ -56,10 +56,10 @@ TAB = 3 spaces
 #include <locale.h>
 #endif
 
-#if (defined (WIN32) && !defined(__CYGWIN__)) || defined(OS2) /* Windows (not Cygwin), OS/2 */
+#if (defined (WIN32) && !defined(__CYGWIN__)) /* Windows (not Cygwin) */
 # include "langinfo.h"
 #else
-# ifndef MSDOS  /* Unix, Cygwin */
+# if !defined(MSDOS) || defined(OS2)  /* Unix, Cygwin, OS/2 */
 #  include <langinfo.h>
 # endif
 #endif

@@ -1,6 +1,8 @@
 /* The code in this file is Public Domain */
 
-#include "tailor.h"
+#if (defined(__WATCOMC__) && defined(__NT__))
+#  define WIN32
+#endif
 
 #ifdef DJGPP
 
@@ -101,7 +103,7 @@ unsigned short query_con_codepage(void) {
 
 
 
-#elif defined (WIN32) && !defined(__CYGWIN__)
+#elif defined (WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
 
 /* Erwin Waterlander */
 
@@ -113,7 +115,21 @@ unsigned short query_con_codepage(void) {
    return((unsigned short)GetACP());
 #endif
 }
-#else
+
+#elif defined (__OS2__) /* OS/2 Warp */
+
+#define INCL_DOS
+#include <os2.h>
+
+unsigned short query_con_codepage(void) {
+  ULONG cp[3];
+  ULONG cplen;
+
+  DosQueryCP(sizeof(cp), cp, &cplen);
+  return((unsigned short)cp[0]);
+}
+
+#else  /* Unix, other */
 
 #ifndef MSDOS
 #include <string.h>
