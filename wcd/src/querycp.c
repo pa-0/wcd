@@ -145,6 +145,11 @@ unsigned short query_con_codepage(void) {
 #endif
 unsigned short query_con_codepage(void) {
 #ifndef MSDOS
+
+   /* A fake code page number is returned. This recognized by
+    * dd_matchl().
+    */
+
    if (strcmp(nl_langinfo(CODESET), "ISO-8859-1") == 0)
      return(8591);
 
