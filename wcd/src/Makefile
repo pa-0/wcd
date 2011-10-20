@@ -294,7 +294,7 @@ ifeq (hpux,$(OS))
 endif
 
 ifndef OS
-	OS = unknown
+	OS = $(shell uname -s)
 endif
 
 # ............................................................ flags ...
