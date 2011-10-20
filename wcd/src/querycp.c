@@ -109,8 +109,19 @@ unsigned short query_con_codepage(void) {
 
 #include <windows.h>
 unsigned short query_con_codepage(void) {
-  /* Get the system's code page */
-   return((unsigned short)GetACP());
+
+   /* Get the console's DOS code page */
+   /* return((unsigned short)GetConsoleOutputCP()); */
+
+   /* The Windows version of Wcd writes the treedata
+    * files in the system's default encoding, which is
+    * the ANSI code page.
+    */
+
+   /* Get the system's ANSI code page */
+    return((unsigned short)GetACP());
+
+
 }
 
 #elif defined (__OS2__) /* OS/2 Warp */
