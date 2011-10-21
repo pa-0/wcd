@@ -234,6 +234,9 @@ Unicode normalization requires libunistring, see
   http://www.gnu.org/s/libunistring/
   http://en.wikipedia.org/wiki/Unicode_normalization
 
+  Get libunistring packages via
+  http://waterlan.home.xs4all.nl/libunistring.html
+
 Installation Names
 ==================
 
