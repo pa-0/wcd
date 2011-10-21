@@ -255,8 +255,8 @@ dos32bsh : The default PREFIX is c:/djgpp
 win32    : The default PREFIX is c:/usr/local
 win32zsh : The default PREFIX is c:/usr/local
 win32psh : The default PREFIX is c:/usr/local
-win64    : The default PREFIX is c:/usr/local
-win64psh : The default PREFIX is c:/usr/local
+win64    : The default PREFIX is c:/usr/local64
+win64psh : The default PREFIX is c:/usr/local64
 msys     : The default PREFIX is /usr
 
 

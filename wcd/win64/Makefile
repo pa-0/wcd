@@ -1,5 +1,5 @@
 
-PREFIX = c:/usr/local
+PREFIX = c:/usr/local64
 prefix = $(PREFIX)
 exec_prefix = $(prefix)
 MKDIR  = mkdir
