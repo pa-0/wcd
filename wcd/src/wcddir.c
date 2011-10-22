@@ -331,7 +331,7 @@ int wcd_chdir(char *buf, int quiet)
       if ( !quiet )
       {
          dw = GetLastError(); 
-         fprintf(stderr,_("Wcd: error: Unable to change to directory %s: "), buf);
+         wcd_printf(_("Wcd: error: Unable to change to directory %s: "), buf);
          PrintError(dw);
       }
       return(1);   /* fail */
@@ -362,7 +362,7 @@ int wcd_mkdir(char *buf, int quiet)
      if ( !quiet )
      {
        dw = GetLastError(); 
-       fprintf(stderr,_("Wcd: error: Unable to create directory %s: "), buf);
+       wcd_printf(_("Wcd: error: Unable to create directory %s: "), buf);
        PrintError(dw);
      }
      return(1);  /* fail */
@@ -391,7 +391,7 @@ int wcd_rmdir(char *buf, int quiet)
      if ( !quiet )
      {
        dw = GetLastError(); 
-       fprintf(stderr,_("Wcd: error: Unable to remove directory %s: "), buf);
+       wcd_printf(_("Wcd: error: Unable to remove directory %s: "), buf);
        PrintError(dw);
      }
      return(1);  /* fail */
@@ -419,11 +419,27 @@ int wcd_rmdir(char *buf, int quiet)
  *   also on Windows UNC paths as above, but not all compilers have 'dirent'
  *   included. E.g. LCC 3.8 and Open Watcom 1.3 don't have it.
  *
+ * - Another problem is that stat() doesn't work well with Unicode names.
+ *
  * - Using 'wcd_chdir()' is a portable solution to check \\servername\sharename.
  *
  ******************************************************************/
 int wcd_isdir(char *dir, int quiet)
 {
+
+#ifdef WCD_UTF16
+   char tmp[DD_MAXDIR];
+
+   wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
+
+   if (wcd_chdir(dir, quiet) == 0) /* just try to change to dir */
+   {
+     wcd_chdir(tmp, quiet); /* go back */
+     return(0);
+   }
+   else
+      return(-1);
+#else
    struct stat buf;
    char *errstr;
    char tmp[DD_MAXDIR];
@@ -457,6 +473,7 @@ int wcd_isdir(char *dir, int quiet)
          return(-1);
       }
    }
+#endif
 }
 
 

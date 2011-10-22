@@ -447,7 +447,7 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
    if  ((outfile = wcd_fopen(filename,"a",0)) != NULL)
    {
      fprintf(outfile,"%s\n",tmp);
-     printf(_("Wcd: %s added to file %s\n"),tmp,filename);
+     wcd_printf(_("Wcd: %s added to file %s\n"),tmp,filename);
 
      if (parents)
      {
@@ -460,7 +460,7 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
          if (strrchr(tmp,DIR_SEPARATOR) != NULL)
          {
             fprintf(outfile,"%s\n",tmp);
-            printf(_("Wcd: %s added to file %s\n"),tmp,filename);
+            wcd_printf(_("Wcd: %s added to file %s\n"),tmp,filename);
          }
       }
      }
@@ -913,11 +913,11 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
 
    if(wcd_isdir(path,0) != 0)
    {
-      fprintf(stderr,_("Wcd: %s is not a directory.\n"),path);
+      wcd_printf(_("Wcd: %s is not a directory.\n"),path);
       return ;
    }
 
-   printf(_("Wcd: Please wait. Scanning disk. Building treedata-file %s from %s\n"),treefile, path);
+   wcd_printf(_("Wcd: Please wait. Scanning disk. Building treedata-file %s from %s\n"),treefile, path);
 
 #ifdef MSDOS
       changeDisk(path,&changedrive,drive,use_HOME);
@@ -1100,7 +1100,7 @@ void deleteLink(char *path, char *treefile)
 
         if (unlink(tmp2)==0)    /* delete the link */
           {
-            printf(_("Wcd: Removed symbolic link %s\n"),path);
+            wcd_printf(_("Wcd: Removed symbolic link %s\n"),path);
             cleanTreeFile(treefile,path);
           }
         else
@@ -1208,12 +1208,12 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
       else
         if (wcd_rmdir(path,0)==0)
         {
-          printf(_("Wcd: Removed directory %s\n"),path);
+          wcd_printf(_("Wcd: Removed directory %s\n"),path);
           cleanTreeFile(treefile,path);
         }
    }
    else
-     fprintf(stderr,_("Wcd: %s is not a directory.\n"),path);
+     wcd_printf(_("Wcd: %s is not a directory.\n"),path);
 
 #ifdef UNIX
     }
@@ -2764,7 +2764,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
             if (strcmp(argv[i-1],"-S") == 0 )
             {
+#ifdef WCD_UTF16
+               wcstoutf8(scandir,wargv[i],sizeof(scandir));
+#else
                strncpy(scandir,argv[i],sizeof(scandir));
+#endif
 #if (defined(WIN32) || defined(__CYGWIN__))
                if (wcd_isServerPath(scandir))
                {
@@ -2777,7 +2781,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             else
             if (strcmp(argv[i-1],"+S") == 0 )
             {
+#ifdef WCD_UTF16
+               wcstoutf8(scandir,wargv[i],sizeof(scandir));
+#else
                strncpy(scandir,argv[i],sizeof(scandir));
+#endif
                strncpy(treefile,scandir,sizeof(treefile) - strlen(RELTREEFILE));
                strcat(treefile,RELTREEFILE);
 
@@ -2792,7 +2800,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             else
             if (strcmp(argv[i-1],"-A") == 0 )
             {
+#ifdef WCD_UTF16
+               wcstoutf8(scandir,wargv[i],sizeof(scandir));
+#else
                strncpy(scandir,argv[i],sizeof(scandir));
+#endif
 #if (defined(WIN32) || defined(__CYGWIN__))
                if (wcd_isServerPath(scandir))
                {
@@ -2805,7 +2817,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             else
             if (strcmp(argv[i-1],"-E") == 0 )
             {
+#ifdef WCD_UTF16
+               wcstoutf8(scandir,wargv[i],sizeof(scandir));
+#else
                strncpy(scandir,argv[i],sizeof(scandir));
+#endif
 #if (defined(WIN32) || defined(__CYGWIN__))
                if (wcd_isServerPath(scandir))
                {
@@ -2818,7 +2834,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             else
             if (strcmp(argv[i-1],"-m") == 0 )
             {
+#ifdef WCD_UTF16
+               wcstoutf8(tmp,wargv[i],sizeof(tmp));
+#else
                strncpy(tmp,argv[i],sizeof(tmp));
+#endif
                makeDir(tmp,treefile,&use_HOME) ;
             }
             else
@@ -2830,7 +2850,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             else
             if (strcmp(argv[i-1],"-r") == 0 )  /* remove one dir, or link to dir */
             {
+#ifdef WCD_UTF16
+               wcstoutf8(tmp,wargv[i],sizeof(tmp));
+#else
                strncpy(tmp,argv[i],sizeof(tmp));
+#endif
                deleteDir(tmp,treefile,0,&use_HOME) ;
             }
             else
@@ -3309,7 +3333,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
          }
          else
          {
-            printf(_("Wcd: Cannot change to %s\n"),best_match);
+            wcd_printf(_("Wcd: Cannot change to %s\n"),best_match);
 #if defined(UNIX) || defined(WIN32) || defined(OS2)     /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif
