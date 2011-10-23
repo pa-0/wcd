@@ -54,28 +54,51 @@ size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len)
 }
 #endif
 
-/* Print an UTF-8 multi-byte string */
+/* Print an UTF-8 multi-byte string
+ *
+ * On Windows the file system uses UTF-16 encoding. That means
+ * that files and directories can have names that
+ * can't be encoded in the default system Windows ANSI code page.
+ *
+ * The Windows console supports printing of UTF-16 wide characters.
+ *
+ * Wcd handles all internal data as a stream of bytes. Therefore Wcd for
+ * Windows with unicode support writes all treedata files in UTF-8 encoding.
+ *
+ * Wcd's messages are encoded in the default Windows ANSI code page.
+ */
+
 void wcd_printf( const char* format, ... ) {
    va_list args;
 #ifdef WCD_UTF16
    wchar_t wstr[DD_MAXPATH];
    char buf[DD_MAXPATH];
+   char formatmbs[DD_MAXPATH];
+   wchar_t formatwcs[DD_MAXPATH];
 
+   va_start(args, format);
    HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE);
-#endif
 
-   va_start( args, format );
-#ifdef WCD_UTF16
-   /* Assume the multi-byte string is in UTF-8 encoding. */
-   vsnprintf( buf, sizeof(wstr), format, args);
+   /* The format string is encoded in the system default
+    * Windows ANSI code page. May have been translated
+    * by gettext. Convert it to wide characters. */
+   MultiByteToWideChar(CP_ACP,0, format, -1, formatwcs, DD_MAXPATH);
+   /* convert the format string to UTF-8 */
+   WideCharToMultiByte(CP_UTF8, 0, formatwcs, -1, formatmbs, DD_MAXPATH, NULL, NULL);
+
+   /* Assume the arguments (directory names) are in UTF-8 encoding, because
+    * in Windows Unicode mode all treedata files are written in UTF-8 format. */
+   vsnprintf( buf, sizeof(wstr), formatmbs, args);
    if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, DD_MAXPATH) > 0  )
       WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
    else
    {
+      /* An error occured. */
       printf("A:");
       vprintf( format, args );
    }
 #else
+   va_start(args, format);
    vprintf( format, args );
 #endif
    va_end( args );

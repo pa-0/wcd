@@ -1110,7 +1110,7 @@ void deleteLink(char *path, char *treefile)
         }
    }
    else
-      fprintf(stderr,_("Wcd: %s is a symbolic link to a file.\n"),path);
+      wcd_printf(_("Wcd: %s is a symbolic link to a file.\n"),path);
  }
  else
  {
@@ -3167,7 +3167,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
    if ((perfect_list->size==0)&&(wild_list->size == 0))  /* No match at all */
    {
       if ( !(use_stdout & WCD_STDOUT_DUMP) ) /* don't print message if option -od is used */
-         fprintf(stderr,_("Wcd: No directory found matching %s\nWcd: Perhaps you need to rescan the disk or path is banned.\n"),dir);
+         wcd_printf(_("Wcd: No directory found matching %s\nWcd: Perhaps you need to rescan the disk or path is banned.\n"),dir);
 #if defined(UNIX) || defined(WIN32) || defined(OS2)    /* empty wcd.go file */
       empty_wcdgo(go_file,use_GoScript);
 #endif

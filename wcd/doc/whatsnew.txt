@@ -11,6 +11,7 @@
   - Matching with Unicode normalisation. Compile with UNINORM=1.
     See also http://en.wikipedia.org/wiki/Unicode_normalization
     Requires libunistring. http://www.gnu.org/s/libunistring/
+  - Improved printing of Unicode names on Windows.
   - Makefile use RPM_OPT_FLAGS.
   - Enable Large File Support.
   - Code cleanup for -Wextra -Wconversion.
