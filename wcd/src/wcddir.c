@@ -419,8 +419,6 @@ int wcd_rmdir(char *buf, int quiet)
  *   also on Windows UNC paths as above, but not all compilers have 'dirent'
  *   included. E.g. LCC 3.8 and Open Watcom 1.3 don't have it.
  *
- * - Another problem is that stat() doesn't work well with Unicode names.
- *
  * - Using 'wcd_chdir()' is a portable solution to check \\servername\sharename.
  *
  ******************************************************************/
@@ -428,18 +426,10 @@ int wcd_isdir(char *dir, int quiet)
 {
 
 #ifdef WCD_UTF16
-   char tmp[DD_MAXDIR];
-
-   wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
-
-   if (wcd_chdir(dir, quiet) == 0) /* just try to change to dir */
-   {
-     wcd_chdir(tmp, quiet); /* go back */
-     return(0);
-   }
-   else
-      return(-1);
-#else
+   static wchar_t wstr[DD_MAXPATH];
+   BOOL err;
+   DWORD dw; 
+#endif
    struct stat buf;
    char *errstr;
    char tmp[DD_MAXDIR];
@@ -456,6 +446,42 @@ int wcd_isdir(char *dir, int quiet)
       else
          return(-1);
    } else {
+#ifdef WCD_UTF16
+      if (utf8towcs(wstr, dir, DD_MAXPATH) == (size_t)(-1))
+         err = FALSE;
+      else
+         err = TRUE;
+
+      if (err == TRUE)
+      {
+         if (_wstat(wstr, &buf) == 0)
+         {
+            if (S_ISDIR(buf.st_mode))
+               return(0);
+            else
+               return(-1);
+         }
+         else
+         {
+            if (!quiet)
+            {
+              errstr = strerror(errno);
+              wcd_printf("Wcd: %s: %s\n", dir, errstr);
+            }
+            return(-1);
+         }
+      }
+      else
+      {
+        if ( !quiet )
+        {
+          dw = GetLastError(); 
+          wcd_printf("Wcd: %s: ", dir);
+          PrintError(dw);
+        }
+        return(-1);  /* fail */
+      }
+#else
       if (stat(dir, &buf) == 0)
       {
          if (S_ISDIR(buf.st_mode))
@@ -472,8 +498,8 @@ int wcd_isdir(char *dir, int quiet)
          }
          return(-1);
       }
-   }
 #endif
+   }
 }
 
 
