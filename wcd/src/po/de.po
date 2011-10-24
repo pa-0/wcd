@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-24 13:48+0200\n"
+"POT-Creation-Date: 2011-10-24 19:04+0200\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -85,8 +85,8 @@ msgstr "wcd: Die SYBOLISCHE Verknüpfung %s wurde entfernt.\n"
 #, c-format
 msgid "Wcd: error: Unable to remove symbolic link %s: %s\n"
 msgstr ""
-"wcd: Fehler: Das Löschen der symbolischen Verknüpfung %s wurde verweigert: %"
-"s\n"
+"wcd: Fehler: Das Löschen der symbolischen Verknüpfung %s wurde verweigert: "
+"%s\n"
 
 #: wcd.c:1221
 #, c-format
@@ -588,24 +588,24 @@ msgstr "wcd: Fehler: Das Verzeicnis %s konnte nicht angelegt werden: "
 msgid "Wcd: error: Unable to remove directory %s: "
 msgstr "wcd: Fehler: Das Löschen von Verzeichnis %s wurde verweigert: "
 
-#: wcddir.c:522 wcddir.c:539
+#: wcddir.c:524 wcddir.c:541
 #, c-format
 msgid "Wcd: error: Unable to create directory %s: %s\n"
 msgstr "wcd: Fehler: Das Verzeicnis %s konnte nicht angelegt werden: %s\n"
 
-#: wcddir.c:664
+#: wcddir.c:666
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr ""
-"wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden: %"
-"s\n"
+"wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden: "
+"%s\n"
 
-#: wcddir.c:683
+#: wcddir.c:685
 #, c-format
 msgid "Wcd: error: Unable to change to directory %s: %s\n"
 msgstr "wcd: Fehler: Das Wechseln zu Verzeichnis %s war nicht möglich: %s\n"
 
-#: wcddir.c:698
+#: wcddir.c:700
 #, c-format
 msgid "Wcd: error: Unable to remove directory %s: %s\n"
 msgstr "wcd: Fehler: Das Löschen von Verzeichnis %s wurde verweigert: %s\n"

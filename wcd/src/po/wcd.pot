@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-24 18:29+0200\n"
+"POT-Creation-Date: 2011-10-24 19:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -463,22 +464,22 @@ msgstr ""
 msgid "Wcd: error: Unable to remove directory %s: "
 msgstr ""
 
-#: wcddir.c:522 wcddir.c:539
+#: wcddir.c:524 wcddir.c:541
 #, c-format
 msgid "Wcd: error: Unable to create directory %s: %s\n"
 msgstr ""
 
-#: wcddir.c:664
+#: wcddir.c:666
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr ""
 
-#: wcddir.c:683
+#: wcddir.c:685
 #, c-format
 msgid "Wcd: error: Unable to change to directory %s: %s\n"
 msgstr ""
 
-#: wcddir.c:698
+#: wcddir.c:700
 #, c-format
 msgid "Wcd: error: Unable to remove directory %s: %s\n"
 msgstr ""

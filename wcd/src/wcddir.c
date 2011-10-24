@@ -454,7 +454,7 @@ int wcd_isdir(char *dir, int quiet)
 
       if (err == TRUE)
       {
-         if (_wstat(wstr, &buf) == 0)
+         if (wstat(wstr, &buf) == 0)
          {
             if (S_ISDIR(buf.st_mode))
                return(0);
