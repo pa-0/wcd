@@ -995,6 +995,11 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
    if  (outfile == NULL)
       return ;
 #endif
+#ifdef WCD_UTF16
+   /* Add UTF-8 BOM to make it readable by notepad. */
+   if (append == 0)
+     fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+#endif
    finddirs( path, &offset, outfile, use_HOME, exclude, 0); /* Build treedata-file */
    fclose(outfile);
    wcd_chdir(tmp2,0);          /* go back */
@@ -1245,6 +1250,7 @@ int wcd_getline(char s[], int lim, FILE* infile)
 }
 
 #ifdef WIN32
+/* UTF16 little endian */
 int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
 {
    int i ;
@@ -1264,6 +1270,7 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
    return i ;
 }
 
+/* UTF16 big endian */
 int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
 {
    int i ;
@@ -1272,9 +1279,7 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
    for (i=0; i<lim-1 && ((c=fgetwc(infile)) != 0xa00) && (!feof(infile)) ; ++i)
       {
       s[i] = (wchar_t)c ;
-      printf ("i=%d c=%x\n",i,s[i]);
       s[i] = MAKEWORD( HIBYTE(s[i]), LOBYTE(s[i]));
-      printf ("i=%d c=%d (%c)\n",i,s[i],(char)s[i]);
       if (c == 0xd00) i--;
    }
 
@@ -1320,12 +1325,14 @@ void read_treefileUTF16LE(FILE *f, nameset bd)
     {
        /* read a line */
        len = wcd_wgetline(pathw,DD_MAXPATH,f);
-       printf("len:%d\n",len);
-       wcstoutf8(path,pathw,sizeof(path));
-       printf("path:%s\n",path);
 
        if (len > 0 )
        {
+#ifdef WCD_UTF16
+          WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
+#else
+          WideCharToMultiByte(CP_ACP, 0, pathw, -1, path, sizeof(path), NULL, NULL);
+#endif
           wcd_fixpath(path,sizeof(path));
           addToNamesetArray(textNew(path),bd);
        }
@@ -1341,12 +1348,14 @@ void read_treefileUTF16BE(FILE *f, nameset bd)
     {
        /* read a line */
        len = wcd_wgetline_be(pathw,DD_MAXPATH,f);
-       printf("len:%d\n",len);
-       wcstoutf8(path,pathw,sizeof(path));
-       printf("path:%s\n",path);
 
        if (len > 0 )
        {
+#ifdef WCD_UTF16
+          WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
+#else
+          WideCharToMultiByte(CP_ACP, 0, pathw, -1, path, sizeof(path), NULL, NULL);
+#endif
           wcd_fixpath(path,sizeof(path));
           addToNamesetArray(textNew(path),bd);
        }
@@ -1363,7 +1372,9 @@ void read_treefile(char* filename, nameset bd, int quiet)
     * UTF-8     ef bb bf
     */
 
+   printf ("%s\n", filename);
    printf ("r %x\n", '\r');
+   printf ("wchar_t %d\n", sizeof(wchar_t));
    /* open treedata-file */
    if  ((infile = wcd_fopen(filename,"rb", quiet)) != NULL)
    {
@@ -1372,6 +1383,7 @@ void read_treefile(char* filename, nameset bd, int quiet)
          fclose(infile);
          return;
       }
+   printf ("bom0 %x\n", bom[0]);
       if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef))
       {
          ungetc(bom[0], infile);
@@ -1384,6 +1396,7 @@ void read_treefile(char* filename, nameset bd, int quiet)
          fclose(infile);
          return;
       }
+   printf ("bom1 %x\n", bom[1]);
 #ifdef WIN32
       if ((bom[0] == 0xff) && (bom[1] == 0xfe)) /* UTF16-LE */
       {
@@ -1400,7 +1413,12 @@ void read_treefile(char* filename, nameset bd, int quiet)
          return;
       }
 #endif
-      if (((bom[2] = fgetc(infile))== 0xbf) && (bom[0] == 0xef) && (bom[1] == 0xbb)) /* UTF-8 */
+      if ((bom[2] = fgetc(infile)) == EOF)
+      {
+         fclose(infile);
+         return;
+      }
+      if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) /* UTF-8 */
       {
          printf("UTF-8\n");
          read_treefileA(infile, bd);
@@ -1503,6 +1521,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 {
    FILE *infile;
    char line[DD_MAXPATH];            /* database path */
+   wchar_t linew[DD_MAXPATH];            /* database path */
    char *line_end;                  /* database directory */
    char path_str[DD_MAXPATH];        /* path name to match */
    char dirwild_str[DD_MAXPATH];     /* directory name to wild match */
@@ -1510,9 +1529,11 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    char relative_prefix[DD_MAXPATH];      /* relative prefix */
    char tmp[DD_MAXPATH];
    int wild = 0;
+	int bom[3];
+	int  type ;
 
    /* open treedata-file */
-   if  ((infile = wcd_fopen(filename,"r",0)) == NULL)
+   if  ((infile = wcd_fopen(filename,"rb",0)) == NULL)
       return;
 
    if( (dir_str = strrchr(org_dir,DIR_SEPARATOR)) != NULL)
@@ -1562,12 +1583,82 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
         relative_prefix[0] = '\0';
    }
 
+      if ((bom[0] = fgetc(infile)) == EOF)
+      {
+         fclose(infile);
+         return;
+      }
+   printf ("bom0 %x\n", bom[0]);
+      if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef))
+      {
+         ungetc(bom[0], infile);
+			type = 0;
+      }
+      if ((bom[1] = fgetc(infile)) == EOF)
+      {
+         fclose(infile);
+         return;
+      }
+   printf ("bom1 %x\n", bom[1]);
+#ifdef WIN32
+      if ((bom[0] == 0xff) && (bom[1] == 0xfe)) /* UTF16-LE */
+      {
+         printf("UTF16-LE\n");
+			type = 1;
+      }
+      if ((bom[0] == 0xfe) && (bom[1] == 0xff)) /* UTF16-BE */
+      {
+         printf("UTF16-BE\n");
+			type = 2;
+      }
+#endif
+      if ((bom[2] = fgetc(infile)) == EOF)
+      {
+         fclose(infile);
+         return;
+      }
+      if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) /* UTF-8 */
+      {
+         printf("UTF-8\n");
+			type = 0;
+      }
+      printf("OTHER\n");
+      ungetc(bom[2], infile);
+      ungetc(bom[1], infile);
+      ungetc(bom[0], infile);
+		type = 0;
+
    while (!feof(infile) )  /* parse the file */
    {
       int len;
 
       /* read a line */
-      len = wcd_getline(line,DD_MAXPATH,infile);
+		switch (type)
+		{
+			case 0:
+           len = wcd_getline(line,DD_MAXPATH,infile);
+			  break;
+#ifdef WIN32
+			case 1:
+           len = wcd_wgetline(linew,DD_MAXPATH,infile);
+#ifdef WCD_UTF16
+           WideCharToMultiByte(CP_UTF8, 0, linew, -1, line, sizeof(line), NULL, NULL);
+#else
+           WideCharToMultiByte(CP_ACP, 0, linew, -1, line, sizeof(line), NULL, NULL);
+#endif
+			  break;
+			case 2:
+           len = wcd_wgetline_be(linew,DD_MAXPATH,infile);
+#ifdef WCD_UTF16
+           WideCharToMultiByte(CP_UTF8, 0, linew, -1, line, sizeof(line), NULL, NULL);
+#else
+           WideCharToMultiByte(CP_ACP, 0, linew, -1, line, sizeof(line), NULL, NULL);
+#endif
+			  break;
+#endif
+         default:
+           len = wcd_getline(line,DD_MAXPATH,infile);
+		}
 
       cleanPath(line,len,1) ;
 
@@ -1881,9 +1972,9 @@ void print_version()
 #endif
    {
       printf(_("  Euro symbol: "));
-      wcd_printf ("\u20AC\n");
+      wcd_printf ("%s\n","\u20AC");
       printf(_("  Chinese characters: "));
-      wcd_printf ("\u4e2d\u6587\n");
+      wcd_printf ("%s\n","\u4e2d\u6587");
    }
 #else
    printf(_("Without Unicode support.\n"));
@@ -3221,6 +3312,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
       for (ii=0;ii<extra_files->size;ii++)
       {
+			printf ("ERWIN extra %s\n",extra_files->array[ii]);
          scanfile(dir, extra_files->array[ii],ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly,ignore_diacritics); /* scan the extra treedata file */
       }
       /* search relative files */
