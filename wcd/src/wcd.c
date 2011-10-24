@@ -32,7 +32,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 Jason Mathews' file filelist.c was a starting point for this file.
 
-TAB = 3 spaces
 
 */
 
@@ -158,7 +157,6 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
    * UTF-8     ef bb bf
    */
 
-  //printf("wcd_fopen %s %d\n",filename, quiet);
   *bomtype = FILE_MBS;
 
   if (m[0] == 'r') /* we try to read an existing file */
@@ -193,38 +191,36 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
       fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
   }
 
-   /* open treedata-file */
+   /* Check for BOM */
    if  (f != NULL)
    {
       if ((bom[0] = fgetc(f)) == EOF)
       {
          ungetc(bom[0], f);
-	 *bomtype = FILE_MBS;
+         *bomtype = FILE_MBS;
          return(f);
       }
       if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef))
       {
          ungetc(bom[0], f);
-	 *bomtype = FILE_MBS;
+         *bomtype = FILE_MBS;
          return(f);
       }
       if ((bom[1] = fgetc(f)) == EOF)
       {
          ungetc(bom[1], f);
          ungetc(bom[0], f);
-	 *bomtype = FILE_MBS;
+         *bomtype = FILE_MBS;
          return(f);
       }
       if ((bom[0] == 0xff) && (bom[1] == 0xfe)) /* UTF16-LE */
       {
-         printf("UTF16-LE\n");
-	 *bomtype = FILE_UTF16LE;
+         *bomtype = FILE_UTF16LE;
          return(f);
       }
       if ((bom[0] == 0xfe) && (bom[1] == 0xff)) /* UTF16-BE */
       {
-         printf("UTF16-BE\n");
-	 *bomtype = FILE_UTF16BE;
+         *bomtype = FILE_UTF16BE;
          return(f);
       }
       if ((bom[2] = fgetc(f)) == EOF)
@@ -232,16 +228,14 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
          ungetc(bom[2], f);
          ungetc(bom[1], f);
          ungetc(bom[0], f);
-	 *bomtype = FILE_MBS;
+         *bomtype = FILE_MBS;
          return(f);
       }
       if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) /* UTF-8 */
       {
-         printf("UTF-8\n");
-	 *bomtype = FILE_MBS;
+         *bomtype = FILE_MBS;
          return(f);
       }
-      printf("OTHER\n");
       ungetc(bom[2], f);
       ungetc(bom[1], f);
       ungetc(bom[0], f);
@@ -1476,7 +1470,6 @@ void read_treefile(char* filename, nameset bd, int quiet)
    FILE *infile;
    int bomtype;
 
-   printf ("%s\n", filename);
    /* open treedata-file */
    if  ((infile = wcd_fopen_bom(filename,"rb", quiet, &bomtype)) != NULL)
    {
@@ -3337,7 +3330,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
       for (ii=0;ii<extra_files->size;ii++)
       {
-			printf ("ERWIN extra %s\n",extra_files->array[ii]);
          scanfile(dir, extra_files->array[ii],ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly,ignore_diacritics); /* scan the extra treedata file */
       }
       /* search relative files */

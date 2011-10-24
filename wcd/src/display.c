@@ -53,24 +53,31 @@ size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len)
    return((size_t)(MultiByteToWideChar(CP_UTF8, 0, mbstr, -1, wcstr, len) -1));
 }
 #endif
-
-/* Print an UTF-8 multi-byte string
+/*
+ * wcd_printf()  : printf wrapper.
  *
- * On Windows the file system uses UTF-16 encoding. That means
+ * Windows Unicode: Print Windows ANSI encoded format with UTF-8 encoded arguments.
+ * All others     : Use standard printf.
+ *
+ * On Windows the file system uses always Unicode UTF-16 encoding,
+ * regardless of the system default code page. This means
  * that files and directories can have names that
  * can't be encoded in the default system Windows ANSI code page.
  *
- * The Windows console supports printing of UTF-16 wide characters.
+ * The Windows console supports printing of any UTF-16 wide character,
+ * regardless of code page, via WriteConsoleW().
  *
- * Wcd handles all internal data as a stream of bytes. Therefore Wcd for
- * Windows with unicode support writes all treedata files in UTF-8 encoding.
+ * Wcd translates all UTF-16 directory names to UTF-8, to be able to
+ * work with char type strings. This is done to keep the code portable.
  *
- * Wcd's messages are encoded in the default Windows ANSI code page.
+ * Wcd's messages are encoded in the default Windows ANSI code page,
+ * which can be translated with gettext. Gettext/libintl recodes 
+ * messages (format) to the system default ANSI code page.
  */
 
 void wcd_printf( const char* format, ... ) {
    va_list args;
-#ifdef WCD_UTF16
+#ifdef WCD_UTF16  /* Wcd for Windows with Unicode support */
    wchar_t wstr[DD_MAXPATH];
    char buf[DD_MAXPATH];
    char formatmbs[DD_MAXPATH];
@@ -83,12 +90,14 @@ void wcd_printf( const char* format, ... ) {
     * Windows ANSI code page. May have been translated
     * by gettext. Convert it to wide characters. */
    MultiByteToWideChar(CP_ACP,0, format, -1, formatwcs, DD_MAXPATH);
-   /* convert the format string to UTF-8 */
+   /* then convert the format string to UTF-8 */
    WideCharToMultiByte(CP_UTF8, 0, formatwcs, -1, formatmbs, DD_MAXPATH, NULL, NULL);
 
    /* Assume the arguments (directory names) are in UTF-8 encoding, because
-    * in Windows Unicode mode all treedata files are written in UTF-8 format. */
-   vsnprintf( buf, sizeof(wstr), formatmbs, args);
+    * in Windows Unicode mode all treedata files are written in UTF-8 format.
+    * Print to buffer (UTF-8) */
+   vsnprintf( buf, sizeof(buf), formatmbs, args);
+    /* Convert UTF-8 buffer to wide characters, and print to console. */
    if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, DD_MAXPATH) > 0  )
       WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
    else
