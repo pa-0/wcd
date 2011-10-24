@@ -429,8 +429,10 @@ int wcd_isdir(char *dir, int quiet)
    static wchar_t wstr[DD_MAXPATH];
    BOOL err;
    DWORD dw; 
-#endif
+   struct _stat buf;
+#else
    struct stat buf;
+#endif
    char *errstr;
    char tmp[DD_MAXDIR];
 
@@ -454,7 +456,7 @@ int wcd_isdir(char *dir, int quiet)
 
       if (err == TRUE)
       {
-         if (wstat(wstr, &buf) == 0)
+         if (_wstat(wstr, &buf) == 0)
          {
             if (S_ISDIR(buf.st_mode))
                return(0);
