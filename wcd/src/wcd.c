@@ -142,6 +142,115 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
   return(f);
 }
 
+/* wcd_fopen_type, similar as wcd_fopen, but also returns file
+ * type based on Unicode BOM.
+ */
+
+FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype)
+{
+  struct stat buf;
+  FILE *f;
+  char *errstr;
+  int bom[3];
+  /* BOMs
+   * UTF16-LE  ff fe
+   * UTF16-BE  fe ff
+   * UTF-8     ef bb bf
+   */
+
+  //printf("wcd_fopen %s %d\n",filename, quiet);
+  *bomtype = FILE_MBS;
+
+  if (m[0] == 'r') /* we try to read an existing file */
+  {
+    if (stat(filename, &buf) != 0) /* check if file exists */
+    {
+      if ( !quiet )
+      {
+        errstr = strerror(errno);
+        fprintf(stderr,_("Wcd: error: Unable to read file %s: %s\n"), filename, errstr);
+      }
+      return(NULL);
+    }
+
+    if (!S_ISREG(buf.st_mode)) /* check if it is a file */
+    {
+      if ( !quiet )
+      {
+        fprintf(stderr,_("Wcd: error: Unable to read file %s: Not a regular file.\n"), filename);
+      }
+      return(NULL);
+    }
+  }
+
+  f = fopen(filename, m); /* open the file */
+  if ( !quiet && (f == NULL))
+  {
+    errstr = strerror(errno);
+    if (m[0] == 'r')
+      fprintf(stderr,_("Wcd: error: Unable to read file %s: %s\n"), filename, errstr);
+    else
+      fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
+  }
+
+   /* open treedata-file */
+   if  (f != NULL)
+   {
+      if ((bom[0] = fgetc(f)) == EOF)
+      {
+         ungetc(bom[0], f);
+	 *bomtype = FILE_MBS;
+         return(f);
+      }
+      if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef))
+      {
+         ungetc(bom[0], f);
+	 *bomtype = FILE_MBS;
+         return(f);
+      }
+      if ((bom[1] = fgetc(f)) == EOF)
+      {
+         ungetc(bom[1], f);
+         ungetc(bom[0], f);
+	 *bomtype = FILE_MBS;
+         return(f);
+      }
+      if ((bom[0] == 0xff) && (bom[1] == 0xfe)) /* UTF16-LE */
+      {
+         printf("UTF16-LE\n");
+	 *bomtype = FILE_UTF16LE;
+         return(f);
+      }
+      if ((bom[0] == 0xfe) && (bom[1] == 0xff)) /* UTF16-BE */
+      {
+         printf("UTF16-BE\n");
+	 *bomtype = FILE_UTF16BE;
+         return(f);
+      }
+      if ((bom[2] = fgetc(f)) == EOF)
+      {
+         ungetc(bom[2], f);
+         ungetc(bom[1], f);
+         ungetc(bom[0], f);
+	 *bomtype = FILE_MBS;
+         return(f);
+      }
+      if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) /* UTF-8 */
+      {
+         printf("UTF-8\n");
+	 *bomtype = FILE_MBS;
+         return(f);
+      }
+      printf("OTHER\n");
+      ungetc(bom[2], f);
+      ungetc(bom[1], f);
+      ungetc(bom[0], f);
+      *bomtype = FILE_MBS;
+      return(f);
+   }
+  return(f);
+}
+
 /********************************************************************
  * void cleanPath(char path[], int len, minlength)
  *
@@ -1365,71 +1474,28 @@ void read_treefileUTF16BE(FILE *f, nameset bd)
 void read_treefile(char* filename, nameset bd, int quiet)
 {
    FILE *infile;
-   int bom[3];
-   /* BOMs
-    * UTF16-LE  ff fe
-    * UTF16-BE  fe ff
-    * UTF-8     ef bb bf
-    */
+   int bomtype;
 
    printf ("%s\n", filename);
-   printf ("r %x\n", '\r');
-   printf ("wchar_t %d\n", sizeof(wchar_t));
    /* open treedata-file */
-   if  ((infile = wcd_fopen(filename,"rb", quiet)) != NULL)
+   if  ((infile = wcd_fopen_bom(filename,"rb", quiet, &bomtype)) != NULL)
    {
-      if ((bom[0] = fgetc(infile)) == EOF)
-      {
-         fclose(infile);
-         return;
-      }
-   printf ("bom0 %x\n", bom[0]);
-      if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef))
-      {
-         ungetc(bom[0], infile);
-         read_treefileA(infile, bd);
-         fclose(infile);
-         return;
-      }
-      if ((bom[1] = fgetc(infile)) == EOF)
-      {
-         fclose(infile);
-         return;
-      }
-   printf ("bom1 %x\n", bom[1]);
+       switch (bomtype)
+       {
+         case FILE_MBS:
+           read_treefileA(infile, bd);
+           break;
 #ifdef WIN32
-      if ((bom[0] == 0xff) && (bom[1] == 0xfe)) /* UTF16-LE */
-      {
-         printf("UTF16-LE\n");
-         read_treefileUTF16LE(infile, bd);
-         fclose(infile);
-         return;
-      }
-      if ((bom[0] == 0xfe) && (bom[1] == 0xff)) /* UTF16-BE */
-      {
-         printf("UTF16-BE\n");
-         read_treefileUTF16BE(infile, bd);
-         fclose(infile);
-         return;
-      }
+         case FILE_UTF16LE:
+           read_treefileUTF16LE(infile, bd);
+           break;
+         case FILE_UTF16BE:
+           read_treefileUTF16BE(infile, bd);
+           break;
 #endif
-      if ((bom[2] = fgetc(infile)) == EOF)
-      {
-         fclose(infile);
-         return;
+         default:
+           read_treefileA(infile, bd);
       }
-      if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) /* UTF-8 */
-      {
-         printf("UTF-8\n");
-         read_treefileA(infile, bd);
-         fclose(infile);
-         return;
-      }
-      printf("OTHER\n");
-      ungetc(bom[2], infile);
-      ungetc(bom[1], infile);
-      ungetc(bom[0], infile);
-      read_treefileA(infile, bd);
       fclose(infile);
       return;
    }
@@ -1521,7 +1587,10 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 {
    FILE *infile;
    char line[DD_MAXPATH];            /* database path */
+#ifdef WIN32
    wchar_t linew[DD_MAXPATH];            /* database path */
+#endif
+   int  bomtype ;
    char *line_end;                  /* database directory */
    char path_str[DD_MAXPATH];        /* path name to match */
    char dirwild_str[DD_MAXPATH];     /* directory name to wild match */
@@ -1529,11 +1598,9 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    char relative_prefix[DD_MAXPATH];      /* relative prefix */
    char tmp[DD_MAXPATH];
    int wild = 0;
-	int bom[3];
-	int  type ;
 
    /* open treedata-file */
-   if  ((infile = wcd_fopen(filename,"rb",0)) == NULL)
+   if  ((infile = wcd_fopen_bom(filename,"rb",0,&bomtype)) == NULL)
       return;
 
    if( (dir_str = strrchr(org_dir,DIR_SEPARATOR)) != NULL)
@@ -1583,82 +1650,40 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
         relative_prefix[0] = '\0';
    }
 
-      if ((bom[0] = fgetc(infile)) == EOF)
-      {
-         fclose(infile);
-         return;
-      }
-   printf ("bom0 %x\n", bom[0]);
-      if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef))
-      {
-         ungetc(bom[0], infile);
-			type = 0;
-      }
-      if ((bom[1] = fgetc(infile)) == EOF)
-      {
-         fclose(infile);
-         return;
-      }
-   printf ("bom1 %x\n", bom[1]);
-#ifdef WIN32
-      if ((bom[0] == 0xff) && (bom[1] == 0xfe)) /* UTF16-LE */
-      {
-         printf("UTF16-LE\n");
-			type = 1;
-      }
-      if ((bom[0] == 0xfe) && (bom[1] == 0xff)) /* UTF16-BE */
-      {
-         printf("UTF16-BE\n");
-			type = 2;
-      }
-#endif
-      if ((bom[2] = fgetc(infile)) == EOF)
-      {
-         fclose(infile);
-         return;
-      }
-      if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) /* UTF-8 */
-      {
-         printf("UTF-8\n");
-			type = 0;
-      }
-      printf("OTHER\n");
-      ungetc(bom[2], infile);
-      ungetc(bom[1], infile);
-      ungetc(bom[0], infile);
-		type = 0;
 
    while (!feof(infile) )  /* parse the file */
    {
       int len;
 
-      /* read a line */
-		switch (type)
-		{
-			case 0:
-           len = wcd_getline(line,DD_MAXPATH,infile);
-			  break;
 #ifdef WIN32
-			case 1:
+      /* read a line */
+      switch (bomtype)
+      {
+         case FILE_MBS:
+           len = wcd_getline(line,DD_MAXPATH,infile);
+           break;
+         case FILE_UTF16LE:
            len = wcd_wgetline(linew,DD_MAXPATH,infile);
 #ifdef WCD_UTF16
            WideCharToMultiByte(CP_UTF8, 0, linew, -1, line, sizeof(line), NULL, NULL);
 #else
            WideCharToMultiByte(CP_ACP, 0, linew, -1, line, sizeof(line), NULL, NULL);
 #endif
-			  break;
-			case 2:
+           break;
+         case FILE_UTF16BE:
            len = wcd_wgetline_be(linew,DD_MAXPATH,infile);
 #ifdef WCD_UTF16
            WideCharToMultiByte(CP_UTF8, 0, linew, -1, line, sizeof(line), NULL, NULL);
 #else
            WideCharToMultiByte(CP_ACP, 0, linew, -1, line, sizeof(line), NULL, NULL);
 #endif
-			  break;
-#endif
+           break;
          default:
            len = wcd_getline(line,DD_MAXPATH,infile);
-		}
+      }
+#else
+      len = wcd_getline(line,DD_MAXPATH,infile);
+#endif
 
       cleanPath(line,len,1) ;
 
