@@ -80,7 +80,7 @@ Jason Mathews' file filelist.c was a starting point for this file.
 #include "graphics.h"
 #include "wcddir.h"
 #include "config.h"
-#ifdef WCD_UTF16
+#if defined(WIN32) || defined(WCD_UNICODE)
 #  include <wchar.h>
 #endif
 #if defined (WIN32) && !defined(__CYGWIN__)
@@ -1352,17 +1352,18 @@ int wcd_getline(char s[], int lim, FILE* infile)
    return i ;
 }
 
-#ifdef WIN32
+#if defined(WIN32) || defined(WCD_UNICODE)
 /* UTF16 little endian */
 int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
 {
    int i ;
-   wint_t c;
+   int c_high, c_low;
 
-   for (i=0; i<lim-1 && ((c=fgetwc(infile)) != L'\n') && (!feof(infile)) ; ++i)
+   for (i=0; i<lim-1 && ((c_low=fgetc(infile)) != EOF)  && ((c_high=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')) ; ++i)
       {
-      s[i] = (wchar_t)c ;
-      if (c == L'\r') i--;
+      c_high <<=8;
+      s[i] = (wchar_t)(c_high + c_low) ;
+      if (s[i] == L'\r') i--;
    }
 
    s[i] = L'\0' ;
@@ -1377,13 +1378,13 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
 int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
 {
    int i ;
-   wint_t c;
+   int c_high, c_low;
 
-   for (i=0; i<lim-1 && ((c=fgetwc(infile)) != 0xa00) && (!feof(infile)) ; ++i)
-      {
-      s[i] = (wchar_t)c ;
-      s[i] = MAKEWORD( HIBYTE(s[i]), LOBYTE(s[i]));
-      if (c == 0xd00) i--;
+   for (i=0; i<lim-1 && ((c_high=fgetc(infile)) != EOF)  && ((c_low=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')) ; ++i)
+   {
+      c_high <<=8;
+      s[i] = (wchar_t)(c_high + c_low) ;
+      if (s[i] == L'\r') i--;
    }
 
    s[i] = L'\0' ;
@@ -1417,7 +1418,7 @@ void read_treefileA(FILE *f, nameset bd)
        }
     } /* while (!feof(f) ) */
 }
-#ifdef WIN32
+#if defined(WIN32) || defined(WCD_UNICODE)
 void read_treefileUTF16LE(FILE *f, nameset bd)
 {
     int len;
@@ -1431,10 +1432,14 @@ void read_treefileUTF16LE(FILE *f, nameset bd)
 
        if (len > 0 )
        {
-#ifdef WCD_UTF16
+#if defined(WIN32) && !defined(__CYGWIN__)
+#  ifdef WCD_UTF16
           WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
-#else
+#  else
           WideCharToMultiByte(CP_ACP, 0, pathw, -1, path, sizeof(path), NULL, NULL);
+#  endif
+#else
+          wcstombs(path, pathw, sizeof(path));
 #endif
           wcd_fixpath(path,sizeof(path));
           addToNamesetArray(textNew(path),bd);
@@ -1454,10 +1459,14 @@ void read_treefileUTF16BE(FILE *f, nameset bd)
 
        if (len > 0 )
        {
-#ifdef WCD_UTF16
+#if defined(WIN32) && !defined(__CYGWIN__)
+#  ifdef WCD_UTF16
           WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
-#else
+#  else
           WideCharToMultiByte(CP_ACP, 0, pathw, -1, path, sizeof(path), NULL, NULL);
+#  endif
+#else
+          wcstombs(path, pathw, sizeof(path));
 #endif
           wcd_fixpath(path,sizeof(path));
           addToNamesetArray(textNew(path),bd);
@@ -1478,7 +1487,7 @@ void read_treefile(char* filename, nameset bd, int quiet)
          case FILE_MBS:
            read_treefileA(infile, bd);
            break;
-#ifdef WIN32
+#if defined(WIN32) || defined(WCD_UNICODE)
          case FILE_UTF16LE:
            read_treefileUTF16LE(infile, bd);
            break;
@@ -1580,7 +1589,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 {
    FILE *infile;
    char line[DD_MAXPATH];            /* database path */
-#ifdef WIN32
+#if defined(WIN32) || defined(WCD_UNICODE)
    wchar_t linew[DD_MAXPATH];            /* database path */
 #endif
    int  bomtype ;
@@ -1648,7 +1657,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    {
       int len;
 
-#ifdef WIN32
+#if defined(WIN32) || defined(WCD_UNICODE)
       /* read a line */
       switch (bomtype)
       {
@@ -1657,18 +1666,26 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
            break;
          case FILE_UTF16LE:
            len = wcd_wgetline(linew,DD_MAXPATH,infile);
-#ifdef WCD_UTF16
+#if defined(WIN32) && !defined(__CYGWIN__)
+#  ifdef WCD_UTF16
            WideCharToMultiByte(CP_UTF8, 0, linew, -1, line, sizeof(line), NULL, NULL);
-#else
+#  else
            WideCharToMultiByte(CP_ACP, 0, linew, -1, line, sizeof(line), NULL, NULL);
+#  endif
+#else
+          wcstombs(line, linew, sizeof(line));
 #endif
            break;
          case FILE_UTF16BE:
            len = wcd_wgetline_be(linew,DD_MAXPATH,infile);
-#ifdef WCD_UTF16
+#if defined(WIN32) && !defined(__CYGWIN__)
+#  ifdef WCD_UTF16
            WideCharToMultiByte(CP_UTF8, 0, linew, -1, line, sizeof(line), NULL, NULL);
-#else
+#  else
            WideCharToMultiByte(CP_ACP, 0, linew, -1, line, sizeof(line), NULL, NULL);
+#  endif
+#else
+          wcstombs(line, linew, sizeof(line));
 #endif
            break;
          default:
