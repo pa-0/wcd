@@ -950,13 +950,16 @@ locale and use a font with iso10646-1 encoding, for instance with
 Modern distributions of Linux support UTF-8 by default. Other multi-byte
 character encodings should also work, but that has not been tested.
 
+Wcd assumes that the treedata files are encoded in the locale character
+encoding. There are no Byte Order Marks written to treedata files.
+
 #ifdef dos
 
 =head3 UTF-16 on Windows
 
 On Windows all the directory names on disk are encoded in UTF-16 Unicode.
-For programs that do not support UTF-16 the Unicode characters are
-translated to the active code page. For characters that are not part of the
+For non-Unicode Windows programs the Unicode characters are
+translated to the default ANSI code page. For characters that are not part of the
 regional setting this translation is not possible and non-Unicode programs
 print a question mark or a wrong character instead.
 
@@ -967,6 +970,14 @@ go-script encoded in UTF-8. This can only be run in Windows PowerShell.
 Therefore wcd with Unicode is only supported in PowerShell and not in
 Command Prompt. You need to set the font to True Type Lucida
 Console (not raster font).
+
+The non-Unicode Windows version of Wcd can read Unicode treedata files since
+version 5.2.0, provided there is a Byte Order Mark (BOM) in the file
+(see http://en.wikipedia.org/wiki/Byte_order_mark), but it can't change
+to directories with Unicode letters in the name that are not part of the
+default system ANSI code page. The Unicode Windows version of wcd writes
+a BOM in the UTF-8 encoded treedata files since version 5.2.0, which makes
+it also readable by notepad.
 
 #endif
 
@@ -980,6 +991,9 @@ with the I<LANG> or I<LC_CTYPE> environment variable. You may need to
 rescan your drives. You need to set the font to True Type Lucida
 Console (not raster font) if you use the default Cygwin console.
 
+The Cygwin version behaves exactly as the Unix version of wcd.
+There is no BOM written in the treedata files, and it is assumed
+they are encoded in the B<Cygwin> locale character encoding.
 
 =head1 FILES
 

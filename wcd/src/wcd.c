@@ -305,30 +305,30 @@ void writeList(char * filename, nameset n, int bomtype)
    size_t i;
    FILE *outfile;
 #if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
-	char    path[DD_MAXPATH];
-	wchar_t pathw[DD_MAXPATH];
+   char    path[DD_MAXPATH];
+   wchar_t pathw[DD_MAXPATH];
 #endif
 
    if ( (outfile = wcd_fopen(filename,"w",0)) != NULL)
    {
 #if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
       /* non-Unicode Windows version */
-		/* When the treefile was in Unicode the non-Unicode Windows version of wcd
-			translated the Unicode directory names to the system default ANSI code page. */
-	   if (bomtype > 0) /* Unicode, write back in UTF-8 */
+      /* When the treefile was in Unicode the non-Unicode Windows version of wcd
+         translated the Unicode directory names to the system default ANSI code page. */
+      if (bomtype > 0) /* Unicode, write back in UTF-8 */
         fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #endif
       for(i=0;(i<n->size);i++)
       {
 #if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
-			if (bomtype > 0)
-			{
+         if (bomtype > 0)
+         {
            /* Unicode, write back in UTF-8.
-				  Characters that are not supported by the ANSI code page get broken. */
+              Characters that are not supported by the ANSI code page get broken. */
            strncpy(path, n->array[i], sizeof(path));
            MultiByteToWideChar(CP_ACP, 0, path, -1, pathw, sizeof(pathw));
            WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
-			}
+         }
          fprintf(outfile,"%s\n",path);
 #else
          fprintf(outfile,"%s\n",n->array[i]);
@@ -1497,12 +1497,12 @@ void read_treefileUTF16BE(FILE *f, nameset bd)
     } /* while (!feof(f) ) */
 }
 /* read_treefileUTF8() was made to make it possible that a non-Unicode
-	Windows version of Wcd can read UTF-8 encoded tree-data files.
-	Handy when a person uses also the Windows version for PowerShell with
-	Unicode support. 
-	Most non-ASCII characters are likely part of the default system
-	ANSI code page.
-	*/
+   Windows version of Wcd can read UTF-8 encoded tree-data files.
+   Handy when a person uses also the Windows version for PowerShell with
+   Unicode support. 
+   Most non-ASCII characters are likely part of the default system
+   ANSI code page.
+   */
 void read_treefileUTF8(FILE *f, nameset bd)
 {
     int len;
@@ -1548,7 +1548,7 @@ int read_treefile(char* filename, nameset bd, int quiet)
          case FILE_UTF16BE:
            read_treefileUTF16BE(infile, bd);
            break;
-			case FILE_UTF8:
+         case FILE_UTF8:
            read_treefileUTF8(infile, bd);
            break;
 #endif
@@ -1570,7 +1570,7 @@ int read_treefile(char* filename, nameset bd, int quiet)
 void cleanTreeFile(char *filename, char *dir)
 {
    nameset dirs;
-	int bomtype;
+   int bomtype;
 
    dirs = namesetNew();
    bomtype = read_treefile(filename,dirs,0);
