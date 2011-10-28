@@ -117,13 +117,14 @@ typedef char wcd_char;
 #define FILE_MBS     0  /* Multi-byte string or 8-bit char */
 #define FILE_UTF16LE 1  /* UTF-16 Little Endian */
 #define FILE_UTF16BE 2  /* UTF-16 Big Endian */
+#define FILE_UTF8    3  /* UTF-8 */
 
 FILE *wcd_fopen(const char *filename, const char *m, int quiet);
 FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype);
 void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet);
-void read_treefile(char *filename, nameset bd, int silent);
+int read_treefile(char *filename, nameset bd, int silent);
 void rmDirFromList(char *string, nameset n);
-void writeList(char *filename, nameset n);
+void writeList(char *filename, nameset n, int bomtype);
 void cleanTreeFile(char *filename, char *dir);
 
 char *removeBackSlash(char *string);

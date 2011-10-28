@@ -233,7 +233,7 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
       }
       if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) /* UTF-8 */
       {
-         *bomtype = FILE_MBS;
+         *bomtype = FILE_UTF8;
          return(f);
       }
       ungetc(bom[2], f);
@@ -300,16 +300,39 @@ void rmDirFromList(char *string, nameset n)
 }
 
 /********************************/
-void writeList(char * filename, nameset n)
+void writeList(char * filename, nameset n, int bomtype)
 {
    size_t i;
    FILE *outfile;
+#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+	char    path[DD_MAXPATH];
+	wchar_t pathw[DD_MAXPATH];
+#endif
 
    if ( (outfile = wcd_fopen(filename,"w",0)) != NULL)
    {
+#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+      /* non-Unicode Windows version */
+		/* When the treefile was in Unicode the non-Unicode Windows version of wcd
+			translated the Unicode directory names to the system default ANSI code page. */
+	   if (bomtype > 0) /* Unicode, write back in UTF-8 */
+        fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+#endif
       for(i=0;(i<n->size);i++)
       {
+#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+			if (bomtype > 0)
+			{
+           /* Unicode, write back in UTF-8.
+				  Characters that are not supported by the ANSI code page get broken. */
+           strncpy(path, n->array[i], sizeof(path));
+           MultiByteToWideChar(CP_ACP, 0, path, -1, pathw, sizeof(pathw));
+           WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
+			}
+         fprintf(outfile,"%s\n",path);
+#else
          fprintf(outfile,"%s\n",n->array[i]);
+#endif
       }
       fclose(outfile);
    }
@@ -1473,8 +1496,39 @@ void read_treefileUTF16BE(FILE *f, nameset bd)
        }
     } /* while (!feof(f) ) */
 }
+/* read_treefileUTF8() was made to make it possible that a non-Unicode
+	Windows version of Wcd can read UTF-8 encoded tree-data files.
+	Handy when a person uses also the Windows version for PowerShell with
+	Unicode support. 
+	Most non-ASCII characters are likely part of the default system
+	ANSI code page.
+	*/
+void read_treefileUTF8(FILE *f, nameset bd)
+{
+    int len;
+    char path[DD_MAXPATH];
+#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+    wchar_t pathw[DD_MAXPATH];
 #endif
-void read_treefile(char* filename, nameset bd, int quiet)
+
+    while (!feof(f) )
+    {
+       /* read a line */
+       len = wcd_getline(path,DD_MAXPATH,f);
+
+       if (len > 0 )
+       {
+#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+          MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, sizeof(pathw));
+          WideCharToMultiByte(CP_ACP, 0, pathw, -1, path, sizeof(path), NULL, NULL);
+#endif
+          wcd_fixpath(path,sizeof(path));
+          addToNamesetArray(textNew(path),bd);
+       }
+    } /* while (!feof(f) ) */
+}
+#endif
+int read_treefile(char* filename, nameset bd, int quiet)
 {
    FILE *infile;
    int bomtype;
@@ -1494,13 +1548,16 @@ void read_treefile(char* filename, nameset bd, int quiet)
          case FILE_UTF16BE:
            read_treefileUTF16BE(infile, bd);
            break;
+			case FILE_UTF8:
+           read_treefileUTF8(infile, bd);
+           break;
 #endif
          default:
            read_treefileA(infile, bd);
       }
       fclose(infile);
-      return;
    }
+   return(bomtype);
 }
 /********************************************************************
  *
@@ -1513,11 +1570,12 @@ void read_treefile(char* filename, nameset bd, int quiet)
 void cleanTreeFile(char *filename, char *dir)
 {
    nameset dirs;
+	int bomtype;
 
    dirs = namesetNew();
-   read_treefile(filename,dirs,0);
+   bomtype = read_treefile(filename,dirs,0);
    rmDirFromList(dir,dirs);
-   writeList(filename, dirs);
+   writeList(filename, dirs, bomtype);
    freeNameset(dirs, 1);
 }
 
@@ -1686,6 +1744,13 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 #  endif
 #else
           wcstombs(line, linew, sizeof(line));
+#endif
+           break;
+         case FILE_UTF8:
+           len = wcd_getline(line,DD_MAXPATH,infile);
+#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+           MultiByteToWideChar(CP_UTF8, 0, line, -1, linew, sizeof(linew));
+           WideCharToMultiByte(CP_ACP, 0, linew, -1, line, sizeof(line), NULL, NULL);
 #endif
            break;
          default:
