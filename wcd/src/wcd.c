@@ -311,6 +311,10 @@ void writeList(char * filename, nameset n, int bomtype)
 
    if ( (outfile = wcd_fopen(filename,"w",0)) != NULL)
    {
+#ifdef WCD_UTF16
+      /* Unicode Windows version, treefile is in UTF-8 format */
+      fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+#endif
 #if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
       /* non-Unicode Windows version */
       /* When the treefile was in Unicode the non-Unicode Windows version of wcd
@@ -1122,7 +1126,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
       return ;
 #endif
 #ifdef WCD_UTF16
-   /* Add UTF-8 BOM to make it readable by notepad. */
+   /* Add UTF-8 BOM to make it readable by non-Unicode Wcd for Windows, and notepad. */
    if (append == 0)
      fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #endif
