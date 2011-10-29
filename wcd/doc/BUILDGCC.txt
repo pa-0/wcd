@@ -184,7 +184,7 @@ Curses interface
 
 The default interface is curses.
 
-win32* uses PDCurses (CURSES=pdcurses)
+win32* uses PDCurses with wide character support (CURSES=pdcursesw)
 OS/2 uses NCurses (CURSES=ncurses)
 
 To disable CURSES and compile with stdio interface, reset the CURSES variable:

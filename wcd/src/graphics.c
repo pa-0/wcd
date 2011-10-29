@@ -36,7 +36,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include <stdio.h>
 #include <string.h>
 #include <signal.h>
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
 #ifndef __USE_XOPEN
 #define __USE_XOPEN
 #endif
@@ -111,7 +111,7 @@ struct wcdwin /* structure with window information */
    WINDOW *inputWin;
    dirnode curNode;
    char str[WCD_MAX_INPSTR];
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    wchar_t wstr[WCD_MAX_INPSTR];
 #endif
    int mode;
@@ -1232,7 +1232,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
    wcd_uchar *s;
    size_t len;
    int j;
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
 #endif
@@ -1241,7 +1241,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
 
    if (s != NULL)
    {
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
       len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
@@ -1253,7 +1253,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
          fprintf(stderr,"s = %s\n",s);
       } */
 
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
       /* xoffset is horizontal offset measured in nr. of columns. */
       if (len == (size_t) -1)
       {
@@ -1510,7 +1510,7 @@ void dataRefresh(int ydiff, int init)
   static int xoffset = 0;  /* Horizontal offset in number of columns */
   static int yposition = -1;  /* -1 : not initialized */
   wcd_uchar *s;
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
   static wchar_t wstr[DD_MAXPATH];
   int width;
 #endif
@@ -1578,7 +1578,7 @@ void dataRefresh(int ydiff, int init)
   if (s != NULL)
   {
     wmove(wcd_cwin.inputWin, 1, 0);
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    len = (int)MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
    if (len < 0)
    {
@@ -1609,7 +1609,7 @@ void dataRefresh(int ydiff, int init)
   else
   {
     wmove(wcd_cwin.inputWin, 2, 0);
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
     waddstr(wcd_cwin.inputWin,_("SEARCH: "));
     waddnwstr(wcd_cwin.inputWin,wcd_cwin.wstr, WCD_MAX_INPSTR);
 #else
@@ -1912,7 +1912,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #ifndef __PDCURSES__
   SCREEN *sp;
 #endif
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
   wint_t ch;
 #endif
 
@@ -1989,7 +1989,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
    while (c != 13 )
    {
 
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
       c = get_wch(&ch);
 #else
       c = getch();
@@ -1997,7 +1997,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
       ydiff = wcd_cwin.curNode->y;
 
      if (wcd_cwin.mode == WCD_NAV)
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
      switch(ch)
 #else
      switch(c)
@@ -2121,7 +2121,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
             showHelp(wcd_cwin.scrollWin,wcd_cwin.scrollWinHeight);
          break;
       case 'q':
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
             ch = 3; /* 3 = Control-C */
 #else
             c = 3; /* 3 = Control-C */
@@ -2149,7 +2149,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
      break;
      }
 
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
      switch(ch)
 #else
      switch(c)
@@ -2301,7 +2301,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
                wcd_cwin.mode = WCD_NAV;
             if(n>1) n--;
             wcd_cwin.str[n] = '\0';
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
             wcd_cwin.wstr[n] = '\0';
 #endif
      break;
@@ -2311,14 +2311,14 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
                wcd_cwin.mode = WCD_NAV;
             if(n>1) n--;
             wcd_cwin.str[n] = '\0';
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
             wcd_cwin.wstr[n] = '\0';
 #endif
      break;
      default:
       if ((wcd_cwin.mode == WCD_SEARCH) && (n < WCD_MAX_INPSTR))
       {
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
          wcd_cwin.wstr[n] = (wchar_t)ch;
          n++;
          wcd_cwin.wstr[n] = '\0';

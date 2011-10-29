@@ -207,11 +207,6 @@ int stack_write(WcdStack ws,char *stackfilename)
 {
 	FILE *outfile;
 	int  i;
-        char *ptr ;
-        char path[DD_MAXPATH];
-#if (defined(UNIX) || defined(DJGPP) || defined(OS2))
-        mode_t m;
-#endif
 
 	if (ws->maxsize <= 0)
 		return(0);
@@ -219,22 +214,8 @@ int stack_write(WcdStack ws,char *stackfilename)
 	{
 
 
-		/* try to create directory for stack file if it doesn't exist */
-		strncpy(path, stackfilename, sizeof(path));
-		if ( (ptr = strrchr(path,DIR_SEPARATOR)) != NULL)
-		{
-			*ptr = '\0' ;
-			if (wcd_isdir(path,1) != 0) /* is it a dir */
-			{
-#if (defined(UNIX) || defined(DJGPP) || defined(OS2))
-			m = S_IRWXU | S_IRWXG | S_IRWXO;
-				if (wcd_mkdir(path,m,0)==0)
-#else
-				if (wcd_mkdir(path,0)==0)
-#endif
-					fprintf(stderr,_("Wcd: creating directory %s\n"), path);
-			}
-		}
+		/* create directory for stack file if it doesn't exist */
+		create_dir_for_file(stackfilename);
 
 		if ( (outfile = wcd_fopen(stackfilename,"w",0)) == NULL)
 		{

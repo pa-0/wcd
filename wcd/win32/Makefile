@@ -6,13 +6,15 @@ MKDIR  = mkdir
 LDFLAGS_EXTRA = -lkernel32 -luser32 -lmpr
 
 CFLAGS = -O2 -Wall -Wextra -Wconversion
-CURSES = pdcurses
+CURSES = pdcursesw
 ENABLE_NLS = 1
 DEFS   = -DMSDOS
 
 ifdef CURSES
 LIB_CURSES = -l${CURSES}
 DEFS   += -DWCD_USECURSES -DPDC_STATIC_BUILD
+DEFS   += -DPDC_WIDE
+EXTRA_OBJ += wcwidth.o
 endif
 
 
@@ -25,12 +27,6 @@ ifdef WCD_UTF8
 UCS=1
 endif
 
-ifdef UCS
-ifdef CURSES
-DEFS   += -DPDC_WIDE
-endif
-EXTRA_OBJ += wcwidth.o
-endif
 
 bindir    = ${exec_prefix}/bin
 PROGRAM = wcdwin32.exe

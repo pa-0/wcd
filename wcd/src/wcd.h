@@ -100,18 +100,30 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 void quoteString(char *string);
 #endif
 
-#if defined(WCD_UNICODE) && defined(WIN32) && !defined(__CYGWIN__)
-#define WCD_UTF16
-/* typedef wchar_t wcd_uchar; */
-typedef unsigned char wcd_uchar;
-typedef wchar_t wcd_char;
+
+#if defined(WIN32) && !defined(__CYGWIN__) && defined(WCD_UNICODE)
+#  define WCD_UTF16
 #  define WCSTOMBS wcstoutf8
 #  define MBSTOWCS utf8towcs
+#elif defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+#  define WCD_ANSI
+#  define WCSTOMBS wcstoansi
+#  define MBSTOWCS ansitowcs
+#else
+#  define WCSTOMBS wcstombs
+#  define MBSTOWCS mbstowcs
+#endif
+
+#ifdef WCD_UTF16
+typedef unsigned char wcd_uchar;
+typedef wchar_t wcd_char;
 #else
 typedef unsigned char wcd_uchar;
 typedef char wcd_char;
-#  define WCSTOMBS wcstombs
-#  define MBSTOWCS mbstowcs
+#endif
+
+#if defined(WIN32) && !defined(__CYGWIN__)
+#  define WCD_WINDOWS
 #endif
 
 #define FILE_MBS     0  /* Multi-byte string or 8-bit char */
@@ -126,6 +138,7 @@ int read_treefile(char *filename, nameset bd, int silent);
 void rmDirFromList(char *string, nameset n);
 void writeList(char *filename, nameset n, int bomtype);
 void cleanTreeFile(char *filename, char *dir);
+void create_dir_for_file(char *f);
 
 char *removeBackSlash(char *string);
 void addCurPathToFile(char *filename, int *use_HOME, int parents);

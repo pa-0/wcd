@@ -11,7 +11,8 @@
   - Matching with Unicode normalisation. Compile with UNINORM=1.
     See also http://en.wikipedia.org/wiki/Unicode_normalization
     Requires libunistring. http://www.gnu.org/s/libunistring/
-  - Improved printing of Unicode names on Windows.
+  - All Windows versions of Wcd write their output in the console in Unicode format.
+    This gives consistent output, independent of the active code page.
   - Wcd for Windows with Unicode writes tree-data file with BOM (Byte Order Mark).
     The file is now readable by notepad.
     See http://en.wikipedia.org/wiki/Byte_order_mark

@@ -189,7 +189,7 @@ Table of Contents
         Domain.
 
         Markus Kuhn's free wcwidth() implementation is used in Wcd for
-        Windows with Unicode support. See also
+        Windows. See also
         http://www.cl.cam.ac.uk/~mgk25/unicode.html
 
         Rugxulo is the original autor of query_con_codepage(),

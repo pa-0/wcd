@@ -304,7 +304,7 @@ void writeList(char * filename, nameset n, int bomtype)
 {
    size_t i;
    FILE *outfile;
-#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+#ifdef WCD_ANSI
    char    path[DD_MAXPATH];
    wchar_t pathw[DD_MAXPATH];
 #endif
@@ -312,10 +312,9 @@ void writeList(char * filename, nameset n, int bomtype)
    if ( (outfile = wcd_fopen(filename,"w",0)) != NULL)
    {
 #ifdef WCD_UTF16
-      /* Unicode Windows version, treefile is in UTF-8 format */
       fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #endif
-#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+#ifdef WCD_ANSI
       /* non-Unicode Windows version */
       /* When the treefile was in Unicode the non-Unicode Windows version of wcd
          translated the Unicode directory names to the system default ANSI code page. */
@@ -324,7 +323,7 @@ void writeList(char * filename, nameset n, int bomtype)
 #endif
       for(i=0;(i<n->size);i++)
       {
-#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+#ifdef WCD_ANSI
          if (bomtype > 0)
          {
            /* Unicode, write back in UTF-8.
@@ -332,8 +331,10 @@ void writeList(char * filename, nameset n, int bomtype)
            strncpy(path, n->array[i], sizeof(path));
            MultiByteToWideChar(CP_ACP, 0, path, -1, pathw, sizeof(pathw));
            WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
+           fprintf(outfile,"%s\n",path);
          }
-         fprintf(outfile,"%s\n",path);
+         else
+           fprintf(outfile,"%s\n",n->array[i]);
 #else
          fprintf(outfile,"%s\n",n->array[i]);
 #endif
@@ -1126,7 +1127,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
       return ;
 #endif
 #ifdef WCD_UTF16
-   /* Add UTF-8 BOM to make it readable by non-Unicode Wcd for Windows, and notepad. */
+   /* Add UTF-8 BOM to make it readable by notepad. */
    if (append == 0)
      fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #endif
@@ -1459,15 +1460,8 @@ void read_treefileUTF16LE(FILE *f, nameset bd)
 
        if (len > 0 )
        {
-#if defined(WIN32) && !defined(__CYGWIN__)
-#  ifdef WCD_UTF16
-          WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
-#  else
-          WideCharToMultiByte(CP_ACP, 0, pathw, -1, path, sizeof(path), NULL, NULL);
-#  endif
-#else
-          wcstombs(path, pathw, sizeof(path));
-#endif
+          WCSTOMBS(path, pathw, sizeof(path));
+
           wcd_fixpath(path,sizeof(path));
           addToNamesetArray(textNew(path),bd);
        }
@@ -1486,15 +1480,8 @@ void read_treefileUTF16BE(FILE *f, nameset bd)
 
        if (len > 0 )
        {
-#if defined(WIN32) && !defined(__CYGWIN__)
-#  ifdef WCD_UTF16
-          WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
-#  else
-          WideCharToMultiByte(CP_ACP, 0, pathw, -1, path, sizeof(path), NULL, NULL);
-#  endif
-#else
-          wcstombs(path, pathw, sizeof(path));
-#endif
+          WCSTOMBS(path, pathw, sizeof(path));
+
           wcd_fixpath(path,sizeof(path));
           addToNamesetArray(textNew(path),bd);
        }
@@ -1511,7 +1498,7 @@ void read_treefileUTF8(FILE *f, nameset bd)
 {
     int len;
     char path[DD_MAXPATH];
-#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+#ifdef WCD_ANSI
     wchar_t pathw[DD_MAXPATH];
 #endif
 
@@ -1522,7 +1509,8 @@ void read_treefileUTF8(FILE *f, nameset bd)
 
        if (len > 0 )
        {
-#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+#ifdef WCD_ANSI
+          /* Convert UTF-8 to ANSI */
           MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, sizeof(pathw));
           WideCharToMultiByte(CP_ACP, 0, pathw, -1, path, sizeof(path), NULL, NULL);
 #endif
@@ -1728,31 +1716,16 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
            break;
          case FILE_UTF16LE:
            len = wcd_wgetline(linew,DD_MAXPATH,infile);
-#if defined(WIN32) && !defined(__CYGWIN__)
-#  ifdef WCD_UTF16
-           WideCharToMultiByte(CP_UTF8, 0, linew, -1, line, sizeof(line), NULL, NULL);
-#  else
-           WideCharToMultiByte(CP_ACP, 0, linew, -1, line, sizeof(line), NULL, NULL);
-#  endif
-#else
-          wcstombs(line, linew, sizeof(line));
-#endif
+           WCSTOMBS(line, linew, sizeof(line));
            break;
          case FILE_UTF16BE:
            len = wcd_wgetline_be(linew,DD_MAXPATH,infile);
-#if defined(WIN32) && !defined(__CYGWIN__)
-#  ifdef WCD_UTF16
-           WideCharToMultiByte(CP_UTF8, 0, linew, -1, line, sizeof(line), NULL, NULL);
-#  else
-           WideCharToMultiByte(CP_ACP, 0, linew, -1, line, sizeof(line), NULL, NULL);
-#  endif
-#else
-          wcstombs(line, linew, sizeof(line));
-#endif
+           WCSTOMBS(line, linew, sizeof(line));
            break;
          case FILE_UTF8:
            len = wcd_getline(line,DD_MAXPATH,infile);
-#if defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+#ifdef WCD_ANSI
+           /* convert UTF-8 to ANSI */
            MultiByteToWideChar(CP_UTF8, 0, line, -1, linew, sizeof(linew));
            WideCharToMultiByte(CP_ACP, 0, linew, -1, line, sizeof(line), NULL, NULL);
 #endif
@@ -2763,7 +2736,7 @@ Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n\
 Source code to scan Windows LAN was originally written and placed\n\
 in the public domain by Felix Kasza.\n\
 Markus Kuhn's free wcwidth() implementation is used\n\
-in Wcd for Windows with Unicode support.\n\
+in Wcd for Windows.\n\
 Rugxulo is the original author of query_con_codepage() (public domain).\n\n\
 \
 This program is free software; you can redistribute it and/or\n\

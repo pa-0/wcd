@@ -22,13 +22,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include <stdlib.h>
 #include <signal.h>
 #include "wcd.h"
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
 #ifndef __USE_XOPEN
 #define __USE_XOPEN
 #endif
 #include <wchar.h>
 #endif
-#ifdef WCD_UTF16
+#if defined(WCD_WINDOWS)
 #include <windows.h>
 #endif
 #include "std_macr.h"
@@ -42,6 +42,17 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 
 
+#ifdef WCD_ANSI
+/* wide char to UTF-8 */
+size_t wcstoansi(char *mbstr, const wchar_t *wcstr, int len)
+{
+   return((size_t)(WideCharToMultiByte(CP_ACP, 0, wcstr, -1, mbstr, len, NULL, NULL) -1));
+}
+size_t ansitowcs(wchar_t *wcstr, const char *mbstr, int len)
+{
+   return((size_t)(MultiByteToWideChar(CP_ACP, 0, mbstr, -1, wcstr, len) -1));
+}
+#endif
 #ifdef WCD_UTF16
 /* wide char to UTF-8 */
 size_t wcstoutf8(char *mbstr, const wchar_t *wcstr, int len)
@@ -54,9 +65,11 @@ size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len)
 }
 #endif
 /*
- * wcd_printf()  : printf wrapper.
+ * wcd_printf()  : printf wrapper, print in Windows Console in Unicode mode,
+ *                 to have consistent output. Regardless of active code page.
  *
  * Windows Unicode: Print Windows ANSI encoded format with UTF-8 encoded arguments.
+ * Windows ANSI   : Print Windows ANSI encoded format and arguments.
  * All others     : Use standard printf.
  *
  * On Windows the file system uses always Unicode UTF-16 encoding,
@@ -67,8 +80,9 @@ size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len)
  * The Windows console supports printing of any UTF-16 wide character,
  * regardless of code page, via WriteConsoleW().
  *
- * Wcd translates all UTF-16 directory names to UTF-8, to be able to
- * work with char type strings. This is done to keep the code portable.
+ * Wcd for Windows with Unicode support translates all UTF-16 directory
+ * names to UTF-8, to be able to work with char type strings.
+ * This is done to keep the code portable.
  *
  * Wcd's messages are encoded in the default Windows ANSI code page,
  * which can be translated with gettext. Gettext/libintl recodes 
@@ -77,15 +91,18 @@ size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len)
 
 void wcd_printf( const char* format, ... ) {
    va_list args;
-#ifdef WCD_UTF16  /* Wcd for Windows with Unicode support */
+#if defined(WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
    wchar_t wstr[DD_MAXPATH];
    char buf[DD_MAXPATH];
+#  ifdef WCD_UTF16
    char formatmbs[DD_MAXPATH];
    wchar_t formatwcs[DD_MAXPATH];
+#  endif
 
    va_start(args, format);
    HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE);
 
+#  ifdef WCD_UTF16  /* Wcd for Windows with Unicode support */
    /* The format string is encoded in the system default
     * Windows ANSI code page. May have been translated
     * by gettext. Convert it to wide characters. */
@@ -99,6 +116,11 @@ void wcd_printf( const char* format, ... ) {
    vsnprintf( buf, sizeof(buf), formatmbs, args);
     /* Convert UTF-8 buffer to wide characters, and print to console. */
    if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, DD_MAXPATH) > 0  )
+#  else
+   /* Everything is in ANSI code page */
+   vsnprintf( buf, sizeof(buf), format, args);
+   if (MultiByteToWideChar(CP_ACP,0, buf, -1, wstr, DD_MAXPATH) > 0  )
+#  endif
       WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
    else
    {
@@ -124,7 +146,7 @@ void wcd_printf( const char* format, ... ) {
 
 size_t str_columns (char *s)
 {
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    static wchar_t wstr[DD_MAXPATH];
    size_t i;
    int j;
@@ -166,7 +188,7 @@ void swap(nameset list, int i, int j)
 void ssort (nameset list, int left, int right)
 {
  int i, last;
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
  static wchar_t wstr_left[DD_MAXPATH];
  static wchar_t wstr_right[DD_MAXPATH];
  size_t len1,len2;
@@ -179,7 +201,7 @@ void ssort (nameset list, int left, int right)
 
   for (i = left+1; i <=right; i++)
   {
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    len1 = MBSTOWCS(wstr_left, list->array[left],(size_t)DD_MAXPATH);
    len2 = MBSTOWCS(wstr_right,list->array[i],(size_t)DD_MAXPATH);
    if ((len1 == (size_t)(-1)) || (len2 == (size_t)(-1)))
@@ -852,7 +874,7 @@ void signalSigwinchDisplay (int sig)
 
 void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
 {
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    static wchar_t wstr[DD_MAXPATH];
    size_t i;
 
@@ -876,7 +898,7 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
    wcd_uchar *s;
    size_t len;
    int j, nr_offset;
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
 #endif
@@ -885,7 +907,7 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 
    if (s != NULL)
    {
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
       len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
@@ -897,7 +919,7 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 
       wmove(win,y,(int)nr_offset);
 
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
       if (len == (size_t)(-1))
       {
          /* Erroneous multi-byte sequence */
@@ -940,7 +962,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
    wcd_uchar *s;
    size_t len;
    int j, nr_offset;
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
 #endif
@@ -949,7 +971,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
 
    if (s != NULL)
    {
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
       len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
 #else
       len = strlen((char *)s);
@@ -961,7 +983,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
 
       wmove(win,y,nr_offset);
 
-#ifdef WCD_UNICODE
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
       if (len == (size_t)(-1))
       {
          /* Erroneous multi-byte sequence */

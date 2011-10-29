@@ -16,7 +16,7 @@ wcdwin32.exe: $(OBJS)
 	@%create wcd.lnk
 	@%append wcd.lnk FIL $(LOBJS)
 	@%append wcd.lnk library mpr.lib
-	@%append wcd.lnk library pdcurses.lib
+	@%append wcd.lnk library pdcursesw.lib
 	wlink name wcdwin32 d all SYS $(TARGET) op inc op m op st=64k op maxe=25 op q op symf @wcd.lnk
 	del wcd.lnk
 

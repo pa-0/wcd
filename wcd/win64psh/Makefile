@@ -8,13 +8,15 @@ LDFLAGS_EXTRA = -lkernel32 -luser32 -lmpr
 CC = x86_64-w64-mingw32-gcc
 STRIP = x86_64-w64-mingw32-strip
 CFLAGS = -O2 -Wall -Wextra -Wconversion -Wno-unused-parameter
-CURSES = pdcurses
+CURSES = pdcursesw
 ENABLE_NLS =
 DEFS   = -DMSDOS -DWCD_WINPWRSH
 
 ifdef CURSES
 LIB_CURSES = -l${CURSES}
 DEFS   += -DWCD_USECURSES -DPDC_STATIC_BUILD
+DEFS   += -DPDC_WIDE
+EXTRA_OBJ += wcwidth.o
 endif
 
 
@@ -32,11 +34,7 @@ UCS=1
 endif
 
 ifdef UCS
-ifdef CURSES
-DEFS   += -DPDC_WIDE
-CURSES = pdcursesw
-endif
-EXTRA_OBJ += matchw.o wcwidth.o
+EXTRA_OBJ += matchw.o
 endif
 
 bindir    = ${exec_prefix}/bin
