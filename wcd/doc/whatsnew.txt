@@ -1,4 +1,4 @@
-5.2.0-beta10 2011-10-24
+5.2.0-beta12 2011-10-31
   - URL home page changed to http://waterlan.home.xs4all.nl/
   - New option -I: Ignore  diacritics.
     Ignore diacritics for Latin-based scripts.
@@ -11,6 +11,7 @@
   - Matching with Unicode normalisation. Compile with UNINORM=1.
     See also http://en.wikipedia.org/wiki/Unicode_normalization
     Requires libunistring. http://www.gnu.org/s/libunistring/
+  - Unicode support in Windows Command Prompt. Requires Windows 7.
   - All Windows versions of Wcd write their output in the console in Unicode format.
     This gives consistent output, independent of the active code page.
   - Wcd for Windows with Unicode writes tree-data file with BOM (Byte Order Mark).
