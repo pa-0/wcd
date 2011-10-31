@@ -892,32 +892,36 @@ I<LC_ALL> over I<LC_COLLATE> and I<LC_CTYPE>.
 
 =head2 WINDOWS CODE PAGES
 
-There are two groups of code pages. DOS code pages (OEM) and Windows code
-pages (ANSI). The default encoding for Windows, when configured with
-Western regional settings, is ANSI CP1252. Windows programs, for instance
-notepad, use this default system ANSI code page. The Windows console uses
-by default an OEM code page (CP437 or CP850) for compatibility with DOS programs. If
-you use a DOS version of wcd in a Windows console it will work, because of
-the DOS code page. But the DOS version of wcd lacks support for long
-directory names and network drives on Windows. The Windows version of wcd
-is a native Windows program and will use the Windows system ANSI code page.
-So on a Western regional Windows it will use CP1252 for directory names and
-messages. Therefore the code page of the console has to be made equal to
-the system code page (changed to 1252) to make wcd for Windows work
-properly with special characters such as accented characters or the euro
-symbol. The console raster font only supports the original OEM code page
-installed with Windows, so you also have to change the font to true type
-Lucida Console to make the ANSI code page appear correctly. The Windows
-system code page can be changed via the Control Panel regional options. The
-Windows console code page is changed with the C<chcp> command.
+There are two groups of code pages. DOS code pages (OEM) and Windows code pages
+(ANSI). The default encoding for Windows, when configured with Western regional
+settings, is ANSI CP1252. Windows programs, for instance notepad, use this
+default system ANSI code page. The Windows console uses by default an OEM code
+page (CP437 or CP850) for compatibility with DOS programs. If you use a DOS
+version of wcd in a Windows console it will work, because of the DOS code page.
+But the DOS version of wcd lacks support for long directory names and network
+drives on Windows.
+
+The Windows version of wcd is a native Windows program and will use the Windows
+system ANSI code page.  So on a Western regional Windows it will use code page
+CP1252 for directory names and messages. In order to get consistent output,
+independent of the active code page, all Windows versions of Wcd translate ANSI
+output to Unicode output in the  Command Prompt and PowerShell.
+
+The console raster font only supports the original OEM code page installed with
+Windows, so you also have to change the console's font to true type Lucida
+Console to make Unicode (and ANSI) letters appear correctly.
+
+Non-Unicode versions of Wcd I<prior to version 5.2.0> use plain ANSI output.
+For these older versions the code page of the console has to be made equal to
+the system code page (changed to 1252) to make wcd for Windows work properly
+with special characters such as accented characters or the euro symbol. 
+
+The Windows system code page can be changed via the Control Panel regional
+options. The Windows console code page is changed with the C<chcp> command.
 
 When you type C<wcd -V>, the actual character encoding used by wcd is
 shown. Type command C<chcp> to display the active code page of the Windows
 console.
-
-Since version 5.2.0 B<all> Windows versions of Wcd write their output in the
-console in Unicode format. This gives consistent output, independent of the
-active code page, provided the font is set to true type Lucida Console.
 
 #endif
 
@@ -981,7 +985,7 @@ version 5.2.0, provided there is a Byte Order Mark (BOM) in the file
 to directories with Unicode letters in the name that are not part of the
 default system ANSI code page. The Unicode Windows version of wcd writes
 a BOM in the UTF-8 encoded treedata files since version 5.2.0, which makes
-it also readable by notepad.
+them also readable by notepad.
 
 #endif
 
