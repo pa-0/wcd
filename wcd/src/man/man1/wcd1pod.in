@@ -974,18 +974,20 @@ print a question mark or a wrong character instead.
 Wcd with Unicode support will read the UTF-16 encoded directory names and
 converts them internally to UTF-8. All treedata files are encoded in UTF-8
 and not compatible with the non-Unicode version of Wcd. Wcd will create a
-go-script encoded in UTF-8. This can only be run in Windows PowerShell.
+go-script encoded in UTF-8. All versions of Windows PowerShell are able
+to run scripts encoded in UTF-8.
 
-Since Windows 7 you can change with a .bat script in Windows Command Prompt to
-a directory with Unicode letters in the name. The .bat file needs to be encoded
-in UTF-8 and must not have a BOM. The active code page of the Command Prompt
-needs to be set to 65001 (UTF-8). Wcd for Command Prompt will create such a go
-script (wcdgo.bat). It changes the code page to 65001, changes directory, and
-sets the code page back to the original code page.
+Since Windows 7 you can change directory with a batch script in Windows Command
+Prompt to a directory with Unicode letters in the name. The .bat file needs to
+be encoded in UTF-8 and must I<not> have a BOM. The active code page of the
+Command Prompt needs to be set to 65001 (UTF-8). Wcd for Command Prompt will
+create such a go script (wcdgo.bat). It first changes the code page to 65001,
+then changes directory, and finally sets the code page back to the original
+code page.
 
-Wcd with Unicode is only supported in PowerShell and in Command Prompt on
-Windows 7. You need to set the font to True Type Lucida Console (not raster
-font).
+On Windows Unicode is only supported in PowerShell and in Command Prompt on
+Windows 7 (or higher). You need to set the font to True Type Lucida Console
+(not raster font).
 
 The non-Unicode Windows version of Wcd can read Unicode treedata files since
 version 5.2.0, provided there is a Byte Order Mark (BOM) in the file

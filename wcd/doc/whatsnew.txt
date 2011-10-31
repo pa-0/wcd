@@ -11,7 +11,7 @@
   - Matching with Unicode normalisation. Compile with UNINORM=1.
     See also http://en.wikipedia.org/wiki/Unicode_normalization
     Requires libunistring. http://www.gnu.org/s/libunistring/
-  - Unicode support in Windows Command Prompt. Requires Windows 7.
+  - Unicode support in Windows Command Prompt (cmd.exe). Requires Windows 7.
   - All Windows versions of Wcd write their output in the console in Unicode format.
     This gives consistent output, independent of the active code page.
   - Wcd for Windows with Unicode writes tree-data file with BOM (Byte Order Mark).
