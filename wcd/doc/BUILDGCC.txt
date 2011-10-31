@@ -222,7 +222,8 @@ To activate Unicode support add UCS=1 to the make command:
 This requires a (pd/n)curses installation with wide character support.
 Not supported for DOS versions of wcd.
 
-Unicode support makes only sense if you compile for Windows PowerShell.
+Unicode is only supported in Windows PowerShell, and Command Prompt
+on Windows 7 or higher.
 
 
 Enable Unicode normalization with UNINORM=1. This implies UCS=1.

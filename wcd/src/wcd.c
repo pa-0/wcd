@@ -2235,7 +2235,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
       fprintf(outfile,"#!%s\n",ptr);
 #  endif
    fprintf(outfile,"cd %s\n", best_match);
-# else
+# else /* WCD_UNIXSHELL */
    /* Go-script required, but not unix shell type. */
 #  ifdef WCD_WINPWRSH
    /* Windows powershell */
@@ -2253,7 +2253,11 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
    fprintf(outfile, "%s", "@echo off\n");
    if (*changedrive)
       fprintf(outfile,"%s\n",drive);
-#   ifdef WIN32
+#   ifdef WCD_UTF16
+   if (codepage_ansi != 65001)
+      fprintf(outfile,"chcp 65001 > nul\n");
+#   endif
+#   ifdef WCD_ANSI
    if (codepage_ansi != codepage_dos)
       fprintf(outfile,"chcp %d > nul\n", codepage_ansi);
 #   endif
@@ -2261,7 +2265,11 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
       fprintf(outfile,"pushd %s\n", best_match); /* UNC path */
    else
       fprintf(outfile,"cd %s\n", best_match);
-#   ifdef WIN32
+#   ifdef WCD_UTF16
+   if (codepage_ansi != 65001)
+      fprintf(outfile,"chcp %d > nul\n", codepage_dos);
+#   endif
+#   ifdef WCD_ANSI
    if (codepage_ansi != codepage_dos)
       fprintf(outfile,"chcp %d > nul\n", codepage_dos);
 #   endif

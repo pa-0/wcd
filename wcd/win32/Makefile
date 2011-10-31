@@ -5,7 +5,7 @@ exec_prefix = $(prefix)
 MKDIR  = mkdir
 LDFLAGS_EXTRA = -lkernel32 -luser32 -lmpr
 
-CFLAGS = -O2 -Wall -Wextra -Wconversion
+CFLAGS = -O2 -Wall -Wextra -Wconversion -Wno-unused-parameter
 CURSES = pdcursesw
 ENABLE_NLS = 1
 DEFS   = -DMSDOS
@@ -27,6 +27,13 @@ ifdef WCD_UTF8
 UCS=1
 endif
 
+ifdef UNINORM
+UCS=1
+endif
+
+ifdef UCS
+EXTRA_OBJ += matchw.o
+endif
 
 bindir    = ${exec_prefix}/bin
 PROGRAM = wcdwin32.exe
@@ -37,6 +44,9 @@ ifdef ENABLE_NLS
 #ZIPOBJ_EXTRA += bin/libintl3.dll bin/libiconv2.dll
 # Using MinGW gettext,iconv
 ZIPOBJ_EXTRA += bin/libintl-8.dll bin/libiconv-2.dll
+endif
+ifdef UNINORM
+ZIPOBJ_EXTRA += bin/libunistring-0.dll
 endif
 
 all :

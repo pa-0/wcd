@@ -29,6 +29,13 @@ ifdef WCD_UTF8
 UCS=1
 endif
 
+ifdef UNINORM
+UCS=1
+endif
+
+ifdef UCS
+EXTRA_OBJ += matchw.o
+endif
 
 bindir    = ${exec_prefix}/bin
 PROGRAM = wcdwin64.exe
@@ -37,6 +44,9 @@ ZIPOBJ_EXTRA = bin/wcd.bat
 ifdef ENABLE_NLS
 # Using MinGW gettext,iconv
 ZIPOBJ_EXTRA += bin/libintl-8.dll bin/libiconv-2.dll
+endif
+ifdef UNINORM
+ZIPOBJ_EXTRA += bin/libunistring-0.dll
 endif
 
 all :

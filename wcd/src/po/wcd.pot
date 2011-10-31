@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-29 21:42+0200\n"
+"POT-Creation-Date: 2011-10-31 20:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -167,7 +167,7 @@ msgid ""
 "  =              Show stack\n"
 msgstr ""
 
-#: wcd.c:1984 wcd.c:2726
+#: wcd.c:1984 wcd.c:2734
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
@@ -324,32 +324,32 @@ msgstr ""
 msgid "Wcd: creating directory %s\n"
 msgstr ""
 
-#: wcd.c:2408
+#: wcd.c:2416
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 
-#: wcd.c:2434
+#: wcd.c:2442
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2449 wcd.c:2517
+#: wcd.c:2457 wcd.c:2525
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2481 wcd.c:2510
+#: wcd.c:2489 wcd.c:2518
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 
-#: wcd.c:2586 wcd.c:3026 wcd.c:3045
+#: wcd.c:2594 wcd.c:3034 wcd.c:3053
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2722
+#: wcd.c:2730
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 
-#: wcd.c:2727
+#: wcd.c:2735
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -383,44 +383,44 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:2959
+#: wcd.c:2967
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr ""
 
-#: wcd.c:3058
+#: wcd.c:3066
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr ""
 
-#: wcd.c:3208
+#: wcd.c:3216
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr ""
 
-#: wcd.c:3210
+#: wcd.c:3218
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr ""
 
-#: wcd.c:3212
+#: wcd.c:3220
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr ""
 
-#: wcd.c:3214
+#: wcd.c:3222
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr ""
 
-#: wcd.c:3481
+#: wcd.c:3489
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 
-#: wcd.c:3647
+#: wcd.c:3655
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr ""
