@@ -27,6 +27,10 @@ interactive directory tree browser with speed search.
   * OS/2 Warp
 * Native language support: Dutch, English, Finnish, German, Spanish
 * Unicode Level 3 support (all UCS characters including double width and combining characters).
-  * UTF-8 Unicode support for Unix/Linux and Cygwin-1.7.
-  * UTF-16 Unicode support for Windows PowerShell.
+  * Unix/Linux
+  * Cygwin-1.7.
+  * Windows PowerShell.
+  * Windows Command Prompt (cmd.exe) on Windows 7 and up.
+  * Unicode matching with normalization (compatible equivalence).
+* Option to ignore diacritics for Latin-based scripts.
 

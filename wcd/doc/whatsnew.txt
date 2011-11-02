@@ -8,7 +8,8 @@
     CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1,
     ISO-8859-2, and Unicode Latin-1, Latin Extended-A, and Latin Extended-B.
   - New option +I: Regard diacritics (default).
-  - Matching with Unicode normalisation. Compile with UNINORM=1.
+  - Matching with Unicode normalisation (compatible equivalence).
+    Compile with UNINORM=1.
     See also http://en.wikipedia.org/wiki/Unicode_normalization
     Requires libunistring. http://www.gnu.org/s/libunistring/
   - Unicode support in Windows Command Prompt (cmd.exe). Requires Windows 7.
