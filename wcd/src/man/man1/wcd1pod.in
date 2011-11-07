@@ -499,12 +499,7 @@ remove the directories from the treedata file.
 =item B<-s>
 
 (re)Scan disk from C<$HOME> directory. If HOME is not defined the disk is
-scanned from root directory /. This is the default scanning mode.
-
-#ifdef dos
-Wcd for DOS or Windows scans the current disk from DOS root \ or from
-I<%HOME%> if it is set.
-#endif
+scanned from root directory /.
 
 The existing default treedata file is overwritten.
 
