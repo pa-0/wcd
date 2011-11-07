@@ -55,7 +55,7 @@ Table of Contents
         already 7 people downloaded it in the first month. From then
         on development was driven a lot by feedback I got via the
         internet. In March 1998 the GNU distribution license was
-        attached.
+        attached to version 2.0.0.
 
         Later I installed Linux (RedHat 5.0) on my PC at home and
         that became my main development platform.
@@ -67,12 +67,21 @@ Table of Contents
         The DOS 32 bit version still stayed the most popular version for
         a long time. In 2003 the Windows NT port became most popular.
 
-        Until wcd 3.2.1 wcd supported many compilers, but from version
-        4.0.0 (Sep 6 2008) the main focus will be on GNU C compiler and
-        tools. The DOS 16 bit version cannot keep up. It runs out of memory
-        and GNU libraries for native language support are not available.
-        Modern features, like Unicode support, can only be supported
-        on modern operating systems like Linux or Windows.
+        In April 2000 (version 2.3.0) a curses based interface was added
+        to have a consistent interface on all platforms. And a year later
+        the 'graphical tree' curses interface was added (version 3.0.0).
+
+        I used wcd mainly in an ASCII (C) environment. Only since version 3.2.0
+        in Dec 2005 eight bit characters sets were properly supported.
+
+        After a development pause of two years, version 4.0.0 (Sep 2008) was
+        the first which supported internationalization by message translations
+        via gettext.
+
+        Since version 5.0.0 (Mar 2009) wcd supports Unicode, to enable
+        internationalization for all languages. In the beginning this
+        development was done on Linux, and later on Cygwin which supports
+        Unicode since version 1.7.
 
 
 2.0 Copyright
