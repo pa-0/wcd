@@ -1,8 +1,9 @@
 open sftp://waterlan,wcd@frs.sourceforge.net
 cd /home/frs/project/w/wc/wcd/wcd
-mkdir 5.1.5
-cd 5.1.5
-mput wcd-5.1.5-src.tar.gz wcd515s.zip wcd515b.zip wcd515pm.zip wcd515bh.zip wcd-5.1.5-win32.zip wcd-5.1.5-win32psh.zip wcd-5.1.5-1.src.rpm wcd-5.1.5-1.x86_64.rpm trunk/wcd/doc/whatsnew.txt
-#mput wcd-5.1.5-1.i386.rpm
-mput wcd-5.1.5-doc.tar.gz
+mkdir 5.2.0
+cd 5.2.0
+mput wcd-5.2.0-src.tar.gz wcd520s.zip wcd520b.zip wcd520pm.zip wcd520bh.zip wcd-5.2.0-win32.zip wcd-5.2.0-win32psh.zip wcd-5.2.0-1.src.rpm wcd-5.2.0-1.x86_64.rpm trunk/wcd/doc/whatsnew.txt
+#mput wcd-5.2.0-1.i386.rpm
+mput wcd-5.2.0-doc.tar.gz
+mput wcd-5.2.0-win32-ucs.zip wcd-5.2.0-win32psh-ucs.zip
 exit

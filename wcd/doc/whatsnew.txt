@@ -1,4 +1,4 @@
-5.2.0-beta12 2011-10-31
+5.2.0 2011-11-12
   - URL home page changed to http://waterlan.home.xs4all.nl/
   - New option -I: Ignore  diacritics.
     Ignore diacritics for Latin-based scripts.
