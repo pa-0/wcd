@@ -55,7 +55,7 @@ Jason Mathews' file filelist.c was a starting point for this file.
 #include <locale.h>
 #endif
 
-#if !defined(MSDOS)  /* Unix, Cygwin */
+#if !defined(MSDOS) && !defined(__MSYS__)  /* Unix, Cygwin */
 # include <langinfo.h>
 #endif
 
@@ -2037,7 +2037,7 @@ void print_version()
 #else
    printf(_("No native language support included.\n"));
 #endif
-#if defined(MSDOS)
+#if defined(MSDOS) || defined(__MSYS__)
    printf(_("Current locale uses CP%u encoding.\n"),query_con_codepage());
 #else
    printf(_("Current locale uses %s encoding.\n"),nl_langinfo(CODESET));

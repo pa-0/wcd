@@ -3,6 +3,10 @@
 #if (defined(__WATCOMC__) && defined(__NT__))
 #  define WIN32
 #endif
+#ifdef __MSYS__
+#  define WIN32
+#  undef __CYGWIN__
+#endif
 
 #ifdef DJGPP
 
