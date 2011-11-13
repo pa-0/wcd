@@ -370,6 +370,7 @@ status:
 	@echo "prefix        = $(prefix)"
 	@echo "EXT           = $(EXT)"
 	@echo "CPP_FLAGS_POD = $(CPP_FLAGS_POD)"
+	@echo "UNINORM       = $(UNINORM)"
 	@echo "STATIC        = $(STATIC)"
 	@echo "UCS           = $(UCS)"
 	@echo "ENABLE_NLS    = $(ENABLE_NLS)"

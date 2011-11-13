@@ -903,7 +903,7 @@ independent of the active code page, all Windows versions of Wcd translate ANSI
 output to Unicode output in the  Command Prompt and PowerShell.
 
 The console raster font only supports the original OEM code page installed with
-Windows, so you also have to change the console's font to true type Lucida
+Windows, so you have to change the console's font to true type Lucida
 Console to make Unicode (and ANSI) letters appear correctly.
 
 Non-Unicode versions of Wcd I<prior to version 5.2.0> use plain ANSI output.
@@ -936,7 +936,7 @@ L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>
 Wcd has optional support for Unicode matching with normalisation. To find
 out whether Wcd has normalisation support type C<wcd -V>.
 Wcd with Unicode normalization support will match Unicode names based on I<compatible>
-equivalence. Without Unicode normalization support names are matched
+equivalence. Without Unicode normalization support, names are matched
 when they are binary equivalent.
 See also L<http://en.wikipedia.org/wiki/Unicode_normalization>
 
@@ -960,6 +960,9 @@ encoding. There are no Byte Order Marks written to treedata files.
 
 =head3 UTF-16 on Windows
 
+On Windows Unicode is supported in all versions of PowerShell, and in Windows
+Command Prompt on Windows 7 (or higher).
+
 On Windows all the directory names on disk are encoded in UTF-16 Unicode.
 For non-Unicode Windows programs the Unicode characters are
 translated to the default ANSI code page. For characters that are not part of the
@@ -969,20 +972,21 @@ print a question mark or a wrong character instead.
 Wcd with Unicode support will read the UTF-16 encoded directory names and
 converts them internally to UTF-8. All treedata files are encoded in UTF-8
 and not compatible with the non-Unicode version of Wcd. Wcd will create a
-go-script encoded in UTF-8. All versions of Windows PowerShell are able
-to run scripts encoded in UTF-8.
+go-script encoded in UTF-8.
 
-Since Windows 7 you can change directory with a batch script in Windows Command
-Prompt to a directory with Unicode letters in the name. The .bat file needs to
-be encoded in UTF-8 and must I<not> have a BOM. The active code page of the
-Command Prompt needs to be set to 65001 (UTF-8). Wcd for Command Prompt will
-create such a go script (wcdgo.bat). It first changes the code page to 65001,
-then changes directory, and finally sets the code page back to the original
-code page.
+All versions of Windows PowerShell are able to run scripts encoded in UTF-8,
+provided there is an UTF-8 BOM in the script.
 
-On Windows Unicode is only supported in PowerShell and in Command Prompt on
-Windows 7 (or higher). You need to set the font to True Type Lucida Console
-(not raster font).
+Since Windows 7 it is possible in Windows Command Prompt to change directory
+with a batch script to a directory with Unicode letters in the name. The
+directory name needs to be encoded in UTF-8, and the batch script must I<not>
+have a BOM. The active code page of the Command Prompt needs to be set to 65001
+(UTF-8) prior to the cd command. Wcd for Command Prompt will create such a go
+script (wcdgo.bat). It first changes the code page to 65001, then changes
+directory, and finally sets the code page back to the original code page.
+
+You need to set the font to True Type Lucida Console (not raster font) when
+letters don't appear correctly.
 
 The non-Unicode Windows version of Wcd can read Unicode treedata files since
 version 5.2.0, provided there is a Byte Order Mark (BOM) in the file
