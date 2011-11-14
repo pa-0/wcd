@@ -1,3 +1,9 @@
+5.2.1-beta1 2011-11-14
+  - querycp.c/matchl.c : Fix Code Page number for ISO-8859-1 and ISO-8859-2.
+    ISO-88592-1 = CP28591, ISO-8859-2 = CP
+  - Makefile: Print value of UNINORM.
+  - Man page: Update Unicode section.
+
 5.2.0 2011-11-12
   - URL home page changed to http://waterlan.home.xs4all.nl/
   - New option -I: Ignore  diacritics.
