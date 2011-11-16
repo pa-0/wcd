@@ -286,12 +286,7 @@ Table of Contents
 4.0 Contact and Download information
 
 
-        I can be contacted via E-mail:
-                  waterlan@xs4all.nl
-
-        Address : Zeelsterstraat 59B
-                  5652 EB Eindhoven
-                  The Netherlands
+        I can be contacted via E-mail: waterlan@xs4all.nl
 
         --
 
@@ -311,8 +306,8 @@ Table of Contents
         SourceForge project page:
         http://sourceforge.net/projects/wcd/
 
-        Freshmeat project page:
-        http://freshmeat.net/projects/wcd/
+        Freecode project page:
+        http://freecode.com/projects/wcd/
 
         --
 
@@ -329,9 +324,6 @@ Table of Contents
         --
 
         Wcd is also distributed by:
-
-        the SfR Freeware/Shareware Archive
-        http://www.sfr-fresh.com/unix/misc/
 
         Debian Linux
         http://packages.debian.org/search?keywords=wcd
