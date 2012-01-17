@@ -1131,19 +1131,14 @@ B<+n>.
 
 =over 4
 
-=item B<WCDHOME>
+=item B<HOME>
 
 Wcd uses by default environment variable I<HOME> to determine where to store
-its files. See also section FILES.
+its files. See also section FILES.  This can be overruled with environment
+variable I<WCDHOME>.
 
-Environment variable I<WCDHOME> can be used to change the location of wcd's
-files. If both I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead
-of I<HOME>.
-
-In wcd versions prior to 5.1.5 WCDHOME also changed the default scan directory.
-This has changed. Since version 5.1.5 WCDHOME does not change the default scan
-directory. See option -s. From version 5.1.5, use environment I<WCDSCAN> to
-overrule the default scan directory.
+I<HOME> also defines where to start scanning the disk when option C<-s> is
+used. This can be overruled with environment variable I<WCDSCAN>.
 
 #ifdef dos
 
@@ -1163,6 +1158,17 @@ explicitly. E.g.:
 Matching of directories is now global over all scanned drives.
 
 #endif
+
+=item B<WCDHOME>
+
+Environment variable I<WCDHOME> can be used to change the location of wcd's
+files. If both I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead
+of I<HOME>.
+
+In wcd versions prior to 5.1.5 WCDHOME also changed the default scan directory.
+This has changed. Since version 5.1.5 WCDHOME does not change the default scan
+directory. See option -s. From version 5.1.5, use environment I<WCDSCAN> to
+overrule the default scan directory.
 
 #ifdef dos
 Example for DOS, Windows, OS/2 Command Prompt:
