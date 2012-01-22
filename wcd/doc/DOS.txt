@@ -6,8 +6,7 @@ For installation on Unix/Linux/Cygwin see UNIX.txt.
 Contents
 ========
 
-   Package directory structure
-   Language selection
+   Basic installation
  1 Installation on DOS and Windows 9x/ME
    - dos 16 bit
    - dos 32 bit
@@ -25,48 +24,22 @@ Contents
    - UNC support
 
 
-Package directory structure
-===========================
-
-When you unpack the zip archive you will get the following
-directory structure:
-
-bin/                             Binary
-share/doc/                       Documentation
-share/locale/                    Locale directory
-share/locale/nl/LC_MESSAGES/     Locale directory with Dutch Language file
-share/locale/fi/LC_MESSAGES/     Locale directory with Finnish Language file
-share/locale/es/LC_MESSAGES/     Locale directory with Spanish Language file
-share/man/man1/                  Man page
-
-If wcd was build without Native Language support the share/locale
-folder is missing.
-
-Unzip the package in a directory which we will call PREFIX.
-
-Zip packages have been created with a default PREFIX:
-
-dos32    : c:/djgpp
-dos32bsh : c:/djgpp
-win32    : c:/usr/local
-win32psh : c:/usr/local
-win32zsh : c:/usr/local
-win64    : c:/usr/local
-win64psh : c:/usr/local
-msys     : /usr
-
-You can install wcd in a different PREFIX directory if you want.
-
-Add directory PREFIX/bin to your PATH environment variable.
-
-
-Language selection
+Basic installation
 ==================
 
-See section LOCALIZATION of the wcd manual.
 
-The WIN32 version of wcd automatically detects the language and can find the
-LOCALEDIR if wcd was unpacked in a different PREFIX directory.
+Unpack the zip file in a directory of your choice which we will call PREFIX.
+
+You will get the following directories:
+
+bin/          Program and run-time libraries.
+share/        Documentation and language files.
+
+Add directory 'bin' to your PATH environment variable:
+
+  set PATH=%PATH%;PREFIX/bin
+
+Replace PREFIX with the directory path where you unpacked the zip file.
 
 
 ======================================================================
@@ -77,14 +50,11 @@ LOCALEDIR if wcd was unpacked in a different PREFIX directory.
 
  Make sure that wcd.exe is in your path.
 
- The dos 16 bit version of wcd has no internationalization support.
-
 ......................................................................
 
 - dos 32 bit version:
 
  Make sure that wcd.exe and cwsdpmi.exe are in your path.
- (requires 80386 CPU or higher)
 
 ......................................................................
 
@@ -105,71 +75,7 @@ function wcd
 Replace PREFIX with the prefix used during package installation.
 Start a new bash
 
-Attention!
-wcd 2.1 and later writes the wcd.go file now always on drive C: unless
-other specified with the -d option.
-
-
 ......................................................................
-- Long directory name support
-
-The 32 bit DOS versions for DOS supports long directory names
-in a Windows 95/98 Dos-box.
-
-Wcd makes use of DJGPP's LFN (long filename) API, which works under
-Windows 95, 98 an ME. LFN support does not work if you started your PC
-in MS-DOS mode.
-
-LFN support can be controlled with the environment variable LFN.
-
-set LFN=y  enables LFN support.
-set LFN=n  disables LFN support.
-
-If variable LFN is not set, LFN is by default enabled.
-
-Notice that you need to have set LFN=y in your DJGPP.ENV file
-if you have the DJGPP compiler installed.
-
-...
-
-Current DOS version of Wcd does not support LFN under Windows NT.
-
-If you need LFN support under Windows NT use the Windows Command Prompt
-version of wcd.
-
-......................................................................
-- Using default options
-
-If you want to use some options by default use an alias or macro to do that.
-Smarter shells like 4DOS and NDOS are able to set aliases like this:
-alias wcd=wcd.exe -Q
-
-In DOS BASH add the options in your function.
-
-In the MS-DOS COMMAND.COM shell you can use the 'doskey' command to define
-a macro. You could add the following line to you AUTOEXEC.BAT file:
-doskey wcd=wcd.exe -Q $*
-
-......................................................................
-- Use of environment variable HOME / WCDHOME
-
-The DOS versions of wcd can make use of environment variable HOME.
-(UNIX version always uses HOME.)
-
-set HOME=c:/home/waterlan
-
-If HOME is set, wcd will place all it's files (treedata.wcd, extra.wcd,
-alias.wcd, ban.wcd, wcd.go) in directory %HOME% .
-The behaviour of wcd is then equal to the UNIX version of wcd.
-Wcd will scan the disk default from %HOME%. Drives will not
-be automaticly scanned by changing to them.
-You need to tell wcd explicitly. E.g.:
-
-wcd -S c: -A d: -A e:
-
-Matching of directories is now global over all scanned drives.
-
-...
 
 If HOME is set, DJGPP bash will read '_bashrc' from %HOME%.
 Your wcd function could now look like:
@@ -187,20 +93,17 @@ WCDHOME instead of HOME.
 ======================================================================
 = 2 Installation on Windows NT (NT/2000/XP/Vista/7)                  =
 ======================================================================
+
 - Windows Command Prompt (cmd.exe)
 
-Notice that in Windows NT Command Prompt a Windows
-program cannot change the current work directory (although a DOS program can).
-That is why wcd generates a batch script (c:\wcdgo.bat or %HOME%\wcdgo.bat)
-which must be executed in the current shell.
+Add the 'bin' folder to PATH.
 
-To be sure that you execute the correct 'wcd.bat' you could
-optionally create a macro for wcd:
+In Windows Command Prompt a Windows program cannot change the current work
+directory, but a .bat file can.
 
- doskey wcd=c:\bin\wcd.bat $*
-
-
-Notice that environment variable WCDHOME overrides HOME.
+The batch scrip "wcd.bat" runs the wcd program which generates a new batch
+script "wcdgo.bat". Then wcd.bat runs wcdgo.bat which actually changes the
+directory.
 
 ......................................................................
 - Windows VISTA/7

@@ -750,10 +750,13 @@ Reload the shell initialization files or start new shell.
 
 =head2 Windows Command Prompt version
 
-In a Windows NT Command Prompt (cmd.exe) a Windows program
-can't change the current work directory (although a DOS program can).
-That is why wcd generates a batch script (C<wcdgo.bat>) which must be
-executed in the current shell.
+Unpack the zip file and add directory 'bin' to your environment
+variable PATH.
+
+In Windows Command Prompt a Windows program cannot change the current work
+directory, but a .bat file can.  The batch scrip "wcd.bat" runs the wcd program
+which generates a new batch script "wcdgo.bat". Then wcd.bat runs wcdgo.bat
+which actually changes the directory.
 
 =head2 Windows VISTA/7
 
