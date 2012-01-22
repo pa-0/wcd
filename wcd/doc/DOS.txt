@@ -8,13 +8,9 @@ Contents
 
    Basic installation
  1 Installation on DOS and Windows 9x/ME
-   - dos 16 bit
-   - dos 32 bit
-   - dos Bourne Again Shell (bash)
-   - Long directory name support
-   - Using default options
-   - Use of environment variable HOME / WCDHOME
-   - PDCurses interface
+   - DOS 16 bit
+   - DOS 32 bit
+   - DOS Bourne Again Shell (bash)
  2 Installation on Windows NT (NT/2000/XP/Vista/7)
    - Windows Command Prompt (cmd.exe)
    - Windows VISTA/7
@@ -46,19 +42,19 @@ Replace PREFIX with the directory path where you unpacked the zip file.
 = 1 Installation on DOS and Windows 9x/ME                            =
 ======================================================================
 
-- dos 16 bit version:
+- DOS 16 bit version:
 
  Make sure that wcd.exe is in your path.
 
 ......................................................................
 
-- dos 32 bit version:
+- DOS 32 bit version:
 
  Make sure that wcd.exe and cwsdpmi.exe are in your path.
 
 ......................................................................
 
-- dos Bourne Again Shell (bash):
+- DOS Bourne Again Shell (bash):
 
 
  Add the following function to your ~/_bashrc
@@ -75,7 +71,7 @@ function wcd
 Replace PREFIX with the prefix used during package installation.
 Start a new bash
 
-......................................................................
+...
 
 If HOME is set, DJGPP bash will read '_bashrc' from %HOME%.
 Your wcd function could now look like:
