@@ -209,7 +209,7 @@ Table of Contents
         Thanks to the following people for giving ideas and/or
         reporting/solving bugs:
 
-        Leo Sevat           (? I forgot. ew)
+        Leo Sevat           (First user)
         Paul Lippens        (? I forgot. ew)
         Ondrej Popp         (relative treefiles)
         Ad Vaassen          (subdirectories)
@@ -258,6 +258,7 @@ Table of Contents
         Billy Chen          Optional colours in graphical mode (option -K)
         Billy Chen          Less screen movement when navigating in graphical mode.
         anonymous           Alternate stack file support.
+        Laurence Errington  Simpler installation instructions for Windows Command Prompt
 
     3.1 Translators
 

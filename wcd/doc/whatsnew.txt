@@ -6,6 +6,8 @@
     ISO-88592-1 = CP28591, ISO-8859-2 = CP28592
   - Makefile: Print value of UNINORM.
   - Man page: Update sections UNICODE and ENVIRONMENT VARIABLES.
+  - Simplified installation instructions for Windows Command Prompt.
+    Thanks to Laurence Errington.
 
 5.2.0 2011-11-12
   - URL home page changed to http://waterlan.home.xs4all.nl/
