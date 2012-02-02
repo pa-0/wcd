@@ -513,11 +513,13 @@ See also options B<-A>, B<-s> and B<-E>. E.g. with option B<-A> you
 can create a default treedata file of your choice. Examples:
 
 Unix:
+
     wcd -S /
     wcd -S /home -A /etc -A /usr
 
 #ifdef dos
 DOS/Windows:
+
     wcd -S c:/
     wcd -S c: -A d: -A \\server\share
 
@@ -701,8 +703,8 @@ C<$HOME/.bashrc>):
 
     wcd ()
     {
-	<PATH>/wcd.exe "$@"
-	. ${WCDHOME:-${HOME}}/bin/wcd.go
+        <PATH>/wcd.exe "$@"
+        . ${WCDHOME:-${HOME}}/bin/wcd.go
     }
 
 Replace <PATH> with the location where the wcd executable has been
@@ -717,16 +719,16 @@ go-script is written on c:/.
 
     wcd ()
     {
-	<PATH>/wcd.exe "$@"
-	. ${WCDHOME:-${HOME:-"c:"}}/wcd.go
+        <PATH>/wcd.exe "$@"
+        . ${WCDHOME:-${HOME:-"c:"}}/wcd.go
     }
 
 The WinZsh version of wcd is also a bit different. No C<bin> directory.
 
     wcd ()
     {
-	<PATH>/wcd.exe "$@"
-	. ${WCDHOME:-${HOME}}/wcd.go
+        <PATH>/wcd.exe "$@"
+        . ${WCDHOME:-${HOME}}/wcd.go
     }
 #endif
 
@@ -773,8 +775,8 @@ environment variable I<HOME> or I<WCDHOME> is defined.
 
     function wcd
     {
-	<PATH>\wcdwin32psh.exe $args
-	& $env:HOME\wcdgo.ps1
+        <PATH>\wcdwin32psh.exe $args
+        & $env:HOME\wcdgo.ps1
     }
 
 Replace <PATH> with the location where wcd executable have been installed.
