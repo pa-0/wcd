@@ -1,7 +1,7 @@
 #
 #   Copyright information
 #
-#	Copyright (C) 2009-2011 Erwin Waterlander
+#	Copyright (C) 2009-2012 Erwin Waterlander
 #	Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -187,22 +187,22 @@ ifneq (,$(CURSES))
 	LIB_CURSES  = -l$(CURSES)
 endif
 
-ifeq ($(CURSES),ncurses)
-ifneq ($(wildcard /usr/include/ncurses/curses.h),)
-	INCFLAGS = -I/usr/include/ncurses
+
+INCPREFIX=/usr
+ifeq ($(findstring MINGW,$(shell uname)),MINGW)
+INCPREFIX=/mingw
+endif
+
+# Each ncurses variant has its own include directory
+# ncurses (normal)/ncursesw (wide char)/ncursest (threads)
+ifeq ($(findstring ncurses,$(CURSES)),ncurses)
+ifneq ($(wildcard $(INCPREFIX)/include/$(CURSES)/curses.h),)
+	INCFLAGS = -I$(INCPREFIX)/include/$(CURSES)
 endif
 endif
 
 ifeq ($(CURSES),ncursesw)
 	EXTRA_DEFS = -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED
-
-	# Pick right include:
-	# libncurses5-dev: /usr/include/curses.h
-	# libncursesw5-dev: /usr/include/ncursesw/curses.h
-
-ifneq ($(wildcard /usr/include/ncursesw/curses.h),)
-	INCFLAGS = -I/usr/include/ncursesw
-endif
 endif
 
 ifeq ($(CURSES),pdcurses)
@@ -244,6 +244,11 @@ endif
 	INSTALL_TARGETS += install-profile
 endif
 
+ifndef OS
+ifeq ($(findstring MSYS,$(shell uname)),MSYS)
+	OS = msys
+endif
+endif
 
 ifndef OS
 ifeq (FreeBSD, $(shell uname -s))
@@ -315,6 +320,10 @@ EXTRA_CFLAGS	= -Ic3po \
 		  $(NLSDEFS) \
 		  $(NCFLAG) \
 		  $(INCFLAGS)
+
+ifeq ($(DEBUG), 1)
+	EXTRA_CFLAGS += -g
+endif
 
 ifdef STATIC
 	LDFLAG_STATIC = -static

@@ -2,13 +2,16 @@
   - Windows Command Prompt: wcd.bat defines WCDHOME when HOME and WCDHOME both
     are not defined, because users can't write files in the root of the system
     partition on Windows Vista and up.
-  - querycp.c/matchl.c : Fix Code Page number for ISO-8859-1 and ISO-8859-2.
-    ISO-88592-1 = CP28591, ISO-8859-2 = CP28592
-  - Makefile: Print value of UNINORM.
-  - Man page: Update sections UNICODE and ENVIRONMENT VARIABLES.
   - Simplified installation instructions for Windows Command Prompt.
     Thanks to Laurence Errington.
-  - Drop support for Windows LCC compiler.
+  - Makefile: Print value of UNINORM.
+  - Makefile: Support DEBUG=1
+  - Makefile: Better test for ncurses curses.h include file.
+  - Man page: Update sections UNICODE and ENVIRONMENT VARIABLES.
+  - win32/lcc: Removed. Drop support for Windows LCC compiler.
+  - querycp.c/matchl.c : Fix Code Page number for ISO-8859-1 and ISO-8859-2.
+    ISO-88592-1 = CP28591, ISO-8859-2 = CP28592
+  - querycp.c: Support WatcomC for DOS32.
 
 5.2.0 2011-11-12
   - URL home page changed to http://waterlan.home.xs4all.nl/

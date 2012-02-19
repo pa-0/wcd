@@ -57,6 +57,9 @@ BASIC INSTALLATION
                         standalone wcd binary.
                         The default value is empty.
 
+            DEBUG=1     A debug enabled build can be made by
+                        adding DEBUG=1 to the make command.
+
             LFS=
                         Large File Support (LFS) is by default enabled. This
                         enables the use of 64 bit file system interface on 32

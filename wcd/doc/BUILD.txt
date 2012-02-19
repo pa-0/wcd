@@ -74,14 +74,12 @@ normal dos 32 bit version.
 Windows 32 bit console version.
 ----------------------------------------------
 
-This version can be compiled with free compilers:
-LCC        : http://www.cs.virginia.edu/~lcc-win32/
+This version can be compiled with Open Watcom C.
 Watcom     : http://www.openwatcom.org/
 
-Go to directory win32.
-Cd to one of the compiler directories: lcc or watcom.
+Go to directory win32/lcc.
 
-The makefiles that use PDCurses (pdcurses.mak) assume that curses.h has been
+The makefile that uses PDCurses (pdcurses.mak) assumes that curses.h has been
 copied into the include directory of the compiler and the pdcurses library in
 the compiler's lib directory.
 
@@ -94,30 +92,4 @@ WATCOM
     To compile wcd with curses interface type:
 
     > wmake -f pdcurses.mak
-
-LCC
-
-    Because LCC make doesn't support an 'include' directive we
-    have to use GNU make. You can get GNU make for Windows from
-    the GnuWin32 project or the MinGW project.
-
-    GnuWin32: http://gnuwin32.sourceforge.net/packages/make.htm
-    MinGW:    http://www.mingw.org/   Get mingw32-make (not msys-make)
-
-    Copy the GNU make executable to "gmake.exe" somewhere in PATH.
-
-    To compile wcd with stdout interface:
-
-    > gmake
-
-    To compile wcd with curses interface:
-
-    > gmake CURSES=1
-
-    To compile wcd with conio interface:
-
-    > gmake CONIO=1
-
-    Conio version compiled with LCC does not work properly.
-    Preferably compile stdout or pdcurses version.
 
