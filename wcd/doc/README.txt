@@ -87,7 +87,7 @@ Table of Contents
 2.0 Copyright
 
 
-        Copyright (C) 1997-2011 Erwin Waterlander
+        Copyright (C) 1997-2012 Erwin Waterlander
 
         This program is free software; you can redistribute it and/or
         modify it under the terms of the GNU General Public License
@@ -113,10 +113,8 @@ Table of Contents
 
     2.2 DOSDIR
 
-
-        For the DOS-16-bit and the Unix version I use DOSDIR. Only the
-        parts of DOSDIR that are distributed under GNU General Public
-        License are used in WCD.
+        Wcd uses DOSDIR for scanning the disk. Only the parts of DOSDIR
+        that are distributed under GNU General Public License are used in WCD.
 
         DOSDIR: A Portable DOS/UNIX/VMS Directory Interface
 
