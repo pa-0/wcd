@@ -1,4 +1,4 @@
-5.2.1-beta1 2012-01-17
+5.2.1-beta1 2012-02-19
   - Windows Command Prompt: wcd.bat defines WCDHOME when HOME and WCDHOME both
     are not defined, because users can't write files in the root of the system
     partition on Windows Vista and up.
@@ -8,6 +8,7 @@
   - Man page: Update sections UNICODE and ENVIRONMENT VARIABLES.
   - Simplified installation instructions for Windows Command Prompt.
     Thanks to Laurence Errington.
+  - Drop support for Windows LCC compiler.
 
 5.2.0 2011-11-12
   - URL home page changed to http://waterlan.home.xs4all.nl/
