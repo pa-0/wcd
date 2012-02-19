@@ -105,7 +105,7 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
   FILE *f;
   char *errstr;
 
-  //printf("wcd_fopen %s %d\n",filename, quiet);
+  /* printf("wcd_fopen %s %d\n",filename, quiet); */
 
   if (m[0] == 'r') /* we try to read an existing file */
   {
