@@ -1,4 +1,4 @@
-5.2.1-beta1 2012-02-19
+5.2.1 2012-02-28
   - Windows Command Prompt: wcd.bat defines WCDHOME when HOME and WCDHOME both
     are not defined, because users can't write files in the root of the system
     partition on Windows Vista and up.

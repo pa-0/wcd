@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-19 15:16+0100\n"
+"POT-Creation-Date: 2012-02-28 21:44+0100\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -439,10 +439,10 @@ msgstr ""
 "     unterstützt.\n"
 
 #: wcd.c:2735
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
-"Copyright (C) 1997-2011 Erwin Waterlander\n"
+"Copyright (C) 1997-2012 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
 "Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo "
