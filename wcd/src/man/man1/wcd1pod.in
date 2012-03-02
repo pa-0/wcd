@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#      Copyright (C) 1997-2011 Erwin Waterlander
+#      Copyright (C) 1997-2012 Erwin Waterlander
 #      Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -995,7 +995,7 @@ letters don't appear correctly.
 
 The non-Unicode Windows version of Wcd can read Unicode treedata files since
 version 5.2.0, provided there is a Byte Order Mark (BOM) in the file
-(see http://en.wikipedia.org/wiki/Byte_order_mark), but it can't change
+(see L<http://en.wikipedia.org/wiki/Byte_order_mark>), but it can't change
 to directories with Unicode letters in the name that are not part of the
 default system ANSI code page. The Unicode Windows version of wcd writes
 a BOM in the UTF-8 encoded treedata files since version 5.2.0, which makes
