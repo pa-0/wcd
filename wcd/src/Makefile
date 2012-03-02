@@ -85,6 +85,8 @@ INSTALL_SUID	= $(INSTALL) -m 4755
 INSTALL_OBJS_BIN   = $(BIN)
 INSTALL_OBJS_MAN1  = man/man1/wcd.1
 
+HTMLEXT = htm
+
 INSTALL_OBJS_DOC_INSTALL = \
   ../doc/INSTALL.txt \
   ../doc/UNIX.txt \
@@ -104,14 +106,14 @@ INSTALL_OBJS_DOC   = \
   $(INSTALL_OBJS_DOC_INSTALL) \
   $(INSTALL_OBJS_DOC_COPYING) \
   ../doc/$(PACKAGE).txt \
-  ../doc/$(PACKAGE).htm
+  ../doc/$(PACKAGE).$(HTMLEXT)
 
 ifdef ENABLE_NLS
 POT		= po/$(PACKAGE).pot
 POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 endif
-DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).htm
+DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).$(HTMLEXT)
 
 CPP		= cpp
 CPP_FLAGS_POD	= ALL
@@ -440,7 +442,7 @@ man/man1/wcd.1 : man/man1/wcd1.pod
 ../doc/$(PACKAGE).ps : man/man1/wcd.1
 	groff -man $< -T ps > $@
 
-../doc/$(PACKAGE).htm : man/man1/wcd1.pod
+../doc/$(PACKAGE).$(HTMLEXT) : man/man1/wcd1.pod
 	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
 
 
@@ -448,7 +450,7 @@ pod: man/man1/wcd1.pod
 
 man: man/man1/wcd.1
 
-html: ../doc/$(PACKAGE).htm
+html: ../doc/$(PACKAGE).$(HTMLEXT)
 
 txt: ../doc/$(PACKAGE).txt
 

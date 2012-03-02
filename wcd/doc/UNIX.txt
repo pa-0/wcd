@@ -88,6 +88,11 @@ BASIC INSTALLATION
                         make a distinction between the binary
                         and the function/alias.
 
+            HMTLEXT=html
+                        Set HTML manual file extension.
+                        The default value is 'htm' to
+                        support all platforms.
+
         An example to enable unicode support, provided that the library
         libncursesw is also available:
 
