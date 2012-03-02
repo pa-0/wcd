@@ -13,6 +13,8 @@ Prerequisites
 * make      : GNU make
 * sh        : POSIX type shell
 * coreutils : GNU core utilities package
+* sed       : Stream editor
+* perl      : Practical Extraction and Report Language (perlpod)
 
 Optional:
 
@@ -21,11 +23,7 @@ Optional:
 * pdcurses  : CRT screen handling and optimization package
 
 
-Only needed if you change the manual page:
-
-* perl        : Practical Extraction and Report Language (perlpod)
-
-And if you want to generate PostScript or PDF versions of the manual:
+If you want to generate PostScript or PDF versions of the manual:
 
 * groff       : GNU troff text formatting system.
 * ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
@@ -122,12 +120,11 @@ This bug is solved in PDCurses 2.7.
 groff and ghostscript
 ==========================
 
-These packages are needed if you want to work on the wcd manual page. Using man,
-groff, and ghostscript the file src/man/man1/wcd.1 is convert to a manual in
-text, PostScript and PDF format in the `doc' directory.
+These packages are needed if you want to create PostScript and PDF versions of
+the wcd manual page.
 
-The converted manual pages are included in the wcd source package. So if you
-don't change the wcd manual, you don't need these packages.
+The manual pages are included in the wcd DOS source package, not in the Unix
+source package.
 
 Groff and ghostscript are available in the Cygwin environment (http://cygwin.com).
 

@@ -5,11 +5,12 @@ PREREQUISITES
             * make      : GNU make
             * sh        : POSIX type shell
             * coreutils : GNU core utilities package (chmod, install, mkdir, mv, rm, uname)
+            * sed       : Stream editor
             * perl      : Practical Extraction and Report Language (perlpod)
 
         Optional (depending on build targets):
-            * gettext   : Framework to help GNU packages produce multi-lingual messages.
-            * ncurses   : CRT screen handling and optimization package.
+            * gettext     : Framework to help GNU packages produce multi-lingual messages.
+            * ncurses     : CRT screen handling and optimization package.
             * groff       : GNU troff text formatting system.
             * ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
 
