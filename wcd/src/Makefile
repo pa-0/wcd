@@ -480,8 +480,8 @@ strip:
 	@echo "-- target: strip"
 	$(STRIP) $(BIN)
 
-clean:
-	@echo "-- target: clean"
+mostlyclean:
+	@echo "-- target: mostlyclean"
 	-rm -f \
 		$(BIN) \
 		*.exe \
@@ -500,14 +500,18 @@ clean:
 		*/*/*~ \
 		*.stackdump
 
-distclean: clean
-
-maintainer-clean: distclean
-	@echo "-- target: maintainer-clean:"
+clean: mostlyclean
+	@echo "-- target: clean"
 	rm -f \
 	  man/man1/wcd1.pod \
 	  man/man1/wcd.1 \
 	  $(DOCFILES)  ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf
+
+distclean: clean
+	@echo "-- target: distclean"
+
+maintainer-clean: distclean
+	@echo "-- target: maintainer-clean:"
 
 # 'maintainer-clean' was 'realclean' in old GNU standards.
 realclean: maintainer-clean

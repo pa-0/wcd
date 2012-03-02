@@ -1,3 +1,8 @@
+5.2.2-beta1 2012-03-02
+  - src/Makefile: Target 'clean' renamed to 'mostlyclean', because it preserves
+    the built manual files. New target 'clean' that removes all files that were
+	 not present in the original source package. Thanks to Jari Aalto.
+
 5.2.1 2012-02-28
   - Windows Command Prompt: wcd.bat defines WCDHOME when HOME and WCDHOME both
     are not defined, because users can't write files in the root of the system
