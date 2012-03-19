@@ -77,7 +77,7 @@ Windows 32 bit console version.
 This version can be compiled with Open Watcom C.
 Watcom     : http://www.openwatcom.org/
 
-Go to directory win32/lcc.
+Go to directory win32/watcom.
 
 The makefile that uses PDCurses (pdcurses.mak) assumes that curses.h has been
 copied into the include directory of the compiler and the pdcurses library in
