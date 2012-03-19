@@ -33,7 +33,7 @@ share/        Documentation and language files.
 
 Add directory 'bin' to your PATH environment variable:
 
-  set PATH=%PATH%;PREFIX/bin
+  set PATH=%PATH%;PREFIX\bin
 
 Replace PREFIX with the directory path where you unpacked the zip file.
 
