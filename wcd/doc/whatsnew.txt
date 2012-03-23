@@ -4,6 +4,8 @@
 	 not present in the original source package. Thanks to Jari Aalto.
   - src/Makefile: New variable HTMLEXT to override the default 'htm' extension
     for the manual in HTML format. Thanks to Jari Aalto.
+  - src/Makefile: Support CFLAGS_USER, LDFLAGS_USER, and DEFS_USER for
+    Debian Linux. Thanks to Jari Aalto.
 
 5.2.1 2012-02-28
   - Windows Command Prompt: wcd.bat defines WCDHOME when HOME and WCDHOME both

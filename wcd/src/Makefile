@@ -35,10 +35,12 @@
 #
 #	    make CPP_FLAGS_POD="-Ddos" man
 #
-#       In order to clean generated POD file:
+#       In order to clean but preserve generated POD file:
 #
-#           make maintainer-clean
-
+#           make mostlyclean
+#
+#	Set additional flags for the build with variables CFLAGS_USER,
+#	DEFS_USER and LDFLAGS_USER.
 
 ifneq (,)
 This makefile requires GNU Make.
@@ -311,7 +313,8 @@ endif
 # dynamically) comment the LDFLAGS line and add the 'libncurses.a' file
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
-CFLAGS	= -O2 -Wall -Wextra -Wno-unused-parameter -Wconversion $(RPM_OPT_FLAGS)
+CFLAGS_USER	=
+CFLAGS	= -O2 -Wall -Wextra -Wno-unused-parameter -Wconversion $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
 
 EXTRA_CFLAGS	= -Ic3po \
 		  $(CFLAGS_VERSION) \
@@ -338,14 +341,17 @@ ifdef ASCII_TREE
 	EXTRA_CFLAGS += -DASCII_TREE
 endif
 
+LDFLAGS_USER   =
 LDFLAGS		= $(RPM_OPT_FLAGS) \
 	          $(LIB_CURSES) \
 	          $(LIB_UNISTRING) \
 	          $(LDFLAGS_EXTRA) \
 		  $(NLFLAG) \
-		  $(LDFLAG_STATIC)
+		  $(LDFLAG_STATIC) \
+		  $(LDFLAGS_USER)
 
-DEFS		= -DUNIX $(DEFS_CURSES) $(EXTRA_DEFS)
+DEFS_USER   =
+DEFS		= -DUNIX $(DEFS_CURSES) $(EXTRA_DEFS) $(DEFS_USER)
 
 # .......................................................... targets ...
 
