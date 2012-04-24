@@ -1386,12 +1386,34 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
 {
    int i ;
    int c_high, c_low;
+   wchar_t lead, trail;
 
    for (i=0; i<lim-1 && ((c_low=fgetc(infile)) != EOF)  && ((c_high=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')) ; ++i)
-      {
+   {
       c_high <<=8;
       s[i] = (wchar_t)(c_high + c_low) ;
       if (s[i] == L'\r') i--;
+      /* wcstombs() on Unix ignores UTF-16 surrogate pairs. Therefore we have to decode the UTF-16 surrogate pair ourselves.
+       * If we don't do it wcstombs() will convert the halfs individually. */
+      if ((sizeof(wchar_t) >= 4) && (s[i] >= 0xd800) && (s[i] < 0xdc00))
+      {
+         lead = s[i];
+         if (((c_low=fgetc(infile)) != EOF)  && ((c_high=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')))
+         {
+            c_high <<=8;
+            trail = (wchar_t)(c_high + c_low) ;
+            if ((trail >= 0xdc00) && (trail < 0xe000))
+            {
+               s[i] = 0x10000;
+               s[i] += (lead & 0x03FF) << 10;
+               s[i] += (trail & 0x03FF);
+            }
+            else /* not a UTF-16 surrogate pair trail. */
+            {
+               s[i] = trail;
+            }
+         }
+      }
    }
 
    s[i] = L'\0' ;
@@ -1413,6 +1435,27 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
       c_high <<=8;
       s[i] = (wchar_t)(c_high + c_low) ;
       if (s[i] == L'\r') i--;
+      /* wcstombs() on Unix ignores UTF-16 surrogate pairs. Therefore we have to decode the UTF-16 surrogate pair ourselves.
+       * If we don't do it wcstombs() will convert the halfs individually. */
+      if ((sizeof(wchar_t) >= 4) && (s[i] >= 0xd800) && (s[i] < 0xdc00))
+      {
+         lead = s[i];
+         if (((c_high=fgetc(infile)) != EOF)  && ((c_low=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')))
+         {
+            c_high <<=8;
+            trail = (wchar_t)(c_high + c_low) ;
+            if ((trail >= 0xdc00) && (trail < 0xe000))
+            {
+               s[i] = 0x10000;
+               s[i] += (lead & 0x03FF) << 10;
+               s[i] += (trail & 0x03FF);
+            }
+            else /* not a UTF-16 surrogate pair trail. */
+            {
+               s[i] = trail;
+            }
+         }
+      }
    }
 
    s[i] = L'\0' ;

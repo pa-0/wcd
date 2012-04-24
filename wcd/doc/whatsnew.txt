@@ -1,11 +1,13 @@
 5.2.2-beta1 2012-03-02
   - src/Makefile: Target 'clean' renamed to 'mostlyclean', because it preserves
     the built manual files. New target 'clean' that removes all files that were
-	 not present in the original source package. Thanks to Jari Aalto.
+    not present in the original source package. Thanks to Jari Aalto.
   - src/Makefile: New variable HTMLEXT to override the default 'htm' extension
     for the manual in HTML format. Thanks to Jari Aalto.
   - src/Makefile: Support CFLAGS_USER, LDFLAGS_USER, and DEFS_USER for
     Debian Linux. Thanks to Jari Aalto.
+  - wcd.c: Support UTF-16 surrogate pairs when a Unix version reads
+    UTF-16 tree files.
 
 5.2.1 2012-02-28
   - Windows Command Prompt: wcd.bat defines WCDHOME when HOME and WCDHOME both
