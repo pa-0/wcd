@@ -1429,6 +1429,7 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
 {
    int i ;
    int c_high, c_low;
+   wchar_t lead, trail;
 
    for (i=0; i<lim-1 && ((c_high=fgetc(infile)) != EOF)  && ((c_low=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')) ; ++i)
    {
