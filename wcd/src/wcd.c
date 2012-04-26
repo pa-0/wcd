@@ -1394,7 +1394,7 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
       s[i] = (wchar_t)(c_high + c_low) ;
       if (s[i] == L'\r') i--;
       /* wcstombs() on Unix ignores UTF-16 surrogate pairs. Therefore we have to decode the UTF-16 surrogate pair ourselves.
-       * If we don't do it wcstombs() will convert the halfs individually. */
+       * If we don't do it wcstombs() will convert the lead and trail individually. */
       if ((sizeof(wchar_t) >= 4) && (s[i] >= 0xd800) && (s[i] < 0xdc00))
       {
          lead = s[i];
@@ -1411,6 +1411,7 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
             else /* not a UTF-16 surrogate pair trail. */
             {
                s[i] = trail;
+               if (s[i] == L'\r') i--;
             }
          }
       }
@@ -1437,7 +1438,7 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
       s[i] = (wchar_t)(c_high + c_low) ;
       if (s[i] == L'\r') i--;
       /* wcstombs() on Unix ignores UTF-16 surrogate pairs. Therefore we have to decode the UTF-16 surrogate pair ourselves.
-       * If we don't do it wcstombs() will convert the halfs individually. */
+       * If we don't do it wcstombs() will convert the lead and trail individually. */
       if ((sizeof(wchar_t) >= 4) && (s[i] >= 0xd800) && (s[i] < 0xdc00))
       {
          lead = s[i];
@@ -1454,6 +1455,7 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
             else /* not a UTF-16 surrogate pair trail. */
             {
                s[i] = trail;
+               if (s[i] == L'\r') i--;
             }
          }
       }
