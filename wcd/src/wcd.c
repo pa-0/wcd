@@ -1386,13 +1386,16 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
 {
    int i ;
    int c_high, c_low;
+#if !defined(WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
+#endif
 
    for (i=0; i<lim-1 && ((c_low=fgetc(infile)) != EOF)  && ((c_high=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')) ; ++i)
    {
       c_high <<=8;
       s[i] = (wchar_t)(c_high + c_low) ;
       if (s[i] == L'\r') i--;
+#if !defined(WIN32) && !defined(__CYGWIN__)
       /* wcstombs() on Unix ignores UTF-16 surrogate pairs. Therefore we have to decode the UTF-16 surrogate pair ourselves.
        * If we don't do it wcstombs() will convert the lead and trail individually. */
       if ((sizeof(wchar_t) >= 4) && (s[i] >= 0xd800) && (s[i] < 0xdc00))
@@ -1415,6 +1418,7 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
             }
          }
       }
+#endif
    }
 
    s[i] = L'\0' ;
@@ -1430,13 +1434,16 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
 {
    int i ;
    int c_high, c_low;
+#if !defined(WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
+#endif
 
    for (i=0; i<lim-1 && ((c_high=fgetc(infile)) != EOF)  && ((c_low=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')) ; ++i)
    {
       c_high <<=8;
       s[i] = (wchar_t)(c_high + c_low) ;
       if (s[i] == L'\r') i--;
+#if !defined(WIN32) && !defined(__CYGWIN__)
       /* wcstombs() on Unix ignores UTF-16 surrogate pairs. Therefore we have to decode the UTF-16 surrogate pair ourselves.
        * If we don't do it wcstombs() will convert the lead and trail individually. */
       if ((sizeof(wchar_t) >= 4) && (s[i] >= 0xd800) && (s[i] < 0xdc00))
@@ -1459,6 +1466,7 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
             }
          }
       }
+#endif
    }
 
    s[i] = L'\0' ;
