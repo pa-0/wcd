@@ -99,6 +99,23 @@ Jason Mathews' file filelist.c was a starting point for this file.
 
 const wcd_char *default_mask = ALL_FILES_MASK;
 
+/* Disable wildcard globbing */
+#ifdef __MINGW32__
+# ifdef __MINGW64__
+   int _dowildcard = 0;
+# else
+   int _CRT_glob = 0;
+# endif
+#endif
+#ifdef DJGPP
+#include <crt0.h>
+
+ char **__crt0_glob_function (char *arg)
+ {
+   return 0;
+ }
+#endif
+
 FILE *wcd_fopen(const char *filename, const char *m, int quiet)
 {
   struct stat buf;

@@ -1,7 +1,7 @@
 Known problems
 ==============
 
-1 Unix and DOS 32 bit version:
+1 Unix shells (bash, ksh, sh, csh):
   Strange behaviour when the argument has a wildcard and matches a
   file or directory in the current directory.
 

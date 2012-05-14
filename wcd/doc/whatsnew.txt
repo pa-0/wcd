@@ -8,6 +8,7 @@
     Debian Linux. Thanks to Jari Aalto.
   - wcd.c: Support UTF-16 surrogate pairs when a Unix version reads
     UTF-16 tree files.
+  - Turn off wildcard globbing for DJGPP (DOS32) and MinGW (Windows).
 
 5.2.1 2012-02-28
   - Windows Command Prompt: wcd.bat defines WCDHOME when HOME and WCDHOME both

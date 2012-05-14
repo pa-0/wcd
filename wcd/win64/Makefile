@@ -67,6 +67,9 @@ dist :
 strip:
 	${MAKE} -C ../src strip PROGRAM=${PROGRAM} STRIP=$(STRIP)
 
+mostlyclean :
+	${MAKE} -C ../src mostlyclean
+
 clean :
 	${MAKE} -C ../src clean
 

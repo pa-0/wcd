@@ -56,6 +56,9 @@ dist : dist-tgz
 strip:
 	${MAKE} -C ../src strip PROGRAM=${PROGRAM}
 
+mostlyclean :
+	${MAKE} -C ../src mostlyclean
+
 clean :
 	${MAKE} -C ../src clean
 
