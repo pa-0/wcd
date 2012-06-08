@@ -10,8 +10,9 @@
     UTF-16 tree files.
   - Turn off wildcard globbing for DJGPP (DOS32) and MinGW (Windows).
     This fixes some unexpected behaviour when a wcd argument matches a file
-	 in the current directory. In Unix shells you still need to quote the
-	 arguments to disable expansion.
+    in the current directory. In Unix shells you still need to quote the
+    arguments to disable expansion.
+  - Better error handling when lines in treedata files are too long.
 
 5.2.1 2012-02-28
   - Windows Command Prompt: wcd.bat defines WCDHOME when HOME and WCDHOME both
