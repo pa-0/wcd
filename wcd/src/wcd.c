@@ -1393,15 +1393,15 @@ int wcd_getline(char s[], int lim, FILE* infile)
 
    if (i >= lim-1)
    {
-      fprintf(stderr,_("Wcd: error: line too long in wcd_getline() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
-      fprintf(stderr, "Wcd: line: %s ...\n",s);
+      printf(_("Wcd: error: line too long in wcd_getline() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
+      wcd_printf(_("Wcd: line: %s ...\n"),s);
       /* Continue reading until end of line */
       j = i+1;
       while (((c=getc(infile)) != '\n') && (!feof(infile)))
       {
          ++j;
       }
-      fprintf(stderr, "Wcd: length: %d\n",j);
+      printf(_("Wcd: length: %d\n"),j);
    }
 
    return i ;
@@ -1413,6 +1413,7 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
 {
    int i, j ;
    int c_high, c_low;
+   char path[DD_MAXPATH];
 #if !defined(WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
 #endif
@@ -1452,14 +1453,16 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
 
    if (i >= lim-1)
    {
-      fprintf(stderr,_("Wcd: error: line too long in wcd_wgetline() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
+      printf(_("Wcd: error: line too long in wcd_wgetline() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
+      if (WCSTOMBS(path, s, sizeof(path)) != (size_t)(-1))
+         wcd_printf(_("Wcd: line: %s ...\n"),path);
       /* Continue reading until end of line */
       j = i+1;
       while (((c_low=fgetc(infile)) != EOF)  && ((c_high=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')))
       {
          ++j;
       }
-      fprintf(stderr, "Wcd: length: %d\n",j);
+      printf(_("Wcd: length: %d\n"),j);
    }
 
    return i ;
@@ -1470,6 +1473,7 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
 {
    int i, j;
    int c_high, c_low;
+   char path[DD_MAXPATH];
 #if !defined(WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
 #endif
@@ -1509,14 +1513,16 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
 
    if (i >= lim-1)
    {
-      fprintf(stderr,_("Wcd: error: line too long in wcd_wgetline_be() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
+      printf(_("Wcd: error: line too long in wcd_wgetline_be() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
+      if (WCSTOMBS(path, s, sizeof(path)) != (size_t)(-1))
+         wcd_printf(_("Wcd: line: %s ...\n"),path);
       /* Continue reading until end of line */
       j = i+1;
       while (((c_high=fgetc(infile)) != EOF)  && ((c_low=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')))
       {
          ++j;
       }
-      fprintf(stderr, "Wcd: length: %d\n",j);
+      printf(_("Wcd: length: %d\n"),j);
    }
 
    return i ;

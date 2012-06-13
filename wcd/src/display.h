@@ -37,6 +37,7 @@ size_t ansitowcs(wchar_t *wcstr, const char *mbstr, int len);
 size_t wcstoutf8(char *mbstr, const wchar_t *wcstr, int len);
 size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len);
 void wcd_printf( const char* format, ... );
+void wcd_wprintf( const wchar_t* format, ... );
 size_t str_columns (char *s);
 void sort_list(nameset list);
 int display_list(nameset list,int perfect, int use_numbers, int use_stdout);

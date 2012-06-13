@@ -96,7 +96,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
                        * tolower() */
 #define Case(x)  (ic? towlower(x) : (wint_t)(x))
 
-static wchar_t match_C[0x250] =
+static wint_t match_C[0x250] =
 {
    0x00,  0x01,  0x02,  0x03,  0x04,  0x05,  0x06,  0x07,  0x08,  0x09,  0x0a,  0x0b,  0x0c,  0x0d,  0x0e,  0x0f,
    0x10,  0x11,  0x12,  0x13,  0x14,  0x15,  0x16,  0x17,  0x18,  0x19,  0x1a,  0x1b,  0x1c,  0x1d,  0x1e,  0x1f,
@@ -137,7 +137,7 @@ static wchar_t match_C[0x250] =
   0x240, 0x241, 0x242, 0x243, 0x244, 0x245, 0x246, 0x247, 0x248, 0x249, 0x24a, 0x24b, 0x24c, 0x24d, 0x24e, 0x24f
 };
 
-static wchar_t match_Unicode[0x250] =
+static wint_t match_Unicode[0x250] =
 {
   0x00,  0x01,  0x02,  0x03,  0x04,  0x05,  0x06,  0x07,  0x08,  0x09,  0x0a,  0x0b,  0x0c,  0x0d,  0x0e,  0x0f,
   0x10,  0x11,  0x12,  0x13,  0x14,  0x15,  0x16,  0x17,  0x18,  0x19,  0x1a,  0x1b,  0x1c,  0x1d,  0x1e,  0x1f,
@@ -180,7 +180,7 @@ static wchar_t match_Unicode[0x250] =
 
 
 /* dd_matchwcs() is a shell to recmatch() to return only Boolean values. */
-static int recmatchwcs(wchar_t *pattern, wchar_t *string, int ignore_case, wchar_t *CPTable);
+static int recmatchwcs(wchar_t *pattern, wchar_t *string, int ignore_case, wint_t *CPTable);
 
 int dd_matchmbs(const char *string, const char *pattern, int ignore_case, int ignore_diacritics)
 {
@@ -201,7 +201,7 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
     wchar_t *dospattern;
     size_t j = wcslen(pattern);
 #endif
-    wchar_t *CPTable;
+    wint_t *CPTable;
     int result;
 
 #ifdef WCD_UNINORM
@@ -229,8 +229,8 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
 #  endif
 #else
     /* No normalization */
-    wchar_t *string_normalized;
-    wchar_t *pattern_normalized;
+    const wchar_t *string_normalized;
+    const wchar_t *pattern_normalized;
 
     string_normalized = string;
     pattern_normalized = pattern;
@@ -286,7 +286,7 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
 }
 
 
-static int recmatchwcs(wchar_t *p,wchar_t *s,int ic, wchar_t *CPTable)
+static int recmatchwcs(wchar_t *p,wchar_t *s,int ic, wint_t *CPTable)
    /*  wchar_t *p;  			 sh pattern to match */
    /*  wchar_t *s;  			 string to which to match it */
    /*  int ic;  			 true for case insensitivity */
@@ -353,10 +353,10 @@ static int recmatchwcs(wchar_t *p,wchar_t *s,int ic, wchar_t *CPTable)
             else if (e == 0 && *p == L'-')         /* set start of range if - */
                 c = *(p-1);
             else {
-                wint_t cc = Case(*s);
+                wint_t cc = Case((wint_t)*s);
 
                 if (*(p+1) != L'-')
-                    for (c = c ? c : *p; c <= *p; c++)  /* compare range */
+                    for (c = c ? c : (wint_t)*p; c <= (wint_t)*p; c++)  /* compare range */
                     {
                         if ((c < 0x250) && (cc < 0x250))
                             result = Case(CPTable[c]) == Case(CPTable[cc]);
@@ -380,7 +380,7 @@ static int recmatchwcs(wchar_t *p,wchar_t *s,int ic, wchar_t *CPTable)
     if ((c < 0x250) && (*s < 0x250))
         result = Case(CPTable[c]) == Case(CPTable[*s]);
     else
-        result = Case(c) == Case(*s);
+        result = Case(c) == Case((wint_t)*s);
     return result ? recmatchwcs(p, ++s, ic, CPTable) : 0;
 
 } /* end function recmatch() */
