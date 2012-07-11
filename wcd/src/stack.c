@@ -70,6 +70,7 @@ int stack_read(WcdStack ws,char *stackfilename)
 
 	FILE *infile;
 	char tmp[DD_MAXPATH];
+	int line_nr=1;
 
 
 	/* open stack-file */
@@ -88,7 +89,8 @@ int stack_read(WcdStack ws,char *stackfilename)
 			{
 			int len ;
 			/* read a line */
-			len = wcd_getline(tmp,DD_MAXPATH,infile);
+			len = wcd_getline(tmp,DD_MAXPATH,infile,stackfilename,&line_nr);
+			++line_nr;
 
 			if (len > 0 )
 				addToWcdStackDir(textNew(tmp), ws);

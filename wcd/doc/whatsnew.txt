@@ -1,4 +1,11 @@
 5.2.2-beta1 2012-03-02
+  - Turn off wildcard globbing for DJGPP (DOS32) and MinGW (Windows).
+    This fixes some unexpected behaviour when a wcd argument matches a file
+    in the current directory. In Unix shells you still need to quote the
+    arguments to disable expansion.
+  - Better error reporting when lines in treedata files are too long.
+  - wcd.c: Support UTF-16 surrogate pairs when a Unix version reads
+    UTF-16 tree files.
   - src/Makefile: Target 'clean' renamed to 'mostlyclean', because it preserves
     the built manual files. New target 'clean' that removes all files that were
     not present in the original source package. Thanks to Jari Aalto.
@@ -6,13 +13,6 @@
     for the manual in HTML format. Thanks to Jari Aalto.
   - src/Makefile: Support CFLAGS_USER, LDFLAGS_USER, and DEFS_USER for
     Debian Linux. Thanks to Jari Aalto.
-  - wcd.c: Support UTF-16 surrogate pairs when a Unix version reads
-    UTF-16 tree files.
-  - Turn off wildcard globbing for DJGPP (DOS32) and MinGW (Windows).
-    This fixes some unexpected behaviour when a wcd argument matches a file
-    in the current directory. In Unix shells you still need to quote the
-    arguments to disable expansion.
-  - Better error handling when lines in treedata files are too long.
 
 5.2.1 2012-02-28
   - Windows Command Prompt: wcd.bat defines WCDHOME when HOME and WCDHOME both

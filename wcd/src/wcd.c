@@ -1379,7 +1379,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
  *          minating `\0' character.
  ********************************************************************/
 
-int wcd_getline(char s[], int lim, FILE* infile)
+int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const int* line_nr)
 {
    int c, i, j;
 
@@ -1393,15 +1393,15 @@ int wcd_getline(char s[], int lim, FILE* infile)
 
    if (i >= lim-1)
    {
-      printf(_("Wcd: error: line too long in wcd_getline() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
-      wcd_printf(_("Wcd: line: %s ...\n"),s);
+      fprintf(stderr,_("Wcd: error: line too long in wcd_getline() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
+      fprintf(stderr,_("Wcd: file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
       j = i+1;
       while (((c=getc(infile)) != '\n') && (!feof(infile)))
       {
          ++j;
       }
-      printf(_("Wcd: length: %d\n"),j);
+      fprintf(stderr,_(" length: %d\n"),j);
    }
 
    return i ;
@@ -1409,11 +1409,10 @@ int wcd_getline(char s[], int lim, FILE* infile)
 
 #if defined(WIN32) || defined(WCD_UNICODE)
 /* UTF16 little endian */
-int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
+int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, const int* line_nr)
 {
    int i, j ;
    int c_high, c_low;
-   char path[DD_MAXPATH];
 #if !defined(WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
 #endif
@@ -1453,27 +1452,25 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile)
 
    if (i >= lim-1)
    {
-      printf(_("Wcd: error: line too long in wcd_wgetline() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
-      if (WCSTOMBS(path, s, sizeof(path)) != (size_t)(-1))
-         wcd_printf(_("Wcd: line: %s ...\n"),path);
+      fprintf(stderr,_("Wcd: error: line too long in wcd_wgetline() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
+      fprintf(stderr,_("Wcd: file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
       j = i+1;
       while (((c_low=fgetc(infile)) != EOF)  && ((c_high=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')))
       {
          ++j;
       }
-      printf(_("Wcd: length: %d\n"),j);
+      fprintf(stderr,_(" length: %d\n"),j);
    }
 
    return i ;
 }
 
 /* UTF16 big endian */
-int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
+int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, const int* line_nr)
 {
    int i, j;
    int c_high, c_low;
-   char path[DD_MAXPATH];
 #if !defined(WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
 #endif
@@ -1513,16 +1510,15 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
 
    if (i >= lim-1)
    {
-      printf(_("Wcd: error: line too long in wcd_wgetline_be() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
-      if (WCSTOMBS(path, s, sizeof(path)) != (size_t)(-1))
-         wcd_printf(_("Wcd: line: %s ...\n"),path);
+      fprintf(stderr,_("Wcd: error: line too long in wcd_wgetline_be() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
+      fprintf(stderr,_("Wcd: file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
       j = i+1;
       while (((c_high=fgetc(infile)) != EOF)  && ((c_low=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')))
       {
          ++j;
       }
-      printf(_("Wcd: length: %d\n"),j);
+      fprintf(stderr,_(" length: %d\n"),j);
    }
 
    return i ;
@@ -1534,15 +1530,16 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile)
  * Read treefile in a structure.
  *
  ********************************************************************/
-void read_treefileA(FILE *f, nameset bd)
+void read_treefileA(FILE *f, nameset bd, const char* file_name)
 {
-    int len;
+    int len, line_nr=1;
     char path[DD_MAXPATH];
 
     while (!feof(f) )
     {
        /* read a line */
-       len = wcd_getline(path,DD_MAXPATH,f);
+       len = wcd_getline(path,DD_MAXPATH,f,file_name,&line_nr);
+       ++line_nr;
 
        if (len > 0 )
        {
@@ -1552,16 +1549,17 @@ void read_treefileA(FILE *f, nameset bd)
     } /* while (!feof(f) ) */
 }
 #if defined(WIN32) || defined(WCD_UNICODE)
-void read_treefileUTF16LE(FILE *f, nameset bd)
+void read_treefileUTF16LE(FILE *f, nameset bd, const char* file_name)
 {
-    int len;
+    int len, line_nr=1;
     char path[DD_MAXPATH];
     wchar_t pathw[DD_MAXPATH];
 
     while (!feof(f) )
     {
        /* read a line */
-       len = wcd_wgetline(pathw,DD_MAXPATH,f);
+       len = wcd_wgetline(pathw,DD_MAXPATH,f,file_name,&line_nr);
+       ++line_nr;
 
        if (len > 0 )
        {
@@ -1572,16 +1570,17 @@ void read_treefileUTF16LE(FILE *f, nameset bd)
        }
     } /* while (!feof(f) ) */
 }
-void read_treefileUTF16BE(FILE *f, nameset bd)
+void read_treefileUTF16BE(FILE *f, nameset bd, const char* file_name)
 {
-    int len;
+    int len, line_nr=1;
     char path[DD_MAXPATH];
     wchar_t pathw[DD_MAXPATH];
 
     while (!feof(f) )
     {
        /* read a line */
-       len = wcd_wgetline_be(pathw,DD_MAXPATH,f);
+       len = wcd_wgetline_be(pathw,DD_MAXPATH,f,file_name,&line_nr);
+       ++line_nr;
 
        if (len > 0 )
        {
@@ -1599,9 +1598,9 @@ void read_treefileUTF16BE(FILE *f, nameset bd)
    Most non-ASCII characters are likely part of the default system
    ANSI code page.
    */
-void read_treefileUTF8(FILE *f, nameset bd)
+void read_treefileUTF8(FILE *f, nameset bd, const char *file_name)
 {
-    int len;
+    int len, line_nr=1;
     char path[DD_MAXPATH];
 #ifdef WCD_ANSI
     wchar_t pathw[DD_MAXPATH];
@@ -1610,7 +1609,8 @@ void read_treefileUTF8(FILE *f, nameset bd)
     while (!feof(f) )
     {
        /* read a line */
-       len = wcd_getline(path,DD_MAXPATH,f);
+       len = wcd_getline(path,DD_MAXPATH,f,file_name,&line_nr);
+       ++line_nr;
 
        if (len > 0 )
        {
@@ -1636,21 +1636,21 @@ int read_treefile(char* filename, nameset bd, int quiet)
        switch (bomtype)
        {
          case FILE_MBS:
-           read_treefileA(infile, bd);
+           read_treefileA(infile, bd, filename);
            break;
 #if defined(WIN32) || defined(WCD_UNICODE)
          case FILE_UTF16LE:
-           read_treefileUTF16LE(infile, bd);
+           read_treefileUTF16LE(infile, bd, filename);
            break;
          case FILE_UTF16BE:
-           read_treefileUTF16BE(infile, bd);
+           read_treefileUTF16BE(infile, bd, filename);
            break;
          case FILE_UTF8:
-           read_treefileUTF8(infile, bd);
+           read_treefileUTF8(infile, bd, filename);
            break;
 #endif
          default:
-           read_treefileA(infile, bd);
+           read_treefileA(infile, bd, filename);
       }
       fclose(infile);
    }
@@ -1755,6 +1755,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    char relative_prefix[DD_MAXPATH];      /* relative prefix */
    char tmp[DD_MAXPATH];
    int wild = 0;
+   int line_nr =1;
 
    /* open treedata-file */
    if  ((infile = wcd_fopen_bom(filename,"rb",0,&bomtype)) == NULL)
@@ -1817,18 +1818,18 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
       switch (bomtype)
       {
          case FILE_MBS:
-           len = wcd_getline(line,DD_MAXPATH,infile);
+           len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
            break;
          case FILE_UTF16LE:
-           len = wcd_wgetline(linew,DD_MAXPATH,infile);
+           len = wcd_wgetline(linew,DD_MAXPATH,infile,filename,&line_nr);
            WCSTOMBS(line, linew, sizeof(line));
            break;
          case FILE_UTF16BE:
-           len = wcd_wgetline_be(linew,DD_MAXPATH,infile);
+           len = wcd_wgetline_be(linew,DD_MAXPATH,infile,filename,&line_nr);
            WCSTOMBS(line, linew, sizeof(line));
            break;
          case FILE_UTF8:
-           len = wcd_getline(line,DD_MAXPATH,infile);
+           len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
 #ifdef WCD_ANSI
            /* convert UTF-8 to ANSI */
            MultiByteToWideChar(CP_UTF8, 0, line, -1, linew, sizeof(linew));
@@ -1836,11 +1837,12 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 #endif
            break;
          default:
-           len = wcd_getline(line,DD_MAXPATH,infile);
+           len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
       }
 #else
-      len = wcd_getline(line,DD_MAXPATH,infile);
+      len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
 #endif
+      ++line_nr;
 
       cleanPath(line,len,1) ;
 
@@ -1921,6 +1923,7 @@ void scanaliasfile(char *org_dir, char *filename,
    char *dir;
    char line[DD_MAXPATH];
    char alias[256];
+   int line_nr=1;
 
    dir = org_dir;
 
@@ -1946,8 +1949,9 @@ void scanaliasfile(char *org_dir, char *filename,
          while ((line[0]=(char)getc(infile)) == ' '){};
 
          /* read a line */
-         len = wcd_getline(line+1,DD_MAXPATH,infile);
-         len++;
+         len = wcd_getline(line+1,DD_MAXPATH,infile,filename,&line_nr);
+         ++len;
+	 ++line_nr;
 
          if (len > 0 )
          /* Only a perfect match counts, case sensitive */
