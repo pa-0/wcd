@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-11 09:00+0200\n"
+"POT-Creation-Date: 2012-07-30 23:39+0200\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -601,103 +601,103 @@ msgstr "Wcd: error: Imposible remover el directorio %s: %s\n"
 msgid "Wcd: Error parsing stack\n"
 msgstr "Wcd: Error al analizar la pila\n"
 
-#: display.c:255
+#: display.c:256
 msgid "Wcd: error in maxLength(), list == NULL\n"
 msgstr "Wcd: error en maxLength(), list == NULL\n"
 
-#: display.c:275
+#: display.c:276
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "Wcd: error en maxLengthStack(), s == NULL\n"
 
-#: display.c:1117
+#: display.c:1118
 msgid "Perfect "
 msgstr "Perfecta "
 
-#: display.c:1119
+#: display.c:1120
 msgid "Wild "
 msgstr "Inexacta "
 
-#: display.c:1120
+#: display.c:1121
 #, c-format
 msgid "match for %d directories."
 msgstr "concordancia para %d directorios."
 
-#: display.c:1125
+#: display.c:1126
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=arriba x=abajo ?=ayuda  Página %d/%d "
 
-#: display.c:1132 display.c:1494
+#: display.c:1133 display.c:1495
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Favor de elegir uno (<Intro> para abortar): "
 
-#: display.c:1148
+#: display.c:1149
 msgid "Screenheight must be > 20 for help."
 msgstr "La altura de la pantalla debe ser > 20 para la ayuda."
 
-#: display.c:1151
+#: display.c:1152
 msgid "w or <Up>         Page Up."
 msgstr "w o <Arriba>      Avanza página"
 
-#: display.c:1152
+#: display.c:1153
 msgid "x or z or <Down>  Page Down."
 msgstr "x o <Abajo>       Retrocede página."
 
-#: display.c:1153
+#: display.c:1154
 msgid ", or <Left>       Scroll 1 left."
 msgstr ", o <Izquierda>   Desliza 1 a la izquierda."
 
-#: display.c:1154
+#: display.c:1155
 msgid ". or <Right>      Scroll 1 right."
 msgstr ". o <Derecha>     Desliza 1 a la derecha."
 
-#: display.c:1155
+#: display.c:1156
 msgid "< or [            Scroll 10 left."
 msgstr "< o [             Desliza 10 a la izquierda."
 
-#: display.c:1156
+#: display.c:1157
 msgid "> or ]            Scroll 10 right."
 msgstr "> o ]             Desliza 10 a la derecha."
 
-#: display.c:1157
+#: display.c:1158
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr "CTRL-a o <Inicio> Desliza al inicio."
 
-#: display.c:1158
+#: display.c:1159
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr "CTRL-e o <Fin>    Desliza al fin."
 
-#: display.c:1159
+#: display.c:1160
 msgid "CTRL-c or <Esc>   Abort."
 msgstr "CTRL-c o <Esc>    Aborta."
 
-#: display.c:1160
+#: display.c:1161
 msgid "<Enter>           Abort."
 msgstr "<Intro>           Aborta."
 
-#: display.c:1161 graphics.c:1655 graphics.c:1678 graphics.c:1695
+#: display.c:1162 graphics.c:1655 graphics.c:1678 graphics.c:1695
 msgid "Press any key."
 msgstr "Presione alguna tecla."
 
-#: display.c:1224 graphics.c:1943
+#: display.c:1225 graphics.c:1943
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr "Wcd: warning: Error al abrir la terminal, usando interfase stdout.\n"
 
-#: display.c:1245
+#: display.c:1246
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: error: la altura de la pantalla debe ser mayor de 3 líneas.\n"
 
-#: display.c:1279 graphics.c:1976
+#: display.c:1280 graphics.c:1976
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: error al crear ventana deslizable.\n"
 
-#: display.c:1298
+#: display.c:1299
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: error al crear ventana de entrada.\n"
 
-#: display.c:1490
+#: display.c:1491
 #, c-format
 msgid ""
 "\n"
@@ -706,7 +706,7 @@ msgstr ""
 "\n"
 "Perfecta "
 
-#: display.c:1492
+#: display.c:1493
 #, c-format
 msgid ""
 "\n"
@@ -715,12 +715,12 @@ msgstr ""
 "\n"
 "Inexacta "
 
-#: display.c:1493
+#: display.c:1494
 #, c-format
 msgid "match for %lu directories.\n"
 msgstr "concordancia para %lu directorios.\n"
 
-#: display.c:1536
+#: display.c:1537
 #, c-format
 msgid ""
 "\n"

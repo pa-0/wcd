@@ -13,6 +13,10 @@
 #ifdef WCD_USECURSES
 
 #include <curses.h>
+/* MOUSE_MOVED in PDCurses' curses.h conflicts with MOUSE_MOVED in wincon.h */
+#ifdef MOUSE_MOVED
+#  undef MOUSE_MOVED
+#endif
 #include "colors.h"
 
 void initcolor(void)

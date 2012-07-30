@@ -28,13 +28,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #endif
 #include <wchar.h>
 #endif
+#include "display.h"
 #if defined(WCD_WINDOWS)
 #include <windows.h>
 #endif
 #include "std_macr.h"
 #include "structur.h"
 #include "nameset.h"
-#include "display.h"
 #include "config.h"
 #include "dosdir.h"
 
@@ -98,9 +98,10 @@ void wcd_printf( const char* format, ... ) {
    char formatmbs[DD_MAXPATH];
    wchar_t formatwcs[DD_MAXPATH];
 #  endif
+   HANDLE stduit;
 
    va_start(args, format);
-   HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE);
+   stduit =GetStdHandle(STD_OUTPUT_HANDLE);
 
 #  ifdef WCD_UTF16  /* Wcd for Windows with Unicode support */
    /* The format string is encoded in the system default

@@ -26,10 +26,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #endif
 
 #ifdef WCD_USECURSES
+#  include <curses.h>
+/* MOUSE_MOVED in PDCurses' curses.h conflicts with MOUSE_MOVED in wincon.h */
 #  ifdef MOUSE_MOVED
 #    undef MOUSE_MOVED
 #  endif
-#  include <curses.h>
 #endif
 
 size_t wcstoansi(char *mbstr, const wchar_t *wcstr, int len);

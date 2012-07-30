@@ -64,10 +64,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "wfixpath.h"
 #include "dosdir.h"
 #include <string.h>
+#include "display.h"
 #include <windows.h>
 /* #include <strsafe.h> */
 #include "wcd.h"
-#include "display.h"
 
 
 /*

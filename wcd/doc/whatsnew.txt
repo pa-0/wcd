@@ -1,4 +1,4 @@
-5.2.2-beta1 2012-03-02
+5.2.2-beta2 2012-07-30
   - Turn off wildcard globbing for DJGPP (DOS32) and MinGW (Windows).
     This fixes some unexpected behaviour when a wcd argument matches a file
     in the current directory. In Unix shells you still need to quote the
@@ -6,6 +6,7 @@
   - Better error reporting when lines in treedata files are too long.
   - wcd.c: Support UTF-16 surrogate pairs when a Unix version reads
     UTF-16 tree files.
+  - Fixed compilation with WATCOM C for Windows.
   - src/Makefile: Target 'clean' renamed to 'mostlyclean', because it preserves
     the built manual files. New target 'clean' that removes all files that were
     not present in the original source package. Thanks to Jari Aalto.
