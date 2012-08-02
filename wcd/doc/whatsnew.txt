@@ -7,6 +7,8 @@
   - wcd.c: Support UTF-16 surrogate pairs when a Unix version reads
     UTF-16 tree files.
   - Fixed compilation with WATCOM C for Windows.
+  - New WatcomC makefile to compile wcd with Unicode support for Command Prompt.
+  - New WatcomC makefiles to compile wcd for PowerShell, with and without Unicode.
   - src/Makefile: Target 'clean' renamed to 'mostlyclean', because it preserves
     the built manual files. New target 'clean' that removes all files that were
     not present in the original source package. Thanks to Jari Aalto.

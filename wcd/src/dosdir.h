@@ -31,7 +31,7 @@
 #  endif
 #  ifdef __TURBOC__
 #    include <dir.h>
-#  elif (defined(__MINGW32__)||defined(__LCC__))
+#  elif (defined(WIN32))
 #    include <io.h>
 #    include <direct.h>
 #  else /* ?!__TURBOC__ */
@@ -211,7 +211,7 @@ typedef struct {
 #if (defined (MSDOS) && !defined(OS2))
 #  ifdef __TURBOC__
     struct ffblk  dos_fb;
-#  elif (defined(__MINGW32__)||defined(__LCC__))
+#  elif (defined(WIN32))
 #   ifdef WCD_UTF16
     struct _wfinddata_t dos_fb;
 #   else

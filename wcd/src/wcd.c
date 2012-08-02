@@ -2092,7 +2092,29 @@ void print_version()
 {
    printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
    printf(_("Chdir for Dos and Unix.\n\n"));
+
+#if defined(__WATCOMC__) && defined(__I86__)
+  printf(_("DOS 16 bit version (WATCOMC).\n"));
+#elif defined(__TURBOC__)
+  printf( _("DOS 16 bit version (TURBOC).\n"));
+#endif
+
+#if defined(MSDOS) && defined(GO32)
+   printf(_("DOS 32 bit version (DJGPP).\n"));
+#elif defined(__WATCOMC__) && defined(__DOS__)
+   printf(_("DOS 32 bit version (WATCOMC).\n"));
+#endif
+
 #ifdef WIN32
+# ifdef __WIN64__
+   printf(_("Win64 version (MinGW-w64).\n"));
+# else
+#   if defined(__WATCOMC__) && defined(__NT__)
+    printf(_("Win32 version (WATCOMC).\n"));
+#   else
+    printf(_("Win32 version (MinGW).\n"));
+#   endif
+# endif
 # ifdef WCD_WINZSH
    printf(_("This version is for MSYS and WinZsh.\n"));
 # elif defined(WCD_WINPWRSH)
@@ -2100,14 +2122,8 @@ void print_version()
 # else
    printf(_("This version is for Windows Command Prompt (cmd.exe).\n"));
 # endif
-# ifdef __WIN64__
-   printf(_("Win64 version.\n"));
-# else
-   printf(_("Win32 version.\n"));
-# endif
-#elif defined(MSDOS) && defined(GO32)
-   printf(_("DOS 32 bit version.\n"));
 #endif
+
 #ifdef __MSYS__
    printf(_("This version is for native MSYS.\n"));
 #endif
@@ -2117,6 +2133,7 @@ void print_version()
 #ifdef WCD_OS2BASH
    printf(_("This version is for OS/2 bash.\n"));
 #endif
+
    printf(_("Interface: "));
 #ifdef WCD_USECONIO
    printf(_("conio\n"));

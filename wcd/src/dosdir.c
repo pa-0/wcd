@@ -92,7 +92,7 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #    define FSIZE		ff_fsize
 #    define FDATE		ff_fdate
 #    define FTIME		ff_ftime
-#  elif (defined(__MINGW32__) || defined(__LCC__))
+#  elif (defined(WIN32))
 #    define FSTRUCT		struct _finddata_t
 #    define FATTR		_A_HIDDEN+_A_SYSTEM+_A_SUBDIR
 #    ifdef WCD_UTF16
@@ -304,7 +304,7 @@ static int dd_initstruct( dd_ffblk* fb )
   return 0;
 }
 
-# if (defined(__MINGW32__)||defined(__LCC__))
+# if (defined(WIN32))
 
 int dd_findnext( dd_ffblk* fb )
 {

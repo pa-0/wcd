@@ -17,12 +17,8 @@ library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
 Compile it and copy the library file into the \lib directory of your
 compiler and the curses.h file in the \include directory.
 
-To get support for the original console colours for the windows 32 bit
-version you need PDCurses 2.7.
-
-I reported the following bug on http://sourceforge.net/projects/pdcurses/
-*  Bug 1144353: Scroll out of window when screen buffer is large (Windows)
-This bug is solved in PDCurses 2.7.
+The Windows versions of Wcd require PDCurses libraries with Wide Character
+support. Build PDCurses with WIDE=Y.
 
 ----------------------------------------------
 DOS 16 bit
@@ -71,7 +67,7 @@ Go to directory dos32bsh and use the same commands as with the
 normal dos 32 bit version.
 
 ----------------------------------------------
-Windows 32 bit console version.
+Windows Command Prompt version.
 ----------------------------------------------
 
 This version can be compiled with Open Watcom C.
@@ -83,6 +79,9 @@ The makefile that uses PDCurses (pdcurses.mak) assumes that curses.h has been
 copied into the include directory of the compiler and the pdcurses library in
 the compiler's lib directory.
 
+Note that you need a Curses library with Wide Characters enabled,
+also for the non-Unicode wcd version.
+
 WATCOM
 
     The default makefile (makefile) compiles wcd with stdout interface.
@@ -92,4 +91,30 @@ WATCOM
     To compile wcd with curses interface type:
 
     > wmake -f pdcurses.mak
+
+    To compile wcd with curses interface and Unicode support:
+
+    > wmake -f pdc_ucs.mak
+
+----------------------------------------------
+Windows PowerShell version.
+----------------------------------------------
+
+Same as Windows Command Prompt version.
+
+Go to directory win32psh/watcom.
+
+Note that you need a Curses library with Wide Characters enabled,
+also for the non-Unicode wcd version.
+
+WATCOM
+
+
+    To compile wcd with curses interface type:
+
+    > wmake -f pdcurses.mak
+
+    To compile wcd with curses interface and Unicode support:
+
+    > wmake -f pdc_ucs.mak
 
