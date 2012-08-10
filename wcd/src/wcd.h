@@ -43,9 +43,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #      define GO_FILE "/wcd.go"
 #    elif defined(WCD_WINPWRSH)
 #      define GO_FILE "/wcdgo.ps1"
-#    elif defined(WIN32)
+#    elif defined(__WIN32__)
 #      define GO_FILE "/wcdgo.bat"
-#    elif defined(OS2)
+#    elif defined(__OS2__)
 #      define GO_FILE "/wcdgo.cmd"
 #    else
 #      define GO_FILE "/wcd.go"
@@ -70,13 +70,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  endif /* ?MSDOS */
 #endif /* ?VMS */
 
-#if defined(UNIX) || defined(WIN32) || defined(WCD_DOSBASH) || defined(OS2)
+#if defined(UNIX) || defined(__WIN32__) || defined(WCD_DOSBASH) || defined(__OS2__)
 /* A go-script is required */
 #define WCD_SHELL
 #endif
 /* OS/2 GCC environment defines UNIX. Don't define WCD_UNIXSHELL when we build
  * for standard OS/2 cmd.exe shell */
-#if ((defined(UNIX) && !defined(OS2)) || defined(WCD_WINZSH) || defined(WCD_DOSBASH) || defined(WCD_OS2BASH))
+#if ((defined(UNIX) && !defined(__OS2__)) || defined(WCD_WINZSH) || defined(WCD_DOSBASH) || defined(WCD_OS2BASH))
 #define WCD_UNIXSHELL
 #endif
 
@@ -96,16 +96,16 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 /* Function prototypes */
 
-#if defined(UNIX) || defined(WCD_DOSBASH) || defined(WIN32) || defined(OS2)
+#if defined(UNIX) || defined(WCD_DOSBASH) || defined(__WIN32__) || defined(__OS2__)
 void quoteString(char *string);
 #endif
 
 
-#if defined(WIN32) && !defined(__CYGWIN__) && defined(WCD_UNICODE)
+#if defined(__WIN32__) && !defined(__CYGWIN__) && defined(WCD_UNICODE)
 #  define WCD_UTF16
 #  define WCSTOMBS wcstoutf8
 #  define MBSTOWCS utf8towcs
-#elif defined(WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+#elif defined(__WIN32__) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
 #  define WCD_ANSI
 #  define WCSTOMBS wcstoansi
 #  define MBSTOWCS ansitowcs
@@ -122,7 +122,7 @@ typedef unsigned char wcd_uchar;
 typedef char wcd_char;
 #endif
 
-#if defined(WIN32) && !defined(__CYGWIN__)
+#if defined(__WIN32__) && !defined(__CYGWIN__)
 #  define WCD_WINDOWS
 #endif
 

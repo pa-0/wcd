@@ -19,7 +19,7 @@
 #include "tailor.h"
 #include "config.h"
 
-#ifdef OS2
+#ifdef __OS2__
 #undef UNIX
 #endif
 
@@ -96,7 +96,7 @@ void wcd_fixpath(char *in, size_t lim)
   }
 #endif
 
-#if (defined(WIN32) || defined(__CYGWIN__))
+#if (defined(__WIN32__) || defined(__CYGWIN__))
    /* Keep first "//" if present (UNC path) */
 	 if (wcd_is_slash(*ip) && wcd_is_slash(*(ip + 1)))
 	 {

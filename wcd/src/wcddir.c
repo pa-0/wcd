@@ -8,7 +8,7 @@ Author: Erwin Waterlander
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 2002-2011 Erwin Waterlander
+Copyright (C) 2002-2012 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -45,11 +45,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include <string.h>
 #include <errno.h>
 
-#if (defined(WIN32) && defined(WCD_UNICODE))
+#if (defined(__WIN32__) && defined(WCD_UNICODE))
 #include <wchar.h>
 #endif
 
-#if (defined(WIN32) || defined(__CYGWIN__))
+#if (defined(__WIN32__) || defined(__CYGWIN__))
 
 /* WIN32:  Use WIN32 API to support UNC paths.
    CYGWIN: Use WIN32 API only to scan servers and find shared
@@ -218,7 +218,7 @@ void wcd_getshares(char* path, nameset n)
 #endif
 
 
-#if (defined(WIN32) && !defined(__CYGWIN__))
+#if (defined(__WIN32__) && !defined(__CYGWIN__))
 /* WIN32, not CYGWIN
    Use WIN32 API */
 

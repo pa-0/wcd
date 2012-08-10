@@ -49,7 +49,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 		     symbolic linked directories.
    Jan 3 2000, Erwin Waterlander, update for Mingw32 compiler.
    Apr 29 2002, Erwin Waterlander, update for LCC windows compiler.
-   Jul 14 2008, Erwin Waterlander, update for OS2 using gcc.
+   Jul 14 2008, Erwin Waterlander, update for OS/2 using gcc.
    Jul 28 2009, Erwin Waterlander, support UTF-16 Unicode on Windows.
                 UTF-16 wide character names are converted to UTF-8 multi-byte strings.
   */
@@ -67,7 +67,7 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 			*/
 #endif
 
-#ifdef OS2
+#ifdef __OS2__
 #undef UNIX
 #endif
 
@@ -81,7 +81,7 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #  endif
 #endif
 
-#if (defined (MSDOS) && !defined(OS2))
+#if (defined (MSDOS) && !defined(__OS2__))
 #  ifdef __TURBOC__
 #    define FSTRUCT		struct ffblk
 #    define FATTR		FA_HIDDEN+FA_SYSTEM+FA_DIREC
@@ -92,7 +92,7 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #    define FSIZE		ff_fsize
 #    define FDATE		ff_fdate
 #    define FTIME		ff_ftime
-#  elif (defined(WIN32))
+#  elif (defined(__WIN32__))
 #    define FSTRUCT		struct _finddata_t
 #    define FATTR		_A_HIDDEN+_A_SYSTEM+_A_SUBDIR
 #    ifdef WCD_UTF16
@@ -116,12 +116,12 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #    define FDATE		wr_date
 #    define FTIME		wr_time
 #  endif /* ?__TURBOC__ */
-#else /* ?UNIX/VMS/OS2 */
+#else /* ?UNIX/VMS/__OS2__ */
 #  include "match.h"
 
-#  ifdef OS2
+#  ifdef __OS2__
 
-/* OS2 implementation of getdisk and setdisk */
+/* OS/2 implementation of getdisk and setdisk */
 
 /*
  * getdisk
@@ -176,11 +176,11 @@ int setdisk( int drive )
   return 0;
 }
 
-#  endif /* OS2 */
+#  endif /* __OS2__ */
 #endif /* ?MSDOS */
 
 
-#if (defined (MSDOS) && !defined(OS2))
+#if (defined (MSDOS) && !defined(__OS2__))
 
 #  if (defined(__MINGW32__)||defined(__LCC__))
 
@@ -304,7 +304,7 @@ static int dd_initstruct( dd_ffblk* fb )
   return 0;
 }
 
-# if (defined(WIN32))
+# if (defined(__WIN32__))
 
 int dd_findnext( dd_ffblk* fb )
 {
@@ -451,7 +451,7 @@ int dd_findfirst( const char *path, dd_ffblk *fb, int attrib )
   return dd_findnext(fb);
 }
 
-#else /* ?UNIX or OS2 */
+#else /* ?UNIX or __OS2__ */
 
 int dd_findnext(dd_ffblk* fb)
 {

@@ -91,7 +91,7 @@ size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len)
 
 void wcd_printf( const char* format, ... ) {
    va_list args;
-#if defined(WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
+#if defined(__WIN32__) && !defined(__CYGWIN__) /* Windows, not Cygwin */
    wchar_t wstr[DD_MAXPATH];
    char buf[DD_MAXPATH];
 #  ifdef WCD_UTF16

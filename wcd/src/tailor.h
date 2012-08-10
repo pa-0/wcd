@@ -33,13 +33,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  define MSDOS
 #endif
 
+#if (defined(__NT__) && !defined(__WIN32__))
+#  define __WIN32__
+#endif /* Watcom C Windows NT and 95 target.  EW */
+
 #if (defined(__WIN32__) && !defined(WIN32))
 #  define WIN32
 #endif
-
-#if (defined(__NT__) && !defined(WIN32))
-#  define WIN32
-#endif /* Watcom C Windows NT and 95 target.  EW */
 
 #if (defined(__DOS__) && !defined(MSDOS))
 #  define MSDOS
@@ -78,7 +78,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #endif /* __IBMC__ */
 
 #if defined(__EMX__) || defined(__WATCOMC__) || defined(__BORLANDC__)
-#  if (defined(OS2) && !defined(__32BIT__))
+#  if (defined(__OS2__) && !defined(__32BIT__))
 #    define __32BIT__
 #  endif
 #endif
@@ -142,7 +142,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #ifdef MACOS
 #  define DYN_ALLOC
 #endif
-#if (defined(MSDOS) && !defined(GO32) && !defined(WIN32))
+#if (defined(MSDOS) && !defined(GO32) && !defined(__WIN32__))
 #  ifdef __TURBOC__
 #    include <alloc.h>
 #    define DYN_ALLOC
@@ -157,7 +157,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #    define fcfree(ptr) hfree((void huge *)(ptr))
 #  endif /* ?__TURBOC__ */
 #else /* !MSDOS */
-#  if defined(WIN32)
+#  if defined(__WIN32__)
 #    include <malloc.h>
 #  endif
 #  ifdef __WATCOMC__
@@ -177,7 +177,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #endif /* ?MSDOS */
 
 
-#if (defined(OS2) && !defined(MSDOS))
+#if (defined(__OS2__) && !defined(MSDOS))
 /* MSDOS is defined anyway with MS C 16-bit. So the block above works.
  * For the 32-bit compilers, MSDOS must not be defined in the block above. */
 #  define MSDOS

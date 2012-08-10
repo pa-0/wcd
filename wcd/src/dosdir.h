@@ -15,7 +15,7 @@
 	 Jun 23 1998, Erwin Waterlander, DJGPP compatibilty
 	 Oct 28 1999, Erwin Waterlander, update for WIN32 console appl.
 	 Jan 3 2000, Erwin Waterlander, update for Mingw32 compiler.
-	 Jul 14 2008, Erwin Waterlander, update for OS2.
+	 Jul 14 2008, Erwin Waterlander, update for OS/2.
 */
 
 #ifndef _DOSDIR_H
@@ -25,13 +25,13 @@
 #include "tailor.h"
 #include "wcd.h"
 
-#if (defined (MSDOS) && !defined(OS2))
+#if (defined (MSDOS) && !defined(__OS2__))
 #  ifndef __LCC__
 #    include <dos.h>
 #  endif
 #  ifdef __TURBOC__
 #    include <dir.h>
-#  elif (defined(WIN32))
+#  elif (defined(__WIN32__))
 #    include <io.h>
 #    include <direct.h>
 #  else /* ?!__TURBOC__ */
@@ -49,8 +49,8 @@
 #  define ALL_FILES_MASK "*.*"
 #  define DIR_PARENT "[-]"
 #  define DIR_END ']'
-#else /* ?UNIX or OS2 */
-#  ifdef OS2
+#else /* ?UNIX or __OS2__ */
+#  ifdef __OS2__
 #    define INCL_DOSFILEMGR
 #    include <os2.h>
 #    define ALL_FILES_MASK "*"
@@ -84,7 +84,7 @@
  */
 
 #define DD_ISNORMAL(m)   ((m) & S_IFREG)
-#if (defined (MSDOS) && !defined(OS2))
+#if (defined (MSDOS) && !defined(__OS2__))
 #  define DD_ISRDONLY(m) ((m) & DD_RDONLY)
 #  define DD_ISHIDDEN(m) ((m) & DD_HIDDEN)
 #  define DD_ISSYSTEM(m) ((m) & DD_SYSTEM)
@@ -100,7 +100,7 @@
 #  define DD_ISARCH(m)   (0)
 #endif /* ?MSDOS */
 
-#if (defined(UNIX) || defined(VMS) || defined(OS2))
+#if (defined(UNIX) || defined(VMS) || defined(__OS2__))
 #  include <errno.h>
 #  ifndef ENOENT
 #    define ENOENT -1
@@ -124,7 +124,7 @@
 
 #include <time.h> /* for time_t definition */
 
-#if (defined(GO32) || defined(WIN32))  /* flat memory, _long_ directory names */
+#if (defined(GO32) || defined(__WIN32__))  /* flat memory, _long_ directory names */
 #  define __FLAT__   1                 /* MSDOS must also be defined for WIN32 console */
 #endif                                 /* Erwin Waterlander */
 
@@ -138,7 +138,7 @@
 */
 
 
-#if (defined (MSDOS) && !defined(OS2))
+#if (defined (MSDOS) && !defined(__OS2__))
 #  define DD_MAXDRIVE	3
 #  ifndef __FLAT__
    /* DOS 16 bit */
@@ -172,7 +172,7 @@
 #  define DD_MAXFILE	80
 #  define DD_MAXEXT	32
 typedef unsigned short mode_t;
-#else /* ?unix or OS2 */
+#else /* ?unix or __OS2__ */
 /*
  * DD_MAXPATH defines the longest permissable path length,
  * including the terminating null. It should be set high
@@ -182,7 +182,7 @@ typedef unsigned short mode_t;
 #  define DD_MAXPATH	1024
 #  define DD_MAXDIR	1024
 #  define DD_MAXFILE	255
-#  ifdef OS2
+#  ifdef __OS2__
 #    define DD_MAXDRIVE	3
 #    define DD_MAXEXT	256
 #  else
@@ -208,10 +208,10 @@ typedef struct {
     /*  Below is private (machine specific) data, which should
      *  only be accessed by dosdir modules.
      */
-#if (defined (MSDOS) && !defined(OS2))
+#if (defined (MSDOS) && !defined(__OS2__))
 #  ifdef __TURBOC__
     struct ffblk  dos_fb;
-#  elif (defined(WIN32))
+#  elif (defined(__WIN32__))
 #   ifdef WCD_UTF16
     struct _wfinddata_t dos_fb;
 #   else
