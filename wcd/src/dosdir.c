@@ -81,18 +81,7 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #  endif
 #endif
 
-#if (defined (MSDOS) && !defined(__OS2__))
-#  ifdef __TURBOC__
-#    define FSTRUCT		struct ffblk
-#    define FATTR		FA_HIDDEN+FA_SYSTEM+FA_DIREC
-#    define FFIRST(n,d,a)	findfirst(n,d,a)
-#    define FNEXT(d)		findnext(d)
-#    define FNAME		ff_name
-#    define FATTRIB		ff_attrib
-#    define FSIZE		ff_fsize
-#    define FDATE		ff_fdate
-#    define FTIME		ff_ftime
-#  elif (defined(__WIN32__))
+#ifdef __WIN32__
 #    define FSTRUCT		struct _finddata_t
 #    define FATTR		_A_HIDDEN+_A_SYSTEM+_A_SUBDIR
 #    ifdef WCD_UTF16
@@ -105,6 +94,17 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #    define FNAME		name
 #    define FATTRIB		attrib
 #    define FSIZE		size
+#elif (defined (__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
+#  ifdef __TURBOC__
+#    define FSTRUCT		struct ffblk
+#    define FATTR		FA_HIDDEN+FA_SYSTEM+FA_DIREC
+#    define FFIRST(n,d,a)	findfirst(n,d,a)
+#    define FNEXT(d)		findnext(d)
+#    define FNAME		ff_name
+#    define FATTRIB		ff_attrib
+#    define FSIZE		ff_fsize
+#    define FDATE		ff_fdate
+#    define FTIME		ff_ftime
 #  else /* !__TURBOC__ */
 #    define FSTRUCT		struct find_t
 #    define FATTR		_A_HIDDEN+_A_SYSTEM+_A_SUBDIR
@@ -180,7 +180,7 @@ int setdisk( int drive )
 #endif /* ?MSDOS */
 
 
-#if (defined (MSDOS) && !defined(__OS2__))
+#if (defined(__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
 
 #  if (defined(__MINGW32__)||defined(__LCC__))
 
@@ -501,4 +501,4 @@ int dd_findfirst( const char *path,dd_ffblk* fb,int attrib)
   return dd_findnext(fb);
 }  /** dd_findfirst **/
 
-#endif /* ?MSDOS */
+#endif /* ?__MSDOS__ */

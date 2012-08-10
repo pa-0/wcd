@@ -197,7 +197,7 @@ int dd_matchmbs(const char *string, const char *pattern, int ignore_case, int ig
 
 int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, int ignore_diacritics)
 {
-#if (defined(MSDOS) && defined(DOSWILD))
+#if (defined(__MSDOS__) && defined(DOSWILD))
     wchar_t *dospattern;
     size_t j = wcslen(pattern);
 #endif
@@ -240,7 +240,7 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
     else
         CPTable = match_Unicode;
 
-#if (defined(MSDOS) && defined(DOSWILD))
+#if (defined(__MSDOS__) && defined(DOSWILD))
 /*---------------------------------------------------------------------------
     Optional MS-DOS preprocessing section:  compare last three chars of the
     wildcard to "*.*" and translate to "*" if found; else compare the last
@@ -274,7 +274,7 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
 #endif
         return result == 1;
     } else
-#endif /* MSDOS && DOSWILD */
+#endif /* __MSDOS__ && DOSWILD */
     result = recmatchwcs((wchar_t *)pattern_normalized, (wchar_t *)string_normalized, ignore_case, CPTable) == 1;
 #ifdef WCD_UNINORM
     if (string_normalized != string_buffer)

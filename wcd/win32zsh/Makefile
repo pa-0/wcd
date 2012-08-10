@@ -8,7 +8,7 @@ LDFLAGS_EXTRA = -lkernel32 -luser32 -lmpr
 CFLAGS = -O2 -Wall -Wextra -Wconversion -Wno-unused-parameter
 CURSES = pdcursesw
 ENABLE_NLS = 1
-DEFS   = -DMSDOS -DWCD_WINZSH
+DEFS   = -DWCD_WINZSH
 
 ifdef CURSES
 LIB_CURSES = -l${CURSES}

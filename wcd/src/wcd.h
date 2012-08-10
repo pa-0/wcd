@@ -30,7 +30,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #else
 #  define EXIT_OK 0
 #  define CHDIR(s) chdir(s)
-#  ifdef MSDOS
+#  if defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__)
 #    define ALT_SW || *argv[i]=='/'
 #    define TREEFILE "/treedata.wcd"
 #    define RELTREEFILE "/rtdata.wcd"   /* relative treedata */
@@ -67,7 +67,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #    define GO_FILE "/bin/wcd.go"
 #    define GO_FILE2 "/wcd.go"
 #    define DIR_SEPARATOR '/'
-#  endif /* ?MSDOS */
+#  endif /* ?__MSDOS__ */
 #endif /* ?VMS */
 
 #if defined(UNIX) || defined(__WIN32__) || defined(WCD_DOSBASH) || defined(__OS2__)
@@ -82,17 +82,17 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 /* Unix shells DJGPP-bash and WinZsh use Windows style paths, e.g. "c:/Program Files".
  * So in these shells we have to use a semicolon ';' as list separator. */
-#ifdef MSDOS
+#if defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__)
 # define LIST_SEPARATOR ";"
 #else
 # define LIST_SEPARATOR ":"
 #endif
 
-#if defined(MSDOS) || defined(VMS)
+#if defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__) || defined(VMS)
 #  define OP_DIR ""
 #else /* ?unix */
 #  define OP_DIR "."
-#endif /* ?MSDOS|VMS */
+#endif /* ?__MSDOS__|VMS */
 
 /* Function prototypes */
 

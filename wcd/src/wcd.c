@@ -47,15 +47,22 @@ Jason Mathews' file filelist.c was a starting point for this file.
 #define __FLAT__
 #endif
 #include <sys/stat.h>
-#ifdef DJGPP
+#ifdef __DJGPP__
 # include <dir.h>
 #endif
 #include "wcd.h"
-#if !defined(MSDOS) || defined(__WIN32__) || defined(__OS2__) /* Win32, OS/2, Unix, Cygwin */
+
+#if (defined(__WIN32__) || defined(__OS2__)) && !defined(__MSDOS__) && !defined(__CYGWIN__)
+/* Windows and OS/2 have DOS like hard drives (drive letters, case insensitive). */
+#define __MSDOS__ 1
+#endif
+
+#if !defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__)
+/* Win32, OS/2, Unix, Cygwin */
 #include <locale.h>
 #endif
 
-#if !defined(MSDOS) && !defined(__MSYS__)  /* Unix, Cygwin */
+#if !defined(__MSDOS__) && !defined(__MSYS__)  /* Unix, Cygwin */
 # include <langinfo.h>
 #endif
 
@@ -107,7 +114,7 @@ const wcd_char *default_mask = ALL_FILES_MASK;
    int _CRT_glob = 0;
 # endif
 #endif
-#ifdef DJGPP
+#ifdef __DJGPP__
 #include <crt0.h>
 
  char **__crt0_glob_function (char *arg)
@@ -305,7 +312,7 @@ void rmDirFromList(char *string, nameset n)
    i = 0;
    while (i < n->size )
    {
-#ifdef MSDOS
+#ifdef __MSDOS__
       if( dd_match(n->array[i],dir,1) || dd_match(n->array[i],subdir,1))
 #else
       if( dd_match(n->array[i],dir,0) || dd_match(n->array[i],subdir,0))
@@ -512,7 +519,7 @@ void quoteString(char *string)
  *
  *************************************************************/
 
-#ifdef MSDOS
+#ifdef __MSDOS__
 int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
 {
    int i = -1, destDisk;
@@ -695,7 +702,7 @@ int q_remove(TDirList *list,char *s)
  * Recursively delete directory: *dir
  *
  ********************************************************************/
-#ifdef DJGPP
+#ifdef __DJGPP__
 /*
 The 32 bit dos versions are compiled with DJGPP and do not use DOSDIR. DJGPP is
 a mix of DOS/Unix (both 'MSDOS' and 'unix' are defined).  DOSDIR's
@@ -854,7 +861,7 @@ size_t pathInNameset (text path, nameset set)
       strcpy(tmp,set->array[index]);
       strcat(tmp,"/*");
 
-#ifdef MSDOS
+#ifdef __MSDOS__
       if ((dd_match(path,set->array[index],1)) || (dd_match(path, tmp,1)))
 #else
       if ((dd_match(path,set->array[index],0)) || (dd_match(path, tmp,0)))
@@ -872,7 +879,7 @@ size_t pathInNameset (text path, nameset set)
  *  finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, int quiet)
  *
  ********************************************************************/
-#ifdef DJGPP
+#ifdef __DJGPP__
 /*
  * See comment above function rmTree().
  */
@@ -967,7 +974,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
       return;
    };
 
-#ifdef MSDOS
+#ifdef __MSDOS__
    wcd_fixpath(tmp,sizeof(tmp));
    rmDriveLetter(tmp,use_HOME);
 #endif
@@ -1050,7 +1057,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
    char tmp[DD_MAXPATH];    /* tmp string buffer */
    char tmp2[DD_MAXPATH];   /* tmp string buffer */
    FILE *outfile;
-#ifdef MSDOS
+#ifdef __MSDOS__
    char drive[DD_MAXDRIVE];
    int  changedrive = 0;
 #endif
@@ -1067,7 +1074,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
 
    wcd_printf(_("Wcd: Please wait. Scanning disk. Building treedata-file %s from %s\n"),treefile, path);
 
-#ifdef MSDOS
+#ifdef __MSDOS__
       changeDisk(path,&changedrive,drive,use_HOME);
 #endif
    if (scanreldir)
@@ -1075,7 +1082,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
      if ( !wcd_chdir(path,0) )
      {
       wcd_getcwd(tmp, sizeof(tmp)); /* get full path */
-#ifdef MSDOS
+#ifdef __MSDOS__
           wcd_fixpath(tmp,sizeof(tmp));
           rmDriveLetter(tmp,use_HOME);
 #endif
@@ -1088,7 +1095,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
      wcd_chdir(tmp2,0);          /* go back */
     }
 
-#ifdef MSDOS
+#ifdef __MSDOS__
 
    /* open the output file */
    if (append)
@@ -1184,17 +1191,17 @@ void scanServer(char *path, char *treefile, size_t append, int *use_HOME, namese
 void makeDir(char *path, char *treefile, int *use_HOME)
 {
    char tmp2[DD_MAXPATH];
-#if (defined(UNIX) || defined(DJGPP) || defined(__OS2__))
+#if (defined(UNIX) || defined(__DJGPP__) || defined(__OS2__))
    mode_t m;
 #endif
-#ifdef MSDOS
+#ifdef __MSDOS__
    char drive[DD_MAXDRIVE];
    int  changedrive = 0;
 #endif
 
    wcd_fixpath(path,(size_t)DD_MAXPATH);
 
-#if (defined(DJGPP) || defined(__OS2__))
+#if (defined(__DJGPP__) || defined(__OS2__))
    /* is there a drive to go to ? */
    changeDisk(path,&changedrive,drive,use_HOME);
    m = S_IRWXU | S_IRWXG | S_IRWXO;
@@ -1285,7 +1292,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
    static struct stat buf ;
    char *errstr;
 #endif
-#ifdef MSDOS
+#ifdef __MSDOS__
    char drive[DD_MAXDRIVE];
    int  changedrive = 0;
 #endif
@@ -1320,7 +1327,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
       {
          wcd_getcwd(path, (size_t)DD_MAXPATH);   /* path to remove */
 
-#ifdef MSDOS
+#ifdef __MSDOS__
          wcd_fixpath(path,DD_MAXPATH);
          rmDriveLetter(path,use_HOME);
 #endif
@@ -1695,7 +1702,7 @@ int check_double_match(char *dir, nameset set)
 
    while(i < set->size)
    {
-#ifdef MSDOS
+#ifdef __MSDOS__
       if( stricmp(set->array[i],dir) == 0) return(1);
 #else
       if( strcmp(set->array[i],dir) == 0) return(1);
@@ -1722,7 +1729,7 @@ int check_filter(char *dir, nameset filter)
 
    while (index < filter->size)
    {
-#ifdef MSDOS
+#ifdef __MSDOS__
       if(dd_match(dir,filter->array[index],1)) return(0);
 #else
       if(dd_match(dir,filter->array[index],0)) return(0);
@@ -1767,7 +1774,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 
    strcpy(dirwild_str,dir_str);
 
-#ifdef MSDOS
+#ifdef __MSDOS__
    if ((strlen(org_dir)>1) && (dd_match(org_dir,"[a-z]:*",1)))
    {
      /* If user searches "c:bin" (a directory "bin" on drive c:) set path_str to "c:*bin" */
@@ -1927,7 +1934,7 @@ void scanaliasfile(char *org_dir, char *filename,
 
    dir = org_dir;
 
-#ifdef MSDOS
+#ifdef __MSDOS__
    /* wcd_fixpath() could have added a '/' before the alias
       e.g.  wcd d:alias   =>  /alias */
    if (*dir == '/')
@@ -2099,9 +2106,9 @@ void print_version()
   printf( _("DOS 16 bit version (TURBOC).\n"));
 #endif
 
-#if defined(MSDOS) && defined(GO32)
+#if defined(__MSDOS__) && defined(__GO32__)
    printf(_("DOS 32 bit version (DJGPP).\n"));
-#elif defined(__WATCOMC__) && defined(__DOS__)
+#elif defined(__WATCOMC__) && defined(__DOS__) && defined(__386__)
    printf(_("DOS 32 bit version (WATCOMC).\n"));
 #endif
 
@@ -2163,7 +2170,7 @@ void print_version()
 #else
    printf(_("No native language support included.\n"));
 #endif
-#if defined(MSDOS) || defined(__MSYS__)
+#if defined(__MSDOS__) || defined(__MSYS__)
    printf(_("Current locale uses CP%u encoding.\n"),query_con_codepage());
 #else
    printf(_("Current locale uses %s encoding.\n"),nl_langinfo(CODESET));
@@ -2198,7 +2205,7 @@ void create_dir_for_file(char *f)
 {
    char path[DD_MAXPATH];
    char *ptr ;
-#if (defined(UNIX) || defined(DJGPP) || defined(__OS2__))
+#if (defined(UNIX) || defined(__DJGPP__) || defined(__OS2__))
    mode_t m;
 #endif
 
@@ -2208,14 +2215,14 @@ void create_dir_for_file(char *f)
       *ptr = '\0' ;
        if (
            (path[0] != '\0') && /* not an empty string */
-#ifdef MSDOS
+#ifdef __MSDOS__
            (!dd_match(path,"[a-z]:",1)) && /* not a drive letter */
 #endif
            (wcd_isdir(path,1) != 0) /* dir does not exist */
           )
        {
           create_dir_for_file(path);
-#if (defined(UNIX) || defined(DJGPP) || defined(__OS2__))
+#if (defined(UNIX) || defined(__DJGPP__) || defined(__OS2__))
           m = S_IRWXU | S_IRWXG | S_IRWXO;
           if (wcd_mkdir(path,m,0)==0)
 #else
@@ -2504,7 +2511,7 @@ int main(int argc,char** argv)
    int  changedrive = 0;
    char drive[DD_MAXDRIVE];
    int ignore_diacritics = 0;
-#ifdef MSDOS
+#ifdef __MSDOS__
    int ignore_case = 1;
 # if (defined(__WIN32__) || defined(WCD_DOSBASH) || defined(__OS2__))
    char go_file[DD_MAXPATH];
@@ -2520,7 +2527,7 @@ int main(int argc,char** argv)
     wchar_t **wargv;
 #endif
 
-#if !defined(MSDOS) || defined(__WIN32__) || defined(__OS2__) /* Win32, OS/2, Unix, Cygwin */
+#if !defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__) /* Win32, OS/2, Unix, Cygwin */
    /* setlocale is required for correct working of nl_langinfo()
       DOS versions of wcd will use query_con_codepage(). */
    setlocale (LC_ALL, "");
@@ -2571,7 +2578,7 @@ int main(int argc,char** argv)
        strncpy(rootscandir,ptr,sizeof(rootscandir));
     }
 
-#ifdef MSDOS
+#ifdef __MSDOS__
 
    if ((ptr = getenv("WCDHOME")) == NULL)
        ptr = getenv("HOME");
@@ -2945,7 +2952,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
          case 'T':
                graphics |= WCD_GRAPH_ASCII ;
             break;
-#ifdef MSDOS
+#ifdef __MSDOS__
          case 'd':
             break;
 #endif
@@ -3130,7 +3137,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
                strncpy(tmp,argv[i],sizeof(tmp));
                wcd_fixpath(tmp,sizeof(tmp));
-#ifdef MSDOS
+#ifdef __MSDOS__
                /* is there a drive to go to ? */
                changeDisk(tmp,&changedrive,drive,&use_HOME);
 #endif
@@ -3193,7 +3200,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                }
             }
             else
-#ifdef MSDOS
+#ifdef __MSDOS__
             if (strcmp(argv[i-1],"-d") == 0 )
             {
               if (stack_is_read == 0)
@@ -3372,7 +3379,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 #endif
       if ((!quieter)&&(!justGo))
          wcd_printf("-> %s\n",best_match);
-#ifdef MSDOS
+#ifdef __MSDOS__
        /* is there a drive to go to ? */
        changeDisk(best_match,&changedrive,drive,&use_HOME);
 #endif
@@ -3413,7 +3420,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
          if ((!quieter)&&(!justGo))
             wcd_printf("-> %s\n",best_match);
 
-#ifdef MSDOS
+#ifdef __MSDOS__
          /* is there a drive to go to ? */
          changeDisk(best_match,&changedrive,drive,&use_HOME);
 #endif
@@ -3457,7 +3464,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
    /*--- end Direct CD mode -------------------------*/
 
-#ifdef MSDOS
+#ifdef __MSDOS__
    /* is there a drive to go to ? */
    changeDisk(dir,&changedrive,drive,&use_HOME);
 #endif

@@ -71,7 +71,7 @@ void wcd_fixpath(char *in, size_t lim)
 
   op = out;
 
-#ifdef MSDOS
+#if defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__)
   /* Add drive specification to output string (if present) */
   if (((*ip >= 'a' && *ip <= 'z') ||
        (*ip >= 'A' && *ip <= 'Z'))

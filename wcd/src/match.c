@@ -88,7 +88,7 @@ static int recmatch(uch *pattern, uch *string, int ignore_case);
 
 int dd_match(const char *string,const char *pattern,int ignore_case)
 {
-#if (defined(MSDOS) && defined(DOSWILD))
+#if (defined(__MSDOS__) && defined(DOSWILD))
     char *dospattern;
     int j = strlen(pattern);
 
@@ -119,7 +119,7 @@ int dd_match(const char *string,const char *pattern,int ignore_case)
         free(dospattern);
         return j == 1;
     } else
-#endif /* MSDOS && DOSWILD */
+#endif /* __MSDOS__ && DOSWILD */
     return recmatch((uch *)pattern, (uch *)string, ignore_case) == 1;
 }
 

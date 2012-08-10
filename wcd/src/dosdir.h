@@ -25,7 +25,7 @@
 #include "tailor.h"
 #include "wcd.h"
 
-#if (defined (MSDOS) && !defined(__OS2__))
+#if (defined(__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
 #  ifndef __LCC__
 #    include <dos.h>
 #  endif
@@ -84,7 +84,7 @@
  */
 
 #define DD_ISNORMAL(m)   ((m) & S_IFREG)
-#if (defined (MSDOS) && !defined(__OS2__))
+#if (defined (__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
 #  define DD_ISRDONLY(m) ((m) & DD_RDONLY)
 #  define DD_ISHIDDEN(m) ((m) & DD_HIDDEN)
 #  define DD_ISSYSTEM(m) ((m) & DD_SYSTEM)
@@ -98,7 +98,7 @@
 #  define DD_ISLABEL(m)  (0)
 #  define DD_ISDIREC(m)  ((m) & S_IFDIR)
 #  define DD_ISARCH(m)   (0)
-#endif /* ?MSDOS */
+#endif /* ?__MSDOS__ */
 
 #if (defined(UNIX) || defined(VMS) || defined(__OS2__))
 #  include <errno.h>
@@ -124,9 +124,9 @@
 
 #include <time.h> /* for time_t definition */
 
-#if (defined(GO32) || defined(__WIN32__))  /* flat memory, _long_ directory names */
-#  define __FLAT__   1                 /* MSDOS must also be defined for WIN32 console */
-#endif                                 /* Erwin Waterlander */
+#if (defined(__GO32__) || defined(__WIN32__))  /* flat memory, _long_ directory names */
+#  define __FLAT__   1
+#endif
 
 /*
                      MAXPATH   MAXDIR  MAXFILE  MAXEXT
@@ -138,7 +138,7 @@
 */
 
 
-#if (defined (MSDOS) && !defined(__OS2__))
+#if (defined(__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
 #  define DD_MAXDRIVE	3
 #  ifndef __FLAT__
    /* DOS 16 bit */
@@ -154,7 +154,7 @@
 #    define DD_MAXEXT	256
 #  endif /* ?__FLAT__ */
 
-# if !(defined(GO32) || defined(__MINGW32__) || defined(__WATCOMC__))  /* (DJGPP or MINGW32 or LCC or WATCOM), Erwin Waterlander */
+# if !(defined(__GO32__) || defined(__MINGW32__) || defined(__WATCOMC__))  /* (DJGPP or MINGW32 or LCC or WATCOM), Erwin Waterlander */
 #  ifndef __LCC__
      typedef long    off_t;
 #  endif
@@ -190,7 +190,7 @@ typedef unsigned short mode_t;
 #    define DD_MAXEXT	1
 #  endif
    typedef struct dirent DIR_ENT;
-#endif /* ?MSDOS */
+#endif /* ?__MSDOS__ */
 
 typedef struct {
 #ifdef WCD_UTF16
@@ -208,7 +208,7 @@ typedef struct {
     /*  Below is private (machine specific) data, which should
      *  only be accessed by dosdir modules.
      */
-#if (defined (MSDOS) && !defined(__OS2__))
+#if (defined(__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
 #  ifdef __TURBOC__
     struct ffblk  dos_fb;
 #  elif (defined(__WIN32__))
@@ -236,7 +236,7 @@ typedef struct {
     DIR_ENT*      dd_dp;                  /* Directory entry */
     char          dd_attribs;             /* File search attributes */
     char          dd_filespec[DD_MAXFILE];   /* File search mask */
-#endif /* ?MSDOS */
+#endif /* ?__MSDOS__ */
 }   dd_ffblk;
 
 

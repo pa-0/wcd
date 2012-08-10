@@ -12,7 +12,7 @@ CFLAGS = -O2 -Wall
 # Ncurses
 CURSES = ncurses
 ENABLE_NLS = 1
-DEFS   = -DMSDOS
+DEFS   =
 
 ifeq ($(CURSES),pdcurses)
 LIB_CURSES = pdcurses.a

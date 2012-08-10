@@ -255,7 +255,7 @@ static int recmatchl(uch *pattern, uch *string, int ignore_case, uch *CPTable);
 
 int dd_matchl(const char *string,const char *pattern,int ignore_case, int ignore_diacritics)
 {
-#if (defined(MSDOS) && defined(DOSWILD))
+#if (defined(__MSDOS__) && defined(DOSWILD))
     char *dospattern;
     int j = strlen(pattern);
 #endif
@@ -298,7 +298,7 @@ int dd_matchl(const char *string,const char *pattern,int ignore_case, int ignore
         }
     }
 
-#if (defined(MSDOS) && defined(DOSWILD))
+#if (defined(__MSDOS__) && defined(DOSWILD))
 /*---------------------------------------------------------------------------
     Optional MS-DOS preprocessing section:  compare last three chars of the
     wildcard to "*.*" and translate to "*" if found; else compare the last
@@ -326,7 +326,7 @@ int dd_matchl(const char *string,const char *pattern,int ignore_case, int ignore
         free(dospattern);
         return j == 1;
     } else
-#endif /* MSDOS && DOSWILD */
+#endif /* __MSDOS__ && DOSWILD */
     return recmatchl((uch *)pattern, (uch *)string, ignore_case, CPTable) == 1;
 }
 

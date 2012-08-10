@@ -2360,7 +2360,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
    printf("\n"); /* Extra newline for curses, pdcurses and when ncurses doesn't restore screen */
 
-#ifdef MSDOS
+#if defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__)
    /* remove '/' before drive letter */
    if ((ptr != NULL)&&(*use_HOME)&&
          (*(ptr+1) != '/'))  /* UNC path */

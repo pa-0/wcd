@@ -8,7 +8,7 @@
 #  undef __CYGWIN__
 #endif
 
-#ifdef DJGPP
+#ifdef __DJGPP__
 
 #include <dpmi.h>
 #include <go32.h>
@@ -185,12 +185,12 @@ unsigned short query_con_codepage(void) {
 
 #else  /* Unix, other */
 
-#ifndef MSDOS
+#ifndef __MSDOS__
 #include <string.h>
 #include <langinfo.h>
 #endif
 unsigned short query_con_codepage(void) {
-#ifndef MSDOS
+#ifndef __MSDOS__
    if (strcmp(nl_langinfo(CODESET), "ISO-8859-1") == 0)
      return(28591);
 

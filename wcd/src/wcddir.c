@@ -36,7 +36,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #include "config.h"
 
-#if defined(UNIX) || defined(DJGPP) || defined(__OS2__)
+#if defined(UNIX) || defined(__DJGPP__) || defined(__OS2__)
 # include <unistd.h>
 #endif
 #include "dosdir.h"
@@ -509,7 +509,7 @@ int wcd_isdir(char *dir, int quiet)
 
   /*  Use POSIX API  */
 
-#if defined(UNIX) || defined(DJGPP) || defined(__OS2__)
+#if defined(UNIX) || defined(__DJGPP__) || defined(__OS2__)
 
 int wcd_mkdir(char *buf, mode_t m, int quiet)
 {

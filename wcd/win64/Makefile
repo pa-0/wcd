@@ -10,7 +10,7 @@ STRIP = x86_64-w64-mingw32-strip
 CFLAGS = -O2 -Wall -Wextra -Wconversion -Wno-unused-parameter
 CURSES = pdcursesw
 ENABLE_NLS =
-DEFS   = -DMSDOS
+DEFS   =
 
 ifdef CURSES
 LIB_CURSES = -l${CURSES}

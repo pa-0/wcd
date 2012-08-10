@@ -2,7 +2,7 @@
 
 CC      = wcc386
 SRCDIR = ..\..\src
-DEFINES = -dMSDOS -dWCD_USECURSES -dWCD_WINPWRSH -dPDC_WIDE
+DEFINES = -dWCD_USECURSES -dWCD_WINPWRSH -dPDC_WIDE
 CFLAGS  = $(DEFINES) -i=$(SRCDIR) -i=$(SRCDIR)\c3po -w4 -e25 -zq -od -d2 -5r -bt=nt -mf
 CFLAGS_VERSION = -DVERSION="$(VERSION)" -DVERSION_DATE="$(VERSION_DATE)"
 OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj dirnode.obj colors.obj graphics.obj matchl.obj querycp.obj wcwidth.obj
