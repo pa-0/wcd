@@ -7,6 +7,7 @@ MKDIR  = mkdir
 CFLAGS = -O2 -Wall -Wextra -Wconversion
 CURSES = pdcurses
 ENABLE_NLS =
+DEFS   =
 
 ifdef CONIO
 CURSES=
@@ -15,7 +16,7 @@ endif
 
 ifdef CURSES
 LIB_CURSES = -l${CURSES}
-DEFS   = -DWCD_USECURSES
+DEFS   += -DWCD_USECURSES
 endif
 
 PROGRAM = wcd.exe
