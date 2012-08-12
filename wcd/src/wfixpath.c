@@ -19,10 +19,6 @@
 #include "tailor.h"
 #include "config.h"
 
-#ifdef __OS2__
-#undef UNIX
-#endif
-
 int wcd_is_slash(int c)
 {
 #if (defined(UNIX) && !defined(__CYGWIN__))  /* Oct 16 2001 */

@@ -25,7 +25,7 @@
 #include "tailor.h"
 #include "wcd.h"
 
-#if (defined(__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
+#if (defined(__MSDOS__) || defined(__WIN32__))
 #  ifndef __LCC__
 #    include <dos.h>
 #  endif
@@ -84,7 +84,7 @@
  */
 
 #define DD_ISNORMAL(m)   ((m) & S_IFREG)
-#if (defined (__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
+#if (defined (__MSDOS__) || defined(__WIN32__))
 #  define DD_ISRDONLY(m) ((m) & DD_RDONLY)
 #  define DD_ISHIDDEN(m) ((m) & DD_HIDDEN)
 #  define DD_ISSYSTEM(m) ((m) & DD_SYSTEM)
@@ -138,7 +138,7 @@
 */
 
 
-#if (defined(__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
+#if (defined(__MSDOS__) || defined(__WIN32__))
 #  define DD_MAXDRIVE	3
 #  ifndef __FLAT__
    /* DOS 16 bit */
@@ -208,7 +208,7 @@ typedef struct {
     /*  Below is private (machine specific) data, which should
      *  only be accessed by dosdir modules.
      */
-#if (defined(__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
+#if (defined(__MSDOS__) || defined(__WIN32__))
 #  ifdef __TURBOC__
     struct ffblk  dos_fb;
 #  elif (defined(__WIN32__))

@@ -121,6 +121,8 @@ DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).$(HTMLEXT)
 CPP		= cpp
 CPP_FLAGS_POD	= ALL
 CFLAGS_VERSION	= -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
+DEF_UNIX        = -DUNIX
+EXTRA_DEFS      =
 
 VERSIONSUFFIX	= -bin
 
@@ -177,7 +179,7 @@ endif
 
 # ........................................................... curses ...
 
-# possible values: ncurses, curses, pdcurses or <empty>
+# possible values: ncurses, curses, pdcurses, pdcursesw or <empty>
 
 ifdef UCS
 	CURSES  = ncursesw
@@ -205,13 +207,11 @@ endif
 endif
 
 ifeq ($(CURSES),ncursesw)
-	EXTRA_DEFS = -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED
+	EXTRA_DEFS += -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED
 endif
 
-ifeq ($(CURSES),pdcurses)
-	DEFS_CURSES = -DWCD_USECURSES
-	EXTRA_DEFS  = -fomit-frame-pointer -DXCURSES
-	LIB_CURSES  = -lXCurses -L/usr/X11R6/lib -lXaw -lXmu -lXt -lX11 -lSM -lICE -lXext
+ifeq ($(CURSES),pdcursesw)
+	EXTRA_DEFS += -DPDC_STATIC_BUILD -DPDC_WIDE
 endif
 
 # Local installation prefix of ncurses.
@@ -247,8 +247,22 @@ endif
 	INSTALL_TARGETS += install-profile
 endif
 
+ifeq ($(shell uname),MS-DOS)
+	DEF_UNIX =
+	OS = msdos
+endif
+ifeq ($(shell uname),OS/2)
+	DEF_UNIX =
+	OS = os/2
+endif
+ifeq ($(findstring MINGW32,$(shell uname)),MINGW32)
+	DEF_UNIX =
+	OS = mingw32
+endif
+
 ifndef OS
 ifeq ($(findstring MSYS,$(shell uname)),MSYS)
+	DEF_UNIX =
 	OS = msys
 endif
 endif
@@ -351,7 +365,7 @@ LDFLAGS		= $(RPM_OPT_FLAGS) \
 		  $(LDFLAGS_USER)
 
 DEFS_USER   =
-DEFS		= -DUNIX $(DEFS_CURSES) $(EXTRA_DEFS) $(DEFS_USER)
+DEFS		= $(DEF_UNIX) $(DEFS_CURSES) $(EXTRA_DEFS) $(DEFS_USER)
 
 # .......................................................... targets ...
 

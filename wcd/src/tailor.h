@@ -177,14 +177,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #endif /* ?__MSDOS__ */
 
 
-#if (defined(__OS2__) && !defined(__MSDOS__))
-/* MSDOS is defined anyway with MS C 16-bit. So the block above works.
- * For the 32-bit compilers, MSDOS must not be defined in the block above. */
-#  define __MSDOS__
-/* inherit MS-DOS file system etc. stuff */
-#endif
-
-
 /* Define MSVMS if MSDOS or VMS defined -- ATARI also does, Amiga could */
 #if defined(__MSDOS__) || defined(VMS)
 #  define MSVMS

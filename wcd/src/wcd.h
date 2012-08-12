@@ -23,6 +23,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "std_macr.h"
 #include "structur.h"
 
+#if defined(__MSDOS__) || defined(__OS2__) || (defined(__WIN32__) && !defined(__CYGWIN__))
+/* A DOS like file system:
+    *  with drive letters
+    *  case insensitive
+    *  backslash separator. */
+#define _WCD_DOSFS 1
+#endif
+
 #ifdef VMS
 #  define EXIT_OK 1
 #  define ALT_SW || *argv[i]=='/'
@@ -30,7 +38,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #else
 #  define EXIT_OK 0
 #  define CHDIR(s) chdir(s)
-#  if defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__)
+#  ifdef _WCD_DOSFS
 #    define ALT_SW || *argv[i]=='/'
 #    define TREEFILE "/treedata.wcd"
 #    define RELTREEFILE "/rtdata.wcd"   /* relative treedata */
@@ -74,15 +82,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 /* A go-script is required */
 #define WCD_SHELL
 #endif
-/* OS/2 GCC environment defines UNIX. Don't define WCD_UNIXSHELL when we build
- * for standard OS/2 cmd.exe shell */
-#if ((defined(UNIX) && !defined(__OS2__)) || defined(WCD_WINZSH) || defined(WCD_DOSBASH) || defined(WCD_OS2BASH))
+
+#if defined(UNIX) || defined(WCD_WINZSH) || defined(WCD_DOSBASH) || defined(WCD_OS2BASH)
 #define WCD_UNIXSHELL
 #endif
 
 /* Unix shells DJGPP-bash and WinZsh use Windows style paths, e.g. "c:/Program Files".
  * So in these shells we have to use a semicolon ';' as list separator. */
-#if defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__)
+#ifdef _WCD_DOSFS
 # define LIST_SEPARATOR ";"
 #else
 # define LIST_SEPARATOR ":"

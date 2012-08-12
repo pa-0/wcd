@@ -67,10 +67,6 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 			*/
 #endif
 
-#ifdef __OS2__
-#undef UNIX
-#endif
-
 #ifdef UNIX
 #  define STAT lstat /* don't expand symbolic links */
 #else /* ?MSDOS\VMS */
@@ -94,7 +90,7 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #    define FNAME		name
 #    define FATTRIB		attrib
 #    define FSIZE		size
-#elif (defined (__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
+#elif defined (__MSDOS__)
 #  ifdef __TURBOC__
 #    define FSTRUCT		struct ffblk
 #    define FATTR		FA_HIDDEN+FA_SYSTEM+FA_DIREC
@@ -180,7 +176,7 @@ int setdisk( int drive )
 #endif /* ?MSDOS */
 
 
-#if (defined(__MSDOS__) || defined(__WIN32__)) && !defined(__OS2__)
+#if (defined(__MSDOS__) || defined(__WIN32__))
 
 #  if (defined(__MINGW32__)||defined(__LCC__))
 
