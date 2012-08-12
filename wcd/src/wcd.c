@@ -2102,16 +2102,16 @@ void print_version()
    printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
    printf(_("Chdir for Dos and Unix.\n\n"));
 
+#ifdef __MSDOS__
 #if defined(__WATCOMC__) && defined(__I86__)
   printf(_("DOS 16 bit version (WATCOMC).\n"));
 #elif defined(__TURBOC__)
   printf( _("DOS 16 bit version (TURBOC).\n"));
-#endif
-
-#if defined(__MSDOS__) && defined(__GO32__)
+#elif defined(__GO32__)
    printf(_("DOS 32 bit version (DJGPP).\n"));
-#elif defined(__WATCOMC__) && defined(__DOS__) && defined(__386__)
+#elif defined(__WATCOMC__) && defined(__386__)
    printf(_("DOS 32 bit version (WATCOMC).\n"));
+#endif
 #endif
 
 #ifdef __WIN32__
