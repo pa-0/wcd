@@ -96,41 +96,41 @@ msgid "Wcd: Removed directory %s\n"
 msgstr "Wcd: Hakemisto poistettu %s\n"
 
 #: wcd.c:1403
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Wcd: error: line too long in wcd_getline() ( > %d). The treefile could be "
 "corrupt, else fix by increasing DD_MAXPATH in source code.\n"
 msgstr ""
-"Wcd: error: rivi liian pitkä funktiossa wcd_getline() ( > %d). "
-"Korjausehdotus: kasvata DD_MAXPATH.\n"
+"Wcd: virhe: liian pitkä rivi wcd_getline() ( > %d). Tiedosto treefile saattaa  "
+"olla korruptoitunut, kasvata DD_MAXPATH kokoa lähdekoodissa.\n"
 
 #: wcd.c:1404 wcd.c:1463 wcd.c:1521
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: file: %s, line: %d,"
-msgstr "Wcd: jätetään ottamasta huomioon {%s}\n"
+msgstr "Wcd: tiedosto: %s, rivi: %d,"
 
 #: wcd.c:1411 wcd.c:1470 wcd.c:1528
-#, fuzzy, c-format
+#, c-format
 msgid " length: %d\n"
-msgstr "Wcd: filteroidaan {%s}\n"
+msgstr "Wcd:  pituus:  %d\n"
 
 #: wcd.c:1462
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Wcd: error: line too long in wcd_wgetline() ( > %d). The treefile could be "
 "corrupt, else fix by increasing DD_MAXPATH in source code.\n"
 msgstr ""
-"Wcd: error: rivi liian pitkä funktiossa wcd_getline() ( > %d). "
-"Korjausehdotus: kasvata DD_MAXPATH.\n"
+"Wcd: virhe: liian pitkä rivi wcd_wgetline() ( > %d). Tiedosto treefile saattaa  "
+"olla korruptoitunut, kasvata DD_MAXPATH kokoa lähdekoodissa.\n"
 
 #: wcd.c:1520
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Wcd: error: line too long in wcd_wgetline_be() ( > %d). The treefile could "
 "be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
 msgstr ""
-"Wcd: error: rivi liian pitkä funktiossa wcd_getline() ( > %d). "
-"Korjausehdotus: kasvata DD_MAXPATH.\n"
+"Wcd: virhe: liian pitkä rivi wcd_wgetline_be() ( > %d). Tiedosto treefile saattaa  "
+"olla korruptoitunut, kasvata DD_MAXPATH kokoa lähdekoodissa.\n"
 
 #: wcd.c:2031
 #, c-format
