@@ -2127,6 +2127,9 @@ void print_version()
 #ifdef __MSYS__
    printf(_("This version is for native MSYS.\n"));
 #endif
+#if defined(__CYGWIN__) && !defined(__MSYS__)
+   printf(_("Cygwin version.\n"));
+#endif
 #ifdef WCD_DOSBASH
    printf(_("This version is for DJGPP DOS bash.\n"));
 #endif

@@ -247,17 +247,25 @@ endif
 	INSTALL_TARGETS += install-profile
 endif
 
+ifndef OS
 ifeq ($(shell uname),MS-DOS)
 	DEF_UNIX =
 	OS = msdos
 endif
+endif
+
+ifndef OS
 ifeq ($(shell uname),OS/2)
 	DEF_UNIX =
 	OS = os/2
 endif
+endif
+
+ifndef OS
 ifeq ($(findstring MINGW32,$(shell uname)),MINGW32)
 	DEF_UNIX =
 	OS = mingw32
+endif
 endif
 
 ifndef OS

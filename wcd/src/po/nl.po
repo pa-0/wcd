@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-13 09:16+0100\n"
+"POT-Creation-Date: 2012-08-13 22:54+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:132 wcd.c:152 wcd.c:184 wcd.c:204
@@ -60,8 +60,8 @@ msgstr "Wcd: %s is geen map.\n"
 #, c-format
 msgid "Wcd: Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr ""
-"Wcd: Even wachten aub. Aftasten schijf. Boom-bestand %s wordt gebouwd vanaf %"
-"s\n"
+"Wcd: Even wachten aub. Aftasten schijf. Boom-bestand %s wordt gebouwd vanaf "
+"%s\n"
 
 #: wcd.c:1131
 msgid ""
@@ -266,7 +266,7 @@ msgstr ""
 "  +[NUMMER]      Haal map van stapel (NUMMER keer)\n"
 "  =              Laat stapel zien\n"
 
-#: wcd.c:2093 wcd.c:2860
+#: wcd.c:2093 wcd.c:2863
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
@@ -337,142 +337,147 @@ msgstr "Deze versie is voor MSYS.\n"
 
 #: wcd.c:2131
 #, c-format
+msgid "Cygwin version.\n"
+msgstr "Cygwin versie.\n"
+
+#: wcd.c:2134
+#, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Deze versie is voor DJGPP DOS bash.\n"
 
-#: wcd.c:2134
+#: wcd.c:2137
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Deze versie is voor OS/2 bash.\n"
 
-#: wcd.c:2137
+#: wcd.c:2140
 #, c-format
 msgid "Interface: "
 msgstr ""
 
-#: wcd.c:2139
+#: wcd.c:2142
 #, c-format
 msgid "conio\n"
 msgstr ""
 
-#: wcd.c:2143
+#: wcd.c:2146
 #, c-format
 msgid "ncurses version %s\n"
 msgstr "ncurses versie %s\n"
 
-#: wcd.c:2146
+#: wcd.c:2149
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr ""
 
-#: wcd.c:2148
+#: wcd.c:2151
 #, c-format
 msgid "curses\n"
 msgstr ""
 
-#: wcd.c:2157
+#: wcd.c:2160
 #, c-format
 msgid "stdout\n"
 msgstr ""
 
-#: wcd.c:2161
+#: wcd.c:2164
 #, c-format
 msgid "Native language support included.\n"
 msgstr "Met moedertaal ondersteuning.\n"
 
-#: wcd.c:2162
+#: wcd.c:2165
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr ""
 
-#: wcd.c:2164
+#: wcd.c:2167
 #, c-format
 msgid "No native language support included.\n"
 msgstr "Geen moedertaal ondersteuning.\n"
 
-#: wcd.c:2167
+#: wcd.c:2170
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
 msgstr "Huidige locale gebruikt CP%u codering.\n"
 
-#: wcd.c:2169
+#: wcd.c:2172
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr "Huidige locale gebruikt %s codering.\n"
 
-#: wcd.c:2172
+#: wcd.c:2175
 #, c-format
 msgid "With Unicode support.\n"
 msgstr "Met Unicode ondersteuning.\n"
 
-#: wcd.c:2177
+#: wcd.c:2180
 #, c-format
 msgid "  Euro symbol: "
 msgstr "  Euro symbool:"
 
-#: wcd.c:2179
+#: wcd.c:2182
 #, c-format
 msgid "  Chinese characters: "
 msgstr "  Chinese letters:"
 
-#: wcd.c:2183
+#: wcd.c:2186
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr "Zonder Unicode ondersteuning.\n"
 
-#: wcd.c:2186
+#: wcd.c:2189
 #, c-format
 msgid "With Unicode normalization.\n"
 msgstr "Met Unicode-normalisatie.\n"
 
-#: wcd.c:2188
+#: wcd.c:2191
 #, c-format
 msgid "Without Unicode normalization.\n"
 msgstr "Zonder Unicode-normalisatie.\n"
 
-#: wcd.c:2191
+#: wcd.c:2194
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Download de nieuwste versie met broncode van:\n"
 
-#: wcd.c:2192
+#: wcd.c:2195
 #, c-format
 msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr ""
 
-#: wcd.c:2224
+#: wcd.c:2227
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: aanmaken map %s\n"
 
-#: wcd.c:2542
+#: wcd.c:2545
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDLOCALEDIR is te lang.\n"
 
-#: wcd.c:2568
+#: wcd.c:2571
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME is te lang.\n"
 
-#: wcd.c:2583 wcd.c:2651
+#: wcd.c:2586 wcd.c:2654
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
 
-#: wcd.c:2615 wcd.c:2644
+#: wcd.c:2618 wcd.c:2647
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
 
-#: wcd.c:2720 wcd.c:3160 wcd.c:3179
+#: wcd.c:2723 wcd.c:3163 wcd.c:3182
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
 
-#: wcd.c:2856
+#: wcd.c:2859
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
 "interface.\n"
 
-#: wcd.c:2861
+#: wcd.c:2864
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -506,37 +511,37 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:3093
+#: wcd.c:3096
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s toegevoegd aan aliasbestand %s\n"
 
-#: wcd.c:3192
+#: wcd.c:3195
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr "Wcd: fout: Kan bestand %s of %s niet lezen.\n"
 
-#: wcd.c:3342
+#: wcd.c:3345
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "Wcd: WCDSCAN map {%s}\n"
 
-#: wcd.c:3344
+#: wcd.c:3347
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: verbannen {%s}\n"
 
-#: wcd.c:3346
+#: wcd.c:3349
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: uitsluiten {%s}\n"
 
-#: wcd.c:3348
+#: wcd.c:3351
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteren {%s}\n"
 
-#: wcd.c:3615
+#: wcd.c:3618
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -545,7 +550,7 @@ msgstr ""
 "Wcd: Geen map gevonden gelijk aan %s\n"
 "Wcd: Misschien moet u de schijf opnieuw aftasten of is het pad verbannen.\n"
 
-#: wcd.c:3781
+#: wcd.c:3784
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Kan niet veranderen naar %s\n"
