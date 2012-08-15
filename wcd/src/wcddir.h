@@ -41,7 +41,7 @@ int wcd_mkdir(char *buf, int quiet);
 #else  /* not WIN32 API */
 
 
-#  if defined(UNIX) || defined(__DJGPP__)
+#  if defined(UNIX) || defined(__DJGPP__) || defined(__OS2__)
    int wcd_mkdir(char *buf, mode_t m, int quiet);
 #  else
    int wcd_mkdir(char *buf, int quiet);

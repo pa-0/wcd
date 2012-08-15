@@ -1,6 +1,6 @@
 /* tailor.h
 
-     Copyright (C) 1998 Erwin Waterlander.
+     Copyright (C) 1998-2012 Erwin Waterlander.
 	 Was original written by Mark Adler (Not copyrighted 1993)
 
 This program is free software; you can redistribute it and/or
@@ -99,7 +99,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  endif
 #endif /* unix || __unix || __unix__ */
 
-#if (defined(linux) || defined(_BSD_SOURCE))
+/* GCC on OS/2 defines _BSD_SOURCE in /usr/inlcude/features.h   EW. */
+#if (defined(linux) || defined(_BSD_SOURCE)) && !defined(__OS2__)
 #  ifndef UNIX
 #    define UNIX
 #  endif
