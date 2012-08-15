@@ -3,32 +3,58 @@
 
     1.1 Compiler support
 
-        The 16 bit DOS version has been compiled with Borland C/C++
-        4.02, but will also compile with Borland 3. A 16 bit DOS wcd
-        can also be build with the Open Watcom compiler.
+        In general the supported compilers are GCC and Open Watcom.
 
-        The 32 bit dos versions are compiled with DJGPP and do not use
-        DOSDIR. DJGPP is a mix of DOS/Unix compiler (both 'MSDOS' and
-        'unix' are defined). DOSDIR's dd_findfirst/dd_findnext
-        implementation for Unix is build with opendir/readdir. Using
-        DJGPP's implementation of opendir/readdir to scan a disk is
-        about a factor 100 slower than using findfirst/findnext (with
-        DJGPP 2.01, gcc 2.7.2). Also using DOSDIR's
-        dd_findfirst/dd_findnext for DOS is very slow when it is
-        compiled with DJGPP. It is about a factor 35 slower than using
-        DJGPP's findfirst/findnext. Probably due to a slow stat()
-        function in dd_initstruct(). Using DOSDIR in combination with
-        DJGPP would make scanning the disk very slow. A 32 bit DOS wcd
-        can also be build with the Open Watcom compiler.
+        DOS 16 bit
 
-        The Windows versions are by default compiled with MinGW.
-        Win32 versions can also be compiled with Borland, LCC, Open
-        Watcom and Cygwin. Although Borland 4 can compile wcd with
-        conio interface for Windows console, it doesn't work well. The
-        screen gets garbled after exit.
+            The 16 bit DOS version is by default build with Open Watcom C.
+        
+            The code probably also compiles with Borland C/C++ 4.02, and the
+            older Borland 3. Support for Borland was dropped in version 5.2.0
+            (Nov 11 2011), because Borland C is hard to get.  The default
+            compiler for 16 bit DOS used by the FreeDOS community is
+            Open Watcom nowadays.
 
-        Wcd for Unix compiles with gcc and with the native system C
-        compilers such as HP-UX cc or SunOS cc.
+        DOS 32 bit
+
+            The 32 bit dos versions are compiled with DJGPP (GCC for DOS) and
+            do not use DOSDIR. DJGPP is a mix of DOS/Unix compiler (both
+            MSDOS and 'unix' are defined). DOSDIR's dd_findfirst/dd_findnext
+            implementation for Unix is build with opendir/readdir. Using
+            DJGPP's implementation of opendir/readdir to scan a disk is about
+            a factor 100 slower than using findfirst/findnext (with DJGPP
+            2.01, gcc 2.7.2).  Also using DOSDIR's dd_findfirst/dd_findnext
+            for DOS is very slow when it is compiled with DJGPP. It is about a
+            factor 35 slower than using DJGPP's findfirst/findnext.
+            Probably due to a slow stat() function in dd_initstruct().
+            Using DOSDIR in combination with DJGPP would make scanning
+            the disk very slow.
+            
+            A 32 bit DOS wcd can also be build with the Open Watcom compiler.
+
+        Windows
+
+            The Windows versions are by default compiled with MinGW (GCC for
+            Windows).
+
+            Win32 versions can also be compiled with Open Watcom.
+        
+            Support for Borland was dropped in version 5.2.0 (Nov 11 2011),
+            but it may still compile. Although Borland 4 can compile wcd with
+            conio interface for Windows console, it doesn't work well. The
+            screen gets garbled after exit.
+
+            Support for LCC was dropped in version 5.2.1 (Feb 2012), mainly
+            because lcc-make was not good. For instance it can't include
+            sub-makefiles (version.mk). I tried gnu-make with LCC but that did
+            not work well.
+
+        Unix
+
+            Wcd for Unix compiles with gcc. Native system C compilers such as
+            HP-UX cc or SunOS cc should also work but this not checked
+            anymore. Therefore also the makefiles for HP and Sun have been
+            removed. Gcc is general available on Unix or Unix like systems.
 
     1.2 Curses support
 

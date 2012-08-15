@@ -39,19 +39,24 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  Modification history:
    V1.0  02-May-91,  Original version.
    V2.0  13-May-94,  Reimplemented findfirst/findnext with ffblk structure
-		     to match MS-DOS externally, fixed wildcard evaluation
-		     function.
+                     to match MS-DOS externally, fixed wildcard evaluation
+                     function.
    V2.1  08-Jun-94,  Replaced wildcard evaluation function with recursive
-		     function provided by Info-ZIP's portable UnZip,
-		     added dd_ prefix to most functions & constants,
-		     added VMS functions + MSC/TURBOC macros.
+                     function provided by Info-ZIP's portable UnZip,
+                     added dd_ prefix to most functions & constants,
+                     added VMS functions + MSC/TURBOC macros.
    V2.1a 16-Oct-96,  Call lstat() instead of stat() to avoid expanding on
-		     symbolic linked directories.
+                     symbolic linked directories.
    Jan 3 2000, Erwin Waterlander, update for Mingw32 compiler.
    Apr 29 2002, Erwin Waterlander, update for LCC windows compiler.
    Jul 14 2008, Erwin Waterlander, update for OS/2 using gcc.
    Jul 28 2009, Erwin Waterlander, support UTF-16 Unicode on Windows.
                 UTF-16 wide character names are converted to UTF-8 multi-byte strings.
+   Aug 2012, Major cleanup macros:
+             * Use only C99 predefined macros.
+             * Use __MSDOS__ only when it's real for MS-DOS.
+             * UNIX is not defined on OS/2 (fixed tailor.h, UNIX got defined,
+               because _BSD_SOURCE is defined with GCC on OS/2).
   */
 
 #include <string.h>
@@ -112,10 +117,40 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #    define FDATE		wr_date
 #    define FTIME		wr_time
 #  endif /* ?__TURBOC__ */
-#else /* ?UNIX/VMS/__OS2__ */
-#  include "match.h"
+#endif
 
-#  ifdef __OS2__
+/* Various implementations of setdisk/getdisk */
+
+#ifdef __MSDOS__
+#  ifndef __TURBOC__
+/*
+ * getdisk
+ *
+ * Returns: -1 if error, otherwise: 0=drive A, 1=drive B, and so on.
+ */
+int getdisk()
+{
+   unsigned d;
+   _dos_getdrive(&d);
+  return ((int)d - 1);
+}
+
+/*
+ * setdisk: 0=drive A, 1=drive B, and so on.
+ *
+ * Returns: total number of drive available
+ *
+ */
+int setdisk( int drive )
+{
+  unsigned numdrives;
+  _dos_setdrive((unsigned) (drive + 1), &numdrives);
+   return numdrives;
+}
+
+#  endif /* ?!__TURBOC__ */
+
+#elif defined(__OS2__)
 
 /* OS/2 implementation of getdisk and setdisk */
 
@@ -156,29 +191,7 @@ int setdisk( int drive )
 	d = getdisk();
 	return(d);
 }
-
-#  else
-/* stub functions for get/set disk
- * fake MS-DOS functions that do not apply to unix or vms:
- */
-
-int getdisk()
-{
-  return 0;
-}
-
-int setdisk( int drive )
-{
-  return 0;
-}
-
-#  endif /* __OS2__ */
-#endif /* ?MSDOS */
-
-
-#if (defined(__MSDOS__) || defined(__WIN32__))
-
-#  if (defined(__MINGW32__)||defined(__LCC__))
+#elif defined(__WIN32__)
 
 int getdisk()
 {
@@ -193,39 +206,24 @@ int setdisk (int drive)
 	numdrives = _getdrives();
 	return ((int)numdrives);
 }
-
-
-#  else
-
-#    ifndef __TURBOC__
-/*
- * getdisk
- *
- * Returns: -1 if error, otherwise: 0=drive A, 1=drive B, and so on.
+#else
+/* stub functions for get/set disk
+ * fake MS-DOS functions that do not apply to unix or vms:
  */
+
 int getdisk()
 {
-   unsigned d;
-   _dos_getdrive(&d);
-  return ((int)d - 1);
+  return 0;
 }
 
-/*
- * setdisk: 0=drive A, 1=drive B, and so on.
- *
- * Returns: total number of drive available
- *
- */
 int setdisk( int drive )
 {
-  unsigned numdrives;
-  _dos_setdrive((unsigned) (drive + 1), &numdrives);
-   return numdrives;
+  return 0;
 }
+#endif
 
-#    endif /* ?!__TURBOC__ */
-#  endif  /* ?__MINGW32__ || __LCC__ */
 
+#if defined(__MSDOS__) || defined(__WIN32__)
 #  if 0
 /* function used if we want to fake stat info instead of failing the file,
  * but I cannot find a case where stat fails after findfirst/findnext succeeds.
@@ -377,6 +375,8 @@ int dd_findfirst( const char *path, dd_ffblk *fb, int attrib )
 # endif
 #elif defined (VMS)
 
+#  include "match.h"
+
 int dd_findnext( dd_ffblk* fb )
 {
   int rc;
@@ -448,6 +448,8 @@ int dd_findfirst( const char *path, dd_ffblk *fb, int attrib )
 }
 
 #else /* ?UNIX or __OS2__ */
+
+#  include "match.h"
 
 int dd_findnext(dd_ffblk* fb)
 {
