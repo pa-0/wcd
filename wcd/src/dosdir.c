@@ -121,7 +121,7 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 
 /* Various implementations of setdisk/getdisk */
 
-#ifdef __MSDOS__
+#if defined(__MSDOS__) || defined(__WATCOMC__)
 #  ifndef __TURBOC__
 /*
  * getdisk

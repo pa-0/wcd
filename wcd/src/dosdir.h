@@ -31,7 +31,7 @@
 #  endif
 #  ifdef __TURBOC__
 #    include <dir.h>
-#  elif (defined(__WIN32__))
+#  elif defined(__WIN32__)
 #    include <io.h>
 #    include <direct.h>
 #  else /* ?!__TURBOC__ */
@@ -147,6 +147,7 @@
 #    define DD_MAXFILE  16
 #    define DD_MAXEXT   10 /* allow for wildcards .[ch]*, .etc */
 #  else
+   /* DOS 32 bit or Windows */
    /* Big values to be able to read treedata files of Unix network drives */
 #    define DD_MAXPATH	1028
 #    define DD_MAXDIR	1024
@@ -154,16 +155,10 @@
 #    define DD_MAXEXT	256
 #  endif /* ?__FLAT__ */
 
-# if !(defined(__GO32__) || defined(__MINGW32__) || defined(__WATCOMC__))  /* (DJGPP or MINGW32 or LCC or WATCOM), Erwin Waterlander */
-#  ifndef __LCC__
-     typedef long    off_t;
-#  endif
 #  ifdef __TURBOC__
+     typedef long    off_t;
      typedef short   mode_t;
-#  else /* ?!__TURBOC__ */
-     typedef unsigned short   mode_t;
 #  endif /* ?__TURBOC__ */
-# endif
 
 #elif defined(VMS)
 #  define DD_MAXPATH	NAM$C_MAXRSS
