@@ -25,13 +25,13 @@
 #include "tailor.h"
 #include "wcd.h"
 
-#if (defined(__MSDOS__) || defined(__WIN32__))
+#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && defined(__WATCOMC__))
 #  ifndef __LCC__
 #    include <dos.h>
 #  endif
 #  ifdef __TURBOC__
 #    include <dir.h>
-#  elif defined(__WIN32__)
+#  elif defined(__WIN32__) || defined(__OS2__)
 #    include <io.h>
 #    include <direct.h>
 #  else /* ?!__TURBOC__ */
@@ -203,7 +203,7 @@ typedef struct {
     /*  Below is private (machine specific) data, which should
      *  only be accessed by dosdir modules.
      */
-#if (defined(__MSDOS__) || defined(__WIN32__))
+#if defined(__MSDOS__) || defined(__WIN32__)
 #  ifdef __TURBOC__
     struct ffblk  dos_fb;
 #  elif (defined(__WIN32__))
