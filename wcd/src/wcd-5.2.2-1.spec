@@ -1,10 +1,10 @@
 Summary: chdir for DOS and Unix
 Name: wcd
-Version: 5.2.1
+Version: 5.2.2
 Release: 1
 License: GPL
 Group: Applications/File
-Source: wcd-5.2.1-src.tar.gz
+Source: wcd-5.2.2-src.tar.gz
 URL: http://waterlan.home.xs4all.nl/
 Packager: Erwin Waterlander <waterlan@xs4all.nl>
 BuildRequires: gettext

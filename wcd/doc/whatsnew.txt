@@ -10,8 +10,8 @@
   - New Watcom C makefile to compile wcd with Unicode support for Command Prompt.
   - New Watcom C makefiles to compile wcd for PowerShell, with and without Unicode.
   - Cleanup macros: Use only C99 compliant predefined macros. Makefiles for
-    Windows and OS/2 don't need to define MSDOS any more.  Use __MSDOS__ macro
-    only when it's real for MS-DOS.
+    Windows and OS/2 don't need to define MSDOS anymore.  Use __MSDOS__ macro
+    only when it's real for MS-DOS. UNIX does not get defined on OS/2 anymore.
   - src/Makefile: Target 'clean' renamed to 'mostlyclean', because it preserves
     the built manual files. New target 'clean' that removes all files that were
     not present in the original source package. Thanks to Jari Aalto.
