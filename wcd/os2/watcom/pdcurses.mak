@@ -2,11 +2,11 @@
 
 CC      = wcc386
 SRCDIR = ..\..\src
-DEFINES =
+DEFINES = -dWCD_USECURSES
 CFLAGS  = $(DEFINES) -i=$(SRCDIR) -i=$(SRCDIR)\c3po -i$(%WATCOM)\h\os2 -w4 -e25 -zq -od -d2 -6r -bt=os2 -mf
 CFLAGS_VERSION = -DVERSION="$(VERSION)" -DVERSION_DATE="$(VERSION_DATE)"
-OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj matchl.obj querycp.obj
-LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.obj,display.obj,dosdir.obj,wfixpath.obj,intset.obj,wcddir.obj,command.obj,matchl.obj,querycp.obj
+OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj dirnode.obj colors.obj graphics.obj matchl.obj querycp.obj
+LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.obj,display.obj,dosdir.obj,wfixpath.obj,intset.obj,wcddir.obj,command.obj,dirnode.obj,colors.obj,graphics.obj,matchl.obj,querycp.obj
 
 TARGET = os2
 
@@ -15,6 +15,7 @@ all: wcdos2.exe
 wcdos2.exe: $(OBJS)
 	@%create wcd.lnk
 	@%append wcd.lnk FIL $(LOBJS)
+	@%append wcd.lnk library pdcurses.lib
 	wlink name wcdos2 d all SYS os2v2 op m op maxe=25 op q op symf @wcd.lnk
 	del wcd.lnk
 
@@ -40,6 +41,12 @@ dosdir.obj :  $(SRCDIR)\dosdir.c
 display.obj :  $(SRCDIR)\display.c
 	$(CC) $(CFLAGS) $(SRCDIR)\display.c
 
+colors.obj :  $(SRCDIR)\colors.c
+	$(CC) $(CFLAGS) $(SRCDIR)\colors.c
+
+graphics.obj :  $(SRCDIR)\graphics.c
+	$(CC) $(CFLAGS) $(SRCDIR)\graphics.c
+
 wcd.obj :  $(SRCDIR)\wcd.c
 	$(CC) $(CFLAGS) $(CFLAGS_VERSION) $(SRCDIR)\wcd.c
 
@@ -64,6 +71,9 @@ intset.obj :  $(SRCDIR)\c3po\intset.c
 
 command.obj :  $(SRCDIR)\c3po\command.c
 	$(CC) $(CFLAGS) $(SRCDIR)\c3po\command.c
+
+dirnode.obj :  $(SRCDIR)\c3po\dirnode.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\dirnode.c
 
 clean
 	-del *.obj

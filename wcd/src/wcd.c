@@ -453,7 +453,8 @@ void quoteString(char *string)
  *
  * void quoteString(char *string)
  *
- * we need backslashes instead of forward slashes.
+ * For cmd.exe on Windows and OS/2, and Windows PowerShell.
+ * We need backslashes instead of forward slashes.
  *
  * -----
  * Quoting ("...") is needed for paths that contain '&' characters
@@ -1182,7 +1183,7 @@ void scanServer(char *path, char *treefile, size_t append, int *use_HOME, namese
 void makeDir(char *path, char *treefile, int *use_HOME)
 {
    char tmp2[DD_MAXPATH];
-#if (defined(UNIX) || defined(__DJGPP__) || defined(__OS2__))
+#if (defined(UNIX) || defined(__DJGPP__) || defined(__EMX__))
    mode_t m;
 #endif
 #ifdef _WCD_DOSFS
@@ -1192,7 +1193,7 @@ void makeDir(char *path, char *treefile, int *use_HOME)
 
    wcd_fixpath(path,(size_t)DD_MAXPATH);
 
-#if (defined(__DJGPP__) || defined(__OS2__))
+#if (defined(__DJGPP__) || defined(__EMX__))
    /* is there a drive to go to ? */
    changeDisk(path,&changedrive,drive,use_HOME);
    m = S_IRWXU | S_IRWXG | S_IRWXO;
@@ -2201,7 +2202,7 @@ void create_dir_for_file(char *f)
 {
    char path[DD_MAXPATH];
    char *ptr ;
-#if (defined(UNIX) || defined(__DJGPP__) || defined(__OS2__))
+#if (defined(UNIX) || defined(__DJGPP__) || defined(__EMX__))
    mode_t m;
 #endif
 
@@ -2218,7 +2219,7 @@ void create_dir_for_file(char *f)
           )
        {
           create_dir_for_file(path);
-#if (defined(UNIX) || defined(__DJGPP__) || defined(__OS2__))
+#if (defined(UNIX) || defined(__DJGPP__) || defined(__EMX__))
           m = S_IRWXU | S_IRWXG | S_IRWXO;
           if (wcd_mkdir(path,m,0)==0)
 #else

@@ -509,7 +509,7 @@ int wcd_isdir(char *dir, int quiet)
 
   /*  Use POSIX API  */
 
-#if defined(UNIX) || defined(__DJGPP__) || defined(__OS2__)
+#if defined(UNIX) || defined(__DJGPP__) || defined(__EMX__)
 
 int wcd_mkdir(char *buf, mode_t m, int quiet)
 {

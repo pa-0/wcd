@@ -152,7 +152,7 @@ int setdisk( int drive )
 
 #elif defined(__OS2__)
 
-/* OS/2 implementation of getdisk and setdisk */
+/* OS/2 implementation of getdisk and setdisk for EMX */
 
 /*
  * getdisk
