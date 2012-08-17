@@ -16,7 +16,7 @@ wcdos2.exe: $(OBJS)
 	@%create wcd.lnk
 	@%append wcd.lnk FIL $(LOBJS)
 	@%append wcd.lnk library pdcurses.lib
-	wlink name wcdos2 d all SYS os2v2 op m op maxe=25 op q op symf @wcd.lnk
+	wlink name wcdos2 d all SYS os2v2 op inc op m op st=64k op maxe=25 op q op symf @wcd.lnk
 	del wcd.lnk
 
 
