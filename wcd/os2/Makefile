@@ -20,7 +20,7 @@ DEFS   += -DWCD_USECURSES
 endif
 
 ifeq ($(CURSES),ncurses)
-LIB_CURSES = -lncurses -Zomf
+LIB_CURSES = -lncurses -lOS2term -Zomf
 DEFS   += -DWCD_USECURSES
 endif
 

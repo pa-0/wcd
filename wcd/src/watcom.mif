@@ -9,6 +9,9 @@ match.obj :  $(SRCDIR)\match.c
 matchl.obj :  $(SRCDIR)\matchl.c
 	$(CC) $(CFLAGS) $(SRCDIR)\matchl.c
 
+matchw.obj :  $(SRCDIR)\matchw.c
+	$(CC) $(CFLAGS) $(SRCDIR)\matchw.c
+
 querycp.obj :  $(SRCDIR)\querycp.c
 	$(CC) $(CFLAGS) $(SRCDIR)\querycp.c
 
