@@ -58,7 +58,13 @@ command.obj :  $(SRCDIR)\c3po\command.c
 dirnode.obj :  $(SRCDIR)\c3po\dirnode.c
 	$(CC) $(CFLAGS) $(SRCDIR)\c3po\dirnode.c
 
-clean
+$(prefix)\bin:
+	mkdir $@
+
+install: $(PROGRAM) $(prefix)\bin .SYMBOLIC
+	copy $(PROGRAM) $(prefix)\bin
+
+clean: .SYMBOLIC
 	-del *.obj
 	-del *.ilk
 	-del *.map
