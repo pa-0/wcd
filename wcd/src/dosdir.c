@@ -55,8 +55,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
    Aug 2012, Major cleanup macros:
              * Use only C99 predefined macros.
              * Use __MSDOS__ only when it's real for MS-DOS.
-             * UNIX is not defined on OS/2 (fixed tailor.h, UNIX got defined,
-               because _BSD_SOURCE is defined with GCC on OS/2).
+             * UNIX is not defined on OS/2 EMX (fixed tailor.h, UNIX got defined,
+               because _BSD_SOURCE is defined with EMX (GCC on OS/2)).
+             * Make it compile with Watcom C for OS/2.
+             * Borland C and LCC may have been broken, because these are not supported
+               anymore.
+        Erwin Waterlander
   */
 
 #include <string.h>
@@ -82,7 +86,7 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #  endif
 #endif
 
-#ifdef __WIN32__
+#if defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
 #    define FSTRUCT		struct _finddata_t
 #    define FATTR		_A_HIDDEN+_A_SYSTEM+_A_SUBDIR
 #    ifdef WCD_UTF16
@@ -223,7 +227,7 @@ int setdisk( int drive )
 #endif
 
 
-#if defined(__MSDOS__) || defined(__WIN32__)
+#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
 #  if 0
 /* function used if we want to fake stat info instead of failing the file,
  * but I cannot find a case where stat fails after findfirst/findnext succeeds.
@@ -298,7 +302,7 @@ static int dd_initstruct( dd_ffblk* fb )
   return 0;
 }
 
-# if (defined(__WIN32__))
+# if defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
 
 int dd_findnext( dd_ffblk* fb )
 {
@@ -447,7 +451,7 @@ int dd_findfirst( const char *path, dd_ffblk *fb, int attrib )
   return dd_findnext(fb);
 }
 
-#else /* ?UNIX or __OS2__ */
+#else /* ?UNIX or EMX */
 
 #  include "match.h"
 

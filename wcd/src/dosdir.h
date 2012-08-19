@@ -16,6 +16,15 @@
 	 Oct 28 1999, Erwin Waterlander, update for WIN32 console appl.
 	 Jan 3 2000, Erwin Waterlander, update for Mingw32 compiler.
 	 Jul 14 2008, Erwin Waterlander, update for OS/2.
+   Aug 2012, Major cleanup macros:
+             * Use only C99 predefined macros.
+             * Use __MSDOS__ only when it's real for MS-DOS.
+             * UNIX is not defined on OS/2 EMX (fixed tailor.h, UNIX got defined,
+               because _BSD_SOURCE is defined with EMX (GCC on OS/2)).
+             * Make it compile with Watcom C for OS/2.
+             * Borland C and LCC may have been broken, because these are not supported
+               anymore.
+        Erwin Waterlander
 */
 
 #ifndef _DOSDIR_H
@@ -25,7 +34,7 @@
 #include "tailor.h"
 #include "wcd.h"
 
-#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && defined(__WATCOMC__))
+#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
 #  ifndef __LCC__
 #    include <dos.h>
 #  endif
@@ -49,7 +58,7 @@
 #  define ALL_FILES_MASK "*.*"
 #  define DIR_PARENT "[-]"
 #  define DIR_END ']'
-#else /* ?UNIX or __OS2__ */
+#else /* ?UNIX or EMX */
 #  ifdef __OS2__
 #    define INCL_DOSFILEMGR
 #    include <os2.h>
@@ -84,7 +93,7 @@
  */
 
 #define DD_ISNORMAL(m)   ((m) & S_IFREG)
-#if (defined (__MSDOS__) || defined(__WIN32__))
+#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
 #  define DD_ISRDONLY(m) ((m) & DD_RDONLY)
 #  define DD_ISHIDDEN(m) ((m) & DD_HIDDEN)
 #  define DD_ISSYSTEM(m) ((m) & DD_SYSTEM)
@@ -100,7 +109,7 @@
 #  define DD_ISARCH(m)   (0)
 #endif /* ?__MSDOS__ */
 
-#if (defined(UNIX) || defined(VMS) || defined(__OS2__))
+#if (defined(UNIX) || defined(VMS) || defined(__EMX__))
 #  include <errno.h>
 #  ifndef ENOENT
 #    define ENOENT -1
@@ -124,7 +133,8 @@
 
 #include <time.h> /* for time_t definition */
 
-#if (defined(__GO32__) || defined(__WIN32__))  /* flat memory, _long_ directory names */
+#if defined(__GO32__) || defined(__WIN32__) || defined(__OS2__) || defined(__386__)
+/* flat memory, _long_ directory names */
 #  define __FLAT__   1
 #endif
 
@@ -138,7 +148,7 @@
 */
 
 
-#if (defined(__MSDOS__) || defined(__WIN32__))
+#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
 #  define DD_MAXDRIVE	3
 #  ifndef __FLAT__
    /* DOS 16 bit */
@@ -167,7 +177,7 @@
 #  define DD_MAXFILE	80
 #  define DD_MAXEXT	32
 typedef unsigned short mode_t;
-#else /* ?unix or __OS2__ */
+#else /* ?unix or EMX */
 /*
  * DD_MAXPATH defines the longest permissable path length,
  * including the terminating null. It should be set high
@@ -203,10 +213,10 @@ typedef struct {
     /*  Below is private (machine specific) data, which should
      *  only be accessed by dosdir modules.
      */
-#if defined(__MSDOS__) || defined(__WIN32__)
+#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
 #  ifdef __TURBOC__
     struct ffblk  dos_fb;
-#  elif (defined(__WIN32__))
+#  elif defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
 #   ifdef WCD_UTF16
     struct _wfinddata_t dos_fb;
 #   else

@@ -1,0 +1,66 @@
+# Common parts of the Watcom C makefiles.
+
+stack.obj :  $(SRCDIR)\stack.c
+	$(CC) $(CFLAGS) $(SRCDIR)\stack.c
+
+match.obj :  $(SRCDIR)\match.c
+	$(CC) $(CFLAGS) $(SRCDIR)\match.c
+
+matchl.obj :  $(SRCDIR)\matchl.c
+	$(CC) $(CFLAGS) $(SRCDIR)\matchl.c
+
+querycp.obj :  $(SRCDIR)\querycp.c
+	$(CC) $(CFLAGS) $(SRCDIR)\querycp.c
+
+wcwidth.obj :  $(SRCDIR)\wcwidth.c
+	$(CC) $(CFLAGS) $(SRCDIR)\wcwidth.c
+
+wfixpath.obj :  $(SRCDIR)\wfixpath.c
+	$(CC) $(CFLAGS) $(SRCDIR)\wfixpath.c
+
+dosdir.obj :  $(SRCDIR)\dosdir.c
+	$(CC) $(CFLAGS) $(SRCDIR)\dosdir.c
+
+display.obj :  $(SRCDIR)\display.c
+	$(CC) $(CFLAGS) $(SRCDIR)\display.c
+
+colors.obj :  $(SRCDIR)\colors.c
+	$(CC) $(CFLAGS) $(SRCDIR)\colors.c
+
+graphics.obj :  $(SRCDIR)\graphics.c
+	$(CC) $(CFLAGS) $(SRCDIR)\graphics.c
+
+wcd.obj :  $(SRCDIR)\wcd.c
+	$(CC) $(CFLAGS) $(CFLAGS_VERSION) $(SRCDIR)\wcd.c
+
+wcddir.obj :  $(SRCDIR)\wcddir.c
+	$(CC) $(CFLAGS) $(SRCDIR)\wcddir.c
+
+
+WcdStack.obj :  $(SRCDIR)\c3po\WcdStack.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\WcdStack.c
+
+Text.obj :  $(SRCDIR)\c3po\Text.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\Text.c
+
+nameset.obj :  $(SRCDIR)\c3po\nameset.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\nameset.c
+
+Error.obj :  $(SRCDIR)\c3po\Error.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\Error.c
+
+intset.obj :  $(SRCDIR)\c3po\intset.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\intset.c
+
+command.obj :  $(SRCDIR)\c3po\command.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\command.c
+
+dirnode.obj :  $(SRCDIR)\c3po\dirnode.c
+	$(CC) $(CFLAGS) $(SRCDIR)\c3po\dirnode.c
+
+clean
+	-del *.obj
+	-del *.ilk
+	-del *.map
+	-del *.sym
+	-del *.exe

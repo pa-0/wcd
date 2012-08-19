@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-13 22:54+0200\n"
+"POT-Creation-Date: 2012-08-16 23:28+0200\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -695,7 +695,7 @@ msgstr "passt auf %d Verzeichnisse."
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=hoch x=runter ?=Hilfe Seite %d/%d "
 
-#: display.c:1133 display.c:1495
+#: display.c:1133 display.c:1489
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Bitte wählen Sie eins aus (<Eingabe> bricht ab): "
@@ -748,26 +748,26 @@ msgstr "<Eingabe>          Abbruch."
 msgid "Press any key."
 msgstr "Eine beliebige Taste drücken."
 
-#: display.c:1225 graphics.c:1943
+#: display.c:1220 graphics.c:1943
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "wcd: Warnung: Fehler beim Öffnen des Terminals, es wird die\n"
 "Stdout-Schnittstelle verwendet.\n"
 
-#: display.c:1246
+#: display.c:1240
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "wcd: Fehler: die Bildschirmhöhe muss mehr als 3 Zeilen sein.\n"
 
-#: display.c:1280 graphics.c:1976
+#: display.c:1274 graphics.c:1976
 msgid "Wcd: error creating scroll window.\n"
 msgstr "wcd: Fehler beim Erzeugen des rollbaren Fensters.\n"
 
-#: display.c:1299
+#: display.c:1293
 msgid "Wcd: error creating input window.\n"
 msgstr "wcd: Fehler beim Erzeugen des Eingabefensters.\n"
 
-#: display.c:1491
+#: display.c:1485
 #, c-format
 msgid ""
 "\n"
@@ -776,7 +776,7 @@ msgstr ""
 "\n"
 "Perfekt "
 
-#: display.c:1493
+#: display.c:1487
 #, c-format
 msgid ""
 "\n"
@@ -785,12 +785,12 @@ msgstr ""
 "\n"
 "Platzhalter "
 
-#: display.c:1494
+#: display.c:1488
 #, c-format
 msgid "match for %lu directories.\n"
 msgstr "passt auf %lu Verzeichnisse.\n"
 
-#: display.c:1537
+#: display.c:1531
 #, c-format
 msgid ""
 "\n"

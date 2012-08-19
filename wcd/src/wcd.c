@@ -2125,6 +2125,17 @@ void print_version()
 # endif
 #endif
 
+#ifdef __OS2__
+  printf(_("OS/2 version"));
+# ifdef __WATCOMC__
+  printf(" (WATCOMC).\n");
+# elif defined(__EMX__)
+  printf(" (EMX).\n");
+# else
+  printf( ".\n");
+# endif
+#endif
+
 #ifdef __MSYS__
    printf(_("This version is for native MSYS.\n"));
 #endif
