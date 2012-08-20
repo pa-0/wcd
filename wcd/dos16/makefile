@@ -1,7 +1,8 @@
-!include ..\src\version.mk
+SRCDIR = ..\src
+
+!include $(SRCDIR)\version.mk
 
 CC      = wcc
-SRCDIR = ..\src
 PROGRAM = wcd.exe
 DEFINES =
 CURSES = pdcurses
@@ -23,6 +24,9 @@ LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 !endif
 
 prefix = c:\dos
+docsubdir = wcd
+VERSIONSUFFIX = b
+ZIPFILE = $(PACKAGE)$(VERSION_SHORT)$(VERSIONSUFFIX).zip
 
 TARGET = dos
 
@@ -37,5 +41,5 @@ $(PROGRAM): $(OBJS)
 	wlink name wcd d all SYS $(TARGET) op m op st=32k op maxe=25 op q op symf @wcd.lnk
 	del wcd.lnk
 
-!include ..\..\src\watcom.mif
+!include $(SRCDIR)\watcom.mif
 

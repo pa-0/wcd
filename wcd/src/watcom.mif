@@ -61,15 +61,93 @@ command.obj :  $(SRCDIR)\c3po\command.c
 dirnode.obj :  $(SRCDIR)\c3po\dirnode.c
 	$(CC) $(CFLAGS) $(SRCDIR)\c3po\dirnode.c
 
-$(prefix)\bin:
+
+PACKAGE     = wcd
+exec_prefix = $(prefix)
+bindir      = $(exec_prefix)\bin
+datarootdir = $(prefix)\share
+datadir     = $(datarootdir)
+!ifndef docsubdir
+docsubdir   = $(PACKAGE)-$(VERSION)
+!endif
+docdir      = $(datarootdir)\doc\$(docsubdir)
+
+
+$(docdir):
 	mkdir $@
 
-install: $(PROGRAM) $(prefix)\bin .SYMBOLIC
-	copy $(PROGRAM) $(prefix)\bin
+$(bindir):
+	mkdir $@
+
+install: $(PROGRAM) $(bindir) $(docdir) .SYMBOLIC
+	copy $(PROGRAM) $(bindir)
+!ifeq PROGRAM wcdwin32.exe
+	copy ..\wcd.bat $(bindir)
+	copy ..\wcd_win95.bat $(bindir)
+!endif
+!ifeq PROGRAM wcdos2.exe
+	copy ..\wcd.cmd $(bindir)
+!endif
+	copy $(SRCDIR)\..\doc\*.txt $(docdir)
+
+$(SRCDIR)\man\man1\wcd1.pod : $(SRCDIR)\man\man1\wcd1pod.in
+	wcc386 -pc -ddos -dunix $< > $@
+
+$(SRCDIR)\..\doc\wcd.txt : $(SRCDIR)\man\man1\wcd1.pod
+	pod2text $< > $@
+
+$(SRCDIR)\..\doc\wcd.htm : $(SRCDIR)\man\man1\wcd1.pod
+	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
+
+doc : $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.htm .SYMBOLIC
+
+install-doc: $(docdir) .SYMBOLIC
+	copy $(SRCDIR)\..\doc\*.txt $(docdir)
+	copy $(SRCDIR)\..\doc\*.htm $(docdir)
+
+uninstall: .SYMBOLIC
+	-del $(bindir)\$(PROGRAM)
+!ifeq PROGRAM wcdwin32.exe
+	-del $(bindir)\wcd.bat
+	-del $(bindir)\wcd_win95.bat
+!endif
+!ifeq PROGRAM wcdos2.exe
+	-del $(bindir)\wcd.cmd
+!endif
+	-rmdir /s $(docdir)
+
+!ifndef VERSIONSUFFIX
+VERSIONSUFFIX	= -bin
+!endif
+
+!ifndef ZIPFILE
+ZIPFILE = $(PACKAGE)$(VERSION)$(VERSIONSUFFIX).zip
+!endif
+ZIPOBJ = bin\$(PROGRAM) share\doc\$(docsubdir)
+
+!ifeq PROGRAM wcdwin32.exe
+	ZIPOBJ += bin\wcd.bat bin\wcd_win95.bat
+!endif
+!ifeq PROGRAM wcdos2.exe
+	ZIPOBJ += bin\wcd.cmd
+!endif
+
+CURDIR = $+ $(%cwd) $-
+
+dist : .SYMBOLIC
+	cd $(prefix)
+	zip -r $(ZIPFILE) $(ZIPOBJ)
+	cd $(CURDIR)
+	move $(prefix)\$(ZIPFILE) ..\..\..
+
 
 clean: .SYMBOLIC
+	-del *~
+	-del *.bak
 	-del *.obj
 	-del *.ilk
 	-del *.map
+	-del *.err
 	-del *.sym
 	-del *.exe
+	-del *.tmp

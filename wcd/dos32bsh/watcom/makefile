@@ -1,7 +1,8 @@
-!include ..\..\src\version.mk
+SRCDIR = ..\..\src
+
+!include $(SRCDIR)\version.mk
 
 CC      = wcc386
-SRCDIR = ..\..\src
 PROGRAM = wcdbash.exe
 DEFINES = -dWCD_DOSBASH
 CURSES = pdcurses
@@ -23,6 +24,7 @@ LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 !endif
 
 prefix = c:\djgpp
+VERSIONSUFFIX = -dos32bsh
 
 TARGET = causeway
 #TARGET = dos4g
@@ -38,5 +40,5 @@ $(PROGRAM): $(OBJS)
 	wlink name wcdbash d all SYS $(TARGET) op inc op m op st=64k op maxe=25 op q op symf @wcd.lnk
 	del wcd.lnk
 
-!include ..\..\src\watcom.mif
+!include $(SRCDIR)\watcom.mif
 

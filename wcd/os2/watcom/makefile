@@ -1,7 +1,8 @@
-!include ..\..\src\version.mk
+SRCDIR = ..\..\src
+
+!include $(SRCDIR)\version.mk
 
 CC      = wcc386
-SRCDIR = ..\..\src
 PROGRAM = wcdos2.exe
 DEFINES =
 CURSES = pdcurses
@@ -23,6 +24,7 @@ LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 !endif
 
 prefix = c:\usr
+VERSIONSUFFIX = -os2
 
 TARGET = os2
 
@@ -37,5 +39,5 @@ $(PROGRAM): $(OBJS)
 	wlink name wcdos2 d all SYS os2v2 op inc op m op st=64k op maxe=25 op q op symf @wcd.lnk
 	del wcd.lnk
 
-!include ..\..\src\watcom.mif
+!include $(SRCDIR)\watcom.mif
 

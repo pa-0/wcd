@@ -1,7 +1,8 @@
-!include ..\..\src\version.mk
+SRCDIR = ..\..\src
+
+!include $(SRCDIR)\version.mk
 
 CC      = wcc386
-SRCDIR = ..\..\src
 PROGRAM = wcdwin32.exe
 DEFINES =
 CURSES = pdcursesw
@@ -32,6 +33,9 @@ LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 !ifeq UCS 1
 OBJS  += matchw.obj
 LOBJS +=,matchw.obj
+VERSIONSUFFIX = -win32-ucs
+!else
+VERSIONSUFFIX = -win32
 !endif
 
 prefix = c:\usr\local
@@ -50,5 +54,5 @@ $(PROGRAM): $(OBJS)
 	wlink name wcdwin32 d all SYS $(TARGET) op inc op m op st=64k op maxe=25 op q op symf @wcd.lnk
 	del wcd.lnk
 
-!include ..\..\src\watcom.mif
+!include $(SRCDIR)\watcom.mif
 
