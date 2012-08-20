@@ -40,9 +40,14 @@
 #  endif
 #  ifdef __TURBOC__
 #    include <dir.h>
-#  elif defined(__WIN32__) || defined(__OS2__)
+#  elif defined(__WIN32__)
 #    include <io.h>
 #    include <direct.h>
+#  elif defined(__OS2__)
+#    include <io.h>
+#    include <direct.h>
+#    define INCL_DOSFILEMGR
+#    include <os2.h>
 #  else /* ?!__TURBOC__ */
 #    include <direct.h>
 #  endif /* ?TURBOC */

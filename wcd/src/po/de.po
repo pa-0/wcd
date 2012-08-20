@@ -317,12 +317,12 @@ msgstr "Win64 Version (MinGW-w64).\n"
 #: wcd.c:2114
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
-msgstr "Win32 version (WATCOMC).\n"
+msgstr "Win32 Version (WATCOMC).\n"
 
 #: wcd.c:2116
 #, c-format
 msgid "Win32 version (MinGW).\n"
-msgstr "Win32 version (MinGW).\n"
+msgstr "Win32 Version (MinGW).\n"
 
 #: wcd.c:2120
 #, c-format
@@ -342,7 +342,7 @@ msgstr "Diese Version ist für die Windows Eingabeaufforderung (cmd.exe).\n"
 #: wcd.c:2129
 #, c-format
 msgid "OS/2 version"
-msgstr ""
+msgstr "OS/2 Version"
 
 #: wcd.c:2140
 #, c-format

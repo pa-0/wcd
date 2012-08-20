@@ -333,7 +333,7 @@ msgstr "Deze versie is voor Windows Opdrachtprompt (cmd.exe).\n"
 #: wcd.c:2129
 #, c-format
 msgid "OS/2 version"
-msgstr ""
+msgstr "OS/2 versie"
 
 #: wcd.c:2140
 #, c-format

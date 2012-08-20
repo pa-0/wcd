@@ -338,7 +338,7 @@ msgstr "Esta versión es para el Símbolo del sistema de Windows (cmd.exe).\n"
 #: wcd.c:2129
 #, c-format
 msgid "OS/2 version"
-msgstr ""
+msgstr "Versión para OS/2"
 
 #: wcd.c:2140
 #, c-format

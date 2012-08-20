@@ -335,7 +335,7 @@ msgstr "Tämä ohjelma toimii vain Windowsin cmd.exe komentotulkissa.\n"
 #: wcd.c:2129
 #, c-format
 msgid "OS/2 version"
-msgstr ""
+msgstr "OS/2 versio"
 
 #: wcd.c:2140
 #, c-format
