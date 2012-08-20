@@ -7,15 +7,11 @@ DEFINES =
 CURSES = pdcurses
 
 !ifneq CURSES
-DEFINES += -dWCD_USECURSES -dPDC_WIDE
+DEFINES += -dWCD_USECURSES
 !endif
 
 CFLAGS  = $(DEFINES) -i=$(SRCDIR) -i=$(SRCDIR)\c3po -i$(%WATCOM)\h\os2 -w4 -e25 -zq -od -d2 -6r -bt=os2 -mf
 CFLAGS_VERSION = -DVERSION="$(VERSION)" -DVERSION_DATE="$(VERSION_DATE)"
-
-!ifeq UCS 1
-CFLAGS += -za99
-!endif
 
 OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj matchl.obj querycp.obj
 LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.obj,display.obj,dosdir.obj,wfixpath.obj,intset.obj,wcddir.obj,command.obj,matchl.obj,querycp.obj

@@ -1,6 +1,6 @@
 include ../src/version.mk
 
-PREFIX = c:/usr/local
+PREFIX = c:/dos
 prefix = $(PREFIX)
 exec_prefix = $(prefix)
 INSTALL=install

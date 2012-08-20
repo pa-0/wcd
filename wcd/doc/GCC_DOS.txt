@@ -1,9 +1,9 @@
-This file explains how to compile wcd for DOS and Windows
+This file explains how to compile wcd for DOS, Windows, and OS/2
 with GNU C compiler (GCC, DJGPP/MinGW).
 
 For Unix/Linux/Cygwin compile instructions see file UNIX.txt
 
-For how to install the program on DOS/Windows see file DOS.txt.
+For how to install the program on DOS, Windows, OS/2 see file INST_DOS.txt.
 
 
 Prerequisites
@@ -39,6 +39,7 @@ gcc
 DOS            : DJGPP     : http://www.delorie.com/djgpp/
 Windows        : MinGW     : http://www.mingw.org/
 Windows 64 bit : MinGW-w64 : http://mingw-w64.sourceforge.net/
+OS/2           : EMX       : 
 
 MinGW-w64 provides a cross-compiler that you can run on 32 bit Windows.
 MinGW-w64 can produce programs for 32 and 64 bit Windows.
@@ -149,9 +150,10 @@ win32psh : Windows 32 bit PowerShell version.
 win64    : Windows 64 bit console version.
 win64psh : Windows 64 bit PowerShell version.
 msys     : Native MSYS version.
+os2      : OS/2 32 bit console version.
 
 Change to the appropriate directory `dos32', `dos32bsh', `win32',
-`win32zsh', `win32psh', 'msys'.
+`win32zsh', `win32psh', 'msys', 'os2'.
 
 
 Build wcd:
@@ -260,6 +262,7 @@ win32psh : The default PREFIX is c:/usr/local
 win64    : The default PREFIX is c:/usr/local64
 win64psh : The default PREFIX is c:/usr/local64
 msys     : The default PREFIX is /usr
+os2      : The default PREFIX is c:/usr
 
 
 distribution package

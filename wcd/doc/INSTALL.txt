@@ -1,9 +1,8 @@
 For building and installation see the following files:
 
-    BUILDGCC.txt  : How to build wcd for DOS/Windows with GCC.
-    BUILD.txt     : How to build wcd for DOS/Windows with other C compilers.
-    DOS.txt       : How to install wcd on DOS and Windows.
+    GCC_DOS.txt   : How to build wcd for DOS, Windows, and OS/2 with GCC.
+    WATCOMC.txt   : How to build wcd for DOS, Windows, and OS/2 with Watcom C.
+    INST_DOS.txt  : How to install wcd on DOS, Windows, and OS/2.
     UNIX.txt      : How to build and install wcd on Unix/Linux/Cygwin.
-    OS2.txt       : How to install wcd on OS/2 Warp.
     RPM.txt       : How to install wcd using an rpm package.
 

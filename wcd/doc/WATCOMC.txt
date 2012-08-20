@@ -1,11 +1,11 @@
 This file explains how to compile wcd for DOS and Windows
-with compilers other than GNU GCC.
+with Watcom C.
 
-To compile wcd with GCC (DJGPP, MINGW) see BUILDGCC.txt
+To compile wcd with GCC (DJGPP, MINGW) see GCC_DOS.txt
 
 For Unix/Linux/Cygwin compile instructions see file UNIX.txt.
 
-For how to install the program on DOS/Windows see file DOS.txt.
+For how to install the program on DOS/Windows see file INST_DOS.txt.
 
 
 ----------------------------------------------
@@ -15,30 +15,34 @@ PDCurses
 To build wcd with PDCurses interface you need to have the PDCurses
 library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
 Compile it and copy the library file into the \lib directory of your
-compiler and the curses.h file in the \include directory.
+compiler and the curses.h file in the \include, or \h for Watcom, directory.
 
 The Windows versions of Wcd require PDCurses libraries with Wide Character
-support. Build PDCurses with WIDE=Y.
+support. Build PDCurses with WIDE=Y.  It is assumed this library is named
+'pdcursesw'.
 
 ----------------------------------------------
-DOS 16 bit
+Watcom C
 ----------------------------------------------
 
 Watcom C compiler is freely available at http://www.openwatcom.org/
 
+----------------------------------------------
+DOS 16 bit
+----------------------------------------------
 
 WATCOM
 
     Go to directory dos16
 
 
-    To compile wcd with standard out interface type (Large memory model):
+    To compile wcd with PDCurses interface type (Large memory model):
 
     >  wmake
 
-    To compile wcd with PDCurses interface type (Large memory model):
+    To compile wcd with standard out interface type (Large memory model):
 
-    >  wmake -f pdcurses.mak
+    >  wmake CURSES=
 
 
 ----------------------------------------------
@@ -47,17 +51,16 @@ DOS 32 bit
 
 WATCOM
 
-    Watcom C compiler is freely available at http://www.openwatcom.org/
 
     Go to directory dos32/watcom.
 
-    To compile wcd with default standard out interface type:
+    To compile wcd with PDCurses interface type:
 
     >  wmake
 
-    To compile wcd with PDCurses interface type:
+    To compile wcd with standard out interface type:
 
-    >  wmake -f pdcurses.mak
+    >  wmake CURSES=
 
 ----------------------------------------------
 DOS 32 bit for BASH
@@ -70,31 +73,21 @@ normal dos 32 bit version.
 Windows Command Prompt version.
 ----------------------------------------------
 
-This version can be compiled with Open Watcom C.
-Watcom     : http://www.openwatcom.org/
-
 Go to directory win32/watcom.
-
-The makefile that uses PDCurses (pdcurses.mak) assumes that curses.h has been
-copied into the include directory of the compiler and the pdcurses library in
-the compiler's lib directory.
-
-Note that you need a Curses library with Wide Characters enabled,
-also for the non-Unicode wcd version.
 
 WATCOM
 
-    The default makefile (makefile) compiles wcd with stdout interface.
+    To compile wcd with curses interface type:
 
     > wmake
 
-    To compile wcd with curses interface type:
+    To compile wcd with additional Unicode support, add UCS=1:
 
-    > wmake -f pdcurses.mak
+    > wmake UCS=1
 
-    To compile wcd with curses interface and Unicode support:
+    To compile wcd with standard out interface type:
 
-    > wmake -f pdc_ucs.mak
+    > wmake CURSES=
 
 ----------------------------------------------
 Windows PowerShell version.
@@ -104,17 +97,18 @@ Same as Windows Command Prompt version.
 
 Go to directory win32psh/watcom.
 
-Note that you need a Curses library with Wide Characters enabled,
-also for the non-Unicode wcd version.
-
 WATCOM
 
 
     To compile wcd with curses interface type:
 
-    > wmake -f pdcurses.mak
+    > wmake
 
-    To compile wcd with curses interface and Unicode support:
+    To compile wcd with additional Unicode support, add UCS=1:
 
-    > wmake -f pdc_ucs.mak
+    > wmake UCS=1
+
+    To compile wcd with standard out interface type:
+
+    > wmake CURSES=
 
