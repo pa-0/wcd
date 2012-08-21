@@ -34,28 +34,35 @@
 #include "tailor.h"
 #include "wcd.h"
 
-#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
-#  ifndef __LCC__
-#    include <dos.h>
-#  endif
+#ifdef __MSDOS__
+#  include <dos.h>
 #  ifdef __TURBOC__
 #    include <dir.h>
-#  elif defined(__WIN32__)
-#    include <io.h>
+#  else
 #    include <direct.h>
-#  elif defined(__OS2__)
-#    include <io.h>
-#    include <direct.h>
-#    define INCL_DOSFILEMGR
-#    include <os2.h>
-#  else /* ?!__TURBOC__ */
-#    include <direct.h>
-#  endif /* ?TURBOC */
+#  endif
+#  define ALL_FILES_MASK "*.*"
+#  define DIR_PARENT ".."
+#  define DIR_END '\\'
+#elif defined(__WIN32__)
+#  ifdef __WATCOMC__
+#    include <dos.h> /* Watcom C does not have _getdrives(). We use the dos functions. */
+#  endif
+#  include <io.h>
+#  include <direct.h>
 #  ifdef WCD_UTF16
 #    define ALL_FILES_MASK L"*.*"
 #  else
 #    define ALL_FILES_MASK "*.*"
 #  endif
+#  define DIR_PARENT ".."
+#  define DIR_END '\\'
+#elif (defined(__OS2__) && !defined(__EMX__))
+#  include <io.h>
+#  include <direct.h>
+#  define INCL_DOSFILEMGR
+#  include <os2.h>
+#  define ALL_FILES_MASK "*"
 #  define DIR_PARENT ".."
 #  define DIR_END '\\'
 #elif defined(VMS)
