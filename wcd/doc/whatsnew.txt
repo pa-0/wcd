@@ -11,14 +11,14 @@
     * Single makefile for each system.
     * Common parts in central makefile.
     * Support compilation for Windows PowerShell.
-    * Support compilation for Unicode version.
+    * Support compilation for Unicode version on Windows.
     * Support compilation for OS/2. Thanks to Elbert Pol.
     * Makefiles can do installation and create zip packages.
   - Cleanup macros:
     * Use only C99 compliant predefined macros.
     * Makefiles for Windows and OS/2 don't need to define MSDOS anymore.
     * Use __MSDOS__ macro only when it's real for MS-DOS.
-    * UNIX does not get defined on OS/2 anymore.
+    * UNIX does not get defined with OS/2 EMX anymore.
   - src/Makefile:
     * Target 'clean' renamed to 'mostlyclean', because it preserves the built
       manual files. New target 'clean' that removes all files that were not
