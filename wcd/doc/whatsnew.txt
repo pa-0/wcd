@@ -12,7 +12,7 @@
     * Common parts in central makefile.
     * Support compilation for Windows PowerShell.
     * Support compilation for Unicode version.
-    * Support compilation for OS/2.
+    * Support compilation for OS/2. Thanks to Elbert Pol.
     * Makefiles can do installation and create zip packages.
   - Cleanup macros:
     * Use only C99 compliant predefined macros.
