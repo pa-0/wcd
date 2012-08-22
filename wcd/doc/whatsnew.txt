@@ -1,4 +1,4 @@
-5.2.2-beta5 2012-08-19
+5.2.2-beta6 2012-08-22
   - Turn off wildcard globbing for DJGPP (DOS32) and MinGW (Windows).
     This fixes some unexpected behaviour when a wcd argument matches a file
     in the current directory. In Unix shells you still need to quote the
@@ -6,20 +6,27 @@
   - Better error reporting when lines in treedata files are too long.
   - wcd.c: Support UTF-16 surrogate pairs when a Unix version reads
     UTF-16 tree files.
-  - Fixed compilation with Watcom C for Windows.
-  - New Watcom C makefile to compile wcd with Unicode support for Command Prompt.
-  - New Watcom C makefiles to compile wcd for PowerShell, with and without Unicode.
-  - New Watcom C makefiles to compile wcd for OS/2.
-  - Cleanup macros: Use only C99 compliant predefined macros. Makefiles for
-    Windows and OS/2 don't need to define MSDOS anymore.  Use __MSDOS__ macro
-    only when it's real for MS-DOS. UNIX does not get defined on OS/2 anymore.
-  - src/Makefile: Target 'clean' renamed to 'mostlyclean', because it preserves
-    the built manual files. New target 'clean' that removes all files that were
-    not present in the original source package. Thanks to Jari Aalto.
-  - src/Makefile: New variable HTMLEXT to override the default 'htm' extension
-    for the manual in HTML format. Thanks to Jari Aalto.
-  - src/Makefile: Support CFLAGS_USER, LDFLAGS_USER, and DEFS_USER for
-    Debian Linux. Thanks to Jari Aalto.
+  - Cleanup for Watcom C:
+    * Fixed compilation for Windows.
+    * Single makefile for each system.
+    * Common parts in central makefile.
+    * Support compilation for Windows PowerShell.
+    * Support compilation for Unicode version.
+    * Support compilation for OS/2.
+    * Makefiles can do installation and create zip packages.
+  - Cleanup macros:
+    * Use only C99 compliant predefined macros.
+    * Makefiles for Windows and OS/2 don't need to define MSDOS anymore.
+    * Use __MSDOS__ macro only when it's real for MS-DOS.
+    * UNIX does not get defined on OS/2 anymore.
+  - src/Makefile:
+    * Target 'clean' renamed to 'mostlyclean', because it preserves the built
+      manual files. New target 'clean' that removes all files that were not
+      present in the original source package. Thanks to Jari Aalto.
+    * New variable HTMLEXT to override the default 'htm' extension for the
+      manual in HTML format. Thanks to Jari Aalto.
+    * Support CFLAGS_USER, LDFLAGS_USER, and DEFS_USER for Debian Linux.
+      Thanks to Jari Aalto.
 
 5.2.1 2012-02-28
   - Windows Command Prompt: wcd.bat defines WCDHOME when HOME and WCDHOME both

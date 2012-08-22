@@ -1,114 +1,181 @@
-This file explains how to compile wcd for DOS and Windows
-with Watcom C.
+This file explains how to compile wcd for DOS, Windows, and OS/2
+with the Open Watcom C compiler.
 
-To compile wcd with GCC (DJGPP, MINGW) see GCC_DOS.txt
+For Unix/Linux/Cygwin compile instructions see file UNIX.txt
+For DJGPP/MinGW/EMX compile instructions see file GCC_DOS.txt
 
-For Unix/Linux/Cygwin compile instructions see file UNIX.txt.
-
-For how to install the program on DOS/Windows see file INST_DOS.txt.
+For how to install the program on DOS, Windows, OS/2 see file INST_DOS.txt.
 
 
-----------------------------------------------
+Prerequisites
+=============
+
+* Watcom C compiler.
+
+Optional:
+
+* pdcurses  : CRT screen handling and optimization package
+* perl      : Practical Extraction and Report Language (perlpod)
+
+Needed for building packages:
+
+* zip         : compressor-archiver
+
+
+Watcom C
+========
+
+There is a free version of the Watcom C compiler available
+at http://www.openwatcom.org/
+
+It includes cross compilation. From a Windows machine you
+can also create DOS and OS/2 programs.
+
+
 PDCurses
-----------------------------------------------
+========
 
 To build wcd with PDCurses interface you need to have the PDCurses
 library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
-Compile it and copy the library file into the \lib directory of your
-compiler and the curses.h file in the \include, or \h for Watcom, directory.
+Compile it and copy the library file into the proper \lib directory
+and the curses.h file in the \watcom\h directory.
 
-The Windows versions of Wcd require PDCurses libraries with Wide Character
-support. Build PDCurses with WIDE=Y.  It is assumed this library is named
-'pdcursesw'.
+To get support for the original console colours for the Windows 32 bit
+version you need PDCurses 2.7 or higher.
 
-----------------------------------------------
-Watcom C
-----------------------------------------------
-
-Watcom C compiler is freely available at http://www.openwatcom.org/
-
-----------------------------------------------
-DOS 16 bit
-----------------------------------------------
-
-WATCOM
-
-    Go to directory dos16
+I reported the following bug on http://sourceforge.net/projects/pdcurses/
+*  Bug 1144353: Scroll out of window when screen buffer is large (Windows)
+This bug is solved in PDCurses 2.7.
 
 
-    To compile wcd with PDCurses interface type (Large memory model):
+Perl
+====
 
-    >  wmake
+There exist ready-to-run perl packages for Windows. For instance:
 
-    To compile wcd with standard out interface type (Large memory model):
-
-    >  wmake CURSES=
-
-
-----------------------------------------------
-DOS 32 bit
-----------------------------------------------
-
-WATCOM
+Active Perl    : http://www.activestate.com/activeperl
+Strawberry Perl: http://strawberryperl.com/
 
 
-    Go to directory dos32/watcom.
+Problems on Windows VISTA/7
+===========================
 
-    To compile wcd with PDCurses interface type:
-
-    >  wmake
-
-    To compile wcd with standard out interface type:
-
-    >  wmake CURSES=
-
-----------------------------------------------
-DOS 32 bit for BASH
-----------------------------------------------
-
-Go to directory dos32bsh and use the same commands as with the
-normal dos 32 bit version.
-
-----------------------------------------------
-Windows Command Prompt version.
-----------------------------------------------
-
-Go to directory win32/watcom.
-
-WATCOM
-
-    To compile wcd with curses interface type:
-
-    > wmake
-
-    To compile wcd with additional Unicode support, add UCS=1:
-
-    > wmake UCS=1
-
-    To compile wcd with standard out interface type:
-
-    > wmake CURSES=
-
-----------------------------------------------
-Windows PowerShell version.
-----------------------------------------------
-
-Same as Windows Command Prompt version.
-
-Go to directory win32psh/watcom.
-
-WATCOM
+To be able to run `gmake install' you may need adminstrator rights. You can get
+a Command Prompt with administrator rights if you right click on the Command
+Prompt icon and select `run as administrator'.
 
 
-    To compile wcd with curses interface type:
+Basic Installation
+==================
 
-    > wmake
+dos16    : DOS 16 bit
+dos32    : DOS 32 bit
+dos32bsh : DOS 32 bit for BASH
+win32    : Windows 32 bit console version.
+win32psh : Windows 32 bit PowerShell version.
+os2      : OS/2 32 bit console version.
 
-    To compile wcd with additional Unicode support, add UCS=1:
+Change to the appropriate directory `dos16', `dos32', `dos32bsh', `win32',
+`win32psh', 'os2'. Then change to the `watcom' subdirectory when it is
+present.
 
-    > wmake UCS=1
 
-    To compile wcd with standard out interface type:
+Build wcd:
 
-    > wmake CURSES=
+  Type `wmake' to compile the package.
+
+Install wcd:
+
+  Type `wmake install' to install the package.
+
+  `make install' will also compile the package if it wasn't done yet.
+
+To start clean:
+
+  Type `wmake clean'
+
+
+Curses interface
+================
+
+The default interface is pdcurses.
+
+win32* uses PDCurses with wide character support (CURSES=pdcursesw)
+
+To disable CURSES and compile with stdio interface, reset the CURSES variable:
+
+  wmake CURSES=
+
+
+Graphical tree
+==============
+
+By default the graphical tree is drawn with line drawing
+characters. If these are not available on your system you
+can set ASCII_TREE=1 so that ASCII characters are used instead.
+
+  wmake ASCII_TREE=1
+
+
+Unicode support
+===============
+
+To activate Unicode support add UCS=1 to the make command:
+
+  wmake UCS=1
+
+This requires a (pd/n)curses installation with wide character support.
+Not supported for DOS and OS/2 versions of wcd.
+
+Unicode is only supported in Windows PowerShell, and Command Prompt
+on Windows 7 or higher.
+
+
+Installation Names
+==================
+
+By default `make install' will install the program in /usr/bin, the
+language files in /usr/share/locale and the man file in
+/usr/share/man. You can specify an installation prefix other than
+`/usr' by giving `make' the option `prefix=PATH'.
+
+
+Example:
+
+  wmake clean
+  wmake
+  wmake install prefix=c:\Users\waterlan
+
+
+dos16    : The default PREFIX is c:\dos
+dos32    : The default PREFIX is c:\djgpp
+dos32bsh : The default PREFIX is c:\djgpp
+win32    : The default PREFIX is c:\usr\local
+win32psh : The default PREFIX is c:\usr\local
+os2      : The default PREFIX is c:\usr
+
+
+manual pages in html and text format
+====================================
+
+The wcd source package in DOS text format includes all documentation
+files. When you have the Unix package, without the manuals, or just
+want to recreate the manuals, then you need a 'perl' installation.
+
+To create the manuals in txt and html format type:
+
+  wmake doc
+
+To install the manuals in txt and html format type:
+
+  wmake install-doc
+
+
+
+distribution package
+====================
+
+After installation a ready-to-run binary distribution package can be created.
+
+  Type `make dist' to create the package.
 

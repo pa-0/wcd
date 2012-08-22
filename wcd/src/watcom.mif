@@ -1,5 +1,9 @@
 # Common parts of the Watcom C makefiles.
 
+!ifdef ASCII_TREE
+CFLAGS += -dASCII_TREE
+!endif
+
 stack.obj :  $(SRCDIR)\stack.c
 	$(CC) $(CFLAGS) $(SRCDIR)\stack.c
 
@@ -101,7 +105,7 @@ $(SRCDIR)\..\doc\wcd.htm : $(SRCDIR)\man\man1\wcd1.pod
 
 doc : $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.htm .SYMBOLIC
 
-install-doc: $(docdir) .SYMBOLIC
+install-doc: $(docdir) $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.htm .SYMBOLIC
 	copy $(SRCDIR)\..\doc\*.txt $(docdir)
 	copy $(SRCDIR)\..\doc\*.htm $(docdir)
 

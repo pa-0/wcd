@@ -962,7 +962,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
    {
       fprintf(stdout,_("Wcd: error: finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
-      wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
+      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
       return;
    };
 
@@ -973,7 +973,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 
    if (pathInNameset(tmp,exclude) != (size_t)-1)
    {
-      wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
+      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
       return;
    }
 
@@ -1031,7 +1031,8 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    while (q_remove(&list, tmp))
       finddirs(tmp,offset, outfile, use_HOME, exclude, 1);
 
-   wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
+   /* Quiet, because on OS/2 changing to .. from a disk root dir gives an error. */
+   wcd_chdir(DIR_PARENT,1); /* go to parent directory */
 }
 #endif
 
