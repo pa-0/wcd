@@ -3,7 +3,7 @@ PREFIX = c:/usr
 prefix = $(PREFIX)
 exec_prefix = $(prefix)
 MKDIR  = mkdir
-LDFLAGS_EXTRA =
+LDFLAGS_EXTRA = -lOS2term -Zomf
 
 CFLAGS = -O2 -Wall
 
