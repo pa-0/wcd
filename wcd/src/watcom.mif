@@ -77,10 +77,19 @@ docsubdir   = $(PACKAGE)-$(VERSION)
 docdir      = $(datarootdir)\doc\$(docsubdir)
 
 
-$(docdir):
+$(prefix):
 	mkdir $@
 
-$(bindir):
+$(bindir): $(prefix)
+	mkdir $@
+
+$(datarootdir): $(prefix)
+	mkdir $@
+
+$(datarootdir)\doc: $(datarootdir)
+	mkdir $@
+
+$(docdir): $(datarootdir)\doc
 	mkdir $@
 
 install: $(PROGRAM) $(bindir) $(docdir) .SYMBOLIC
