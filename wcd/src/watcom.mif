@@ -77,19 +77,19 @@ docsubdir   = $(PACKAGE)-$(VERSION)
 docdir      = $(datarootdir)\doc\$(docsubdir)
 
 
-$(prefix):
+$(prefix): .EXISTSONLY
 	mkdir $@
 
-$(bindir): $(prefix)
+$(bindir): $(prefix) .EXISTSONLY
 	mkdir $@
 
-$(datarootdir): $(prefix)
+$(datarootdir): $(prefix) .EXISTSONLY
 	mkdir $@
 
-$(datarootdir)\doc: $(datarootdir)
+$(datarootdir)\doc: $(datarootdir) .EXISTSONLY
 	mkdir $@
 
-$(docdir): $(datarootdir)\doc
+$(docdir): $(datarootdir)\doc .EXISTSONLY
 	mkdir $@
 
 install: $(PROGRAM) $(bindir) $(docdir) .SYMBOLIC
@@ -127,7 +127,7 @@ uninstall: .SYMBOLIC
 !ifeq PROGRAM wcdos2.exe
 	-del $(bindir)\wcd.cmd
 !endif
-	-rmdir /s $(docdir)
+	-rmdir /s /q $(docdir)
 
 !ifndef VERSIONSUFFIX
 VERSIONSUFFIX	= -bin
@@ -139,20 +139,21 @@ ZIPFILE = $(PACKAGE)$(VERSION)$(VERSIONSUFFIX).zip
 ZIPOBJ = bin\$(PROGRAM) share\doc\$(docsubdir)
 
 !ifeq PROGRAM wcdwin32.exe
-	ZIPOBJ += bin\wcd.bat bin\wcd_win95.bat
+ZIPOBJ += bin\wcd.bat bin\wcd_win95.bat
 !endif
 !ifeq PROGRAM wcdos2.exe
-	ZIPOBJ += bin\wcd.cmd
+ZIPOBJ += bin\wcd.cmd
 !endif
 
+CURDISK = $+ $(%cdrive): $-
 CURDIR = $+ $(%cwd) $-
 
 dist : .SYMBOLIC
-	cd $(prefix)
+	cd /d $(prefix)
 	zip -r $(ZIPFILE) $(ZIPOBJ)
+	$(CURDISK)
 	cd $(CURDIR)
 	move $(prefix)\$(ZIPFILE) ..\..\..
-
 
 clean: .SYMBOLIC
 	-del *~
