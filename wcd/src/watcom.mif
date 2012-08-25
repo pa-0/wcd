@@ -113,7 +113,7 @@ $(SRCDIR)\..\doc\wcd.txt : $(SRCDIR)\man\man1\wcd1.pod
 $(SRCDIR)\..\doc\wcd.$(HTMLEXT) : $(SRCDIR)\man\man1\wcd1.pod
 	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
 
-doc : $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT) .SYMBOLIC
+doc : $(DOCFILES) .SYMBOLIC
 
 install-doc: $(docdir) $(DOCFILES) .SYMBOLIC
 	copy $(SRCDIR)\..\doc\*.txt $(docdir)
