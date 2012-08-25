@@ -176,8 +176,3 @@ After installation a ready-to-run binary distribution package can be created.
 
   Type `wmake dist' to create the package.
 
-There may be some trouble on DOS, very old Windows versions, or OS/2 when you
-installed wcd on a different disk than the current disk.
-Old versions of command.com or cmd.exe lack the /D option on the 'cd' command,
-which is used to switch disk and folder at the same time.
-

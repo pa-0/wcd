@@ -151,16 +151,23 @@ ZIPOBJ += bin\wcd.cmd
 CURDISK = $+ $(%cdrive): $-
 CURDIR = $+ $(%cwd) $-
 
-dist : .SYMBOLIC
-!ifdef __NT__
-	cd /d $(prefix)
+!ifdef __OS2__
+DISTCMD = dist.cmd
 !else
-	cd $(prefix)
+DISTCMD = dist.bat
 !endif
-	zip -r $(ZIPFILE) $(ZIPOBJ)
-	$(CURDISK)
-	cd $(CURDIR)
-	move $(prefix)\$(ZIPFILE) ..\..\..
+
+dist : .SYMBOLIC
+	@%create $(DISTCMD)
+	@%append $(DISTCMD) set PREFIX=$(prefix)
+	@%append $(DISTCMD) set PREFIXDISK=%PREFIX:~0,2%
+	@%append $(DISTCMD) %PREFIXDISK%
+	@%append $(DISTCMD) cd $(prefix)
+	@%append $(DISTCMD) zip -r $(ZIPFILE) $(ZIPOBJ)
+	@%append $(DISTCMD) $(CURDISK)
+	@%append $(DISTCMD) cd $(CURDIR)
+	@%append $(DISTCMD) move $(prefix)\$(ZIPFILE) ..\..\..
+	.\$(DISTCMD)
 
 clean: .SYMBOLIC
 	-del *~
