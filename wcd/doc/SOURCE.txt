@@ -49,6 +49,10 @@
             sub-makefiles (version.mk). I tried gnu-make with LCC but that did
             not work well.
 
+        OS/2
+
+            Wcd can be build for OS/2 with GCC, using EMX, or the Watcom C compiler.
+
         Unix
 
             Wcd for Unix compiles with gcc. Native system C compilers such as

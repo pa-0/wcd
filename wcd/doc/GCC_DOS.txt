@@ -120,13 +120,6 @@ compiler and the curses.h file in the \include directory.
 
 The DJGPP and MinGW project also provide ready-to-use binary PDCurses packages.
 
-To get support for the original console colours for the Windows 32 bit
-version you need PDCurses 2.7 or higher.
-
-I reported the following bug on http://sourceforge.net/projects/pdcurses/
-*  Bug 1144353: Scroll out of window when screen buffer is large (Windows)
-This bug is solved in PDCurses 2.7.
-
 
 groff and ghostscript
 ==========================
