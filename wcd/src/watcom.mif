@@ -75,6 +75,8 @@ datadir     = $(datarootdir)
 docsubdir   = $(PACKAGE)-$(VERSION)
 !endif
 docdir      = $(datarootdir)\doc\$(docsubdir)
+HTMLEXT     = htm
+DOCFILES    = $(docdir) $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
 
 
 $(prefix): .EXISTSONLY
@@ -92,7 +94,7 @@ $(datarootdir)\doc: $(datarootdir) .EXISTSONLY
 $(docdir): $(datarootdir)\doc .EXISTSONLY
 	mkdir $@
 
-install: $(PROGRAM) $(bindir) $(docdir) .SYMBOLIC
+install: $(PROGRAM) $(DOCFILES) $(bindir) $(docdir) .SYMBOLIC
 	copy $(PROGRAM) $(bindir)
 !ifeq PROGRAM wcdwin32.exe
 	copy ..\wcd.bat $(bindir)
@@ -102,6 +104,7 @@ install: $(PROGRAM) $(bindir) $(docdir) .SYMBOLIC
 	copy ..\wcd.cmd $(bindir)
 !endif
 	copy $(SRCDIR)\..\doc\*.txt $(docdir)
+	copy $(SRCDIR)\..\doc\*.$(HTMLEXT) $(docdir)
 
 $(SRCDIR)\man\man1\wcd1.pod : $(SRCDIR)\man\man1\wcd1pod.in
 	wcc386 -pc -ddos -dunix $< > $@
@@ -109,14 +112,14 @@ $(SRCDIR)\man\man1\wcd1.pod : $(SRCDIR)\man\man1\wcd1pod.in
 $(SRCDIR)\..\doc\wcd.txt : $(SRCDIR)\man\man1\wcd1.pod
 	pod2text $< > $@
 
-$(SRCDIR)\..\doc\wcd.htm : $(SRCDIR)\man\man1\wcd1.pod
+$(SRCDIR)\..\doc\wcd.$(HTMLEXT) : $(SRCDIR)\man\man1\wcd1.pod
 	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
 
-doc : $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.htm .SYMBOLIC
+doc : $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT) .SYMBOLIC
 
-install-doc: $(docdir) $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.htm .SYMBOLIC
+install-doc: $(docdir) $(DOCFILES) .SYMBOLIC
 	copy $(SRCDIR)\..\doc\*.txt $(docdir)
-	copy $(SRCDIR)\..\doc\*.htm $(docdir)
+	copy $(SRCDIR)\..\doc\*.$(HTMLEXT) $(docdir)
 
 uninstall: .SYMBOLIC
 	-del $(bindir)\$(PROGRAM)

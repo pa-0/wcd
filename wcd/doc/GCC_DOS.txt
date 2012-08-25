@@ -81,6 +81,15 @@ MinGW     : http://sourceforge.net/projects/mingw/files/
 For MinGW(-w64) use MSYS-make in the MSYS environment.
 
 
+perl
+====
+
+Perl packages are distributed with the DJGPP, MinGW, and EMX environment.
+
+DJGPP     : http://www.delorie.com/pub/djgpp/current/v2gnu/
+MinGW     : http://sourceforge.net/projects/mingw/files/
+
+
 gettext (libintl) and libiconv
 ==============================
 

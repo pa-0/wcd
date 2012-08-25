@@ -9,6 +9,7 @@ URL: http://waterlan.home.xs4all.nl/
 Packager: Erwin Waterlander <waterlan@xs4all.nl>
 BuildRequires: gettext
 BuildRequires: perl
+BuildRequires: sed
 BuildRequires: ncurses-devel
 BuildRequires: libunistring-devel
 
