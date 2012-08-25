@@ -149,7 +149,11 @@ CURDISK = $+ $(%cdrive): $-
 CURDIR = $+ $(%cwd) $-
 
 dist : .SYMBOLIC
+!ifdef __NT__
 	cd /d $(prefix)
+!else
+	cd $(prefix)
+!endif
 	zip -r $(ZIPFILE) $(ZIPOBJ)
 	$(CURDISK)
 	cd $(CURDIR)
