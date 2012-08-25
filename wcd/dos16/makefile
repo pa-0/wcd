@@ -27,10 +27,12 @@ prefix = c:\dos
 docsubdir = wcd
 VERSIONSUFFIX = b
 ZIPFILE = $(PACKAGE)$(VERSION_SHORT)$(VERSIONSUFFIX).zip
+HTMLEXT     = htm
+DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
 
 TARGET = dos
 
-all: $(PROGRAM)
+all: $(PROGRAM) $(DOCFILES) .SYMBOLIC
 
 $(PROGRAM): $(OBJS)
 	@%create wcd.lnk

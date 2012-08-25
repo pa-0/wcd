@@ -75,8 +75,6 @@ datadir     = $(datarootdir)
 docsubdir   = $(PACKAGE)-$(VERSION)
 !endif
 docdir      = $(datarootdir)\doc\$(docsubdir)
-HTMLEXT     = htm
-DOCFILES    = $(docdir) $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
 
 
 $(prefix): .EXISTSONLY
@@ -163,6 +161,8 @@ dist : .SYMBOLIC
 	@%append $(DISTCMD) set PREFIXDISK=%PREFIX:~0,2%
 	@%append $(DISTCMD) %PREFIXDISK%
 	@%append $(DISTCMD) cd $(prefix)
+	@%append $(DISTCMD) unix2dos -k share\doc\$(docsubdir)\*.txt
+	@%append $(DISTCMD) unix2dos -k share\doc\$(docsubdir)\*.$(HTMLEXT)
 	@%append $(DISTCMD) zip -r $(ZIPFILE) $(ZIPOBJ)
 	@%append $(DISTCMD) $(CURDISK)
 	@%append $(DISTCMD) cd $(CURDIR)

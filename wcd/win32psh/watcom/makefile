@@ -37,12 +37,14 @@ VERSIONSUFFIX = -win32psh-ucs
 !else
 VERSIONSUFFIX = -win32psh
 !endif
+HTMLEXT     = htm
+DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
 
 prefix = c:\usr\local
 
 TARGET = nt
 
-all: $(PROGRAM)
+all: $(PROGRAM) $(DOCFILES) .SYMBOLIC
 
 $(PROGRAM): $(OBJS)
 	@%create wcd.lnk

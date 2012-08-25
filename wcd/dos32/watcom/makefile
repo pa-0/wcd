@@ -25,11 +25,13 @@ LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 
 prefix = c:\djgpp
 VERSIONSUFFIX = -dos32
+HTMLEXT     = htm
+DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
 
 TARGET = causeway
 #TARGET = dos4g
 
-all: $(PROGRAM)
+all: $(PROGRAM) $(DOCFILES) .SYMBOLIC
 
 $(PROGRAM): $(OBJS)
 	@%create wcd.lnk

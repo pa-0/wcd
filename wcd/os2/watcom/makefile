@@ -25,10 +25,12 @@ LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 
 prefix = c:\usr
 VERSIONSUFFIX = -os2
+HTMLEXT     = htm
+DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
 
 TARGET = os2
 
-all: $(PROGRAM)
+all: $(PROGRAM) $(DOCFILES) .SYMBOLIC
 
 $(PROGRAM): $(OBJS)
 	@%create wcd.lnk
