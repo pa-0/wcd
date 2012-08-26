@@ -256,8 +256,8 @@ Example:
   make install prefix=c:/Users/waterlan
 
 
-dos32    : The default PREFIX is c:/djgpp
-dos32bsh : The default PREFIX is c:/djgpp
+dos32    : The default PREFIX is c:/dos32
+dos32bsh : The default PREFIX is c:/dos32
 win32    : The default PREFIX is c:/usr/local
 win32zsh : The default PREFIX is c:/usr/local
 win32psh : The default PREFIX is c:/usr/local

@@ -23,7 +23,7 @@ OBJS  += dirnode.obj colors.obj graphics.obj
 LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 !endif
 
-prefix = c:\djgpp
+prefix = c:\dos32
 VERSIONSUFFIX = -dos32
 HTMLEXT     = htm
 DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)

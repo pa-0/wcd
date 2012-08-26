@@ -1,6 +1,6 @@
 include ../src/version.mk
 
-PREFIX = c:/djgpp
+PREFIX = c:/dos32
 prefix = $(PREFIX)
 MKDIR  = mkdir
 
