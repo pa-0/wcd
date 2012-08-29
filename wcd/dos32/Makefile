@@ -20,8 +20,8 @@ DEFS   += -DWCD_USECURSES
 endif
 
 PROGRAM = wcd.exe
-VERSIONSUFFIX = -dos32
-ZIPFILE = wcd${VERSION_SHORT}pm.zip
+VERSIONSUFFIX = pm
+ZIPFILE = wcd${VERSION_SHORT}${VERSIONSUFFIX}.zip
 ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 docsubdir = wcd-${VERSION_SHORT}
 

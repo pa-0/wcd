@@ -22,11 +22,12 @@ LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.ob
 OBJS  += dirnode.obj colors.obj graphics.obj
 LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 !endif
-
-prefix = c:\usr
 VERSIONSUFFIX = -os2
 HTMLEXT     = htm
 DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
+ZIPOBJ_EXTRA=bin/wcd.cmd
+
+prefix = c:\usr
 
 TARGET = os2
 

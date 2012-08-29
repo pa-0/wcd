@@ -22,13 +22,13 @@ LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.ob
 OBJS  += dirnode.obj colors.obj graphics.obj
 LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 !endif
-
-prefix = c:\dos
 docsubdir = wcd
 VERSIONSUFFIX = b
 ZIPFILE = $(PACKAGE)$(VERSION_SHORT)$(VERSIONSUFFIX).zip
 HTMLEXT     = htm
 DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
+
+prefix = c:\dos
 
 TARGET = dos
 

@@ -20,8 +20,8 @@ DEFS   += -DWCD_USECURSES
 endif
 
 PROGRAM = wcdbash.exe
-VERSIONSUFFIX = -dos32bsh
-ZIPFILE = wcd${VERSION_SHORT}bh.zip
+VERSIONSUFFIX = bh
+ZIPFILE = wcd${VERSION_SHORT}${VERSIONSUFFIX}.zip
 docsubdir = wcd-${VERSION_SHORT}
 
 ifdef ENABLE_NLS

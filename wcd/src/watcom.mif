@@ -3,6 +3,9 @@
 !ifdef ASCII_TREE
 CFLAGS += -dASCII_TREE
 !endif
+!ifeq UCS 1
+CFLAGS += -dWCD_UNICODE -za99
+!endif
 
 stack.obj :  $(SRCDIR)\stack.c
 	$(CC) $(CFLAGS) $(SRCDIR)\stack.c
@@ -137,14 +140,7 @@ VERSIONSUFFIX	= -bin
 !ifndef ZIPFILE
 ZIPFILE = $(PACKAGE)$(VERSION)$(VERSIONSUFFIX).zip
 !endif
-ZIPOBJ = bin\$(PROGRAM) share\doc\$(docsubdir)
-
-!ifeq PROGRAM wcdwin32.exe
-ZIPOBJ += bin\wcd.bat bin\wcd_win95.bat
-!endif
-!ifeq PROGRAM wcdos2.exe
-ZIPOBJ += bin\wcd.cmd
-!endif
+ZIPOBJ = bin\$(PROGRAM) share\doc\$(docsubdir) $(ZIPOBJ_EXTRA)
 
 CURDISK = $+ $(%cdrive): $-
 CURDIR = $+ $(%cwd) $-
