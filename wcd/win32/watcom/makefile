@@ -31,7 +31,7 @@ VERSIONSUFFIX = -win32
 !endif
 HTMLEXT     = htm
 DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
-ZIPOBJ_EXTRA = bin/wcd.bat bin/wcd_win95.bat
+ZIPOBJ_EXTRA = bin\wcd.bat bin\wcd_win95.bat
 
 prefix = c:\usr\local
 

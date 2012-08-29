@@ -25,7 +25,7 @@ LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 VERSIONSUFFIX = -os2
 HTMLEXT     = htm
 DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
-ZIPOBJ_EXTRA=bin/wcd.cmd
+ZIPOBJ_EXTRA=bin\wcd.cmd
 
 prefix = c:\usr
 

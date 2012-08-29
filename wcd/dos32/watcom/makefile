@@ -22,13 +22,13 @@ LOBJS   = wcd.obj,match.obj,stack.obj,nameset.obj,error.obj,text.obj,WcdStack.ob
 OBJS  += dirnode.obj colors.obj graphics.obj
 LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 !endif
-docsubdir = wcd-${VERSION_SHORT}
+docsubdir = wcd-$(VERSION_SHORT)
 VERSIONSUFFIX = pm
-ZIPFILE = wcd${VERSION_SHORT}$(VERSIONSUFFIX).zip
+ZIPFILE = wcd$(VERSION_SHORT)$(VERSIONSUFFIX).zip
 HTMLEXT     = htm
 DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
-ZIPOBJ_EXTRA = bin/cwstub.exe
-#ZIPOBJ_EXTRA = bin/dos4gw.exe
+ZIPOBJ_EXTRA = bin\cwstub.exe
+#ZIPOBJ_EXTRA = bin\dos4gw.exe
 
 prefix = c:\dos32
 
