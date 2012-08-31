@@ -116,6 +116,10 @@ $(SRCDIR)\..\doc\wcd.txt : $(SRCDIR)\man\man1\wcd1.pod
 $(SRCDIR)\..\doc\wcd.$(HTMLEXT) : $(SRCDIR)\man\man1\wcd1.pod
 	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
 
+txt: $(SRCDIR)\..\doc\wcd.txt .SYMBOLIC
+
+html: $(SRCDIR)\..\doc\wcd.$(HTMLEXT) .SYMBOLIC
+
 doc : $(DOCFILES) .SYMBOLIC
 
 install-doc: $(docdir) $(DOCFILES) .SYMBOLIC
@@ -140,6 +144,9 @@ VERSIONSUFFIX	= -bin
 !ifndef ZIPFILE
 ZIPFILE = $(PACKAGE)$(VERSION)$(VERSIONSUFFIX).zip
 !endif
+!ifndef ZIPFILEDIR
+ZIPFILEDIR = ..\..\..
+!endif
 ZIPOBJ = bin\$(PROGRAM) share\doc\$(docsubdir) $(ZIPOBJ_EXTRA)
 
 CURDISK = $+ $(%cdrive): $-
@@ -162,7 +169,7 @@ dist : .SYMBOLIC
 	@%append $(DISTCMD) zip -r $(ZIPFILE) $(ZIPOBJ)
 	@%append $(DISTCMD) $(CURDISK)
 	@%append $(DISTCMD) cd $(CURDIR)
-	@%append $(DISTCMD) move $(prefix)\$(ZIPFILE) ..\..\..
+	@%append $(DISTCMD) move $(prefix)\$(ZIPFILE) $(ZIPFILEDIR)
 	.\$(DISTCMD)
 
 mostlyclean: .SYMBOLIC

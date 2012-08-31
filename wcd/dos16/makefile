@@ -25,6 +25,7 @@ LOBJS +=,dirnode.obj,colors.obj,graphics.obj
 docsubdir = wcd
 VERSIONSUFFIX = b
 ZIPFILE = $(PACKAGE)$(VERSION_SHORT)$(VERSIONSUFFIX).zip
+ZIPFILEDIR = ..\..
 HTMLEXT     = htm
 DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
 
