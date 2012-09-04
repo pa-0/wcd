@@ -172,42 +172,12 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
    * UTF-8     ef bb bf
    */
 
-  *bomtype = FILE_MBS;
+   *bomtype = FILE_MBS;
 
-  if (m[0] == 'r') /* we try to read an existing file */
-  {
-    if (stat(filename, &buf) != 0) /* check if file exists */
-    {
-      if ( !quiet )
-      {
-        errstr = strerror(errno);
-        fprintf(stderr,_("Wcd: error: Unable to read file %s: %s\n"), filename, errstr);
-      }
-      return(NULL);
-    }
-
-    if (!S_ISREG(buf.st_mode)) /* check if it is a file */
-    {
-      if ( !quiet )
-      {
-        fprintf(stderr,_("Wcd: error: Unable to read file %s: Not a regular file.\n"), filename);
-      }
-      return(NULL);
-    }
-  }
-
-  f = fopen(filename, m); /* open the file */
-  if ( !quiet && (f == NULL))
-  {
-    errstr = strerror(errno);
-    if (m[0] == 'r')
-      fprintf(stderr,_("Wcd: error: Unable to read file %s: %s\n"), filename, errstr);
-    else
-      fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
-  }
+   f = wcd_fopen(filename, m, quiet);
 
    /* Check for BOM */
-   if  (f != NULL)
+   if ((m[0] == 'r') && (f != NULL))
    {
       if ((bom[0] = fgetc(f)) == EOF)
       {
@@ -1596,7 +1566,7 @@ void read_treefileUTF16BE(FILE *f, nameset bd, const char* file_name)
 /* read_treefileUTF8() was made to make it possible that a non-Unicode
    Windows version of Wcd can read UTF-8 encoded tree-data files.
    Handy when a person uses also the Windows version for PowerShell with
-   Unicode support. 
+   Unicode support.
    Most non-ASCII characters are likely part of the default system
    ANSI code page.
    */

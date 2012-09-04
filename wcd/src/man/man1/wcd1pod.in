@@ -914,7 +914,7 @@ Console to make Unicode (and ANSI) letters appear correctly.
 Non-Unicode versions of Wcd I<prior to version 5.2.0> use plain ANSI output.
 For these older versions the code page of the console has to be made equal to
 the system code page (changed to 1252) to make wcd for Windows work properly
-with special characters such as accented characters or the euro symbol. 
+with special characters such as accented characters or the euro symbol.
 
 The Windows system code page can be changed via the Control Panel regional
 options. The Windows console code page is changed with the C<chcp> command.

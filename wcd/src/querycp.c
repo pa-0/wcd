@@ -197,7 +197,7 @@ unsigned short query_con_codepage(void) {
    if (strcmp(nl_langinfo(CODESET), "ISO-8859-2") == 0)
      return(28592);
 #endif
-   
+
    return(0);
 }
 #endif

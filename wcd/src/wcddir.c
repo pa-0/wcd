@@ -223,14 +223,14 @@ void wcd_getshares(char* path, nameset n)
    Use WIN32 API */
 
 
-void PrintError(DWORD dw) 
-{ 
+void PrintError(DWORD dw)
+{
     /* Retrieve the system error message for the last-error code */
 
     LPVOID lpMsgBuf;
 
     FormatMessage(
-        FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+        FORMAT_MESSAGE_ALLOCATE_BUFFER |
         FORMAT_MESSAGE_FROM_SYSTEM |
         FORMAT_MESSAGE_IGNORE_INSERTS,
         NULL,
@@ -288,7 +288,7 @@ int wcd_isSharePath (char* path)
 char *wcd_getcwd(char *buf, size_t size)
 {
    DWORD err;
-   DWORD dw; 
+   DWORD dw;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
@@ -302,7 +302,7 @@ char *wcd_getcwd(char *buf, size_t size)
 
    if (err == 0)
    {
-     dw = GetLastError(); 
+     dw = GetLastError();
      fprintf(stderr, "%s", _("Wcd: error: Unable to get current working directory: "));
      PrintError(dw);
      return(NULL);  /* fail */
@@ -314,7 +314,7 @@ char *wcd_getcwd(char *buf, size_t size)
 int wcd_chdir(char *buf, int quiet)
 {
    BOOL err;
-   DWORD dw; 
+   DWORD dw;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
@@ -330,7 +330,7 @@ int wcd_chdir(char *buf, int quiet)
    {
       if ( !quiet )
       {
-         dw = GetLastError(); 
+         dw = GetLastError();
          wcd_printf(_("Wcd: error: Unable to change to directory %s: "), buf);
          PrintError(dw);
       }
@@ -343,7 +343,7 @@ int wcd_chdir(char *buf, int quiet)
 int wcd_mkdir(char *buf, int quiet)
 {
    BOOL err;
-   DWORD dw; 
+   DWORD dw;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
@@ -361,7 +361,7 @@ int wcd_mkdir(char *buf, int quiet)
    {
      if ( !quiet )
      {
-       dw = GetLastError(); 
+       dw = GetLastError();
        wcd_printf(_("Wcd: error: Unable to create directory %s: "), buf);
        PrintError(dw);
      }
@@ -372,7 +372,7 @@ int wcd_mkdir(char *buf, int quiet)
 int wcd_rmdir(char *buf, int quiet)
 {
    BOOL err;
-   DWORD dw; 
+   DWORD dw;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
@@ -390,7 +390,7 @@ int wcd_rmdir(char *buf, int quiet)
    {
      if ( !quiet )
      {
-       dw = GetLastError(); 
+       dw = GetLastError();
        wcd_printf(_("Wcd: error: Unable to remove directory %s: "), buf);
        PrintError(dw);
      }
@@ -428,7 +428,7 @@ int wcd_isdir(char *dir, int quiet)
 #ifdef WCD_UTF16
    static wchar_t wstr[DD_MAXPATH];
    BOOL err;
-   DWORD dw; 
+   DWORD dw;
    struct _stat buf;
 #else
    struct stat buf;
@@ -477,7 +477,7 @@ int wcd_isdir(char *dir, int quiet)
       {
         if ( !quiet )
         {
-          dw = GetLastError(); 
+          dw = GetLastError();
           wcd_printf("Wcd: %s: ", dir);
           PrintError(dw);
         }

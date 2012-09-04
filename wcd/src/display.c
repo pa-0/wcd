@@ -85,7 +85,7 @@ size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len)
  * This is done to keep the code portable.
  *
  * Wcd's messages are encoded in the default Windows ANSI code page,
- * which can be translated with gettext. Gettext/libintl recodes 
+ * which can be translated with gettext. Gettext/libintl recodes
  * messages (format) to the system default ANSI code page.
  */
 
