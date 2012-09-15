@@ -248,7 +248,7 @@ endif
 endif
 
 ifndef OS
-ifeq ($(shell uname),MS-DOS)
+ifneq ($(DJGPP),)
 	DEF_UNIX =
 	OS = msdos
 endif
