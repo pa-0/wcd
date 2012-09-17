@@ -36,6 +36,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #include "config.h"
 
+#include <sys/stat.h>
+#ifdef _MSC_VER
+#define S_ISDIR( m )    (((m) & _S_IFMT) == _S_IFDIR)
+#endif
 #if defined(UNIX) || defined(__DJGPP__) || defined(__OS2__)
 # include <unistd.h>
 #endif
@@ -45,11 +49,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include <string.h>
 #include <errno.h>
 
-#if (defined(__WIN32__) && defined(WCD_UNICODE))
+#if (defined(_WIN32) && defined(WCD_UNICODE))
 #include <wchar.h>
 #endif
 
-#if (defined(__WIN32__) || defined(__CYGWIN__))
+#if (defined(_WIN32) || defined(__CYGWIN__))
 
 /* WIN32:  Use WIN32 API to support UNC paths.
    CYGWIN: Use WIN32 API only to scan servers and find shared
@@ -218,7 +222,7 @@ void wcd_getshares(char* path, nameset n)
 #endif
 
 
-#if (defined(__WIN32__) && !defined(__CYGWIN__))
+#if (defined(_WIN32) && !defined(__CYGWIN__))
 /* WIN32, not CYGWIN
    Use WIN32 API */
 

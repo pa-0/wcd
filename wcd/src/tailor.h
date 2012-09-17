@@ -37,11 +37,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  define MSDOS
 #endif
 
-#if (defined(__NT__) && !defined(__WIN32__))
-#  define __WIN32__
+#if (defined(__NT__) && !defined(_WIN32))
+#  define _WIN32
 #endif /* Watcom C Windows NT and 95 target.  EW */
 
-#if (defined(__WIN32__) && !defined(WIN32))
+#if (defined(_WIN32) && !defined(WIN32))
 #  define WIN32
 #endif
 
@@ -135,47 +135,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  define OF(a) ()
 #endif /* ?PROTO */
 
-/* Avoid using const if compiler does not support it */
-#ifndef MODERN  /* if this fails, try: ifndef__STDC__ */
-#  define const
-#endif
 
 #ifdef MACOS
 #  define DYN_ALLOC
 #endif
-#if (defined(__MSDOS__) && !defined(__GO32__) && !defined(__WIN32__))
-#  ifdef __TURBOC__
-#    include <alloc.h>
-#    define DYN_ALLOC
-     /* Turbo C 2.0 does not accept static allocations of large arrays */
-     void far * fcalloc OF((unsigned items, unsigned size));
-     void fcfree (void *ptr);
-#  else /* !__TURBOC__ */
-#    include <malloc.h>
-#    define farmalloc _fmalloc
-#    define farfree   _ffree
-#    define fcalloc(nitems,itemsize) halloc((long)(nitems),(itemsize))
-#    define fcfree(ptr) hfree((void huge *)(ptr))
-#  endif /* ?__TURBOC__ */
-#else /* !__MSDOS__ */
-#  if defined(__WIN32__)
-#    include <malloc.h>
-#  endif
-#  ifdef __WATCOMC__
-#    undef huge
-#    undef far
-#    undef near
-#  endif
-#  ifndef __IBMC__
-#    define huge
-#    define far
-#    define near
-#  endif
-#  define farmalloc malloc
-#  define farfree   free
-#  define fcalloc(items,size) calloc((unsigned)(items), (unsigned)(size))
-#  define fcfree    free
-#endif /* ?__MSDOS__ */
 
 
 /* Define MSVMS if MSDOS or VMS defined -- ATARI also does, Amiga could */
@@ -183,86 +146,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  define MSVMS
 #endif
 
-/* Define void, voidp, and extent (size_t) */
-#include <stdio.h>
-#ifdef MODERN
-#  if (!defined(M_XENIX) && !(defined(__GNUC__) && defined(sun)))
-#    include <stddef.h>
-#  endif /* !M_XENIX */
-#  include <stdlib.h>
-#  if defined(SYSV) || defined(__386BSD__)
-#    include <unistd.h>
-#  endif
-   typedef size_t extent;
-   typedef void voidp;
-#else /* !MODERN */
-   typedef unsigned int extent;
-#  define void int
-   typedef char voidp;
-#endif /* ?MODERN */
 
-/* Get types and stat */
-#ifdef VMS
-#  include <types.h>
-#  include <stat.h>
-#  define unlink delete
-#  define NO_SYMLINK
-#  define SSTAT vms_stat
-#else /* !VMS */
-#  ifdef MACOS
-#    include <types.h>
-#    include <stddef.h>
-#    include <Files.h>
-#    include <StandardFile.h>
-#    include <Think.h>
-#    include <LoMem.h>
-#    include <Pascal.h>
-#    include "macstat.h"
-#    define NO_SYMLINK
-#  else
-#    ifdef ATARI_ST
-#      include <ext.h>
-#      include <tos.h>
-#    else
-#      ifdef AMIGA
-#        if defined(LATTICE) || defined(__SASC)
-#          include <sys/types.h>
-#          include <sys/stat.h>
-           extern int isatty(int);   /* SAS has no unistd.h */
-#        endif
-#        ifdef AZTEC_C
-#          include "amiga/z-stat.h"
-#          define RMDIR
-#        endif
-#      else /* !AMIGA */
-#        include <sys/types.h>
-#        include <sys/stat.h>
-#    endif
-#  endif
-#  endif
-#endif /* ?VMS */
 
-#ifndef S_ISDIR
-#  define S_ISDIR(m)  (((m) & S_IFMT) == S_IFDIR)
-#endif
-
-#include <ctype.h>
-
-#ifndef _tolower
-#  define _tolower(c) ((c) + 'a' - 'A')
-#endif
-#ifndef _toupper
-#  define _toupper(c) ((c) + 'A' - 'a')
-#endif
-
-#if defined(UNIX) || defined(T20_VMS)   /* generally old systems */
-/*  some compilers don't check if a character is already upper or lower
- *  case in the toupper/tolower functions, so we define our own here.
- */
-#  define ToLower(c)    (isupper((int)c) ? _tolower(c) : (c))
-#  define ToUpper(c)    (islower((int)c) ? _toupper(c) : (c))
-#else
-#  define ToLower      tolower          /* assumed "smart"; used in match() */
-#endif
 
 #endif /* end of tailor.h */

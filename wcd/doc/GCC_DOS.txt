@@ -39,7 +39,7 @@ gcc
 DOS            : DJGPP     : http://www.delorie.com/djgpp/
 Windows        : MinGW     : http://www.mingw.org/
 Windows 64 bit : MinGW-w64 : http://mingw-w64.sourceforge.net/
-OS/2           : EMX       : 
+OS/2           : EMX       :
 
 MinGW-w64 provides a cross-compiler that you can run on 32 bit Windows.
 MinGW-w64 can produce programs for 32 and 64 bit Windows.

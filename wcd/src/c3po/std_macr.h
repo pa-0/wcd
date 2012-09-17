@@ -31,7 +31,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #define    or        ||             /* Logical 'OR'                           */
 #define    bor       |              /* Bitwise 'OR'                           */
 #define    bxor      ^              /* Bitwise exclusive 'OR'                 */
-#define    mod       %              /* Remainder operator                     */
+/* Definition of 'mod' gives problems with WinBase.h (MS Visual C++)  */
+/*#define    mod       %               Remainder operator                     */
 
 #ifndef    NULL
 #define    NULL      0              /* Null pointer                           */

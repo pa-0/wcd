@@ -29,9 +29,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include <wchar.h>
 #endif
 #include "display.h"
-#if defined(WCD_WINDOWS)
-#include <windows.h>
-#endif
 #include "std_macr.h"
 #include "structur.h"
 #include "nameset.h"
@@ -39,6 +36,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include "dosdir.h"
 
 #include <stdarg.h>
+#if defined(WCD_WINDOWS)
+#include <windows.h>
+#endif
 
 
 
@@ -91,7 +91,7 @@ size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len)
 
 void wcd_printf( const char* format, ... ) {
    va_list args;
-#if defined(__WIN32__) && !defined(__CYGWIN__) /* Windows, not Cygwin */
+#if defined(_WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
    wchar_t wstr[DD_MAXPATH];
    char buf[DD_MAXPATH];
 #  ifdef WCD_UTF16

@@ -67,7 +67,7 @@ void wcd_fixpath(char *in, size_t lim)
 
   op = out;
 
-#if defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__)
+#if defined(__MSDOS__) || defined(_WIN32) || defined(__OS2__)
   /* Add drive specification to output string (if present) */
   if (((*ip >= 'a' && *ip <= 'z') ||
        (*ip >= 'A' && *ip <= 'Z'))
@@ -92,7 +92,7 @@ void wcd_fixpath(char *in, size_t lim)
   }
 #endif
 
-#if (defined(__WIN32__) || defined(__CYGWIN__))
+#if (defined(_WIN32) || defined(__CYGWIN__))
    /* Keep first "//" if present (UNC path) */
 	 if (wcd_is_slash(*ip) && wcd_is_slash(*(ip + 1)))
 	 {

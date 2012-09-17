@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2010 Erwin Waterlander
+Copyright (C) 1997-2012 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -19,11 +19,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #ifndef _WCD_H
 #define _WCD_H
 
+#include <stdio.h>
 #include "tailor.h"
 #include "std_macr.h"
 #include "structur.h"
 
-#if defined(__MSDOS__) || defined(__OS2__) || (defined(__WIN32__) && !defined(__CYGWIN__))
+#if defined(__MSDOS__) || defined(__OS2__) || (defined(_WIN32) && !defined(__CYGWIN__))
 /* A DOS like file system:
     *  with drive letters
     *  case insensitive
@@ -51,7 +52,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #      define GO_FILE "/wcd.go"
 #    elif defined(WCD_WINPWRSH)
 #      define GO_FILE "/wcdgo.ps1"
-#    elif defined(__WIN32__)
+#    elif defined(_WIN32)
 #      define GO_FILE "/wcdgo.bat"
 #    elif defined(__OS2__)
 #      define GO_FILE "/wcdgo.cmd"
@@ -78,7 +79,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  endif /* ?__MSDOS__ */
 #endif /* ?VMS */
 
-#if defined(UNIX) || defined(__WIN32__) || defined(WCD_DOSBASH) || defined(__OS2__)
+#if defined(UNIX) || defined(_WIN32) || defined(WCD_DOSBASH) || defined(__OS2__)
 /* A go-script is required */
 #define WCD_SHELL
 #endif
@@ -95,7 +96,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 # define LIST_SEPARATOR ":"
 #endif
 
-#if defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__) || defined(VMS)
+#if defined(__MSDOS__) || defined(_WIN32) || defined(__OS2__) || defined(VMS)
 #  define OP_DIR ""
 #else /* ?unix */
 #  define OP_DIR "."
@@ -103,16 +104,16 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 /* Function prototypes */
 
-#if defined(UNIX) || defined(WCD_DOSBASH) || defined(__WIN32__) || defined(__OS2__)
+#if defined(UNIX) || defined(WCD_DOSBASH) || defined(_WIN32) || defined(__OS2__)
 void quoteString(char *string);
 #endif
 
 
-#if defined(__WIN32__) && !defined(__CYGWIN__) && defined(WCD_UNICODE)
+#if defined(_WIN32) && !defined(__CYGWIN__) && defined(WCD_UNICODE)
 #  define WCD_UTF16
 #  define WCSTOMBS wcstoutf8
 #  define MBSTOWCS utf8towcs
-#elif defined(__WIN32__) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
+#elif defined(_WIN32) && !defined(__CYGWIN__) && !defined(WCD_UTF16)
 #  define WCD_ANSI
 #  define WCSTOMBS wcstoansi
 #  define MBSTOWCS ansitowcs
@@ -129,7 +130,7 @@ typedef unsigned char wcd_uchar;
 typedef char wcd_char;
 #endif
 
-#if defined(__WIN32__) && !defined(__CYGWIN__)
+#if defined(_WIN32) && !defined(__CYGWIN__)
 #  define WCD_WINDOWS
 #endif
 

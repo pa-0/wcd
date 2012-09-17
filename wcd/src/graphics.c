@@ -480,7 +480,7 @@ void addPath(text path, dirnode d)
    dirnode n,n_up;
    text t;
    size_t index;
-#if (defined(__WIN32__) || defined(__CYGWIN__))
+#if (defined(_WIN32) || defined(__CYGWIN__))
    static char buf[DD_MAXPATH] = "//" ;
 
    if ( (path != NULL) &&
@@ -612,7 +612,7 @@ dirnode searchNodeForDir(text path, dirnode d, dirnode rNode)
    dirnode n;
    size_t index;
    dirnode rootnode;
-#if (defined(__WIN32__) || defined(__CYGWIN__))
+#if (defined(_WIN32) || defined(__CYGWIN__))
    static char buf[DD_MAXPATH] = "//" ;
 #endif
 
@@ -625,7 +625,7 @@ dirnode searchNodeForDir(text path, dirnode d, dirnode rNode)
       return searchNodeForDir(path, rootnode, rootnode); /* start on top of tree */
    }
 
-#if (defined(__WIN32__) || defined(__CYGWIN__))
+#if (defined(_WIN32) || defined(__CYGWIN__))
    if ( (path != NULL) &&
         (*path == '/') &&
         (*(path+1) == '/') )

@@ -1,3 +1,6 @@
+5.2.3-beta1 2012-09-17
+  - Wcd compiles with Microsoft Visual C++.
+
 5.2.2 2012-09-01
   - Turn off wildcard globbing for DJGPP (DOS32) and MinGW (Windows).
     This fixes some unexpected behaviour when a wcd argument matches a file

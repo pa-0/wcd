@@ -86,7 +86,7 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 #  endif
 #endif
 
-#if defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
+#if defined(_WIN32) || (defined(__OS2__) && !defined(__EMX__))
 #    define FSTRUCT		struct _finddata_t
 #    define FATTR		_A_HIDDEN+_A_SYSTEM+_A_SUBDIR
 #    ifdef WCD_UTF16
@@ -195,7 +195,7 @@ int setdisk( int drive )
 	d = getdisk();
 	return(d);
 }
-#elif defined(__WIN32__)
+#elif defined(_WIN32)
 
 int getdisk()
 {
@@ -227,7 +227,7 @@ int setdisk( int drive )
 #endif
 
 
-#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
+#if defined(__MSDOS__) || defined(_WIN32) || (defined(__OS2__) && !defined(__EMX__))
 #  if 0
 /* function used if we want to fake stat info instead of failing the file,
  * but I cannot find a case where stat fails after findfirst/findnext succeeds.
@@ -302,7 +302,7 @@ static int dd_initstruct( dd_ffblk* fb )
   return 0;
 }
 
-# if defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
+# if defined(_WIN32) || (defined(__OS2__) && !defined(__EMX__))
 
 int dd_findnext( dd_ffblk* fb )
 {

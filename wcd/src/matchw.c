@@ -211,7 +211,7 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
     wchar_t *string_normalized;
     wchar_t *pattern_normalized;
 
-#  if defined(__WIN32__) || defined(__CYGWIN__)
+#  if defined(_WIN32) || defined(__CYGWIN__)
     /* Normalization. Composition, such that we can ignore diacritics. */
     string_normalized  = u16_normalize (UNINORM_NFKC, string,  wcslen(string) +1, string_buffer,  &lengthp);
     if (string_normalized == NULL)

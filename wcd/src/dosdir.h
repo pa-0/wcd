@@ -31,8 +31,13 @@
 #define _DOSDIR_H
 
 /* Set up portability */
+#include <sys/stat.h>
 #include "tailor.h"
 #include "wcd.h"
+
+#ifdef _MSC_VER
+typedef unsigned int mode_t;
+#endif
 
 #ifdef __MSDOS__
 #  include <dos.h>
@@ -44,7 +49,7 @@
 #  define ALL_FILES_MASK "*.*"
 #  define DIR_PARENT ".."
 #  define DIR_END '\\'
-#elif defined(__WIN32__)
+#elif defined(_WIN32)
 #  ifdef __WATCOMC__
 #    include <dos.h> /* Watcom C does not have _getdrives(). We use the dos functions. */
 #  endif
@@ -105,7 +110,7 @@
  */
 
 #define DD_ISNORMAL(m)   ((m) & S_IFREG)
-#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
+#if defined(__MSDOS__) || defined(_WIN32) || (defined(__OS2__) && !defined(__EMX__))
 #  define DD_ISRDONLY(m) ((m) & DD_RDONLY)
 #  define DD_ISHIDDEN(m) ((m) & DD_HIDDEN)
 #  define DD_ISSYSTEM(m) ((m) & DD_SYSTEM)
@@ -145,7 +150,7 @@
 
 #include <time.h> /* for time_t definition */
 
-#if defined(__GO32__) || defined(__WIN32__) || defined(__OS2__) || defined(__386__)
+#if defined(__GO32__) || defined(_WIN32) || defined(__OS2__) || defined(__386__)
 /* flat memory, _long_ directory names */
 #  define __FLAT__   1
 #endif
@@ -160,7 +165,7 @@
 */
 
 
-#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
+#if defined(__MSDOS__) || defined(_WIN32) || (defined(__OS2__) && !defined(__EMX__))
 #  define DD_MAXDRIVE	3
 #  ifndef __FLAT__
    /* DOS 16 bit */
@@ -177,8 +182,10 @@
 #    define DD_MAXEXT	256
 #  endif /* ?__FLAT__ */
 
-#  ifdef __TURBOC__
+#  if defined(__TURBOC__) || defined(_MSC_VER)
      typedef long    off_t;
+#  endif
+#  ifdef __TURBOC__
      typedef short   mode_t;
 #  endif /* ?__TURBOC__ */
 
@@ -225,10 +232,10 @@ typedef struct {
     /*  Below is private (machine specific) data, which should
      *  only be accessed by dosdir modules.
      */
-#if defined(__MSDOS__) || defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
+#if defined(__MSDOS__) || defined(_WIN32) || (defined(__OS2__) && !defined(__EMX__))
 #  ifdef __TURBOC__
     struct ffblk  dos_fb;
-#  elif defined(__WIN32__) || (defined(__OS2__) && !defined(__EMX__))
+#  elif defined(_WIN32) || (defined(__OS2__) && !defined(__EMX__))
 #   ifdef WCD_UTF16
     struct _wfinddata_t dos_fb;
 #   else

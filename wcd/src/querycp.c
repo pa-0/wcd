@@ -1,10 +1,10 @@
 /* The code in this file is Public Domain */
 
 #if (defined(__WATCOMC__) && defined(__NT__))
-#  define __WIN32__
+#  define _WIN32
 #endif
 #ifdef __MSYS__
-#  define __WIN32__
+#  define _WIN32
 #  undef __CYGWIN__
 #endif
 
@@ -149,7 +149,7 @@ unsigned short query_con_codepage(void) {
 }
 
 
-#elif defined (__WIN32__) && !defined(__CYGWIN__) /* Windows, not Cygwin */
+#elif defined (_WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
 
 /* Erwin Waterlander */
 

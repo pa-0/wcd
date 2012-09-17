@@ -36,17 +36,23 @@ Jason Mathews' file filelist.c was a starting point for this file.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <errno.h>
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
-#ifndef __TURBOC__
+#include <malloc.h>
+#if !defined(__TURBOC__) && !defined(_MSC_VER)
 # include <unistd.h>
 #endif
 #ifdef __TURBOC__
 #define __FLAT__
 #endif
 #include <sys/stat.h>
+#ifdef _MSC_VER
+#define S_ISDIR( m )    (((m) & _S_IFMT) == _S_IFDIR)
+#define S_ISREG( m )    (((m) & _S_IFMT) == _S_IFREG)
+#endif
 #ifdef __DJGPP__
 # include <dir.h>
 #endif
@@ -57,7 +63,7 @@ Jason Mathews' file filelist.c was a starting point for this file.
 #include <locale.h>
 #endif
 
-#if !defined(__MSDOS__) && !defined(__WIN32__) && !defined(__OS2__) && !defined(__MSYS__)  /* Unix, Cygwin */
+#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__) && !defined(__MSYS__)  /* Unix, Cygwin */
 # include <langinfo.h>
 #endif
 
@@ -82,15 +88,15 @@ Jason Mathews' file filelist.c was a starting point for this file.
 #include "graphics.h"
 #include "wcddir.h"
 #include "config.h"
-#if defined(__WIN32__) || defined(WCD_UNICODE)
+#if defined(_WIN32) || defined(WCD_UNICODE)
 #  include <wchar.h>
 #endif
-#if defined (__WIN32__) && !defined(__CYGWIN__)
+#if defined (_WIN32) && !defined(__CYGWIN__)
 #  include <windows.h>
 #endif
 
 #ifdef __CYGWIN__
-#  undef __WIN32__
+#  undef _WIN32
 #endif
 
 /* Global variables */
@@ -433,7 +439,7 @@ void quoteString(char *string)
  * Oct 16 2001
  *
  *************************************************************/
-#if (defined(__WIN32__) && !defined(WCD_WINZSH)) || (defined(__OS2__) && !defined(WCD_OS2BASH))
+#if (defined(_WIN32) && !defined(WCD_WINZSH)) || (defined(__OS2__) && !defined(WCD_OS2BASH))
 void quoteString(char *string)
 {
  size_t i, j;
@@ -1123,7 +1129,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
    wcd_chdir(tmp2,0);          /* go back */
 }
 
-#if (defined(__WIN32__) || defined(__CYGWIN__))
+#if (defined(_WIN32) || defined(__CYGWIN__))
 /***********************************************************************
  * scanServer()
  * scan all the shared directories on a server
@@ -1377,13 +1383,13 @@ int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const in
    return i ;
 }
 
-#if defined(__WIN32__) || defined(WCD_UNICODE)
+#if defined(_WIN32) || defined(WCD_UNICODE)
 /* UTF16 little endian */
 int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, const int* line_nr)
 {
    int i, j ;
    int c_high, c_low;
-#if !defined(__WIN32__) && !defined(__CYGWIN__)
+#if !defined(_WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
 #endif
 
@@ -1392,7 +1398,7 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, cons
       c_high <<=8;
       s[i] = (wchar_t)(c_high + c_low) ;
       if (s[i] == L'\r') i--;
-#if !defined(__WIN32__) && !defined(__CYGWIN__)
+#if !defined(_WIN32) && !defined(__CYGWIN__)
       /* wcstombs() on Unix ignores UTF-16 surrogate pairs. Therefore we have to decode the UTF-16 surrogate pair ourselves.
        * If we don't do it wcstombs() will convert the lead and trail halves individually to surrogate halves in UTF-8,
        * which are invalid in UTF-8. */
@@ -1442,7 +1448,7 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, c
 {
    int i, j;
    int c_high, c_low;
-#if !defined(__WIN32__) && !defined(__CYGWIN__)
+#if !defined(_WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
 #endif
 
@@ -1451,7 +1457,7 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, c
       c_high <<=8;
       s[i] = (wchar_t)(c_high + c_low) ;
       if (s[i] == L'\r') i--;
-#if !defined(__WIN32__) && !defined(__CYGWIN__)
+#if !defined(_WIN32) && !defined(__CYGWIN__)
       /* wcstombs() on Unix ignores UTF-16 surrogate pairs. Therefore we have to decode the UTF-16 surrogate pair ourselves.
        * If we don't do it wcstombs() will convert the lead and trail halves individually to surrogate halves in UTF-8,
        * which are invalid in UTF-8. */
@@ -1520,7 +1526,7 @@ void read_treefileA(FILE *f, nameset bd, const char* file_name)
        }
     } /* while (!feof(f) ) */
 }
-#if defined(__WIN32__) || defined(WCD_UNICODE)
+#if defined(_WIN32) || defined(WCD_UNICODE)
 void read_treefileUTF16LE(FILE *f, nameset bd, const char* file_name)
 {
     int len, line_nr=1;
@@ -1610,7 +1616,7 @@ int read_treefile(char* filename, nameset bd, int quiet)
          case FILE_MBS:
            read_treefileA(infile, bd, filename);
            break;
-#if defined(__WIN32__) || defined(WCD_UNICODE)
+#if defined(_WIN32) || defined(WCD_UNICODE)
          case FILE_UTF16LE:
            read_treefileUTF16LE(infile, bd, filename);
            break;
@@ -1716,7 +1722,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 {
    FILE *infile;
    char line[DD_MAXPATH];            /* database path */
-#if defined(__WIN32__) || defined(WCD_UNICODE)
+#if defined(_WIN32) || defined(WCD_UNICODE)
    wchar_t linew[DD_MAXPATH];            /* database path */
 #endif
    int  bomtype ;
@@ -1785,7 +1791,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    {
       int len;
 
-#if defined(__WIN32__) || defined(WCD_UNICODE)
+#if defined(_WIN32) || defined(WCD_UNICODE)
       /* read a line */
       switch (bomtype)
       {
@@ -2077,16 +2083,25 @@ void print_version()
 #endif
 #endif
 
-#ifdef __WIN32__
-# ifdef __WIN64__
-   printf(_("Win64 version (MinGW-w64).\n"));
+#ifdef _WIN32
+# ifdef _WIN64
+#   ifdef _MSC_VER
+    printf(_("Win64 version (MSVC %d).\n"),_MSC_VER);
+#   else
+    printf(_("Win64 version (MinGW-w64).\n"));
+#   endif
 # else
 #   if defined(__WATCOMC__) && defined(__NT__)
     printf(_("Win32 version (WATCOMC).\n"));
+#   elif defined(_MSC_VER)
+    printf(_("Win32 version (MSVC %d).\n"),_MSC_VER);
 #   else
     printf(_("Win32 version (MinGW).\n"));
 #   endif
 # endif
+#endif
+
+#ifdef _WIN32
 # ifdef WCD_WINZSH
    printf(_("This version is for MSYS and WinZsh.\n"));
 # elif defined(WCD_WINPWRSH)
@@ -2218,7 +2233,7 @@ void create_dir_for_file(char *f)
  *
  ********************************************************************/
 
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)
 void empty_wcdgo(char *go_file, int use_GoScript)
 {
    FILE *outfile;
@@ -2313,7 +2328,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 #ifdef WCD_UNIXSHELL
    char *ptr ;
 #endif
-#if defined (__WIN32__) && !defined(__CYGWIN__)
+#if defined (_WIN32) && !defined(__CYGWIN__)
    unsigned int codepage_ansi, codepage_dos;
 
    codepage_ansi = GetACP();
@@ -2492,7 +2507,7 @@ int main(int argc,char** argv)
    int ignore_diacritics = 0;
 #ifdef _WCD_DOSFS
    int ignore_case = 1;
-# if (defined(__WIN32__) || defined(WCD_DOSBASH) || defined(__OS2__))
+# if (defined(_WIN32) || defined(WCD_DOSBASH) || defined(__OS2__))
    char go_file[DD_MAXPATH];
    int use_GoScript = 1;
 # endif
@@ -2577,7 +2592,7 @@ int main(int argc,char** argv)
       strcat(treefile,TREEFILE);
       strcpy(extratreefile,rootdir);
       strcat(extratreefile,EXTRA_TREEFILE);
-# if (defined(__WIN32__) || defined(WCD_DOSBASH) || defined(__OS2__))
+# if (defined(_WIN32) || defined(WCD_DOSBASH) || defined(__OS2__))
       strcpy(go_file,rootdir);
       strcat(go_file,GO_FILE);
 # endif
@@ -2601,7 +2616,7 @@ int main(int argc,char** argv)
      fprintf(stderr, "%s", _("Wcd: error: Environment variable HOME or WCDHOME is not set.\n"));
       return(1);
 # endif
-# if (defined(__WIN32__) || defined(WCD_DOSBASH) || defined(__OS2__))
+# if (defined(_WIN32) || defined(WCD_DOSBASH) || defined(__OS2__))
       strcpy(go_file,STACK_GO_DRIVE);
       strcat(go_file,GO_FILE);
 # endif
@@ -2767,7 +2782,7 @@ int main(int argc,char** argv)
                j = 0;
                while (j<getSizeOfNamesetArray(scan_dirs))
                {
-#if (defined(__WIN32__) || defined(__CYGWIN__))
+#if (defined(_WIN32) || defined(__CYGWIN__))
                   if (wcd_isServerPath(elementAtNamesetArray(j,scan_dirs)))
                   {
                      scanServer(elementAtNamesetArray(j,scan_dirs),treefile,j,&use_HOME,exclude);
@@ -2822,7 +2837,7 @@ int main(int argc,char** argv)
             print_version();
 #endif
 
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)       /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)       /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
@@ -2873,7 +2888,7 @@ You should have received a copy of the GNU General Public License\n\
 along with this program; if not, write to the Free Software\n\
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"));
 
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)       /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)       /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
@@ -2942,7 +2957,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 #else
                print_version();
 #endif
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)     /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
                empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
@@ -2953,7 +2968,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                verbose = 1;
             } else {
                print_help();
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)     /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
                empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
@@ -2965,7 +2980,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
          default:               /* any switch except the above */
             print_help();
 
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)     /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
@@ -3051,7 +3066,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             }
             else
             {
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)     /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
                empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
@@ -3080,7 +3095,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                   fclose(outfile);
                }
             }
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)     /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
@@ -3200,7 +3215,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 #else
                strncpy(scandir,argv[i],sizeof(scandir));
 #endif
-#if (defined(__WIN32__) || defined(__CYGWIN__))
+#if (defined(_WIN32) || defined(__CYGWIN__))
                if (wcd_isServerPath(scandir))
                {
                   scanServer(scandir,treefile,0,&use_HOME,exclude);
@@ -3236,7 +3251,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 #else
                strncpy(scandir,argv[i],sizeof(scandir));
 #endif
-#if (defined(__WIN32__) || defined(__CYGWIN__))
+#if (defined(_WIN32) || defined(__CYGWIN__))
                if (wcd_isServerPath(scandir))
                {
                   scanServer(scandir,treefile,1,&use_HOME,exclude);
@@ -3253,7 +3268,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 #else
                strncpy(scandir,argv[i],sizeof(scandir));
 #endif
-#if (defined(__WIN32__) || defined(__CYGWIN__))
+#if (defined(_WIN32) || defined(__CYGWIN__))
                if (wcd_isServerPath(scandir))
                {
                   scanServer(scandir,extratreefile,1,&use_HOME,exclude);
@@ -3387,7 +3402,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
          if ( use_stdout & WCD_STDOUT_DUMP ) /* just dump the match and exit */
          {
             wcd_printf("%s\n", dir);
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)    /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
@@ -3480,7 +3495,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
    {
    /* No directory given. Don't go HOME. Exit and stay in current dir,
       because we only wanted to scan the disk or make or remove a directory */
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)    /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
       empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
@@ -3565,7 +3580,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             addToNamesetArray(textNew(ptr),perfect_list);
          else
          {
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)    /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
@@ -3599,7 +3614,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
    {
       if ( !(use_stdout & WCD_STDOUT_DUMP) ) /* don't print message if option -od is used */
          wcd_printf(_("Wcd: No directory found matching %s\nWcd: Perhaps you need to rescan the disk or path is banned.\n"),dir);
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)    /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
       empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
@@ -3645,7 +3660,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
       }
       if (exit_wcd)
       {
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)    /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
          empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
@@ -3696,7 +3711,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
       }
       if (exit_wcd)
       {
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)    /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
          empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
@@ -3717,7 +3732,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
       if ( use_stdout & WCD_STDOUT_DUMP ) /* just dump the match and exit */
       {
          wcd_printf("%s\n", best_match);
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)    /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
          empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
@@ -3765,7 +3780,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
          else
          {
             wcd_printf(_("Wcd: Cannot change to %s\n"),best_match);
-#if defined(UNIX) || defined(__WIN32__) || defined(__OS2__)     /* empty wcd.go file */
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
