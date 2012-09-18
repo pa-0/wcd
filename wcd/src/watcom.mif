@@ -79,6 +79,8 @@ docsubdir   = $(PACKAGE)-$(VERSION)
 !endif
 docdir      = $(datarootdir)\doc\$(docsubdir)
 
+status: .SYMBOLIC
+	@echo CFLAGS = $(CFLAGS)
 
 $(prefix): .EXISTSONLY
 	mkdir $@
@@ -104,8 +106,7 @@ install: $(PROGRAM) $(DOCFILES) $(bindir) $(docdir) .SYMBOLIC
 !ifeq PROGRAM wcdos2.exe
 	copy ..\wcd.cmd $(bindir)
 !endif
-	copy $(SRCDIR)\..\doc\*.txt $(docdir)
-	copy $(SRCDIR)\..\doc\*.$(HTMLEXT) $(docdir)
+	$(MAKE) install-doc
 
 $(SRCDIR)\man\man1\wcd1.pod : $(SRCDIR)\man\man1\wcd1pod.in
 	wcc386 -pc -ddos -dunix $< > $@
@@ -123,8 +124,17 @@ html: $(SRCDIR)\..\doc\wcd.$(HTMLEXT) .SYMBOLIC
 doc : $(DOCFILES) .SYMBOLIC
 
 install-doc: $(docdir) $(DOCFILES) .SYMBOLIC
-	copy $(SRCDIR)\..\doc\*.txt $(docdir)
-	copy $(SRCDIR)\..\doc\*.$(HTMLEXT) $(docdir)
+	copy $(SRCDIR)\..\doc\faq.txt $(docdir)
+	copy $(SRCDIR)\..\doc\whatsnew.txt $(docdir)
+	copy $(SRCDIR)\..\doc\README.txt $(docdir)
+	copy $(SRCDIR)\..\doc\problems.txt $(docdir)
+	copy $(SRCDIR)\..\doc\todo.txt $(docdir)
+	copy $(SRCDIR)\..\doc\INSTALL.txt $(docdir)
+	copy $(SRCDIR)\..\doc\INST_DOS.txt $(docdir)
+	copy $(SRCDIR)\..\doc\translat.txt $(docdir)
+	copy $(SRCDIR)\..\doc\copying.txt $(docdir)
+	copy $(SRCDIR)\..\doc\$(PACKAGE).txt $(docdir)
+	copy $(SRCDIR)\..\doc\$(PACKAGE).$(HTMLEXT) $(docdir)
 
 uninstall: .SYMBOLIC
 	-del $(bindir)\$(PROGRAM)
@@ -182,6 +192,7 @@ mostlyclean: .SYMBOLIC
 	-del *.sym
 	-del *.exe
 	-del *.tmp
+	-del $(DISTCMD)
 
 clean: mostlyclean .SYMBOLIC
 	-del $(DOCFILES)
