@@ -168,9 +168,7 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
 
 FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype)
 {
-  struct stat buf;
   FILE *f;
-  char *errstr;
   int bom[3];
   /* BOMs
    * UTF16-LE  ff fe

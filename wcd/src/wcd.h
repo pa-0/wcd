@@ -20,6 +20,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #define _WCD_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "tailor.h"
 #include "std_macr.h"
 #include "structur.h"
