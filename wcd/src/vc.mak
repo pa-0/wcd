@@ -1,11 +1,11 @@
 # Common parts of the Microsoft Visual C++ makefiles.
 
-#!ifdef ASCII_TREE
-#CFLAGS += -dASCII_TREE
-#!endif
-#!ifeq UCS 1
-#CFLAGS += -dWCD_UNICODE -za99
-#!endif
+!if $(ASCII_TREE)
+CFLAGS = $(CFLAGS) /DASCII_TREE
+!endif
+!if $(UCS)
+CFLAGS = $(CFLAGS) /DWCD_UNICODE
+!endif
 
 stack.obj :  $(SRCDIR)\stack.c
 	$(CC) -c $(CFLAGS) $(SRCDIR)\stack.c
@@ -74,36 +74,33 @@ exec_prefix = $(prefix)
 bindir      = $(exec_prefix)\bin
 datarootdir = $(prefix)\share
 datadir     = $(datarootdir)
-!ifndef docsubdir
+!if not defined docsubdir
 docsubdir   = $(PACKAGE)-$(VERSION)
 !endif
 docdir      = $(datarootdir)\doc\$(docsubdir)
 
 
-$(prefix): .EXISTSONLY
-	mkdir $@
+$(prefix):
+	if not exist $@ mkdir $@
 
-$(bindir): $(prefix) .EXISTSONLY
-	mkdir $@
+$(bindir): $(prefix)
+	if not exist $@ mkdir $@
 
-$(datarootdir): $(prefix) .EXISTSONLY
-	mkdir $@
+$(datarootdir): $(prefix)
+	if not exist $@ mkdir $@
 
-$(datarootdir)\doc: $(datarootdir) .EXISTSONLY
-	mkdir $@
+$(datarootdir)\doc: $(datarootdir)
+	if not exist $@ mkdir $@
 
-$(docdir): $(datarootdir)\doc .EXISTSONLY
-	mkdir $@
+$(docdir): $(datarootdir)\doc
+	if not exist $@ mkdir $@
 
 install: $(PROGRAM) $(DOCFILES) $(bindir) $(docdir)
 	copy $(PROGRAM) $(bindir)
-#!ifeq PROGRAM wcdwin32.exe
-#	copy ..\wcd.bat $(bindir)
-#	copy ..\wcd_win95.bat $(bindir)
-#!endif
-#!ifeq PROGRAM wcdos2.exe
-#	copy ..\wcd.cmd $(bindir)
-#!endif
+!if $(PROGRAM) == wcdwin32.exe
+	copy ..\wcd.bat $(bindir)
+	copy ..\wcd_win95.bat $(bindir)
+!endif
 	copy $(SRCDIR)\..\doc\*.txt $(docdir)
 	copy $(SRCDIR)\..\doc\*.$(HTMLEXT) $(docdir)
 
@@ -128,49 +125,35 @@ install-doc: $(docdir) $(DOCFILES)
 
 uninstall:
 	-del $(bindir)\$(PROGRAM)
-#!ifeq PROGRAM wcdwin32.exe
-#	-del $(bindir)\wcd.bat
-#	-del $(bindir)\wcd_win95.bat
-#!endif
-#!ifeq PROGRAM wcdos2.exe
-#	-del $(bindir)\wcd.cmd
-#!endif
+!if $(PROGRAM) == wcdwin32.exe
+	-del $(bindir)\wcd.bat
+	-del $(bindir)\wcd_win95.bat
+!endif
 	-rmdir /s /q $(docdir)
 
-!ifndef VERSIONSUFFIX
+!if not defined VERSIONSUFFIX
 VERSIONSUFFIX	= -bin
 !endif
 
-!ifndef ZIPFILE
+!if not defined ZIPFILE
 ZIPFILE = $(PACKAGE)$(VERSION)$(VERSIONSUFFIX).zip
 !endif
-!ifndef ZIPFILEDIR
+!if not defined ZIPFILEDIR
 ZIPFILEDIR = ..\..\..
 !endif
 ZIPOBJ = bin\$(PROGRAM) share\doc\$(docsubdir) $(ZIPOBJ_EXTRA)
 
-#CURDISK = $+ $(%cdrive): $-
-#CURDIR = $+ $(%cwd) $-
+CURDIR = [cd]
 
-!ifdef __OS2__
-DISTCMD = dist.cmd
-!else
 DISTCMD = dist.bat
-!endif
 
 dist :
-	@%create $(DISTCMD)
-	@%append $(DISTCMD) set PREFIX=$(prefix)
-	@%append $(DISTCMD) set PREFIXDISK=%PREFIX:~0,2%
-	@%append $(DISTCMD) %PREFIXDISK%
-	@%append $(DISTCMD) cd $(prefix)
-	@%append $(DISTCMD) unix2dos -k share\doc\$(docsubdir)\*.txt
-	@%append $(DISTCMD) unix2dos -k share\doc\$(docsubdir)\*.$(HTMLEXT)
-	@%append $(DISTCMD) zip -r $(ZIPFILE) $(ZIPOBJ)
-	@%append $(DISTCMD) $(CURDISK)
-	@%append $(DISTCMD) cd $(CURDIR)
-	@%append $(DISTCMD) move $(prefix)\$(ZIPFILE) $(ZIPFILEDIR)
-	.\$(DISTCMD)
+	cd /d $(prefix)
+	unix2dos -k share\doc\$(docsubdir)\*.txt
+	unix2dos -k share\doc\$(docsubdir)\*.$(HTMLEXT)
+	zip -r $(ZIPFILE) $(ZIPOBJ)
+	cd /d $(CURDIR)
+	move $(prefix)\$(ZIPFILE) $(ZIPFILEDIR)
 
 mostlyclean:
 	-del *~
