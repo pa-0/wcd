@@ -108,7 +108,7 @@ install: $(PROGRAM) $(DOCFILES) $(bindir) $(docdir)
 	$(MAKE) install-doc
 
 $(SRCDIR)\man\man1\wcd1.pod : $(SRCDIR)\man\man1\wcd1pod.in
-	wcc386 -pc -ddos -dunix $** > $@
+	cl /EP /C /Ddos /Dunix $** > $@
 
 $(SRCDIR)\..\doc\wcd.txt : $(SRCDIR)\man\man1\wcd1.pod
 	pod2text $** > $@
