@@ -24,7 +24,7 @@ OBJS  = $(OBJS) dirnode.obj colors.obj graphics.obj
 LIBS  = $(LIBS) user32.lib advapi32.lib $(CURSES).lib
 !endif
 
-!if "UCS" == "1"
+!if "$(UCS)" == "1"
 OBJS  = $(OBJS) matchw.obj
 LIBS  = $(LIBS) shell32.lib
 VERSIONSUFFIX = -win32-ucs

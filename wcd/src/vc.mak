@@ -105,6 +105,9 @@ install: $(PROGRAM) $(DOCFILES) $(bindir) $(docdir)
 	copy ..\wcd.bat $(bindir)
 	copy ..\wcd_win95.bat $(bindir)
 !endif
+!if "$(PROGRAM)" == "wcdwin64.exe"
+	copy ..\wcd.bat $(bindir)
+!endif
 	$(MAKE) install-doc
 
 $(SRCDIR)\man\man1\wcd1.pod : $(SRCDIR)\man\man1\wcd1pod.in
@@ -141,6 +144,9 @@ uninstall:
 	-del $(bindir)\wcd.bat
 	-del $(bindir)\wcd_win95.bat
 !endif
+!if "$(PROGRAM)" == "wcdwin64.exe"
+	-del $(bindir)\wcd.bat
+!endif
 	-rmdir /s /q $(docdir)
 
 !ifndef VERSIONSUFFIX
@@ -171,6 +177,7 @@ mostlyclean:
 	-del *.bak
 	-del *.obj
 	-del *.exe
+	-del *.tmp
 	-del $(DISTCMD)
 
 clean: mostlyclean
