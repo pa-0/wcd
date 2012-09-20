@@ -1,5 +1,7 @@
-5.2.3-beta1 2012-09-17
+5.2.3-beta1 2012-09-20
   - Wcd compiles with Microsoft Visual C++.
+  - Fix. PowerShell version created files named "null".
+  - Stdio mode on Windows prints Unicode characters correctly.
 
 5.2.2 2012-09-01
   - Turn off wildcard globbing for DJGPP (DOS32) and MinGW (Windows).

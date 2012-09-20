@@ -1480,7 +1480,7 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
       else
       {
          for (ii=0;ii<list->size;ii++)
-            printf("%lu  %s\n",(unsigned long)(ii+1),list->array[ii]);
+            wcd_printf("%lu  %s\n",(unsigned long)(ii+1),list->array[ii]);
       }
 
       if ( use_stdout & WCD_STDOUT_DUMP )
@@ -1525,7 +1525,7 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
                   printf("%2d ",k);
                k++;
 
-               printf("%s",ws->dir[j]);
+               wcd_printf("%s",ws->dir[j]);
                if (j == ws->current)
                   printf(" *");
                printf("\n");

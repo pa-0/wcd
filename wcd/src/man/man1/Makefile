@@ -52,7 +52,7 @@ $(MANPAGE): $(MANPOD)
 		--name="$(PACKAGE)" \
 		--section="$(MANSECT)" \
 		$(MANPOD) \
-	| sed 's,[Pp]erl v[0-9.]\+,$(PACKAGE),' \
+	| perl -p -e 's/[Pp]erl v[0-9.]+/$(PACKAGE)/;' \
 	  > $(MANPAGE) && \
 	rm -f pod*.tmp
 

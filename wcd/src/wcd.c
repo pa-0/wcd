@@ -2174,9 +2174,9 @@ void print_version()
 #endif
    {
       printf(_("  Euro symbol: "));
-      wcd_printf ("%s\n","\u20AC");
+      wcd_printf ("%s\n","€");
       printf(_("  Chinese characters: "));
-      wcd_printf ("%s\n","\u4e2d\u6587");
+      wcd_printf ("%s\n","中文");
    }
 #else
    printf(_("Without Unicode support.\n"));
@@ -2369,10 +2369,10 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
    fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #    endif
    if (codepage_ansi != codepage_dos)
-      fprintf(outfile,"chcp %d > null\n", codepage_ansi);
+      fprintf(outfile,"chcp %d | Out-Null\n", codepage_ansi);
    fprintf(outfile,"set-location %s\n", best_match);
    if (codepage_ansi != codepage_dos)
-      fprintf(outfile,"chcp %d > null\n", codepage_dos);
+      fprintf(outfile,"chcp %d | Out-Null\n", codepage_dos);
 #  else
    /* Windows Command Prompt, os/2 */
    fprintf(outfile, "%s", "@echo off\n");
