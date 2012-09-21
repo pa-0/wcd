@@ -1,10 +1,10 @@
 Summary: chdir for DOS and Unix
 Name: wcd
 Version: 5.2.2
-Release: 1
+Release: 1%{?dist}
 License: GPL
 Group: Applications/File
-Source: wcd-5.2.2-src.tar.gz
+Source: http://waterlan.home.xs4all.nl/%{name}-%{version}-src.tar.gz
 URL: http://waterlan.home.xs4all.nl/
 Packager: Erwin Waterlander <waterlan@xs4all.nl>
 BuildRequires: gettext
@@ -26,22 +26,26 @@ includes a full-screen interactive  directory tree browser
 with speed search.
 
 %prep
-%setup
+%setup -q
 
 %build
-make -C src prefix=/usr UCS=1 UNINORM=1
+make -C src %{?_smp_mflags} prefix=%{_prefix} UCS=1 UNINORM=1
 
 %install
-make -C src install DESTDIR=${RPM_BUILD_ROOT} prefix=/usr
-make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=/usr
+make -C src install DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix}
+make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix}
 
-%post
+%find_lang %{name}
 
-%files
-/usr/bin/wcd.exe
-/usr/share/man/man1/wcd.*
-/usr/share/locale/*/LC_MESSAGES/wcd.mo
+%files -f %{name}.lang
+%{_bindir}/wcd.exe
+%{_mandir}/man1/wcd.*
 /etc/profile.d/wcd.*
 
 %doc doc/README.txt doc/wcd.txt doc/wcd.htm doc/INSTALL.txt doc/UNIX.txt doc/RPM.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translat.txt
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%changelog
 
