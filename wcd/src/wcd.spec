@@ -48,4 +48,6 @@ make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix}
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Sun Sep 23 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2
+- Initial version for Fedora.
 
