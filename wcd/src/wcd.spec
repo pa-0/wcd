@@ -1,15 +1,13 @@
-Summary: chdir for DOS and Unix
+Summary: Chdir for DOS and Unix
 Name: wcd
 Version: 5.2.2
-Release: 1%{?dist}
-License: GPL
+Release: 4%{?dist}
+License: GPLv2 
 Group: Applications/File
 Source: http://waterlan.home.xs4all.nl/%{name}-%{version}-src.tar.gz
 URL: http://waterlan.home.xs4all.nl/
-Packager: Erwin Waterlander <waterlan@xs4all.nl>
 BuildRequires: gettext
 BuildRequires: perl
-BuildRequires: sed
 BuildRequires: ncurses-devel
 BuildRequires: libunistring-devel
 
@@ -39,15 +37,27 @@ make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix}
 
 %files -f %{name}.lang
 %{_bindir}/wcd.exe
-%{_mandir}/man1/wcd.*
-/etc/profile.d/wcd.*
+%config /etc/profile.d/wcd.*
 
 %doc doc/README.txt doc/wcd.txt doc/wcd.htm doc/INSTALL.txt doc/UNIX.txt doc/RPM.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translat.txt
+%{_mandir}/man1/wcd.*
 
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %changelog
-* Sun Sep 23 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2
+* Mon Sep 24 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2-4
+- Summary starts with capital letter C.
+- Config files marked with %config.
+- Removed %clean section (needed only if supporting EPEL5).
+- Moved man-pages under %doc.
+
+* Sun Sep 23 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2-3
+- Increment release version.
+
+* Sun Sep 23 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2-2
+- Removed tag Packager.
+- Removed Buildrequires sed.
+- Changed License tag from GPL to GPLv2
+
+* Sun Sep 23 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2-1
 - Initial version for Fedora.
 
