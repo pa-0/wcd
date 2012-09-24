@@ -46,9 +46,9 @@ make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix}
 %changelog
 * Mon Sep 24 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2-4
 - Summary starts with capital letter C.
-- Config files marked with %config.
-- Removed %clean section (needed only if supporting EPEL5).
-- Moved man-pages under %doc.
+- Config files marked with config.
+- Removed clean section (needed only if supporting EPEL5).
+- Moved man-pages under doc.
 
 * Sun Sep 23 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2-3
 - Increment release version.
