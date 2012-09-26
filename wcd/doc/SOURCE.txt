@@ -3,7 +3,8 @@
 
     1.1 Compiler support
 
-        In general the supported compilers are GCC and Open Watcom.
+        In general the supported compilers are GCC, Open Watcom, and Visual
+        C++.
 
         DOS 16 bit
 
@@ -48,6 +49,9 @@
             because lcc-make was not good. For instance it can't include
             sub-makefiles (version.mk). I tried gnu-make with LCC but that did
             not work well.
+
+            MS Visual C++ (VC) support was added in version 5.2.3. VC is the
+            most used compiler on Windows.
 
         OS/2
 

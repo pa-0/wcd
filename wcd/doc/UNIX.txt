@@ -24,9 +24,6 @@ PREREQUISITES
         package wcd-<version>-doc.tar.gz with the generated documentation files and unpack
         it over the source package.
 
-        As a last resort there are some simple GNU and native Unix Makefiles included
-        which allow you to build a minimal version of Wcd. See below.
-
 
 BASIC INSTALLATION
 
