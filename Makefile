@@ -47,7 +47,13 @@ tag:
 
 
 # Branch name (example).
-BRANCH=wcd-unorm
+BRANCH=compact_tree
+
+branch:
+	svn copy https://wcd.svn.sourceforge.net/svnroot/wcd/trunk \
+	         https://wcd.svn.sourceforge.net/svnroot/wcd/branches/${BRANCH} \
+	    -m "Creating branch ${BRANCH} from trunk."
+
 
 release_from_branch:
 	rm -rf ${RELEASE_DIR}
