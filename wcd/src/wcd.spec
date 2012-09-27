@@ -1,7 +1,7 @@
 Summary: Chdir for DOS and Unix
 Name: wcd
 Version: 5.2.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 License: GPLv2 
 Group: Applications/File
 Source: http://waterlan.home.xs4all.nl/%{name}-%{version}-src.tar.gz
@@ -37,13 +37,23 @@ make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix}
 
 %files -f %{name}.lang
 %{_bindir}/wcd.exe
+# Overwrite the old config files. Old config files may break a new
+# installation when the name of the binary changes.
 %config /etc/profile.d/wcd.*
 
 %doc doc/README.txt doc/wcd.txt doc/wcd.htm doc/INSTALL.txt doc/UNIX.txt doc/RPM.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translat.txt
 %{_mandir}/man1/wcd.*
+# The name of the manual page is 'wcd', equal to the name of the package and
+# defined alias (csh) and function (sh) in the config files, and not equal to
+# the name of the binary. The name of the binary may vary and is in fact not
+# important.
 
 
 %changelog
+* Thu Sep 27 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2-5
+- Added comment to explain why configs are overwritten and the name
+  of the manual is not equal to the name of the binary.
+
 * Mon Sep 24 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2-4
 - Summary starts with capital letter C.
 - Config files marked with config.
