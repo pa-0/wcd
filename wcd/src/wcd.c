@@ -1927,7 +1927,7 @@ void scanaliasfile(char *org_dir, char *filename,
          /* read a line */
          len = wcd_getline(line+1,DD_MAXPATH,infile,filename,&line_nr);
          ++len;
-	 ++line_nr;
+         ++line_nr;
 
          if (len > 0 )
          /* Only a perfect match counts, case sensitive */
@@ -2047,6 +2047,7 @@ directory:  Name of directory to change to.\n\
   +S PATH        Scan disk from PATH, create relative treefile\n\
   -t             Don't strip /tmp_mnt from paths\n\
   -T             Draw tree with ASCII characters\n\
+  -Tc            Compact tree\n\
   -u USER        use USER's treefile\n\
   +u USER        add USER's treefile\n\
   -v, --verbose  Verbose operation\n\
@@ -2942,7 +2943,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             break;
 #endif
          case 'T':
-               graphics |= WCD_GRAPH_ASCII ;
+               if (argv[i][2] == 'c') /* dump matches to stdout */
+                  graphics |= WCD_GRAPH_COMPACT ;
+               else
+                  graphics |= WCD_GRAPH_ASCII ;
             break;
 #ifdef _WCD_DOSFS
          case 'd':
@@ -3562,13 +3566,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             }
 
             buildTreeFromNameset(dirs, rootNode);
-            setXYTree(rootNode);
+            setXYTree(rootNode, &graphics);
          }
 
          freeNameset(dirs, 1);
          if (graphics & WCD_GRAPH_DUMP)
          {
-            dumpTree(rootNode);
+            dumpTree(rootNode, &graphics);
             ptr = NULL;
          }
          else
@@ -3627,10 +3631,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
       {
          rootNode = createRootNode();
          buildTreeFromNameset(perfect_list, rootNode);
-         setXYTree(rootNode);
+         setXYTree(rootNode, &graphics);
          if (graphics & WCD_GRAPH_DUMP)
          {
-            dumpTree(rootNode);
+            dumpTree(rootNode, &graphics);
             ptr = NULL;
          }
          else
@@ -3678,10 +3682,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
       {
          rootNode = createRootNode();
          buildTreeFromNameset(wild_list, rootNode);
-         setXYTree(rootNode);
+         setXYTree(rootNode, &graphics);
          if (graphics & WCD_GRAPH_DUMP)
          {
-            dumpTree(rootNode);
+            dumpTree(rootNode, &graphics);
             ptr = NULL;
          }
          else
