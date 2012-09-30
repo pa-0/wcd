@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 18:19+0200\n"
+"POT-Creation-Date: 2012-09-30 22:10+0100\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -85,8 +85,8 @@ msgstr "wcd: Die SYBOLISCHE Verknüpfung %s wurde entfernt.\n"
 #, c-format
 msgid "Wcd: error: Unable to remove symbolic link %s: %s\n"
 msgstr ""
-"wcd: Fehler: Das Löschen der symbolischen Verknüpfung %s wurde verweigert: "
-"%s\n"
+"wcd: Fehler: Das Löschen der symbolischen Verknüpfung %s wurde verweigert: %"
+"s\n"
 
 #: wcd.c:1240
 #, c-format
@@ -159,7 +159,7 @@ msgstr ""
 "\n"
 
 #: wcd.c:2007
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "options:\n"
 "  -a             Add current path to treefile\n"
@@ -204,6 +204,7 @@ msgid ""
 "  +S PATH        Scan disk from PATH, create relative treefile\n"
 "  -t             Don't strip /tmp_mnt from paths\n"
 "  -T             Draw tree with ASCII characters\n"
+"  -Tc            Compact tree\n"
 "  -u USER        use USER's treefile\n"
 "  +u USER        add USER's treefile\n"
 "  -v, --verbose  Verbose operation\n"
@@ -275,12 +276,12 @@ msgstr ""
 "  +[ZAHL]        Verzeinis vom Stapel nehemn (ZAHL mal)\n"
 "  =              Zeige den verzeichnisstapel an\n"
 
-#: wcd.c:2069 wcd.c:2859
+#: wcd.c:2070 wcd.c:2860
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
 
-#: wcd.c:2070
+#: wcd.c:2071
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -289,225 +290,225 @@ msgstr ""
 "Chdir für Dos und Unix.\n"
 "\n"
 
-#: wcd.c:2074
+#: wcd.c:2075
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS 16 bit Version (WATCOMC).\n"
 
-#: wcd.c:2076
+#: wcd.c:2077
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS 16 bit version (TURBOC).\n"
 
-#: wcd.c:2078
+#: wcd.c:2079
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "32 Bit DOS Version (DJGPP).\n"
 
-#: wcd.c:2080
+#: wcd.c:2081
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "32 Bit DOS Version (WATCOMC).\n"
 
-#: wcd.c:2087
+#: wcd.c:2088
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
 msgstr "Win64 Version (MSVC %d).\n"
 
-#: wcd.c:2089
+#: wcd.c:2090
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
 msgstr "Win64 Version (MinGW-w64).\n"
 
-#: wcd.c:2093
+#: wcd.c:2094
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
 msgstr "Win32 Version (WATCOMC).\n"
 
-#: wcd.c:2095
+#: wcd.c:2096
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
 msgstr "Win32 Version (MSVC %d).\n"
 
-#: wcd.c:2097
+#: wcd.c:2098
 #, c-format
 msgid "Win32 version (MinGW).\n"
 msgstr "Win32 Version (MinGW).\n"
 
-#: wcd.c:2104
+#: wcd.c:2105
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr "Dies ist die Version für MSYS und WinZSH.\n"
 
-#: wcd.c:2106
+#: wcd.c:2107
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr "Dies ist die Version für die Windows PowerShell.\n"
 
-#: wcd.c:2108
+#: wcd.c:2109
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
 msgstr "Diese Version ist für die Windows Eingabeaufforderung (cmd.exe).\n"
 
-#: wcd.c:2113
+#: wcd.c:2114
 #, c-format
 msgid "OS/2 version"
 msgstr "OS/2 Version"
 
-#: wcd.c:2124
+#: wcd.c:2125
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr "Diese Version ist für MSYS.\n"
 
-#: wcd.c:2127
+#: wcd.c:2128
 #, c-format
 msgid "Cygwin version.\n"
 msgstr "Cygwin Version.\n"
 
-#: wcd.c:2130
+#: wcd.c:2131
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Dies ist die Version für die DJGPP DOS Bash.\n"
 
-#: wcd.c:2133
+#: wcd.c:2134
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Diese Version ist für die OS/2 Bash.\n"
 
-#: wcd.c:2136
+#: wcd.c:2137
 #, c-format
 msgid "Interface: "
 msgstr "Schnittstelle: "
 
-#: wcd.c:2138
+#: wcd.c:2139
 #, c-format
 msgid "conio\n"
 msgstr "conio\n"
 
-#: wcd.c:2142
+#: wcd.c:2143
 #, c-format
 msgid "ncurses version %s\n"
 msgstr "ncurses Version %s\n"
 
-#: wcd.c:2145
+#: wcd.c:2146
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr "PDCurses version %d\n"
 
-#: wcd.c:2147
+#: wcd.c:2148
 #, c-format
 msgid "curses\n"
 msgstr "curses\n"
 
-#: wcd.c:2156
+#: wcd.c:2157
 #, c-format
 msgid "stdout\n"
 msgstr "stdout\n"
 
-#: wcd.c:2160
+#: wcd.c:2161
 #, c-format
 msgid "Native language support included.\n"
 msgstr "Landessprachen werden unterstützt.\n"
 
-#: wcd.c:2161
+#: wcd.c:2162
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr "LOCALEDIR=%s\n"
 
-#: wcd.c:2163
+#: wcd.c:2164
 #, c-format
 msgid "No native language support included.\n"
 msgstr "Landessprachen werden nicht unterstützt.\n"
 
-#: wcd.c:2166
+#: wcd.c:2167
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
 msgstr "Aktuelle locale verwendet CP%u Encoding.\n"
 
-#: wcd.c:2168
+#: wcd.c:2169
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr "Aktuelle locale verwendet %s Encoding.\n"
 
-#: wcd.c:2171
+#: wcd.c:2172
 #, c-format
 msgid "With Unicode support.\n"
 msgstr "Mit Unterstützung für Unicode.\n"
 
-#: wcd.c:2176
+#: wcd.c:2177
 #, c-format
 msgid "  Euro symbol: "
 msgstr "  Euro-Symbol: "
 
-#: wcd.c:2178
+#: wcd.c:2179
 #, c-format
 msgid "  Chinese characters: "
 msgstr "  Chinesische Schriftzeichen: "
 
-#: wcd.c:2182
+#: wcd.c:2183
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr "Ohne Unterstützung für Unicode.\n"
 
-#: wcd.c:2185
+#: wcd.c:2186
 #, c-format
 msgid "With Unicode normalization.\n"
 msgstr "Mit Unicode-Normalisierung.\n"
 
-#: wcd.c:2187
+#: wcd.c:2188
 #, c-format
 msgid "Without Unicode normalization.\n"
 msgstr "Ohne Unicode-Normalisierung.\n"
 
-#: wcd.c:2190
+#: wcd.c:2191
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr ""
 "Die neuesten Programme und Quellen können heruntergeladen werden von:\n"
 
-#: wcd.c:2191
+#: wcd.c:2192
 #, c-format
 msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr "http://waterlan.home.xs4all.nl/\n"
 
-#: wcd.c:2223
+#: wcd.c:2224
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "wcd: Verzeichnis %s wird erzeugt\n"
 
-#: wcd.c:2541
+#: wcd.c:2542
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDLOCALEDIR ist zu lang.\n"
 
-#: wcd.c:2567
+#: wcd.c:2568
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr "wcd: Fehler: Der Inhalt der Umgebungsvariable HOME ist zu lang.\n"
 
-#: wcd.c:2582 wcd.c:2650
+#: wcd.c:2583 wcd.c:2651
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariablen HOME oder WCDHOME ist zu "
 "lang.\n"
 
-#: wcd.c:2614 wcd.c:2643
+#: wcd.c:2615 wcd.c:2644
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 "wcd: Fehler: Die Umgebungsvariablen HOME oder WCDHOOME sind nicht gesetzt.\n"
 
-#: wcd.c:2719 wcd.c:3159 wcd.c:3178
+#: wcd.c:2720 wcd.c:3163 wcd.c:3182
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDUSERHOME ist zu lang.\n"
 
-#: wcd.c:2855
+#: wcd.c:2856
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "wcd: Grafikmodus wird nur von wcd mit Curses basierter Oberfläche\n"
 "     unterstützt.\n"
 
-#: wcd.c:2860
+#: wcd.c:2861
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -571,38 +572,38 @@ msgstr ""
 "Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,\n"
 "MA 02110-1301 USA.\n"
 
-#: wcd.c:3092
+#: wcd.c:3096
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "wcd: %s wurde zur Aliasdatei %s hinzugefügt\n"
 
-#: wcd.c:3191
+#: wcd.c:3195
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr ""
 "wcd: Fehler: Weder die Datei %s noch die Datei %s konnten gelesen werden\n"
 
-#: wcd.c:3341
+#: wcd.c:3345
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "wcd: WCDSCAN Verzeichnis {%s}\n"
 
-#: wcd.c:3343
+#: wcd.c:3347
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "wcd: {%s} wird verbannt\n"
 
-#: wcd.c:3345
+#: wcd.c:3349
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "wcd: {%s} wird ausgeschlossen\n"
 
-#: wcd.c:3347
+#: wcd.c:3351
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "wcd\" {%s} wird gefiltert\n"
 
-#: wcd.c:3614
+#: wcd.c:3618
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -612,7 +613,7 @@ msgstr ""
 "wcd: Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist "
 "verbannt.\n"
 
-#: wcd.c:3780
+#: wcd.c:3784
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "wcd: Zu %s kann nicht gewechselt werden\n"
@@ -667,8 +668,8 @@ msgstr "wcd: Fehler: Das Verzeicnis %s konnte nicht angelegt werden: %s\n"
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr ""
-"wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden: "
-"%s\n"
+"wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden: %"
+"s\n"
 
 #: wcddir.c:690
 #, c-format
@@ -759,11 +760,11 @@ msgstr "Strg-c oder <Esc>  Abbruch."
 msgid "<Enter>           Abort."
 msgstr "<Eingabe>          Abbruch."
 
-#: display.c:1162 graphics.c:1655 graphics.c:1678 graphics.c:1695
+#: display.c:1162 graphics.c:1733 graphics.c:1756 graphics.c:1773
 msgid "Press any key."
 msgstr "Eine beliebige Taste drücken."
 
-#: display.c:1225 graphics.c:1943
+#: display.c:1225 graphics.c:2021
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
@@ -774,7 +775,7 @@ msgstr ""
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "wcd: Fehler: die Bildschirmhöhe muss mehr als 3 Zeilen sein.\n"
 
-#: display.c:1280 graphics.c:1976
+#: display.c:1280 graphics.c:2054
 msgid "Wcd: error creating scroll window.\n"
 msgstr "wcd: Fehler beim Erzeugen des rollbaren Fensters.\n"
 
@@ -814,224 +815,230 @@ msgstr ""
 "\n"
 "Bitte wählen Sie einen (<Eingabe> für Abbruch): "
 
-#: graphics.c:224
+#: graphics.c:276
 #, c-format
 msgid "Wcd: error: line too long in function getTreeLine()"
 msgstr "wcd: Fehler: Die Zeile ist zu lang in der Funktion getTreeLine()"
 
-#: graphics.c:1608
+#: graphics.c:1685
 msgid "/ = search forward,  ? = search backward,  : = help"
 msgstr "/ = vorwärts suchen,  ? = rückwärts suchen,  : = Hilfe"
 
-#: graphics.c:1613
+#: graphics.c:1690
 msgid "SEARCH: "
 msgstr "SUCHE: "
 
-#: graphics.c:1616
+#: graphics.c:1693
 msgid "Search: "
 msgstr "Suche: "
 
-#: graphics.c:1632
+#: graphics.c:1709
 msgid "NAVIGATE MODE:"
 msgstr "NAVIGATIONSMODUS:"
 
-#: graphics.c:1633
+#: graphics.c:1710
 msgid "h or <Left>       go left."
 msgstr "h oder <Links>         nach links gehen."
 
-#: graphics.c:1634
+#: graphics.c:1711
 msgid "j or <Down>       go down."
 msgstr "j oder <Runter>\"       nach unten gehen."
 
-#: graphics.c:1635
+#: graphics.c:1712
 msgid "k or <Up>         go up."
 msgstr "k oder <Hoch>          nach oben gehen."
 
-#: graphics.c:1636
+#: graphics.c:1713
 msgid "l or <Right>      go right."
 msgstr "l oder <Rechts>        nach rechts gehen."
 
-#: graphics.c:1637
+#: graphics.c:1714
 msgid "* or v or <Space> go forward to dir with same name."
 msgstr "*q oder v oder <Leer>  vorwärts zu Verzeichnis mit gleichem Namen."
 
-#: graphics.c:1638
+#: graphics.c:1715
 msgid "# or p or <BS>    go backward to dir with same name."
 msgstr "# oder p oder <Rück>   rückwärts zu Verzeichnis mit gleichem Namen."
 
-#: graphics.c:1639
+#: graphics.c:1716
 msgid "^ or a            go to beginning of line."
 msgstr "^ oder a               gehe an den Anfang der Zeile."
 
-#: graphics.c:1640
+#: graphics.c:1717
 msgid "$ or e            go to end of line."
 msgstr "$ oder e               gehe ans Ende der Zeile."
 
-#: graphics.c:1641
+#: graphics.c:1718
 msgid "1                 go to root dir."
 msgstr "1                  zum Wurzelverzeichnis gehen"
 
-#: graphics.c:1642
+#: graphics.c:1719
 msgid "g or G            go to last dir."
 msgstr "g oder G           zum letzten Verzeichnis gehen."
 
-#: graphics.c:1643
+#: graphics.c:1720
 msgid "f                 go page forward."
 msgstr "f                  eine Seite vorwärts."
 
-#: graphics.c:1644
+#: graphics.c:1721
 msgid "b                 go page backward."
 msgstr "b                  eine Seite zurück."
 
-#: graphics.c:1645
+#: graphics.c:1722
 msgid "u                 go half page up."
 msgstr "u                  eine halbe Seite nach oben."
 
-#: graphics.c:1646
+#: graphics.c:1723
 msgid "d                 go half page down."
 msgstr "d                  eine halbe Seite nach unten."
 
-#: graphics.c:1647
+#: graphics.c:1724
 msgid "t                 switch centered mode on/off."
 msgstr "t                  Zentrieren ein- bzw. ausschalten."
 
-#: graphics.c:1648
+#: graphics.c:1725
 msgid "T                 toggle between line drawing and ASCII characters."
 msgstr ""
 "T                  Wechseln zwischen Sonderzeichen und ASCII für das Zeichnen"
 
-#: graphics.c:1649
+#: graphics.c:1726
+#, fuzzy
+msgid "m                 toggle between compact and wide tree."
+msgstr ""
+"T                  Wechseln zwischen Sonderzeichen und ASCII für das Zeichnen"
+
+#: graphics.c:1727
 msgid "<Esc> or q        Abort."
 msgstr "<Esc> oder q       Abbruch."
 
-#: graphics.c:1650
+#: graphics.c:1728
 msgid "/                 Search forward."
 msgstr "/                  vorwärts suchen."
 
-#: graphics.c:1651
+#: graphics.c:1729
 msgid "?                 Search backward."
 msgstr "?                  rúckwärts suchen."
 
-#: graphics.c:1652
+#: graphics.c:1730
 msgid "n                 Repeat latest / or ? search."
 msgstr "n                  letzte / oder ? Suche wiederholen."
 
-#: graphics.c:1653 graphics.c:1677
+#: graphics.c:1731 graphics.c:1755
 msgid "<Enter>           Select directory."
 msgstr "<Eingabe>          Verzeichnis auswählen."
 
-#: graphics.c:1661
+#: graphics.c:1739
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "SUCHMODUS mit Unterstützung für Platzhalte- und Unterverzeichnisse."
 
-#: graphics.c:1662
+#: graphics.c:1740
 msgid "<Left>            go left."
 msgstr "<Links>            nach links gehen."
 
-#: graphics.c:1663
+#: graphics.c:1741
 msgid "<Down>            go down."
 msgstr "<Runter>           nach Unten."
 
-#: graphics.c:1664
+#: graphics.c:1742
 msgid "<Up>              go up."
 msgstr "<Hoch>             nach oben gehen."
 
-#: graphics.c:1665
+#: graphics.c:1743
 msgid "<Right>           go right."
 msgstr "<Rechts>           nach rechts gehen."
 
-#: graphics.c:1666
+#: graphics.c:1744
 msgid "CTRL-v            go forward to dir with same name."
 msgstr "Strg-v             vorwärts gehen zu Verzeichnis mit gleichem Namen."
 
-#: graphics.c:1667
+#: graphics.c:1745
 msgid "CTRL-p            go backward to dir with same name."
 msgstr "Strg-p             rückwärts gehen zu Verzeichnis mit gleichem Namen."
 
-#: graphics.c:1668
+#: graphics.c:1746
 msgid "CTRL-a            go to beginning of line."
 msgstr "Strg-a             An den Anfang der Zeile springen."
 
-#: graphics.c:1669
+#: graphics.c:1747
 msgid "CTRL-e            go to end of line."
 msgstr "Strg-e             an das Ende der Zeile springen."
 
-#: graphics.c:1670
+#: graphics.c:1748
 msgid "CTRL-g            go to last dir."
 msgstr "Strg-g             zum letzten Verzeichnis gehen."
 
-#: graphics.c:1671
+#: graphics.c:1749
 msgid "CTRL-f            go page forward."
 msgstr "Strg-f             eine Seite vorwärts."
 
-#: graphics.c:1672
+#: graphics.c:1750
 msgid "CTRL-b            go page backward."
 msgstr "Strg-b             eine Seite zurück."
 
-#: graphics.c:1673
+#: graphics.c:1751
 msgid "CTRL-u            go half page up."
 msgstr "Strg-u             eine halbe Seite nach oben"
 
-#: graphics.c:1674
+#: graphics.c:1752
 msgid "CTRL-d            go half page down."
 msgstr "Strg-d             eine halbe Seite nach unten"
 
-#: graphics.c:1675
+#: graphics.c:1753
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
 msgstr "<Esc> oder Strg-x  SUCHMODUS abbrechen."
 
-#: graphics.c:1676
+#: graphics.c:1754
 msgid "CTRL-n            Repeat latest / or ? search."
 msgstr "Strg-n             Letzte / oder ? Suche wiederholen."
 
-#: graphics.c:1684
+#: graphics.c:1762
 msgid "ZOOMING:"
 msgstr "VERGRÖSSERN:"
 
-#: graphics.c:1685
+#: graphics.c:1763
 msgid "z or i or CTRL-i  zoom in."
 msgstr "z oder i oder Strg-i  hineinzoomen."
 
-#: graphics.c:1686
+#: graphics.c:1764
 msgid "Z or o or CTRL-o  zoom out."
 msgstr "Z oder o oder Strg-o  rauszoomen."
 
-#: graphics.c:1687
+#: graphics.c:1765
 msgid "c                 condense: fold current level."
 msgstr "c                     verkürzen:: aktuelle Ebene falten."
 
-#: graphics.c:1688
+#: graphics.c:1766
 msgid "C                 condense: fold subdir level."
 msgstr "C                     verkürzen: Unterverzeichnisebene falten."
 
-#: graphics.c:1689
+#: graphics.c:1767
 msgid "w                 condense: fold current and sub levels."
 msgstr ""
 "w                     verkürzen: aktuelle Ebene mit Unterebenen falten."
 
-#: graphics.c:1690
+#: graphics.c:1768
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
 msgstr ""
 "y oder Strg-y         dekomprimieren: aktuelle Ebene samt Unterebenen "
 "auffalten."
 
-#: graphics.c:1691
+#: graphics.c:1769
 msgid "r or CTRL-r       uncondense: unfold all directories."
 msgstr "r oder Strg-r         dekomprimieren: alle Ebenen ausfalten."
 
-#: graphics.c:1692
+#: graphics.c:1770
 msgid "-                 fold directory."
 msgstr "-                     Verzeichnis einfalten."
 
-#: graphics.c:1693
+#: graphics.c:1771
 msgid "+ or =            unfold directory."
 msgstr "+ oder =              Verzeinis auffalten."
 
-#: graphics.c:1694
+#: graphics.c:1772
 msgid "l or <Right>      unfold and go right."
 msgstr "l oder <Rechts>       auffalten und nach rechts gehen."
 
-#: graphics.c:1698
+#: graphics.c:1776
 msgid "Screenheight must be > 21 for help"
 msgstr "Bildschirmhöhe muss für die Hilfe > 21 sein."
 

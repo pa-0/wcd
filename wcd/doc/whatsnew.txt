@@ -1,4 +1,10 @@
-5.2.3-beta1 2012-09-20
+5.2.3-beta2 2012-09-30
+  - New compact tree mode. By default the 'graphical' tree is drawn the same
+    way as the original NCD did it. On DOS a directory path could only be 66
+    characters in total. With the deep directory structures of today the tree
+    can become very wide. To overcome this wcd can draw the tree in a compact
+    way, similar to most GUI file managers, with only one folder per line.
+    Use the new option -Tc or switch on-the-fly with the 'm' key.
   - Wcd compiles with Microsoft Visual C++.
   - Fix. PowerShell version created files named "null".
   - Stdio mode on Windows prints Unicode characters correctly.

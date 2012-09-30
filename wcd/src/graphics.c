@@ -90,6 +90,9 @@ static const char WCD_SUBDIR[] =   "  |-" ;
 static const char WCD_MOREDIR[] =  "  |  " ;
 static const char WCD_ENDDIR[] =   "  `-" ;
 static const char WCD_OVERDIR[] =  "     " ;
+static const char WCD_COMPACT_SUBDIR[] =   " |--" ;
+static const char WCD_COMPACT_MOREDIR[] =  " |  " ;
+static const char WCD_COMPACT_ENDDIR[] =   " `--" ;
 #else
 static const char WCD_ONESUBDIR[] = { WCD_ACS_HL, WCD_ACS_HL, WCD_ACS_HL, 0} ;
 static const char WCD_SPLITDIR[] =  { WCD_ACS_HL, WCD_ACS_TT, WCD_ACS_HL, 0} ;
@@ -97,6 +100,9 @@ static const char WCD_SUBDIR[] =    { 32, 32, WCD_ACS_LT, WCD_ACS_HL, 0} ;
 static const char WCD_MOREDIR[] =   { 32, 32, WCD_ACS_VL, 32, 32, 0} ;
 static const char WCD_ENDDIR[] =    { 32, 32, WCD_ACS_LLC, WCD_ACS_HL, 0} ;
 static const char WCD_OVERDIR[] =  "     " ;
+static const char WCD_COMPACT_SUBDIR[] =    { 32, WCD_ACS_LT, WCD_ACS_HL, WCD_ACS_HL, 0} ;
+static const char WCD_COMPACT_MOREDIR[] =   { 32, WCD_ACS_VL, 32, 32, 0} ;
+static const char WCD_COMPACT_ENDDIR[] =    { 32, WCD_ACS_LLC, WCD_ACS_HL, WCD_ACS_HL, 0} ;
 #endif
 
 #define WCD_GRAPH_MAX_LINE_LENGTH  DD_MAXPATH * 2
@@ -187,10 +193,40 @@ c3po_bool dirHasSubdirs(dirnode d)
 }
 
 
+char* getCompactTreeLine(dirnode d, int y, int *y_orig, char *line, char *tline)
+{
+   dirnode n;
+
+   if (dirnodeHasParent(d) eq false)
+      return(line);
+
+   if (y == *y_orig)
+   {
+      if (dirnodeGetDown(d) == NULL)
+         strcpy(tline,WCD_COMPACT_ENDDIR);
+      else
+         strcpy(tline,WCD_COMPACT_SUBDIR);
+      if (d->fold eq true)
+         tline[strlen(tline)-1] = '+';
+
+   }
+   else
+   {
+      if (dirnodeGetDown(d) == NULL)
+         strcpy(tline,"    ");
+      else
+         strcpy(tline,WCD_COMPACT_MOREDIR);
+   }
+   strcat(tline,line);
+   strcpy(line,tline);
+
+   n = dirnodeGetParent(d);
+   return(getCompactTreeLine(n,dirnodeGetY(n),y_orig, line, tline));
+}
 
 /* this function is called by other functions only on directories that are last
  * on a line */
-char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold)
+char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold, const int *graphics_mode)
 {
    static text line = NULL;
    static text tline = NULL;
@@ -214,6 +250,22 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
       tline[0] = '\0';
    }
 
+   if (*graphics_mode & WCD_GRAPH_COMPACT) /* compact tree */
+   {
+      strcpy(tline," ");
+      if (d == curNode)
+         tline[strlen (tline) - 1] = WCD_SEL_ON;
+
+      strcat(tline,dirnodeGetName(d));
+
+      strcat(tline," ");
+      if (d == curNode)
+         tline[strlen (tline) - 1] = WCD_SEL_OFF;
+
+      strcpy(line,tline);
+      getCompactTreeLine(d,dirnodeGetY(d),y_orig, line, tline);
+      return line;
+   }
    /* buffer overflow prevention:
     *
     * The max length of `line' and `tline' is the length of `line' increased
@@ -343,7 +395,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
    if (dirnodeHasParent(d) eq true)
    {
       n = dirnodeGetParent(d);
-      return(getTreeLine(n,dirnodeGetY(d),y_orig,curNode,d->fold));
+      return(getTreeLine(n,dirnodeGetY(d),y_orig,curNode,d->fold, graphics_mode));
    }
 
    if (*y_orig != 0)
@@ -356,7 +408,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
    return line;
 }
 
-void dumpTree(dirnode d)
+void dumpTree(dirnode d, const int *graphics_mode)
 {
    size_t index, size;
    dirnode n;
@@ -372,14 +424,14 @@ void dumpTree(dirnode d)
          while(index < size)
          {
             n = elementAtDirnode(index,d);
-            dumpTree(n);
+            dumpTree(n, graphics_mode);
             index++;
          }
    }
    else
    {
       y = dirnodeGetY(d);
-      l = getTreeLine(d,y,&y,NULL,false);
+      l = getTreeLine(d,y,&y,NULL,false, graphics_mode);
       while ( *l != '\0')
          {
             switch(*l)
@@ -421,7 +473,7 @@ void dumpTree(dirnode d)
  * in the tree
  */
 
-void setXYTree(dirnode d)
+void setXYTree(dirnode d, const int *graphics_mode)
 {
    size_t index, len, size;
    int x;
@@ -431,22 +483,42 @@ void setXYTree(dirnode d)
 
    if(dirHasSubdirs(d) eq true)
    {
-      len = str_columns(dirnodeGetName(d));
-      y = dirnodeGetY(d);
-      index = 0;
-      size = getSizeOfDirnode(d);
-      while(index < size)
+      if (*graphics_mode & WCD_GRAPH_COMPACT) /* compact tree */
       {
-         n = elementAtDirnode(index,d);
-         x = dirnodeGetX(d) + (int)len + 5;
-         dirnodeSetX(x,n);
-         dirnodeSetY(y,n);
-         setXYTree(n);
-         index++;
-         y = y + 1;
+         len = str_columns(dirnodeGetName(d));
+         y = dirnodeGetY(d);
+         index = 0;
+         size = getSizeOfDirnode(d);
+         while(index < size)
+         {
+            y = y + 1;
+            n = elementAtDirnode(index,d);
+            x = dirnodeGetX(d) + 4;
+            dirnodeSetX(x,n);
+            dirnodeSetY(y,n);
+            setXYTree(n, graphics_mode);
+            index++;
+         }
       }
-      /* y is 1 too large */
-      y = y - 1;
+      else
+      {
+         len = str_columns(dirnodeGetName(d));
+         y = dirnodeGetY(d);
+         index = 0;
+         size = getSizeOfDirnode(d);
+         while(index < size)
+         {
+            n = elementAtDirnode(index,d);
+            x = dirnodeGetX(d) + (int)len + 5;
+            dirnodeSetX(x,n);
+            dirnodeSetY(y,n);
+            setXYTree(n, graphics_mode);
+            index++;
+            y = y + 1;
+         }
+         /* y is 1 too large */
+         y = y - 1;
+      }
    }
 }
 
@@ -815,11 +887,16 @@ dirnode getFirstNodeInLevel(dirnode node, int level)
 }
 
 /******************************************************/
+/* get last node (most right side) on a line */
 
 dirnode getLastNodeInSameLevel(dirnode node)
 {
    if (node == NULL)
       return(NULL);
+
+   /* In compact mode there is only one node per line */
+   if (wcd_cwin.graphics_mode & WCD_GRAPH_COMPACT)
+      return(node);
 
    if (dirHasSubdirs(node) eq false)
       return(node);
@@ -1237,7 +1314,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
    int width, c;
 #endif
 
-   s = (wcd_uchar *)getTreeLine(getLastNodeInLevel(n,i),i,&i,curNode,false);
+   s = (wcd_uchar *)getTreeLine(getLastNodeInLevel(n,i),i,&i,curNode,false, &wcd_cwin.graphics_mode);
 
    if (s != NULL)
    {
@@ -1627,7 +1704,7 @@ void dataRefresh(int ydiff, int init)
 void showHelp(WINDOW *win, int height)
 {
    wclear(win);
-   if (height > 21)
+   if (height > 22)
    {
       wcd_mvwaddstr(win, 0,0,_("NAVIGATE MODE:"));
       wcd_mvwaddstr(win, 1,0,_("h or <Left>       go left."));
@@ -1646,12 +1723,13 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win,14,0,_("d                 go half page down."));
       wcd_mvwaddstr(win,15,0,_("t                 switch centered mode on/off."));
       wcd_mvwaddstr(win,16,0,_("T                 toggle between line drawing and ASCII characters."));
-      wcd_mvwaddstr(win,17,0,_("<Esc> or q        Abort."));
-      wcd_mvwaddstr(win,18,0,_("/                 Search forward."));
-      wcd_mvwaddstr(win,19,0,_("?                 Search backward."));
-      wcd_mvwaddstr(win,20,0,_("n                 Repeat latest / or ? search."));
-      wcd_mvwaddstr(win,21,0,_("<Enter>           Select directory."));
-      if (height > 22)
+      wcd_mvwaddstr(win,17,0,_("m                 toggle between compact and wide tree."));
+      wcd_mvwaddstr(win,18,0,_("<Esc> or q        Abort."));
+      wcd_mvwaddstr(win,19,0,_("/                 Search forward."));
+      wcd_mvwaddstr(win,20,0,_("?                 Search backward."));
+      wcd_mvwaddstr(win,21,0,_("n                 Repeat latest / or ? search."));
+      wcd_mvwaddstr(win,22,0,_("<Enter>           Select directory."));
+      if (height > 23)
         wcd_mvwaddstr(win,22,0,_("Press any key."));
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
@@ -1729,7 +1807,7 @@ dirnode pushZoom(dirnode zoomStack, dirnode curNode, int *ymax)
    dirnodeSetX(0,curNode);
    dirnodeSetY(0,curNode);
 
-   setXYTree(curNode);
+   setXYTree(curNode, &wcd_cwin.graphics_mode);
 
    *ymax = dirnodeGetY(getLastDescendant(curNode));
 
@@ -1765,7 +1843,7 @@ dirnode popZoom(dirnode zoomStack, dirnode curNode, int *ymax)
    newtop = endOfRecursionOfDirnodeParent(top);
    dirnodeSetX(0,newtop);
    dirnodeSetY(0,newtop);
-   setXYTree(newtop);
+   setXYTree(newtop, &wcd_cwin.graphics_mode);
 
    *ymax = dirnodeGetY(getLastDescendant(newtop));
 
@@ -1790,7 +1868,7 @@ void setFold(dirnode n, c3po_bool f, int *ymax)
          dirnodeSetFold(f,n);
 
          d = endOfRecursionOfDirnodeParent(n);
-         setXYTree(d);
+         setXYTree(d, &wcd_cwin.graphics_mode);
          *ymax = dirnodeGetY(getLastDescendant(d));
       }
    }
@@ -1838,7 +1916,7 @@ void setFold_sub(dirnode d, c3po_bool f, int *ymax)
       setFold_tree(d,&f);
       d->fold = false;
       top = endOfRecursionOfDirnodeParent(d);
-      setXYTree(top);
+      setXYTree(top, &wcd_cwin.graphics_mode);
       *ymax = dirnodeGetY(getLastDescendant(top));
       return;
    }
@@ -1884,7 +1962,7 @@ void condenseSubdirs(dirnode n, int *ymax)
    }
 
    d = endOfRecursionOfDirnodeParent(n);
-   setXYTree(d);
+   setXYTree(d, &wcd_cwin.graphics_mode);
    *ymax = dirnodeGetY(getLastDescendant(d));
 
    return;
@@ -2144,6 +2222,10 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          break;
       case 'T':
                wcd_cwin.graphics_mode ^= WCD_GRAPH_ASCII ;
+         break;
+      case 'm':
+               wcd_cwin.graphics_mode ^= WCD_GRAPH_COMPACT ;
+	       setXYTree(endOfRecursionOfDirnodeParent(wcd_cwin.curNode),&wcd_cwin.graphics_mode);
          break;
      default:
      break;
