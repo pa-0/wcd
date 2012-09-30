@@ -49,7 +49,7 @@ int main () {
   wcs32[0] += (wcs[1] & 0x03FF);
   wcs32[1] = L'\0';
   printf(" %X\n",wcs32[0]);
-  
+
   i = wcstombs(mbs,wcs32,sizeof(mbs));
   printf("i = %d\n",i);
 
