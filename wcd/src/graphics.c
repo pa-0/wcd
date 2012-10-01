@@ -408,28 +408,11 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
    return line;
 }
 
-void dumpTree(dirnode d, const int *graphics_mode)
+void dumpTreeLine(dirnode d, const int *graphics_mode)
 {
-   size_t index, size;
-   dirnode n;
    int y;
    char *l;
 
-
-   index = 0;
-
-   if(isEmptyDirnode(d) eq false)
-   {
-         size = getSizeOfDirnode(d);
-         while(index < size)
-         {
-            n = elementAtDirnode(index,d);
-            dumpTree(n, graphics_mode);
-            index++;
-         }
-   }
-   else
-   {
       y = dirnodeGetY(d);
       l = getTreeLine(d,y,&y,NULL,false, graphics_mode);
       while ( *l != '\0')
@@ -463,6 +446,38 @@ void dumpTree(dirnode d, const int *graphics_mode)
             l++;
          }
       printf("\n");
+}
+void dumpTree(dirnode d, const int *graphics_mode)
+{
+   size_t index, size;
+   dirnode n;
+
+
+   index = 0;
+   if (*graphics_mode & WCD_GRAPH_COMPACT)
+   {
+         dumpTreeLine(d, graphics_mode);
+         size = getSizeOfDirnode(d);
+         while(index < size)
+         {
+            n = elementAtDirnode(index,d);
+            dumpTree(n, graphics_mode);
+            index++;
+         }
+   }
+   else if (isEmptyDirnode(d) eq false)
+   {
+         size = getSizeOfDirnode(d);
+         while(index < size)
+         {
+            n = elementAtDirnode(index,d);
+            dumpTree(n, graphics_mode);
+            index++;
+         }
+   }
+   else
+   {
+         dumpTreeLine(d, graphics_mode);
    }
 
 
@@ -1704,9 +1719,9 @@ void dataRefresh(int ydiff, int init)
 void showHelp(WINDOW *win, int height)
 {
    wclear(win);
-   if (height > 22)
+   if (height > 21)
    {
-      wcd_mvwaddstr(win, 0,0,_("NAVIGATE MODE:"));
+      wcd_mvwaddstr(win, 0,0,_("NAVIGATE MODE (1/2):"));
       wcd_mvwaddstr(win, 1,0,_("h or <Left>       go left."));
       wcd_mvwaddstr(win, 2,0,_("j or <Down>       go down."));
       wcd_mvwaddstr(win, 3,0,_("k or <Up>         go up."));
@@ -1721,16 +1736,22 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win,12,0,_("b                 go page backward."));
       wcd_mvwaddstr(win,13,0,_("u                 go half page up."));
       wcd_mvwaddstr(win,14,0,_("d                 go half page down."));
-      wcd_mvwaddstr(win,15,0,_("t                 switch centered mode on/off."));
-      wcd_mvwaddstr(win,16,0,_("T                 toggle between line drawing and ASCII characters."));
-      wcd_mvwaddstr(win,17,0,_("m                 toggle between compact and wide tree."));
-      wcd_mvwaddstr(win,18,0,_("<Esc> or q        Abort."));
-      wcd_mvwaddstr(win,19,0,_("/                 Search forward."));
-      wcd_mvwaddstr(win,20,0,_("?                 Search backward."));
-      wcd_mvwaddstr(win,21,0,_("n                 Repeat latest / or ? search."));
-      wcd_mvwaddstr(win,22,0,_("<Enter>           Select directory."));
-      if (height > 23)
-        wcd_mvwaddstr(win,22,0,_("Press any key."));
+      wcd_mvwaddstr(win,16,0,_("Press any key."));
+
+      prefresh(win,0,0,0,0,height-1,COLS-1);
+      getch();
+      wclear(win);
+
+      wcd_mvwaddstr(win, 0,0,_("NAVIGATE MODE (2/2):"));
+      wcd_mvwaddstr(win, 1,0,_("t                 switch centered mode on/off."));
+      wcd_mvwaddstr(win, 2,0,_("T                 toggle between line drawing and ASCII characters."));
+      wcd_mvwaddstr(win, 3,0,_("m                 toggle between compact and wide tree."));
+      wcd_mvwaddstr(win, 4,0,_("<Esc> or q        Abort."));
+      wcd_mvwaddstr(win, 5,0,_("/                 Search forward."));
+      wcd_mvwaddstr(win, 6,0,_("?                 Search backward."));
+      wcd_mvwaddstr(win, 7,0,_("n                 Repeat latest / or ? search."));
+      wcd_mvwaddstr(win, 8,0,_("<Enter>           Select directory."));
+      wcd_mvwaddstr(win,10,0,_("Press any key."));
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
