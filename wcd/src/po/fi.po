@@ -858,11 +858,11 @@ msgstr "t                        Keskitetty moodi päälle/pois."
 
 #: graphics.c:1747
 msgid "T                 toggle between line drawing and ASCII characters."
-msgstr "T                 kytke viivanpiirto ASCII kirjaimin päälle/pois."
+msgstr "T                        kytke viivanpiirto ASCII kirjaimin päälle/pois."
 
 #: graphics.c:1748
 msgid "m                 toggle between compact and wide tree."
-msgstr "m                 Vaihda kompaktin ja tavallisen esitystavan välillä."
+msgstr "m                        Vaihda kompaktin ja tavallisen esitystavan välillä."
 
 #: graphics.c:1749
 msgid "<Esc> or q        Abort."
