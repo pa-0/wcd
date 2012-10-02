@@ -150,7 +150,7 @@ msgstr ""
 "\n"
 
 #: wcd.c:2007
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "options:\n"
 "  -a             Add current path to treefile\n"
@@ -255,6 +255,7 @@ msgstr ""
 "ositteita (treefile)\n"
 "  -t             Älä poista /tmp_mnt osoitetta polusta\n"
 "  -T             Esitä hakemistopuu ASCII-kirjaimin\n"
+"  -Tc            kompakti esitystapa\n"
 "  -u KÄYTTÄJÄ    Käytä treefile: käyttäjätunnus\n"
 "  +u KÄYTTÄJÄ    Lisää treefile: käyttäjätunnus\n"
 "  -v, --verbose  Verbose moodi, lisää viestien määrää\n"
@@ -860,9 +861,8 @@ msgid "T                 toggle between line drawing and ASCII characters."
 msgstr "T                 kytke viivanpiirto ASCII kirjaimin päälle/pois."
 
 #: graphics.c:1748
-#, fuzzy
 msgid "m                 toggle between compact and wide tree."
-msgstr "T                 kytke viivanpiirto ASCII kirjaimin päälle/pois."
+msgstr "m                 Vaihda kompaktin ja tavallisen esitystavan välillä."
 
 #: graphics.c:1749
 msgid "<Esc> or q        Abort."
