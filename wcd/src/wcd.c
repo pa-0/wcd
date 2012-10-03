@@ -2017,14 +2017,22 @@ directory:  Name of directory to change to.\n\
   -f FILE        use extra treeFile\n\
   +f FILE        add extra treeFile\n\
   -g             Graphics\n\
-  -ga            Graphics, alternative navigation\n\
-  -gc            Graphics, centered\n\
   -gd            Graphics, dump tree\n\
   -G PATH        set PATH Go-script\n\
   -GN            No Go-script\n\
-  -h, --help     show this Help\n\
+  -h, --help     show this Help\n"));
+
+#ifdef _WCD_DOSFS
+  printf(_("\
+  -i             Ignore case (default)\n\
+  +i             Regard case\n"));
+#else
+  printf(_("\
   -i             Ignore case\n\
-  +i             Regard case\n\
+  +i             Regard case (default)\n"));
+#endif
+
+  printf(_("\
   -I             Ignore diacritics\n\
   +I             Regard diacritics (default)\n\
   -j             Just go mode\n\
@@ -2047,6 +2055,8 @@ directory:  Name of directory to change to.\n\
   +S PATH        Scan disk from PATH, create relative treefile\n\
   -t             Don't strip /tmp_mnt from paths\n\
   -T             Draw tree with ASCII characters\n\
+  -Ta            Alternative tree navigation\n\
+  -TC            Centered tree view\n\
   -Tc            Compact tree\n\
   -u USER        use USER's treefile\n\
   +u USER        add USER's treefile\n\
@@ -2848,10 +2858,6 @@ int main(int argc,char** argv)
             graphics |= WCD_GRAPH_NORMAL ;
             if (argv[i][2] == 'd') /* dump tree to stdout */
                graphics |= WCD_GRAPH_DUMP ;
-            if (argv[i][2] == 'a') /* alternative navigation */
-               graphics |= WCD_GRAPH_ALT ;
-            if (argv[i][2] == 'c') /* alternative navigation */
-               graphics |= WCD_GRAPH_CENTER ;
 #else
             fprintf(stderr, "%s", _("Wcd: Graphics mode only supported in wcd with curses based interface.\n"));
 #endif
@@ -2943,8 +2949,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
             break;
 #endif
          case 'T':
-               if (argv[i][2] == 'c') /* dump matches to stdout */
+               if (argv[i][2] == 'c') /* Compact tree */
                   graphics |= WCD_GRAPH_COMPACT ;
+	       else if (argv[i][2] == 'a') /* Alternative navigation */
+                  graphics |= WCD_GRAPH_ALT ;
+	       else if (argv[i][2] == 'C') /* Centered view */
+                  graphics |= WCD_GRAPH_CENTER ;
                else
                   graphics |= WCD_GRAPH_ASCII ;
             break;
