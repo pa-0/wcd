@@ -5,6 +5,10 @@
     can become very wide. To overcome this wcd can draw the tree in a compact
     way, similar to most GUI file managers, with only one folder per line.
     Use the new option -Tc or switch on-the-fly with the 'm' key.
+  - Removed option -ga. Instead add the new option -Ta to your wcd alias,
+    function or batch file if you prefer alternative navigation by default.
+  - Removed option -gc. Instead add the new option -TC to your wcd alias,
+    function or batch file if you prefer centered view by default.
   - Wcd compiles with Microsoft Visual C++.
   - Fix. PowerShell version created files named "null".
   - Stdio mode on Windows prints Unicode characters correctly.
