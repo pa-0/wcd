@@ -281,9 +281,9 @@ msgstr ""
 "  +S PFAD        Platte ab PFAD durchsuchen, relative Baumdatei erzeugen\n"
 "  -t             /tmp_mnt nicht vom Pfadnamen entfernen\n"
 "  -T             Den Baum mit ASCII-Zeichen zeichnen\n"
-"  -Ta            Alternative tree navigation\n"
-"  -TC            Centered tree view\n"
-"  -Tc            Compact tree\n"
+"  -Ta            Alternative Baumnavigation\n"
+"  -TC            Zentrierte Baumansicht\n"
+"  -Tc            Baum kompakter machen\n"
 "  -u BENUTZER    Verwendet Baumdatei von BENUTZER\n"
 "  +u BENUTZER    Fügt die Baumdatei von BENUTZER hinzu\n"
 "  -v, --verbose  WCD wird gesprächig\n"
@@ -927,10 +927,9 @@ msgstr ""
 "T                  Wechseln zwischen Sonderzeichen und ASCII für das Zeichnen"
 
 #: graphics.c:1748
-#, fuzzy
 msgid "m                 toggle between compact and wide tree."
 msgstr ""
-"T                  Wechseln zwischen Sonderzeichen und ASCII für das Zeichnen"
+"m                  zwischen kompaktem und breitem Baum umschalten."
 
 #: graphics.c:1749
 msgid "<Esc> or q        Abort."
