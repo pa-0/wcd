@@ -1,7 +1,7 @@
 Summary: Chdir for DOS and Unix
 Name: wcd
 Version: 5.2.2
-Release: 5%{?dist}
+Release: 6%{?dist}
 License: GPLv2 
 Group: Applications/File
 Source: http://waterlan.home.xs4all.nl/%{name}-%{version}-src.tar.gz
@@ -30,8 +30,8 @@ with speed search.
 make -C src %{?_smp_mflags} prefix=%{_prefix} UCS=1 UNINORM=1
 
 %install
-make -C src install DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix}
-make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix}
+make -C src install DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix} mandir=%{_mandir}
+make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix} mandir=%{_mandir}
 
 %find_lang %{name}
 
@@ -39,7 +39,7 @@ make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix}
 %{_bindir}/wcd.exe
 # Overwrite the old config files. Old config files may break a new
 # installation when the name of the binary changes.
-%config /etc/profile.d/wcd.*
+%config %{_sysconfdir}/profile.d/wcd.*
 
 %doc doc/README.txt doc/wcd.txt doc/wcd.htm doc/INSTALL.txt doc/UNIX.txt doc/RPM.txt doc/copying.txt doc/faq.txt doc/problems.txt doc/whatsnew.txt doc/translat.txt
 %{_mandir}/man1/wcd.*
@@ -50,6 +50,9 @@ make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix}
 
 
 %changelog
+* Tue Oct 09 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2-6
+- Use _sysconfdir for config files.
+
 * Thu Sep 27 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2-5
 - Added comment to explain why configs are overwritten and the name
   of the manual is not equal to the name of the binary.
