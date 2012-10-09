@@ -69,6 +69,7 @@ datadir		= $(datarootdir)
 docsubdir	= $(PACKAGE)-$(VERSION)
 docdir		= $(datarootdir)/doc/$(docsubdir)
 localedir	= $(datarootdir)/locale
+sysconfdir      = /etc
 
 # 1 = regular, 5 = conf, 6 = games, 8 = daemons
 mandir		= $(datarootdir)/man
@@ -539,13 +540,13 @@ realclean: maintainer-clean
 # If DOTWCD=1, the shell scripts define WCDHOME=$HOME/.wcd
 install-profile:
 	@echo "-- target: install-profile"
-	mkdir -p $(DESTDIR)/etc/profile.d
+	mkdir -p $(DESTDIR)$(sysconfdir)/profile.d
 ifdef DOTWCD
-	sed -e "s#BINDIR#$(bindir)#" -e "s/PROGRAM/$(BIN)/" -e 's/##//' etc/profile.d/wcd.sh > $(DESTDIR)/etc/profile.d/wcd.sh
-	sed -e "s#BINDIR#$(bindir)#" -e "s/PROGRAM/$(BIN)/" -e 's/##//' etc/profile.d/wcd.csh > $(DESTDIR)/etc/profile.d/wcd.csh
+	sed -e "s#BINDIR#$(bindir)#" -e "s/PROGRAM/$(BIN)/" -e 's/##//' etc/profile.d/wcd.sh > $(DESTDIR)$(sysconfdir)/profile.d/wcd.sh
+	sed -e "s#BINDIR#$(bindir)#" -e "s/PROGRAM/$(BIN)/" -e 's/##//' etc/profile.d/wcd.csh > $(DESTDIR)$(sysconfdir)/profile.d/wcd.csh
 else
-	sed -e "s#BINDIR#$(bindir)#" -e "s/PROGRAM/$(BIN)/" etc/profile.d/wcd.sh > $(DESTDIR)/etc/profile.d/wcd.sh
-	sed -e "s#BINDIR#$(bindir)#" -e "s/PROGRAM/$(BIN)/" etc/profile.d/wcd.csh > $(DESTDIR)/etc/profile.d/wcd.csh
+	sed -e "s#BINDIR#$(bindir)#" -e "s/PROGRAM/$(BIN)/" etc/profile.d/wcd.sh > $(DESTDIR)$(sysconfdir)/profile.d/wcd.sh
+	sed -e "s#BINDIR#$(bindir)#" -e "s/PROGRAM/$(BIN)/" etc/profile.d/wcd.csh > $(DESTDIR)$(sysconfdir)/profile.d/wcd.csh
 endif
 
 # Old versions of install(1) don't support option -D. Use
