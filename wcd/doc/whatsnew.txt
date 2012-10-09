@@ -1,4 +1,4 @@
-5.2.3-beta2 2012-09-30
+5.2.3-beta3 2012-10-09
   - New compact tree mode. By default the 'graphical' tree is drawn the same
     way as the original NCD did it. On DOS a directory path could only be 66
     characters in total. With the deep directory structures of today the tree
