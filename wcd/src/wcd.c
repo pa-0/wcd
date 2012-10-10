@@ -2005,70 +2005,70 @@ directory:  Name of directory to change to.\n\
             Wildcards *, ? and [SET] are supported.\n\n"),VERSION,VERSION_DATE);
 
   printf(_("options:\n\
-  -a             Add current path to treefile\n\
-  -aa            Add current and all parent paths to treefile\n\
-  -A PATH        Add tree from PATH\n\
-  -b             Ban current path\n\
-  -c             direct CD mode\n\
-  -d DRIVE       set DRIVE for stack & go files (DOS)\n\
-  -e             add current path to Extra treefile\n\
-  -ee            add current and all parent paths to Extra treefile\n\
-  -E PATH        add tree from PATH to Extra treefile\n\
-  -f FILE        use extra treeFile\n\
-  +f FILE        add extra treeFile\n\
-  -g             Graphics\n\
-  -gd            Graphics, dump tree\n\
-  -G PATH        set PATH Go-script\n\
-  -GN            No Go-script\n\
-  -h, --help     show this Help\n"));
+  -a                     Add current path to treefile\n\
+  -aa                    Add current and all parent paths to treefile\n\
+  -A PATH                Add tree from PATH\n\
+  -b                     Ban current path\n\
+  -c,  --direct-cd       direct CD mode\n\
+  -d DRIVE               set DRIVE for stack & go files (DOS)\n\
+  -e                     add current path to Extra treefile\n\
+  -ee                    add current and all parent paths to Extra treefile\n\
+  -E PATH                add tree from PATH to Extra treefile\n\
+  -f FILE                use extra treeFile\n\
+  +f FILE                add extra treeFile\n\
+  -g                     Graphics\n\
+  -gd                    Graphics, dump tree\n\
+  -G PATH                set PATH Go-script\n\
+  -GN, --no-go-script    No Go-script\n\
+  -h,  --help            show this Help\n"));
 
 #ifdef _WCD_DOSFS
   printf(_("\
-  -i             Ignore case (default)\n\
-  +i             Regard case\n"));
+  -i,  --ignore-case     Ignore case (default)\n\
+  +i,  --no-ignore-case  Regard case\n"));
 #else
   printf(_("\
-  -i             Ignore case\n\
-  +i             Regard case (default)\n"));
+  -i,  --ignore-case     Ignore case\n\
+  +i,  --no-ignore-case  Regard case (default)\n"));
 #endif
 
   printf(_("\
-  -I             Ignore diacritics\n\
-  +I             Regard diacritics (default)\n\
-  -j             Just go mode\n\
-  -k             Keep paths\n\
-  -K             Colors\n\
-  -l ALIAS       aLias current directory\n\
-  -L             print software License\n\
-  -m DIR         Make DIR, add to treefile\n\
-  -M DIR         Make DIR, add to extra treefile\n\
-  -n PATH        use relative treefile in PATH\n\
-  +n PATH        add relative treefile in PATH\n\
-  -N             use Numbers\n\
-  -o             use stdOut\n\
-  -od            dump matches\n\
-  -q             Quieter operation\n\
-  -r DIR         Remove DIR\n\
-  -rmtree DIR    Remove DIR recursive\n\
-  -s             Scan disk from $HOME\n\
-  -S PATH        Scan disk from PATH\n\
-  +S PATH        Scan disk from PATH, create relative treefile\n\
-  -t             Don't strip /tmp_mnt from paths\n\
-  -T             Draw tree with ASCII characters\n\
-  -Ta            Alternative tree navigation\n\
-  -TC            Centered tree view\n\
-  -Tc            Compact tree\n\
-  -u USER        use USER's treefile\n\
-  +u USER        add USER's treefile\n\
-  -v, --verbose  Verbose operation\n\
-  -V, --version  print Version info\n\
-  -w             Wild matching only\n\
-  -x PATH        eXclude PATH during disk scan\n\
-  -xf FILE       eXclude paths from FILE\n\
-  -z NUMBER      set max stack siZe\n\
-  -[NUMBER]      Push dir (NUMBER times)\n\
-  +[NUMBER]      Pop dir (NUMBER times)\n\
-  =              Show stack\n"));
+  -I,  --ignore-diacritics     Ignore diacritics\n\
+  +I,  --no-ignore-diacritics  Regard diacritics (default)\n\
+  -j,  --just-go         Just go mode\n\
+  -k                     Keep paths\n\
+  -K,  --color           Colors\n\
+  -l ALIAS               aLias current directory\n\
+  -L                     print software License\n\
+  -m DIR                 Make DIR, add to treefile\n\
+  -M DIR                 Make DIR, add to extra treefile\n\
+  -n PATH                use relative treefile in PATH\n\
+  +n PATH                add relative treefile in PATH\n\
+  -N                     use Numbers\n\
+  -o                     use stdOut\n\
+  -od, --to-stdout       dump matches\n\
+  -q,  --quiet           Quieter operation\n\
+  -r DIR                 Remove DIR\n\
+  -rmtree DIR            Remove DIR recursive\n\
+  -s                     Scan disk from $HOME\n\
+  -S PATH                Scan disk from PATH\n\
+  +S PATH                Scan disk from PATH, create relative treefile\n\
+  -t                     Don't strip /tmp_mnt from paths\n\
+  -T,  --ascii-tree      Draw tree with ASCII characters\n\
+  -Ta, --alt-tree-nav    Alternative tree navigation\n\
+  -TC, --center-tree     Centered tree view\n\
+  -Tc, --compact-tree    Compact tree\n\
+  -u USER                use USER's treefile\n\
+  +u USER                add USER's treefile\n\
+  -v,  --verbose         Verbose operation\n\
+  -V,  --version         print Version info\n\
+  -w                     Wild matching only\n\
+  -x PATH                eXclude PATH during disk scan\n\
+  -xf FILE               eXclude paths from FILE\n\
+  -z NUMBER              set max stack siZe\n\
+  -[NUMBER]              Push dir (NUMBER times)\n\
+  +[NUMBER]              Pop dir (NUMBER times)\n\
+  =                      Show stack\n"));
 }
 
 #ifdef ENABLE_NLS
@@ -2978,6 +2978,18 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
             } else if (strcmp(argv[i]+2,"verbose") == 0) {
                verbose = 1;
+            } else if (strcmp(argv[i]+2,"direct-cd") == 0) {
+               cd = 1;
+            } else if (strcmp(argv[i]+2,"no-go-script") == 0) {
+               use_GoScript = 0;
+            } else if (strcmp(argv[i]+2,"ignore-case") == 0) {
+               ignore_case = 1;
+            } else if (strcmp(argv[i]+2,"no-ignore-case") == 0) {
+               ignore_case = 0;
+            } else if (strcmp(argv[i]+2,"ignore-diacritics") == 0) {
+               ignore_diacritics = 1;
+            } else if (strcmp(argv[i]+2,"no-ignore-diacritics") == 0) {
+               ignore_diacritics = 0;
             } else {
                print_help();
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */

@@ -1,11 +1,11 @@
 # Finnish translations for wcd package.
-# Copyright (C) 2009-2011 Jari Aalto <jari.aalto@cante.net>
+# Copyright (C) 2009-2012 Jari Aalto <jari.aalto@cante.net>
 # This file is distributed under the same license as the wcd package.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.1.5\n"
+"Project-Id-Version: wcd 5.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-03 21:54+0200\n"
+"POT-Creation-Date: 2012-10-10 22:29+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -150,25 +150,25 @@ msgstr ""
 "\n"
 
 #: wcd.c:2007
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "options:\n"
-"  -a             Add current path to treefile\n"
-"  -aa            Add current and all parent paths to treefile\n"
-"  -A PATH        Add tree from PATH\n"
-"  -b             Ban current path\n"
-"  -c             direct CD mode\n"
-"  -d DRIVE       set DRIVE for stack & go files (DOS)\n"
-"  -e             add current path to Extra treefile\n"
-"  -ee            add current and all parent paths to Extra treefile\n"
-"  -E PATH        add tree from PATH to Extra treefile\n"
-"  -f FILE        use extra treeFile\n"
-"  +f FILE        add extra treeFile\n"
-"  -g             Graphics\n"
-"  -gd            Graphics, dump tree\n"
-"  -G PATH        set PATH Go-script\n"
-"  -GN            No Go-script\n"
-"  -h, --help     show this Help\n"
+"  -a                     Add current path to treefile\n"
+"  -aa                    Add current and all parent paths to treefile\n"
+"  -A PATH                Add tree from PATH\n"
+"  -b                     Ban current path\n"
+"  -c,  --direct-cd       direct CD mode\n"
+"  -d DRIVE               set DRIVE for stack & go files (DOS)\n"
+"  -e                     add current path to Extra treefile\n"
+"  -ee                    add current and all parent paths to Extra treefile\n"
+"  -E PATH                add tree from PATH to Extra treefile\n"
+"  -f FILE                use extra treeFile\n"
+"  +f FILE                add extra treeFile\n"
+"  -g                     Graphics\n"
+"  -gd                    Graphics, dump tree\n"
+"  -G PATH                set PATH Go-script\n"
+"  -GN, --no-go-script    No Go-script\n"
+"  -h,  --help            show this Help\n"
 msgstr ""
 "vaihtoehtoja:\n"
 "  -a             Lisää polku tiedostoon treefile\n"
@@ -194,62 +194,62 @@ msgstr ""
 "  -h, --help     Näytä tämä Help\n"
 
 #: wcd.c:2026
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"  -i             Ignore case (default)\n"
-"  +i             Regard case\n"
+"  -i,  --ignore-case     Ignore case (default)\n"
+"  +i,  --no-ignore-case  Regard case\n"
 msgstr ""
 "  -i             Isot ja pienet kirjaimet - eivät merkityksellisiä (oletus)\n"
 "  +i             Isot ja pienet kirjaimet - merkityksellisiä\n"
 
 #: wcd.c:2030
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"  -i             Ignore case\n"
-"  +i             Regard case (default)\n"
+"  -i,  --ignore-case     Ignore case\n"
+"  +i,  --no-ignore-case  Regard case (default)\n"
 msgstr ""
 "  -i             Isot ja pienet kirjaimet - eivät merkityksellisiä\n"
 "  +i             Isot ja pienet kirjaimet - merkityksellisiä (oletus)\n"
 
 #: wcd.c:2035
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"  -I             Ignore diacritics\n"
-"  +I             Regard diacritics (default)\n"
-"  -j             Just go mode\n"
-"  -k             Keep paths\n"
-"  -K             Colors\n"
-"  -l ALIAS       aLias current directory\n"
-"  -L             print software License\n"
-"  -m DIR         Make DIR, add to treefile\n"
-"  -M DIR         Make DIR, add to extra treefile\n"
-"  -n PATH        use relative treefile in PATH\n"
-"  +n PATH        add relative treefile in PATH\n"
-"  -N             use Numbers\n"
-"  -o             use stdOut\n"
-"  -od            dump matches\n"
-"  -q             Quieter operation\n"
-"  -r DIR         Remove DIR\n"
-"  -rmtree DIR    Remove DIR recursive\n"
-"  -s             Scan disk from $HOME\n"
-"  -S PATH        Scan disk from PATH\n"
-"  +S PATH        Scan disk from PATH, create relative treefile\n"
-"  -t             Don't strip /tmp_mnt from paths\n"
-"  -T             Draw tree with ASCII characters\n"
-"  -Ta            Alternative tree navigation\n"
-"  -TC            Centered tree view\n"
-"  -Tc            Compact tree\n"
-"  -u USER        use USER's treefile\n"
-"  +u USER        add USER's treefile\n"
-"  -v, --verbose  Verbose operation\n"
-"  -V, --version  print Version info\n"
-"  -w             Wild matching only\n"
-"  -x PATH        eXclude PATH during disk scan\n"
-"  -xf FILE       eXclude paths from FILE\n"
-"  -z NUMBER      set max stack siZe\n"
-"  -[NUMBER]      Push dir (NUMBER times)\n"
-"  +[NUMBER]      Pop dir (NUMBER times)\n"
-"  =              Show stack\n"
+"  -I,  --ignore-diacritics     Ignore diacritics\n"
+"  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
+"  -j,  --just-go         Just go mode\n"
+"  -k                     Keep paths\n"
+"  -K,  --color           Colors\n"
+"  -l ALIAS               aLias current directory\n"
+"  -L                     print software License\n"
+"  -m DIR                 Make DIR, add to treefile\n"
+"  -M DIR                 Make DIR, add to extra treefile\n"
+"  -n PATH                use relative treefile in PATH\n"
+"  +n PATH                add relative treefile in PATH\n"
+"  -N                     use Numbers\n"
+"  -o                     use stdOut\n"
+"  -od, --to-stdout       dump matches\n"
+"  -q,  --quiet           Quieter operation\n"
+"  -r DIR                 Remove DIR\n"
+"  -rmtree DIR            Remove DIR recursive\n"
+"  -s                     Scan disk from $HOME\n"
+"  -S PATH                Scan disk from PATH\n"
+"  +S PATH                Scan disk from PATH, create relative treefile\n"
+"  -t                     Don't strip /tmp_mnt from paths\n"
+"  -T,  --ascii-tree      Draw tree with ASCII characters\n"
+"  -Ta, --alt-tree-nav    Alternative tree navigation\n"
+"  -TC, --center-tree     Centered tree view\n"
+"  -Tc, --compact-tree    Compact tree\n"
+"  -u USER                use USER's treefile\n"
+"  +u USER                add USER's treefile\n"
+"  -v,  --verbose         Verbose operation\n"
+"  -V,  --version         print Version info\n"
+"  -w                     Wild matching only\n"
+"  -x PATH                eXclude PATH during disk scan\n"
+"  -xf FILE               eXclude paths from FILE\n"
+"  -z NUMBER              set max stack siZe\n"
+"  -[NUMBER]              Push dir (NUMBER times)\n"
+"  +[NUMBER]              Pop dir (NUMBER times)\n"
+"  =                      Show stack\n"
 msgstr ""
 "  -I             Ohita diakrittiset merkit\n"
 "  +I             Ota huomioon diakriittiset merkit (oletus)\n"
@@ -736,12 +736,12 @@ msgstr "CTRL-c tai <Esc>    Keskeytys."
 msgid "<Enter>           Abort."
 msgstr "<Enter>             Keskeytys."
 
-#: display.c:1162 graphics.c:1739 graphics.c:1754 graphics.c:1777
-#: graphics.c:1794
+#: display.c:1162 graphics.c:1739 graphics.c:1755 graphics.c:1778
+#: graphics.c:1795
 msgid "Press any key."
 msgstr "Paina jotakin näppäintä."
 
-#: display.c:1225 graphics.c:2042
+#: display.c:1225 graphics.c:2043
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
@@ -752,7 +752,7 @@ msgstr ""
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "Wcd: virhe: terminaalin korkeus ei ole vähintään 3 riviä.\n"
 
-#: display.c:1280 graphics.c:2075
+#: display.c:1280 graphics.c:2076
 msgid "Wcd: error creating scroll window.\n"
 msgstr "Wcd: virhe: vierityspalkin luonti ei onnistu ikkunaan.\n"
 
@@ -874,148 +874,151 @@ msgid "NAVIGATE MODE (2/2):"
 msgstr "NAVIGOINTIMOODI (2/2):"
 
 #: graphics.c:1746
-msgid "t                 switch centered mode on/off."
+#, fuzzy
+msgid "A                 switch alternative tree navigation on/off."
 msgstr "t                 Keskitetty moodi päälle/pois."
 
 #: graphics.c:1747
-msgid "T                 toggle between line drawing and ASCII characters."
-msgstr ""
-"T                 kytke viivanpiirto ASCII kirjaimin päälle/pois."
+msgid "t                 switch centered mode on/off."
+msgstr "t                 Keskitetty moodi päälle/pois."
 
 #: graphics.c:1748
-msgid "m                 toggle between compact and wide tree."
-msgstr ""
-"m                 Vaihda kompaktin ja tavallisen esitystavan välillä."
+msgid "T                 toggle between line drawing and ASCII characters."
+msgstr "T                 kytke viivanpiirto ASCII kirjaimin päälle/pois."
 
 #: graphics.c:1749
+msgid "m                 toggle between compact and wide tree."
+msgstr "m                 Vaihda kompaktin ja tavallisen esitystavan välillä."
+
+#: graphics.c:1750
 msgid "<Esc> or q        Abort."
 msgstr "<Esc> tai q       Keskeytä."
 
-#: graphics.c:1750
+#: graphics.c:1751
 msgid "/                 Search forward."
 msgstr "/                 haku eteenpäin."
 
-#: graphics.c:1751
+#: graphics.c:1752
 msgid "?                 Search backward."
 msgstr "?                 haku taaksepäin."
 
-#: graphics.c:1752
+#: graphics.c:1753
 msgid "n                 Repeat latest / or ? search."
 msgstr "n                 Toista viimeisen / tai ? etsintä."
 
-#: graphics.c:1753 graphics.c:1776
+#: graphics.c:1754 graphics.c:1777
 msgid "<Enter>           Select directory."
 msgstr "<Enter>           valitse hakemisto."
 
-#: graphics.c:1760
+#: graphics.c:1761
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "HAKUMOODI villikorttien ja alihakemistojen tuki:"
 
-#: graphics.c:1761
+#: graphics.c:1762
 msgid "<Left>            go left."
 msgstr "<Vasen>           vasemmalle."
 
-#: graphics.c:1762
+#: graphics.c:1763
 msgid "<Down>            go down."
 msgstr "<Alas>            siirry alas."
 
-#: graphics.c:1763
+#: graphics.c:1764
 msgid "<Up>              go up."
 msgstr "<Ylös>            ylös."
 
-#: graphics.c:1764
+#: graphics.c:1765
 msgid "<Right>           go right."
 msgstr "<Right>           oikealle."
 
-#: graphics.c:1765
+#: graphics.c:1766
 msgid "CTRL-v            go forward to dir with same name."
 msgstr "CTRL-v            Seuraava hakemisto samalla nimellä."
 
-#: graphics.c:1766
+#: graphics.c:1767
 msgid "CTRL-p            go backward to dir with same name."
 msgstr "CTRL-p            edellinen hakemisto samalla nimellä."
 
-#: graphics.c:1767
+#: graphics.c:1768
 msgid "CTRL-a            go to beginning of line."
 msgstr "CTRL-a            rivin alkuun."
 
-#: graphics.c:1768
+#: graphics.c:1769
 msgid "CTRL-e            go to end of line."
 msgstr "CTRL-e            rivin loppuun."
 
-#: graphics.c:1769
+#: graphics.c:1770
 msgid "CTRL-g            go to last dir."
 msgstr "CTRL-g            siirry viimeiseen hakemistoon."
 
-#: graphics.c:1770
+#: graphics.c:1771
 msgid "CTRL-f            go page forward."
 msgstr "CTRL-f            sivu alas."
 
-#: graphics.c:1771
+#: graphics.c:1772
 msgid "CTRL-b            go page backward."
 msgstr "CTRL-b            sivu ylös."
 
-#: graphics.c:1772
+#: graphics.c:1773
 msgid "CTRL-u            go half page up."
 msgstr "CTRL-u            puolisivua ylös."
 
-#: graphics.c:1773
+#: graphics.c:1774
 msgid "CTRL-d            go half page down."
 msgstr "CTRL-d            puolisivua alas."
 
-#: graphics.c:1774
+#: graphics.c:1775
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
 msgstr "<Esc> tai CTRL-x  Keskeytä HAKUMOODI."
 
-#: graphics.c:1775
+#: graphics.c:1776
 msgid "CTRL-n            Repeat latest / or ? search."
 msgstr "CTRL-n            Toista viimeisin / tai ? etsintä."
 
-#: graphics.c:1783
+#: graphics.c:1784
 msgid "ZOOMING:"
 msgstr "ZOOMAUS:"
 
-#: graphics.c:1784
+#: graphics.c:1785
 msgid "z or i or CTRL-i  zoom in."
 msgstr "z tai i tai CTRL-i  zoom sisään."
 
-#: graphics.c:1785
+#: graphics.c:1786
 msgid "Z or o or CTRL-o  zoom out."
 msgstr "Z tai o tai CTRL-o  zoom ulos."
 
-#: graphics.c:1786
+#: graphics.c:1787
 msgid "c                 condense: fold current level."
 msgstr "c                   näkymä: tiivistä nykyinen taso."
 
-#: graphics.c:1787
+#: graphics.c:1788
 msgid "C                 condense: fold subdir level."
 msgstr "C                   näkymä: tiivistä alihakemiston taso."
 
-#: graphics.c:1788
+#: graphics.c:1789
 msgid "w                 condense: fold current and sub levels."
 msgstr "w                   näkymä: tiivistä nykyinen ja kaikki alitasot."
 
-#: graphics.c:1789
+#: graphics.c:1790
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
 msgstr "y tai CTRL-y        näkymä: avaa nykinen ja alitasot."
 
-#: graphics.c:1790
+#: graphics.c:1791
 msgid "r or CTRL-r       uncondense: unfold all directories."
 msgstr "r tai CTRL-r        näkymä: avaa kaikki hakemistot."
 
-#: graphics.c:1791
+#: graphics.c:1792
 msgid "-                 fold directory."
 msgstr "-                   näkymä: tiivistä hakemisto."
 
-#: graphics.c:1792
+#: graphics.c:1793
 msgid "+ or =            unfold directory."
 msgstr "+ tai =             näkymä: avaa hakemisto."
 
-#: graphics.c:1793
+#: graphics.c:1794
 msgid "l or <Right>      unfold and go right."
 msgstr "l tai <Right>       näkymä: avaa ja siirry oikealle."
 
-#: graphics.c:1797
+#: graphics.c:1798
 msgid "Screenheight must be > 21 for help"
 msgstr ""
 "Help-ikkunan avaaminen ei onnistu. Ikkunan korkeuden tulee olla > 21 riviä"

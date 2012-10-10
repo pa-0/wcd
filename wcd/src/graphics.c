@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2000-2011 Erwin Waterlander
+Copyright (C) 2000-2012 Erwin Waterlander
 
 Ideas and source code of NCD (Ninux Czo Directory) have been
 used in the WCD graphical interface.
@@ -1743,15 +1743,16 @@ void showHelp(WINDOW *win, int height)
       wclear(win);
 
       wcd_mvwaddstr(win, 0,0,_("NAVIGATE MODE (2/2):"));
-      wcd_mvwaddstr(win, 1,0,_("t                 switch centered mode on/off."));
-      wcd_mvwaddstr(win, 2,0,_("T                 toggle between line drawing and ASCII characters."));
-      wcd_mvwaddstr(win, 3,0,_("m                 toggle between compact and wide tree."));
-      wcd_mvwaddstr(win, 4,0,_("<Esc> or q        Abort."));
-      wcd_mvwaddstr(win, 5,0,_("/                 Search forward."));
-      wcd_mvwaddstr(win, 6,0,_("?                 Search backward."));
-      wcd_mvwaddstr(win, 7,0,_("n                 Repeat latest / or ? search."));
-      wcd_mvwaddstr(win, 8,0,_("<Enter>           Select directory."));
-      wcd_mvwaddstr(win,10,0,_("Press any key."));
+      wcd_mvwaddstr(win, 1,0,_("A                 switch alternative tree navigation on/off."));
+      wcd_mvwaddstr(win, 2,0,_("t                 switch centered mode on/off."));
+      wcd_mvwaddstr(win, 3,0,_("T                 toggle between line drawing and ASCII characters."));
+      wcd_mvwaddstr(win, 4,0,_("m                 toggle between compact and wide tree."));
+      wcd_mvwaddstr(win, 5,0,_("<Esc> or q        Abort."));
+      wcd_mvwaddstr(win, 6,0,_("/                 Search forward."));
+      wcd_mvwaddstr(win, 7,0,_("?                 Search backward."));
+      wcd_mvwaddstr(win, 8,0,_("n                 Repeat latest / or ? search."));
+      wcd_mvwaddstr(win, 9,0,_("<Enter>           Select directory."));
+      wcd_mvwaddstr(win,11,0,_("Press any key."));
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
@@ -2044,7 +2045,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
    }
 #endif
 
-   if (graphics_mode & WCD_GRAPH_COLOR)
+   if (wcd_cwin.graphics_mode & WCD_GRAPH_COLOR)
       initcolor();
 
    keypad(stdscr, TRUE);
@@ -2061,7 +2062,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
    wcd_cwin.inputWin = newpad(INPUT_WIN_HEIGHT,COLS);
 
-   if (graphics_mode & WCD_GRAPH_COLOR)
+   if (wcd_cwin.graphics_mode & WCD_GRAPH_COLOR)
    {
       colorbox (wcd_cwin.scrollWin, MENU_COLOR, 0);     /* BillyC add colors */
       colorbox (wcd_cwin.inputWin,  BODY_COLOR, 0);     /* BillyC add colors */
@@ -2163,10 +2164,10 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
            wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,dirnodeGetY(wcd_cwin.curNode));
          break;
       case 'k':
-            wcd_cwin.curNode = getNodeCursUpNatural(wcd_cwin.curNode, graphics_mode);
+            wcd_cwin.curNode = getNodeCursUpNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
          break;
       case 'j':
-            wcd_cwin.curNode = getNodeCursDownNatural(wcd_cwin.curNode, graphics_mode);
+            wcd_cwin.curNode = getNodeCursDownNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
          break;
       case ',':
       case 'h':
@@ -2178,7 +2179,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
             {
                setFold(wcd_cwin.curNode,false,&ymax);
             }
-            wcd_cwin.curNode = getNodeCursRight(wcd_cwin.curNode, graphics_mode);
+            wcd_cwin.curNode = getNodeCursRight(wcd_cwin.curNode, wcd_cwin.graphics_mode);
          break;
       case '1': /* goto rootnode */
             wcd_cwin.curNode = endOfRecursionOfDirnodeParent(wcd_cwin.curNode);
@@ -2239,10 +2240,13 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
             wcd_cwin.curNode = findDirInCiclePrev(dirnodeGetName(wcd_cwin.curNode),wcd_cwin.curNode,1,ignore_case,ignore_diacritics);
      break;
       case 't':
-               graphics_mode ^= WCD_GRAPH_CENTER ;
+               wcd_cwin.graphics_mode ^= WCD_GRAPH_CENTER ;
          break;
       case 'T':
                wcd_cwin.graphics_mode ^= WCD_GRAPH_ASCII ;
+         break;
+      case 'A':
+               wcd_cwin.graphics_mode ^= WCD_GRAPH_ALT ;
          break;
       case 'm':
                wcd_cwin.graphics_mode ^= WCD_GRAPH_COMPACT ;
@@ -2329,13 +2333,13 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #ifdef KEY_A2
       case KEY_A2:  /*  Num-pad ARROW UP */
 #endif
-            wcd_cwin.curNode = getNodeCursUpNatural(wcd_cwin.curNode, graphics_mode);
+            wcd_cwin.curNode = getNodeCursUpNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
          break;
       case KEY_DOWN: /* Arrow down */
 #ifdef KEY_C2
       case KEY_C2:   /* Num-pad  Arrow down */
 #endif
-            wcd_cwin.curNode = getNodeCursDownNatural(wcd_cwin.curNode, graphics_mode);
+            wcd_cwin.curNode = getNodeCursDownNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
          break;
       case KEY_LEFT:
 #ifdef KEY_B1
@@ -2351,7 +2355,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
             {
                setFold(wcd_cwin.curNode,false,&ymax);
             }
-            wcd_cwin.curNode = getNodeCursRight(wcd_cwin.curNode, graphics_mode);
+            wcd_cwin.curNode = getNodeCursRight(wcd_cwin.curNode, wcd_cwin.graphics_mode);
          break;
       case Key_CTRL ('g'):
          wcd_cwin.curNode = getLastDescendant(wcd_cwin.curNode);
@@ -2450,7 +2454,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
     ydiff -= (wcd_cwin.curNode->y);
 
-    if (graphics_mode & WCD_GRAPH_CENTER)
+    if (wcd_cwin.graphics_mode & WCD_GRAPH_CENTER)
        dataRefresh(0, 1);
     else
        dataRefresh(ydiff, 0);

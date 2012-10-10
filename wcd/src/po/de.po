@@ -6,9 +6,9 @@
 # Philipp Thomas <pth@suse.de>, 2010, 2011, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.1.5\n"
+"Project-Id-Version: wcd 5.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-03 21:54+0200\n"
+"POT-Creation-Date: 2012-10-10 22:29+0200\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -159,25 +159,25 @@ msgstr ""
 "\n"
 
 #: wcd.c:2007
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "options:\n"
-"  -a             Add current path to treefile\n"
-"  -aa            Add current and all parent paths to treefile\n"
-"  -A PATH        Add tree from PATH\n"
-"  -b             Ban current path\n"
-"  -c             direct CD mode\n"
-"  -d DRIVE       set DRIVE for stack & go files (DOS)\n"
-"  -e             add current path to Extra treefile\n"
-"  -ee            add current and all parent paths to Extra treefile\n"
-"  -E PATH        add tree from PATH to Extra treefile\n"
-"  -f FILE        use extra treeFile\n"
-"  +f FILE        add extra treeFile\n"
-"  -g             Graphics\n"
-"  -gd            Graphics, dump tree\n"
-"  -G PATH        set PATH Go-script\n"
-"  -GN            No Go-script\n"
-"  -h, --help     show this Help\n"
+"  -a                     Add current path to treefile\n"
+"  -aa                    Add current and all parent paths to treefile\n"
+"  -A PATH                Add tree from PATH\n"
+"  -b                     Ban current path\n"
+"  -c,  --direct-cd       direct CD mode\n"
+"  -d DRIVE               set DRIVE for stack & go files (DOS)\n"
+"  -e                     add current path to Extra treefile\n"
+"  -ee                    add current and all parent paths to Extra treefile\n"
+"  -E PATH                add tree from PATH to Extra treefile\n"
+"  -f FILE                use extra treeFile\n"
+"  +f FILE                add extra treeFile\n"
+"  -g                     Graphics\n"
+"  -gd                    Graphics, dump tree\n"
+"  -G PATH                set PATH Go-script\n"
+"  -GN, --no-go-script    No Go-script\n"
+"  -h,  --help            show this Help\n"
 msgstr ""
 "Optionen:\n"
 "  -a             Aktuellen Pfad zur Baumdatei hinzu fügen\n"
@@ -201,62 +201,62 @@ msgstr ""
 "  -h, --help     Diese Hilfe anzeigen\n"
 
 #: wcd.c:2026
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"  -i             Ignore case (default)\n"
-"  +i             Regard case\n"
+"  -i,  --ignore-case     Ignore case (default)\n"
+"  +i,  --no-ignore-case  Regard case\n"
 msgstr ""
 "  -i             Gross-/Kleinschreibung ignorieren (Standardeinstellung)\n"
 "  +i             Gross-/Kleinschreibung beachten\n"
 
 #: wcd.c:2030
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"  -i             Ignore case\n"
-"  +i             Regard case (default)\n"
+"  -i,  --ignore-case     Ignore case\n"
+"  +i,  --no-ignore-case  Regard case (default)\n"
 msgstr ""
 "  -i             Gross-/Kleinschreibung ignorieren\n"
 "  +i             Gross-/Kleinschreibung beachten (Standardeinstellung)\n"
 
 #: wcd.c:2035
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"  -I             Ignore diacritics\n"
-"  +I             Regard diacritics (default)\n"
-"  -j             Just go mode\n"
-"  -k             Keep paths\n"
-"  -K             Colors\n"
-"  -l ALIAS       aLias current directory\n"
-"  -L             print software License\n"
-"  -m DIR         Make DIR, add to treefile\n"
-"  -M DIR         Make DIR, add to extra treefile\n"
-"  -n PATH        use relative treefile in PATH\n"
-"  +n PATH        add relative treefile in PATH\n"
-"  -N             use Numbers\n"
-"  -o             use stdOut\n"
-"  -od            dump matches\n"
-"  -q             Quieter operation\n"
-"  -r DIR         Remove DIR\n"
-"  -rmtree DIR    Remove DIR recursive\n"
-"  -s             Scan disk from $HOME\n"
-"  -S PATH        Scan disk from PATH\n"
-"  +S PATH        Scan disk from PATH, create relative treefile\n"
-"  -t             Don't strip /tmp_mnt from paths\n"
-"  -T             Draw tree with ASCII characters\n"
-"  -Ta            Alternative tree navigation\n"
-"  -TC            Centered tree view\n"
-"  -Tc            Compact tree\n"
-"  -u USER        use USER's treefile\n"
-"  +u USER        add USER's treefile\n"
-"  -v, --verbose  Verbose operation\n"
-"  -V, --version  print Version info\n"
-"  -w             Wild matching only\n"
-"  -x PATH        eXclude PATH during disk scan\n"
-"  -xf FILE       eXclude paths from FILE\n"
-"  -z NUMBER      set max stack siZe\n"
-"  -[NUMBER]      Push dir (NUMBER times)\n"
-"  +[NUMBER]      Pop dir (NUMBER times)\n"
-"  =              Show stack\n"
+"  -I,  --ignore-diacritics     Ignore diacritics\n"
+"  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
+"  -j,  --just-go         Just go mode\n"
+"  -k                     Keep paths\n"
+"  -K,  --color           Colors\n"
+"  -l ALIAS               aLias current directory\n"
+"  -L                     print software License\n"
+"  -m DIR                 Make DIR, add to treefile\n"
+"  -M DIR                 Make DIR, add to extra treefile\n"
+"  -n PATH                use relative treefile in PATH\n"
+"  +n PATH                add relative treefile in PATH\n"
+"  -N                     use Numbers\n"
+"  -o                     use stdOut\n"
+"  -od, --to-stdout       dump matches\n"
+"  -q,  --quiet           Quieter operation\n"
+"  -r DIR                 Remove DIR\n"
+"  -rmtree DIR            Remove DIR recursive\n"
+"  -s                     Scan disk from $HOME\n"
+"  -S PATH                Scan disk from PATH\n"
+"  +S PATH                Scan disk from PATH, create relative treefile\n"
+"  -t                     Don't strip /tmp_mnt from paths\n"
+"  -T,  --ascii-tree      Draw tree with ASCII characters\n"
+"  -Ta, --alt-tree-nav    Alternative tree navigation\n"
+"  -TC, --center-tree     Centered tree view\n"
+"  -Tc, --compact-tree    Compact tree\n"
+"  -u USER                use USER's treefile\n"
+"  +u USER                add USER's treefile\n"
+"  -v,  --verbose         Verbose operation\n"
+"  -V,  --version         print Version info\n"
+"  -w                     Wild matching only\n"
+"  -x PATH                eXclude PATH during disk scan\n"
+"  -xf FILE               eXclude paths from FILE\n"
+"  -z NUMBER              set max stack siZe\n"
+"  -[NUMBER]              Push dir (NUMBER times)\n"
+"  +[NUMBER]              Pop dir (NUMBER times)\n"
+"  =                      Show stack\n"
 msgstr ""
 "  -I             Diakritische Zeichen ignorieren\n"
 "  +I             Diakritische Zeichen nicht ignorieren "
@@ -780,12 +780,12 @@ msgstr "Strg-c oder <Esc>  Abbruch."
 msgid "<Enter>           Abort."
 msgstr "<Eingabe>          Abbruch."
 
-#: display.c:1162 graphics.c:1739 graphics.c:1754 graphics.c:1777
-#: graphics.c:1794
+#: display.c:1162 graphics.c:1739 graphics.c:1755 graphics.c:1778
+#: graphics.c:1795
 msgid "Press any key."
 msgstr "Eine beliebige Taste drücken."
 
-#: display.c:1225 graphics.c:2042
+#: display.c:1225 graphics.c:2043
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
@@ -796,7 +796,7 @@ msgstr ""
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "wcd: Fehler: die Bildschirmhöhe muss mehr als 3 Zeilen sein.\n"
 
-#: display.c:1280 graphics.c:2075
+#: display.c:1280 graphics.c:2076
 msgid "Wcd: error creating scroll window.\n"
 msgstr "wcd: Fehler beim Erzeugen des rollbaren Fensters.\n"
 
@@ -918,151 +918,154 @@ msgid "NAVIGATE MODE (2/2):"
 msgstr "NAVIGATIONSMODUS (2/2):"
 
 #: graphics.c:1746
+msgid "A                 switch alternative tree navigation on/off."
+msgstr "A                  Alternative Baumnavigation ein- bzw. ausschalten."
+
+#: graphics.c:1747
 msgid "t                 switch centered mode on/off."
 msgstr "t                  Zentrieren ein- bzw. ausschalten."
 
-#: graphics.c:1747
+#: graphics.c:1748
 msgid "T                 toggle between line drawing and ASCII characters."
 msgstr ""
 "T                  Wechseln zwischen Sonderzeichen und ASCII für das Zeichnen"
 
-#: graphics.c:1748
-msgid "m                 toggle between compact and wide tree."
-msgstr ""
-"m                  zwischen kompaktem und breitem Baum umschalten."
-
 #: graphics.c:1749
+msgid "m                 toggle between compact and wide tree."
+msgstr "m                  zwischen kompaktem und breitem Baum umschalten."
+
+#: graphics.c:1750
 msgid "<Esc> or q        Abort."
 msgstr "<Esc> oder q       Abbruch."
 
-#: graphics.c:1750
+#: graphics.c:1751
 msgid "/                 Search forward."
 msgstr "/                  vorwärts suchen."
 
-#: graphics.c:1751
+#: graphics.c:1752
 msgid "?                 Search backward."
 msgstr "?                  rúckwärts suchen."
 
-#: graphics.c:1752
+#: graphics.c:1753
 msgid "n                 Repeat latest / or ? search."
 msgstr "n                  letzte / oder ? Suche wiederholen."
 
-#: graphics.c:1753 graphics.c:1776
+#: graphics.c:1754 graphics.c:1777
 msgid "<Enter>           Select directory."
 msgstr "<Eingabe>          Verzeichnis auswählen."
 
-#: graphics.c:1760
+#: graphics.c:1761
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "SUCHMODUS mit Unterstützung für Platzhalte- und Unterverzeichnisse."
 
-#: graphics.c:1761
+#: graphics.c:1762
 msgid "<Left>            go left."
 msgstr "<Links>            nach links gehen."
 
-#: graphics.c:1762
+#: graphics.c:1763
 msgid "<Down>            go down."
 msgstr "<Runter>           nach Unten."
 
-#: graphics.c:1763
+#: graphics.c:1764
 msgid "<Up>              go up."
 msgstr "<Hoch>             nach oben gehen."
 
-#: graphics.c:1764
+#: graphics.c:1765
 msgid "<Right>           go right."
 msgstr "<Rechts>           nach rechts gehen."
 
-#: graphics.c:1765
+#: graphics.c:1766
 msgid "CTRL-v            go forward to dir with same name."
 msgstr "Strg-v             vorwärts gehen zu Verzeichnis mit gleichem Namen."
 
-#: graphics.c:1766
+#: graphics.c:1767
 msgid "CTRL-p            go backward to dir with same name."
 msgstr "Strg-p             rückwärts gehen zu Verzeichnis mit gleichem Namen."
 
-#: graphics.c:1767
+#: graphics.c:1768
 msgid "CTRL-a            go to beginning of line."
 msgstr "Strg-a             An den Anfang der Zeile springen."
 
-#: graphics.c:1768
+#: graphics.c:1769
 msgid "CTRL-e            go to end of line."
 msgstr "Strg-e             an das Ende der Zeile springen."
 
-#: graphics.c:1769
+#: graphics.c:1770
 msgid "CTRL-g            go to last dir."
 msgstr "Strg-g             zum letzten Verzeichnis gehen."
 
-#: graphics.c:1770
+#: graphics.c:1771
 msgid "CTRL-f            go page forward."
 msgstr "Strg-f             eine Seite vorwärts."
 
-#: graphics.c:1771
+#: graphics.c:1772
 msgid "CTRL-b            go page backward."
 msgstr "Strg-b             eine Seite zurück."
 
-#: graphics.c:1772
+#: graphics.c:1773
 msgid "CTRL-u            go half page up."
 msgstr "Strg-u             eine halbe Seite nach oben"
 
-#: graphics.c:1773
+#: graphics.c:1774
 msgid "CTRL-d            go half page down."
 msgstr "Strg-d             eine halbe Seite nach unten"
 
-#: graphics.c:1774
+#: graphics.c:1775
 msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
 msgstr "<Esc> oder Strg-x  SUCHMODUS abbrechen."
 
-#: graphics.c:1775
+#: graphics.c:1776
 msgid "CTRL-n            Repeat latest / or ? search."
 msgstr "Strg-n             Letzte / oder ? Suche wiederholen."
 
-#: graphics.c:1783
+#: graphics.c:1784
 msgid "ZOOMING:"
 msgstr "VERGRÖSSERN:"
 
-#: graphics.c:1784
+#: graphics.c:1785
 msgid "z or i or CTRL-i  zoom in."
 msgstr "z oder i oder Strg-i  hineinzoomen."
 
-#: graphics.c:1785
+#: graphics.c:1786
 msgid "Z or o or CTRL-o  zoom out."
 msgstr "Z oder o oder Strg-o  rauszoomen."
 
-#: graphics.c:1786
+#: graphics.c:1787
 msgid "c                 condense: fold current level."
 msgstr "c                     verkürzen:: aktuelle Ebene falten."
 
-#: graphics.c:1787
+#: graphics.c:1788
 msgid "C                 condense: fold subdir level."
 msgstr "C                     verkürzen: Unterverzeichnisebene falten."
 
-#: graphics.c:1788
+#: graphics.c:1789
 msgid "w                 condense: fold current and sub levels."
 msgstr ""
 "w                     verkürzen: aktuelle Ebene mit Unterebenen falten."
 
-#: graphics.c:1789
+#: graphics.c:1790
 msgid "y or CTRL-y       uncondense: unfold current and sub levels."
 msgstr ""
 "y oder Strg-y         dekomprimieren: aktuelle Ebene samt Unterebenen "
 "auffalten."
 
-#: graphics.c:1790
+#: graphics.c:1791
 msgid "r or CTRL-r       uncondense: unfold all directories."
 msgstr "r oder Strg-r         dekomprimieren: alle Ebenen ausfalten."
 
-#: graphics.c:1791
+#: graphics.c:1792
 msgid "-                 fold directory."
 msgstr "-                     Verzeichnis einfalten."
 
-#: graphics.c:1792
+#: graphics.c:1793
 msgid "+ or =            unfold directory."
 msgstr "+ oder =              Verzeinis auffalten."
 
-#: graphics.c:1793
+#: graphics.c:1794
 msgid "l or <Right>      unfold and go right."
 msgstr "l oder <Rechts>       auffalten und nach rechts gehen."
 
-#: graphics.c:1797
+#: graphics.c:1798
 msgid "Screenheight must be > 21 for help"
 msgstr "Bildschirmhöhe muss für die Hilfe > 21 sein."
 
