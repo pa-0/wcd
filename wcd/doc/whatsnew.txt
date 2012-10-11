@@ -7,12 +7,16 @@
     Use the new option -Tc or switch on-the-fly with the 'm' key.
   - Removed option -ga. Instead add the new option -Ta to your wcd alias,
     function or batch file if you prefer alternative navigation by default.
+    Use shift-A in the tree to switch on-the-fly.
   - Removed option -gc. Instead add the new option -TC to your wcd alias,
     function or batch file if you prefer centered view by default.
   - Wcd compiles with Microsoft Visual C++.
   - Makefile uses $(sysconfdir) i.s.o. hardcoded /etc.
+  - Added several GNU standard long command-line options.
   - Fix: PowerShell version created files named "null".
   - Fix: Stdio mode on Windows prints Unicode characters correctly.
+  - Fix: Match c with cedilla when ignoring diacritics (CP1252, CP28591,
+    ISO-8859-1, and Unicode).
 
 5.2.2 2012-09-01
   - Turn off wildcard globbing for DJGPP (DOS32) and MinGW (Windows).

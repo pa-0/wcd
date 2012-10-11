@@ -258,7 +258,7 @@ supported and it is matched against absolute path.
 Banned paths are not excluded from scanning the disk. To do that use option
 B<-xf>.
 
-=item B<-c>
+=item B<-c, --direct-cd>
 
 Direct CD mode. By default wcd works as follows:
 
@@ -328,7 +328,7 @@ Dump the treedata files as a tree to stdout.
 Write go-script in directory PATH. For instance on Unix, C<wcd -G PATH> will write
 a go-script PATH/wcd.go.
 
-=item B<-GN>
+=item B<-GN, --no-go-script>
 
 Do not create go-script. This option can be used in combination with the
 option B<-j> if one does not want wcd to create a go-script.
@@ -337,7 +337,7 @@ option B<-j> if one does not want wcd to create a go-script.
 
 Print help and exit.
 
-=item B<-i>
+=item B<-i, --ignore-case>
 
 Ignore case.
 #ifdef dos
@@ -345,11 +345,11 @@ Dos and Windows versions of wcd ignore case default. Unix/Cygwin
 versions regard case by default.
 #endif
 
-=item  B<+i>
+=item  B<+i, --no-ignore-case>
 
 Regard case.  See also option B<-i>.
 
-=item B<-I>
+=item B<-I, --ignore-diacritics>
 
 Ignore diacritics for Latin-based scripts.
 Letters with diacritical marks match their base letter without diacritical
@@ -358,11 +358,11 @@ CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, ISO-8859-2, and Unicode
 Latin-1, Latin Extended-A, and Latin Extended-B.
 See also L<http://en.wikipedia.org/wiki/Diacritic>
 
-=item  B<+I>
+=item  B<+I, --no-ignore-diacritics>
 
 Regard diacritics (default).  See also option B<-I>.
 
-=item B<-j>
+=item B<-j, --just-go>
 
 Just go mode.
 
@@ -400,7 +400,7 @@ following alias:
 This method eliminates the need of the go-script, so one can use option B<-GN>
 in combination with B<-j>.
 
-=item B<-k>
+=item B<-k, --keep-paths>
 
 Keep paths.
 
@@ -408,7 +408,7 @@ Keep paths in treedata when wcd can't change to them. The default
 behaviour of wcd is that it tries to remove paths from the treedata when
 wcd can't change to them. With this option this behaviour is turned off.
 
-=item B<-K>
+=item B<-K, --color>
 
 Use colors in graphical mode.
 
@@ -420,6 +420,10 @@ ALIAS in the alias file. Aliases are case sensitive.
 =item B<-m DIR>
 
 Make directory and add to treedata file.
+
+=item  B<-L, --license>
+
+Print the distribution license.
 
 =item B<-M DIR>
 
@@ -446,7 +450,7 @@ relative from that point.
 Read relative treedata file in addition to the default treedata file. See
 option B<-n>.
 
-=item B<-N>
+=item B<-N, --numbers>
 
 Use numbers instead of letters.
 
@@ -463,11 +467,11 @@ When for some kind of reason the conio or curses interface of wcd does not
 work one can fall back to the stdin/stdout interface of wcd by using the
 B<-o> option.
 
-=item B<-od>
+=item B<-od, --to-stdout>
 
 Dump all matches to stdout.
 
-=item B<-q>
+=item B<-q, --quiet>
 
 Quieter operation. Printing of the final match is suppressed.
 
@@ -531,23 +535,23 @@ Wcd strips by default C</tmp_mnt/> from the match. Directory
 C</tmp_mnt> is used by the automounter. This behaviour can be turned
 off with the B<-t> option.
 
-=item B<-T>
+=item B<-T, --ascii-tree>
 
 Draw tree with ASCII characters. Use this option if line drawing characters
 are not displayed properly in your terminal.
 
-=item B<-Ta>
+=item B<-Ta, --alt-tree-nav>
 
 Alternative way of navigation in the graphical tree. The -Ta option disables
 jumping to unrelated directories.
 
-=item B<-TC>
+=item B<-TC, --center-tree>
 
 Centered view in the graphical tree. The selected directory stays in the middle
 of the screen. The centered mode can also be switched on and off with key 't'
 in the graphical tree.
 
-=item B<-Tc>
+=item B<-Tc, --compact-tree>
 
 By default the 'graphical' tree is drawn the same way as the original NCD on
 DOS did it. On DOS a directory path could only be 66 characters in total. With
@@ -585,7 +589,7 @@ excludes.
 
 Print version information and exit.
 
-=item B<-w>
+=item B<-w, --wild-match-only>
 
 Wild matching only. Treat all matches as wild matches.
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-10 22:29+0200\n"
+"POT-Creation-Date: 2012-10-11 21:09+0200\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -154,140 +154,141 @@ msgstr ""
 "\n"
 
 #: wcd.c:2007
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "options:\n"
-"  -a                     Add current path to treefile\n"
-"  -aa                    Add current and all parent paths to treefile\n"
-"  -A PATH                Add tree from PATH\n"
-"  -b                     Ban current path\n"
-"  -c,  --direct-cd       direct CD mode\n"
-"  -d DRIVE               set DRIVE for stack & go files (DOS)\n"
-"  -e                     add current path to Extra treefile\n"
-"  -ee                    add current and all parent paths to Extra treefile\n"
-"  -E PATH                add tree from PATH to Extra treefile\n"
-"  -f FILE                use extra treeFile\n"
-"  +f FILE                add extra treeFile\n"
-"  -g                     Graphics\n"
-"  -gd                    Graphics, dump tree\n"
-"  -G PATH                set PATH Go-script\n"
-"  -GN, --no-go-script    No Go-script\n"
-"  -h,  --help            show this Help\n"
+"  -a                      Add current path to treefile\n"
+"  -aa                     Add current and all parent paths to treefile\n"
+"  -A PATH                 Add tree from PATH\n"
+"  -b                      Ban current path\n"
+"  -c,  --direct-cd        direct CD mode\n"
+"  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
+"  -e                      add current path to Extra treefile\n"
+"  -ee                     add current and all parent paths to Extra "
+"treefile\n"
+"  -E PATH                 add tree from PATH to Extra treefile\n"
+"  -f FILE                 use extra treeFile\n"
+"  +f FILE                 add extra treeFile\n"
+"  -g                      Graphics\n"
+"  -gd                     Graphics, dump tree\n"
+"  -G PATH                 set PATH Go-script\n"
+"  -GN, --no-go-script     No Go-script\n"
+"  -h,  --help             show this Help\n"
 msgstr ""
 "opties:\n"
-"  -a             Voeg huidig pad toe aan boombestand\n"
-"  -aa            Voeg huidig en alle hogere paden toe aan boombestand\n"
-"  -A PAD         Voeg boom toe vanaf PAD\n"
-"  -b             Verban huidig pad\n"
-"  -c             direkt CD modus\n"
-"  -d STATION     stel STATION voor stapel & go bestanden in (DOS)\n"
-"  -e             voeg huidig pad toe aan Extra boombestand\n"
-"  -ee            voeg huidig en alle hogere paden toe aan Extra boombestand\n"
-"  -E PAD         voeg boom vanaf PAD toe aan Extra boombestand\n"
-"  -f BESTAND     gebruik extra boombestand\n"
-"  +f BESTAND     voeg extra boombestand toe\n"
-"  -g             Grafisch\n"
-"  -gd            Grafisch, dump boom\n"
-"  -G PAD         stel PAD Go-script in\n"
-"  -GN            Geen Go-script\n"
-"  -h, --help     laat deze Help zien\n"
+"  -a                      Voeg huidig pad toe aan boombestand\n"
+"  -aa                     Voeg huidig en alle hogere paden toe aan boombestand\n"
+"  -A PAD                  Voeg boom toe vanaf PAD\n"
+"  -b                      Verban huidig pad\n"
+"  -c,  --direct-cd        direkt CD modus\n"
+"  -d STATION              stel STATION voor stapel & go bestanden in (DOS)\n"
+"  -e                      voeg huidig pad toe aan Extra boombestand\n"
+"  -ee                     voeg huidig en alle hogere paden toe aan Extra boombestand\n"
+"  -E PAD                  voeg boom vanaf PAD toe aan Extra boombestand\n"
+"  -f BESTAND              gebruik extra boombestand\n"
+"  +f BESTAND              voeg extra boombestand toe\n"
+"  -g                      Grafisch\n"
+"  -gd                     Grafisch, dump boom\n"
+"  -G PAD                  stel PAD Go-script in\n"
+"  -GN, --no-go-script     Geen Go-script\n"
+"  -h,  --help             laat deze Help zien\n"
 
 #: wcd.c:2026
-#, fuzzy, c-format
+#, c-format
 msgid ""
-"  -i,  --ignore-case     Ignore case (default)\n"
-"  +i,  --no-ignore-case  Regard case\n"
+"  -i,  --ignore-case      Ignore case (default)\n"
+"  +i,  --no-ignore-case   Regard case\n"
 msgstr ""
-"  -i             Hoofdletterongevoelig (standaard)\n"
-"  +i             Hoofdlettergevoelig\n"
+"  -i,  --ignore-case      Hoofdletterongevoelig (standaard)\n"
+"  +i,  --no-ignore-case   Hoofdlettergevoelig\n"
 
 #: wcd.c:2030
-#, fuzzy, c-format
+#, c-format
 msgid ""
-"  -i,  --ignore-case     Ignore case\n"
-"  +i,  --no-ignore-case  Regard case (default)\n"
+"  -i,  --ignore-case      Ignore case\n"
+"  +i,  --no-ignore-case   Regard case (default)\n"
 msgstr ""
-"  -i             Hoofdletterongevoelig\n"
-"  +i             Hoofdlettergevoelig (standaard)\n"
+"  -i,  --ignore-case      Hoofdletterongevoelig\n"
+"  +i,  --no-ignore-case   Hoofdlettergevoelig (standaard)\n"
 
 #: wcd.c:2035
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "  -I,  --ignore-diacritics     Ignore diacritics\n"
 "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
-"  -j,  --just-go         Just go mode\n"
-"  -k                     Keep paths\n"
-"  -K,  --color           Colors\n"
-"  -l ALIAS               aLias current directory\n"
-"  -L                     print software License\n"
-"  -m DIR                 Make DIR, add to treefile\n"
-"  -M DIR                 Make DIR, add to extra treefile\n"
-"  -n PATH                use relative treefile in PATH\n"
-"  +n PATH                add relative treefile in PATH\n"
-"  -N                     use Numbers\n"
-"  -o                     use stdOut\n"
-"  -od, --to-stdout       dump matches\n"
-"  -q,  --quiet           Quieter operation\n"
-"  -r DIR                 Remove DIR\n"
-"  -rmtree DIR            Remove DIR recursive\n"
-"  -s                     Scan disk from $HOME\n"
-"  -S PATH                Scan disk from PATH\n"
-"  +S PATH                Scan disk from PATH, create relative treefile\n"
-"  -t                     Don't strip /tmp_mnt from paths\n"
-"  -T,  --ascii-tree      Draw tree with ASCII characters\n"
-"  -Ta, --alt-tree-nav    Alternative tree navigation\n"
-"  -TC, --center-tree     Centered tree view\n"
-"  -Tc, --compact-tree    Compact tree\n"
-"  -u USER                use USER's treefile\n"
-"  +u USER                add USER's treefile\n"
-"  -v,  --verbose         Verbose operation\n"
-"  -V,  --version         print Version info\n"
-"  -w                     Wild matching only\n"
-"  -x PATH                eXclude PATH during disk scan\n"
-"  -xf FILE               eXclude paths from FILE\n"
-"  -z NUMBER              set max stack siZe\n"
-"  -[NUMBER]              Push dir (NUMBER times)\n"
-"  +[NUMBER]              Pop dir (NUMBER times)\n"
-"  =                      Show stack\n"
+"  -j,  --just-go          Just go mode\n"
+"  -k,  --keep-paths       Keep paths\n"
+"  -K,  --color            Colors\n"
+"  -l ALIAS                aLias current directory\n"
+"  -L,  --license          print software License\n"
+"  -m DIR                  Make DIR, add to treefile\n"
+"  -M DIR                  Make DIR, add to extra treefile\n"
+"  -n PATH                 use relative treefile in PATH\n"
+"  +n PATH                 add relative treefile in PATH\n"
+"  -N,  --numbers          use Numbers\n"
+"  -o                      use stdOut\n"
+"  -od, --to-stdout        dump matches\n"
+"  -q,  --quiet            Quieter operation\n"
+"  -r DIR                  Remove DIR\n"
+"  -rmtree DIR             Remove DIR recursive\n"
+"  -s                      Scan disk from $HOME\n"
+"  -S PATH                 Scan disk from PATH\n"
+"  +S PATH                 Scan disk from PATH, create relative treefile\n"
+"  -t                      Don't strip /tmp_mnt from paths\n"
+"  -T,  --ascii-tree       Draw tree with ASCII characters\n"
+"  -Ta, --alt-tree-nav     Alternative tree navigation\n"
+"  -TC, --center-tree      Centered tree view\n"
+"  -Tc, --compact-tree     Compact tree\n"
+"  -u USER                 use USER's treefile\n"
+"  +u USER                 add USER's treefile\n"
+"  -v,  --verbose          Verbose operation\n"
+"  -V,  --version          print Version info\n"
+"  -w,  --wild-match-only  Wild matching only\n"
+"  -x PATH                 eXclude PATH during disk scan\n"
+"  -xf FILE                eXclude paths from FILE\n"
+"  -z NUMBER               set max stack siZe\n"
+"  -[NUMBER]               Push dir (NUMBER times)\n"
+"  +[NUMBER]               Pop dir (NUMBER times)\n"
+"  =                       Show stack\n"
 msgstr ""
-"  -I             Diakritische tekens negeren\n"
-"  +I             Diakritische tekens achten (standaard)\n"
-"  -j             Ga nou maar modus\n"
-"  -k             Bewaar paden\n"
-"  -K             Kleuren\n"
-"  -l ALIAS       aLias huidige map\n"
-"  -L             print software Licentie\n"
-"  -m MAP         Maak MAP, voeg toe aan boombestand\n"
-"  -M MAP         Maak MAP, voeg toe aan extra boombestand\n"
-"  -n PAD         gebruik relatief boombestand in PAD\n"
-"  +n PAD         voeg relatief boombestand in PAD toe\n"
-"  -N             gebruik Nummers\n"
-"  -o             gebruik stdOut\n"
-"  -od            dump treffers\n"
-"  -q             stillere werking\n"
-"  -r MAP         Verwijder MAP\n"
-"  -rmtree MAP    Verwijder MAP recursief\n"
-"  -s             Aftasten schijf vanaf $HOME\n"
-"  -S PAD         Aftasten schijf vanaf PAD\n"
-"  +S PAD         Aftasten schijf vanaf PAD, maak relatief boombestand\n"
-"  -t             Paden niet van /tmp_mnt ontdoen\n"
-"  -T             Teken boom met ASCII tekens\n"
-"  -Ta            Alternatieve boom navigatie\n"
-"  -TC            Gecentreerde boomweergave\n"
-"  -Tc            Compacte boom\n"
-"  -u GEBRUIKER   gebruik boombestand van GEBRUIKER\n"
-"  +u GEBRUIKER   voeg boombestand van GEBRUIKER toe\n"
-"  -v, --verbose  woordenrijke werking\n"
-"  -V, --version  print Versie informatie\n"
-"  -w             Alleen joker vergelijkingen\n"
-"  -x PAD         uitsluiten PAD tijdens aftasten schijf\n"
-"  -xf BESTAND    uitsluiten paden uit BESTAND\n"
-"  -z NUMMER      stel max stapel grootte in\n"
-"  -[NUMMER]      Voeg map toe aan stapel (NUMMER keer)\n"
-"  +[NUMMER]      Haal map van stapel (NUMMER keer)\n"
-"  =              Laat stapel zien\n"
+"  -I,  --ignore-diacritics     Diakritische tekens negeren\n"
+"  +I,  --no-ignore-diacritics  Diakritische tekens achten (standaard)\n"
+"  -j,  --just-go          Ga nou maar modus\n"
+"  -k,  --keep-paths       Bewaar paden\n"
+"  -K,  --color            Kleuren\n"
+"  -l ALIAS                aLias huidige map\n"
+"  -L,  --license          print software Licentie\n"
+"  -m MAP                  Maak MAP, voeg toe aan boombestand\n"
+"  -M MAP                  Maak MAP, voeg toe aan extra boombestand\n"
+"  -n PAD                  gebruik relatief boombestand in PAD\n"
+"  +n PAD                  voeg relatief boombestand in PAD toe\n"
+"  -N,  --numbers          gebruik Nummers\n"
+"  -o                      gebruik stdOut\n"
+"  -od, --to-stdout        dump treffers\n"
+"  -q,  --quiet            stillere werking\n"
+"  -r MAP                  Verwijder MAP\n"
+"  -rmtree MAP             Verwijder MAP recursief\n"
+"  -s                      Aftasten schijf vanaf $HOME\n"
+"  -S PAD                  Aftasten schijf vanaf PAD\n"
+"  +S PAD                  Aftasten schijf vanaf PAD, maak relatief boombestand\n"
+"  -t                      Paden niet van /tmp_mnt ontdoen\n"
+"  -T,  --ascii-tree       Teken boom met ASCII tekens\n"
+"  -Ta, --alt-tree-nav     Alternatieve boom navigatie\n"
+"  -TC, --center-tree      Gecentreerde boomweergave\n"
+"  -Tc, --compact-tree     Compacte boom\n"
+"  -u GEBRUIKER            gebruik boombestand van GEBRUIKER\n"
+"  +u GEBRUIKER            voeg boombestand van GEBRUIKER toe\n"
+"  -v,  --verbose          woordenrijke werking\n"
+"  -V,  --version          print Versie informatie\n"
+"  -w,  --wild-match-only  Alleen joker vergelijkingen\n"
+"  -x PAD                  uitsluiten PAD tijdens aftasten schijf\n"
+"  -xf BESTAND             uitsluiten paden uit BESTAND\n"
+"  -z NUMMER               stel max stapel grootte in\n"
+"  -[NUMMER]               Voeg map toe aan stapel (NUMMER keer)\n"
+"  +[NUMMER]               Haal map van stapel (NUMMER keer)\n"
+"  =                       Laat stapel zien\n"
 
-#: wcd.c:2080 wcd.c:2866
+#: wcd.c:2080 wcd.c:2207
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
@@ -481,39 +482,7 @@ msgstr "Download de nieuwste versie met broncode van:\n"
 msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr ""
 
-#: wcd.c:2234
-#, c-format
-msgid "Wcd: creating directory %s\n"
-msgstr "Wcd: aanmaken map %s\n"
-
-#: wcd.c:2552
-msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
-msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDLOCALEDIR is te lang.\n"
-
-#: wcd.c:2578
-msgid "Wcd: error: Value of environment variable HOME is too long.\n"
-msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME is te lang.\n"
-
-#: wcd.c:2593 wcd.c:2661
-msgid ""
-"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
-msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
-
-#: wcd.c:2625 wcd.c:2654
-msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
-msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
-
-#: wcd.c:2730 wcd.c:3173 wcd.c:3192
-msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
-msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
-
-#: wcd.c:2862
-msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
-msgstr ""
-"Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
-"interface.\n"
-
-#: wcd.c:2867
+#: wcd.c:2208
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -547,37 +516,69 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:3106
+#: wcd.c:2267
+#, c-format
+msgid "Wcd: creating directory %s\n"
+msgstr "Wcd: aanmaken map %s\n"
+
+#: wcd.c:2585
+msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
+msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDLOCALEDIR is te lang.\n"
+
+#: wcd.c:2611
+msgid "Wcd: error: Value of environment variable HOME is too long.\n"
+msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME is te lang.\n"
+
+#: wcd.c:2626 wcd.c:2694
+msgid ""
+"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
+msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
+
+#: wcd.c:2658 wcd.c:2687
+msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
+msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
+
+#: wcd.c:2763 wcd.c:3219 wcd.c:3238
+msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
+msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
+
+#: wcd.c:2895
+msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
+msgstr ""
+"Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
+"interface.\n"
+
+#: wcd.c:3152
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s toegevoegd aan aliasbestand %s\n"
 
-#: wcd.c:3205
+#: wcd.c:3251
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr "Wcd: fout: Kan bestand %s of %s niet lezen.\n"
 
-#: wcd.c:3355
+#: wcd.c:3401
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "Wcd: WCDSCAN map {%s}\n"
 
-#: wcd.c:3357
+#: wcd.c:3403
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: verbannen {%s}\n"
 
-#: wcd.c:3359
+#: wcd.c:3405
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: uitsluiten {%s}\n"
 
-#: wcd.c:3361
+#: wcd.c:3407
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteren {%s}\n"
 
-#: wcd.c:3628
+#: wcd.c:3674
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -586,7 +587,7 @@ msgstr ""
 "Wcd: Geen map gevonden gelijk aan %s\n"
 "Wcd: Misschien moet u de schijf opnieuw aftasten of is het pad verbannen.\n"
 
-#: wcd.c:3794
+#: wcd.c:3840
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Kan niet veranderen naar %s\n"

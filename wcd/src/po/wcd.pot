@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-10 22:29+0200\n"
+"POT-Creation-Date: 2012-10-11 21:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -136,36 +136,37 @@ msgstr ""
 #, c-format
 msgid ""
 "options:\n"
-"  -a                     Add current path to treefile\n"
-"  -aa                    Add current and all parent paths to treefile\n"
-"  -A PATH                Add tree from PATH\n"
-"  -b                     Ban current path\n"
-"  -c,  --direct-cd       direct CD mode\n"
-"  -d DRIVE               set DRIVE for stack & go files (DOS)\n"
-"  -e                     add current path to Extra treefile\n"
-"  -ee                    add current and all parent paths to Extra treefile\n"
-"  -E PATH                add tree from PATH to Extra treefile\n"
-"  -f FILE                use extra treeFile\n"
-"  +f FILE                add extra treeFile\n"
-"  -g                     Graphics\n"
-"  -gd                    Graphics, dump tree\n"
-"  -G PATH                set PATH Go-script\n"
-"  -GN, --no-go-script    No Go-script\n"
-"  -h,  --help            show this Help\n"
+"  -a                      Add current path to treefile\n"
+"  -aa                     Add current and all parent paths to treefile\n"
+"  -A PATH                 Add tree from PATH\n"
+"  -b                      Ban current path\n"
+"  -c,  --direct-cd        direct CD mode\n"
+"  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
+"  -e                      add current path to Extra treefile\n"
+"  -ee                     add current and all parent paths to Extra "
+"treefile\n"
+"  -E PATH                 add tree from PATH to Extra treefile\n"
+"  -f FILE                 use extra treeFile\n"
+"  +f FILE                 add extra treeFile\n"
+"  -g                      Graphics\n"
+"  -gd                     Graphics, dump tree\n"
+"  -G PATH                 set PATH Go-script\n"
+"  -GN, --no-go-script     No Go-script\n"
+"  -h,  --help             show this Help\n"
 msgstr ""
 
 #: wcd.c:2026
 #, c-format
 msgid ""
-"  -i,  --ignore-case     Ignore case (default)\n"
-"  +i,  --no-ignore-case  Regard case\n"
+"  -i,  --ignore-case      Ignore case (default)\n"
+"  +i,  --no-ignore-case   Regard case\n"
 msgstr ""
 
 #: wcd.c:2030
 #, c-format
 msgid ""
-"  -i,  --ignore-case     Ignore case\n"
-"  +i,  --no-ignore-case  Regard case (default)\n"
+"  -i,  --ignore-case      Ignore case\n"
+"  +i,  --no-ignore-case   Regard case (default)\n"
 msgstr ""
 
 #: wcd.c:2035
@@ -173,43 +174,43 @@ msgstr ""
 msgid ""
 "  -I,  --ignore-diacritics     Ignore diacritics\n"
 "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
-"  -j,  --just-go         Just go mode\n"
-"  -k                     Keep paths\n"
-"  -K,  --color           Colors\n"
-"  -l ALIAS               aLias current directory\n"
-"  -L                     print software License\n"
-"  -m DIR                 Make DIR, add to treefile\n"
-"  -M DIR                 Make DIR, add to extra treefile\n"
-"  -n PATH                use relative treefile in PATH\n"
-"  +n PATH                add relative treefile in PATH\n"
-"  -N                     use Numbers\n"
-"  -o                     use stdOut\n"
-"  -od, --to-stdout       dump matches\n"
-"  -q,  --quiet           Quieter operation\n"
-"  -r DIR                 Remove DIR\n"
-"  -rmtree DIR            Remove DIR recursive\n"
-"  -s                     Scan disk from $HOME\n"
-"  -S PATH                Scan disk from PATH\n"
-"  +S PATH                Scan disk from PATH, create relative treefile\n"
-"  -t                     Don't strip /tmp_mnt from paths\n"
-"  -T,  --ascii-tree      Draw tree with ASCII characters\n"
-"  -Ta, --alt-tree-nav    Alternative tree navigation\n"
-"  -TC, --center-tree     Centered tree view\n"
-"  -Tc, --compact-tree    Compact tree\n"
-"  -u USER                use USER's treefile\n"
-"  +u USER                add USER's treefile\n"
-"  -v,  --verbose         Verbose operation\n"
-"  -V,  --version         print Version info\n"
-"  -w                     Wild matching only\n"
-"  -x PATH                eXclude PATH during disk scan\n"
-"  -xf FILE               eXclude paths from FILE\n"
-"  -z NUMBER              set max stack siZe\n"
-"  -[NUMBER]              Push dir (NUMBER times)\n"
-"  +[NUMBER]              Pop dir (NUMBER times)\n"
-"  =                      Show stack\n"
+"  -j,  --just-go          Just go mode\n"
+"  -k,  --keep-paths       Keep paths\n"
+"  -K,  --color            Colors\n"
+"  -l ALIAS                aLias current directory\n"
+"  -L,  --license          print software License\n"
+"  -m DIR                  Make DIR, add to treefile\n"
+"  -M DIR                  Make DIR, add to extra treefile\n"
+"  -n PATH                 use relative treefile in PATH\n"
+"  +n PATH                 add relative treefile in PATH\n"
+"  -N,  --numbers          use Numbers\n"
+"  -o                      use stdOut\n"
+"  -od, --to-stdout        dump matches\n"
+"  -q,  --quiet            Quieter operation\n"
+"  -r DIR                  Remove DIR\n"
+"  -rmtree DIR             Remove DIR recursive\n"
+"  -s                      Scan disk from $HOME\n"
+"  -S PATH                 Scan disk from PATH\n"
+"  +S PATH                 Scan disk from PATH, create relative treefile\n"
+"  -t                      Don't strip /tmp_mnt from paths\n"
+"  -T,  --ascii-tree       Draw tree with ASCII characters\n"
+"  -Ta, --alt-tree-nav     Alternative tree navigation\n"
+"  -TC, --center-tree      Centered tree view\n"
+"  -Tc, --compact-tree     Compact tree\n"
+"  -u USER                 use USER's treefile\n"
+"  +u USER                 add USER's treefile\n"
+"  -v,  --verbose          Verbose operation\n"
+"  -V,  --version          print Version info\n"
+"  -w,  --wild-match-only  Wild matching only\n"
+"  -x PATH                 eXclude PATH during disk scan\n"
+"  -xf FILE                eXclude paths from FILE\n"
+"  -z NUMBER               set max stack siZe\n"
+"  -[NUMBER]               Push dir (NUMBER times)\n"
+"  +[NUMBER]               Pop dir (NUMBER times)\n"
+"  =                       Show stack\n"
 msgstr ""
 
-#: wcd.c:2080 wcd.c:2866
+#: wcd.c:2080 wcd.c:2207
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
@@ -401,37 +402,7 @@ msgstr ""
 msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr ""
 
-#: wcd.c:2234
-#, c-format
-msgid "Wcd: creating directory %s\n"
-msgstr ""
-
-#: wcd.c:2552
-msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
-msgstr ""
-
-#: wcd.c:2578
-msgid "Wcd: error: Value of environment variable HOME is too long.\n"
-msgstr ""
-
-#: wcd.c:2593 wcd.c:2661
-msgid ""
-"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
-msgstr ""
-
-#: wcd.c:2625 wcd.c:2654
-msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
-msgstr ""
-
-#: wcd.c:2730 wcd.c:3173 wcd.c:3192
-msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
-msgstr ""
-
-#: wcd.c:2862
-msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
-msgstr ""
-
-#: wcd.c:2867
+#: wcd.c:2208
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -465,44 +436,74 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:3106
+#: wcd.c:2267
+#, c-format
+msgid "Wcd: creating directory %s\n"
+msgstr ""
+
+#: wcd.c:2585
+msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
+msgstr ""
+
+#: wcd.c:2611
+msgid "Wcd: error: Value of environment variable HOME is too long.\n"
+msgstr ""
+
+#: wcd.c:2626 wcd.c:2694
+msgid ""
+"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
+msgstr ""
+
+#: wcd.c:2658 wcd.c:2687
+msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
+msgstr ""
+
+#: wcd.c:2763 wcd.c:3219 wcd.c:3238
+msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
+msgstr ""
+
+#: wcd.c:2895
+msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
+msgstr ""
+
+#: wcd.c:3152
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr ""
 
-#: wcd.c:3205
+#: wcd.c:3251
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr ""
 
-#: wcd.c:3355
+#: wcd.c:3401
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr ""
 
-#: wcd.c:3357
+#: wcd.c:3403
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr ""
 
-#: wcd.c:3359
+#: wcd.c:3405
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr ""
 
-#: wcd.c:3361
+#: wcd.c:3407
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr ""
 
-#: wcd.c:3628
+#: wcd.c:3674
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 
-#: wcd.c:3794
+#: wcd.c:3840
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr ""

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-10 22:29+0200\n"
+"POT-Creation-Date: 2012-10-11 21:09+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -150,147 +150,146 @@ msgstr ""
 "\n"
 
 #: wcd.c:2007
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "options:\n"
-"  -a                     Add current path to treefile\n"
-"  -aa                    Add current and all parent paths to treefile\n"
-"  -A PATH                Add tree from PATH\n"
-"  -b                     Ban current path\n"
-"  -c,  --direct-cd       direct CD mode\n"
-"  -d DRIVE               set DRIVE for stack & go files (DOS)\n"
-"  -e                     add current path to Extra treefile\n"
-"  -ee                    add current and all parent paths to Extra treefile\n"
-"  -E PATH                add tree from PATH to Extra treefile\n"
-"  -f FILE                use extra treeFile\n"
-"  +f FILE                add extra treeFile\n"
-"  -g                     Graphics\n"
-"  -gd                    Graphics, dump tree\n"
-"  -G PATH                set PATH Go-script\n"
-"  -GN, --no-go-script    No Go-script\n"
-"  -h,  --help            show this Help\n"
+"  -a                      Add current path to treefile\n"
+"  -aa                     Add current and all parent paths to treefile\n"
+"  -A PATH                 Add tree from PATH\n"
+"  -b                      Ban current path\n"
+"  -c,  --direct-cd        direct CD mode\n"
+"  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
+"  -e                      add current path to Extra treefile\n"
+"  -ee                     add current and all parent paths to Extra "
+"treefile\n"
+"  -E PATH                 add tree from PATH to Extra treefile\n"
+"  -f FILE                 use extra treeFile\n"
+"  +f FILE                 add extra treeFile\n"
+"  -g                      Graphics\n"
+"  -gd                     Graphics, dump tree\n"
+"  -G PATH                 set PATH Go-script\n"
+"  -GN, --no-go-script     No Go-script\n"
+"  -h,  --help             show this Help\n"
 msgstr ""
 "vaihtoehtoja:\n"
-"  -a             Lisää polku tiedostoon treefile\n"
-"  -aa            Lisään nykyinen ja kaikki polut yläpuolella tiedostoon "
+"  -a                      Lisää polku tiedostoon treefile\n"
+"  -aa                     Lisään nykyinen ja kaikki polut yläpuolella tiedostoon "
 "treefile\n"
-"  -A POLKU       Lisää puuhierarkia POLKU\n"
-"  -b             Lisää polku mustalle listalle\n"
-"  -c             Suora CD moodi\n"
-"  -d ASEMA       Aseta ASEMA toimintojen stack & go tiedostoille (DOS)\n"
-"  -e             Lisää polku tiedostoon Extra treefile\n"
-"  -ee            Lisää nykyinen ja kaikki polut yläpuolella tiedostoono "
+"  -A POLKU                Lisää puuhierarkia POLKU\n"
+"  -b                      Lisää polku mustalle listalle\n"
+"  -c,  --direct-cd        Suora CD moodi\n"
+"  -d ASEMA                Aseta ASEMA toimintojen stack & go tiedostoille (DOS)\n"
+"  -e                      Lisää polku tiedostoon Extra treefile\n"
+"  -ee                     Lisää nykyinen ja kaikki polut yläpuolella tiedostoono "
 "Extra treefile\n"
-"  -E POLKU       Lisää puuhierarkia hakemistosta POLKU tiedostoon Extra "
+"  -E POLKU                Lisää puuhierarkia hakemistosta POLKU tiedostoon Extra "
 "treefile\n"
-"  -f TIEDOSTO    Käytä extra treeFile\n"
-"  +f TIEDOSTO    Lisää extra treeFile\n"
-"  -g             Graafinen moodi\n"
-"  -ga            Graafinen moodi, vaihtoehtoinen navigointi\n"
-"  -gc            Graafinen moodi, keskitetty\n"
-"  -gd            Graafinen moodi, tulosta puuhierarkia\n"
-"  -G POLKU       Aseta go-tiedoston POLKU\n"
-"  -GN            Poista go-tiedosto käytöstä\n"
-"  -h, --help     Näytä tämä Help\n"
+"  -f TIEDOSTO             Käytä extra treeFile\n"
+"  +f TIEDOSTO             Lisää extra treeFile\n"
+"  -g                      Graafinen moodi\n"
+"  -gd                     Graafinen moodi, tulosta puuhierarkia\n"
+"  -G POLKU                Aseta go-tiedoston POLKU\n"
+"  -GN, --no-go-script     Poista go-tiedosto käytöstä\n"
+"  -h,  --help             Näytä tämä Help\n"
 
 #: wcd.c:2026
-#, fuzzy, c-format
+#, c-format
 msgid ""
-"  -i,  --ignore-case     Ignore case (default)\n"
-"  +i,  --no-ignore-case  Regard case\n"
+"  -i,  --ignore-case      Ignore case (default)\n"
+"  +i,  --no-ignore-case   Regard case\n"
 msgstr ""
-"  -i             Isot ja pienet kirjaimet - eivät merkityksellisiä (oletus)\n"
-"  +i             Isot ja pienet kirjaimet - merkityksellisiä\n"
+"  -i,  --ignore-case      Isot ja pienet kirjaimet - eivät merkityksellisiä (oletus)\n"
+"  +i,  --no-ignore-case   Isot ja pienet kirjaimet - merkityksellisiä\n"
 
 #: wcd.c:2030
-#, fuzzy, c-format
+#, c-format
 msgid ""
-"  -i,  --ignore-case     Ignore case\n"
-"  +i,  --no-ignore-case  Regard case (default)\n"
+"  -i,  --ignore-case      Ignore case\n"
+"  +i,  --no-ignore-case   Regard case (default)\n"
 msgstr ""
-"  -i             Isot ja pienet kirjaimet - eivät merkityksellisiä\n"
-"  +i             Isot ja pienet kirjaimet - merkityksellisiä (oletus)\n"
+"  -i,  --ignore-case      Isot ja pienet kirjaimet - eivät merkityksellisiä\n"
+"  +i,  --no-ignore-case   Isot ja pienet kirjaimet - merkityksellisiä (oletus)\n"
 
 #: wcd.c:2035
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "  -I,  --ignore-diacritics     Ignore diacritics\n"
 "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
-"  -j,  --just-go         Just go mode\n"
-"  -k                     Keep paths\n"
-"  -K,  --color           Colors\n"
-"  -l ALIAS               aLias current directory\n"
-"  -L                     print software License\n"
-"  -m DIR                 Make DIR, add to treefile\n"
-"  -M DIR                 Make DIR, add to extra treefile\n"
-"  -n PATH                use relative treefile in PATH\n"
-"  +n PATH                add relative treefile in PATH\n"
-"  -N                     use Numbers\n"
-"  -o                     use stdOut\n"
-"  -od, --to-stdout       dump matches\n"
-"  -q,  --quiet           Quieter operation\n"
-"  -r DIR                 Remove DIR\n"
-"  -rmtree DIR            Remove DIR recursive\n"
-"  -s                     Scan disk from $HOME\n"
-"  -S PATH                Scan disk from PATH\n"
-"  +S PATH                Scan disk from PATH, create relative treefile\n"
-"  -t                     Don't strip /tmp_mnt from paths\n"
-"  -T,  --ascii-tree      Draw tree with ASCII characters\n"
-"  -Ta, --alt-tree-nav    Alternative tree navigation\n"
-"  -TC, --center-tree     Centered tree view\n"
-"  -Tc, --compact-tree    Compact tree\n"
-"  -u USER                use USER's treefile\n"
-"  +u USER                add USER's treefile\n"
-"  -v,  --verbose         Verbose operation\n"
-"  -V,  --version         print Version info\n"
-"  -w                     Wild matching only\n"
-"  -x PATH                eXclude PATH during disk scan\n"
-"  -xf FILE               eXclude paths from FILE\n"
-"  -z NUMBER              set max stack siZe\n"
-"  -[NUMBER]              Push dir (NUMBER times)\n"
-"  +[NUMBER]              Pop dir (NUMBER times)\n"
-"  =                      Show stack\n"
+"  -j,  --just-go          Just go mode\n"
+"  -k,  --keep-paths       Keep paths\n"
+"  -K,  --color            Colors\n"
+"  -l ALIAS                aLias current directory\n"
+"  -L,  --license          print software License\n"
+"  -m DIR                  Make DIR, add to treefile\n"
+"  -M DIR                  Make DIR, add to extra treefile\n"
+"  -n PATH                 use relative treefile in PATH\n"
+"  +n PATH                 add relative treefile in PATH\n"
+"  -N,  --numbers          use Numbers\n"
+"  -o                      use stdOut\n"
+"  -od, --to-stdout        dump matches\n"
+"  -q,  --quiet            Quieter operation\n"
+"  -r DIR                  Remove DIR\n"
+"  -rmtree DIR             Remove DIR recursive\n"
+"  -s                      Scan disk from $HOME\n"
+"  -S PATH                 Scan disk from PATH\n"
+"  +S PATH                 Scan disk from PATH, create relative treefile\n"
+"  -t                      Don't strip /tmp_mnt from paths\n"
+"  -T,  --ascii-tree       Draw tree with ASCII characters\n"
+"  -Ta, --alt-tree-nav     Alternative tree navigation\n"
+"  -TC, --center-tree      Centered tree view\n"
+"  -Tc, --compact-tree     Compact tree\n"
+"  -u USER                 use USER's treefile\n"
+"  +u USER                 add USER's treefile\n"
+"  -v,  --verbose          Verbose operation\n"
+"  -V,  --version          print Version info\n"
+"  -w,  --wild-match-only  Wild matching only\n"
+"  -x PATH                 eXclude PATH during disk scan\n"
+"  -xf FILE                eXclude paths from FILE\n"
+"  -z NUMBER               set max stack siZe\n"
+"  -[NUMBER]               Push dir (NUMBER times)\n"
+"  +[NUMBER]               Pop dir (NUMBER times)\n"
+"  =                       Show stack\n"
 msgstr ""
-"  -I             Ohita diakrittiset merkit\n"
-"  +I             Ota huomioon diakriittiset merkit (oletus)\n"
-"  -j             Ainoastaan go-tieston moodi\n"
-"  -k             Säilytä koko polku\n"
-"  -K             Näytä värit\n"
-"  -l ALIAS       Määritä ALIAS nykyiselle polulle\n"
-"  -L             Tulosta ohjelman lisenssi\n"
-"  -m HAKEMISTO   HAKEMISTO, lisää tiedostoon treefile\n"
-"  -M HAKEMISTO   HAKEMISTO, lisää tiedostoon extra treefile\n"
-"  -n POLKU       Käytä  relatiivista treefile osoitetta POLUSSA\n"
-"  +n POLKU       Lisää relatiivinen treefile osoite POLKUUN\n"
-"  -N             Käytä numerointia\n"
-"  -o             Käytä stdout\n"
-"  -od            Tulosta esiintymät\n"
-"  -q             Hiljainen moodi, ei viestejä\n"
-"  -r HAKEMISTO   Poista HAKEMISTO\n"
-"  -rmtree HAKEM. Poista rekursiivisesti HAKEMISTO\n"
-"  -s             Skannaa levy, $HOME alaspäin\n"
-"  -S POLKU       Skannaa levy, POLKU alaspäin\n"
-"  +S POLKU       Skannaa levy, POLKU alaspäin, mutta käyttäen relatiivisia "
+"  -I,  --ignore-diacritics     Ohita diakrittiset merkit\n"
+"  +I,  --no-ignore-diacritics  Ota huomioon diakriittiset merkit (oletus)\n"
+"  -j,  --just-go          Ainoastaan go-tieston moodi\n"
+"  -k,  --keep-paths       Säilytä koko polku\n"
+"  -K,  --color            Näytä värit\n"
+"  -l ALIAS                Määritä ALIAS nykyiselle polulle\n"
+"  -L,  --license          Tulosta ohjelman lisenssi\n"
+"  -m HAKEMISTO            HAKEMISTO, lisää tiedostoon treefile\n"
+"  -M HAKEMISTO            HAKEMISTO, lisää tiedostoon extra treefile\n"
+"  -n POLKU                Käytä  relatiivista treefile osoitetta POLUSSA\n"
+"  +n POLKU                Lisää relatiivinen treefile osoite POLKUUN\n"
+"  -N,  --numbers          Käytä numerointia\n"
+"  -o                      Käytä stdout\n"
+"  -od, --to-stdout        Tulosta esiintymät\n"
+"  -q,  --quiet            Hiljainen moodi, ei viestejä\n"
+"  -r HAKEMISTO            Poista HAKEMISTO\n"
+"  -rmtree HAKEM.          Poista rekursiivisesti HAKEMISTO\n"
+"  -s                      Skannaa levy, $HOME alaspäin\n"
+"  -S POLKU                Skannaa levy, POLKU alaspäin\n"
+"  +S POLKU                Skannaa levy, POLKU alaspäin, mutta käyttäen relatiivisia "
 "ositteita (treefile)\n"
-"  -t             Älä poista /tmp_mnt osoitetta polusta\n"
-"  -T             Esitä hakemistopuu ASCII-kirjaimin\n"
-"  -Ta            Alternative tree navigation\n"
-"  -TC            Centered tree view\n"
-"  -Tc            kompakti esitystapa\n"
-"  -u KÄYTTÄJÄ    Käytä treefile: käyttäjätunnus\n"
-"  +u KÄYTTÄJÄ    Lisää treefile: käyttäjätunnus\n"
-"  -v, --verbose  Verbose moodi, lisää viestien määrää\n"
-"  -V, --version  Tulosta ohjelman versio\n"
-"  -w             Villkikorttihaku, etsi annetun säännön mukaan\n"
-"  -x POLKU       Jätä huomioimatta POLKU skannauksen aikana\n"
-"  -xf TIEDOSTO   Jätä huomioimatta kaikki polut, joktka on mainittu "
+"  -t                      Älä poista /tmp_mnt osoitetta polusta\n"
+"  -T,  --ascii-tree       Esitä hakemistopuu ASCII-kirjaimin\n"
+"  -Ta, --alt-tree-nav     Alternative tree navigation\n"
+"  -TC, --center-tree      Centered tree view\n"
+"  -Tc, --compact-tree     kompakti esitystapa\n"
+"  -u KÄYTTÄJÄ             Käytä treefile: käyttäjätunnus\n"
+"  +u KÄYTTÄJÄ             Lisää treefile: käyttäjätunnus\n"
+"  -v,  --verbose          Verbose moodi, lisää viestien määrää\n"
+"  -V,  --version          Tulosta ohjelman versio\n"
+"  -w,  --wild-match-only  Villkikorttihaku, etsi annetun säännön mukaan\n"
+"  -x POLKU                Jätä huomioimatta POLKU skannauksen aikana\n"
+"  -xf TIEDOSTO            Jätä huomioimatta kaikki polut, joktka on mainittu "
 "tiedostossa\n"
-"  -z NUMERO      Aseta pinon maksimikko: stack siZe\n"
-"  -[NUMERO]      Lisää hakemisto pinoon (NUMERO kertaa)\n"
-"  +[NUMERO]      Ota hakemisto pinosta (NUMERO kertaa)\n"
-"  =              Näitä pino: stackS\n"
+"  -z NUMERO               Aseta pinon maksimikko: stack siZe\n"
+"  -[NUMERO]               Lisää hakemisto pinoon (NUMERO kertaa)\n"
+"  +[NUMERO]               Ota hakemisto pinosta (NUMERO kertaa)\n"
+"  =                       Näitä pino: stackS\n"
 
-#: wcd.c:2080 wcd.c:2866
+#: wcd.c:2080 wcd.c:2207
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
@@ -485,40 +484,7 @@ msgstr "Lataa viimeisin versio ohjelmasta ja sen lähdekoodista osoitteesta:\n"
 msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr "http://waterlan.home.xs4all.nl/\n"
 
-#: wcd.c:2234
-#, c-format
-msgid "Wcd: creating directory %s\n"
-msgstr "Wcd: Luodaan hakemisto %s\n"
-
-#: wcd.c:2552
-msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
-msgstr "Wcd: virhe: Ympäristömuuttujan WCDLOCALEDIR arvo on liian pitkä.\n"
-
-#: wcd.c:2578
-msgid "Wcd: error: Value of environment variable HOME is too long.\n"
-msgstr "Wcd: virhe: Ympäristömuuttujan HOME arvo on liian pitkä.\n"
-
-#: wcd.c:2593 wcd.c:2661
-msgid ""
-"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
-msgstr ""
-"Wcd: virhe: Ympäristömuuttujien HOME ja WCDHOME arvot ovat liian pitkät.\n"
-
-#: wcd.c:2625 wcd.c:2654
-msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
-msgstr "Wcd: virhe: Ympäristömuuttujaa HOME tai WCDHOME is ole asetettu.\n"
-
-#: wcd.c:2730 wcd.c:3173 wcd.c:3192
-msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
-msgstr "Wcd: virhe: Ympäristömuuttujan WCDUSERSHOME arvo on liian pitkä.\n"
-
-#: wcd.c:2862
-msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
-msgstr ""
-"Wcd: Graffinen moodi tuettu ainoastaan ohjelman curses-kirjaston "
-"versioissa.\n"
-
-#: wcd.c:2867
+#: wcd.c:2208
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -552,37 +518,70 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:3106
+#: wcd.c:2267
+#, c-format
+msgid "Wcd: creating directory %s\n"
+msgstr "Wcd: Luodaan hakemisto %s\n"
+
+#: wcd.c:2585
+msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
+msgstr "Wcd: virhe: Ympäristömuuttujan WCDLOCALEDIR arvo on liian pitkä.\n"
+
+#: wcd.c:2611
+msgid "Wcd: error: Value of environment variable HOME is too long.\n"
+msgstr "Wcd: virhe: Ympäristömuuttujan HOME arvo on liian pitkä.\n"
+
+#: wcd.c:2626 wcd.c:2694
+msgid ""
+"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
+msgstr ""
+"Wcd: virhe: Ympäristömuuttujien HOME ja WCDHOME arvot ovat liian pitkät.\n"
+
+#: wcd.c:2658 wcd.c:2687
+msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
+msgstr "Wcd: virhe: Ympäristömuuttujaa HOME tai WCDHOME is ole asetettu.\n"
+
+#: wcd.c:2763 wcd.c:3219 wcd.c:3238
+msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
+msgstr "Wcd: virhe: Ympäristömuuttujan WCDUSERSHOME arvo on liian pitkä.\n"
+
+#: wcd.c:2895
+msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
+msgstr ""
+"Wcd: Graffinen moodi tuettu ainoastaan ohjelman curses-kirjaston "
+"versioissa.\n"
+
+#: wcd.c:3152
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s lisätty tiedostoon %s\n"
 
-#: wcd.c:3205
+#: wcd.c:3251
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr "Wcd: virhe: Ei oikeutta lukea tiedostoa %s tai %s\n"
 
-#: wcd.c:3355
+#: wcd.c:3401
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "Wcd: WCDSCAN hakemisto {%s}\n"
 
-#: wcd.c:3357
+#: wcd.c:3403
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: asetettu mustalle listalle {%s}\n"
 
-#: wcd.c:3359
+#: wcd.c:3405
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: jätetään ottamasta huomioon {%s}\n"
 
-#: wcd.c:3361
+#: wcd.c:3407
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteroidaan {%s}\n"
 
-#: wcd.c:3628
+#: wcd.c:3674
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -592,7 +591,7 @@ msgstr ""
 "Wcd: Mahdollisesti levy tulee skannata uudelleen tai hakemisto on mustalla "
 "listalla\n"
 
-#: wcd.c:3794
+#: wcd.c:3840
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Ei voi vaihtaa hakemistoon %s\n"

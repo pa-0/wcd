@@ -2005,70 +2005,70 @@ directory:  Name of directory to change to.\n\
             Wildcards *, ? and [SET] are supported.\n\n"),VERSION,VERSION_DATE);
 
   printf(_("options:\n\
-  -a                     Add current path to treefile\n\
-  -aa                    Add current and all parent paths to treefile\n\
-  -A PATH                Add tree from PATH\n\
-  -b                     Ban current path\n\
-  -c,  --direct-cd       direct CD mode\n\
-  -d DRIVE               set DRIVE for stack & go files (DOS)\n\
-  -e                     add current path to Extra treefile\n\
-  -ee                    add current and all parent paths to Extra treefile\n\
-  -E PATH                add tree from PATH to Extra treefile\n\
-  -f FILE                use extra treeFile\n\
-  +f FILE                add extra treeFile\n\
-  -g                     Graphics\n\
-  -gd                    Graphics, dump tree\n\
-  -G PATH                set PATH Go-script\n\
-  -GN, --no-go-script    No Go-script\n\
-  -h,  --help            show this Help\n"));
+  -a                      Add current path to treefile\n\
+  -aa                     Add current and all parent paths to treefile\n\
+  -A PATH                 Add tree from PATH\n\
+  -b                      Ban current path\n\
+  -c,  --direct-cd        direct CD mode\n\
+  -d DRIVE                set DRIVE for stack & go files (DOS)\n\
+  -e                      add current path to Extra treefile\n\
+  -ee                     add current and all parent paths to Extra treefile\n\
+  -E PATH                 add tree from PATH to Extra treefile\n\
+  -f FILE                 use extra treeFile\n\
+  +f FILE                 add extra treeFile\n\
+  -g                      Graphics\n\
+  -gd                     Graphics, dump tree\n\
+  -G PATH                 set PATH Go-script\n\
+  -GN, --no-go-script     No Go-script\n\
+  -h,  --help             show this Help\n"));
 
 #ifdef _WCD_DOSFS
   printf(_("\
-  -i,  --ignore-case     Ignore case (default)\n\
-  +i,  --no-ignore-case  Regard case\n"));
+  -i,  --ignore-case      Ignore case (default)\n\
+  +i,  --no-ignore-case   Regard case\n"));
 #else
   printf(_("\
-  -i,  --ignore-case     Ignore case\n\
-  +i,  --no-ignore-case  Regard case (default)\n"));
+  -i,  --ignore-case      Ignore case\n\
+  +i,  --no-ignore-case   Regard case (default)\n"));
 #endif
 
   printf(_("\
   -I,  --ignore-diacritics     Ignore diacritics\n\
   +I,  --no-ignore-diacritics  Regard diacritics (default)\n\
-  -j,  --just-go         Just go mode\n\
-  -k                     Keep paths\n\
-  -K,  --color           Colors\n\
-  -l ALIAS               aLias current directory\n\
-  -L                     print software License\n\
-  -m DIR                 Make DIR, add to treefile\n\
-  -M DIR                 Make DIR, add to extra treefile\n\
-  -n PATH                use relative treefile in PATH\n\
-  +n PATH                add relative treefile in PATH\n\
-  -N                     use Numbers\n\
-  -o                     use stdOut\n\
-  -od, --to-stdout       dump matches\n\
-  -q,  --quiet           Quieter operation\n\
-  -r DIR                 Remove DIR\n\
-  -rmtree DIR            Remove DIR recursive\n\
-  -s                     Scan disk from $HOME\n\
-  -S PATH                Scan disk from PATH\n\
-  +S PATH                Scan disk from PATH, create relative treefile\n\
-  -t                     Don't strip /tmp_mnt from paths\n\
-  -T,  --ascii-tree      Draw tree with ASCII characters\n\
-  -Ta, --alt-tree-nav    Alternative tree navigation\n\
-  -TC, --center-tree     Centered tree view\n\
-  -Tc, --compact-tree    Compact tree\n\
-  -u USER                use USER's treefile\n\
-  +u USER                add USER's treefile\n\
-  -v,  --verbose         Verbose operation\n\
-  -V,  --version         print Version info\n\
-  -w                     Wild matching only\n\
-  -x PATH                eXclude PATH during disk scan\n\
-  -xf FILE               eXclude paths from FILE\n\
-  -z NUMBER              set max stack siZe\n\
-  -[NUMBER]              Push dir (NUMBER times)\n\
-  +[NUMBER]              Pop dir (NUMBER times)\n\
-  =                      Show stack\n"));
+  -j,  --just-go          Just go mode\n\
+  -k,  --keep-paths       Keep paths\n\
+  -K,  --color            Colors\n\
+  -l ALIAS                aLias current directory\n\
+  -L,  --license          print software License\n\
+  -m DIR                  Make DIR, add to treefile\n\
+  -M DIR                  Make DIR, add to extra treefile\n\
+  -n PATH                 use relative treefile in PATH\n\
+  +n PATH                 add relative treefile in PATH\n\
+  -N,  --numbers          use Numbers\n\
+  -o                      use stdOut\n\
+  -od, --to-stdout        dump matches\n\
+  -q,  --quiet            Quieter operation\n\
+  -r DIR                  Remove DIR\n\
+  -rmtree DIR             Remove DIR recursive\n\
+  -s                      Scan disk from $HOME\n\
+  -S PATH                 Scan disk from PATH\n\
+  +S PATH                 Scan disk from PATH, create relative treefile\n\
+  -t                      Don't strip /tmp_mnt from paths\n\
+  -T,  --ascii-tree       Draw tree with ASCII characters\n\
+  -Ta, --alt-tree-nav     Alternative tree navigation\n\
+  -TC, --center-tree      Centered tree view\n\
+  -Tc, --compact-tree     Compact tree\n\
+  -u USER                 use USER's treefile\n\
+  +u USER                 add USER's treefile\n\
+  -v,  --verbose          Verbose operation\n\
+  -V,  --version          print Version info\n\
+  -w,  --wild-match-only  Wild matching only\n\
+  -x PATH                 eXclude PATH during disk scan\n\
+  -xf FILE                eXclude paths from FILE\n\
+  -z NUMBER               set max stack siZe\n\
+  -[NUMBER]               Push dir (NUMBER times)\n\
+  +[NUMBER]               Pop dir (NUMBER times)\n\
+  =                       Show stack\n"));
 }
 
 #ifdef ENABLE_NLS
@@ -2200,6 +2200,39 @@ void print_version()
    printf("\n");
    printf(_("Download the latest executables and sources from:\n"));
    printf(_("http://waterlan.home.xs4all.nl/\n"));
+}
+
+void print_license()
+{
+   printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
+   printf(_("\
+Chdir for Dos and Unix.\n\
+Copyright (C) 1997-2012 Erwin Waterlander\n\
+Copyright (C) 1994-2002 Ondrej Popp on C3PO\n\
+Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n\
+Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n\
+Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n\
+Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n\
+Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n\
+Source code to scan Windows LAN was originally written and placed\n\
+in the public domain by Felix Kasza.\n\
+Markus Kuhn's free wcwidth() implementation is used\n\
+in Wcd for Windows.\n\
+Rugxulo is the original author of query_con_codepage() (public domain).\n\n\
+\
+This program is free software; you can redistribute it and/or\n\
+modify it under the terms of the GNU General Public License\n\
+as published by the Free Software Foundation; either version 2\n\
+of the License, or (at your option) any later version.\n\n\
+\
+This program is distributed in the hope that it will be useful,\n\
+but WITHOUT ANY WARRANTY; without even the implied warranty of\n\
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n\
+GNU General Public License for more details.\n\n\
+\
+You should have received a copy of the GNU General Public License\n\
+along with this program; if not, write to the Free Software\n\
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"));
 }
 
 /* Recurively create directory path, to enable writing
@@ -2863,36 +2896,7 @@ int main(int argc,char** argv)
 #endif
             break;
          case 'L':
-        printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
-        printf(_("\
-Chdir for Dos and Unix.\n\
-Copyright (C) 1997-2012 Erwin Waterlander\n\
-Copyright (C) 1994-2002 Ondrej Popp on C3PO\n\
-Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n\
-Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n\
-Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n\
-Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n\
-Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n\
-Source code to scan Windows LAN was originally written and placed\n\
-in the public domain by Felix Kasza.\n\
-Markus Kuhn's free wcwidth() implementation is used\n\
-in Wcd for Windows.\n\
-Rugxulo is the original author of query_con_codepage() (public domain).\n\n\
-\
-This program is free software; you can redistribute it and/or\n\
-modify it under the terms of the GNU General Public License\n\
-as published by the Free Software Foundation; either version 2\n\
-of the License, or (at your option) any later version.\n\n\
-\
-This program is distributed in the hope that it will be useful,\n\
-but WITHOUT ANY WARRANTY; without even the implied warranty of\n\
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n\
-GNU General Public License for more details.\n\n\
-\
-You should have received a copy of the GNU General Public License\n\
-along with this program; if not, write to the Free Software\n\
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"));
-
+            print_license();
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)       /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript);
 #endif
@@ -2990,6 +2994,36 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
                ignore_diacritics = 1;
             } else if (strcmp(argv[i]+2,"no-ignore-diacritics") == 0) {
                ignore_diacritics = 0;
+               justGo = 1;
+            } else if (strcmp(argv[i]+2,"keep-paths") == 0) {
+               keep_paths = 1;
+            } else if (strcmp(argv[i]+2,"color") == 0) {
+               graphics |= WCD_GRAPH_COLOR ;
+            } else if (strcmp(argv[i]+2,"license") == 0) {
+               print_license();
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)       /* empty wcd.go file */
+               empty_wcdgo(go_file,use_GoScript);
+#endif
+#ifdef WCD_DOSBASH     /* empty wcd.go file */
+               empty_wcdgo(go_file,0,drive,use_GoScript);
+#endif
+               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+            } else if (strcmp(argv[i]+2,"numbers") == 0) {
+               use_numbers = 1;
+            } else if (strcmp(argv[i]+2,"to-stdout") == 0) {
+               use_stdout |= WCD_STDOUT_DUMP ;
+            } else if (strcmp(argv[i]+2,"quiet") == 0) {
+               quieter = 1;
+            } else if (strcmp(argv[i]+2,"ascii-tree") == 0) {
+               graphics |= WCD_GRAPH_ASCII ;
+            } else if (strcmp(argv[i]+2,"alt-tree-nav") == 0) {
+               graphics |= WCD_GRAPH_ALT ;
+            } else if (strcmp(argv[i]+2,"center-tree") == 0) {
+               graphics |= WCD_GRAPH_CENTER ;
+            } else if (strcmp(argv[i]+2,"compact-tree") == 0) {
+               graphics |= WCD_GRAPH_COMPACT ;
+            } else if (strcmp(argv[i]+2,"wild-match-only") == 0) {
+               wildOnly = 1;
             } else {
                print_help();
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-10 22:29+0200\n"
+"POT-Creation-Date: 2012-10-11 21:09+0200\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -159,144 +159,145 @@ msgstr ""
 "\n"
 
 #: wcd.c:2007
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "options:\n"
-"  -a                     Add current path to treefile\n"
-"  -aa                    Add current and all parent paths to treefile\n"
-"  -A PATH                Add tree from PATH\n"
-"  -b                     Ban current path\n"
-"  -c,  --direct-cd       direct CD mode\n"
-"  -d DRIVE               set DRIVE for stack & go files (DOS)\n"
-"  -e                     add current path to Extra treefile\n"
-"  -ee                    add current and all parent paths to Extra treefile\n"
-"  -E PATH                add tree from PATH to Extra treefile\n"
-"  -f FILE                use extra treeFile\n"
-"  +f FILE                add extra treeFile\n"
-"  -g                     Graphics\n"
-"  -gd                    Graphics, dump tree\n"
-"  -G PATH                set PATH Go-script\n"
-"  -GN, --no-go-script    No Go-script\n"
-"  -h,  --help            show this Help\n"
+"  -a                      Add current path to treefile\n"
+"  -aa                     Add current and all parent paths to treefile\n"
+"  -A PATH                 Add tree from PATH\n"
+"  -b                      Ban current path\n"
+"  -c,  --direct-cd        direct CD mode\n"
+"  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
+"  -e                      add current path to Extra treefile\n"
+"  -ee                     add current and all parent paths to Extra "
+"treefile\n"
+"  -E PATH                 add tree from PATH to Extra treefile\n"
+"  -f FILE                 use extra treeFile\n"
+"  +f FILE                 add extra treeFile\n"
+"  -g                      Graphics\n"
+"  -gd                     Graphics, dump tree\n"
+"  -G PATH                 set PATH Go-script\n"
+"  -GN, --no-go-script     No Go-script\n"
+"  -h,  --help             show this Help\n"
 msgstr ""
 "Optionen:\n"
-"  -a             Aktuellen Pfad zur Baumdatei hinzu fügen\n"
-"  -aa            Aktuellen und alle darüberliegenden Pfade zur\n"
-"                 Baumdatei hinzufügen\n"
-"  -A PFAD        Dateibaum von PFAD hinzufügen\n"
-"  -b             Aktuellen Pfad bannen\n"
-"  -c             Direkter CD Modus\n"
-"  -d LAUFWERK    Setzt LAUFWERK fúr den Stapel & wechselt zu den\n"
-"                 Dateien (DOS)\n"
-"  -e             aktuellen Pfad zu zusätzlicher Baumdatei hinzufügen\n"
-"  -ee            Aktuellen und alle darüber liegenden Pfade zu\n"
-"                 zusätzlicher Baumdatei hinzufügen\n"
-"  -E PFAD        Dateibaum von PFAD zu zusätzlicher Baumdatei hinzufügen\n"
-"  -f DATEI       Extra Baumdatei verwenden\n"
-"  +f DATEI       Extra Baumdatei hinzufügen\n"
-"  -g             Grafik\n"
-"  -gd            Grafik, Dateibaum ausgeben\n"
-"  -G PFAD        setzt PFAD zu Go-Skript\n"
-"  -GN            Kein Go-skript\n"
-"  -h, --help     Diese Hilfe anzeigen\n"
+"  -a                      Aktuellen Pfad zur Baumdatei hinzu fügen\n"
+"  -aa                     Aktuellen und alle darüberliegenden Pfade zur\n"
+"                          Baumdatei hinzufügen\n"
+"  -A PFAD                 Dateibaum von PFAD hinzufügen\n"
+"  -b                      Aktuellen Pfad bannen\n"
+"  -c,  --direct-cd        Direkter CD Modus\n"
+"  -d LAUFWERK             Setzt LAUFWERK fúr den Stapel & wechselt zu den\n"
+"                          Dateien (DOS)\n"
+"  -e                      aktuellen Pfad zu zusätzlicher Baumdatei hinzufügen\n"
+"  -ee                     Aktuellen und alle darüber liegenden Pfade zu\n"
+"                          zusätzlicher Baumdatei hinzufügen\n"
+"  -E PFAD                 Dateibaum von PFAD zu zusätzlicher Baumdatei hinzufügen\n"
+"  -f DATEI                Extra Baumdatei verwenden\n"
+"  +f DATEI                Extra Baumdatei hinzufügen\n"
+"  -g                      Grafik\n"
+"  -gd                     Grafik, Dateibaum ausgeben\n"
+"  -G PFAD                 setzt PFAD zu Go-Skript\n"
+"  -GN, --no-go-script     Kein Go-skript\n"
+"  -h,  --help             Diese Hilfe anzeigen\n"
 
 #: wcd.c:2026
-#, fuzzy, c-format
+#, c-format
 msgid ""
-"  -i,  --ignore-case     Ignore case (default)\n"
-"  +i,  --no-ignore-case  Regard case\n"
+"  -i,  --ignore-case      Ignore case (default)\n"
+"  +i,  --no-ignore-case   Regard case\n"
 msgstr ""
-"  -i             Gross-/Kleinschreibung ignorieren (Standardeinstellung)\n"
-"  +i             Gross-/Kleinschreibung beachten\n"
+"  -i,  --ignore-case      Gross-/Kleinschreibung ignorieren (Standardeinstellung)\n"
+"  +i,  --no-ignore-case   Gross-/Kleinschreibung beachten\n"
 
 #: wcd.c:2030
-#, fuzzy, c-format
+#, c-format
 msgid ""
-"  -i,  --ignore-case     Ignore case\n"
-"  +i,  --no-ignore-case  Regard case (default)\n"
+"  -i,  --ignore-case      Ignore case\n"
+"  +i,  --no-ignore-case   Regard case (default)\n"
 msgstr ""
-"  -i             Gross-/Kleinschreibung ignorieren\n"
-"  +i             Gross-/Kleinschreibung beachten (Standardeinstellung)\n"
+"  -i,  --ignore-case      Gross-/Kleinschreibung ignorieren\n"
+"  +i,  --no-ignore-case   Gross-/Kleinschreibung beachten (Standardeinstellung)\n"
 
 #: wcd.c:2035
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "  -I,  --ignore-diacritics     Ignore diacritics\n"
 "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
-"  -j,  --just-go         Just go mode\n"
-"  -k                     Keep paths\n"
-"  -K,  --color           Colors\n"
-"  -l ALIAS               aLias current directory\n"
-"  -L                     print software License\n"
-"  -m DIR                 Make DIR, add to treefile\n"
-"  -M DIR                 Make DIR, add to extra treefile\n"
-"  -n PATH                use relative treefile in PATH\n"
-"  +n PATH                add relative treefile in PATH\n"
-"  -N                     use Numbers\n"
-"  -o                     use stdOut\n"
-"  -od, --to-stdout       dump matches\n"
-"  -q,  --quiet           Quieter operation\n"
-"  -r DIR                 Remove DIR\n"
-"  -rmtree DIR            Remove DIR recursive\n"
-"  -s                     Scan disk from $HOME\n"
-"  -S PATH                Scan disk from PATH\n"
-"  +S PATH                Scan disk from PATH, create relative treefile\n"
-"  -t                     Don't strip /tmp_mnt from paths\n"
-"  -T,  --ascii-tree      Draw tree with ASCII characters\n"
-"  -Ta, --alt-tree-nav    Alternative tree navigation\n"
-"  -TC, --center-tree     Centered tree view\n"
-"  -Tc, --compact-tree    Compact tree\n"
-"  -u USER                use USER's treefile\n"
-"  +u USER                add USER's treefile\n"
-"  -v,  --verbose         Verbose operation\n"
-"  -V,  --version         print Version info\n"
-"  -w                     Wild matching only\n"
-"  -x PATH                eXclude PATH during disk scan\n"
-"  -xf FILE               eXclude paths from FILE\n"
-"  -z NUMBER              set max stack siZe\n"
-"  -[NUMBER]              Push dir (NUMBER times)\n"
-"  +[NUMBER]              Pop dir (NUMBER times)\n"
-"  =                      Show stack\n"
+"  -j,  --just-go          Just go mode\n"
+"  -k,  --keep-paths       Keep paths\n"
+"  -K,  --color            Colors\n"
+"  -l ALIAS                aLias current directory\n"
+"  -L,  --license          print software License\n"
+"  -m DIR                  Make DIR, add to treefile\n"
+"  -M DIR                  Make DIR, add to extra treefile\n"
+"  -n PATH                 use relative treefile in PATH\n"
+"  +n PATH                 add relative treefile in PATH\n"
+"  -N,  --numbers          use Numbers\n"
+"  -o                      use stdOut\n"
+"  -od, --to-stdout        dump matches\n"
+"  -q,  --quiet            Quieter operation\n"
+"  -r DIR                  Remove DIR\n"
+"  -rmtree DIR             Remove DIR recursive\n"
+"  -s                      Scan disk from $HOME\n"
+"  -S PATH                 Scan disk from PATH\n"
+"  +S PATH                 Scan disk from PATH, create relative treefile\n"
+"  -t                      Don't strip /tmp_mnt from paths\n"
+"  -T,  --ascii-tree       Draw tree with ASCII characters\n"
+"  -Ta, --alt-tree-nav     Alternative tree navigation\n"
+"  -TC, --center-tree      Centered tree view\n"
+"  -Tc, --compact-tree     Compact tree\n"
+"  -u USER                 use USER's treefile\n"
+"  +u USER                 add USER's treefile\n"
+"  -v,  --verbose          Verbose operation\n"
+"  -V,  --version          print Version info\n"
+"  -w,  --wild-match-only  Wild matching only\n"
+"  -x PATH                 eXclude PATH during disk scan\n"
+"  -xf FILE                eXclude paths from FILE\n"
+"  -z NUMBER               set max stack siZe\n"
+"  -[NUMBER]               Push dir (NUMBER times)\n"
+"  +[NUMBER]               Pop dir (NUMBER times)\n"
+"  =                       Show stack\n"
 msgstr ""
-"  -I             Diakritische Zeichen ignorieren\n"
-"  +I             Diakritische Zeichen nicht ignorieren "
+"  -I,  --ignore-diacritics     Diakritische Zeichen ignorieren\n"
+"  +I,  --no-ignore-diacritics  Diakritische Zeichen nicht ignorieren "
 "(Standardeinstellung)\n"
-"  -j             Geh-einfach Modus\n"
-"  -k             Pfade behalten\n"
-"  -K             Farben\n"
-"  -l ALIAS       ALIAS für aktuelles Verzeichnis anlegen\n"
-"  -L             Software-Lizenz ausgeben\n"
-"  -m VERZ.       Erzeuge VERZEICHNIS und füge zu Baumdatei hinzu\n"
-"  -M VERZ.       Erzeuge VERZEICHNIS und füge zu extra Baumdatei hinzu\n"
-"  -n PFAD        Verwendet relative Baumdatei in PFAD\n"
-"  +n PFAD        Fügt relative Baumdatei in PFAD hinzu\n"
-"  -N             Es werden Zahlen verwendet\n"
-"  -o             StdOut wird verwendet\n"
-"  -od            Übereinstimmungen werden ausgegeben\n"
-"  -q             Weniger Ausgaben\n"
-"  -r VERZ.       VERZEICHNIS wird entfernt\n"
-"  -rmtree VERZ.  VERZEICHNIS wird rekursiv entfernt\n"
-"  -s             Platte ab $HOME durchsuchen\n"
-"  -S PFAD        Platte ab PFAD durchsuchen\n"
-"  +S PFAD        Platte ab PFAD durchsuchen, relative Baumdatei erzeugen\n"
-"  -t             /tmp_mnt nicht vom Pfadnamen entfernen\n"
-"  -T             Den Baum mit ASCII-Zeichen zeichnen\n"
-"  -Ta            Alternative Baumnavigation\n"
-"  -TC            Zentrierte Baumansicht\n"
-"  -Tc            Baum kompakter machen\n"
-"  -u BENUTZER    Verwendet Baumdatei von BENUTZER\n"
-"  +u BENUTZER    Fügt die Baumdatei von BENUTZER hinzu\n"
-"  -v, --verbose  WCD wird gesprächig\n"
-"  -V, --version  Programmversion ausgeben\n"
-"  -w             Nur Übereinstimmung von Platzhaltern\n"
-"  -x PFAD        PFAD beim Durchsuchen der Platte ignorieren\n"
-"  -xf DATEI      Die Pfade aus DATEI ignorieren\n"
-"  -z ZAHL        Maximale Größe des Stapels festlegen\n"
-"  -[ZAHL]        Verzeichnis auf Stapel legen (ZAHL mal)\n"
-"  +[ZAHL]        Verzeinis vom Stapel nehemn (ZAHL mal)\n"
-"  =              Zeige den verzeichnisstapel an\n"
+"  -j,  --just-go          Geh-einfach Modus\n"
+"  -k,  --keep-paths       Pfade behalten\n"
+"  -K,  --color            Farben\n"
+"  -l ALIAS                ALIAS für aktuelles Verzeichnis anlegen\n"
+"  -L,  --license          Software-Lizenz ausgeben\n"
+"  -m VERZ.                Erzeuge VERZEICHNIS und füge zu Baumdatei hinzu\n"
+"  -M VERZ.                Erzeuge VERZEICHNIS und füge zu extra Baumdatei hinzu\n"
+"  -n PFAD                 Verwendet relative Baumdatei in PFAD\n"
+"  +n PFAD                 Fügt relative Baumdatei in PFAD hinzu\n"
+"  -N,  --numbers          Es werden Zahlen verwendet\n"
+"  -o                      StdOut wird verwendet\n"
+"  -od, --to-stdout        Übereinstimmungen werden ausgegeben\n"
+"  -q,  --quiet            Weniger Ausgaben\n"
+"  -r VERZ.                VERZEICHNIS wird entfernt\n"
+"  -rmtree VERZ.           VERZEICHNIS wird rekursiv entfernt\n"
+"  -s                      Platte ab $HOME durchsuchen\n"
+"  -S PFAD                 Platte ab PFAD durchsuchen\n"
+"  +S PFAD                 Platte ab PFAD durchsuchen, relative Baumdatei erzeugen\n"
+"  -t                      /tmp_mnt nicht vom Pfadnamen entfernen\n"
+"  -T,  --ascii-tree       Den Baum mit ASCII-Zeichen zeichnen\n"
+"  -Ta, --alt-tree-nav     Alternative Baumnavigation\n"
+"  -TC, --center-tree      Zentrierte Baumansicht\n"
+"  -Tc, --compact-tree     Baum kompakter machen\n"
+"  -u BENUTZER             Verwendet Baumdatei von BENUTZER\n"
+"  +u BENUTZER             Fügt die Baumdatei von BENUTZER hinzu\n"
+"  -v,  --verbose          WCD wird gesprächig\n"
+"  -V,  --version          Programmversion ausgeben\n"
+"  -w,  --wild-match-only  Nur Übereinstimmung von Platzhaltern\n"
+"  -x PFAD                 PFAD beim Durchsuchen der Platte ignorieren\n"
+"  -xf DATEI               Die Pfade aus DATEI ignorieren\n"
+"  -z ZAHL                 Maximale Größe des Stapels festlegen\n"
+"  -[ZAHL]                 Verzeichnis auf Stapel legen (ZAHL mal)\n"
+"  +[ZAHL]                 Verzeinis vom Stapel nehemn (ZAHL mal)\n"
+"  =                       Zeige den verzeichnisstapel an\n"
 
-#: wcd.c:2080 wcd.c:2866
+#: wcd.c:2080 wcd.c:2207
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
@@ -491,44 +492,7 @@ msgstr ""
 msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr "http://waterlan.home.xs4all.nl/\n"
 
-#: wcd.c:2234
-#, c-format
-msgid "Wcd: creating directory %s\n"
-msgstr "wcd: Verzeichnis %s wird erzeugt\n"
-
-#: wcd.c:2552
-msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
-msgstr ""
-"wcd: Fehler: Der Inhalt der Umgebungsvariable WCDLOCALEDIR ist zu lang.\n"
-
-#: wcd.c:2578
-msgid "Wcd: error: Value of environment variable HOME is too long.\n"
-msgstr "wcd: Fehler: Der Inhalt der Umgebungsvariable HOME ist zu lang.\n"
-
-#: wcd.c:2593 wcd.c:2661
-msgid ""
-"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
-msgstr ""
-"wcd: Fehler: Der Inhalt der Umgebungsvariablen HOME oder WCDHOME ist zu "
-"lang.\n"
-
-#: wcd.c:2625 wcd.c:2654
-msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
-msgstr ""
-"wcd: Fehler: Die Umgebungsvariablen HOME oder WCDHOOME sind nicht gesetzt.\n"
-
-#: wcd.c:2730 wcd.c:3173 wcd.c:3192
-msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
-msgstr ""
-"wcd: Fehler: Der Inhalt der Umgebungsvariable WCDUSERHOME ist zu lang.\n"
-
-#: wcd.c:2862
-msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
-msgstr ""
-"wcd: Grafikmodus wird nur von wcd mit Curses basierter Oberfläche\n"
-"     unterstützt.\n"
-
-#: wcd.c:2867
+#: wcd.c:2208
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -592,38 +556,75 @@ msgstr ""
 "Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,\n"
 "MA 02110-1301 USA.\n"
 
-#: wcd.c:3106
+#: wcd.c:2267
+#, c-format
+msgid "Wcd: creating directory %s\n"
+msgstr "wcd: Verzeichnis %s wird erzeugt\n"
+
+#: wcd.c:2585
+msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
+msgstr ""
+"wcd: Fehler: Der Inhalt der Umgebungsvariable WCDLOCALEDIR ist zu lang.\n"
+
+#: wcd.c:2611
+msgid "Wcd: error: Value of environment variable HOME is too long.\n"
+msgstr "wcd: Fehler: Der Inhalt der Umgebungsvariable HOME ist zu lang.\n"
+
+#: wcd.c:2626 wcd.c:2694
+msgid ""
+"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
+msgstr ""
+"wcd: Fehler: Der Inhalt der Umgebungsvariablen HOME oder WCDHOME ist zu "
+"lang.\n"
+
+#: wcd.c:2658 wcd.c:2687
+msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
+msgstr ""
+"wcd: Fehler: Die Umgebungsvariablen HOME oder WCDHOOME sind nicht gesetzt.\n"
+
+#: wcd.c:2763 wcd.c:3219 wcd.c:3238
+msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
+msgstr ""
+"wcd: Fehler: Der Inhalt der Umgebungsvariable WCDUSERHOME ist zu lang.\n"
+
+#: wcd.c:2895
+msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
+msgstr ""
+"wcd: Grafikmodus wird nur von wcd mit Curses basierter Oberfläche\n"
+"     unterstützt.\n"
+
+#: wcd.c:3152
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "wcd: %s wurde zur Aliasdatei %s hinzugefügt\n"
 
-#: wcd.c:3205
+#: wcd.c:3251
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr ""
 "wcd: Fehler: Weder die Datei %s noch die Datei %s konnten gelesen werden\n"
 
-#: wcd.c:3355
+#: wcd.c:3401
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "wcd: WCDSCAN Verzeichnis {%s}\n"
 
-#: wcd.c:3357
+#: wcd.c:3403
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "wcd: {%s} wird verbannt\n"
 
-#: wcd.c:3359
+#: wcd.c:3405
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "wcd: {%s} wird ausgeschlossen\n"
 
-#: wcd.c:3361
+#: wcd.c:3407
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "wcd\" {%s} wird gefiltert\n"
 
-#: wcd.c:3628
+#: wcd.c:3674
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -633,7 +634,7 @@ msgstr ""
 "wcd: Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist "
 "verbannt.\n"
 
-#: wcd.c:3794
+#: wcd.c:3840
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "wcd: Zu %s kann nicht gewechselt werden\n"
