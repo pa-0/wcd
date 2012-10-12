@@ -273,8 +273,8 @@ msgstr ""
 "ositteita (treefile)\n"
 "  -t                      Älä poista /tmp_mnt osoitetta polusta\n"
 "  -T,  --ascii-tree       Esitä hakemistopuu ASCII-kirjaimin\n"
-"  -Ta, --alt-tree-nav     Alternative tree navigation\n"
-"  -TC, --center-tree      Centered tree view\n"
+"  -Ta, --alt-tree-nav     Vaihtoehtoinen navigointitapa\n"
+"  -TC, --center-tree      Keskitä näkymä\n"
 "  -Tc, --compact-tree     kompakti esitystapa\n"
 "  -u KÄYTTÄJÄ             Käytä treefile: käyttäjätunnus\n"
 "  +u KÄYTTÄJÄ             Lisää treefile: käyttäjätunnus\n"
@@ -873,9 +873,8 @@ msgid "NAVIGATE MODE (2/2):"
 msgstr "NAVIGOINTIMOODI (2/2):"
 
 #: graphics.c:1746
-#, fuzzy
 msgid "A                 switch alternative tree navigation on/off."
-msgstr "t                 Keskitetty moodi päälle/pois."
+msgstr "A                 Vaihtoehtoinen navigointitapa päälle/pois."
 
 #: graphics.c:1747
 msgid "t                 switch centered mode on/off."
