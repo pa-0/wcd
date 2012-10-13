@@ -2164,10 +2164,26 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
            wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,dirnodeGetY(wcd_cwin.curNode));
          break;
       case 'k':
-            wcd_cwin.curNode = getNodeCursUpNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
+            if ((wcd_cwin.graphics_mode & WCD_GRAPH_COMPACT) && (wcd_cwin.graphics_mode & WCD_GRAPH_ALT))
+            {
+               y = dirnodeGetY(wcd_cwin.curNode) - 1;
+               if (y < 0)
+                  y = 0;
+               wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
+            }
+            else
+               wcd_cwin.curNode = getNodeCursUpNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
          break;
       case 'j':
-            wcd_cwin.curNode = getNodeCursDownNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
+            if ((wcd_cwin.graphics_mode & WCD_GRAPH_COMPACT) && (wcd_cwin.graphics_mode & WCD_GRAPH_ALT))
+            {
+               y = dirnodeGetY(wcd_cwin.curNode) + 1;
+               if (y > ymax)
+                  y = ymax;
+               wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
+            }
+            else
+               wcd_cwin.curNode = getNodeCursDownNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
          break;
       case ',':
       case 'h':
@@ -2250,7 +2266,8 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          break;
       case 'm':
                wcd_cwin.graphics_mode ^= WCD_GRAPH_COMPACT ;
-	       setXYTree(endOfRecursionOfDirnodeParent(wcd_cwin.curNode),&wcd_cwin.graphics_mode);
+               setXYTree(endOfRecursionOfDirnodeParent(wcd_cwin.curNode),&wcd_cwin.graphics_mode);
+               ymax = dirnodeGetY(getLastDescendant(wcd_cwin.curNode));
          break;
      default:
      break;
@@ -2333,13 +2350,29 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #ifdef KEY_A2
       case KEY_A2:  /*  Num-pad ARROW UP */
 #endif
-            wcd_cwin.curNode = getNodeCursUpNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
+            if ((wcd_cwin.graphics_mode & WCD_GRAPH_COMPACT) && (wcd_cwin.graphics_mode & WCD_GRAPH_ALT))
+            {
+               y = dirnodeGetY(wcd_cwin.curNode) - 1;
+               if (y < 0)
+                  y = 0;
+               wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
+            }
+            else
+               wcd_cwin.curNode = getNodeCursUpNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
          break;
       case KEY_DOWN: /* Arrow down */
 #ifdef KEY_C2
       case KEY_C2:   /* Num-pad  Arrow down */
 #endif
-            wcd_cwin.curNode = getNodeCursDownNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
+            if ((wcd_cwin.graphics_mode & WCD_GRAPH_COMPACT) && (wcd_cwin.graphics_mode & WCD_GRAPH_ALT))
+            {
+               y = dirnodeGetY(wcd_cwin.curNode) + 1;
+               if (y > ymax)
+                  y = ymax;
+               wcd_cwin.curNode = getFirstNodeInLevel(wcd_cwin.curNode,y);
+            }
+            else
+               wcd_cwin.curNode = getNodeCursDownNatural(wcd_cwin.curNode, wcd_cwin.graphics_mode);
          break;
       case KEY_LEFT:
 #ifdef KEY_B1
