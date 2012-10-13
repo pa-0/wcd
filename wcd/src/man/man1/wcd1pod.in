@@ -319,6 +319,20 @@ default treedata file and the extra treedata files.
 If a search string is given the match list is presented as a directory
 tree.
 
+The default tree layout is similar to the tree layout of the original NCD on
+DOS. The difference in layout is that in NCD all directories of a same depth
+level were veritcally alligined. This was possible in NCD, because the maximum
+width of a directory name in DOS was 8.3 characters. On modern operating
+systems directory names can be very long, so also the differences in length can
+be large.  Therefore folders with a same depth are not vertically alligned in
+wcd.
+
+The navigation behaviour in Wcd is exactly the same as in the original NCD. For
+instance if you push the Down key you go down to the next directory with the
+same depth level. This enables fast navigation through the tree.
+
+See options B<-Ta>, B<-TC>, and B<-Tc> to change the navigation behaviour.
+
 =item B<-gd>
 
 Dump the treedata files as a tree to stdout.
@@ -550,6 +564,9 @@ jumping to unrelated directories.
 Centered view in the graphical tree. The selected directory stays in the middle
 of the screen. The centered mode can also be switched on and off with key 't'
 in the graphical tree.
+
+The standard non-centered behaviour, which minimises tree movement, is the same
+as the original NCD.
 
 =item B<-Tc, --compact-tree>
 
