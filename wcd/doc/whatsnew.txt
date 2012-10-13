@@ -5,6 +5,8 @@
     can become very wide. To overcome this wcd can draw the tree in a compact
     way, similar to most GUI file managers, with only one folder per line.
     Use the new option -Tc or switch on-the-fly with the 'm' key.
+  - Alternative navigation in compact tree mode works the same as in GUI
+    file explorers such as Windows Explorer and KDE Konqueror.
   - Removed option -ga. Instead add the new option -Ta to your wcd alias,
     function or batch file if you prefer alternative navigation by default.
     Use shift-A in the tree to switch on-the-fly.

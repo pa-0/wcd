@@ -979,9 +979,18 @@ dirnode getNodeCursDown(dirnode curNode)
  * If node is a valid pointer to a node this function
  * will return always a node.
  ******************************************************/
-dirnode getNodeCursLeft(dirnode curNode)
+dirnode getNodeCursLeft(dirnode curNode, int *ymax)
 {
    dirnode node;
+
+   if ((wcd_cwin.graphics_mode & WCD_GRAPH_COMPACT) && (wcd_cwin.graphics_mode & WCD_GRAPH_ALT))
+   {
+      if((dirnodeHasSubdirs(curNode) eq true) && (curNode->fold eq false))
+      {
+         setFold(wcd_cwin.curNode,true,ymax); /* fold */
+         return(curNode);
+      }
+   }
 
    if ((node = Left(curNode)) == NULL)
       return(curNode); /* there is no Left node, return same node */
@@ -2187,7 +2196,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          break;
       case ',':
       case 'h':
-            wcd_cwin.curNode = getNodeCursLeft(wcd_cwin.curNode);
+            wcd_cwin.curNode = getNodeCursLeft(wcd_cwin.curNode, &ymax);
          break;
       case '.':
       case 'l':
@@ -2378,7 +2387,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #ifdef KEY_B1
       case KEY_B1:   /* Num-pad  Arrow left */
 #endif
-            wcd_cwin.curNode = getNodeCursLeft(wcd_cwin.curNode);
+            wcd_cwin.curNode = getNodeCursLeft(wcd_cwin.curNode, &ymax);
          break;
       case KEY_RIGHT:
 #ifdef KEY_B3

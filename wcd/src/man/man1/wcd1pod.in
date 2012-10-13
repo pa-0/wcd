@@ -321,10 +321,10 @@ tree.
 
 The default tree layout is similar to the tree layout of the original NCD on
 DOS. The difference in layout is that in NCD all directories of a same depth
-level were veritcally alligined. This was possible in NCD, because the maximum
+level were vertically aligned. This was possible in NCD, because the maximum
 width of a directory name in DOS was 8.3 characters. On modern operating
 systems directory names can be very long, so also the differences in length can
-be large.  Therefore folders with a same depth are not vertically alligned in
+be large.  Therefore folders with a same depth are not vertically aligned in
 wcd.
 
 The navigation behaviour in Wcd is exactly the same as in the original NCD. For
@@ -395,7 +395,7 @@ a POSIX compatible shell:
     }
 
 When you are using an old shell that doesn't support "$()" command substitution
-you have to use old style command substitution with backquotes.
+you have to use old style command substitution with back-quotes.
 
     wcd ()
     {
@@ -546,7 +546,7 @@ This file is used by the B<-n> and +n options of wcd. E.g. C<wcd -n PATH
 Do not strip tmp mount dir C</tmp_mnt> (Unix only)
 
 Wcd strips by default C</tmp_mnt/> from the match. Directory
-C</tmp_mnt> is used by the automounter. This behaviour can be turned
+C</tmp_mnt> is used by the auto-mounter. This behaviour can be turned
 off with the B<-t> option.
 
 =item B<-T, --ascii-tree>
@@ -556,8 +556,18 @@ are not displayed properly in your terminal.
 
 =item B<-Ta, --alt-tree-nav>
 
-Alternative way of navigation in the graphical tree. The -Ta option disables
+Alternative way of navigation in the graphical tree.
+
+In the default NCD style tree layout the -Ta option disables
 jumping to unrelated directories.
+
+In compact tree mode the alternative mode makes navigation similar to
+navigation in GUI file managers such as Windows Explorer or GNU/Linux KDE
+Konqueror. Moving up and down moves just one line up or down. Moving left first
+folds the sub-folders and the next move left moves really left.
+
+You can switch on-the-fly between default and alternative navigation
+by pressing Shift-A.
 
 =item B<-TC, --center-tree>
 
@@ -985,7 +995,7 @@ locale and use a font with iso10646-1 encoding, for instance with
     LC_CTYPE=en_GB.UTF-8 xterm -u8 \
     -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'
 
-Modern distributions of Linux support UTF-8 by default. Other multi-byte
+Modern distributions of GNU/Linux support UTF-8 by default. Other multi-byte
 character encodings should also work, but that has not been tested.
 
 Wcd assumes that the treedata files are encoded in the locale character
@@ -1354,7 +1364,7 @@ Printing of C<#!$SHELL> on the first line of the go-script for POSIX
 type shell or C shell is needed for 8 bit characters. Some shells
 otherwise think that the go-script is a binary file and will not
 source it. In Cygwin Bash the variable I<SHELL> must be set in
-environtment using the C<export> command, otherwise wcd can't read the
+environment using the C<export> command, otherwise wcd can't read the
 variable.
 
 #ifdef dos

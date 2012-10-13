@@ -25,6 +25,7 @@ void buildTreeFromNameset(nameset set, dirnode d);
 void setXYTree(dirnode d, const int *graphics_mode);
 void dumpTree(dirnode d, const int *graphics_mode);
 char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mode,int ignore_diacritics);
+void setFold(dirnode n, c3po_bool f, int *ymax);
 
 #define WCD_GRAPH_NO     0 /* no graphics */
 #define WCD_GRAPH_NORMAL 1 /* graphics mode */
