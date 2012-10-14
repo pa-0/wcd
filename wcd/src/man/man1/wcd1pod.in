@@ -321,15 +321,18 @@ tree.
 
 The default tree layout is similar to the tree layout of the original NCD on
 DOS. The difference in layout is that in NCD all directories of a same depth
-level were vertically aligned. This was possible in NCD, because the maximum
-width of a directory name in DOS was 8.3 characters. On modern operating
-systems directory names can be very long, so also the differences in length can
-be large.  Therefore folders with a same depth are not vertically aligned in
-wcd.
+level were vertically aligned over the whole tree. This was possible in NCD,
+because the maximum width of a directory name in DOS was 8.3 characters. On
+modern operating systems directory names can be very long, so also the
+differences in length can be large.  Therefore folders with a same depth are
+not vertically aligned over the whole tree in wcd, but only in sub-branches.
+So there is some sideways movement when moving straight up and down from one
+sub-branch to another sub-branch.
 
 The navigation behaviour in Wcd is exactly the same as in the original NCD. For
 instance if you push the Down key you go down to the next directory with the
-same depth level. This enables fast navigation through the tree.
+same depth level, jumping over branches. This enables fast navigation through
+the tree.
 
 See options B<-Ta>, B<-TC>, and B<-Tc> to change the navigation behaviour.
 
@@ -562,7 +565,7 @@ In the default NCD style tree layout the -Ta option disables
 jumping to unrelated directories.
 
 In compact tree mode the alternative mode makes navigation similar to
-navigation in GUI file managers such as Windows Explorer or GNU/Linux KDE
+navigation in GUI file managers such as Windows Explorer or Linux KDE
 Konqueror. Moving up and down moves just one line up or down. Moving left first
 folds the sub-folders and the next move left moves really left.
 
