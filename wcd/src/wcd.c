@@ -2185,7 +2185,7 @@ void print_version()
 #endif
    {
       printf(_("  Euro symbol: "));
-      wcd_printf ("%s\n","€");
+      wcd_printf ("%s\n","€"); /* Put real UTF-8. Visual C does not support C99 unicode notation. */
       printf(_("  Chinese characters: "));
       wcd_printf ("%s\n","中文");
    }
