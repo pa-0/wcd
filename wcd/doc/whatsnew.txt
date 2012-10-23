@@ -15,6 +15,9 @@
   - Wcd compiles with Microsoft Visual C++.
   - Makefile uses $(sysconfdir) i.s.o. hardcoded /etc.
   - Added several GNU standard long command-line options.
+    Thanks to Jari Aalto.
+  - RPM spec file complies to Fedora packaging standards. Moved spec
+    file to folder misc.
   - Fix: PowerShell version created files named "null".
   - Fix: Stdio mode on Windows prints Unicode characters correctly.
   - Fix: Match c with cedilla when ignoring diacritics (CP1252, CP28591,
