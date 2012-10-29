@@ -2984,8 +2984,10 @@ int main(int argc,char** argv)
                verbose = 1;
             } else if (strcmp(argv[i]+2,"direct-cd") == 0) {
                cd = 1;
+#ifdef WCD_SHELL
             } else if (strcmp(argv[i]+2,"no-go-script") == 0) {
                use_GoScript = 0;
+#endif
             } else if (strcmp(argv[i]+2,"ignore-case") == 0) {
                ignore_case = 1;
             } else if (strcmp(argv[i]+2,"no-ignore-case") == 0) {
