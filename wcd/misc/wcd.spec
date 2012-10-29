@@ -1,7 +1,7 @@
 Summary: Chdir for DOS and Unix
 Name: wcd
-Version: 5.2.2
-Release: 6%{?dist}
+Version: 5.2.3
+Release: 1%{?dist}
 License: GPLv2 
 Group: Applications/File
 Source: http://waterlan.home.xs4all.nl/%{name}-%{version}-src.tar.gz
@@ -31,7 +31,7 @@ make -C src %{?_smp_mflags} prefix=%{_prefix} UCS=1 UNINORM=1
 
 %install
 make -C src install DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix} mandir=%{_mandir}
-make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix} mandir=%{_mandir}
+make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix} sysconfdir=%{_sysconfdir}
 
 %find_lang %{name}
 
@@ -50,6 +50,11 @@ make -C src install-profile DESTDIR=${RPM_BUILD_ROOT} prefix=%{_prefix} mandir=%
 
 
 %changelog
+* Mon Oct 29 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.3-1
+- New upstream version 5.2.3.
+- Set _sysconfdir while installing profile (the makefile supports
+  it now).
+
 * Tue Oct 09 2012 Erwin Waterlander <waterlan@xs4all.nl> - 5.2.2-6
 - Use _sysconfdir for config files.
 

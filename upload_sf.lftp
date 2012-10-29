@@ -1,11 +1,11 @@
 open sftp://waterlan,wcd@frs.sourceforge.net
 cd /home/frs/project/w/wc/wcd/wcd
-mkdir 5.2.2
-cd 5.2.2
-mput wcd-5.2.2-src.tar.gz wcd522s.zip wcd522b.zip wcd522pm.zip wcd522bh.zip wcd-5.2.2-win32-nls.zip wcd-5.2.2-win32psh-nls.zip trunk/wcd/doc/whatsnew.txt
-mput wcd-5.2.2-1.src.rpm wcd-5.2.2-1.x86_64.rpm wcd-5.2.2-1.i386.rpm wcd-5.2.2-1.i686.rpm
-mput wcd-5.2.2-doc.tar.gz
-mput wcd-5.2.2-win32-nls-ucs.zip wcd-5.2.2-win32psh-nls-ucs.zip
-mput wcd-5.2.2-win64.zip wcd-5.2.2-win64psh.zip
-mput wcd-5.2.2-win64-ucs.zip wcd-5.2.2-win64psh-ucs.zip
+mkdir 5.2.3
+cd 5.2.3
+mput wcd-5.2.3-src.tar.gz wcd523s.zip wcd523b.zip wcd523pm.zip wcd523bh.zip wcd-5.2.3-win32-nls.zip wcd-5.2.3-win32psh-nls.zip trunk/wcd/doc/whatsnew.txt
+mput wcd-5.2.3-1.src.rpm wcd-5.2.3-1.x86_64.rpm wcd-5.2.3-1.i386.rpm wcd-5.2.3-1.i686.rpm
+mput wcd-5.2.3-doc.tar.gz
+mput wcd-5.2.3-win32-nls-ucs.zip wcd-5.2.3-win32psh-nls-ucs.zip
+mput wcd-5.2.3-win64.zip wcd-5.2.3-win64psh.zip
+mput wcd-5.2.3-win64-ucs.zip wcd-5.2.3-win64psh-ucs.zip
 exit
