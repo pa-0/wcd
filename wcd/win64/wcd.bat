@@ -19,10 +19,10 @@ IF NOT DEFINED WCDHOME (
 wcdwin64.exe %*
 
 IF DEFINED WCDHOME (
- %WCDHOME%\wcdgo.bat
+ "%WCDHOME%\wcdgo.bat"
 ) ELSE (
   IF DEFINED HOME (
-    %HOME%\wcdgo.bat
+    "%HOME%\wcdgo.bat"
   ) ELSE (
     c:\wcdgo.bat
   )
