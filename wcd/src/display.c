@@ -939,7 +939,11 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
                c++;
             j++; /* j advances over combining characters */
          }
-         while ((j<(int)len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
+         while ((j<(int)len)&&((wcwidth(wstr[j]) == 0 )   /* Skip combining characters */
+#if defined(_WIN32) || defined(__CYGWIN__)
+                || ((wstr[j] >= 0xdc00) && (wstr[j] < 0xe000)) /* and trailing surrogate characters */
+#endif
+		))
            j++;
          width = wcwidth(wstr[j]);
          while ((j<(int)len)&&((nr_offset+width)<(COLS-1)))
@@ -1005,7 +1009,11 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
                c++;
             j++; /* j advances over combining characters */
          }
-         while ((j<(int)len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
+         while ((j<(int)len)&&((wcwidth(wstr[j]) == 0 )   /* Skip combining characters */
+#if defined(_WIN32) || defined(__CYGWIN__)
+                || ((wstr[j] >= 0xdc00) && (wstr[j] < 0xe000)) /* and trailing surrogate characters */
+#endif
+		))
            j++;
          width = wcwidth(wstr[j]);
          while ((j<(int)len)&&((nr_offset+width)<(COLS-1)))

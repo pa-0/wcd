@@ -1,18 +1,13 @@
 OBJ= warg.o
+PROGRAM = warg
 
-all : warg.exe
+all : $(PROGRAM)
 
 %.o : %.c
-ifdef MSYSTEM
-	# MinGW
-	gcc -c -DWIN32 -DWCD_UNICODE -std=gnu99 $< -o $@
-else
-	# Linux
-	gcc -c -DUNIX -DWCD_UNICODE -std=gnu99 $< -o $@
-endif
+	gcc -c -std=gnu99 $< -o $@
 
-warg.exe : $(OBJ)
+$(PROGRAM) : $(OBJ)
 	gcc $(OBJ) -o $@
 
 clean :
-	rm -rf *.bak *.exe *~
+	rm -rf *.bak *.exe *~ *.o $(PROGRAM)

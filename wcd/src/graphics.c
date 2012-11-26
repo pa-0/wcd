@@ -1439,6 +1439,17 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
             j--;
             wstr[j] = ' ';
          }
+#if defined(_WIN32) || defined(__CYGWIN__)
+         /* xoffset is horizontal offset measured in nr. of columns.
+          * This may be at the middle of a surrogate pair. */
+         if ((wstr[j] >= 0xdc00) && (wstr[j] < 0xe000))
+         {
+            /* Last character skipped was a surrogate lead.
+             * First character is a surrogate trail.
+             * Insert a space. */
+            wstr[j] = ' ';
+         }
+#endif
          while ((j<(int)len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
            j++;
          width = 0;

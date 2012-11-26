@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <wchar.h>
-#ifdef WIN32
+#ifdef _WIN32
 #include <windows.h>
 #include <iconv.h>
 #endif
 #include <stdarg.h>
 
 
-#ifdef WIN32
+#ifdef _WIN32
 # define CAT(a,b)   a##b
 # define L_(String) CAT(L,String)
 # define WCD_PRINTF wcd_wprintf
@@ -17,7 +17,7 @@
 #endif
 
 /* wide char to UTF-8 */
-#ifdef WIN32
+#ifdef _WIN32
 int wcstoutf8(wchar_t *wcstr, char *mbstr, int len)
 {
    return(WideCharToMultiByte(CP_UTF8, 0, wcstr, -1, mbstr, len, NULL, NULL));
@@ -29,13 +29,13 @@ void wcd_printf( const char* format, ... ) {
    wchar_t wstr[1024];
    char buf[1024];
    va_list args;
-#ifdef WIN32
+#ifdef _WIN32
    HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE);
    int len;
 #endif
 
    va_start( args, format );
-#ifdef WIN32
+#ifdef _WIN32
    len = sizeof(wstr);
    vsnprintf( buf, len, format, args);
    if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr,1024) > 0  )
@@ -52,13 +52,13 @@ void wcd_printf( const char* format, ... ) {
 void wcd_wprintf( const wchar_t* format, ... ) {
    wchar_t wstr[1024];
    va_list args;
-#ifdef WIN32
+#ifdef _WIN32
    HANDLE stduit =GetStdHandle(STD_OUTPUT_HANDLE);
    int len;
 #endif
 
    va_start( args, format );
-#ifdef WIN32
+#ifdef _WIN32
    len = sizeof(wstr);
    vsnwprintf( wstr, len, format, args);
    WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
@@ -92,14 +92,14 @@ int main (int argc, char ** argv) {
     char    cstring[128];
     int i;
     FILE *out;
-#ifdef WIN32
+#ifdef _WIN32
 
     printf("system cp=%d\n",GetACP());
     printf("console cp=%d\n",GetConsoleOutputCP());
 #endif
 
 
-#ifdef WIN32
+#ifdef _WIN32
     // print parameters, including Unicode.
     cmdstr = GetCommandLineW();
     wargv = CommandLineToArgvW(cmdstr, &argc);
@@ -121,14 +121,14 @@ int main (int argc, char ** argv) {
   WCD_PRINTF(L_("Dutch Florin=%s\n"),L_("\u0192"));  // Latin extended-B
 
   wcscpy(wstring,L"DELTA=\u0394");
-#ifdef WIN32
+#ifdef _WIN32
   wcstoutf8(wstring, cstring, sizeof(cstring));
   wcd_printf("UTF-8 %s\n",cstring);
 #endif
   wcd_printf("UTF-8 \u044f\n");
 
 
-#ifdef WIN32
+#ifdef _WIN32
   // Write unicode to a file.
   out = fopen("out.txt","wb");
   fwprintf (out, L"%s", BOM_UTF16LE);  /* UTF-16LE BOM */
