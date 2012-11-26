@@ -1,21 +1,21 @@
 # Deutsche Meldungen für WCD
 # Copyright 2010,2011 Erwin Waterlander
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Philipp Thomas <psmt@opensuse.org>, 2010, 2011, 2012
 # Philipp Thomas <pth@suse.de>, 2010, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-26 12:32+0000\n"
+"POT-Creation-Date: 2012-11-26 23:34+0100\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -85,8 +85,8 @@ msgstr "wcd: Die SYBOLISCHE Verknüpfung %s wurde entfernt.\n"
 #, c-format
 msgid "Wcd: error: Unable to remove symbolic link %s: %s\n"
 msgstr ""
-"wcd: Fehler: Das Löschen der symbolischen Verknüpfung %s wurde verweigert: %"
-"s\n"
+"wcd: Fehler: Das Löschen der symbolischen Verknüpfung %s wurde verweigert: "
+"%s\n"
 
 #: wcd.c:1240
 #, c-format
@@ -695,8 +695,8 @@ msgstr "wcd: Fehler: Das Verzeicnis %s konnte nicht angelegt werden: %s\n"
 #, c-format
 msgid "Wcd: error: Unable to get current working directory: %s\n"
 msgstr ""
-"wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden: %"
-"s\n"
+"wcd: Fehler: Das aktuelle Arbeitsverzeichnis konnte nicht abgefragt werden: "
+"%s\n"
 
 #: wcddir.c:690
 #, c-format
@@ -720,98 +720,98 @@ msgstr "wcd: Fehler in maxLength(), list == NULL\n"
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "wcd: Fehler in maxLengthStack(), s == NULL\n"
 
-#: display.c:1126
+#: display.c:1144
 msgid "Perfect "
 msgstr "Perfekt "
 
-#: display.c:1128
+#: display.c:1146
 msgid "Wild "
 msgstr "Platzhalter "
 
-#: display.c:1129
+#: display.c:1147
 #, c-format
 msgid "match for %d directories."
 msgstr "passt auf %d Verzeichnisse."
 
-#: display.c:1134
+#: display.c:1152
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=hoch x=runter ?=Hilfe Seite %d/%d "
 
-#: display.c:1141 display.c:1503
+#: display.c:1159 display.c:1521
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Bitte wählen Sie eins aus (<Eingabe> bricht ab): "
 
-#: display.c:1157
+#: display.c:1175
 msgid "Screenheight must be > 20 for help."
 msgstr "Bildschirmhöhe muss für Hilfe > 20 sein."
 
-#: display.c:1160
+#: display.c:1178
 msgid "w or <Up>         Page Up."
 msgstr "w oder <hoch>      Seite hoch."
 
-#: display.c:1161
+#: display.c:1179
 msgid "x or z or <Down>  Page Down."
 msgstr "x,z oder <Runter>  Seite runter."
 
-#: display.c:1162
+#: display.c:1180
 msgid ", or <Left>       Scroll 1 left."
 msgstr ", oder <Links>     1 nach links rollen."
 
-#: display.c:1163
+#: display.c:1181
 msgid ". or <Right>      Scroll 1 right."
 msgstr ". oder <Rechts>    1 nach rechts rollen."
 
-#: display.c:1164
+#: display.c:1182
 msgid "< or [            Scroll 10 left."
 msgstr "< oder [           10 nach links rollen."
 
-#: display.c:1165
+#: display.c:1183
 msgid "> or ]            Scroll 10 right."
 msgstr "> oder ]           10 nach rechtsw rollen."
 
-#: display.c:1166
+#: display.c:1184
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr "Strg-a oder <Home> An den Anfang springen."
 
-#: display.c:1167
+#: display.c:1185
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr "Strg-e oder <Ende> Zum Ende springen."
 
-#: display.c:1168
+#: display.c:1186
 msgid "CTRL-c or <Esc>   Abort."
 msgstr "Strg-c oder <Esc>  Abbruch."
 
-#: display.c:1169
+#: display.c:1187
 msgid "<Enter>           Abort."
 msgstr "<Eingabe>          Abbruch."
 
-#: display.c:1170 graphics.c:1759 graphics.c:1775 graphics.c:1798
+#: display.c:1188 graphics.c:1759 graphics.c:1775 graphics.c:1798
 #: graphics.c:1815
 msgid "Press any key."
 msgstr "Eine beliebige Taste drücken."
 
-#: display.c:1233 graphics.c:2063
+#: display.c:1251 graphics.c:2063
 msgid ""
 "Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "wcd: Warnung: Fehler beim Öffnen des Terminals, es wird die\n"
 "Stdout-Schnittstelle verwendet.\n"
 
-#: display.c:1254
+#: display.c:1272
 msgid "Wcd: error: screen height must be larger than 3 lines.\n"
 msgstr "wcd: Fehler: die Bildschirmhöhe muss mehr als 3 Zeilen sein.\n"
 
-#: display.c:1288 graphics.c:2096
+#: display.c:1306 graphics.c:2096
 msgid "Wcd: error creating scroll window.\n"
 msgstr "wcd: Fehler beim Erzeugen des rollbaren Fensters.\n"
 
-#: display.c:1307
+#: display.c:1325
 msgid "Wcd: error creating input window.\n"
 msgstr "wcd: Fehler beim Erzeugen des Eingabefensters.\n"
 
-#: display.c:1499
+#: display.c:1517
 #, c-format
 msgid ""
 "\n"
@@ -820,7 +820,7 @@ msgstr ""
 "\n"
 "Perfekt "
 
-#: display.c:1501
+#: display.c:1519
 #, c-format
 msgid ""
 "\n"
@@ -829,12 +829,12 @@ msgstr ""
 "\n"
 "Platzhalter "
 
-#: display.c:1502
+#: display.c:1520
 #, c-format
 msgid "match for %lu directories.\n"
 msgstr "passt auf %lu Verzeichnisse.\n"
 
-#: display.c:1545
+#: display.c:1563
 #, c-format
 msgid ""
 "\n"
