@@ -21,7 +21,8 @@
     Thanks to Jari Aalto.
   - RPM spec file complies to Fedora packaging standards. Moved spec
     file to folder misc.
-  - Fix: PowerShell version created files named "null".
+  - Fix: PowerShell version created files named "null". The problem
+    was introduced in version 5.2.0.
   - Fix: Stdio mode on Windows prints Unicode characters correctly.
   - Fix: Match c with cedilla when ignoring diacritics (CP1252, CP28591,
     ISO-8859-1, and Unicode).
