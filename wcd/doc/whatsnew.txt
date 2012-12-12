@@ -1,5 +1,7 @@
 5.2.4-beta1 2012-11-25
   - Support user names with a space in the name in cmd.exe.
+    Thanks to anonymous.
+  - Added a test treedata file.
 
 5.2.3 2012-10-29
   - New compact tree mode. By default the 'graphical' tree is drawn the same
