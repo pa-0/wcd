@@ -1,5 +1,7 @@
 include wcd/src/version.mk
 
+SVNREPO = svn://svn.code.sf.net/p/wcd/code
+
 help:
 	@echo "${MAKE} dist    : Create source code distribution packages."
 	@echo "${MAKE} tag     : Create a tag copy of trunk."
@@ -17,7 +19,7 @@ RELEASE_DIR_SHORT = ../wcd${VERSION_SHORT}
 dist:
 	rm -rf ${RELEASE_DIR}
 	rm -rf ${RELEASE_DIR_SHORT}
-	svn export https://wcd.svn.sourceforge.net/svnroot/wcd/trunk/wcd ${RELEASE_DIR}
+	svn export ${SVNREPO}/trunk/wcd ${RELEASE_DIR}
 	# Include doc files, to make it easier to build wcd.
 	cd ${RELEASE_DIR}/src ; ${MAKE} doc pdf
 	# Create doc package for people who are not able to create it.
@@ -41,8 +43,8 @@ dist:
 	cd .. ; zip -r wcd${VERSION_SHORT}s.zip wcd${VERSION_SHORT}
 
 tag:
-	svn copy https://wcd.svn.sourceforge.net/svnroot/wcd/trunk \
-	         https://wcd.svn.sourceforge.net/svnroot/wcd/tags/release-${VERSION} \
+	svn copy ${SVNREPO}/trunk \
+	         ${SVNREPO}/tags/release-${VERSION} \
 	    -m "Tagging release ${VERSION}."
 
 
@@ -50,15 +52,15 @@ tag:
 BRANCH=compact_tree
 
 branch:
-	svn copy https://wcd.svn.sourceforge.net/svnroot/wcd/trunk \
-	         https://wcd.svn.sourceforge.net/svnroot/wcd/branches/${BRANCH} \
+	svn copy ${SVNREPO}/trunk \
+	         ${SVNREPO}/branches/${BRANCH} \
 	    -m "Creating branch ${BRANCH} from trunk."
 
 
 release_from_branch:
 	rm -rf ${RELEASE_DIR}
 	rm -rf ${RELEASE_DIR_SHORT}
-	svn export https://wcd.svn.sourceforge.net/svnroot/wcd/branches/${BRANCH}/wcd ${RELEASE_DIR}
+	svn export ${SVNREPO}/branches/${BRANCH}/wcd ${RELEASE_DIR}
 	# Include doc files and .mo files, to make it easier to
 	# build wcd.
 	cd ${RELEASE_DIR}/src ; ${MAKE} doc
@@ -73,15 +75,15 @@ release_from_branch:
 
 # Get latest changes of trunk into branch.
 merge_from_trunk:
-	svn merge https://wcd.svn.sourceforge.net/svnroot/wcd/trunk
+	svn merge ${SVNREPO}/trunk
 
 # Merge branch into trunk.
 # After this the branch is unusable for further work.
 # Copy a new branch if needed.
 merge_to_trunk:
-	svn merge --reintegrate https://wcd.svn.sourceforge.net/svnroot/wcd/branches/${BRANCH}
+	svn merge --reintegrate ${SVNREPO}/branches/${BRANCH}
 
 # Delete branch
 delete_branch:
-	svn delete https://wcd.svn.sourceforge.net/svnroot/wcd/branches/${BRANCH} -m "Delete branch ${BRANCH}"
+	svn delete ${SVNREPO}/branches/${BRANCH} -m "Delete branch ${BRANCH}"
 
