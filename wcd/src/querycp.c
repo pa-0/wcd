@@ -1,4 +1,4 @@
-/* The code in this file is Public Domain */
+/* querycp.c is in the public domain */
 
 #if (defined(__WATCOMC__) && defined(__NT__))
 #  define _WIN32

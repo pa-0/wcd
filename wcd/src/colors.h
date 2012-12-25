@@ -3,7 +3,7 @@
 |                                                                    |
 | Author    : P.J. Kunst                                             |
 | Date      : 25-02-93                                               |
-| Copyright : Public Domain                                          |
+| colors.h is in the public domain                                   |
 |                                                                    |
 |                                                                    |
 | Billy Chen                          12:49  Monday, 4 June, 2007    |
