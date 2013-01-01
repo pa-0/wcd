@@ -1,6 +1,7 @@
 5.2.4-beta1 2012-11-25
   - Support user names with a space in the name in cmd.exe.
     Thanks to anonymous.
+  - Show an "A" when alternative navigation mode is on.
   - Added a test treedata file.
 
 5.2.3 2012-10-29

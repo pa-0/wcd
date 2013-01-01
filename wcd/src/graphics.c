@@ -1716,6 +1716,13 @@ void dataRefresh(int ydiff, int init)
 #endif
   }
 
+  /* Show an "A" when alternative navigation mode is on. */
+  if (wcd_cwin.graphics_mode & WCD_GRAPH_ALT)
+  {
+    wmove(wcd_cwin.inputWin, 2, COLS - 2);
+    waddstr(wcd_cwin.inputWin,"A");
+  }
+
   if (wcd_cwin.mode == WCD_NAV)
     wcd_mvwaddstr(wcd_cwin.inputWin, 2, 0, _("/ = search forward,  ? = search backward,  : = help"));
   else
