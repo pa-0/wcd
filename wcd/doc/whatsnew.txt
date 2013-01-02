@@ -2,6 +2,7 @@
   - Support user names with a space in the name in cmd.exe.
     Thanks to anonymous.
   - Show an "A" when alternative navigation mode is on.
+  - Improved printing of surragate pairs on border.
   - Added a test treedata file.
 
 5.2.3 2012-10-29
