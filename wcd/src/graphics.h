@@ -35,6 +35,7 @@ void setFold(dirnode n, c3po_bool f, int *ymax);
 #define WCD_GRAPH_CENTER 16 /* center current directory */
 #define WCD_GRAPH_ASCII  32 /* draw tree with ASCII characters */
 #define WCD_GRAPH_COMPACT 64 /* draw compact tree */
+#define WCD_GRAPH_CJK    128 /* East-Asian CJK font with double width line drawing symbols */
 
 #endif
 

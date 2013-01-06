@@ -3024,6 +3024,8 @@ int main(int argc,char** argv)
                graphics |= WCD_GRAPH_CENTER ;
             } else if (strcmp(argv[i]+2,"compact-tree") == 0) {
                graphics |= WCD_GRAPH_COMPACT ;
+            } else if (strcmp(argv[i]+2,"cjk-width") == 0) {
+               graphics |= WCD_GRAPH_CJK ;
             } else if (strcmp(argv[i]+2,"wild-match-only") == 0) {
                wildOnly = 1;
             } else {

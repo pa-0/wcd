@@ -508,7 +508,12 @@ void setXYTree(dirnode d, const int *graphics_mode)
          {
             y = y + 1;
             n = elementAtDirnode(index,d);
-            x = dirnodeGetX(d) + 4;
+#ifndef ASCII_TREE
+            if ((*graphics_mode & WCD_GRAPH_CJK) && !(*graphics_mode & WCD_GRAPH_ASCII)) /* double width line drawing symbols. */
+               x = dirnodeGetX(d) + 7;
+            else
+#endif
+               x = dirnodeGetX(d) + 4;
             dirnodeSetX(x,n);
             dirnodeSetY(y,n);
             setXYTree(n, graphics_mode);
@@ -524,7 +529,12 @@ void setXYTree(dirnode d, const int *graphics_mode)
          while(index < size)
          {
             n = elementAtDirnode(index,d);
-            x = dirnodeGetX(d) + (int)len + 5;
+#ifndef ASCII_TREE
+            if ((*graphics_mode & WCD_GRAPH_CJK) && !(*graphics_mode & WCD_GRAPH_ASCII)) /* double width line drawing symbols. */
+               x = dirnodeGetX(d) + (int)len + 8;
+            else
+#endif
+               x = dirnodeGetX(d) + (int)len + 5;
             dirnodeSetX(x,n);
             dirnodeSetY(y,n);
             setXYTree(n, graphics_mode);
@@ -1328,6 +1338,34 @@ dirnode findDirInCicle(char *dir, dirnode curNode, int exact, int ignore_case, i
  * **********************************************************/
 
 #ifdef WCD_USECURSES
+
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
+int wcd_wcwidth(wchar_t c)
+{
+    switch(c)
+    {
+       case WCD_ACS_HL:
+       case WCD_ACS_VL:
+       case WCD_ACS_LT:
+       case WCD_ACS_LLC:
+       case WCD_ACS_TT:
+#ifndef ASCII_TREE
+          if ((wcd_cwin.graphics_mode & WCD_GRAPH_CJK) && !(wcd_cwin.graphics_mode & WCD_GRAPH_ASCII))
+             return(2);
+          else
+#endif
+             return(1);
+          break;
+       case WCD_SEL_ON:
+       case WCD_SEL_OFF:
+          return(1);
+          break;
+       default:
+          return(wcwidth(c));
+    }
+}
+#endif
+
 void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffset)
 {
    wcd_uchar *s;
@@ -1414,25 +1452,12 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
          j = 0;
          while ((j<(int)len)&&(c<xoffset))
          {
-            switch(wstr[j])
-            {
-               case WCD_ACS_HL:
-               case WCD_ACS_VL:
-               case WCD_ACS_LT:
-               case WCD_ACS_LLC:
-               case WCD_ACS_TT:
-               case WCD_SEL_ON:
-               case WCD_SEL_OFF:
-                  c = c + 1;
-                  break;
-               default:
-                  c = c + wcwidth(wstr[j]);
-            }
+            c = c + wcd_wcwidth(wstr[j]);
             j++; /* j advances over combining characters */
          }
          /* xoffset is horizontal offset measured in nr. of columns.
           * This may be at the middle of a double width character. */
-         if (( c > xoffset ) && ( wcwidth(wstr[j-1]) == 2))
+         if (( c > xoffset ) && ( wcd_wcwidth(wstr[j-1]) == 2))
          {
             /* Last character skipped was a double width character.
              * Insert a space. */
@@ -1450,24 +1475,11 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
             wstr[j] = ' ';
          }
 #endif
-         while ((j<(int)len)&&(wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
+         while ((j<(int)len)&&(wcd_wcwidth(wstr[j]) == 0 ))  /* Skip combining characters */
            j++;
          width = 0;
          if (j<(int)len)
-            switch(wstr[j])
-            {
-               case WCD_ACS_HL:
-               case WCD_ACS_VL:
-               case WCD_ACS_LT:
-               case WCD_ACS_LLC:
-               case WCD_ACS_TT:
-               case WCD_SEL_ON:
-               case WCD_SEL_OFF:
-                width = 1;
-                  break;
-               default:
-                width = wcwidth(wstr[j]);
-            }
+            width = wcd_wcwidth(wstr[j]);
          while ((j<(int)len)&&(width<COLS))
          {
             switch(wstr[j])
@@ -1514,20 +1526,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
                 waddnwstr(win,wstr+j,1);
             }
             j++;
-            switch(wstr[j])
-            {
-               case WCD_ACS_HL:
-               case WCD_ACS_VL:
-               case WCD_ACS_LT:
-               case WCD_ACS_LLC:
-               case WCD_ACS_TT:
-               case WCD_SEL_ON:
-               case WCD_SEL_OFF:
-                width = width + 1;
-                  break;
-               default:
-                width = width + wcwidth(wstr[j]);
-            }
+            width = width + wcd_wcwidth(wstr[j]);
          }
       }
 #else
@@ -1701,12 +1700,12 @@ void dataRefresh(int ydiff, int init)
         waddch(wcd_cwin.inputWin, (chtype)s[i]);
    } else {
       i = 0;
-      width = wcwidth(wstr[i]);
+      width = wcd_wcwidth(wstr[i]);
       while ((i<len)&&(width<COLS))
       {
          waddnwstr(wcd_cwin.inputWin,wstr+i,1);
          i++;
-         width = width + wcwidth(wstr[i]);
+         width = width + wcd_wcwidth(wstr[i]);
       }
    }
 #else
@@ -1716,6 +1715,12 @@ void dataRefresh(int ydiff, int init)
 #endif
   }
 
+  /* Show a "C" when CJK width mode is on. */
+  if (wcd_cwin.graphics_mode & WCD_GRAPH_CJK)
+  {
+    wmove(wcd_cwin.inputWin, 2, COLS - 3);
+    waddstr(wcd_cwin.inputWin,"C");
+  }
   /* Show an "A" when alternative navigation mode is on. */
   if (wcd_cwin.graphics_mode & WCD_GRAPH_ALT)
   {
@@ -2287,6 +2292,8 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          break;
       case 'T':
                wcd_cwin.graphics_mode ^= WCD_GRAPH_ASCII ;
+               if (wcd_cwin.graphics_mode & WCD_GRAPH_CJK)
+                  setXYTree(endOfRecursionOfDirnodeParent(wcd_cwin.curNode),&wcd_cwin.graphics_mode);
          break;
       case 'A':
                wcd_cwin.graphics_mode ^= WCD_GRAPH_ALT ;
