@@ -12,7 +12,7 @@ WWW     : http://waterlan.home.xs4all.nl/
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 1997-2012 Erwin Waterlander
+Copyright (C) 1997-2013 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -2058,6 +2058,7 @@ directory:  Name of directory to change to.\n\
   -Ta, --alt-tree-nav     Alternative tree navigation\n\
   -TC, --center-tree      Centered tree view\n\
   -Tc, --compact-tree     Compact tree\n\
+  -Td, --cjk-width        support double width line drawing symbols\n\
   -u USER                 use USER's treefile\n\
   +u USER                 add USER's treefile\n\
   -v,  --verbose          Verbose operation\n\
@@ -2207,7 +2208,7 @@ void print_license()
    printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
    printf(_("\
 Chdir for Dos and Unix.\n\
-Copyright (C) 1997-2012 Erwin Waterlander\n\
+Copyright (C) 1997-2013 Erwin Waterlander\n\
 Copyright (C) 1994-2002 Ondrej Popp on C3PO\n\
 Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n\
 Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n\
@@ -2959,6 +2960,8 @@ int main(int argc,char** argv)
                   graphics |= WCD_GRAPH_ALT ;
 	       else if (argv[i][2] == 'C') /* Centered view */
                   graphics |= WCD_GRAPH_CENTER ;
+	       else if (argv[i][2] == 'd') /* Double width line drawing symbols */
+                  graphics |= WCD_GRAPH_CJK ;
                else
                   graphics |= WCD_GRAPH_ASCII ;
             break;

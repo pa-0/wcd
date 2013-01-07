@@ -572,6 +572,8 @@ folds the sub-folders and the next move left moves really left.
 You can switch on-the-fly between default and alternative navigation
 by pressing Shift-A.
 
+When alternative navigation mode is on, you will see a "A" in the lower left corner.
+
 =item B<-TC, --center-tree>
 
 Centered view in the graphical tree. The selected directory stays in the middle
@@ -589,6 +591,18 @@ the deep directory structures of today the tree can become very wide. To
 overcome this wcd can draw the tree in a compact way, similar to most GUI file
 managers, with only one folder per line.  Use option -Tc or switch on-the-fly
 with the 'm' key.
+
+=item B<-Td, --cjk-width>
+
+Line drawing symbols have an undefined column width in the Unicode
+specification. The width of line drawing symbols can vary per font. In Western
+fonts the line drawing symbols have typically a column width of 1. In
+East-Asian CJK (Chinese, Japanese, and Korean) double-width mono-spaced fonts
+the line drawing symbols can have a column width of 2. For instance the Chinese
+CP936 raster font on Windows.  Use this option for a correct outlining of the
+graphical tree when the line drawing symbols have a width of 2. 
+
+When CJK mode is on, you will see a "C" in the lower left corner.
 
 =item B<-u USER>
 

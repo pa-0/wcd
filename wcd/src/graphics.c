@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2000-2012 Erwin Waterlander
+Copyright (C) 2000-2013 Erwin Waterlander
 
 Ideas and source code of NCD (Ninux Czo Directory) have been
 used in the WCD graphical interface.
