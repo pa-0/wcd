@@ -83,6 +83,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 # define WCD_SEL_ON 6           /* selection on/off codes */
 # define WCD_SEL_OFF 7
 
+# define WCD_SPACE 8            /* double with space in CJK mode */
+
 #ifdef ASCII_TREE
 static const char WCD_ONESUBDIR[] = "---" ;
 static const char WCD_SPLITDIR[] =  "-+-" ;
@@ -96,12 +98,12 @@ static const char WCD_COMPACT_ENDDIR[] =   " `--" ;
 #else
 static const char WCD_ONESUBDIR[] = { WCD_ACS_HL, WCD_ACS_HL, WCD_ACS_HL, 0} ;
 static const char WCD_SPLITDIR[] =  { WCD_ACS_HL, WCD_ACS_TT, WCD_ACS_HL, 0} ;
-static const char WCD_SUBDIR[] =    { 32, 32, WCD_ACS_LT, WCD_ACS_HL, 0} ;
-static const char WCD_MOREDIR[] =   { 32, 32, WCD_ACS_VL, 32, 32, 0} ;
-static const char WCD_ENDDIR[] =    { 32, 32, WCD_ACS_LLC, WCD_ACS_HL, 0} ;
-static const char WCD_OVERDIR[] =  "     " ;
+static const char WCD_SUBDIR[] =    { 32,  WCD_SPACE,  WCD_ACS_LT,  WCD_ACS_HL, 0} ;
+static const char WCD_MOREDIR[] =   { 32,  WCD_SPACE,  WCD_ACS_VL,  WCD_SPACE, 32, 0} ;
+static const char WCD_ENDDIR[] =    { 32,  WCD_SPACE,  WCD_ACS_LLC, WCD_ACS_HL, 0} ;
+static const char WCD_OVERDIR[] =   { 32,  WCD_SPACE,  WCD_SPACE, WCD_SPACE,   32, 0} ;
 static const char WCD_COMPACT_SUBDIR[] =    { 32, WCD_ACS_LT, WCD_ACS_HL, WCD_ACS_HL, 0} ;
-static const char WCD_COMPACT_MOREDIR[] =   { 32, WCD_ACS_VL, 32, 32, 0} ;
+static const char WCD_COMPACT_MOREDIR[] =   { 32, WCD_ACS_VL, WCD_SPACE,  WCD_SPACE, 0} ;
 static const char WCD_COMPACT_ENDDIR[] =    { 32, WCD_ACS_LLC, WCD_ACS_HL, WCD_ACS_HL, 0} ;
 #endif
 
@@ -439,6 +441,9 @@ void dumpTreeLine(dirnode d, const int *graphics_mode)
                   break;
                case WCD_SEL_OFF:
                 putc('>', stdout);
+                  break;
+               case WCD_SPACE:
+                putc(' ', stdout);
                   break;
                default:
                 putc(*l, stdout);
@@ -1349,6 +1354,7 @@ int wcd_wcwidth(wchar_t c)
        case WCD_ACS_LT:
        case WCD_ACS_LLC:
        case WCD_ACS_TT:
+       case WCD_SPACE:
 #ifndef ASCII_TREE
           if ((wcd_cwin.graphics_mode & WCD_GRAPH_CJK) && !(wcd_cwin.graphics_mode & WCD_GRAPH_ASCII))
              return(2);
@@ -1433,6 +1439,13 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
                 else
                   waddch (win,ACS_TTEE);
                   break;
+               case WCD_SPACE:
+                waddch(win, (chtype)' ');
+#ifndef ASCII_TREE
+                if ((wcd_cwin.graphics_mode & WCD_GRAPH_CJK) && !(wcd_cwin.graphics_mode & WCD_GRAPH_ASCII))
+                  waddch(win, (chtype)' ');
+#endif
+                  break;
                case WCD_SEL_ON:
                 wattron(win,A_REVERSE);
                 waddch(win,(chtype)'['); /* square brackets indicate there was an error. */
@@ -1514,6 +1527,13 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
                 else
                   waddch (win,ACS_TTEE);
                   break;
+               case WCD_SPACE:
+                waddch(win, (chtype)' ');
+#ifndef ASCII_TREE
+                if ((wcd_cwin.graphics_mode & WCD_GRAPH_CJK) && !(wcd_cwin.graphics_mode & WCD_GRAPH_ASCII))
+                  waddch(win, (chtype)' ');
+#endif
+                  break;
                case WCD_SEL_ON:
                 wattron(win,A_REVERSE);
                 waddch(win,(chtype)'<');
@@ -1563,6 +1583,13 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
                   waddch(win, (chtype)'+');
                 else
                   waddch (win,ACS_TTEE);
+               break;
+            case WCD_SPACE:
+                waddch(win, (chtype)' ');
+#ifndef ASCII_TREE
+             if ((wcd_cwin.graphics_mode & WCD_GRAPH_CJK) && !(wcd_cwin.graphics_mode & WCD_GRAPH_ASCII))
+               waddch(win, (chtype)' ');
+#endif
                break;
             case WCD_SEL_ON:
                   wattron(win,A_REVERSE);
