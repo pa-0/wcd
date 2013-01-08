@@ -1,4 +1,4 @@
-/home/waterlan/src/utf8
+﻿/home/waterlan/src/utf8
 /home/waterlan/src/utf8/utf8_EUR € 14.95
 /home/waterlan/src/utf8/test
 /home/waterlan/src/utf8/test/iso-8859-1
@@ -23,6 +23,12 @@
 /home/waterlan/src/utf8/test/utf8/utf8_chinees 中文/bb/utf8_chinees 中文/utf8_b
 /home/waterlan/src/utf8/test/utf8/utf8_chinees 中文/bb/utf8_EUR € 14.95
 /home/waterlan/src/utf8/test/utf8/utf8_chinees 中文/cc
+/home/waterlan/src/utf8/test/utf8/utf8_chinees 中文/cc/utf8_greek_δΔΩ/utf8_a/utf8_b/utf8_c
+/home/waterlan/src/utf8/test/utf8/utf8_chinees 中文/cc/utf8_greek_δΔΩ/utf8_a/utf8_b/utf8_d
+/home/waterlan/src/utf8/test/utf8/utf8_chinees 中文/cc/utf8_greek_δΔΩ/utf8_a/utf8_β/utf8_Σ
+/home/waterlan/src/utf8/test/utf8/utf8_chinees 中文/cc/utf8_greek_δΔΩ/utf8_a/utf8_β/utf8_Ψ
+/home/waterlan/src/utf8/test/utf8/utf8_chinees 中文/cc/utf8_greek_δΔΩ/utf8_b/utf8_c
+/home/waterlan/src/utf8/test/utf8/utf8_chinees 中文/cc/utf8_greek_δΔΩ/utf8_a
 /home/waterlan/src/utf8/test/utf8/utf8_chinees 中文/cc/utf8_a
 /home/waterlan/src/utf8/test/utf8/utf8_chinees 中文/cc/utf8_b
 /home/waterlan/src/utf8/test/utf8/utf8_erwin
