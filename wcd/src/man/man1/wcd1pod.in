@@ -1023,7 +1023,9 @@ encoding. There are no Byte Order Marks written to treedata files.
 =head3 UTF-16 on Windows
 
 On Windows Unicode is supported in all versions of PowerShell, and in Windows
-Command Prompt on Windows 7 (or higher).
+Command Prompt on Windows 7 (or higher). Unicode also works in Take Command
+or TCC/LE made by JP Software, which can be used on older Windows versions
+(XP/Vista).
 
 On Windows all the directory names on disk are encoded in UTF-16 Unicode.
 For non-Unicode Windows programs the Unicode characters are
