@@ -38,6 +38,9 @@ library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
 Compile it and copy the library file into the proper \lib directory
 and the curses.h file in the \watcom\h directory.
 
+The Windows versions of wcd require PDCurses with wide character support,
+also if you build a non-Unicode version of wcd for Windows.
+
 
 Perl
 ====

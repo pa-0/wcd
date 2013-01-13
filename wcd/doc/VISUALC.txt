@@ -35,6 +35,10 @@ library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
 Compile it and copy the library file into the proper VC\lib directory
 and the curses.h file in the VC\include directory.
 
+Build PDCurses width wide character support (WIDE=Y), also when you build a wcd
+version without Unicode support. A non-Unicode Windows version of wcd will
+still use Unicode for the interface. Name the library "pdcursesw.lib".
+
 
 Perl
 ====
@@ -120,11 +124,6 @@ To activate Unicode support add UCS=1 to the nmake command:
 
   nmake UCS=1
 
-This requires a (pd/n)curses installation with wide character support.
-
-Unicode is only supported in Windows PowerShell, and Command Prompt
-on Windows 7 or higher.
-
 
 Installation Names
 ==================
@@ -137,7 +136,7 @@ language files in /usr/share/locale and the man file in
 
 Example:
 
-  nmake clean
+  nmake mostlyclean
   nmake
   nmake install prefix=c:\Users\waterlan
 
