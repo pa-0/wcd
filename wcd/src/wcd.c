@@ -120,28 +120,6 @@ const wcd_char *default_mask = ALL_FILES_MASK;
  }
 #endif
 
-/* Use wcd_fprintf() when we write to files. To get an
- * error message when the disk is full.
- */ 
-int wcd_fprintf(FILE *stream, const char *format, ...)
-{
-   va_list args;
-   int rc;
-   char *errstr;
-   
-   va_start(args, format);
-   rc = vfprintf(stream, format, args);
-   va_end(args);
-
-   if (rc < 0)
-   {
-      errstr = strerror(errno);
-      fprintf(stderr,_("Wcd: error: %s\n"), errstr);
-   }
-
-   return(rc);
-}
-
 FILE *wcd_fopen(const char *filename, const char *m, int quiet)
 {
   struct stat buf;
@@ -316,6 +294,7 @@ void writeList(char * filename, nameset n, int bomtype)
    size_t i;
    FILE *outfile;
    int rc = 0;
+   char *errstr;
 #ifdef WCD_ANSI
    char    path[DD_MAXPATH];
    wchar_t pathw[DD_MAXPATH];
@@ -324,14 +303,14 @@ void writeList(char * filename, nameset n, int bomtype)
    if ( (outfile = wcd_fopen(filename,"w",0)) != NULL)
    {
 #ifdef WCD_UTF16
-      wcd_fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+      fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #endif
 #ifdef WCD_ANSI
       /* non-Unicode Windows version */
       /* When the treefile was in Unicode the non-Unicode Windows version of wcd
          translated the Unicode directory names to the system default ANSI code page. */
       if (bomtype > 0) /* Unicode, write back in UTF-8 */
-        wcd_fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+        fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #endif
       for(i=0;((i<n->size)&&(rc>=0));i++)
       {
@@ -343,15 +322,19 @@ void writeList(char * filename, nameset n, int bomtype)
            strncpy(path, n->array[i], sizeof(path));
            MultiByteToWideChar(CP_ACP, 0, path, -1, pathw, sizeof(pathw));
            WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
-           rc = wcd_fprintf(outfile,"%s\n",path);
+           rc = fprintf(outfile,"%s\n",path);
          }
          else
-           rc = wcd_fprintf(outfile,"%s\n",n->array[i]);
+           rc = fprintf(outfile,"%s\n",n->array[i]);
 #else
-         rc = wcd_fprintf(outfile,"%s\n",n->array[i]);
+         rc = fprintf(outfile,"%s\n",n->array[i]);
 #endif
       }
-      fclose(outfile);
+      if (fclose(outfile) != 0)
+      {
+        errstr = strerror(errno);
+        fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
+      }
    }
 }
 #ifdef UNIX
@@ -582,6 +565,7 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
 
  char tmp[DD_MAXPATH];      /* tmp string buffer */
  FILE *outfile;
+ char *errstr;
 
  getCurPath(tmp,(size_t)DD_MAXPATH,use_HOME);
 
@@ -590,7 +574,7 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
    /* open the treedata file */
    if  ((outfile = wcd_fopen(filename,"a",0)) != NULL)
    {
-     wcd_fprintf(outfile,"%s\n",tmp);
+     fprintf(outfile,"%s\n",tmp);
      wcd_printf(_("Wcd: %s added to file %s\n"),tmp,filename);
 
      if (parents)
@@ -603,12 +587,16 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
          /* keep one last separator in the path */
          if (strrchr(tmp,DIR_SEPARATOR) != NULL)
          {
-            wcd_fprintf(outfile,"%s\n",tmp);
+            fprintf(outfile,"%s\n",tmp);
             wcd_printf(_("Wcd: %s added to file %s\n"),tmp,filename);
          }
       }
      }
-     fclose(outfile);
+     if (fclose(outfile) != 0)
+     {
+       errstr = strerror(errno);
+       fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
+     }
    }
  }
 
@@ -912,7 +900,7 @@ void finddirs(char* dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    else
      tmp_ptr = tmp + len;   /* tmp_ptr points to ending '\0' of tmp */
 
-   wcd_fprintf(outfile,"%s\n", tmp_ptr);
+   fprintf(outfile,"%s\n", tmp_ptr);
 
    rc = findfirst( default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL );
    list.head = list.tail = 0;
@@ -981,7 +969,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    else
      tmp_ptr = tmp + len;   /* tmp_ptr points to ending '\0' of tmp */
 
-   wcd_fprintf(outfile,"%s\n", tmp_ptr);
+   fprintf(outfile,"%s\n", tmp_ptr);
 
 /*
    Don't set DD_LABEL. Otherwise wcd compiled with
@@ -1018,7 +1006,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
         static struct stat buf ;
 
         if ((stat(fb.dd_name, &buf) == 0) && S_ISDIR(buf.st_mode)) /* does the link point to a dir */
-           wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
+           fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
       }
 #endif
       rc = dd_findnext(&fb);
@@ -1047,6 +1035,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
    char tmp[DD_MAXPATH];    /* tmp string buffer */
    char tmp2[DD_MAXPATH];   /* tmp string buffer */
    FILE *outfile;
+   char *errstr;
 #ifdef _WCD_DOSFS
    char drive[DD_MAXDRIVE];
    int  changedrive = 0;
@@ -1143,10 +1132,14 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
 #ifdef WCD_UTF16
    /* Add UTF-8 BOM to make it readable by notepad. */
    if (append == 0)
-     wcd_fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+     fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #endif
    finddirs( path, &offset, outfile, use_HOME, exclude, 0); /* Build treedata-file */
-   fclose(outfile);
+   if (fclose(outfile) != 0)
+   {
+     errstr = strerror(errno);
+     fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), treefile, errstr);
+   }
    wcd_chdir(tmp2,0);          /* go back */
 }
 
@@ -2303,6 +2296,7 @@ void create_dir_for_file(char *f)
 void empty_wcdgo(char *go_file, int use_GoScript)
 {
    FILE *outfile;
+   char *errstr;
 
    if (use_GoScript == 0)
       return;
@@ -2313,8 +2307,12 @@ void empty_wcdgo(char *go_file, int use_GoScript)
    if  ((outfile = wcd_fopen(go_file,"w",0)) == NULL)
       exit(0);
 
-   wcd_fprintf(outfile, "%s", "\n");
-   fclose(outfile);
+   fprintf(outfile, "%s", "\n");
+   if (fclose(outfile) != 0)
+   {
+     errstr = strerror(errno);
+     fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), go_file, errstr);
+   }
 
 }
 #endif
@@ -2323,6 +2321,7 @@ void empty_wcdgo(char *go_file, int use_GoScript)
 void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript)
 {
    FILE *outfile;
+   char *errstr;
 
    if (use_GoScript == 0)
       return;
@@ -2334,10 +2333,14 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript)
       exit(0);
 
    if(changedrive == 1)
-      wcd_fprintf(outfile,"cd %s\n",drive);
+      fprintf(outfile,"cd %s\n",drive);
    else
-      wcd_fprintf(outfile, "%s", "\n");
-   fclose(outfile);
+      fprintf(outfile, "%s", "\n");
+   if (fclose(outfile) != 0)
+   {
+     errstr = strerror(errno);
+     fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), go_file, errstr);
+   }
 
 }
 #endif
@@ -2391,6 +2394,7 @@ size_t pickDir(nameset list, int *use_HOME)
 void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match, int use_GoScript)
 {
    FILE *outfile;
+   char *errstr;
 #ifdef WCD_UNIXSHELL
    char *ptr ;
 #endif
@@ -2417,58 +2421,62 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
    /* In DOS Bash $SHELL points to the windows command shell.
       So we use $BASH instead. */
    if ((ptr = getenv("BASH")) != NULL)
-      wcd_fprintf(outfile,"#!%s\n",ptr);
+      fprintf(outfile,"#!%s\n",ptr);
    if (*changedrive)
-      wcd_fprintf(outfile,"cd %s ; ",drive);
+      fprintf(outfile,"cd %s ; ",drive);
 #  else
    /* Printing of #!$SHELL is needed for 8 bit characters.
       Some shells otherwise think that the go-script is a binary file
       and will not source it. */
    if ((ptr = getenv("SHELL")) != NULL)
-      wcd_fprintf(outfile,"#!%s\n",ptr);
+      fprintf(outfile,"#!%s\n",ptr);
 #  endif
-   wcd_fprintf(outfile,"cd %s\n", best_match);
+   fprintf(outfile,"cd %s\n", best_match);
 # else /* WCD_UNIXSHELL */
    /* Go-script required, but not unix shell type. */
 #  ifdef WCD_WINPWRSH
    /* Windows powershell */
 #    ifdef WCD_UTF16
    /* PowerShell can run UTF-8 encoded scripts when the UTF-8 BOM is in. */
-   wcd_fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+   fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #    endif
    if (codepage_ansi != codepage_dos)
-      wcd_fprintf(outfile,"chcp %d | Out-Null\n", codepage_ansi);
-   wcd_fprintf(outfile,"set-location %s\n", best_match);
+      fprintf(outfile,"chcp %d | Out-Null\n", codepage_ansi);
+   fprintf(outfile,"set-location %s\n", best_match);
    if (codepage_ansi != codepage_dos)
-      wcd_fprintf(outfile,"chcp %d | Out-Null\n", codepage_dos);
+      fprintf(outfile,"chcp %d | Out-Null\n", codepage_dos);
 #  else
    /* Windows Command Prompt, os/2 */
-   wcd_fprintf(outfile, "%s", "@echo off\n");
+   fprintf(outfile, "%s", "@echo off\n");
    if (*changedrive)
-      wcd_fprintf(outfile,"%s\n",drive);
+      fprintf(outfile,"%s\n",drive);
 #   ifdef WCD_UTF16
    if (codepage_ansi != 65001)
-      wcd_fprintf(outfile,"chcp 65001 > nul\n");
+      fprintf(outfile,"chcp 65001 > nul\n");
 #   endif
 #   ifdef WCD_ANSI
    if (codepage_ansi != codepage_dos)
-      wcd_fprintf(outfile,"chcp %d > nul\n", codepage_ansi);
+      fprintf(outfile,"chcp %d > nul\n", codepage_ansi);
 #   endif
    if (strncmp(best_match,"\"\\\\",3) == 0)
-      wcd_fprintf(outfile,"pushd %s\n", best_match); /* UNC path */
+      fprintf(outfile,"pushd %s\n", best_match); /* UNC path */
    else
-      wcd_fprintf(outfile,"cd %s\n", best_match);
+      fprintf(outfile,"cd %s\n", best_match);
 #   ifdef WCD_UTF16
    if (codepage_ansi != 65001)
-      wcd_fprintf(outfile,"chcp %d > nul\n", codepage_dos);
+      fprintf(outfile,"chcp %d > nul\n", codepage_dos);
 #   endif
 #   ifdef WCD_ANSI
    if (codepage_ansi != codepage_dos)
-      wcd_fprintf(outfile,"chcp %d > nul\n", codepage_dos);
+      fprintf(outfile,"chcp %d > nul\n", codepage_dos);
 #   endif
 #  endif
 # endif
-   fclose(outfile);
+   if (fclose(outfile) != 0)
+   {
+     errstr = strerror(errno);
+     fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), go_file, errstr);
+   }
 }
 #endif
 
@@ -2527,6 +2535,7 @@ void addListToNamesetFilter(nameset set, char *list)
 int main(int argc,char** argv)
 {
    FILE *outfile;
+   char *errstr;
    char best_match[DD_MAXPATH];
    char verbose = 0;
    int i;
@@ -3178,9 +3187,13 @@ int main(int argc,char** argv)
                {
                   wcd_fixpath(tmp,sizeof(tmp)) ;
                   rmDriveLetter(tmp,&use_HOME);
-                  wcd_fprintf(outfile,"%s %s\n",argv[i],tmp);
+                  fprintf(outfile,"%s %s\n",argv[i],tmp);
                   printf(_("Wcd: %s added to aliasfile %s\n"),tmp,aliasfile);
-                  fclose(outfile);
+                  if (fclose(outfile) != 0)
+                  {
+                    errstr = strerror(errno);
+                    fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), aliasfile, errstr);
+                  }
                }
             }
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
