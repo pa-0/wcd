@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2011 Erwin Waterlander
+Copyright (C) 1997-2013 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -225,11 +225,11 @@ int stack_write(WcdStack ws,char *stackfilename)
 		}
 		else
 		{
-			fprintf(outfile,"%d %d\n",ws->lastadded,ws->current);
+			wcd_fprintf(outfile,"%d %d\n",ws->lastadded,ws->current);
 			for(i=0;((i<(int)ws->size)&&(i<ws->maxsize));i++)
 			{
 			/* printf("writing line %d\n",i);  */
-				fprintf(outfile,"%s\n",ws->dir[i]);
+				wcd_fprintf(outfile,"%s\n",ws->dir[i]);
 			}
 			fclose(outfile);
 		}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-07 21:55+0100\n"
+"POT-Creation-Date: 2013-01-16 20:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,111 +17,116 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: wcd.c:138 wcd.c:158
+#: wcd.c:139
+#, c-format
+msgid "Wcd: error: %s\n"
+msgstr ""
+
+#: wcd.c:160 wcd.c:180
 #, c-format
 msgid "Wcd: error: Unable to read file %s: %s\n"
 msgstr ""
 
-#: wcd.c:147
+#: wcd.c:169
 #, c-format
 msgid "Wcd: error: Unable to read file %s: Not a regular file.\n"
 msgstr ""
 
-#: wcd.c:160
+#: wcd.c:182
 #, c-format
 msgid "Wcd: error: Unable to write file %s: %s\n"
 msgstr ""
 
-#: wcd.c:571 wcd.c:584
+#: wcd.c:594 wcd.c:607
 #, c-format
 msgid "Wcd: %s added to file %s\n"
 msgstr ""
 
-#: wcd.c:718 wcd.c:783
+#: wcd.c:741 wcd.c:806
 #, c-format
 msgid "Wcd: error: Unable to remove file %s: %s\n"
 msgstr ""
 
-#: wcd.c:871 wcd.c:938
+#: wcd.c:894 wcd.c:961
 #, c-format
 msgid ""
 "Wcd: error: finddirs(): can't determine path in directory %s\n"
 "Wcd: path probably too long.\n"
 msgstr ""
 
-#: wcd.c:1038 wcd.c:1343
+#: wcd.c:1061 wcd.c:1366
 #, c-format
 msgid "Wcd: %s is not a directory.\n"
 msgstr ""
 
-#: wcd.c:1042
+#: wcd.c:1065
 #, c-format
 msgid "Wcd: Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr ""
 
-#: wcd.c:1107
+#: wcd.c:1130
 msgid ""
 "Wcd: error: Write access to tree-file denied.\n"
 "Wcd: Set TEMP environment variable if this is a read-only disk.\n"
 msgstr ""
 
-#: wcd.c:1230
+#: wcd.c:1253
 #, c-format
 msgid "Wcd: Removed symbolic link %s\n"
 msgstr ""
 
-#: wcd.c:1236
+#: wcd.c:1259
 #, c-format
 msgid "Wcd: error: Unable to remove symbolic link %s: %s\n"
 msgstr ""
 
-#: wcd.c:1240
+#: wcd.c:1263
 #, c-format
 msgid "Wcd: %s is a symbolic link to a file.\n"
 msgstr ""
 
-#: wcd.c:1312
+#: wcd.c:1335
 #, c-format
 msgid "Wcd: Recursively remove %s  Are you sure? y/n :"
 msgstr ""
 
-#: wcd.c:1338
+#: wcd.c:1361
 #, c-format
 msgid "Wcd: Removed directory %s\n"
 msgstr ""
 
-#: wcd.c:1370
+#: wcd.c:1393
 #, c-format
 msgid ""
 "Wcd: error: line too long in wcd_getline() ( > %d). The treefile could be "
 "corrupt, else fix by increasing DD_MAXPATH in source code.\n"
 msgstr ""
 
-#: wcd.c:1371 wcd.c:1431 wcd.c:1490
+#: wcd.c:1394 wcd.c:1454 wcd.c:1513
 #, c-format
 msgid "Wcd: file: %s, line: %d,"
 msgstr ""
 
-#: wcd.c:1378 wcd.c:1438 wcd.c:1497
+#: wcd.c:1401 wcd.c:1461 wcd.c:1520
 #, c-format
 msgid " length: %d\n"
 msgstr ""
 
-#: wcd.c:1430
+#: wcd.c:1453
 #, c-format
 msgid ""
 "Wcd: error: line too long in wcd_wgetline() ( > %d). The treefile could be "
 "corrupt, else fix by increasing DD_MAXPATH in source code.\n"
 msgstr ""
 
-#: wcd.c:1489
+#: wcd.c:1512
 #, c-format
 msgid ""
 "Wcd: error: line too long in wcd_wgetline_be() ( > %d). The treefile could "
 "be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
 msgstr ""
 
-#: wcd.c:2000
+#: wcd.c:2023
 #, c-format
 msgid ""
 "wcd  %s  (%s) - Wherever Change Directory\n"
@@ -132,7 +137,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: wcd.c:2007
+#: wcd.c:2030
 #, c-format
 msgid ""
 "options:\n"
@@ -155,21 +160,21 @@ msgid ""
 "  -h,  --help             show this Help\n"
 msgstr ""
 
-#: wcd.c:2026
+#: wcd.c:2049
 #, c-format
 msgid ""
 "  -i,  --ignore-case      Ignore case (default)\n"
 "  +i,  --no-ignore-case   Regard case\n"
 msgstr ""
 
-#: wcd.c:2030
+#: wcd.c:2053
 #, c-format
 msgid ""
 "  -i,  --ignore-case      Ignore case\n"
 "  +i,  --no-ignore-case   Regard case (default)\n"
 msgstr ""
 
-#: wcd.c:2035
+#: wcd.c:2058
 #, c-format
 msgid ""
 "  -I,  --ignore-diacritics     Ignore diacritics\n"
@@ -211,199 +216,199 @@ msgid ""
 "  =                       Show stack\n"
 msgstr ""
 
-#: wcd.c:2081 wcd.c:2208
+#: wcd.c:2104 wcd.c:2231
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
 
-#: wcd.c:2082
+#: wcd.c:2105
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
 "\n"
 msgstr ""
 
-#: wcd.c:2086
+#: wcd.c:2109
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr ""
 
-#: wcd.c:2088
+#: wcd.c:2111
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr ""
 
-#: wcd.c:2090
+#: wcd.c:2113
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr ""
 
-#: wcd.c:2092
+#: wcd.c:2115
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr ""
 
-#: wcd.c:2099
+#: wcd.c:2122
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
 msgstr ""
 
-#: wcd.c:2101
+#: wcd.c:2124
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
 msgstr ""
 
-#: wcd.c:2105
+#: wcd.c:2128
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
 msgstr ""
 
-#: wcd.c:2107
+#: wcd.c:2130
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
 msgstr ""
 
-#: wcd.c:2109
+#: wcd.c:2132
 #, c-format
 msgid "Win32 version (MinGW).\n"
 msgstr ""
 
-#: wcd.c:2116
+#: wcd.c:2139
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr ""
 
-#: wcd.c:2118
+#: wcd.c:2141
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr ""
 
-#: wcd.c:2120
+#: wcd.c:2143
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
 msgstr ""
 
-#: wcd.c:2125
+#: wcd.c:2148
 #, c-format
 msgid "OS/2 version"
 msgstr ""
 
-#: wcd.c:2136
+#: wcd.c:2159
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr ""
 
-#: wcd.c:2139
+#: wcd.c:2162
 #, c-format
 msgid "Cygwin version.\n"
 msgstr ""
 
-#: wcd.c:2142
+#: wcd.c:2165
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr ""
 
-#: wcd.c:2145
+#: wcd.c:2168
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr ""
 
-#: wcd.c:2148
+#: wcd.c:2171
 #, c-format
 msgid "Interface: "
 msgstr ""
 
-#: wcd.c:2150
+#: wcd.c:2173
 #, c-format
 msgid "conio\n"
 msgstr ""
 
-#: wcd.c:2154
+#: wcd.c:2177
 #, c-format
 msgid "ncurses version %s\n"
 msgstr ""
 
-#: wcd.c:2157
+#: wcd.c:2180
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr ""
 
-#: wcd.c:2159
+#: wcd.c:2182
 #, c-format
 msgid "curses\n"
 msgstr ""
 
-#: wcd.c:2168
+#: wcd.c:2191
 #, c-format
 msgid "stdout\n"
 msgstr ""
 
-#: wcd.c:2172
+#: wcd.c:2195
 #, c-format
 msgid "Native language support included.\n"
 msgstr ""
 
-#: wcd.c:2173
+#: wcd.c:2196
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr ""
 
-#: wcd.c:2175
+#: wcd.c:2198
 #, c-format
 msgid "No native language support included.\n"
 msgstr ""
 
-#: wcd.c:2178
+#: wcd.c:2201
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
 msgstr ""
 
-#: wcd.c:2180
+#: wcd.c:2203
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr ""
 
-#: wcd.c:2183
+#: wcd.c:2206
 #, c-format
 msgid "With Unicode support.\n"
 msgstr ""
 
-#: wcd.c:2188
+#: wcd.c:2211
 #, c-format
 msgid "  Euro symbol: "
 msgstr ""
 
-#: wcd.c:2190
+#: wcd.c:2213
 #, c-format
 msgid "  Chinese characters: "
 msgstr ""
 
-#: wcd.c:2194
+#: wcd.c:2217
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr ""
 
-#: wcd.c:2197
+#: wcd.c:2220
 #, c-format
 msgid "With Unicode normalization.\n"
 msgstr ""
 
-#: wcd.c:2199
+#: wcd.c:2222
 #, c-format
 msgid "Without Unicode normalization.\n"
 msgstr ""
 
-#: wcd.c:2202
+#: wcd.c:2225
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr ""
 
-#: wcd.c:2203
+#: wcd.c:2226
 #, c-format
 msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr ""
 
-#: wcd.c:2209
+#: wcd.c:2232
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -437,74 +442,74 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:2268
+#: wcd.c:2291
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr ""
 
-#: wcd.c:2586
+#: wcd.c:2609
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 
-#: wcd.c:2612
+#: wcd.c:2635
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2627 wcd.c:2695
+#: wcd.c:2650 wcd.c:2718
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2659 wcd.c:2688
+#: wcd.c:2682 wcd.c:2711
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 
-#: wcd.c:2764 wcd.c:3226 wcd.c:3245
+#: wcd.c:2787 wcd.c:3249 wcd.c:3268
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2896
+#: wcd.c:2919
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 
-#: wcd.c:3159
+#: wcd.c:3182
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr ""
 
-#: wcd.c:3258
+#: wcd.c:3281
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr ""
 
-#: wcd.c:3408
+#: wcd.c:3431
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr ""
 
-#: wcd.c:3410
+#: wcd.c:3433
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr ""
 
-#: wcd.c:3412
+#: wcd.c:3435
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr ""
 
-#: wcd.c:3414
+#: wcd.c:3437
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr ""
 
-#: wcd.c:3681
+#: wcd.c:3704
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 
-#: wcd.c:3847
+#: wcd.c:3870
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr ""

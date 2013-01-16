@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2012 Erwin Waterlander
+Copyright (C) 1997-2013 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -172,5 +172,6 @@ void getCurPath(char *buffer, size_t size, int *use_HOME);
 	void empty_wcdgo(char *go_file, int use_GoScript);
 #endif
 int SpecialDir(const char *path);
+int wcd_fprintf(FILE *stream, const char *format, ...);
 
 #endif
