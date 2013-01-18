@@ -1447,12 +1447,12 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
 #endif
                   break;
                case WCD_SEL_ON:
-                //wattron(win,A_REVERSE);
+                wattron(win,A_REVERSE);
                 waddch(win,(chtype)'['); /* square brackets indicate there was an error. */
                   break;
                case WCD_SEL_OFF:
                 waddch(win,(chtype)']');
-                //wattroff(win,A_REVERSE);
+                wattroff(win,A_REVERSE);
                   break;
                default:
                 waddch(win,(chtype)s[j]);
@@ -1535,12 +1535,12 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
 #endif
                   break;
                case WCD_SEL_ON:
-                //wattron(win,A_REVERSE);
+                wattron(win,A_REVERSE);
                 waddch(win,(chtype)'<');
                   break;
                case WCD_SEL_OFF:
                 waddch(win,(chtype)'>');
-                //wattroff(win,A_REVERSE);
+                wattroff(win,A_REVERSE);
                   break;
                default:
                 waddnwstr(win,wstr+j,1);
@@ -1592,12 +1592,12 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
 #endif
                break;
             case WCD_SEL_ON:
-                  //wattron(win,A_REVERSE);
+                  wattron(win,A_REVERSE);
                   waddch(win,(chtype)'<');
                break;
             case WCD_SEL_OFF:
                   waddch(win,(chtype)'>');
-                  //wattroff(win,A_REVERSE);
+                  wattroff(win,A_REVERSE);
                break;
             default:
                   waddch(win,(chtype)s[j]);
