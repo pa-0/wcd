@@ -1,4 +1,4 @@
-5.2.4-beta2 2013-01-16
+5.2.4-beta3 2013-01-18
   - Support user names with a space in the name in cmd.exe.
     Thanks to anonymous.
   - Show an "A" when alternative navigation mode is on.
@@ -7,7 +7,7 @@
     when double-width CJK (Chinese, Japanese, and Korean) font is used.
     Analog to xterm -cjk_width.
   - Added a test treedata file.
-  - Print an error when writing to disk fails.
+  - Print system error when writing to disk fails.
 
 5.2.3 2012-10-29
   - New compact tree mode. By default the 'graphical' tree is drawn the same

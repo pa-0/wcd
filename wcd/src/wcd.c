@@ -120,6 +120,36 @@ const wcd_char *default_mask = ALL_FILES_MASK;
  }
 #endif
 
+/* Use wcd_fprintf() when we write to files. To get an
+ * error message when the disk is full or quota is exceeded.
+
+ Because the output is buffered, you may not get the disk-full error during
+ fprintf(), but during fclose() when the buffer is flushed to disk. When you
+ write a lot of data, more than fits in the buffer, the buffer is flushed in
+ the meantime, before closing the file and you get the disk-full error during
+ fprintf(). You may not get the error message during fclose() then. Therefore
+ we have to check for errors during writing to file AND when the file is
+ closed. 
+ */ 
+int wcd_fprintf(FILE *stream, const char *format, ...)
+{
+   va_list args;
+   int rc;
+   char *errstr;
+   
+   va_start(args, format);
+   rc = vfprintf(stream, format, args);
+   va_end(args);
+
+   if (rc < 0)
+   {
+      errstr = strerror(errno);
+      fprintf(stderr,_("Wcd: error: %s\n"), errstr);
+   }
+
+   return(rc);
+}
+
 FILE *wcd_fopen(const char *filename, const char *m, int quiet)
 {
   struct stat buf;
@@ -303,14 +333,14 @@ void writeList(char * filename, nameset n, int bomtype)
    if ( (outfile = wcd_fopen(filename,"w",0)) != NULL)
    {
 #ifdef WCD_UTF16
-      fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+      wcd_fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #endif
 #ifdef WCD_ANSI
       /* non-Unicode Windows version */
       /* When the treefile was in Unicode the non-Unicode Windows version of wcd
          translated the Unicode directory names to the system default ANSI code page. */
       if (bomtype > 0) /* Unicode, write back in UTF-8 */
-        fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+        wcd_fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #endif
       for(i=0;((i<n->size)&&(rc>=0));i++)
       {
@@ -322,12 +352,12 @@ void writeList(char * filename, nameset n, int bomtype)
            strncpy(path, n->array[i], sizeof(path));
            MultiByteToWideChar(CP_ACP, 0, path, -1, pathw, sizeof(pathw));
            WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
-           rc = fprintf(outfile,"%s\n",path);
+           rc = wcd_fprintf(outfile,"%s\n",path);
          }
          else
-           rc = fprintf(outfile,"%s\n",n->array[i]);
+           rc = wcd_fprintf(outfile,"%s\n",n->array[i]);
 #else
-         rc = fprintf(outfile,"%s\n",n->array[i]);
+         rc = wcd_fprintf(outfile,"%s\n",n->array[i]);
 #endif
       }
       if (fclose(outfile) != 0)
@@ -574,7 +604,7 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
    /* open the treedata file */
    if  ((outfile = wcd_fopen(filename,"a",0)) != NULL)
    {
-     fprintf(outfile,"%s\n",tmp);
+     wcd_fprintf(outfile,"%s\n",tmp);
      wcd_printf(_("Wcd: %s added to file %s\n"),tmp,filename);
 
      if (parents)
@@ -587,7 +617,7 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
          /* keep one last separator in the path */
          if (strrchr(tmp,DIR_SEPARATOR) != NULL)
          {
-            fprintf(outfile,"%s\n",tmp);
+            wcd_fprintf(outfile,"%s\n",tmp);
             wcd_printf(_("Wcd: %s added to file %s\n"),tmp,filename);
          }
       }
@@ -900,7 +930,8 @@ void finddirs(char* dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    else
      tmp_ptr = tmp + len;   /* tmp_ptr points to ending '\0' of tmp */
 
-   fprintf(outfile,"%s\n", tmp_ptr);
+   if (wcd_fprintf(outfile,"%s\n", tmp_ptr) < 0)
+      return;  /* Quit when we can't write path to disk */
 
    rc = findfirst( default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL );
    list.head = list.tail = 0;
@@ -969,7 +1000,8 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    else
      tmp_ptr = tmp + len;   /* tmp_ptr points to ending '\0' of tmp */
 
-   fprintf(outfile,"%s\n", tmp_ptr);
+   if (wcd_fprintf(outfile,"%s\n", tmp_ptr) < 0)
+      return;  /* Quit when we can't write path to disk */
 
 /*
    Don't set DD_LABEL. Otherwise wcd compiled with
@@ -1006,7 +1038,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
         static struct stat buf ;
 
         if ((stat(fb.dd_name, &buf) == 0) && S_ISDIR(buf.st_mode)) /* does the link point to a dir */
-           fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
+           wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
       }
 #endif
       rc = dd_findnext(&fb);
@@ -1132,7 +1164,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
 #ifdef WCD_UTF16
    /* Add UTF-8 BOM to make it readable by notepad. */
    if (append == 0)
-     fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+     wcd_fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #endif
    finddirs( path, &offset, outfile, use_HOME, exclude, 0); /* Build treedata-file */
    if (fclose(outfile) != 0)
@@ -2307,7 +2339,7 @@ void empty_wcdgo(char *go_file, int use_GoScript)
    if  ((outfile = wcd_fopen(go_file,"w",0)) == NULL)
       exit(0);
 
-   fprintf(outfile, "%s", "\n");
+   wcd_fprintf(outfile, "%s", "\n");
    if (fclose(outfile) != 0)
    {
      errstr = strerror(errno);
@@ -2333,9 +2365,9 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript)
       exit(0);
 
    if(changedrive == 1)
-      fprintf(outfile,"cd %s\n",drive);
+      wcd_fprintf(outfile,"cd %s\n",drive);
    else
-      fprintf(outfile, "%s", "\n");
+      wcd_fprintf(outfile, "%s", "\n");
    if (fclose(outfile) != 0)
    {
      errstr = strerror(errno);
@@ -2421,54 +2453,54 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
    /* In DOS Bash $SHELL points to the windows command shell.
       So we use $BASH instead. */
    if ((ptr = getenv("BASH")) != NULL)
-      fprintf(outfile,"#!%s\n",ptr);
+      wcd_fprintf(outfile,"#!%s\n",ptr);
    if (*changedrive)
-      fprintf(outfile,"cd %s ; ",drive);
+      wcd_fprintf(outfile,"cd %s ; ",drive);
 #  else
    /* Printing of #!$SHELL is needed for 8 bit characters.
       Some shells otherwise think that the go-script is a binary file
       and will not source it. */
    if ((ptr = getenv("SHELL")) != NULL)
-      fprintf(outfile,"#!%s\n",ptr);
+      wcd_fprintf(outfile,"#!%s\n",ptr);
 #  endif
-   fprintf(outfile,"cd %s\n", best_match);
+   wcd_fprintf(outfile,"cd %s\n", best_match);
 # else /* WCD_UNIXSHELL */
    /* Go-script required, but not unix shell type. */
 #  ifdef WCD_WINPWRSH
    /* Windows powershell */
 #    ifdef WCD_UTF16
    /* PowerShell can run UTF-8 encoded scripts when the UTF-8 BOM is in. */
-   fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+   wcd_fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #    endif
    if (codepage_ansi != codepage_dos)
-      fprintf(outfile,"chcp %d | Out-Null\n", codepage_ansi);
-   fprintf(outfile,"set-location %s\n", best_match);
+      wcd_fprintf(outfile,"chcp %d | Out-Null\n", codepage_ansi);
+   wcd_fprintf(outfile,"set-location %s\n", best_match);
    if (codepage_ansi != codepage_dos)
-      fprintf(outfile,"chcp %d | Out-Null\n", codepage_dos);
+      wcd_fprintf(outfile,"chcp %d | Out-Null\n", codepage_dos);
 #  else
    /* Windows Command Prompt, os/2 */
-   fprintf(outfile, "%s", "@echo off\n");
+   wcd_fprintf(outfile, "%s", "@echo off\n");
    if (*changedrive)
-      fprintf(outfile,"%s\n",drive);
+      wcd_fprintf(outfile,"%s\n",drive);
 #   ifdef WCD_UTF16
    if (codepage_ansi != 65001)
-      fprintf(outfile,"chcp 65001 > nul\n");
+      wcd_fprintf(outfile,"chcp 65001 > nul\n");
 #   endif
 #   ifdef WCD_ANSI
    if (codepage_ansi != codepage_dos)
-      fprintf(outfile,"chcp %d > nul\n", codepage_ansi);
+      wcd_fprintf(outfile,"chcp %d > nul\n", codepage_ansi);
 #   endif
    if (strncmp(best_match,"\"\\\\",3) == 0)
-      fprintf(outfile,"pushd %s\n", best_match); /* UNC path */
+      wcd_fprintf(outfile,"pushd %s\n", best_match); /* UNC path */
    else
-      fprintf(outfile,"cd %s\n", best_match);
+      wcd_fprintf(outfile,"cd %s\n", best_match);
 #   ifdef WCD_UTF16
    if (codepage_ansi != 65001)
-      fprintf(outfile,"chcp %d > nul\n", codepage_dos);
+      wcd_fprintf(outfile,"chcp %d > nul\n", codepage_dos);
 #   endif
 #   ifdef WCD_ANSI
    if (codepage_ansi != codepage_dos)
-      fprintf(outfile,"chcp %d > nul\n", codepage_dos);
+      wcd_fprintf(outfile,"chcp %d > nul\n", codepage_dos);
 #   endif
 #  endif
 # endif
@@ -3187,7 +3219,7 @@ int main(int argc,char** argv)
                {
                   wcd_fixpath(tmp,sizeof(tmp)) ;
                   rmDriveLetter(tmp,&use_HOME);
-                  fprintf(outfile,"%s %s\n",argv[i],tmp);
+                  wcd_fprintf(outfile,"%s %s\n",argv[i],tmp);
                   printf(_("Wcd: %s added to aliasfile %s\n"),tmp,aliasfile);
                   if (fclose(outfile) != 0)
                   {
