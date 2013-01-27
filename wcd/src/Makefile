@@ -48,7 +48,7 @@ endif
 
 include version.mk
 
-CC		= gcc
+CC		?= gcc
 STATIC		=
 STRIP		= strip
 
@@ -241,10 +241,11 @@ endif
 
 ifeq (cygwin,$(OS))
 ifdef ENABLE_NLS
-	LDFLAGS_EXTRA = -lintl -liconv -lmpr -Wl,--enable-auto-import
+	LIBS_EXTRA    = -lintl -liconv -lmpr
 else
-	LDFLAGS_EXTRA = -lmpr -Wl,--enable-auto-import
+	LIBS_EXTRA    = -lmpr
 endif
+	LDFLAGS_EXTRA = -Wl,--enable-auto-import
 	INSTALL_TARGETS += install-profile
 endif
 
@@ -286,7 +287,8 @@ ifeq (freebsd,$(OS))
 	# Running under FreeBSD
 ifdef ENABLE_NLS
 	CFLAGS_OS     = -I/usr/local/include
-	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
+	LDFLAGS_EXTRA = -L/usr/local/lib
+	LIBS_EXTRA    = -lintl
 endif
 endif
 
@@ -294,7 +296,8 @@ ifeq (Darwin, $(shell uname -s))
 	OS = Darwin
 ifdef ENABLE_NLS
 	CFLAGS_OS     = -I/usr/local/include
-	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
+	LDFLAGS_EXTRA = -L/usr/local/lib
+	LIBS_EXTRA    = -lintl
 endif
 endif
 
@@ -307,7 +310,7 @@ endif
 
 ifeq (sun,$(OS))
 	# Running under SunOS/Solaris
-	LDFLAGS_EXTRA = -lintl
+	LIBS_EXTRA = -lintl
 endif
 
 ifndef OS
@@ -337,7 +340,8 @@ endif
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
 CFLAGS_USER	=
-CFLAGS	= -O2 -Wall -Wextra -Wno-unused-parameter -Wconversion $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
+CFLAGS	?= -O2
+CFLAGS  += -Wall -Wextra -Wno-unused-parameter -Wconversion $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
 
 EXTRA_CFLAGS	= -Ic3po \
 		  $(CFLAGS_VERSION) \
@@ -366,12 +370,14 @@ endif
 
 LDFLAGS_USER   =
 LDFLAGS		= $(RPM_OPT_FLAGS) \
-	          $(LIB_CURSES) \
-	          $(LIB_UNISTRING) \
 	          $(LDFLAGS_EXTRA) \
 		  $(NLFLAG) \
 		  $(LDFLAG_STATIC) \
 		  $(LDFLAGS_USER)
+
+LIBS = $(LIB_CURSES) \
+       $(LIB_UNISTRING) \
+       $(LIBS_EXTRA)
 
 DEFS_USER   =
 DEFS		= $(DEF_UNIX) $(DEFS_CURSES) $(EXTRA_DEFS) $(DEFS_USER)
@@ -419,6 +425,7 @@ status:
 	@echo "EXTRA_DEFS    = $(EXTRA_DEFS)"
 	@echo "LDFLAGS       = $(LDFLAGS)"
 	@echo "LDFLAGS_EXTRA = $(LDFLAGS_EXTRA)"
+	@echo "LIBS          = $(LIBS)"
 	@echo "CFLAGS        = $(CFLAGS)"
 	@echo "CFLAGS_OS     = $(CFLAGS_OS)"
 	@echo "EXTRA_CFLAGS  = $(EXTRA_CFLAGS)"
@@ -426,7 +433,7 @@ status:
 
 $(BIN): $(OBJS1)
 	$(MAKE) status
-	$(CC) $(OBJS1) $(LDFLAGS) -o $@
+	$(CC) $(OBJS1) $(LDFLAGS) $(LIBS) -o $@
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(DEFS) -c $< -o $@

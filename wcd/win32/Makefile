@@ -3,7 +3,7 @@ PREFIX = c:/usr/local
 prefix = $(PREFIX)
 exec_prefix = $(prefix)
 MKDIR  = mkdir
-LDFLAGS_EXTRA = -lkernel32 -luser32 -lmpr
+LIBS_EXTRA = -lkernel32 -luser32 -lmpr
 
 CFLAGS = -O2 -Wall -Wextra -Wconversion -Wno-unused-parameter
 CURSES = pdcursesw
@@ -19,7 +19,7 @@ endif
 
 
 ifdef ENABLE_NLS
-LDFLAGS_EXTRA += -lintl -liconv
+LIBS_EXTRA += -lintl -liconv
 endif
 
 ifdef WCD_UTF8
@@ -50,10 +50,10 @@ ZIPOBJ_EXTRA += bin/libunistring-0.dll
 endif
 
 all :
-	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS}
+	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LIBS_EXTRA="${LIBS_EXTRA}" prefix=${prefix} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS}
 
 install :
-	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} MKDIR=${MKDIR} EXTRA_OBJ="${EXTRA_OBJ}" INSTALL_OBJS_DOC_INSTALL="../doc/INST_DOS.txt ../doc/INSTALL.txt" ENABLE_NLS=${ENABLE_NLS}
+	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LIBS_EXTRA="${LIBS_EXTRA}" prefix=${prefix} MKDIR=${MKDIR} EXTRA_OBJ="${EXTRA_OBJ}" INSTALL_OBJS_DOC_INSTALL="../doc/INST_DOS.txt ../doc/INSTALL.txt" ENABLE_NLS=${ENABLE_NLS}
 	install -m 755 wcd.bat $(DESTDIR)${bindir}/wcd.bat
 	install -m 755 wcd_win95.bat $(DESTDIR)${bindir}/wcd_win95.bat
 

@@ -3,7 +3,7 @@ PREFIX = /usr
 prefix = $(PREFIX)
 exec_prefix = $(prefix)
 MKDIR  = mkdir
-LDFLAGS_EXTRA = -lkernel32 -luser32 -lmpr
+LIBS_EXTRA = -lkernel32 -luser32 -lmpr
 
 CFLAGS = -O2 -Wall -I.
 CURSES = pdcurses
@@ -16,7 +16,7 @@ DEFS   += -DWCD_USECURSES -DPDC_STATIC_BUILD
 endif
 
 ifdef ENABLE_NLS
-LDFLAGS_EXTRA += -lintl -liconv
+LIBS_EXTRA += -lintl -liconv
 endif
 
 ifdef WCD_UTF8
@@ -36,10 +36,10 @@ PROGRAM = wcdmsys.exe
 VERSIONSUFFIX = -msys
 
 all :
-	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS}
+	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LIBS_EXTRA="${LIBS_EXTRA}" prefix=${prefix} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS}
 
 install :
-	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} MKDIR=${MKDIR} EXTRA_OBJ="${EXTRA_OBJ}" INSTALL_OBJS_DOC_INSTALL="../doc/INST_DOS.txt ../doc/INSTALL.txt" ENABLE_NLS=${ENABLE_NLS}
+	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LIBS_EXTRA="${LIBS_EXTRA}" prefix=${prefix} MKDIR=${MKDIR} EXTRA_OBJ="${EXTRA_OBJ}" INSTALL_OBJS_DOC_INSTALL="../doc/INST_DOS.txt ../doc/INSTALL.txt" ENABLE_NLS=${ENABLE_NLS}
 
 uninstall :
 	${MAKE} -C ../src uninstall PROGRAM=${PROGRAM} prefix=${prefix} ENABLE_NLS=${ENABLE_NLS}
