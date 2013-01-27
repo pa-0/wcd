@@ -1,6 +1,7 @@
 include wcd/src/version.mk
 
 SVNREPO = svn://svn.code.sf.net/p/wcd/code
+SVNSSHREPO = svn+ssh://svn.code.sf.net/p/wcd/code
 
 help:
 	@echo "${MAKE} dist    : Create source code distribution packages."
@@ -43,8 +44,8 @@ dist:
 	cd .. ; zip -r wcd${VERSION_SHORT}s.zip wcd${VERSION_SHORT}
 
 tag:
-	svn copy ${SVNREPO}/trunk \
-	         ${SVNREPO}/tags/release-${VERSION} \
+	svn copy ${SVNSSHREPO}/trunk \
+	         ${SVNSSHREPO}/tags/release-${VERSION} \
 	    -m "Tagging release ${VERSION}."
 
 
@@ -52,8 +53,8 @@ tag:
 BRANCH=compact_tree
 
 branch:
-	svn copy ${SVNREPO}/trunk \
-	         ${SVNREPO}/branches/${BRANCH} \
+	svn copy ${SVNSSHREPO}/trunk \
+	         ${SVNSSHREPO}/branches/${BRANCH} \
 	    -m "Creating branch ${BRANCH} from trunk."
 
 
@@ -75,15 +76,15 @@ release_from_branch:
 
 # Get latest changes of trunk into branch.
 merge_from_trunk:
-	svn merge ${SVNREPO}/trunk
+	svn merge ${SVNSSHREPO}/trunk
 
 # Merge branch into trunk.
 # After this the branch is unusable for further work.
 # Copy a new branch if needed.
 merge_to_trunk:
-	svn merge --reintegrate ${SVNREPO}/branches/${BRANCH}
+	svn merge --reintegrate ${SVNSSHREPO}/branches/${BRANCH}
 
 # Delete branch
 delete_branch:
-	svn delete ${SVNREPO}/branches/${BRANCH} -m "Delete branch ${BRANCH}"
+	svn delete ${SVNSSHREPO}/branches/${BRANCH} -m "Delete branch ${BRANCH}"
 
