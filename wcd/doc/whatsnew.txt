@@ -8,6 +8,12 @@
     Analog to xterm -cjk_width.
   - Added a test treedata file.
   - Print system error when writing to disk fails.
+  - Makefile:
+    * CC can be overridden by environment.
+    * CFLAGS optimization flags can be overridden by environment.
+    * Separate LIBS from LDFLAGS.
+    Thanks to Justin Lecher <jlec@gentoo.org>
+
 
 5.2.3 2012-10-29
   - New compact tree mode. By default the 'graphical' tree is drawn the same
