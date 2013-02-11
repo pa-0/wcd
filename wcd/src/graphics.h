@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2000-2005 Erwin Waterlander
+Copyright (C) 2000-2013 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -36,6 +36,11 @@ void setFold(dirnode n, c3po_bool f, int *ymax);
 #define WCD_GRAPH_ASCII  32 /* draw tree with ASCII characters */
 #define WCD_GRAPH_COMPACT 64 /* draw compact tree */
 #define WCD_GRAPH_CJK    128 /* East-Asian CJK font with double width line drawing symbols */
+
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
+int wcd_wcwidth(wchar_t c);
+int wcd_wcswidth(const wchar_t *pwcs, size_t n);
+#endif
 
 #endif
 

@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#      Copyright (C) 1997-2012 Erwin Waterlander
+#      Copyright (C) 1997-2013 Erwin Waterlander
 #      Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -594,13 +594,11 @@ with the 'm' key.
 
 =item B<-Td, --cjk-width>
 
-Line drawing symbols have an undefined column width in the Unicode
-specification. The width of line drawing symbols can vary per font. In Western
-fonts the line drawing symbols have typically a column width of 1. In
-East-Asian CJK (Chinese, Japanese, and Korean) double-width mono-spaced fonts
-the line drawing symbols can have a column width of 2. For instance the Chinese
-CP936 raster font on Windows.  Use this option for a correct outlining of the
-graphical tree when the line drawing symbols have a width of 2. 
+Legacy East-Asian CJK (Chinese, Japanese, and Korean) fonts have certain
+characters and line drawing symbols with a column width of 2, while the normal
+Unicode width for these characters is 1 column.  For instance the Chinese CP936
+raster font on Windows and the Simsun font.  Use this option for a correct
+outlining of the graphical tree when a legacy CJK font is used. 
 
 When CJK mode is on, you will see a "C" in the lower left corner.
 

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2011 Erwin Waterlander
+Copyright (C) 1997-2013 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -34,6 +34,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include "nameset.h"
 #include "config.h"
 #include "dosdir.h"
+#include "graphics.h"
 
 #include <stdarg.h>
 #if defined(WCD_WINDOWS)
@@ -158,7 +159,7 @@ size_t str_columns (char *s)
       return(strlen(s));
    else
    {
-      j = wcswidth(wstr,(size_t)DD_MAXPATH);
+      j = wcd_wcswidth(wstr,(size_t)DD_MAXPATH);
       /* j =  nr. of columns */
       if ( j < 0)
          return(strlen(s));
@@ -935,7 +936,7 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
          j = 0;
          while ((j<(int)len)&&(c<xoffset))
          {
-            if (wcwidth(wstr[j]) != 0 )
+            if (wcd_wcwidth(wstr[j]) != 0 )
                c++;
             j++; /* j advances over combining characters */
          }
@@ -944,14 +945,14 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 	 if ((wstr[j] >= 0xdc00) && (wstr[j] < 0xe000))
            wstr[j] = ' ';
 #endif
-         while ((j<(int)len)&&(wcwidth(wstr[j]) == 0 ))   /* Skip combining characters */
+         while ((j<(int)len)&&(wcd_wcwidth(wstr[j]) == 0 ))   /* Skip combining characters */
            j++;
-         width = wcwidth(wstr[j]);
+         width = wcd_wcwidth(wstr[j]);
          while ((j<(int)len)&&((nr_offset+width)<(COLS-1)))
          {
             waddnwstr(win,wstr+j,1);
             j++;
-            width = width + wcwidth(wstr[j]);
+            width = width + wcd_wcwidth(wstr[j]);
          }
       }
 #else
@@ -1006,7 +1007,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
          j = 0;
          while ((j<(int)len)&&(c<xoffset))
          {
-            if (wcwidth(wstr[j]) != 0 )
+            if (wcd_wcwidth(wstr[j]) != 0 )
                c++;
             j++; /* j advances over combining characters */
          }
@@ -1015,16 +1016,16 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
 	 if ((wstr[j] >= 0xdc00) && (wstr[j] < 0xe000))
            wstr[j] = ' ';
 #endif
-         while ((j<(int)len)&&(wcwidth(wstr[j]) == 0 ))   /* Skip combining characters */
+         while ((j<(int)len)&&(wcd_wcwidth(wstr[j]) == 0 ))   /* Skip combining characters */
            j++;
-         width = wcwidth(wstr[j]);
+         width = wcd_wcwidth(wstr[j]);
          while ((j<(int)len)&&((nr_offset+width)<(COLS-1)))
          {
             waddnwstr(win,wstr+j,1);
             j++;
-            width = width + wcwidth(wstr[j]);
+            width = width + wcd_wcwidth(wstr[j]);
          }
-         if ((i == ws->current) && ((nr_offset+width-wcwidth(wstr[j])+2)<(COLS-1)))
+         if ((i == ws->current) && ((nr_offset+width-wcd_wcwidth(wstr[j])+2)<(COLS-1)))
             wprintw(win," *");
       }
 #else

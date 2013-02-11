@@ -1,11 +1,11 @@
-5.2.4-beta3 2013-01-18
+5.2.4-beta4 2013-02-11
   - Support user names with a space in the name in cmd.exe.
     Thanks to anonymous.
   - Show an "A" when alternative navigation mode is on.
   - Improved printing of surrogate pairs on border.
   - New option -Td, --cjk-width. Support double width line drawing symbols
-    when double-width CJK (Chinese, Japanese, and Korean) font is used.
-    Analog to xterm -cjk_width.
+    and ambiguous characters when double-width CJK (Chinese, Japanese,
+    and Korean) font is used. Analog to xterm -cjk_width.
   - Added a test treedata file.
   - Print system error when writing to disk fails.
   - Makefile:

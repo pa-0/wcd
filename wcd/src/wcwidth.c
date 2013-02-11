@@ -58,7 +58,6 @@
  *
  * Latest version: http://www.cl.cam.ac.uk/~mgk25/ucs/wcwidth.c
  */
-/* wcwidth.c is in the public domain */
 
 #include <wchar.h>
 

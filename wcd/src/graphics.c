@@ -1342,8 +1342,6 @@ dirnode findDirInCicle(char *dir, dirnode curNode, int exact, int ignore_case, i
  *
  * **********************************************************/
 
-#ifdef WCD_USECURSES
-
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
 int wcd_wcwidth(wchar_t c)
 {
@@ -1367,10 +1365,33 @@ int wcd_wcwidth(wchar_t c)
           return(1);
           break;
        default:
+#if (defined(_WIN32) && !defined(__CYGWIN__))
+         /* On Windows the Command Prompt (cmd.exe) and PowerShell terminal
+          * use by default a legacy CJK font. */
+          if ((wcd_cwin.graphics_mode & WCD_GRAPH_CJK) && !(wcd_cwin.graphics_mode & WCD_GRAPH_ASCII))
+             return(mk_wcwidth_cjk(c));
+          else
+             return(wcwidth(c));
+#else
           return(wcwidth(c));
+#endif
     }
 }
+
+int wcd_wcswidth(const wchar_t *pwcs, size_t n)
+{
+#if (defined(_WIN32) && !defined(__CYGWIN__))
+    if ((wcd_cwin.graphics_mode & WCD_GRAPH_CJK) && !(wcd_cwin.graphics_mode & WCD_GRAPH_ASCII))
+       return(mk_wcswidth_cjk(pwcs, n));
+    else
+       return(wcswidth(pwcs, n));
+#else
+    return(wcswidth(pwcs, n));
 #endif
+}
+#endif
+
+#ifdef WCD_USECURSES
 
 void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffset)
 {
