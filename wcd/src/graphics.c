@@ -83,7 +83,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 # define WCD_SEL_ON 6           /* selection on/off codes */
 # define WCD_SEL_OFF 7
 
-# define WCD_SPACE 8            /* double with space in CJK mode */
+# define WCD_SPACE 8            /* double width space in CJK mode */
 
 #ifdef ASCII_TREE
 static const char WCD_ONESUBDIR[] = "---" ;
@@ -1368,7 +1368,7 @@ int wcd_wcwidth(wchar_t c)
 #if (defined(_WIN32) && !defined(__CYGWIN__))
          /* On Windows the Command Prompt (cmd.exe) and PowerShell terminal
           * use by default a legacy CJK font. */
-          if ((wcd_cwin.graphics_mode & WCD_GRAPH_CJK) && !(wcd_cwin.graphics_mode & WCD_GRAPH_ASCII))
+          if (wcd_cwin.graphics_mode & WCD_GRAPH_CJK)
              return(mk_wcwidth_cjk(c));
           else
              return(wcwidth(c));
@@ -1381,7 +1381,7 @@ int wcd_wcwidth(wchar_t c)
 int wcd_wcswidth(const wchar_t *pwcs, size_t n)
 {
 #if (defined(_WIN32) && !defined(__CYGWIN__))
-    if ((wcd_cwin.graphics_mode & WCD_GRAPH_CJK) && !(wcd_cwin.graphics_mode & WCD_GRAPH_ASCII))
+    if (wcd_cwin.graphics_mode & WCD_GRAPH_CJK)
        return(mk_wcswidth_cjk(pwcs, n));
     else
        return(wcswidth(pwcs, n));
