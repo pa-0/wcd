@@ -1682,8 +1682,8 @@ void dataRefresh(int ydiff, int init)
   if ((yposition < 0)|| init)
      yposition = (wcd_cwin.scrollWinHeight /2);
 
-  wclear(wcd_cwin.scrollWin);
-  wclear(wcd_cwin.inputWin);
+  werase(wcd_cwin.scrollWin);
+  werase(wcd_cwin.inputWin);
 
   if (ydiff < 0 )
   {
@@ -1798,7 +1798,7 @@ void dataRefresh(int ydiff, int init)
 /************************************************************/
 void showHelp(WINDOW *win, int height)
 {
-   wclear(win);
+   werase(win);
    if (height > 21)
    {
       wcd_mvwaddstr(win, 0,0,_("NAVIGATE MODE (1/2):"));
@@ -1820,7 +1820,7 @@ void showHelp(WINDOW *win, int height)
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
-      wclear(win);
+      werase(win);
 
       wcd_mvwaddstr(win, 0,0,_("NAVIGATE MODE (2/2):"));
       wcd_mvwaddstr(win, 1,0,_("A                 switch alternative tree navigation on/off."));
@@ -1836,7 +1836,7 @@ void showHelp(WINDOW *win, int height)
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
-      wclear(win);
+      werase(win);
 
       wcd_mvwaddstr(win, 0,0,_("SEARCH MODE with wildcard and subdir support:"));
       wcd_mvwaddstr(win, 1,0,_("<Left>            go left."));
@@ -1859,7 +1859,7 @@ void showHelp(WINDOW *win, int height)
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
-      wclear(win);
+      werase(win);
 
       wcd_mvwaddstr(win, 0,0,_("ZOOMING:"));
       wcd_mvwaddstr(win, 1,0,_("z or i or CTRL-i  zoom in."));

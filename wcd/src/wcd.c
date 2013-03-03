@@ -2199,7 +2199,7 @@ void print_version()
 #else
 # ifdef WCD_USECURSES
 #  ifdef NCURSES_VERSION
-   printf(_("ncurses version %s\n"),NCURSES_VERSION);
+   printf(_("ncurses version %s.%d\n"),NCURSES_VERSION,NCURSES_VERSION_PATCH);
 #  else
 #   ifdef __PDCURSES__
    printf(_("PDCurses build %d\n"),PDC_BUILD);
