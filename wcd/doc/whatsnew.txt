@@ -1,4 +1,4 @@
-5.2.4-beta4 2013-02-11
+5.2.4-beta5 2013-03-03
   - Support user names with a space in the name in cmd.exe.
     Thanks to anonymous.
   - Show an "A" when alternative navigation mode is on.
@@ -13,6 +13,8 @@
     * CFLAGS optimization flags can be overridden by environment.
     * Separate LIBS from LDFLAGS.
     Thanks to Justin Lecher <jlec@gentoo.org>
+  - Makefile: NCURSES_DEBUG=1 enables linking with the ncurses libraries
+    with debug information. The ncurses *_g libraries.
   - Reduced flicker in graphical tree interface by using werase() i.s.o.
     wclear(). Flicker was mainly noticeable in Windows port of ncurses.
     Thanks to Thomas Dickey.

@@ -1,7 +1,7 @@
 #
 #   Copyright information
 #
-#	Copyright (C) 2009-2012 Erwin Waterlander
+#	Copyright (C) 2009-2013 Erwin Waterlander
 #	Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -129,6 +129,7 @@ VERSIONSUFFIX	= -bin
 
 # Large File Support (LFS)
 LFS             = 1
+DEBUG           = 0
 
 # Enble Unicode for Cygwin
 ifeq ($(findstring CYGWIN,$(shell uname)),CYGWIN)
@@ -205,6 +206,9 @@ ifeq ($(findstring ncurses,$(CURSES)),ncurses)
 ifneq ($(wildcard $(INCPREFIX)/include/$(CURSES)/curses.h),)
 	INCFLAGS = -I$(INCPREFIX)/include/$(CURSES)
 endif
+ifeq ($(NCURSES_DEBUG), 1)
+	LIB_CURSES  = -l$(CURSES)_g
+endif
 endif
 
 ifeq ($(CURSES),ncursesw)
@@ -272,6 +276,7 @@ endif
 
 ifndef OS
 ifeq ($(findstring MSYS,$(shell uname)),MSYS)
+	CC = gcc
 	DEF_UNIX =
 	OS = msys
 endif
@@ -350,7 +355,8 @@ EXTRA_CFLAGS	= -Ic3po \
 		  $(WDEFS) \
 		  $(NLSDEFS) \
 		  $(NCFLAG) \
-		  $(INCFLAGS)
+		  $(INCFLAGS) \
+		  -DDEBUG=$(DEBUG)
 
 ifeq ($(DEBUG), 1)
 	EXTRA_CFLAGS += -g

@@ -75,6 +75,10 @@ BASIC INSTALLATION
                         The default value is 'ncurses'.
                         Only an expert should change this.
 
+            NCURSES_DEBUG=1
+                        Link with ncurses debug enabled library by
+                        adding NCURSES_DEBUG=1 to the make command.
+
             ASCII_TREE=1
                         Draw graphical tree with
                         ASCII characters.
