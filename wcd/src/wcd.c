@@ -2672,7 +2672,13 @@ int main(int argc,char** argv)
     * right away. On Windows (not Cygwin) it is best to not set TERM at all.
     */ 
     if (getenv("TERM") != NULL)
-        unsetenv("TERM");
+    {
+        if (putenv("TERM=") != 0)
+	{
+             errstr = strerror(errno);
+             fprintf(stderr,_("Wcd: error: Failed to unset environment variable TERM: %s\n"), errstr);
+	}
+    }
 #endif
 
     if ((ptr = getenv("HOME")) == NULL)
