@@ -2666,6 +2666,14 @@ int main(int argc,char** argv)
       Don't assume user has PDCurses 2.7, so don't set PDC_RESTORE_SCREEN by default.
       Erwin */
 #endif
+#if defined(_WIN32) && !defined(__CYGWIN__) && defined(NCURSES_VERSION)
+   /* On Windows TERM is not standardized and may be set to any value.
+    * When ncurses does not understand the value of TERM it will exit
+    * right away. On Windows (not Cygwin) it is best to not set TERM at all.
+    */ 
+    if (getenv("TERM") != NULL)
+        unsetenv("TERM");
+#endif
 
     if ((ptr = getenv("HOME")) == NULL)
     {
@@ -3472,6 +3480,14 @@ int main(int argc,char** argv)
 
    if (verbose > 0)
    {
+      if ((ptr = getenv("HOME")) == NULL)
+         printf(_("Wcd: HOME is not defined\n"));
+      else
+         printf(_("Wcd: HOME=\"%s\"\n"),ptr);
+      if ((ptr = getenv("WCDHOME")) == NULL)
+         printf(_("Wcd: WCDHOME is not defined\n"));
+      else
+         printf(_("Wcd: WCDHOME=\"%s\"\n"),ptr);
       for (ii=0; ii<scan_dirs->size; ++ii)
          printf(_("Wcd: WCDSCAN directory {%s}\n"),elementAtNamesetArray(ii, scan_dirs));
       for (ii=0; ii<banned_dirs->size; ++ii)

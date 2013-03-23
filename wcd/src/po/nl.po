@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-11 22:20+0100\n"
+"POT-Creation-Date: 2013-03-23 19:41+0100\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -18,9 +18,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:147
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: %s\n"
-msgstr "Wcd: Map %s verwijderd.\n"
+msgstr "Wcd: Fout: %s\n"
 
 #: wcd.c:168 wcd.c:188
 #, c-format
@@ -33,7 +33,7 @@ msgid "Wcd: error: Unable to read file %s: Not a regular file.\n"
 msgstr "Wcd: fout: Kan bestand %s niet lezen: Geen regulier bestand.\n"
 
 #: wcd.c:190 wcd.c:366 wcd.c:628 wcd.c:1173 wcd.c:2346 wcd.c:2374 wcd.c:2510
-#: wcd.c:3227 stack.c:238
+#: wcd.c:3235 stack.c:238
 #, c-format
 msgid "Wcd: error: Unable to write file %s: %s\n"
 msgstr "Wcd: fout: Kan bestand %s niet schrijven: %s\n"
@@ -410,8 +410,8 @@ msgstr ""
 
 #: wcd.c:2202
 #, c-format
-msgid "ncurses version %s\n"
-msgstr "ncurses versie %s\n"
+msgid "ncurses version %s.%d\n"
+msgstr "ncurses versie %s.%d\n"
 
 #: wcd.c:2205
 #, c-format
@@ -536,60 +536,80 @@ msgstr "Wcd: aanmaken map %s\n"
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDLOCALEDIR is te lang.\n"
 
-#: wcd.c:2676
+#: wcd.c:2684
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME is te lang.\n"
 
-#: wcd.c:2691 wcd.c:2759
+#: wcd.c:2699 wcd.c:2767
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
 
-#: wcd.c:2723 wcd.c:2752
+#: wcd.c:2731 wcd.c:2760
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
 
-#: wcd.c:2828 wcd.c:3294 wcd.c:3313
+#: wcd.c:2836 wcd.c:3302 wcd.c:3321
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
 
-#: wcd.c:2960
+#: wcd.c:2968
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
 "interface.\n"
 
-#: wcd.c:3223
+#: wcd.c:3231
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s toegevoegd aan aliasbestand %s\n"
 
-#: wcd.c:3326
+#: wcd.c:3334
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr "Wcd: fout: Kan bestand %s of %s niet lezen.\n"
 
-#: wcd.c:3476
+#: wcd.c:3484
+#, c-format
+msgid "Wcd: HOME is not defined\n"
+msgstr "Wcd: HOME is niet gedefinieerd.\n"
+
+#: wcd.c:3486
+#, c-format
+msgid "Wcd: HOME=\"%s\"\n"
+msgstr ""
+
+#: wcd.c:3488
+#, c-format
+msgid "Wcd: WCDHOME is not defined\n"
+msgstr "Wcd: WCDHOME is niet gedefinieerd.\n"
+
+#: wcd.c:3490
+#, c-format
+msgid "Wcd: WCDHOME=\"%s\"\n"
+msgstr ""
+
+#: wcd.c:3492
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "Wcd: WCDSCAN map {%s}\n"
 
-#: wcd.c:3478
+#: wcd.c:3494
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: verbannen {%s}\n"
 
-#: wcd.c:3480
+#: wcd.c:3496
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: uitsluiten {%s}\n"
 
-#: wcd.c:3482
+#: wcd.c:3498
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteren {%s}\n"
 
-#: wcd.c:3749
+#: wcd.c:3765
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -598,7 +618,7 @@ msgstr ""
 "Wcd: Geen map gevonden gelijk aan %s\n"
 "Wcd: Misschien moet u de schijf opnieuw aftasten of is het pad verbannen.\n"
 
-#: wcd.c:3915
+#: wcd.c:3931
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Kan niet veranderen naar %s\n"
