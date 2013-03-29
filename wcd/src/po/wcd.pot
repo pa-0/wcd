@@ -8,11 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-23 21:33+0100\n"
+"POT-Creation-Date: 2013-03-26 09:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,8 +31,8 @@ msgstr ""
 msgid "Wcd: error: Unable to read file %s: Not a regular file.\n"
 msgstr ""
 
-#: wcd.c:190 wcd.c:366 wcd.c:628 wcd.c:1173 wcd.c:2346 wcd.c:2374 wcd.c:2510
-#: wcd.c:3241 stack.c:238
+#: wcd.c:190 wcd.c:366 wcd.c:628 wcd.c:1173 wcd.c:2349 wcd.c:2380 wcd.c:2519
+#: wcd.c:3262 stack.c:238
 #, c-format
 msgid "Wcd: error: Unable to write file %s: %s\n"
 msgstr ""
@@ -448,94 +447,104 @@ msgstr ""
 msgid "Wcd: creating directory %s\n"
 msgstr ""
 
-#: wcd.c:2650
+#: wcd.c:2337 wcd.c:2365 wcd.c:2450
+#, c-format
+msgid "Wcd: Writing file \"%s\"\n"
+msgstr ""
+
+#: wcd.c:2659
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr ""
 
-#: wcd.c:2679
+#: wcd.c:2688
 #, c-format
 msgid "Wcd: error: Failed to unset environment variable TERM: %s\n"
 msgstr ""
 
-#: wcd.c:2690
+#: wcd.c:2699
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2705 wcd.c:2773
+#: wcd.c:2714 wcd.c:2782
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2737 wcd.c:2766
+#: wcd.c:2746 wcd.c:2775
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 
-#: wcd.c:2842 wcd.c:3308 wcd.c:3327
+#: wcd.c:2851 wcd.c:3329 wcd.c:3348
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 
-#: wcd.c:2974
-msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
-msgstr ""
-
-#: wcd.c:3237
-#, c-format
-msgid "Wcd: %s added to aliasfile %s\n"
-msgstr ""
-
-#: wcd.c:3340
-#, c-format
-msgid "Wcd: error: Unable to read file %s or %s\n"
-msgstr ""
-
-#: wcd.c:3490
+#: wcd.c:2960
 #, c-format
 msgid "Wcd: HOME is not defined\n"
 msgstr ""
 
-#: wcd.c:3492
+#: wcd.c:2962
 #, c-format
 msgid "Wcd: HOME=\"%s\"\n"
 msgstr ""
 
-#: wcd.c:3494
+#: wcd.c:2964
 #, c-format
 msgid "Wcd: WCDHOME is not defined\n"
 msgstr ""
 
-#: wcd.c:3496
+#: wcd.c:2966
 #, c-format
 msgid "Wcd: WCDHOME=\"%s\"\n"
 msgstr ""
 
-#: wcd.c:3498
+#: wcd.c:2991
+msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
+msgstr ""
+
+#: wcd.c:3018
+#, c-format
+msgid "Wcd: use_GoScript = 0\n"
+msgstr ""
+
+#: wcd.c:3258
+#, c-format
+msgid "Wcd: %s added to aliasfile %s\n"
+msgstr ""
+
+#: wcd.c:3361
+#, c-format
+msgid "Wcd: error: Unable to read file %s or %s\n"
+msgstr ""
+
+#: wcd.c:3511
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr ""
 
-#: wcd.c:3500
+#: wcd.c:3513
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr ""
 
-#: wcd.c:3502
+#: wcd.c:3515
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr ""
 
-#: wcd.c:3504
+#: wcd.c:3517
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr ""
 
-#: wcd.c:3771
+#: wcd.c:3784
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
 "Wcd: Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 
-#: wcd.c:3937
+#: wcd.c:3950
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr ""

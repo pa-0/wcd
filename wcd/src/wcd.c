@@ -2325,13 +2325,16 @@ void create_dir_for_file(char *f)
  ********************************************************************/
 
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)
-void empty_wcdgo(char *go_file, int use_GoScript)
+void empty_wcdgo(char *go_file, int use_GoScript, int verbose)
 {
    FILE *outfile;
    char *errstr;
 
    if (use_GoScript == 0)
       return;
+
+   if (verbose)
+     fprintf(stderr,_("Wcd: Writing file \"%s\"\n"), go_file);
 
    /* try to create directory for go-script if it doesn't exist */
    create_dir_for_file(go_file);
@@ -2350,13 +2353,16 @@ void empty_wcdgo(char *go_file, int use_GoScript)
 #endif
 
 #ifdef WCD_DOSBASH
-void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript)
+void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript, int verbose)
 {
    FILE *outfile;
    char *errstr;
 
    if (use_GoScript == 0)
       return;
+
+   if (verbose)
+     fprintf(stderr,_("Wcd: Writing file \"%s\"\n"), go_file);
 
    /* try to create directory for go-script if it doesn't exist */
    create_dir_for_file(go_file);
@@ -2423,7 +2429,7 @@ size_t pickDir(nameset list, int *use_HOME)
  ********************************************************************/
 
 #ifdef WCD_SHELL
-void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match, int use_GoScript)
+void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match, int use_GoScript, int verbose)
 {
    FILE *outfile;
    char *errstr;
@@ -2439,6 +2445,9 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 
    if (use_GoScript == 0)
       return;
+
+   if (verbose)
+     fprintf(stderr,_("Wcd: Writing file \"%s\"\n"), go_file);
 
    /* try to create directory for go-script if it doesn't exist */
    create_dir_for_file(go_file);
@@ -2947,6 +2956,14 @@ int main(int argc,char** argv)
             break;
          case 'v':
             verbose = 1;
+            if ((ptr = getenv("HOME")) == NULL)
+               printf(_("Wcd: HOME is not defined\n"));
+            else
+               printf(_("Wcd: HOME=\"%s\"\n"),ptr);
+            if ((ptr = getenv("WCDHOME")) == NULL)
+               printf(_("Wcd: WCDHOME is not defined\n"));
+            else
+               printf(_("Wcd: WCDHOME=\"%s\"\n"),ptr);
             break;
          case 'q':
             quieter = 1;
@@ -2959,10 +2976,10 @@ int main(int argc,char** argv)
 #endif
 
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)       /* empty wcd.go file */
-            empty_wcdgo(go_file,use_GoScript);
+            empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
-            empty_wcdgo(go_file,0,drive,use_GoScript);
+            empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
             return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
          case 'g':
@@ -2977,10 +2994,10 @@ int main(int argc,char** argv)
          case 'L':
             print_license();
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)       /* empty wcd.go file */
-            empty_wcdgo(go_file,use_GoScript);
+            empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
-            empty_wcdgo(go_file,0,drive,use_GoScript);
+            empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
             return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
          case 'c':
@@ -2995,7 +3012,11 @@ int main(int argc,char** argv)
          case 'G':
 #ifdef WCD_SHELL
             if (argv[i][2] == 'N') /* No Go-script */
+	    {
                use_GoScript = 0;
+               if (verbose)
+                  printf(_("Wcd: use_GoScript = 0\n"));
+	    }
 #endif
             break;
          case 'N':
@@ -3055,10 +3076,10 @@ int main(int argc,char** argv)
                print_version();
 #endif
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
-               empty_wcdgo(go_file,use_GoScript);
+               empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-               empty_wcdgo(go_file,0,drive,use_GoScript);
+               empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
                return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
             } else if (strcmp(argv[i]+2,"verbose") == 0) {
@@ -3085,10 +3106,10 @@ int main(int argc,char** argv)
             } else if (strcmp(argv[i]+2,"license") == 0) {
                print_license();
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)       /* empty wcd.go file */
-               empty_wcdgo(go_file,use_GoScript);
+               empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
-               empty_wcdgo(go_file,0,drive,use_GoScript);
+               empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
                return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
             } else if (strcmp(argv[i]+2,"numbers") == 0) {
@@ -3112,10 +3133,10 @@ int main(int argc,char** argv)
             } else {
                print_help();
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
-               empty_wcdgo(go_file,use_GoScript);
+               empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-               empty_wcdgo(go_file,0,drive,use_GoScript);
+               empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
                return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
             }
@@ -3124,10 +3145,10 @@ int main(int argc,char** argv)
             print_help();
 
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
-            empty_wcdgo(go_file,use_GoScript);
+            empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-            empty_wcdgo(go_file,0,drive,use_GoScript);
+            empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
             return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
          }
@@ -3210,10 +3231,10 @@ int main(int argc,char** argv)
             else
             {
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
-               empty_wcdgo(go_file,use_GoScript);
+               empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-               empty_wcdgo(go_file,0,drive,use_GoScript);
+               empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
                return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
             }
@@ -3243,10 +3264,10 @@ int main(int argc,char** argv)
                }
             }
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
-            empty_wcdgo(go_file,use_GoScript);
+            empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
-            empty_wcdgo(go_file,0,drive,use_GoScript);
+            empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
             return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
          }
@@ -3486,14 +3507,6 @@ int main(int argc,char** argv)
 
    if (verbose > 0)
    {
-      if ((ptr = getenv("HOME")) == NULL)
-         printf(_("Wcd: HOME is not defined\n"));
-      else
-         printf(_("Wcd: HOME=\"%s\"\n"),ptr);
-      if ((ptr = getenv("WCDHOME")) == NULL)
-         printf(_("Wcd: WCDHOME is not defined\n"));
-      else
-         printf(_("Wcd: WCDHOME=\"%s\"\n"),ptr);
       for (ii=0; ii<scan_dirs->size; ++ii)
          printf(_("Wcd: WCDSCAN directory {%s}\n"),elementAtNamesetArray(ii, scan_dirs));
       for (ii=0; ii<banned_dirs->size; ++ii)
@@ -3537,7 +3550,7 @@ int main(int argc,char** argv)
          quoteString(best_match);
          if (justGo)
             wcd_printf("%s\n",best_match);
-         writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript);
+         writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript,verbose);
 #else
          wcd_chdir(best_match,0); /* change to directory */
 #endif
@@ -3558,10 +3571,10 @@ int main(int argc,char** argv)
          {
             wcd_printf("%s\n", dir);
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
-            empty_wcdgo(go_file,use_GoScript);
+            empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-            empty_wcdgo(go_file,changedrive,drive,use_GoScript);
+            empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
             return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
          }
@@ -3600,7 +3613,7 @@ int main(int argc,char** argv)
          quoteString(best_match);
          if (justGo)
             wcd_printf("%s\n",best_match);
-         writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript);
+         writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript,verbose);
 #else
          wcd_chdir(best_match,0); /* change to directory */
 #endif
@@ -3651,10 +3664,10 @@ int main(int argc,char** argv)
    /* No directory given. Don't go HOME. Exit and stay in current dir,
       because we only wanted to scan the disk or make or remove a directory */
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
-      empty_wcdgo(go_file,use_GoScript);
+      empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-      empty_wcdgo(go_file,changedrive,drive,use_GoScript);
+      empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
       return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
    }
@@ -3736,10 +3749,10 @@ int main(int argc,char** argv)
          else
          {
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
-            empty_wcdgo(go_file,use_GoScript);
+            empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-            empty_wcdgo(go_file,changedrive,drive,use_GoScript);
+            empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
             return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
          }
@@ -3770,10 +3783,10 @@ int main(int argc,char** argv)
       if ( !(use_stdout & WCD_STDOUT_DUMP) ) /* don't print message if option -od is used */
          wcd_printf(_("Wcd: No directory found matching %s\nWcd: Perhaps you need to rescan the disk or path is banned.\n"),dir);
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
-      empty_wcdgo(go_file,use_GoScript);
+      empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-      empty_wcdgo(go_file,changedrive,drive,use_GoScript);
+      empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
       return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
    }
@@ -3816,10 +3829,10 @@ int main(int argc,char** argv)
       if (exit_wcd)
       {
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
-         empty_wcdgo(go_file,use_GoScript);
+         empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-         empty_wcdgo(go_file,changedrive,drive,use_GoScript);
+         empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
          return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
       }
@@ -3867,10 +3880,10 @@ int main(int argc,char** argv)
       if (exit_wcd)
       {
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
-         empty_wcdgo(go_file,use_GoScript);
+         empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-         empty_wcdgo(go_file,changedrive,drive,use_GoScript);
+         empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
          return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
       }
@@ -3888,10 +3901,10 @@ int main(int argc,char** argv)
       {
          wcd_printf("%s\n", best_match);
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
-         empty_wcdgo(go_file,use_GoScript);
+         empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-         empty_wcdgo(go_file,changedrive,drive,use_GoScript);
+         empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
          return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
       }
@@ -3936,10 +3949,10 @@ int main(int argc,char** argv)
          {
             wcd_printf(_("Wcd: Cannot change to %s\n"),best_match);
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
-            empty_wcdgo(go_file,use_GoScript);
+            empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-            empty_wcdgo(go_file,changedrive,drive,use_GoScript);
+            empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
             if (keep_paths == 0)
                cleanTreeFile(treefile,tmp);
@@ -3950,7 +3963,7 @@ int main(int argc,char** argv)
          quoteString(best_match);
          if (justGo)
             wcd_printf("%s\n",best_match);
-         writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript);
+         writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript,verbose);
 #else
          wcd_chdir(best_match,0); /* change to directory */
 #endif
