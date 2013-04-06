@@ -156,7 +156,9 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
   FILE *f;
   char *errstr;
 
-  /* printf("wcd_fopen %s %d\n",filename, quiet); */
+#if DEBUG
+  fprintf(stderr, _("Wcd: wcd_fopen: Opening file \"%s\" %s %d\n"),filename, m, quiet);
+#endif
 
   if (m[0] == 'r') /* we try to read an existing file */
   {
@@ -189,6 +191,9 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
     else
       fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
   }
+#if DEBUG
+  fprintf(stderr, _("Wcd: wcd_fopen: Opening file \"%s\" OK.\n"), filename);
+#endif
   return(f);
 }
 
@@ -264,6 +269,24 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
   return(f);
 }
 
+
+void wcd_fclose(FILE *fp, const char *filename, const char *m, const char *functionname)
+{
+   char *errstr;
+   if (fclose(fp) != 0)
+   {
+     errstr = strerror(errno);
+     if (m[0] == 'w')
+       fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
+     else
+       fprintf(stderr,_("Wcd: error: Unable to close file %s: %s\n"), filename, errstr);
+   }
+#if DEBUG
+   else
+     fprintf(stderr, _("Wcd: %sClosing file \"%s\" OK.\n"), functionname, filename);
+#endif
+}
+
 /********************************************************************
  * void cleanPath(char path[], int len, minlength)
  *
@@ -324,7 +347,6 @@ void writeList(char * filename, nameset n, int bomtype)
    size_t i;
    FILE *outfile;
    int rc = 0;
-   char *errstr;
 #ifdef WCD_ANSI
    char    path[DD_MAXPATH];
    wchar_t pathw[DD_MAXPATH];
@@ -360,11 +382,7 @@ void writeList(char * filename, nameset n, int bomtype)
          rc = wcd_fprintf(outfile,"%s\n",n->array[i]);
 #endif
       }
-      if (fclose(outfile) != 0)
-      {
-        errstr = strerror(errno);
-        fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
-      }
+      wcd_fclose(outfile, filename, "w", "writeList: ");
    }
 }
 #ifdef UNIX
@@ -595,7 +613,6 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
 
  char tmp[DD_MAXPATH];      /* tmp string buffer */
  FILE *outfile;
- char *errstr;
 
  getCurPath(tmp,(size_t)DD_MAXPATH,use_HOME);
 
@@ -622,11 +639,7 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
          }
       }
      }
-     if (fclose(outfile) != 0)
-     {
-       errstr = strerror(errno);
-       fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
-     }
+     wcd_fclose(outfile, filename, "w", "addCurPathToFile: ");
    }
  }
 
@@ -1067,7 +1080,6 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
    char tmp[DD_MAXPATH];    /* tmp string buffer */
    char tmp2[DD_MAXPATH];   /* tmp string buffer */
    FILE *outfile;
-   char *errstr;
 #ifdef _WCD_DOSFS
    char drive[DD_MAXDRIVE];
    int  changedrive = 0;
@@ -1144,6 +1156,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
                }
          }
       }
+      fprintf(stderr,_("Wcd: Writing file \"%s\"\n"), treefile);
    }
 
    if (outfile == NULL) /* Did we succeed? */
@@ -1167,11 +1180,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
      wcd_fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 #endif
    finddirs( path, &offset, outfile, use_HOME, exclude, 0); /* Build treedata-file */
-   if (fclose(outfile) != 0)
-   {
-     errstr = strerror(errno);
-     fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), treefile, errstr);
-   }
+   wcd_fclose(outfile, treefile, "w", "scanDisk: ");
    wcd_chdir(tmp2,0);          /* go back */
 }
 
@@ -1676,7 +1685,7 @@ int read_treefile(char* filename, nameset bd, int quiet)
          default:
            read_treefileA(infile, bd, filename);
       }
-      fclose(infile);
+      wcd_fclose(infile, filename, "r", "read_treefile: ");
    }
    return(bomtype);
 }
@@ -1930,7 +1939,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
                }
          }
    }   /* while (!feof(infile) ) */
-   fclose(infile);
+   wcd_fclose(infile, filename, "r", "scanfile: ");
 }
 /********************************************************************
  *
@@ -1990,7 +1999,7 @@ void scanaliasfile(char *org_dir, char *filename,
                }
          }
       }   /* while (!feof(infile) ) */
-   fclose(infile);
+   wcd_fclose(infile, filename, "r", "scanaliasfile: ");
    }
 }
 /********************************************************************
@@ -2328,7 +2337,6 @@ void create_dir_for_file(char *f)
 void empty_wcdgo(char *go_file, int use_GoScript, int verbose)
 {
    FILE *outfile;
-   char *errstr;
 
    if (use_GoScript == 0)
       return;
@@ -2343,11 +2351,7 @@ void empty_wcdgo(char *go_file, int use_GoScript, int verbose)
       exit(0);
 
    wcd_fprintf(outfile, "%s", "\n");
-   if (fclose(outfile) != 0)
-   {
-     errstr = strerror(errno);
-     fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), go_file, errstr);
-   }
+   wcd_fclose(outfile, go_file, "w", "empty_wcdgo: ");
 
 }
 #endif
@@ -2356,7 +2360,6 @@ void empty_wcdgo(char *go_file, int use_GoScript, int verbose)
 void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript, int verbose)
 {
    FILE *outfile;
-   char *errstr;
 
    if (use_GoScript == 0)
       return;
@@ -2374,12 +2377,7 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript, 
       wcd_fprintf(outfile,"cd %s\n",drive);
    else
       wcd_fprintf(outfile, "%s", "\n");
-   if (fclose(outfile) != 0)
-   {
-     errstr = strerror(errno);
-     fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), go_file, errstr);
-   }
-
+   wcd_fclose(outfile, go_file, "w", "empty_wcdgo: ");
 }
 #endif
 
@@ -2432,7 +2430,6 @@ size_t pickDir(nameset list, int *use_HOME)
 void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match, int use_GoScript, int verbose)
 {
    FILE *outfile;
-   char *errstr;
 #ifdef WCD_UNIXSHELL
    char *ptr ;
 #endif
@@ -2513,11 +2510,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 #   endif
 #  endif
 # endif
-   if (fclose(outfile) != 0)
-   {
-     errstr = strerror(errno);
-     fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), go_file, errstr);
-   }
+   wcd_fclose(outfile, go_file, "w", "writeGoFile: ");
 }
 #endif
 
@@ -2575,8 +2568,8 @@ void addListToNamesetFilter(nameset set, char *list)
 
 int main(int argc,char** argv)
 {
+   FILE *infile;
    FILE *outfile;
-   char *errstr;
    char best_match[DD_MAXPATH];
    char verbose = 0;
    int i;
@@ -2596,7 +2589,6 @@ int main(int argc,char** argv)
    char extratreefile[DD_MAXPATH];
    char homedir[DD_MAXPATH];
    char dir[DD_MAXPATH];  /* directory to go to, or dir to scan, make or remove */
-   FILE *infile;
    char scan_mk_rm = 0; /* scan disk, or make dir, or remove dir */
    char *ptr, *stackptr;
    int  quieter = 0, cd = 0 ;
@@ -3256,11 +3248,7 @@ int main(int argc,char** argv)
                   rmDriveLetter(tmp,&use_HOME);
                   wcd_fprintf(outfile,"%s %s\n",argv[i],tmp);
                   printf(_("Wcd: %s added to aliasfile %s\n"),tmp,aliasfile);
-                  if (fclose(outfile) != 0)
-                  {
-                    errstr = strerror(errno);
-                    fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), aliasfile, errstr);
-                  }
+                  wcd_fclose(outfile, aliasfile, "w", "main: ");
                }
             }
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
@@ -3334,7 +3322,7 @@ int main(int argc,char** argv)
                strcat(tmp,TREEFILE);
                if ((infile = wcd_fopen(tmp,"r",1)) != NULL)
                {
-                  fclose(infile);
+                  wcd_fclose(infile, tmp, "r", "main: ");
                   addToNamesetArray(textNew(tmp),extra_files);
                }
                else
@@ -3354,7 +3342,7 @@ int main(int argc,char** argv)
                   strcat(tmp2,TREEFILE);
                   if ((infile = wcd_fopen(tmp2,"r",1)) != NULL)
                   {
-                     fclose(infile);
+                     wcd_fclose(infile, tmp2, "r", "main: ");
                      addToNamesetArray(textNew(tmp2),extra_files);
                   }
                   else
@@ -3654,7 +3642,7 @@ int main(int argc,char** argv)
         }
      }
      else
-       fclose(infile);
+       wcd_fclose(infile, treefile, "r", "main: ");
    }
 
 
@@ -3681,9 +3669,9 @@ int main(int argc,char** argv)
          scanfile(dir, treefile,ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly,ignore_diacritics); /* scan the treedata file */
 
 
-      if  ((outfile = wcd_fopen(extratreefile,"r",1)) != NULL)
+      if  ((infile = wcd_fopen(extratreefile,"r",1)) != NULL)
       {
-         fclose(outfile);
+         wcd_fclose(infile, extratreefile, "r", "main: ");
          scanfile(dir, extratreefile,ignore_case,perfect_list,wild_list,banned_dirs,filter,0,wildOnly,ignore_diacritics); /* scan the extra treedata file */
       }
 

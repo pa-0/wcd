@@ -103,7 +103,7 @@ int stack_read(WcdStack ws,char *stackfilename)
 			ws->current = -1;
 		  }
 
-		fclose(infile);
+                wcd_fclose(infile, stackfilename, "r", "stack_read: ");
 
 		if (ws->lastadded >= (int)ws->size)
 		ws->lastadded = 0;
@@ -209,7 +209,6 @@ int stack_write(WcdStack ws,char *stackfilename)
 {
 	FILE *outfile;
 	int  i;
-	char *errstr;
 
 	if (ws->maxsize <= 0)
 		return(0);
@@ -232,11 +231,7 @@ int stack_write(WcdStack ws,char *stackfilename)
 			/* printf("writing line %d\n",i);  */
 				fprintf(outfile,"%s\n",ws->dir[i]);
 			}
-                        if (fclose(outfile) != 0)
-                        {
-                          errstr = strerror(errno);
-                          fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), stackfilename, errstr);
-                        }
+                        wcd_fclose(outfile, stackfilename, "w", "stack_write: ");
 		}
 		return(0);
 	}

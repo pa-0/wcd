@@ -142,6 +142,7 @@ typedef char wcd_char;
 
 FILE *wcd_fopen(const char *filename, const char *m, int quiet);
 FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype);
+void wcd_fclose(FILE *fp, const char *filename, const char *m, const char *functionname);
 void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet);
 int read_treefile(char *filename, nameset bd, int silent);
 void rmDirFromList(char *string, nameset n);
