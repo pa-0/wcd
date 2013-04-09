@@ -248,7 +248,6 @@ Table of Contents
         Mark Hessling       (fix: scroll away problem on Windows NT/2000/XP)
         Ken Zinnato         (alternative tree navigation)
         Scott D Friedemann  (fix: curses interface writes uninitialised data to screen)
-        Scott D Friedemann  (problem with gcc 4.7.0 compiled 64 bit Windows PowerShell version)
         Richard Boss        (dump matches to stdout)
         Richard Boss        (8-bit characters)
         Richard Boss        (print match list at bottom of console)
