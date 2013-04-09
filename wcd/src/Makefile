@@ -435,6 +435,7 @@ status:
 	@echo "CFLAGS        = $(CFLAGS)"
 	@echo "CFLAGS_OS     = $(CFLAGS_OS)"
 	@echo "EXTRA_CFLAGS  = $(EXTRA_CFLAGS)"
+	@echo "DEBUG         = $(DEBUG)"
 	@echo "-- $(PACKAGE) Makefile settings end --"
 
 $(BIN): $(OBJS1)

@@ -1,4 +1,4 @@
-5.2.4-beta7 2013-04-03
+5.2.4-beta8 2013-04-09
   - Support user names with a space in the name in cmd.exe.
     Thanks to anonymous.
   - Show an "A" when alternative navigation mode is on.
@@ -22,10 +22,7 @@
     wrong value makes ncurses exit righ away.
   - In verbose mode environment variables HOME, WCDHOME, and go-script
     are printed.
-  - Compile 64 bit Windows binaries with gcc 4.6.3 (rubenvb-4.6.3-2-release).
-    Version 4.7.0 20110827 (experimental), automated build, gave sometimes
-    problems with wcd for PowerShell. Treedata file and go-script were not
-    written while wcd did not see an error. Thanks to Scott D Friedemann.
+  - Wcd prints debug information when compiled with DEBUG=1.
 
 5.2.3 2012-10-29
   - New compact tree mode. By default the 'graphical' tree is drawn the same
