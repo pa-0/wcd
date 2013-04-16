@@ -285,6 +285,41 @@ int wcd_isSharePath (char* path)
    else
      return(0);
 }
+/*
+ * wcd_islink()
+ * Check if directory is a symbolic link.
+ * Returns: 1 if dir is a symlink, 0 if dir is not a symlink.
+ */
+
+int wcd_islink(const char *dir, int quiet)
+{
+   DWORD attrs;
+   DWORD dw;
+#ifdef WCD_UNICODE
+   static wchar_t wstr[DD_MAXPATH];
+
+   if (utf8towcs(wstr, buf, DD_MAXPATH) == (size_t)(-1))
+      attrs = INVALID_FILE_ATTRIBUTES;
+   else
+      attrs = GetFileAttributesW(wstr);
+#else
+   attrs = GetFileAttributes(dir);
+#endif
+
+   if (attrs == INVALID_FILE_ATTRIBUTES)
+   {
+      if ( !quiet )
+      {
+         dw = GetLastError();
+         wcd_printf(_("Wcd: error: wcd_islink: "));
+         PrintError(dw);
+      }
+      return(0);
+   }
+
+   return ((attrs & FILE_ATTRIBUTE_REPARSE_POINT) != 0);
+}
+
 
 /* If WCD_UNICODE is defined we assume that all multi-byte
  * strings are encoded in UTF-8.

@@ -36,6 +36,7 @@ void wcd_getshares(char* path, nameset n);
 
 #if (defined(_WIN32) && !defined(__CYGWIN__))
 
+int wcd_islink(const char *dir, int quiet);
 int wcd_mkdir(char *buf, int quiet);
 
 #else  /* not WIN32 API */

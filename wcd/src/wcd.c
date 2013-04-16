@@ -1035,14 +1035,24 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    {
       if (DD_ISDIREC(fb.dd_mode))
       {
-
 #ifndef VMS
          /*  Ignore directory entries starting with '.'
-      *  which includes the current and parent directories.
-      */
+          *  which includes the current and parent directories. */
          if (!SpecialDir(fb.dd_name))
 #endif /* ?!VMS */
+#ifdef _WIN32
+         {
+            /* On Windows a symbolic directory link is seen as a normal directory
+             * by DD_ISDIREC(). 
+             */
+            if(wcd_islink(fb.dd_name,quiet))
+               wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
+            else
+               q_insert(&list, fb.dd_name);   /* add all directories in current dir to list */
+         }
+#else
             q_insert(&list, fb.dd_name);   /* add all directories in current dir to list */
+#endif
       }
 
 #ifdef UNIX
@@ -2675,10 +2685,10 @@ int main(int argc,char** argv)
     if (getenv("TERM") != NULL)
     {
         if (putenv("TERM=") != 0)
-	{
+        {
              errstr = strerror(errno);
              fprintf(stderr,_("Wcd: error: Failed to unset environment variable TERM: %s\n"), errstr);
-	}
+        }
     }
 #endif
 
@@ -3004,11 +3014,11 @@ int main(int argc,char** argv)
          case 'G':
 #ifdef WCD_SHELL
             if (argv[i][2] == 'N') /* No Go-script */
-	    {
+            {
                use_GoScript = 0;
                if (verbose)
                   printf(_("Wcd: use_GoScript = 0\n"));
-	    }
+            }
 #endif
             break;
          case 'N':
@@ -3047,11 +3057,11 @@ int main(int argc,char** argv)
          case 'T':
                if (argv[i][2] == 'c') /* Compact tree */
                   graphics |= WCD_GRAPH_COMPACT ;
-	       else if (argv[i][2] == 'a') /* Alternative navigation */
+               else if (argv[i][2] == 'a') /* Alternative navigation */
                   graphics |= WCD_GRAPH_ALT ;
-	       else if (argv[i][2] == 'C') /* Centered view */
+               else if (argv[i][2] == 'C') /* Centered view */
                   graphics |= WCD_GRAPH_CENTER ;
-	       else if (argv[i][2] == 'd') /* Double width line drawing symbols */
+               else if (argv[i][2] == 'd') /* Double width line drawing symbols */
                   graphics |= WCD_GRAPH_CJK ;
                else
                   graphics |= WCD_GRAPH_ASCII ;
