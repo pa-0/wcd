@@ -1262,7 +1262,7 @@ void makeDir(char *path, char *treefile, int *use_HOME)
  *
  ********************************************************************/
 
-#ifdef UNIX
+#if defined(UNIX) || defined(_WIN32)
 void deleteLink(char *path, char *treefile)
 {
    static struct stat buf ;
@@ -1291,8 +1291,13 @@ void deleteLink(char *path, char *treefile)
         strcat(path,"/");
         strcat(path,tmp2);
         wcd_fixpath(path,(size_t)DD_MAXPATH);
-
+#ifdef _WIN32
+        /* When we use unlink() on a Windows symbolic directory link
+         * we get 'permission denied'. Use rmdir. */
+        if (wcd_rmdir(tmp2,0)==0) /* delete the link */
+#else
         if (unlink(tmp2)==0)    /* delete the link */
+#endif
           {
             wcd_printf(_("Wcd: Removed symbolic link %s\n"),path);
             cleanTreeFile(treefile,path);
@@ -1345,10 +1350,16 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
    if (S_ISLNK(buf.st_mode))  /* is it a link? */
    {
       deleteLink(path,treefile);
+      return;
    }
-   else
-   {
 #else
+#  if defined(_WIN32) && !defined(__CYGWIN__)
+     if (wcd_islink(path, 0))  /* is it a link? */
+     {
+        deleteLink(path,treefile);
+        return;
+     }
+#  endif
    /* is there a drive to go to ? */
    changeDisk(path,&changedrive,drive,use_HOME);
 #endif
@@ -1408,10 +1419,6 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
    }
    else
      wcd_printf(_("Wcd: %s is not a directory.\n"),path);
-
-#ifdef UNIX
-    }
-#endif
 }
 /********************************************************************
  *

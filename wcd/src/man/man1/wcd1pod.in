@@ -141,10 +141,10 @@ The interactive directory tree browser can be started by using option B<-g>.
 
     wcd -g
 
-Wcd generates a treedata file were it searches the directory. On Unix
-systems wcd does add links to the treedata files while scanning the disk,
-but does not follow them. While following links wcd could end up scanning
-infinite loops, or scan very large portions of a network.
+Wcd generates a treedata file were it searches the directory. On Unix and
+Windows systems wcd does add symbolic links to the treedata file while
+scanning the disk, but does not follow them. While following links wcd could
+end up scanning infinite loops, or scan very large portions of a network.
 
 Wcd can also change to directories that are not in the treedata file. E.g.:
 
