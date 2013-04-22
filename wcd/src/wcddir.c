@@ -298,7 +298,7 @@ int wcd_islink(const char *dir, int quiet)
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
-   if (utf8towcs(wstr, buf, DD_MAXPATH) == (size_t)(-1))
+   if (utf8towcs(wstr, dir, DD_MAXPATH) == (size_t)(-1))
       attrs = INVALID_FILE_ATTRIBUTES;
    else
       attrs = GetFileAttributesW(wstr);
