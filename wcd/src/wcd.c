@@ -2693,8 +2693,8 @@ int main(int argc,char** argv)
     {
         if (putenv("TERM=") != 0)
         {
-             errstr = strerror(errno);
-             fprintf(stderr,_("Wcd: error: Failed to unset environment variable TERM: %s\n"), errstr);
+             ptr = strerror(errno);
+             fprintf(stderr,_("Wcd: error: Failed to unset environment variable TERM: %s\n"), ptr);
         }
     }
 #endif
