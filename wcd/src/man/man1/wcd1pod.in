@@ -682,6 +682,15 @@ with administrative files add a line with C<*/CVS>.
 Option B<-xf> must be used in front of any scan option (B<-s>, B<-S>, B<+S>,
 B<-A>, B<-E>).
 
+=item B<-y, --assume-yes>
+
+Assume Yes on all queries.
+
+Wcd will not prompt the user with yes/no questions, but assumes the user
+answers yes on all questions. This can be used in combination with option
+B<-rmtree>. This option must be used in front of options that can lead
+to yes/no questions.
+
 =item B<-z NUMBER>
 
 Set maximum stack size to NUMBER.

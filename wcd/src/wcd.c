@@ -737,7 +737,7 @@ Using DOSDIR in combination with DJGPP would make scanning the disk very slow.
 void rmTree(char *dir)
 {
    static struct ffblk fb;       /* file block structure */
-   char tmp[DD_MAXPATH];                /* tmp string */
+   char tmp[DD_MAXPATH];         /* tmp string */
    int rc;                       /* error code */
    TDirList list;                /* directory queue */
    char *errstr;
@@ -790,10 +790,10 @@ void rmTree(char *dir)
 void rmTree(char *dir)
 {
    static dd_ffblk fb;       /* file block structure */
-   char tmp[DD_MAXPATH];                /* tmp string */
-   int rc;                       /* error code */
+   char tmp[DD_MAXPATH];     /* tmp string */
+   int rc;                   /* error code */
    char *errstr;
-   TDirList list;                /* directory queue */
+   TDirList list;            /* directory queue */
 
    if (dir)
    {
@@ -823,7 +823,7 @@ void rmTree(char *dir)
       {
 
 #ifndef VMS
-         /*  Ignore directory entries starting with '.'
+     /*  Ignore directory entries starting with '.'
       *  which includes the current and parent directories.
       */
          if (!SpecialDir(fb.dd_name))
@@ -906,7 +906,7 @@ size_t pathInNameset (text path, nameset set)
 void finddirs(char* dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
 {
    static struct ffblk fb;       /* file block structure */
-   static char tmp[DD_MAXPATH];      /* tmp string buffer */
+   static char tmp[DD_MAXPATH];  /* tmp string buffer */
    int rc;                       /* error code */
    size_t len ;
    TDirList list;                /* directory queue */
@@ -974,7 +974,7 @@ void finddirs(char* dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
 {
    static dd_ffblk fb;       /* file block structure */
-   static char tmp[DD_MAXPATH];      /* tmp string buffer */
+   static char tmp[DD_MAXPATH];  /* tmp string buffer */
    int rc;                       /* error code */
    size_t len ;
    TDirList list;                /* directory queue */
@@ -1322,10 +1322,10 @@ void deleteLink(char *path, char *treefile)
 
 /********************************************************************
  *
- *     deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
+ *  deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int assumeYes)
  *
  ********************************************************************/
-void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
+void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int assumeYes)
 {
 #ifdef UNIX
    static struct stat buf ;
@@ -1385,30 +1385,37 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME)
 
          c = 'x' ;
 
-         while ( (c != 'y') && (c != 'Y') && (c != 'n') && (c != 'N'))
+         if (assumeYes)
+            c = 'y';
+         else
          {
-            printf(_("Wcd: Recursively remove %s  Are you sure? y/n :"),path);
-
-                /* Note that getchar reads from stdin and
-                   is line buffered; this means it will
-                   not return until you press ENTER. */
-
-            c = getchar(); /* get first char */
-            if (c != '\n')
-               while ((getchar()) != '\n') ; /* skip the rest */
-         }
-            if ( (c == 'y') ||  (c == 'Y') )
+            while ( (c != 'y') && (c != 'Y') && (c != 'n') && (c != 'N'))
             {
+               printf(_("Wcd: Recursively remove %s  Are you sure? y/n :"),path);
 
-            wcd_chdir(tmp2,0);       /* go back */
+                   /* Note that getchar reads from stdin and
+                      is line buffered; this means it will
+                      not return until you press ENTER. */
+
+               c = getchar(); /* get first char */
+               if (c != '\n')
+                  while ((getchar()) != '\n') ; /* skip the rest */
+            }
+          }
+          if ( (c == 'y') ||  (c == 'Y') )
+          {
+
+            wcd_chdir(tmp2,0);  /* go back */
             rmTree(path);       /* delete the stuff */
-            wcd_chdir(tmp2,0);       /* go back */
+            wcd_chdir(tmp2,0);  /* go back */
 
+            /* rmTree leaves an empty directory */
             wcd_rmdir(path,0);
 
+            wcd_printf(_("Wcd: Removed directory %s\n"),path);
             cleanTreeFile(treefile,path);
 
-         } /* ( (c != 'y') ||  (c != 'Y') ) */
+          } /* ( (c != 'y') ||  (c != 'Y') ) */
       }
       else
         if (wcd_rmdir(path,0)==0)
@@ -2140,6 +2147,7 @@ directory:  Name of directory to change to.\n\
   -w,  --wild-match-only  Wild matching only\n\
   -x PATH                 eXclude PATH during disk scan\n\
   -xf FILE                eXclude paths from FILE\n\
+  -y,  --assume-yes       assume Yes on all queries\n\
   -z NUMBER               set max stack siZe\n\
   -[NUMBER]               Push dir (NUMBER times)\n\
   +[NUMBER]               Pop dir (NUMBER times)\n\
@@ -2622,6 +2630,7 @@ int main(int argc,char** argv)
    int use_HOME = 0 ;
    int wildOnly = 0 ;
    int justGo = 0;
+   int assumeYes = 0;
    int graphics = WCD_GRAPH_NO ;
    int keep_paths =0; /* Keep paths in treedata.wcd when wcd can't change to them */
 #ifdef WCD_USECURSES
@@ -3054,6 +3063,9 @@ int main(int argc,char** argv)
          case 'j':
             justGo = 1;
             break;
+         case 'y':
+            assumeYes = 1;
+            break;
          case 'u':
              break;
 #ifdef UNIX
@@ -3107,6 +3119,7 @@ int main(int argc,char** argv)
                ignore_diacritics = 1;
             } else if (strcmp(argv[i]+2,"no-ignore-diacritics") == 0) {
                ignore_diacritics = 0;
+            } else if (strcmp(argv[i]+2,"just-go") == 0) {
                justGo = 1;
             } else if (strcmp(argv[i]+2,"keep-paths") == 0) {
                keep_paths = 1;
@@ -3138,6 +3151,8 @@ int main(int argc,char** argv)
             } else if (strcmp(argv[i]+2,"cjk-width") == 0) {
                graphics |= WCD_GRAPH_CJK ;
             } else if (strcmp(argv[i]+2,"wild-match-only") == 0) {
+               wildOnly = 1;
+            } else if (strcmp(argv[i]+2,"assume-yes") == 0) {
                wildOnly = 1;
             } else {
                print_help();
@@ -3474,13 +3489,13 @@ int main(int argc,char** argv)
 #else
                strncpy(tmp,argv[i],sizeof(tmp));
 #endif
-               deleteDir(tmp,treefile,0,&use_HOME) ;
+               deleteDir(tmp,treefile,0,&use_HOME, assumeYes) ;
             }
             else
             if (strcmp(argv[i-1],"-rmtree") == 0 )  /* remove dir recursive */
             {
                strncpy(tmp,argv[i],sizeof(tmp));
-               deleteDir(tmp,treefile,1,&use_HOME) ;
+               deleteDir(tmp,treefile,1,&use_HOME, assumeYes) ;
             }
 #ifdef WCD_SHELL
             else

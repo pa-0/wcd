@@ -1,4 +1,4 @@
-5.2.4-beta9 2013-04-22
+5.2.4-beta10 2013-05-21
   - Support user names with a space in the name in cmd.exe.
     Thanks to anonymous.
   - Show an "A" when alternative navigation mode is on.
@@ -24,7 +24,11 @@
     are printed.
   - Wcd prints debug information when compiled with DEBUG=1.
   - Windows versions don't follow symbolic links while scanning
-    disks (like Unix versions).
+    disks (like Unix versions). Thanks to Eli Zaretskii.
+  - Fix: Option --just-go did not work. --no-ignore-diacritics did set
+    just go mode.
+  - New option -y, --assume-yes: Assume yes on all queries. Handy in
+    combination with -rmtree.
 
 5.2.3 2012-10-29
   - New compact tree mode. By default the 'graphical' tree is drawn the same
