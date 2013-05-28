@@ -2139,7 +2139,7 @@ directory:  Name of directory to change to.\n\
   -Ta, --alt-tree-nav     Alternative tree navigation\n\
   -TC, --center-tree      Centered tree view\n\
   -Tc, --compact-tree     Compact tree\n\
-  -Td, --cjk-width        support double width line drawing symbols\n\
+  -Td, --cjk-width        support legacy CJK fonts\n\
   -u USER                 use USER's treefile\n\
   +u USER                 add USER's treefile\n\
   -v,  --verbose          Verbose operation\n\

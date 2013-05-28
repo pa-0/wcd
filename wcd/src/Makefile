@@ -184,9 +184,15 @@ endif
 # possible values: ncurses, curses, pdcurses, pdcursesw or <empty>
 
 ifdef UCS
-	CURSES  = ncursesw
+	CURSES = ncursesw
 else
 	CURSES = ncurses
+endif
+
+ifdef CURSES
+ifdef UCS
+EXTRA_OBJ += wcwidth.o
+endif
 endif
 
 ifneq (,$(CURSES))

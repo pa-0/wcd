@@ -1,4 +1,4 @@
-5.2.4-beta10 2013-05-21
+5.2.4-beta10 2013-05-28
   - Support user names with a space in the name in cmd.exe.
     Thanks to anonymous.
   - Show an "A" when alternative navigation mode is on.
@@ -15,11 +15,6 @@
     Thanks to Justin Lecher <jlec@gentoo.org>
   - Makefile: NCURSES_DEBUG=1 enables linking with the ncurses libraries
     with debug information. The ncurses *_g libraries.
-  - Reduced flicker in graphical tree interface by using werase() i.s.o.
-    wclear(). Flicker was mainly noticeable in Windows port of ncurses.
-    Thanks to Thomas Dickey.
-  - Unset environment variable TERM on Windows when ncurses is used. A
-    wrong value makes ncurses exit righ away.
   - In verbose mode environment variables HOME, WCDHOME, and go-script
     are printed.
   - Wcd prints debug information when compiled with DEBUG=1.
@@ -29,6 +24,14 @@
     just go mode.
   - New option -y, --assume-yes: Assume yes on all queries. Handy in
     combination with -rmtree.
+  - Use Ncurses instead of PDcurses for wcd on Windows. PDcurses is
+    unmaintained since Sep 2008. Many thanks to Thomas Dickey.
+    * Reduced flicker in graphical tree interface by using werase() i.s.o.
+      wclear(). Flicker was mainly noticeable in Windows port of ncurses.
+    * Unset environment variable TERM on Windows when ncurses is used. A
+      wrong value makes ncurses exit righ away.
+    * Ncurses MinGW port correctly displays double width characters (ncurses 20121215).
+    * Ncurses MinGW port freezes on input fixed (ncurses 20130302).
 
 5.2.3 2012-10-29
   - New compact tree mode. By default the 'graphical' tree is drawn the same
