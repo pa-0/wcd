@@ -3153,7 +3153,7 @@ int main(int argc,char** argv)
             } else if (strcmp(argv[i]+2,"wild-match-only") == 0) {
                wildOnly = 1;
             } else if (strcmp(argv[i]+2,"assume-yes") == 0) {
-               wildOnly = 1;
+               assumeYes = 1;
             } else {
                print_help();
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */

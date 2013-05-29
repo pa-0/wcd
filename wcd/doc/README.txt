@@ -257,6 +257,10 @@ Table of Contents
         Billy Chen          Less screen movement when navigating in graphical mode.
         anonymous           Alternate stack file support.
         Laurence Errington  Simpler installation instructions for Windows Command Prompt
+        anonymous           Support user names with spaces on Windows.
+        Justin Lecher       Makefile improvements.
+        Eli Zaretskii       Don't follow symbolic links on Windows.
+        Thomas Dickey       Use of ncurses on Windows.
 
     3.1 Translators
 

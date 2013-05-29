@@ -19,14 +19,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:147
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: %s\n"
-msgstr "Wcd: Se removió el directorio %s\n"
+msgstr "Wcd: error: %s\n"
 
 #: wcd.c:160
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: wcd_fopen: Opening file \"%s\" %s %d\n"
-msgstr "Wcd: Creando directorio %s\n"
+msgstr "Wcd: wcd_fopen: Abriendo el archivo \"%s\" %s %d\n"
 
 #: wcd.c:170 wcd.c:190
 #, c-format
@@ -44,19 +44,19 @@ msgid "Wcd: error: Unable to write file %s: %s\n"
 msgstr "Wcd: error: Imposible escribir al archivo %s: %s\n"
 
 #: wcd.c:195
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: wcd_fopen: Opening file \"%s\" OK.\n"
-msgstr "Wcd: Creando directorio %s\n"
+msgstr "Wcd: wcd_fopen: Abriendo el archivo \"%s\" OK.\n"
 
 #: wcd.c:282
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to close file %s: %s\n"
-msgstr "Wcd: error: Imposible remover el archivo %s: %s\n"
+msgstr "Wcd: error: No se puede cerrar el archivo %s: %s\n"
 
 #: wcd.c:286
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: %sClosing file \"%s\" OK.\n"
-msgstr "Wcd: Creando directorio %s\n"
+msgstr "Wcd: %sCerrando el archivo \"%s\" OK.\n"
 
 #: wcd.c:625 wcd.c:638
 #, c-format
@@ -90,9 +90,9 @@ msgstr ""
 "árbol de rutas para %s\n"
 
 #: wcd.c:1169 wcd.c:2370 wcd.c:2393 wcd.c:2472
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: Writing file \"%s\"\n"
-msgstr "Wcd: Creando directorio %s\n"
+msgstr "Wcd: Escribiendo al archivo \"%s\"\n"
 
 #: wcd.c:1174
 msgid ""
@@ -251,7 +251,7 @@ msgstr ""
 "defecto)\n"
 
 #: wcd.c:2116
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "  -I,  --ignore-diacritics     Ignore diacritics\n"
 "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
@@ -319,7 +319,7 @@ msgstr ""
 "  -Ta, --alt-tree-nav     Navegación de árbol alternativa\n"
 "  -TC, --center-tree      Vista centrada en árbol\n"
 "  -Tc, --compact-tree     Árbol compacto\n"
-"  -Td, --cjk-width        support double width line drawing symbols\n"
+"  -Td, --cjk-width        soporte para fuentes antiguas CJK\n"
 "  -u USUARIO              Emplea archivo de árbol de USUARIO\n"
 "  +u USUARIO              Añade archivo de árbol de USUARIO\n"
 "  -v,  --verbose          Imprime mensajes de información\n"
@@ -327,6 +327,7 @@ msgstr ""
 "  -w,  --wild-match-only  Emplea sólo concordancias inexactas\n"
 "  -x RUTA                 Excluye RUTA durante la exploración del disco\n"
 "  -xf ARCHIVO             Excluye rutas contenidas en ARCHIVO\n"
+"  -y,  --assume-yes       suprime las confirmaciones suponiendo 'Sí'\n"
 "  -z NÚMERO               Establece el tamaño máximo para la pila\n"
 "  -[NÚMERO]               Mete directorio a la pila (NÚMERO veces)\n"
 "  +[NÚMERO]               Saca directorio de la pila (NÚMERO veces)\n"
@@ -442,9 +443,9 @@ msgid "conio\n"
 msgstr "conio\n"
 
 #: wcd.c:2236
-#, fuzzy, c-format
+#, c-format
 msgid "ncurses version %s.%d\n"
-msgstr "versión ncurses %s\n"
+msgstr "versión ncurses %s.%d\n"
 
 #: wcd.c:2239
 #, c-format
@@ -572,10 +573,10 @@ msgstr ""
 "largo.\n"
 
 #: wcd.c:2706
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Failed to unset environment variable TERM: %s\n"
 msgstr ""
-"Wcd: error: El valor de la variable de ambiente HOME es demasiado largo.\n"
+"Wcd: error: Error al suprimir la variable de entorno TERM: %s\n"
 
 #: wcd.c:2717
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
@@ -600,9 +601,9 @@ msgstr ""
 "largo.\n"
 
 #: wcd.c:2978
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: HOME is not defined\n"
-msgstr "Wcd: %s no es un directorio.\n"
+msgstr "Wcd: La variable de entorno HOME no está definida\n"
 
 #: wcd.c:2980
 #, c-format
@@ -610,9 +611,9 @@ msgid "Wcd: HOME=\"%s\"\n"
 msgstr ""
 
 #: wcd.c:2982
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: WCDHOME is not defined\n"
-msgstr "Wcd: %s no es un directorio.\n"
+msgstr "Wcd: La variable de entorno WCDHOME no está definida\n"
 
 #: wcd.c:2984
 #, c-format
@@ -694,9 +695,8 @@ msgid "Wcd: Found %lu shared directories on server %s\n"
 msgstr "Wcd: Se encontraron %lu directorios compartidos en el servidor %s\n"
 
 #: wcddir.c:314
-#, fuzzy
 msgid "Wcd: error: wcd_islink: "
-msgstr "Wcd: Se removió el directorio %s\n"
+msgstr "Wcd: error: wcd_islink: "
 
 #: wcddir.c:346
 msgid "Wcd: error: Unable to get current working directory: "
@@ -1112,6 +1112,3 @@ msgstr ""
 "Wcd: error en '%s', no hay espacio para asignación\n"
 "Wcd: Memoria insuficiente\n"
 
-#, fuzzy
-#~ msgid "Wcd: writeGoFile: Closing file \"%s\" OK.\n"
-#~ msgstr "Wcd: Creando directorio %s\n"
