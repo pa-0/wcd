@@ -1,11 +1,11 @@
 # Finnish translations for wcd package.
-# Copyright (C) 2009-2012 Jari Aalto <jari.aalto@cante.net>
+# Copyright (C) 2009-2013 Jari Aalto <jari.aalto@cante.net>
 # This file is distributed under the same license as the wcd package.
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-28 21:09+0200\n"
+"POT-Creation-Date: 2013-05-30 21:00+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -16,14 +16,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:147
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: %s\n"
-msgstr "Wcd: Hakemisto poistettu %s\n"
+msgstr "Wcd: virhe: %s\n"
 
 #: wcd.c:160
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: wcd_fopen: Opening file \"%s\" %s %d\n"
-msgstr "Wcd: Luodaan hakemisto %s\n"
+msgstr "Wcd: wcd_fopen: Tiedoston avaus \"%s\" %s %d\n"
 
 #: wcd.c:170 wcd.c:190
 #, c-format
@@ -41,19 +41,19 @@ msgid "Wcd: error: Unable to write file %s: %s\n"
 msgstr "Wcd: virhe: Ei oikeutta kirjoittaa tiedostoa %s: %s\n"
 
 #: wcd.c:195
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: wcd_fopen: Opening file \"%s\" OK.\n"
-msgstr "Wcd: Luodaan hakemisto %s\n"
+msgstr "Wcd: wcd_fopen: Tiedoston avaus \"%s\" OK.\n"
 
 #: wcd.c:282
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to close file %s: %s\n"
-msgstr "Wcd: virhe: Ei oikeutta poistaa tiedostoa %s: %s\n"
+msgstr "Wcd: error: Tiedoston sulkeminen epäonnistui %s: %s\n"
 
 #: wcd.c:286
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: %sClosing file \"%s\" OK.\n"
-msgstr "Wcd: Luodaan hakemisto %s\n"
+msgstr "Wcd: %sTiedosto suljettu \"%s\" OK.\n"
 
 #: wcd.c:625 wcd.c:638
 #, c-format
@@ -74,7 +74,7 @@ msgstr ""
 "Wcd: virhe: finddirs(): polun määrittäminen ei onnistu hakemistossa %s\n"
 "Wcd: Polun pituus on todennäköisesti liian suuri.\n"
 
-#: wcd.c:1104 wcd.c:1428
+#: wcd.c:1104 wcd.c:1429
 #, c-format
 msgid "Wcd: %s is not a directory.\n"
 msgstr "Wcd: %s ei ole hakemisto.\n"
@@ -86,10 +86,10 @@ msgstr ""
 "Wcd: Odota, kovalevyn skannaus käynnissä. Treedata-tiedoston %s rakentaminen "
 "lähteestä %s\n"
 
-#: wcd.c:1169 wcd.c:2370 wcd.c:2393 wcd.c:2472
-#, fuzzy, c-format
+#: wcd.c:1169 wcd.c:2371 wcd.c:2394 wcd.c:2473
+#, c-format
 msgid "Wcd: Writing file \"%s\"\n"
-msgstr "Wcd: Luodaan hakemisto %s\n"
+msgstr "Wcd: Tiedostoon kirjoitus \"%s\"\n"
 
 #: wcd.c:1174
 msgid ""
@@ -120,12 +120,12 @@ msgstr "Wcd: %s on symbolinen linkki tiedostoon.\n"
 msgid "Wcd: Recursively remove %s  Are you sure? y/n :"
 msgstr "Wcd: Recursiivisesti poista %s  Oletko varma (yes/no)? y/n :"
 
-#: wcd.c:1415 wcd.c:1423
+#: wcd.c:1415 wcd.c:1424
 #, c-format
 msgid "Wcd: Removed directory %s\n"
 msgstr "Wcd: Hakemisto poistettu %s\n"
 
-#: wcd.c:1451
+#: wcd.c:1452
 #, c-format
 msgid ""
 "Wcd: error: line too long in wcd_getline() ( > %d). The treefile could be "
@@ -134,17 +134,17 @@ msgstr ""
 "Wcd: virhe: liian pitkä rivi wcd_getline() ( > %d). Tiedosto treefile "
 "saattaa  olla korruptoitunut, kasvata DD_MAXPATH kokoa lähdekoodissa.\n"
 
-#: wcd.c:1452 wcd.c:1512 wcd.c:1571
+#: wcd.c:1453 wcd.c:1513 wcd.c:1572
 #, c-format
 msgid "Wcd: file: %s, line: %d,"
 msgstr "Wcd: tiedosto: %s, rivi: %d,"
 
-#: wcd.c:1459 wcd.c:1519 wcd.c:1578
+#: wcd.c:1460 wcd.c:1520 wcd.c:1579
 #, c-format
 msgid " length: %d\n"
 msgstr "Wcd:  pituus:  %d\n"
 
-#: wcd.c:1511
+#: wcd.c:1512
 #, c-format
 msgid ""
 "Wcd: error: line too long in wcd_wgetline() ( > %d). The treefile could be "
@@ -153,7 +153,7 @@ msgstr ""
 "Wcd: virhe: liian pitkä rivi wcd_wgetline() ( > %d). Tiedosto treefile "
 "saattaa  olla korruptoitunut, kasvata DD_MAXPATH kokoa lähdekoodissa.\n"
 
-#: wcd.c:1570
+#: wcd.c:1571
 #, c-format
 msgid ""
 "Wcd: error: line too long in wcd_wgetline_be() ( > %d). The treefile could "
@@ -162,7 +162,7 @@ msgstr ""
 "Wcd: virhe: liian pitkä rivi wcd_wgetline_be() ( > %d). Tiedosto treefile "
 "saattaa  olla korruptoitunut, kasvata DD_MAXPATH kokoa lähdekoodissa.\n"
 
-#: wcd.c:2081
+#: wcd.c:2082
 #, c-format
 msgid ""
 "wcd  %s  (%s) - Wherever Change Directory\n"
@@ -179,7 +179,7 @@ msgstr ""
 "             Villikortit *, ? ja [<kirjainten joukko>] ovat tuettuja\n"
 "\n"
 
-#: wcd.c:2088
+#: wcd.c:2089
 #, c-format
 msgid ""
 "options:\n"
@@ -223,7 +223,7 @@ msgstr ""
 "  -GN, --no-go-script     Poista go-tiedosto käytöstä\n"
 "  -h,  --help             Näytä tämä Help\n"
 
-#: wcd.c:2107
+#: wcd.c:2108
 #, c-format
 msgid ""
 "  -i,  --ignore-case      Ignore case (default)\n"
@@ -233,7 +233,7 @@ msgstr ""
 "(oletus)\n"
 "  +i,  --no-ignore-case   Isot ja pienet kirjaimet - merkityksellisiä\n"
 
-#: wcd.c:2111
+#: wcd.c:2112
 #, c-format
 msgid ""
 "  -i,  --ignore-case      Ignore case\n"
@@ -243,8 +243,8 @@ msgstr ""
 "  +i,  --no-ignore-case   Isot ja pienet kirjaimet - merkityksellisiä "
 "(oletus)\n"
 
-#: wcd.c:2116
-#, fuzzy, c-format
+#: wcd.c:2117
+#, c-format
 msgid ""
 "  -I,  --ignore-diacritics     Ignore diacritics\n"
 "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
@@ -311,12 +311,13 @@ msgstr ""
 "  -Ta, --alt-tree-nav     Vaihtoehtoinen navigointitapa\n"
 "  -TC, --center-tree      Keskitä näkymä\n"
 "  -Tc, --compact-tree     kompakti esitystapa\n"
-"  -Td, --cjk-width        support double width line drawing symbols\n"
+"  -Td, --cjk-width        Aktivoi tuki perinteisille CJK kirjasimille\n"
 "  -u KÄYTTÄJÄ             Käytä treefile: käyttäjätunnus\n"
 "  +u KÄYTTÄJÄ             Lisää treefile: käyttäjätunnus\n"
 "  -v,  --verbose          Verbose moodi, lisää viestien määrää\n"
 "  -V,  --version          Tulosta ohjelman versio\n"
 "  -w,  --wild-match-only  Villkikorttihaku, etsi annetun säännön mukaan\n"
+"  -y,  --assume-yes       Käytä oletusarvoa KYLLÄ kaikkiin kysymyksiin\n"
 "  -x POLKU                Jätä huomioimatta POLKU skannauksen aikana\n"
 "  -xf TIEDOSTO            Jätä huomioimatta kaikki polut, joktka on mainittu "
 "tiedostossa\n"
@@ -325,13 +326,13 @@ msgstr ""
 "  +[NUMERO]               Ota hakemisto pinosta (NUMERO kertaa)\n"
 "  =                       Näitä pino: stackS\n"
 
-#: wcd.c:2163 wcd.c:2290
+#: wcd.c:2164 wcd.c:2291
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
 "wcd %s (%s) - Wherever Change Directory, siirry mihin tahansa hakemistoon\n"
 
-#: wcd.c:2164
+#: wcd.c:2165
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -340,187 +341,187 @@ msgstr ""
 "Hakemiston vaihto Dos and Unix -käyttöjärjestelmille.\n"
 "\n"
 
-#: wcd.c:2168
+#: wcd.c:2169
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS 16 bit versio (WATCOMC).\n"
 
-#: wcd.c:2170
+#: wcd.c:2171
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS 16 bit versio (TURBOC).\n"
 
-#: wcd.c:2172
+#: wcd.c:2173
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS 32 bit versio (DJGPP).\n"
 
-#: wcd.c:2174
+#: wcd.c:2175
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS 32 bit versio (WATCOMC).\n"
 
-#: wcd.c:2181
+#: wcd.c:2182
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
 msgstr "Win64 versio (MSVC %d).\n"
 
-#: wcd.c:2183
+#: wcd.c:2184
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
 msgstr "Win64 versio (MinGW-w64).\n"
 
-#: wcd.c:2187
+#: wcd.c:2188
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
 msgstr "Win32 versio (WATCOMC).\n"
 
-#: wcd.c:2189
+#: wcd.c:2190
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
 msgstr "Win32 versio (MSVC %d).\n"
 
-#: wcd.c:2191
+#: wcd.c:2192
 #, c-format
 msgid "Win32 version (MinGW).\n"
 msgstr "Win32 versio (MinGW).\n"
 
-#: wcd.c:2198
+#: wcd.c:2199
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr "Tämä versio on tarkoitettu MSYS ja WinZsh käyttöön.\n"
 
-#: wcd.c:2200
+#: wcd.c:2201
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr "Tämä versio on tarkoitettu Windows PowerShell käyttöön.\n"
 
-#: wcd.c:2202
+#: wcd.c:2203
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
 msgstr "Tämä ohjelma toimii vain Windowsin cmd.exe komentotulkissa.\n"
 
-#: wcd.c:2207
+#: wcd.c:2208
 #, c-format
 msgid "OS/2 version"
 msgstr "OS/2 versio"
 
-#: wcd.c:2218
+#: wcd.c:2219
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr "Tämä versio on kotimainen MSYS.\n"
 
-#: wcd.c:2221
+#: wcd.c:2222
 #, c-format
 msgid "Cygwin version.\n"
 msgstr "Cygwin versio.\n"
 
-#: wcd.c:2224
+#: wcd.c:2225
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Tämä versio on tarkoitettu DJGPP DOS bash käyttöön.\n"
 
-#: wcd.c:2227
+#: wcd.c:2228
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Tämä version on OS/2 bash käyttöön.\n"
 
-#: wcd.c:2230
+#: wcd.c:2231
 #, c-format
 msgid "Interface: "
 msgstr "Käyttöliittymä: "
 
-#: wcd.c:2232
+#: wcd.c:2233
 #, c-format
 msgid "conio\n"
 msgstr "conio (konsoli)\n"
 
-#: wcd.c:2236
+#: wcd.c:2237
 #, fuzzy, c-format
 msgid "ncurses version %s.%d\n"
 msgstr "ncurses tuella varustettu versio %s\n"
 
-#: wcd.c:2239
+#: wcd.c:2240
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr "ncurses tuella varustettu versio %d\n"
 
-#: wcd.c:2241
+#: wcd.c:2242
 #, c-format
 msgid "curses\n"
 msgstr "curses\n"
 
-#: wcd.c:2250
+#: wcd.c:2251
 #, c-format
 msgid "stdout\n"
 msgstr "stdout (standardi ulostulo)\n"
 
-#: wcd.c:2254
+#: wcd.c:2255
 #, c-format
 msgid "Native language support included.\n"
 msgstr "Kieliasetusten tuki sisäänrakennettu.\n"
 
-#: wcd.c:2255
+#: wcd.c:2256
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr "LOCALEDIR=%s\n"
 
-#: wcd.c:2257
+#: wcd.c:2258
 #, c-format
 msgid "No native language support included.\n"
 msgstr "Ei kieliasetusten tukea sisäänrakennettu.\n"
 
-#: wcd.c:2260
+#: wcd.c:2261
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
 msgstr "Nykyinen lokaali käyttää CP%u koodaustapaa.\n"
 
-#: wcd.c:2262
+#: wcd.c:2263
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr "Nykyinen lokaali käyttää %s koodaustapaa.\n"
 
-#: wcd.c:2265
+#: wcd.c:2266
 #, c-format
 msgid "With Unicode support.\n"
 msgstr "Unicode-kirjaimiston tuki sisäänrakennettu.\n"
 
-#: wcd.c:2270
+#: wcd.c:2271
 #, c-format
 msgid "  Euro symbol: "
 msgstr "  Euro symboli: "
 
-#: wcd.c:2272
+#: wcd.c:2273
 #, c-format
 msgid "  Chinese characters: "
 msgstr "  Kiinalaiset kirjaimet: "
 
-#: wcd.c:2276
+#: wcd.c:2277
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr "Ei Unicode-kirjaimiston tukea sisäänrakennettu.\n"
 
-#: wcd.c:2279
+#: wcd.c:2280
 #, c-format
 msgid "With Unicode normalization.\n"
 msgstr "Unicode normalisointi käytössä.\n"
 
-#: wcd.c:2281
+#: wcd.c:2282
 #, c-format
 msgid "Without Unicode normalization.\n"
 msgstr "Ilman unicode normalisointia.\n"
 
-#: wcd.c:2284
+#: wcd.c:2285
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Lataa viimeisin versio ohjelmasta ja sen lähdekoodista osoitteesta:\n"
 
-#: wcd.c:2285
+#: wcd.c:2286
 #, c-format
 msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr "http://waterlan.home.xs4all.nl/\n"
 
-#: wcd.c:2291
+#: wcd.c:2292
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -554,100 +555,102 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:2350
+#: wcd.c:2351
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: Luodaan hakemisto %s\n"
 
-#: wcd.c:2677
+#: wcd.c:2678
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujan WCDLOCALEDIR arvo on liian pitkä.\n"
 
-#: wcd.c:2706
-#, fuzzy, c-format
+#: wcd.c:2707
+#, c-format
 msgid "Wcd: error: Failed to unset environment variable TERM: %s\n"
-msgstr "Wcd: virhe: Ympäristömuuttujan HOME arvo on liian pitkä.\n"
+msgstr "Wcd: error: Ympäristömuuttujan poistaminen epäonnistui TERM: %s\n"
 
-#: wcd.c:2717
+#: wcd.c:2718
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujan HOME arvo on liian pitkä.\n"
 
-#: wcd.c:2732 wcd.c:2800
+#: wcd.c:2733 wcd.c:2801
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr ""
 "Wcd: virhe: Ympäristömuuttujien HOME ja WCDHOME arvot ovat liian pitkät.\n"
 
-#: wcd.c:2764 wcd.c:2793
+#: wcd.c:2765 wcd.c:2794
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujaa HOME tai WCDHOME is ole asetettu.\n"
 
-#: wcd.c:2869 wcd.c:3349 wcd.c:3368
+#: wcd.c:2870 wcd.c:3350 wcd.c:3369
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujan WCDUSERSHOME arvo on liian pitkä.\n"
 
-#: wcd.c:2978
-#, fuzzy, c-format
+#: wcd.c:2979
+#, c-format
 msgid "Wcd: HOME is not defined\n"
-msgstr "Wcd: %s ei ole hakemisto.\n"
+msgstr "Wcd: HOME ympäristömuuttujaa ei ole asetettu\n"
 
-#: wcd.c:2980
+#: wcd.c:2981
 #, c-format
 msgid "Wcd: HOME=\"%s\"\n"
 msgstr ""
 
-#: wcd.c:2982
-#, fuzzy, c-format
+#: wcd.c:2983
+#, c-format
 msgid "Wcd: WCDHOME is not defined\n"
-msgstr "Wcd: %s ei ole hakemisto.\n"
+msgstr ""
+"Wcd: WCDHOME ympäristömuuttujaa ei ole asetettu\n"
+"\n"
 
-#: wcd.c:2984
+#: wcd.c:2985
 #, c-format
 msgid "Wcd: WCDHOME=\"%s\"\n"
 msgstr ""
 
-#: wcd.c:3009
+#: wcd.c:3010
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Graffinen moodi tuettu ainoastaan ohjelman curses-kirjaston "
 "versioissa.\n"
 
-#: wcd.c:3036
+#: wcd.c:3037
 #, c-format
 msgid "Wcd: use_GoScript = 0\n"
 msgstr ""
 
-#: wcd.c:3282
+#: wcd.c:3283
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s lisätty tiedostoon %s\n"
 
-#: wcd.c:3381
+#: wcd.c:3382
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr "Wcd: virhe: Ei oikeutta lukea tiedostoa %s tai %s\n"
 
-#: wcd.c:3531
+#: wcd.c:3532
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "Wcd: WCDSCAN hakemisto {%s}\n"
 
-#: wcd.c:3533
+#: wcd.c:3534
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: asetettu mustalle listalle {%s}\n"
 
-#: wcd.c:3535
+#: wcd.c:3536
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: jätetään ottamasta huomioon {%s}\n"
 
-#: wcd.c:3537
+#: wcd.c:3538
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteroidaan {%s}\n"
 
-#: wcd.c:3804
+#: wcd.c:3805
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -657,7 +660,7 @@ msgstr ""
 "Wcd: Mahdollisesti levy tulee skannata uudelleen tai hakemisto on mustalla "
 "listalla\n"
 
-#: wcd.c:3970
+#: wcd.c:3971
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Ei voi vaihtaa hakemistoon %s\n"
@@ -683,9 +686,8 @@ msgid "Wcd: Found %lu shared directories on server %s\n"
 msgstr "Wcd: Köydetty %lu hakemistoa palvelimelta %s\n"
 
 #: wcddir.c:314
-#, fuzzy
 msgid "Wcd: error: wcd_islink: "
-msgstr "Wcd: Hakemisto poistettu %s\n"
+msgstr "Wcd: error: wcd_islink: "
 
 #: wcddir.c:346
 msgid "Wcd: error: Unable to get current working directory: "
@@ -1104,7 +1106,3 @@ msgid ""
 msgstr ""
 "Wcd: virhe kohdassa '%s', muistin varaus ei onnistu\n"
 "Wcd: Riitämätön määrä muistia\n"
-
-#, fuzzy
-#~ msgid "Wcd: writeGoFile: Closing file \"%s\" OK.\n"
-#~ msgstr "Wcd: Luodaan hakemisto %s\n"

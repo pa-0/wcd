@@ -1410,10 +1410,11 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
             wcd_chdir(tmp2,0);  /* go back */
 
             /* rmTree leaves an empty directory */
-            wcd_rmdir(path,0);
-
-            wcd_printf(_("Wcd: Removed directory %s\n"),path);
-            cleanTreeFile(treefile,path);
+            if (wcd_rmdir(path,0)==0)
+            {
+                wcd_printf(_("Wcd: Removed directory %s\n"),path);
+                cleanTreeFile(treefile,path);
+            }
 
           } /* ( (c != 'y') ||  (c != 'Y') ) */
       }
@@ -1958,7 +1959,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
                      (check_double_match(line,wm)==0) &&
                      (check_filter(line,filter)==0))
                   {
-                  addToNamesetArray(textNew(line),wm);
+                     addToNamesetArray(textNew(line),wm);
                   }
                }
          }
