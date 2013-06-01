@@ -30,8 +30,10 @@
       wclear(). Flicker was mainly noticeable in Windows port of ncurses.
     * Unset environment variable TERM on Windows when ncurses is used. A
       wrong value makes ncurses exit righ away.
-    * Ncurses MinGW port correctly displays double width characters (ncurses 20121215).
-    * Ncurses MinGW port freezes on input fixed (ncurses 20130302).
+    * Ncurses MinGW port fixes by Thomas Dickey:
+      o Failing newterm() fixed (ncurses 5.9.20120922)
+      o Correct display of double width characters (ncurses 5.9.20121215).
+      o Freezes on input fixed (ncurses 5.9.20130302).
 
 5.2.3 2012-10-29
   - New compact tree mode. By default the 'graphical' tree is drawn the same
