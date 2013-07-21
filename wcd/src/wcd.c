@@ -155,16 +155,20 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
   struct stat buf;
   FILE *f;
   char *errstr;
+  int loc_quiet;
 
 #if DEBUG
-  fprintf(stderr, _("Wcd: wcd_fopen: Opening file \"%s\" %s %d\n"),filename, m, quiet);
+  fprintf(stderr, _("Wcd: wcd_fopen: Opening file \"%s\" mode=%s quiet=%d\n"),filename, m, quiet);
+  loc_quiet = 0;
+#else
+  loc_quiet = quiet;
 #endif
 
   if (m[0] == 'r') /* we try to read an existing file */
   {
     if (stat(filename, &buf) != 0) /* check if file exists */
     {
-      if ( !quiet )
+      if ( !loc_quiet )
       {
         errstr = strerror(errno);
         fprintf(stderr,_("Wcd: error: Unable to read file %s: %s\n"), filename, errstr);
@@ -174,7 +178,7 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
 
     if (!S_ISREG(buf.st_mode)) /* check if it is a file */
     {
-      if ( !quiet )
+      if ( !loc_quiet )
       {
         fprintf(stderr,_("Wcd: error: Unable to read file %s: Not a regular file.\n"), filename);
       }
@@ -183,7 +187,7 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
   }
 
   f = fopen(filename, m); /* open the file */
-  if ( !quiet && (f == NULL))
+  if ( !loc_quiet && (f == NULL))
   {
     errstr = strerror(errno);
     if (m[0] == 'r')
