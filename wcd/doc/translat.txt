@@ -9,6 +9,7 @@ Translators.
 Dutch        Erwin Waterlander <waterlan@xs4all.nl>
 Finnish      Jari Aalto <jari.aalto@cante.net>
 German       Philipp Thomas <psmt@opensuse.org> <pth@suse.de>
+German       Lars Wendler <polynomial-c@gentoo.org> version 5.2.4.
 Spanish      Julio Augusto Freyre-Gonzalez <jfreyreg@gmail.com>
 
 

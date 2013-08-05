@@ -269,6 +269,7 @@ Table of Contents
         Jari Aalto                     (Finnish)
         Julio Augusto Freyre-Gonzalez  (Spanish)
 	Philipp Thomas                 (German)
+	Lars Wendler                   (German)
 
     3.2 Works of others used in the program
 

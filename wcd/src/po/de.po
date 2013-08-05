@@ -1,9 +1,10 @@
 # Deutsche Meldungen für WCD
-# Copyright 2010,2011 Erwin Waterlander
+# Copyright 2010-2013 Erwin Waterlander
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Philipp Thomas <psmt@opensuse.org>, 2010, 2011, 2012
 # Philipp Thomas <pth@suse.de>, 2010, 2011, 2012.
+# Lars Wendler <polynomial-c@gentoo.org> 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.3\n"
@@ -20,14 +21,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: wcd.c:147
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: %s\n"
-msgstr "wcd: Verzeichnis %s wurde entfernt\n"
+msgstr "wcd: Fehler: %s\n"
 
 #: wcd.c:161
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: wcd_fopen: Opening file \"%s\" mode=%s quiet=%d\n"
-msgstr "wcd: Verzeichnis %s wird erzeugt\n"
+msgstr "Wcd: wcd_fopen: Öffne Datei \"%s\" mode=%s quiet=%d\n"
 
 #: wcd.c:174 wcd.c:194
 #, c-format
@@ -46,19 +47,19 @@ msgid "Wcd: error: Unable to write file %s: %s\n"
 msgstr "wcd: Fehler: Die Datei %s konnte nicht geschrieben werden: %s\n"
 
 #: wcd.c:199
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: wcd_fopen: Opening file \"%s\" OK.\n"
-msgstr "wcd: Verzeichnis %s wird erzeugt\n"
+msgstr "Wcd: wcd_fopen: Öffne Datei \"%s\" OK.\n"
 
 #: wcd.c:286
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Unable to close file %s: %s\n"
-msgstr "wcd: Fehler: Die Datei %s konnte nicht entfernt werden: %s\n"
+msgstr "Wcd: Fehler: Die Datei %s konnte nicht geschlossen werden: %s\n"
 
 #: wcd.c:290
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: %sClosing file \"%s\" OK.\n"
-msgstr "wcd: Verzeichnis %s wird erzeugt\n"
+msgstr "Wcd: %sSchließe Datei \"%s\" OK.\n"
 
 #: wcd.c:629 wcd.c:642
 #, c-format
@@ -93,9 +94,9 @@ msgstr ""
 "mit den Dateibaumdaten %1$s erstellt .\n"
 
 #: wcd.c:1173 wcd.c:2375 wcd.c:2398 wcd.c:2477
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: Writing file \"%s\"\n"
-msgstr "wcd: Verzeichnis %s wird erzeugt\n"
+msgstr "Wcd: Schreibe Datei \"%s\"\n"
 
 #: wcd.c:1178
 msgid ""
@@ -254,7 +255,7 @@ msgstr ""
 "(Standardeinstellung)\n"
 
 #: wcd.c:2121
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "  -I,  --ignore-diacritics     Ignore diacritics\n"
 "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
@@ -323,7 +324,7 @@ msgstr ""
 "  -Ta, --alt-tree-nav     Alternative Baumnavigation\n"
 "  -TC, --center-tree      Zentrierte Baumansicht\n"
 "  -Tc, --compact-tree     Baum kompakter machen\n"
-"  -Td, --cjk-width        support double width line drawing symbols\n"
+"  -Td, --cjk-width        unterstütze vorhandene CJK Schriften\n"
 "  -u BENUTZER             Verwendet Baumdatei von BENUTZER\n"
 "  +u BENUTZER             Fügt die Baumdatei von BENUTZER hinzu\n"
 "  -v,  --verbose          WCD wird gesprächig\n"
@@ -331,6 +332,7 @@ msgstr ""
 "  -w,  --wild-match-only  Nur Übereinstimmung von Platzhaltern\n"
 "  -x PFAD                 PFAD beim Durchsuchen der Platte ignorieren\n"
 "  -xf DATEI               Die Pfade aus DATEI ignorieren\n"
+"  -y,  --assume-yes       Setze Yes bei allen Anfragen voraus\n"
 "  -z ZAHL                 Maximale Größe des Stapels festlegen\n"
 "  -[ZAHL]                 Verzeichnis auf Stapel legen (ZAHL mal)\n"
 "  +[ZAHL]                 Verzeinis vom Stapel nehemn (ZAHL mal)\n"
@@ -606,9 +608,9 @@ msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDLOCALEDIR ist zu lang.\n"
 
 #: wcd.c:2711
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: error: Failed to unset environment variable TERM: %s\n"
-msgstr "wcd: Fehler: Der Inhalt der Umgebungsvariable HOME ist zu lang.\n"
+msgstr "Wcd: Fehler: Konnte Umgebungsvariable TERM nicht entfernen: %s\n"
 
 #: wcd.c:2722
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
@@ -632,9 +634,9 @@ msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDUSERHOME ist zu lang.\n"
 
 #: wcd.c:2983
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: HOME is not defined\n"
-msgstr "wcd: %s ist kein Verzeichnis.\n"
+msgstr "Wcd: HOME ist nicht definiert\n"
 
 #: wcd.c:2985
 #, c-format
@@ -642,9 +644,9 @@ msgid "Wcd: HOME=\"%s\"\n"
 msgstr ""
 
 #: wcd.c:2987
-#, fuzzy, c-format
+#, c-format
 msgid "Wcd: WCDHOME is not defined\n"
-msgstr "wcd: %s ist kein Verzeichnis.\n"
+msgstr "Wcd: WCDHOME ist nicht definiert\n"
 
 #: wcd.c:2989
 #, c-format
@@ -730,9 +732,8 @@ msgid "Wcd: Found %lu shared directories on server %s\n"
 msgstr "wcd Es wurden %lu freigegebene Verzeichnisse auf Server %s gefunden.\n"
 
 #: wcddir.c:314
-#, fuzzy
 msgid "Wcd: error: wcd_islink: "
-msgstr "wcd: Verzeichnis %s wurde entfernt\n"
+msgstr "wcd: Fehler: wcd_islink: "
 
 #: wcddir.c:346
 msgid "Wcd: error: Unable to get current working directory: "
