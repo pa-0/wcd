@@ -3,9 +3,9 @@
 # This file is distributed under the same license as the wcd package.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.2.3\n"
+"Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-21 15:17+0200\n"
+"POT-Creation-Date: 2013-08-20 21:42+0200\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -583,7 +583,7 @@ msgstr ""
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujaa HOME tai WCDHOME is ole asetettu.\n"
 
-#: wcd.c:2874 wcd.c:3354 wcd.c:3373
+#: wcd.c:2874 wcd.c:3356 wcd.c:3375
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: virhe: Ympäristömuuttujan WCDUSERSHOME arvo on liian pitkä.\n"
 
@@ -609,48 +609,55 @@ msgstr ""
 msgid "Wcd: WCDHOME=\"%s\"\n"
 msgstr ""
 
-#: wcd.c:3014
+#: wcd.c:2991
+#, c-format
+msgid "Wcd: WCDSCAN is not defined\n"
+msgstr ""
+"Wcd: WCDSCAN ympäristömuuttujaa ei ole asetettu\n"
+"\n"
+
+#: wcd.c:3016
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Graffinen moodi tuettu ainoastaan ohjelman curses-kirjaston "
 "versioissa.\n"
 
-#: wcd.c:3041
+#: wcd.c:3043
 #, c-format
 msgid "Wcd: use_GoScript = 0\n"
 msgstr ""
 
-#: wcd.c:3287
+#: wcd.c:3289
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s lisätty tiedostoon %s\n"
 
-#: wcd.c:3386
+#: wcd.c:3388
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr "Wcd: virhe: Ei oikeutta lukea tiedostoa %s tai %s\n"
 
-#: wcd.c:3536
+#: wcd.c:3538
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "Wcd: WCDSCAN hakemisto {%s}\n"
 
-#: wcd.c:3538
+#: wcd.c:3540
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: asetettu mustalle listalle {%s}\n"
 
-#: wcd.c:3540
+#: wcd.c:3542
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: jätetään ottamasta huomioon {%s}\n"
 
-#: wcd.c:3542
+#: wcd.c:3544
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteroidaan {%s}\n"
 
-#: wcd.c:3809
+#: wcd.c:3811
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -660,7 +667,7 @@ msgstr ""
 "Wcd: Mahdollisesti levy tulee skannata uudelleen tai hakemisto on mustalla "
 "listalla\n"
 
-#: wcd.c:3975
+#: wcd.c:3977
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Ei voi vaihtaa hakemistoon %s\n"

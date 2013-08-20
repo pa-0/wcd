@@ -7,9 +7,9 @@
 # Lars Wendler <polynomial-c@gentoo.org> 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.2.3\n"
+"Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-21 15:17+0200\n"
+"POT-Creation-Date: 2013-08-20 21:42+0200\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -628,7 +628,7 @@ msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 "wcd: Fehler: Die Umgebungsvariablen HOME oder WCDHOOME sind nicht gesetzt.\n"
 
-#: wcd.c:2874 wcd.c:3354 wcd.c:3373
+#: wcd.c:2874 wcd.c:3356 wcd.c:3375
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr ""
 "wcd: Fehler: Der Inhalt der Umgebungsvariable WCDUSERHOME ist zu lang.\n"
@@ -653,49 +653,54 @@ msgstr "Wcd: WCDHOME ist nicht definiert\n"
 msgid "Wcd: WCDHOME=\"%s\"\n"
 msgstr ""
 
-#: wcd.c:3014
+#: wcd.c:2991
+#, c-format
+msgid "Wcd: WCDSCAN is not defined\n"
+msgstr "Wcd: WCDSCAN ist nicht definiert\n"
+
+#: wcd.c:3016
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "wcd: Grafikmodus wird nur von wcd mit Curses basierter Oberfläche\n"
 "     unterstützt.\n"
 
-#: wcd.c:3041
+#: wcd.c:3043
 #, c-format
 msgid "Wcd: use_GoScript = 0\n"
 msgstr ""
 
-#: wcd.c:3287
+#: wcd.c:3289
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "wcd: %s wurde zur Aliasdatei %s hinzugefügt\n"
 
-#: wcd.c:3386
+#: wcd.c:3388
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr ""
 "wcd: Fehler: Weder die Datei %s noch die Datei %s konnten gelesen werden\n"
 
-#: wcd.c:3536
+#: wcd.c:3538
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "wcd: WCDSCAN Verzeichnis {%s}\n"
 
-#: wcd.c:3538
+#: wcd.c:3540
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "wcd: {%s} wird verbannt\n"
 
-#: wcd.c:3540
+#: wcd.c:3542
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "wcd: {%s} wird ausgeschlossen\n"
 
-#: wcd.c:3542
+#: wcd.c:3544
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "wcd\" {%s} wird gefiltert\n"
 
-#: wcd.c:3809
+#: wcd.c:3811
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -705,7 +710,7 @@ msgstr ""
 "wcd: Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist "
 "verbannt.\n"
 
-#: wcd.c:3975
+#: wcd.c:3977
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "wcd: Zu %s kann nicht gewechselt werden\n"
@@ -1157,4 +1162,3 @@ msgid ""
 msgstr ""
 "wcd: Fehler in »%s«, kein freier Speicher verfügbar\n"
 "wcd: Hauptspeicher reicht nicht aus\n"
-

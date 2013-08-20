@@ -2987,6 +2987,8 @@ int main(int argc,char** argv)
                printf(_("Wcd: WCDHOME is not defined\n"));
             else
                printf(_("Wcd: WCDHOME=\"%s\"\n"),ptr);
+            if ((ptr = getenv("WCDSCAN")) == NULL)
+               printf(_("Wcd: WCDSCAN is not defined\n"));
             break;
          case 'q':
             quieter = 1;
