@@ -22,10 +22,11 @@
     disks (like Unix versions). Thanks to Eli Zaretskii.
   - Fix: Option --just-go did not work. --no-ignore-diacritics did set
     just go mode.
+  - Fix: Compilation on OS X/FreeBSD. Thanks to Misty De Meo <mistydemeo@gmail.com>.
   - New option -y, --assume-yes: Assume yes on all queries. Handy in
     combination with -rmtree.
-  - Use Ncurses instead of PDcurses for wcd on Windows. PDcurses is
-    unmaintained since Sep 2008. Many thanks to Thomas Dickey.
+  - Preparing to use Ncurses instead of PDcurses for wcd on Windows.
+    PDcurses is unmaintained since Sep 2008. Many thanks to Thomas Dickey.
     * Reduced flicker in graphical tree interface by using werase() i.s.o.
       wclear(). Flicker was mainly noticeable in Windows port of ncurses.
     * Unset environment variable TERM on Windows when ncurses is used. A

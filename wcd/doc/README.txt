@@ -261,6 +261,7 @@ Table of Contents
         Justin Lecher       Makefile improvements.
         Eli Zaretskii       Don't follow symbolic links on Windows.
         Thomas Dickey       Use of ncurses on Windows.
+        Misty De Meo        Fix: Compilation on OS X/FreeBSD.
 
     3.1 Translators
 

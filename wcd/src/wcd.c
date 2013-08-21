@@ -41,7 +41,6 @@ Jason Mathews' file filelist.c was a starting point for this file.
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
-#include <malloc.h>
 #if !defined(__TURBOC__) && !defined(_MSC_VER)
 # include <unistd.h>
 #endif
@@ -50,6 +49,7 @@ Jason Mathews' file filelist.c was a starting point for this file.
 #endif
 #include <sys/stat.h>
 #ifdef _MSC_VER
+#include <malloc.h>
 #define S_ISDIR( m )    (((m) & _S_IFMT) == _S_IFDIR)
 #define S_ISREG( m )    (((m) & _S_IFMT) == _S_IFREG)
 #endif
