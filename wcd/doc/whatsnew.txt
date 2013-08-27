@@ -1,4 +1,4 @@
-5.2.4-beta11 2013-08-06
+5.2.4 2013-08-27
   - Support user names with a space in the name in cmd.exe.
     Thanks to anonymous.
   - Show an "A" when alternative navigation mode is on.
@@ -15,8 +15,8 @@
     Thanks to Justin Lecher <jlec@gentoo.org>
   - Makefile: NCURSES_DEBUG=1 enables linking with the ncurses libraries
     with debug information. The ncurses *_g libraries.
-  - In verbose mode environment variables HOME, WCDHOME, and go-script
-    are printed.
+  - In verbose mode environment variables HOME, WCDHOME, WCDSCAN,
+    and go-script are printed.
   - Wcd prints debug information when compiled with DEBUG=1.
   - Windows versions don't follow symbolic links while scanning
     disks (like Unix versions). Thanks to Eli Zaretskii.
@@ -26,7 +26,8 @@
   - New option -y, --assume-yes: Assume yes on all queries. Handy in
     combination with -rmtree.
   - Preparing to use Ncurses instead of PDcurses for wcd on Windows.
-    PDcurses is unmaintained since Sep 2008. Many thanks to Thomas Dickey.
+    PDcurses has no new version since Sep 2008. Many thanks to Ncurses
+    maintainer Thomas Dickey.
     * Reduced flicker in graphical tree interface by using werase() i.s.o.
       wclear(). Flicker was mainly noticeable in Windows port of ncurses.
     * Unset environment variable TERM on Windows when ncurses is used. A
@@ -35,6 +36,10 @@
       - Failing newterm() fixed (ncurses 5.9.20120922)
       - Correct display of double width characters (ncurses 5.9.20121215).
       - Freezes on input fixed (ncurses 5.9.20130302).
+    * Pending issues:
+      - Ncurses does not work in Console2.
+      - Misalignment at highlighted directory in tree with true type CJK
+        font, e.g. the Chinese Simsun font. (PDCurses has same problem.)
 
 5.2.3 2012-10-29
   - New compact tree mode. By default the 'graphical' tree is drawn the same

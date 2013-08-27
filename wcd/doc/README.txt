@@ -298,7 +298,7 @@ Table of Contents
         Latest development source code is maintained in
         SourceForge Subversion repository:
 
-        svn co https://wcd.svn.sourceforge.net/svnroot/wcd wcd
+        svn checkout svn://svn.code.sf.net/p/wcd/code/trunk wcd-code
 
 
         The latest WCD packages, executables and sources, can be downloaded from
@@ -335,6 +335,10 @@ Table of Contents
 
         Ubuntu Linux
         http://packages.ubuntu.com/
+
+        Fedora Linux
+
+        Gentoo Linux
 
         Simtel.Net:
         Search: wcd
