@@ -1,4 +1,4 @@
-5.2.4 2013-08-27
+5.2.4 2013-08-28
   - Support user names with a space in the name in cmd.exe.
     Thanks to anonymous.
   - Show an "A" when alternative navigation mode is on.

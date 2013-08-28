@@ -572,7 +572,7 @@ folds the sub-folders and the next move left moves really left.
 You can switch on-the-fly between default and alternative navigation
 by pressing Shift-A.
 
-When alternative navigation mode is on, you will see a "A" in the lower left corner.
+When alternative navigation mode is on, you will see a "A" in the lower right corner.
 
 =item B<-TC, --center-tree>
 
@@ -600,7 +600,7 @@ Unicode width for these characters is 1 column.  For instance the Chinese CP936
 raster font on Windows and the Simsun font.  Use this option for a correct
 outlining of the graphical tree when a legacy CJK font is used. 
 
-When CJK mode is on, you will see a "C" in the lower left corner.
+When CJK mode is on, you will see a "C" in the lower right corner.
 
 =item B<-u USER>
 
