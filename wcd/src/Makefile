@@ -203,14 +203,22 @@ endif
 
 INCPREFIX=/usr
 ifeq ($(findstring MINGW,$(shell uname)),MINGW)
+ifeq ($(shell gcc -dumpmachine),i686-w64-mingw32)
+INCPREFIX=/mingw32
+else
+ifeq ($(shell gcc -dumpmachine),x86_64-w64-mingw32)
+INCPREFIX=/mingw64
+else
 INCPREFIX=/mingw
+endif
+endif
 endif
 
 # Each ncurses variant has its own include directory
 # ncurses (normal)/ncursesw (wide char)/ncursest (threads)
 ifeq ($(findstring ncurses,$(CURSES)),ncurses)
 ifneq ($(wildcard $(INCPREFIX)/include/$(CURSES)/curses.h),)
-	INCFLAGS = -I$(INCPREFIX)/include/$(CURSES)
+	INCFLAGS = -I$(INCPREFIX)/include/$(CURSES) -I$(INCPREFIX)/include
 endif
 ifeq ($(NCURSES_DEBUG), 1)
 	LIB_CURSES  = -l$(CURSES)_g
@@ -275,6 +283,7 @@ endif
 
 ifndef OS
 ifeq ($(findstring MINGW32,$(shell uname)),MINGW32)
+	CC = gcc
 	DEF_UNIX =
 	OS = mingw32
 endif
@@ -285,6 +294,11 @@ ifeq ($(findstring MSYS,$(shell uname)),MSYS)
 	CC = gcc
 	DEF_UNIX =
 	OS = msys
+	PROGRAM = wcdmsys.exe
+	LIBS_EXTRA  = -lkernel32 -luser32 -lmpr
+ifdef ENABLE_NLS
+	LIBS_EXTRA += -lintl
+endif
 endif
 endif
 
