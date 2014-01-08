@@ -105,7 +105,7 @@ because the GnuWin32 port of libintl (part of gettext) has builtin relocation
 support. From wcd version 5.1.2 I use MinGW's gettext/libiconv. Wcd win32
 binaries are packed with a patched version of MinGW's libintl-8.dll that also
 supports relocation. See also http://waterlan.home.xs4all.nl/libintl.html and
-http://sourceforge.net/tracker/?func=detail&atid=302435&aid=3003879&group_id=2435
+http://sourceforge.net/p/mingw/bugs/1808/
 
 MinGW-w64 may not have all packages available yet.
 
