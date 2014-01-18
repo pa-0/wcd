@@ -2105,7 +2105,9 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
    signal (SIGWINCH, signalSigwinch);
 #endif
 
-#ifdef __PDCURSES__
+/* Older versions of PDCurses and ncurses < 5.9.20120922 do not
+ * support newterm() on Windows */
+#if defined(__PDCURSES__) || (defined(_WIN32) && !defined(__CYGWIN__))
    initscr();
 #else
    sp = newterm(NULL,stdout,stdin);

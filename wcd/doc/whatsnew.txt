@@ -1,6 +1,9 @@
 5.2.5 beta 1
   - Makefile: Wcd compiles in MSYS2/MinGW-w64 environment.
     See http://sourceforge.net/projects/msys2/
+  - display.c, graphics.c: Don't use newterm() on Windows when ncurses
+    is used. Newterm() of old versions of ncurses (<5.9.20120922)
+    is not working on Windows.
 
 5.2.4 2013-08-28
   - Support user names with a space in the name in cmd.exe.

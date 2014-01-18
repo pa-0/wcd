@@ -205,6 +205,7 @@ INCPREFIX=/usr
 ifeq ($(findstring MINGW,$(shell uname)),MINGW)
 ifeq ($(shell gcc -dumpmachine),i686-w64-mingw32)
 INCPREFIX=/mingw32
+CFLAGS_COMPILER = -DWCD_COMPILER=MINGW32_W64
 else
 ifeq ($(shell gcc -dumpmachine),x86_64-w64-mingw32)
 INCPREFIX=/mingw64
@@ -372,6 +373,7 @@ EXTRA_CFLAGS	= -Ic3po \
 		  $(CFLAGS_VERSION) \
 		  $(CFLAGS_OS) \
 		  $(CFLAGS_UCS) \
+		  $(CFLAGS_COMPILER) \
 		  $(WDEFS) \
 		  $(NLSDEFS) \
 		  $(NCFLAG) \

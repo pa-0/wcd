@@ -1227,7 +1227,9 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
    i= WCD_ERR_LIST;
    wcd_display.number_str[n] = '\0';
 
-#ifdef __PDCURSES__
+/* Older versions of PDCurses and ncurses < 5.9.20120922 do not
+ * support newterm() on Windows */
+#if defined(__PDCURSES__) || (defined(_WIN32) && !defined(__CYGWIN__))
    initscr();
 #else
    sp = newterm(NULL,stdout,stdin);
