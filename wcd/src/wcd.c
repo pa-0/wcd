@@ -2083,80 +2083,74 @@ int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdSta
  ********************************************************************/
 void print_help()
 {
-        printf(_("\
-wcd  %s  (%s) - Wherever Change Directory\n\
-Usage: wcd [options] [directory]\n\
-\n\
-directory:  Name of directory to change to.\n\
-            Wildcards *, ? and [SET] are supported.\n\n"),VERSION,VERSION_DATE);
+   printf(_("Usage: wcd [options] [directory]\n\n"));
+   printf(_("directory:  Name of directory to change to.\n"));
+   printf(_("            Wildcards *, ? and [SET] are supported.\n\n"));
 
-  printf(_("options:\n\
-  -a                      Add current path to treefile\n\
-  -aa                     Add current and all parent paths to treefile\n\
-  -A PATH                 Add tree from PATH\n\
-  -b                      Ban current path\n\
-  -c,  --direct-cd        direct CD mode\n\
-  -d DRIVE                set DRIVE for stack & go files (DOS)\n\
-  -e                      add current path to Extra treefile\n\
-  -ee                     add current and all parent paths to Extra treefile\n\
-  -E PATH                 add tree from PATH to Extra treefile\n\
-  -f FILE                 use extra treeFile\n\
-  +f FILE                 add extra treeFile\n\
-  -g                      Graphics\n\
-  -gd                     Graphics, dump tree\n\
-  -G PATH                 set PATH Go-script\n\
-  -GN, --no-go-script     No Go-script\n\
-  -h,  --help             show this Help\n"));
+   printf(_("options:\n"));
+   printf(_("  -a                      Add current path to treefile\n"));
+   printf(_("  -aa                     Add current and all parent paths to treefile\n"));
+   printf(_("  -A PATH                 Add tree from PATH\n"));
+   printf(_("  -b                      Ban current path\n"));
+   printf(_("  -c,  --direct-cd        direct CD mode\n"));
+   printf(_("  -d DRIVE                set DRIVE for stack & go files (DOS)\n"));
+   printf(_("  -e                      add current path to Extra treefile\n"));
+   printf(_("  -ee                     add current and all parent paths to Extra treefile\n"));
+   printf(_("  -E PATH                 add tree from PATH to Extra treefile\n"));
+   printf(_("  -f FILE                 use extra treeFile\n"));
+   printf(_("  +f FILE                 add extra treeFile\n"));
+   printf(_("  -g                      Graphics\n"));
+   printf(_("  -gd                     Graphics, dump tree\n"));
+   printf(_("  -G PATH                 set PATH Go-script\n"));
+   printf(_("  -GN, --no-go-script     No Go-script\n"));
+   printf(_("  -h,  --help             show this Help\n"));
 
 #ifdef _WCD_DOSFS
-  printf(_("\
-  -i,  --ignore-case      Ignore case (default)\n\
-  +i,  --no-ignore-case   Regard case\n"));
+   printf(_("  -i,  --ignore-case      Ignore case (default)\n"));
+   printf(_("  +i,  --no-ignore-case   Regard case\n"));
 #else
-  printf(_("\
-  -i,  --ignore-case      Ignore case\n\
-  +i,  --no-ignore-case   Regard case (default)\n"));
+   printf(_("  -i,  --ignore-case      Ignore case\n"));
+   printf(_("  +i,  --no-ignore-case   Regard case (default)\n"));
 #endif
 
-  printf(_("\
-  -I,  --ignore-diacritics     Ignore diacritics\n\
-  +I,  --no-ignore-diacritics  Regard diacritics (default)\n\
-  -j,  --just-go          Just go mode\n\
-  -k,  --keep-paths       Keep paths\n\
-  -K,  --color            Colors\n\
-  -l ALIAS                aLias current directory\n\
-  -L,  --license          print software License\n\
-  -m DIR                  Make DIR, add to treefile\n\
-  -M DIR                  Make DIR, add to extra treefile\n\
-  -n PATH                 use relative treefile in PATH\n\
-  +n PATH                 add relative treefile in PATH\n\
-  -N,  --numbers          use Numbers\n\
-  -o                      use stdOut\n\
-  -od, --to-stdout        dump matches\n\
-  -q,  --quiet            Quieter operation\n\
-  -r DIR                  Remove DIR\n\
-  -rmtree DIR             Remove DIR recursive\n\
-  -s                      Scan disk from $HOME\n\
-  -S PATH                 Scan disk from PATH\n\
-  +S PATH                 Scan disk from PATH, create relative treefile\n\
-  -t                      Don't strip /tmp_mnt from paths\n\
-  -T,  --ascii-tree       Draw tree with ASCII characters\n\
-  -Ta, --alt-tree-nav     Alternative tree navigation\n\
-  -TC, --center-tree      Centered tree view\n\
-  -Tc, --compact-tree     Compact tree\n\
-  -Td, --cjk-width        support legacy CJK fonts\n\
-  -u USER                 use USER's treefile\n\
-  +u USER                 add USER's treefile\n\
-  -v,  --verbose          Verbose operation\n\
-  -V,  --version          print Version info\n\
-  -w,  --wild-match-only  Wild matching only\n\
-  -x PATH                 eXclude PATH during disk scan\n\
-  -xf FILE                eXclude paths from FILE\n\
-  -y,  --assume-yes       assume Yes on all queries\n\
-  -z NUMBER               set max stack siZe\n\
-  -[NUMBER]               Push dir (NUMBER times)\n\
-  +[NUMBER]               Pop dir (NUMBER times)\n\
-  =                       Show stack\n"));
+   printf(_("  -I,  --ignore-diacritics     Ignore diacritics\n"));
+   printf(_("  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"));
+   printf(_("  -j,  --just-go          Just go mode\n"));
+   printf(_("  -k,  --keep-paths       Keep paths\n"));
+   printf(_("  -K,  --color            Colors\n"));
+   printf(_("  -l ALIAS                aLias current directory\n"));
+   printf(_("  -L,  --license          print software License\n"));
+   printf(_("  -m DIR                  Make DIR, add to treefile\n"));
+   printf(_("  -M DIR                  Make DIR, add to extra treefile\n"));
+   printf(_("  -n PATH                 use relative treefile in PATH\n"));
+   printf(_("  +n PATH                 add relative treefile in PATH\n"));
+   printf(_("  -N,  --numbers          use Numbers\n"));
+   printf(_("  -o                      use stdOut\n"));
+   printf(_("  -od, --to-stdout        dump matches\n"));
+   printf(_("  -q,  --quiet            Quieter operation\n"));
+   printf(_("  -r DIR                  Remove DIR\n"));
+   printf(_("  -rmtree DIR             Remove DIR recursive\n"));
+   printf(_("  -s                      Scan disk from $HOME\n"));
+   printf(_("  -S PATH                 Scan disk from PATH\n"));
+   printf(_("  +S PATH                 Scan disk from PATH, create relative treefile\n"));
+   printf(_("  -t                      Don't strip /tmp_mnt from paths\n"));
+   printf(_("  -T,  --ascii-tree       Draw tree with ASCII characters\n"));
+   printf(_("  -Ta, --alt-tree-nav     Alternative tree navigation\n"));
+   printf(_("  -TC, --center-tree      Centered tree view\n"));
+   printf(_("  -Tc, --compact-tree     Compact tree\n"));
+   printf(_("  -Td, --cjk-width        support legacy CJK fonts\n"));
+   printf(_("  -u USER                 use USER's treefile\n"));
+   printf(_("  +u USER                 add USER's treefile\n"));
+   printf(_("  -v,  --verbose          Verbose operation\n"));
+   printf(_("  -V,  --version          print Version info\n"));
+   printf(_("  -w,  --wild-match-only  Wild matching only\n"));
+   printf(_("  -x PATH                 eXclude PATH during disk scan\n"));
+   printf(_("  -xf FILE                eXclude paths from FILE\n"));
+   printf(_("  -y,  --assume-yes       assume Yes on all queries\n"));
+   printf(_("  -z NUMBER               set max stack siZe\n"));
+   printf(_("  -[NUMBER]               Push dir (NUMBER times)\n"));
+   printf(_("  +[NUMBER]               Pop dir (NUMBER times)\n"));
+   printf(_("  =                       Show stack\n"));
 }
 
 #ifdef ENABLE_NLS
@@ -2296,7 +2290,6 @@ void print_license()
 {
    printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
    printf(_("\
-Chdir for Dos and Unix.\n\
 Copyright (C) 1997-2014 Erwin Waterlander\n\
 Copyright (C) 1994-2002 Ondrej Popp on C3PO\n\
 Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n\
@@ -2308,8 +2301,9 @@ Source code to scan Windows LAN was originally written and placed\n\
 in the public domain by Felix Kasza.\n\
 Markus Kuhn's free wcwidth() implementation is used\n\
 in Wcd for Windows.\n\
-Rugxulo is the original author of query_con_codepage() (public domain).\n\n\
-\
+Rugxulo is the original author of query_con_codepage() (public domain).\n\n"));
+
+   printf(_("\
 This program is free software; you can redistribute it and/or\n\
 modify it under the terms of the GNU General Public License\n\
 as published by the Free Software Foundation; either version 2\n\
