@@ -1,7 +1,7 @@
 #
 #   Copyright information
 #
-#	Copyright (C) 2009-2013 Erwin Waterlander
+#	Copyright (C) 2009-2014 Erwin Waterlander
 #	Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -224,6 +224,8 @@ endif
 ifeq ($(NCURSES_DEBUG), 1)
 	LIB_CURSES  = -l$(CURSES)_g
 endif
+else
+	INCFLAGS = -I$(INCPREFIX)/include
 endif
 
 ifeq ($(CURSES),ncursesw)
@@ -559,15 +561,17 @@ mostlyclean:
 clean: mostlyclean
 	@echo "-- target: clean"
 	rm -f \
-	  man/man1/wcd1.pod \
-	  man/man1/wcd.1 \
-	  $(DOCFILES)  ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf
+	    ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf
 
 distclean: clean
 	@echo "-- target: distclean"
 
 maintainer-clean: distclean
 	@echo "-- target: maintainer-clean:"
+	rm -f \
+	  man/man1/wcd1.pod \
+	  man/man1/wcd.1 \
+	  $(DOCFILES)
 
 # 'maintainer-clean' was 'realclean' in old GNU standards.
 realclean: maintainer-clean
