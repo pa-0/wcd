@@ -36,14 +36,14 @@ Needed for building packages:
 gcc
 ===
 
-DOS            : DJGPP     : http://www.delorie.com/djgpp/
-Windows        : MinGW     : http://www.mingw.org/
-Windows 64 bit : MinGW-w64 : http://mingw-w64.sourceforge.net/
-OS/2           : EMX       :
+DOS     : DJGPP     : http://www.delorie.com/djgpp/
+Windows : MSYS2     : http://sourceforge.net/projects/msys2/
+OS/2    : EMX       :
 
-MinGW-w64 provides a cross-compiler that you can run on 32 bit Windows.
-MinGW-w64 can produce programs for 32 and 64 bit Windows.
-
+The MSYS2 project includes the MinGW-w64 compiler <http://mingw-w64.sourceforge.net/>
+for both 32 and 64 bit. Plus it includes a complete building environment. A
+POSIX shell, and many libraries and utilities.
+See also http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
 
 sh
 ==
@@ -57,8 +57,7 @@ See also the GNU make manual:
 http://www.gnu.org/software/make/manual/make.html#Choosing-the-Shell
 
 DJGPP     : Includes bash
-MinGW     : Includes bash in the MSYS environment.
-MinGW-w64 : You can use MinGW's MSYS
+MinGW-w64 : Use MSYS2
 
 In DJGPP it is certain that you get problems if you don't make the SHELL
 variable point to bash (c:/djgpp/bin/bash.exe).
@@ -76,9 +75,7 @@ For DJGPP compiler use package `fileutils' instead of `coreutils'. Coreutils is
 not (yet) available for DJGPP.
 
 DJGPP     : http://www.delorie.com/pub/djgpp/current/v2gnu/
-MinGW     : http://sourceforge.net/projects/mingw/files/
-
-For MinGW(-w64) use MSYS-make in the MSYS environment.
+MSYS2     : http://sourceforge.net/projects/msys2/
 
 
 perl
@@ -87,7 +84,7 @@ perl
 Perl packages are distributed with the DJGPP, MinGW, and EMX environment.
 
 DJGPP     : http://www.delorie.com/pub/djgpp/current/v2gnu/
-MinGW     : http://sourceforge.net/projects/mingw/files/
+MSYS2     : http://sourceforge.net/projects/msys2/
 
 
 gettext (libintl) and libiconv
@@ -96,8 +93,7 @@ gettext (libintl) and libiconv
 gettext and libiconv can be found as packages on the web site of the gcc compiler.
 
 DJGPP     : http://www.delorie.com/pub/djgpp/current/v2gnu/
-MinGW     : http://sourceforge.net/projects/mingw/files/
-MinGW-w64 : http://sourceforge.net/projects/mingw-w64/files/
+MSYS2     : http://sourceforge.net/projects/msys2/
 
 
 Until wcd version 5.1.1 I used GnuWin32's gettext/libiconv instead of MinGW's,
@@ -107,7 +103,8 @@ binaries are packed with a patched version of MinGW's libintl-8.dll that also
 supports relocation. See also http://waterlan.home.xs4all.nl/libintl.html and
 http://sourceforge.net/p/mingw/bugs/1808/
 
-MinGW-w64 may not have all packages available yet.
+The patch was not accepted by MinGW.org, but the MSYS2 project has included
+the patch for both 32 and 64 bit.
 
 
 PDCurses
