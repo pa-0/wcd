@@ -9,7 +9,6 @@ File list
     wcd.htm       : Manual, HTML format.
     whatsnew.txt  : Change log.
     faq.txt       : Frequently Asked Questions.
-    translat.txt  : How to translate wcd.
     copying.txt   : distribution license.
     problems.txt  : Known problems.
     todo.txt      : Things to do.
@@ -267,10 +266,12 @@ Table of Contents
 
         Thanks to the following translators:
 
-        Jari Aalto                     (Finnish)
-        Julio Augusto Freyre-Gonzalez  (Spanish)
-	Philipp Thomas                 (German)
-	Lars Wendler                   (German)
+        Dutch                 Erwin Waterlander <waterlan@xs4all.nl>           Version 4.0.0 - 5.2.4
+        Finnish               Jari Aalto <jari.aalto@cante.net>                Version 5.1.0 - 5.2.4
+        German                Philipp Thomas <psmt@opensuse.org> <pth@suse.de> Version 5.1.3 - 5.2.3
+        German                Lars Wendler <polynomial-c@gentoo.org>           Version 5.2.4.
+        Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>    Version 5.0.4 - 5.2.4
+
 
     3.2 Works of others used in the program
 

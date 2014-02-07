@@ -131,7 +131,6 @@ install-doc: $(docdir) $(DOCFILES) .SYMBOLIC
 	copy $(SRCDIR)\..\doc\todo.txt $(docdir)
 	copy $(SRCDIR)\..\doc\INSTALL.txt $(docdir)
 	copy $(SRCDIR)\..\doc\INST_DOS.txt $(docdir)
-	copy $(SRCDIR)\..\doc\translat.txt $(docdir)
 	copy $(SRCDIR)\..\doc\copying.txt $(docdir)
 	copy $(SRCDIR)\..\doc\$(PACKAGE).txt $(docdir)
 	copy $(SRCDIR)\..\doc\$(PACKAGE).$(HTMLEXT) $(docdir)

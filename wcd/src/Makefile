@@ -93,8 +93,7 @@ HTMLEXT = htm
 INSTALL_OBJS_DOC_INSTALL = \
   ../doc/INSTALL.txt \
   ../doc/UNIX.txt \
-  ../doc/RPM.txt \
-  ../doc/translat.txt
+  ../doc/RPM.txt
 
 INSTALL_OBJS_DOC_COPYING = \
   ../doc/copying.txt

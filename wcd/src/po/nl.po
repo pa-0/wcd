@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-03 23:17+0100\n"
+"POT-Creation-Date: 2014-02-07 08:52+0100\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -88,7 +88,7 @@ msgstr ""
 "Wcd: Even wachten aub. Aftasten schijf. Boom-bestand %s wordt gebouwd vanaf "
 "%s\n"
 
-#: wcd.c:1173 wcd.c:2371 wcd.c:2394 wcd.c:2473
+#: wcd.c:1173 wcd.c:2373 wcd.c:2396 wcd.c:2475
 #, c-format
 msgid "Wcd: Writing file \"%s\"\n"
 msgstr "Wcd: Schrijven bestand \"%s\"\n"
@@ -226,14 +226,12 @@ msgstr "  -c,  --direct-cd        direkt CD modus\n"
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
 msgstr ""
-"  -d STATION              stel STATION voor stapel & go bestanden in "
-"(DOS)\n"
+"  -d STATION              stel STATION voor stapel & go bestanden in (DOS)\n"
 
 #: wcd.c:2097
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
-msgstr ""
-"  -e                      voeg huidig pad toe aan Extra boombestand\n"
+msgstr "  -e                      voeg huidig pad toe aan Extra boombestand\n"
 
 #: wcd.c:2098
 #, c-format
@@ -288,26 +286,22 @@ msgstr "  -h,  --help             laat deze Help zien\n"
 #: wcd.c:2109
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
-msgstr ""
-"  -i,  --ignore-case      Hoofdletterongevoelig (standaard)\n"
+msgstr "  -i,  --ignore-case      hoofdletterongevoelig (standaard)\n"
 
 #: wcd.c:2110
 #, c-format
-msgid "  +i,  --no-ignore-case   Regard case\n"
-msgstr ""
-"  +i,  --no-ignore-case   Hoofdlettergevoelig\n"
+msgid "  +i,  --no-ignore-case   regard case\n"
+msgstr "  +i,  --no-ignore-case   hoofdlettergevoelig\n"
 
 #: wcd.c:2112
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case\n"
-msgstr ""
-"  -i,  --ignore-case      Hoofdletterongevoelig\n"
+msgstr "  -i,  --ignore-case      hoofdletterongevoelig\n"
 
 #: wcd.c:2113
 #, c-format
-msgid "  +i,  --no-ignore-case   Regard case (default)\n"
-msgstr ""
-"  +i,  --no-ignore-case   Hoofdlettergevoelig (standaard)\n"
+msgid "  +i,  --no-ignore-case   regard case (default)\n"
+msgstr "  +i,  --no-ignore-case   hoofdlettergevoelig (standaard)\n"
 
 #: wcd.c:2116
 #, c-format
@@ -317,7 +311,8 @@ msgstr "  -I,  --ignore-diacritics     Diakritische tekens negeren\n"
 #: wcd.c:2117
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
-msgstr "  +I,  --no-ignore-diacritics  Diakritische tekens achten (standaard)\n"
+msgstr ""
+"  +I,  --no-ignore-diacritics  Diakritische tekens achten (standaard)\n"
 
 #: wcd.c:2118
 #, c-format
@@ -331,7 +326,7 @@ msgstr "  -k,  --keep-paths       Bewaar paden\n"
 
 #: wcd.c:2120
 #, c-format
-msgid "  -K,  --color            Colors\n"
+msgid "  -K,  --color            colors\n"
 msgstr "  -K,  --color            Kleuren\n"
 
 #: wcd.c:2121
@@ -341,8 +336,8 @@ msgstr "  -l ALIAS                aLias huidige map\n"
 
 #: wcd.c:2122
 #, c-format
-msgid "  -L,  --license          print software License\n"
-msgstr "  -L,  --license          print software Licentie\n"
+msgid "  -L,  --license          show software License\n"
+msgstr "  -L,  --license          toon software Licentie\n"
 
 #: wcd.c:2123
 #, c-format
@@ -412,16 +407,15 @@ msgstr ""
 "  +S PAD                  Aftasten schijf vanaf PAD, maak relatief "
 "boombestand\n"
 
-
 #: wcd.c:2136
 #, c-format
-msgid "  -t                      Don't strip /tmp_mnt from paths\n"
-msgstr "  -t                      Paden niet van /tmp_mnt ontdoen\n"
+msgid "  -t                      don't strip /tmp_mnt from paths\n"
+msgstr "  -t                      paden niet van /tmp_mnt ontdoen\n"
 
 #: wcd.c:2137
 #, c-format
-msgid "  -T,  --ascii-tree       Draw tree with ASCII characters\n"
-msgstr "  -T,  --ascii-tree       Teken boom met ASCII tekens\n"
+msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
+msgstr "  -T,  --ascii-tree       teken boom met ASCII tekens\n"
 
 #: wcd.c:2138
 #, c-format
@@ -460,8 +454,8 @@ msgstr "  -v,  --verbose          woordenrijke werking\n"
 
 #: wcd.c:2145
 #, c-format
-msgid "  -V,  --version          print Version info\n"
-msgstr "  -V,  --version          print Versie informatie\n"
+msgid "  -V,  --version          show Version info\n"
+msgstr "  -V,  --version          toon Versie informatie\n"
 
 #: wcd.c:2146
 #, c-format
@@ -490,18 +484,18 @@ msgstr "  -z NUMMER               stel max stapel grootte in\n"
 
 #: wcd.c:2151
 #, c-format
-msgid "  -[NUMBER]               Push dir (NUMBER times)\n"
-msgstr "  -[NUMMER]               Voeg map toe aan stapel (NUMMER keer)\n"
+msgid "  -[NUMBER]               push dir (NUMBER times)\n"
+msgstr "  -[NUMMER]               voeg map toe aan stapel (NUMMER keer)\n"
 
 #: wcd.c:2152
 #, c-format
-msgid "  +[NUMBER]               Pop dir (NUMBER times)\n"
-msgstr "  +[NUMMER]               Haal map van stapel (NUMMER keer)\n"
+msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
+msgstr "  +[NUMMER]               haal map van stapel (NUMMER keer)\n"
 
 #: wcd.c:2153
 #, c-format
-msgid "  =                       Show stack\n"
-msgstr "  =                       Laat stapel zien\n"
+msgid "  =                       show stack\n"
+msgstr "  =                       toon stapel\n"
 
 #: wcd.c:2162 wcd.c:2291
 #, c-format
@@ -612,11 +606,6 @@ msgstr "Deze versie is voor OS/2 bash.\n"
 msgid "Interface: "
 msgstr ""
 
-#: wcd.c:2233
-#, c-format
-msgid "conio\n"
-msgstr ""
-
 #: wcd.c:2237
 #, c-format
 msgid "ncurses version %s.%d\n"
@@ -713,10 +702,14 @@ msgid ""
 "Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n"
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
+msgstr ""
+
+#: wcd.c:2300
+#, c-format
+msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
 "in the public domain by Felix Kasza.\n"
-"Markus Kuhn's free wcwidth() implementation is used\n"
-"in Wcd for Windows.\n"
+"Markus Kuhn's free wcwidth() and wcswidth() implementations are used.\n"
 "Rugxulo is the original author of query_con_codepage() (public domain).\n"
 "\n"
 msgstr ""
@@ -729,115 +722,125 @@ msgid ""
 "as published by the Free Software Foundation; either version 2\n"
 "of the License, or (at your option) any later version.\n"
 "\n"
+msgstr ""
+
+#: wcd.c:2312
+#, c-format
+msgid ""
 "This program is distributed in the hope that it will be useful,\n"
 "but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
 "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
 "GNU General Public License for more details.\n"
 "\n"
+msgstr ""
+
+#: wcd.c:2318
+#, c-format
+msgid ""
 "You should have received a copy of the GNU General Public License\n"
 "along with this program; if not, write to the Free Software\n"
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 "
 "USA.\n"
 msgstr ""
 
-#: wcd.c:2351
+#: wcd.c:2353
 #, c-format
 msgid "Wcd: creating directory %s\n"
 msgstr "Wcd: aanmaken map %s\n"
 
-#: wcd.c:2678
+#: wcd.c:2680
 msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDLOCALEDIR is te lang.\n"
 
-#: wcd.c:2707
+#: wcd.c:2709
 #, c-format
 msgid "Wcd: error: Failed to unset environment variable TERM: %s\n"
 msgstr "Wcd: fout: Niet gelukt om omgevingsvariabele TERM te verwijderen: %s\n"
 
-#: wcd.c:2718
+#: wcd.c:2720
 msgid "Wcd: error: Value of environment variable HOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME is te lang.\n"
 
-#: wcd.c:2733 wcd.c:2801
+#: wcd.c:2735 wcd.c:2803
 msgid ""
 "Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
 
-#: wcd.c:2765 wcd.c:2794
+#: wcd.c:2767 wcd.c:2796
 msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
 
-#: wcd.c:2870 wcd.c:3352 wcd.c:3371
+#: wcd.c:2872 wcd.c:3354 wcd.c:3373
 msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
 msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
 
-#: wcd.c:2979
+#: wcd.c:2981
 #, c-format
 msgid "Wcd: HOME is not defined\n"
 msgstr "Wcd: HOME is niet gedefinieerd.\n"
 
-#: wcd.c:2981
+#: wcd.c:2983
 #, c-format
 msgid "Wcd: HOME=\"%s\"\n"
 msgstr ""
 
-#: wcd.c:2983
+#: wcd.c:2985
 #, c-format
 msgid "Wcd: WCDHOME is not defined\n"
 msgstr "Wcd: WCDHOME is niet gedefinieerd.\n"
 
-#: wcd.c:2985
+#: wcd.c:2987
 #, c-format
 msgid "Wcd: WCDHOME=\"%s\"\n"
 msgstr ""
 
-#: wcd.c:2987
+#: wcd.c:2989
 #, c-format
 msgid "Wcd: WCDSCAN is not defined\n"
 msgstr "Wcd: WCDSCAN is niet gedefinieerd.\n"
 
-#: wcd.c:3012
+#: wcd.c:3014
 msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
 "Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
 "interface.\n"
 
-#: wcd.c:3039
+#: wcd.c:3041
 #, c-format
 msgid "Wcd: use_GoScript = 0\n"
 msgstr ""
 
-#: wcd.c:3285
+#: wcd.c:3287
 #, c-format
 msgid "Wcd: %s added to aliasfile %s\n"
 msgstr "Wcd: %s toegevoegd aan aliasbestand %s\n"
 
-#: wcd.c:3384
+#: wcd.c:3386
 #, c-format
 msgid "Wcd: error: Unable to read file %s or %s\n"
 msgstr "Wcd: fout: Kan bestand %s of %s niet lezen.\n"
 
-#: wcd.c:3534
+#: wcd.c:3536
 #, c-format
 msgid "Wcd: WCDSCAN directory {%s}\n"
 msgstr "Wcd: WCDSCAN map {%s}\n"
 
-#: wcd.c:3536
+#: wcd.c:3538
 #, c-format
 msgid "Wcd: banning {%s}\n"
 msgstr "Wcd: verbannen {%s}\n"
 
-#: wcd.c:3538
+#: wcd.c:3540
 #, c-format
 msgid "Wcd: excluding {%s}\n"
 msgstr "Wcd: uitsluiten {%s}\n"
 
-#: wcd.c:3540
+#: wcd.c:3542
 #, c-format
 msgid "Wcd: filtering {%s}\n"
 msgstr "Wcd: filteren {%s}\n"
 
-#: wcd.c:3807
+#: wcd.c:3809
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -846,7 +849,7 @@ msgstr ""
 "Wcd: Geen map gevonden gelijk aan %s\n"
 "Wcd: Misschien moet u de schijf opnieuw aftasten of is het pad verbannen.\n"
 
-#: wcd.c:3973
+#: wcd.c:3975
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Kan niet veranderen naar %s\n"
@@ -926,6 +929,11 @@ msgstr "Wcd: fout in maxLength(), list == NULL\n"
 msgid "Wcd: error in maxLengthStack(), s == NULL\n"
 msgstr "Wcd: fout in maxLengthStack(), s == NULL\n"
 
+#. Perfect means here an exact match.
+#. Wild, the next msgid, means a non-exact match or a pattern match,
+#. like a wild card (joker) in card games.
+#. The word Perfect or Wild will be put in front of the following msgid
+#. "match for %d directories."
 #: display.c:1129
 msgid "Perfect "
 msgstr "Perfect "
@@ -1016,6 +1024,11 @@ msgstr "Wcd: fout tijdens maken rolvenster.\n"
 msgid "Wcd: error creating input window.\n"
 msgstr "Wcd: fout aanmaken invoervenster.\n"
 
+#. Perfect means here an exact match.
+#. Wild, the next msgid, means a non-exact match or a pattern match,
+#. like a wild card (joker) in card games.
+#. The word Perfect or Wild will be put in front of the following msgid
+#. "match for %lu directories."
 #: display.c:1504
 #, c-format
 msgid ""
@@ -1289,4 +1302,3 @@ msgid ""
 msgstr ""
 "Wcd: fout in '%s', geen ruimte meer voor toewijzing\n"
 "Wcd: Onvoldoende geheugen\n"
-

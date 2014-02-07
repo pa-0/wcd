@@ -1,4 +1,4 @@
-5.2.5 beta 1
+5.2.5 beta 2
   - Switch to MinGW-w64 compiler for Windows 32 bit.
   - Makefile: Wcd compiles in MSYS2/MinGW-w64 environment.
     See http://sourceforge.net/projects/msys2/
@@ -11,7 +11,8 @@
     produce better output (also for old systems).  Tip from pod2man maintainer
     Russ Allbery.  When you want to generate man pages yourself just run first
     'make maintainer-clean'.
-  - Split help text in small pieces to make it easier for translators.
+  - Split help text in small pieces to make it easier for translators, and
+    cleanup messages. Thanks to Benno Schulenberg.
 
 5.2.4 2013-08-28
   - Support user names with a space in the name in cmd.exe.

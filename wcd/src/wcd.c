@@ -2107,19 +2107,19 @@ void print_help()
 
 #ifdef _WCD_DOSFS
    printf(_("  -i,  --ignore-case      Ignore case (default)\n"));
-   printf(_("  +i,  --no-ignore-case   Regard case\n"));
+   printf(_("  +i,  --no-ignore-case   regard case\n"));
 #else
    printf(_("  -i,  --ignore-case      Ignore case\n"));
-   printf(_("  +i,  --no-ignore-case   Regard case (default)\n"));
+   printf(_("  +i,  --no-ignore-case   regard case (default)\n"));
 #endif
 
    printf(_("  -I,  --ignore-diacritics     Ignore diacritics\n"));
    printf(_("  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"));
    printf(_("  -j,  --just-go          Just go mode\n"));
    printf(_("  -k,  --keep-paths       Keep paths\n"));
-   printf(_("  -K,  --color            Colors\n"));
+   printf(_("  -K,  --color            colors\n"));
    printf(_("  -l ALIAS                aLias current directory\n"));
-   printf(_("  -L,  --license          print software License\n"));
+   printf(_("  -L,  --license          show software License\n"));
    printf(_("  -m DIR                  Make DIR, add to treefile\n"));
    printf(_("  -M DIR                  Make DIR, add to extra treefile\n"));
    printf(_("  -n PATH                 use relative treefile in PATH\n"));
@@ -2133,8 +2133,8 @@ void print_help()
    printf(_("  -s                      Scan disk from $HOME\n"));
    printf(_("  -S PATH                 Scan disk from PATH\n"));
    printf(_("  +S PATH                 Scan disk from PATH, create relative treefile\n"));
-   printf(_("  -t                      Don't strip /tmp_mnt from paths\n"));
-   printf(_("  -T,  --ascii-tree       Draw tree with ASCII characters\n"));
+   printf(_("  -t                      don't strip /tmp_mnt from paths\n"));
+   printf(_("  -T,  --ascii-tree       draw tree with ASCII characters\n"));
    printf(_("  -Ta, --alt-tree-nav     Alternative tree navigation\n"));
    printf(_("  -TC, --center-tree      Centered tree view\n"));
    printf(_("  -Tc, --compact-tree     Compact tree\n"));
@@ -2142,15 +2142,15 @@ void print_help()
    printf(_("  -u USER                 use USER's treefile\n"));
    printf(_("  +u USER                 add USER's treefile\n"));
    printf(_("  -v,  --verbose          Verbose operation\n"));
-   printf(_("  -V,  --version          print Version info\n"));
+   printf(_("  -V,  --version          show Version info\n"));
    printf(_("  -w,  --wild-match-only  Wild matching only\n"));
    printf(_("  -x PATH                 eXclude PATH during disk scan\n"));
    printf(_("  -xf FILE                eXclude paths from FILE\n"));
    printf(_("  -y,  --assume-yes       assume Yes on all queries\n"));
    printf(_("  -z NUMBER               set max stack siZe\n"));
-   printf(_("  -[NUMBER]               Push dir (NUMBER times)\n"));
-   printf(_("  +[NUMBER]               Pop dir (NUMBER times)\n"));
-   printf(_("  =                       Show stack\n"));
+   printf(_("  -[NUMBER]               push dir (NUMBER times)\n"));
+   printf(_("  +[NUMBER]               pop dir (NUMBER times)\n"));
+   printf(_("  =                       show stack\n"));
 }
 
 #ifdef ENABLE_NLS
@@ -2230,7 +2230,7 @@ void print_version()
 
    printf(_("Interface: "));
 #ifdef WCD_USECONIO
-   printf(_("conio\n"));
+   printf("conio\n");
 #else
 # ifdef WCD_USECURSES
 #  ifdef NCURSES_VERSION
@@ -2296,24 +2296,26 @@ Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n\
 Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n\
 Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n\
 Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n\
-Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n\
+Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"));
+   printf(_("\
 Source code to scan Windows LAN was originally written and placed\n\
 in the public domain by Felix Kasza.\n\
-Markus Kuhn's free wcwidth() implementation is used\n\
-in Wcd for Windows.\n\
+Markus Kuhn's free wcwidth() and wcswidth() implementations are used.\n\
 Rugxulo is the original author of query_con_codepage() (public domain).\n\n"));
 
    printf(_("\
 This program is free software; you can redistribute it and/or\n\
 modify it under the terms of the GNU General Public License\n\
 as published by the Free Software Foundation; either version 2\n\
-of the License, or (at your option) any later version.\n\n\
-\
+of the License, or (at your option) any later version.\n\n"));
+
+   printf(_("\
 This program is distributed in the hope that it will be useful,\n\
 but WITHOUT ANY WARRANTY; without even the implied warranty of\n\
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n\
-GNU General Public License for more details.\n\n\
-\
+GNU General Public License for more details.\n\n"));
+
+   printf(_("\
 You should have received a copy of the GNU General Public License\n\
 along with this program; if not, write to the Free Software\n\
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"));
