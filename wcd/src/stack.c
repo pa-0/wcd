@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2013 Erwin Waterlander
+Copyright (C) 1997-2014 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -76,7 +76,7 @@ int stack_read(WcdStack ws,char *stackfilename)
 	/* open stack-file */
 	if  ((ws->maxsize <= 0)||((infile = wcd_fopen(stackfilename,"r",1)) == NULL))
 	{
-		/* fprintf(stderr,"Wcd: error: Unable to read file %s\n",stackfilename); */
+		/* print_error("Unable to read file %s\n",stackfilename); */
 		ws->lastadded = -1;
 		ws->current = -1;
 	}
@@ -98,7 +98,7 @@ int stack_read(WcdStack ws,char *stackfilename)
 		}
 		else
 		  {
-			fprintf(stderr, "%s", _("Wcd: Error parsing stack\n"));
+			print_error("%s", _("Error parsing stack\n"));
 			ws->lastadded = -1;
 			ws->current = -1;
 		  }

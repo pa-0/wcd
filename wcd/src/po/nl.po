@@ -1,13 +1,13 @@
 # Dutch translations for wcd package.
-# Copyright (C) 2008-2013 THE wcd'S COPYRIGHT HOLDER
+# Copyright (C) 2008-2014 THE wcd'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the wcd package.
-# Erwin Waterlander <waterlan@xs4all.nl>, 2008-2013.
+# Erwin Waterlander <waterlan@xs4all.nl>, 2008-2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-07 08:52+0100\n"
+"POT-Creation-Date: 2014-02-09 00:52+0100\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -17,156 +17,121 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: wcd.c:147
+#: wcd.c:141
 #, c-format
-msgid "Wcd: error: %s\n"
-msgstr "Wcd: Fout: %s\n"
+msgid "Wcd: error: "
+msgstr "Wcd: fout: "
 
-#: wcd.c:161
+#: wcd.c:200 wcd.c:220
 #, c-format
-msgid "Wcd: wcd_fopen: Opening file \"%s\" mode=%s quiet=%d\n"
-msgstr "Wcd: wcd_fopen: Openen bestand \"%s\" %s quiet=%d\n"
+msgid "Unable to read file %s: %s\n"
+msgstr "Kan bestand %s niet lezen: %s\n"
 
-#: wcd.c:174 wcd.c:194
+#: wcd.c:209
 #, c-format
-msgid "Wcd: error: Unable to read file %s: %s\n"
-msgstr "Wcd: fout: Kan bestand %s niet lezen: %s\n"
+msgid "Unable to read file %s: Not a regular file.\n"
+msgstr "Kan bestand %s niet lezen: Geen regulier bestand.\n"
 
-#: wcd.c:183
+#: wcd.c:222 wcd.c:310
 #, c-format
-msgid "Wcd: error: Unable to read file %s: Not a regular file.\n"
-msgstr "Wcd: fout: Kan bestand %s niet lezen: Geen regulier bestand.\n"
+msgid "Unable to write file %s: %s\n"
+msgstr "Kan bestand %s niet schrijven: %s\n"
 
-#: wcd.c:196 wcd.c:284
+#: wcd.c:312
 #, c-format
-msgid "Wcd: error: Unable to write file %s: %s\n"
-msgstr "Wcd: fout: Kan bestand %s niet schrijven: %s\n"
+msgid "Unable to close file %s: %s\n"
+msgstr "Kan bestand %s niet sluiten: %s\n"
 
-#: wcd.c:199
-#, c-format
-msgid "Wcd: wcd_fopen: Opening file \"%s\" OK.\n"
-msgstr "Wcd: wcd_fopen: Openen bestand \"%s\" Oké\n"
-
-#: wcd.c:286
-#, c-format
-msgid "Wcd: error: Unable to close file %s: %s\n"
-msgstr "Wcd: fout: Kan bestand %s niet sluiten: %s\n"
-
-#: wcd.c:290
-#, c-format
-msgid "Wcd: %sClosing file \"%s\" OK.\n"
-msgstr "Wcd: %sSluiten bestand \"%s\" Oké.\n"
-
-#: wcd.c:629 wcd.c:642
+#: wcd.c:655 wcd.c:668
 #, c-format
 msgid "Wcd: %s added to file %s\n"
 msgstr "Wcd: %s toegevoegd aan bestand %s\n"
 
-#: wcd.c:776 wcd.c:841
+#: wcd.c:802 wcd.c:867
 #, c-format
-msgid "Wcd: error: Unable to remove file %s: %s\n"
-msgstr "Wcd: fout: Kan bestand %s niet verwijderen: %s\n"
+msgid "Unable to remove file %s: %s\n"
+msgstr "Kan bestand %s niet verwijderen: %s\n"
 
-#: wcd.c:929 wcd.c:997
+#: wcd.c:955 wcd.c:1023
 #, c-format
 msgid ""
-"Wcd: error: finddirs(): can't determine path in directory %s\n"
+"finddirs(): can't determine path in directory %s\n"
 "Wcd: path probably too long.\n"
 msgstr ""
-"Wcd: fout: finddirs(): kan pad in map %s niet bepalen\n"
+"finddirs(): kan pad in map %s niet bepalen\n"
 "Wcd: pad is waarschijnlijk te lang.\n"
 
-#: wcd.c:1108 wcd.c:1433
+#: wcd.c:1134 wcd.c:1459
 #, c-format
 msgid "Wcd: %s is not a directory.\n"
 msgstr "Wcd: %s is geen map.\n"
 
-#: wcd.c:1112
+#: wcd.c:1138
 #, c-format
 msgid "Wcd: Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr ""
 "Wcd: Even wachten aub. Aftasten schijf. Boom-bestand %s wordt gebouwd vanaf "
 "%s\n"
 
-#: wcd.c:1173 wcd.c:2373 wcd.c:2396 wcd.c:2475
+#: wcd.c:1199 wcd.c:2399 wcd.c:2422 wcd.c:2501
 #, c-format
-msgid "Wcd: Writing file \"%s\"\n"
-msgstr "Wcd: Schrijven bestand \"%s\"\n"
+msgid "Writing file \"%s\"\n"
+msgstr "Schrijven bestand \"%s\"\n"
 
-#: wcd.c:1178
+#: wcd.c:1204
 msgid ""
-"Wcd: error: Write access to tree-file denied.\n"
+"Write access to tree-file denied.\n"
 "Wcd: Set TEMP environment variable if this is a read-only disk.\n"
 msgstr ""
-"Wcd: fout: Schrijftoegang tot boom-bestand geweigerd.\n"
+"Schrijftoegang tot boom-bestand geweigerd.\n"
 "Wcd: Definieer TEMP omgevingsvariabele wanneer dit een alleen-lezen schijf "
 "is.\n"
 
-#: wcd.c:1306
+#: wcd.c:1332
 #, c-format
 msgid "Wcd: Removed symbolic link %s\n"
 msgstr "Wcd: Symbolische koppeling %s verwijderd.\n"
 
-#: wcd.c:1312
+#: wcd.c:1338
 #, c-format
-msgid "Wcd: error: Unable to remove symbolic link %s: %s\n"
-msgstr "Wcd: fout: Kan symbolische koppeling %s niet verwijderen: %s\n"
+msgid "Unable to remove symbolic link %s: %s\n"
+msgstr "Kan symbolische koppeling %s niet verwijderen: %s\n"
 
-#: wcd.c:1316
+#: wcd.c:1342
 #, c-format
 msgid "Wcd: %s is a symbolic link to a file.\n"
 msgstr "Wcd: %s is een symbolische koppeling naar een bestand.\n"
 
-#: wcd.c:1398
+#: wcd.c:1424
 #, c-format
-msgid "Wcd: Recursively remove %s  Are you sure? y/n :"
-msgstr "Wcd: Recursief %s verwijderen  Weet u het zeker? y(ja)/n(nee) :"
+msgid "Recursively remove %s? Are you sure? y/n :"
+msgstr "Recursief %s verwijderen? Weet u het zeker? y(ja)/n(nee) :"
 
-#: wcd.c:1419 wcd.c:1428
+#: wcd.c:1445 wcd.c:1454
 #, c-format
 msgid "Wcd: Removed directory %s\n"
 msgstr "Wcd: Map %s verwijderd.\n"
 
-#: wcd.c:1456
+#: wcd.c:1482 wcd.c:1542 wcd.c:1601
 #, c-format
 msgid ""
-"Wcd: error: line too long in wcd_getline() ( > %d). The treefile could be "
-"corrupt, else fix by increasing DD_MAXPATH in source code.\n"
+"line too long in %s ( > %d). The treefile could be corrupt, else fix by "
+"increasing DD_MAXPATH in source code.\n"
 msgstr ""
-"Wcd: fout: regel te lang in wcd_getline() ( > %d). Het boombestand kan "
-"beschadigd zijn, anders oplossen door DD_MAXPATH in broncode te verhogen.\n"
+"regel te lang in %s ( > %d). Het boombestand kan beschadigd zijn, anders "
+"oplossen door DD_MAXPATH in broncode te verhogen.\n"
 
-#: wcd.c:1457 wcd.c:1517 wcd.c:1576
+#: wcd.c:1483 wcd.c:1543 wcd.c:1602
 #, c-format
-msgid "Wcd: file: %s, line: %d,"
-msgstr "Wcd: bestand: %s, regel: %d,"
+msgid "file: %s, line: %d,"
+msgstr "bestand: %s, regel: %d,"
 
-#: wcd.c:1464 wcd.c:1524 wcd.c:1583
+#: wcd.c:1490 wcd.c:1550 wcd.c:1609
 #, c-format
 msgid " length: %d\n"
 msgstr " lengte: %d\n"
 
-#: wcd.c:1516
-#, c-format
-msgid ""
-"Wcd: error: line too long in wcd_wgetline() ( > %d). The treefile could be "
-"corrupt, else fix by increasing DD_MAXPATH in source code.\n"
-msgstr ""
-"Wcd: fout: regel te lang in wcd_wgetline() ( > %d). Het boombestand "
-"kanbeschadigd zijn, anders oplossen door DD_MAXPATH in broncode te "
-"verhogen.\n"
-
-#: wcd.c:1575
-#, c-format
-msgid ""
-"Wcd: error: line too long in wcd_wgetline_be() ( > %d). The treefile could "
-"be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
-msgstr ""
-"Wcd: fout: regel te lang in wcd_wgetline_be() ( > %d). Het boombestand "
-"kanbeschadigd zijn, anders oplossen door DD_MAXPATH in broncode te "
-"verhogen.\n"
-
-#: wcd.c:2086
+#: wcd.c:2112
 #, c-format
 msgid ""
 "Usage: wcd [options] [directory]\n"
@@ -175,12 +140,12 @@ msgstr ""
 "Gebruik: wcd [opties] [map]\n"
 "\n"
 
-#: wcd.c:2087
+#: wcd.c:2113
 #, c-format
 msgid "directory:  Name of directory to change to.\n"
 msgstr "map:   Naam van map waarnaar te veranderen.\n"
 
-#: wcd.c:2088
+#: wcd.c:2114
 #, c-format
 msgid ""
 "            Wildcards *, ? and [SET] are supported.\n"
@@ -189,17 +154,17 @@ msgstr ""
 "       Jokertekens *, ? en [SET] worden ondersteund.\n"
 "\n"
 
-#: wcd.c:2090
+#: wcd.c:2116
 #, c-format
 msgid "options:\n"
 msgstr "opties:\n"
 
-#: wcd.c:2091
+#: wcd.c:2117
 #, c-format
 msgid "  -a                      Add current path to treefile\n"
 msgstr "  -a                      Voeg huidig pad toe aan boombestand\n"
 
-#: wcd.c:2092
+#: wcd.c:2118
 #, c-format
 msgid ""
 "  -aa                     Add current and all parent paths to treefile\n"
@@ -207,33 +172,33 @@ msgstr ""
 "  -aa                     Voeg huidig en alle hogere paden toe aan "
 "boombestand\n"
 
-#: wcd.c:2093
+#: wcd.c:2119
 #, c-format
 msgid "  -A PATH                 Add tree from PATH\n"
 msgstr "  -A PAD                  Voeg boom toe vanaf PAD\n"
 
-#: wcd.c:2094
+#: wcd.c:2120
 #, c-format
 msgid "  -b                      Ban current path\n"
 msgstr "  -b                      Verban huidig pad\n"
 
-#: wcd.c:2095
+#: wcd.c:2121
 #, c-format
 msgid "  -c,  --direct-cd        direct CD mode\n"
 msgstr "  -c,  --direct-cd        direkt CD modus\n"
 
-#: wcd.c:2096
+#: wcd.c:2122
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
 msgstr ""
 "  -d STATION              stel STATION voor stapel & go bestanden in (DOS)\n"
 
-#: wcd.c:2097
+#: wcd.c:2123
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
 msgstr "  -e                      voeg huidig pad toe aan Extra boombestand\n"
 
-#: wcd.c:2098
+#: wcd.c:2124
 #, c-format
 msgid ""
 "  -ee                     add current and all parent paths to Extra "
@@ -242,164 +207,164 @@ msgstr ""
 "  -ee                     voeg huidig en alle hogere paden toe aan Extra "
 "boombestand\n"
 
-#: wcd.c:2099
+#: wcd.c:2125
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
 msgstr ""
 "  -E PAD                  voeg boom vanaf PAD toe aan Extra boombestand\n"
 
-#: wcd.c:2100
+#: wcd.c:2126
 #, c-format
 msgid "  -f FILE                 use extra treeFile\n"
 msgstr "  -f BESTAND              gebruik extra boombestand\n"
 
-#: wcd.c:2101
+#: wcd.c:2127
 #, c-format
 msgid "  +f FILE                 add extra treeFile\n"
 msgstr "  +f BESTAND              voeg extra boombestand toe\n"
 
-#: wcd.c:2102
+#: wcd.c:2128
 #, c-format
 msgid "  -g                      Graphics\n"
 msgstr "  -g                      Grafisch\n"
 
-#: wcd.c:2103
+#: wcd.c:2129
 #, c-format
 msgid "  -gd                     Graphics, dump tree\n"
 msgstr "  -gd                     Grafisch, dump boom\n"
 
-#: wcd.c:2104
+#: wcd.c:2130
 #, c-format
 msgid "  -G PATH                 set PATH Go-script\n"
 msgstr "  -G PAD                  stel PAD Go-script in\n"
 
-#: wcd.c:2105
+#: wcd.c:2131
 #, c-format
 msgid "  -GN, --no-go-script     No Go-script\n"
 msgstr "  -GN, --no-go-script     Geen Go-script\n"
 
-#: wcd.c:2106
+#: wcd.c:2132
 #, c-format
 msgid "  -h,  --help             show this Help\n"
 msgstr "  -h,  --help             laat deze Help zien\n"
 
-#: wcd.c:2109
+#: wcd.c:2135
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
 msgstr "  -i,  --ignore-case      hoofdletterongevoelig (standaard)\n"
 
-#: wcd.c:2110
+#: wcd.c:2136
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case\n"
 msgstr "  +i,  --no-ignore-case   hoofdlettergevoelig\n"
 
-#: wcd.c:2112
+#: wcd.c:2138
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case\n"
 msgstr "  -i,  --ignore-case      hoofdletterongevoelig\n"
 
-#: wcd.c:2113
+#: wcd.c:2139
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case (default)\n"
 msgstr "  +i,  --no-ignore-case   hoofdlettergevoelig (standaard)\n"
 
-#: wcd.c:2116
+#: wcd.c:2142
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
 msgstr "  -I,  --ignore-diacritics     Diakritische tekens negeren\n"
 
-#: wcd.c:2117
+#: wcd.c:2143
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
 msgstr ""
 "  +I,  --no-ignore-diacritics  Diakritische tekens achten (standaard)\n"
 
-#: wcd.c:2118
+#: wcd.c:2144
 #, c-format
 msgid "  -j,  --just-go          Just go mode\n"
 msgstr "  -j,  --just-go          Ga nou maar modus\n"
 
-#: wcd.c:2119
+#: wcd.c:2145
 #, c-format
 msgid "  -k,  --keep-paths       Keep paths\n"
 msgstr "  -k,  --keep-paths       Bewaar paden\n"
 
-#: wcd.c:2120
+#: wcd.c:2146
 #, c-format
 msgid "  -K,  --color            colors\n"
 msgstr "  -K,  --color            Kleuren\n"
 
-#: wcd.c:2121
+#: wcd.c:2147
 #, c-format
 msgid "  -l ALIAS                aLias current directory\n"
 msgstr "  -l ALIAS                aLias huidige map\n"
 
-#: wcd.c:2122
+#: wcd.c:2148
 #, c-format
 msgid "  -L,  --license          show software License\n"
 msgstr "  -L,  --license          toon software Licentie\n"
 
-#: wcd.c:2123
+#: wcd.c:2149
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
 msgstr "  -m MAP                  Maak MAP, voeg toe aan boombestand\n"
 
-#: wcd.c:2124
+#: wcd.c:2150
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
 msgstr "  -M MAP                  Maak MAP, voeg toe aan extra boombestand\n"
 
-#: wcd.c:2125
+#: wcd.c:2151
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
 msgstr "  -n PAD                  gebruik relatief boombestand in PAD\n"
 
-#: wcd.c:2126
+#: wcd.c:2152
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
 msgstr "  +n PAD                  voeg relatief boombestand in PAD toe\n"
 
-#: wcd.c:2127
+#: wcd.c:2153
 #, c-format
 msgid "  -N,  --numbers          use Numbers\n"
 msgstr "  -N,  --numbers          gebruik Nummers\n"
 
-#: wcd.c:2128
+#: wcd.c:2154
 #, c-format
 msgid "  -o                      use stdOut\n"
 msgstr "  -o                      gebruik stdOut\n"
 
-#: wcd.c:2129
+#: wcd.c:2155
 #, c-format
 msgid "  -od, --to-stdout        dump matches\n"
 msgstr "  -od, --to-stdout        dump treffers\n"
 
-#: wcd.c:2130
+#: wcd.c:2156
 #, c-format
 msgid "  -q,  --quiet            Quieter operation\n"
 msgstr "  -q,  --quiet            stillere werking\n"
 
-#: wcd.c:2131
+#: wcd.c:2157
 #, c-format
 msgid "  -r DIR                  Remove DIR\n"
 msgstr "  -r MAP                  Verwijder MAP\n"
 
-#: wcd.c:2132
+#: wcd.c:2158
 #, c-format
 msgid "  -rmtree DIR             Remove DIR recursive\n"
 msgstr "  -rmtree MAP             Verwijder MAP recursief\n"
 
-#: wcd.c:2133
+#: wcd.c:2159
 #, c-format
 msgid "  -s                      Scan disk from $HOME\n"
 msgstr "  -s                      Aftasten schijf vanaf $HOME\n"
 
-#: wcd.c:2134
+#: wcd.c:2160
 #, c-format
 msgid "  -S PATH                 Scan disk from PATH\n"
 msgstr "  -S PAD                  Aftasten schijf vanaf PAD\n"
 
-#: wcd.c:2135
+#: wcd.c:2161
 #, c-format
 msgid ""
 "  +S PATH                 Scan disk from PATH, create relative treefile\n"
@@ -407,102 +372,102 @@ msgstr ""
 "  +S PAD                  Aftasten schijf vanaf PAD, maak relatief "
 "boombestand\n"
 
-#: wcd.c:2136
+#: wcd.c:2162
 #, c-format
 msgid "  -t                      don't strip /tmp_mnt from paths\n"
 msgstr "  -t                      paden niet van /tmp_mnt ontdoen\n"
 
-#: wcd.c:2137
+#: wcd.c:2163
 #, c-format
 msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
 msgstr "  -T,  --ascii-tree       teken boom met ASCII tekens\n"
 
-#: wcd.c:2138
+#: wcd.c:2164
 #, c-format
 msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
 msgstr "  -Ta, --alt-tree-nav     Alternatieve boom navigatie\n"
 
-#: wcd.c:2139
+#: wcd.c:2165
 #, c-format
 msgid "  -TC, --center-tree      Centered tree view\n"
 msgstr "  -TC, --center-tree      Gecentreerde boomweergave\n"
 
-#: wcd.c:2140
+#: wcd.c:2166
 #, c-format
 msgid "  -Tc, --compact-tree     Compact tree\n"
 msgstr "  -Tc, --compact-tree     Compacte boom\n"
 
-#: wcd.c:2141
+#: wcd.c:2167
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
 msgstr "  -Td, --cjk-width        ondersteun oude CJK lettertypes\n"
 
-#: wcd.c:2142
+#: wcd.c:2168
 #, c-format
 msgid "  -u USER                 use USER's treefile\n"
 msgstr "  -u GEBRUIKER            gebruik boombestand van GEBRUIKER\n"
 
-#: wcd.c:2143
+#: wcd.c:2169
 #, c-format
 msgid "  +u USER                 add USER's treefile\n"
 msgstr "  +u GEBRUIKER            voeg boombestand van GEBRUIKER toe\n"
 
-#: wcd.c:2144
+#: wcd.c:2170
 #, c-format
 msgid "  -v,  --verbose          Verbose operation\n"
 msgstr "  -v,  --verbose          woordenrijke werking\n"
 
-#: wcd.c:2145
+#: wcd.c:2171
 #, c-format
 msgid "  -V,  --version          show Version info\n"
 msgstr "  -V,  --version          toon Versie informatie\n"
 
-#: wcd.c:2146
+#: wcd.c:2172
 #, c-format
 msgid "  -w,  --wild-match-only  Wild matching only\n"
 msgstr "  -w,  --wild-match-only  Alleen joker vergelijkingen\n"
 
-#: wcd.c:2147
+#: wcd.c:2173
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
 msgstr "  -x PAD                  uitsluiten PAD tijdens aftasten schijf\n"
 
-#: wcd.c:2148
+#: wcd.c:2174
 #, c-format
 msgid "  -xf FILE                eXclude paths from FILE\n"
 msgstr "  -xf BESTAND             uitsluiten paden uit BESTAND\n"
 
-#: wcd.c:2149
+#: wcd.c:2175
 #, c-format
 msgid "  -y,  --assume-yes       assume Yes on all queries\n"
 msgstr "  -y,  --assume-yes       veronderstel Ja op alle vragen\n"
 
-#: wcd.c:2150
+#: wcd.c:2176
 #, c-format
 msgid "  -z NUMBER               set max stack siZe\n"
 msgstr "  -z NUMMER               stel max stapel grootte in\n"
 
-#: wcd.c:2151
+#: wcd.c:2177
 #, c-format
 msgid "  -[NUMBER]               push dir (NUMBER times)\n"
 msgstr "  -[NUMMER]               voeg map toe aan stapel (NUMMER keer)\n"
 
-#: wcd.c:2152
+#: wcd.c:2178
 #, c-format
 msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
 msgstr "  +[NUMMER]               haal map van stapel (NUMMER keer)\n"
 
-#: wcd.c:2153
+#: wcd.c:2179
 #, c-format
 msgid "  =                       show stack\n"
 msgstr "  =                       toon stapel\n"
 
-#: wcd.c:2162 wcd.c:2291
+#: wcd.c:2188 wcd.c:2317
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
 
-#: wcd.c:2163
+#: wcd.c:2189
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -511,187 +476,187 @@ msgstr ""
 "Chdir voor Dos en Unix.\n"
 "\n"
 
-#: wcd.c:2167
+#: wcd.c:2193
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS 16 bit versie (WATCOMC).\n"
 
-#: wcd.c:2169
+#: wcd.c:2195
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS 16 bit versie (TURBOC).\n"
 
-#: wcd.c:2171
+#: wcd.c:2197
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS 32 bit versie (DJGPP).\n"
 
-#: wcd.c:2173
+#: wcd.c:2199
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS 32 bit versie (WATCOMC).\n"
 
-#: wcd.c:2180
+#: wcd.c:2206
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
 msgstr "Win64 versie (MSVC %d).\n"
 
-#: wcd.c:2182
+#: wcd.c:2208
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
 msgstr "Win64 versie (MinGW-w64).\n"
 
-#: wcd.c:2186
+#: wcd.c:2212
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
 msgstr "Win32 versie (WATCOMC).\n"
 
-#: wcd.c:2188
+#: wcd.c:2214
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
 msgstr "Win32 versie (MSVC %d).\n"
 
-#: wcd.c:2190
+#: wcd.c:2216
 #, c-format
 msgid "Win32 version (MinGW-w64).\n"
 msgstr "Win32 versie (MinGW-w64).\n"
 
-#: wcd.c:2192
+#: wcd.c:2218
 #, c-format
 msgid "Win32 version (MinGW).\n"
 msgstr "Win32 versie (MinGW).\n"
 
-#: wcd.c:2199
+#: wcd.c:2225
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr "Deze versie is voor MSYS en WinZsh.\n"
 
-#: wcd.c:2201
+#: wcd.c:2227
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr "Deze versie is voor Windows PowerShell.\n"
 
-#: wcd.c:2203
+#: wcd.c:2229
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
 msgstr "Deze versie is voor Windows Opdrachtprompt (cmd.exe).\n"
 
-#: wcd.c:2208
+#: wcd.c:2234
 #, c-format
 msgid "OS/2 version"
 msgstr "OS/2 versie"
 
-#: wcd.c:2219
+#: wcd.c:2245
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr "Deze versie is voor MSYS.\n"
 
-#: wcd.c:2222
+#: wcd.c:2248
 #, c-format
 msgid "Cygwin version.\n"
 msgstr "Cygwin versie.\n"
 
-#: wcd.c:2225
+#: wcd.c:2251
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Deze versie is voor DJGPP DOS bash.\n"
 
-#: wcd.c:2228
+#: wcd.c:2254
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Deze versie is voor OS/2 bash.\n"
 
-#: wcd.c:2231
+#: wcd.c:2257
 #, c-format
 msgid "Interface: "
 msgstr ""
 
-#: wcd.c:2237
+#: wcd.c:2263
 #, c-format
 msgid "ncurses version %s.%d\n"
 msgstr "ncurses versie %s.%d\n"
 
-#: wcd.c:2240
+#: wcd.c:2266
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr ""
 
-#: wcd.c:2242
+#: wcd.c:2268
 #, c-format
 msgid "curses\n"
 msgstr ""
 
-#: wcd.c:2251
+#: wcd.c:2277
 #, c-format
 msgid "stdout\n"
 msgstr ""
 
-#: wcd.c:2255
+#: wcd.c:2281
 #, c-format
 msgid "Native language support included.\n"
 msgstr "Met moedertaal ondersteuning.\n"
 
-#: wcd.c:2256
+#: wcd.c:2282
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr ""
 
-#: wcd.c:2258
+#: wcd.c:2284
 #, c-format
 msgid "No native language support included.\n"
 msgstr "Geen moedertaal ondersteuning.\n"
 
-#: wcd.c:2261
+#: wcd.c:2287
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
 msgstr "Huidige locale gebruikt CP%u codering.\n"
 
-#: wcd.c:2263
+#: wcd.c:2289
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr "Huidige locale gebruikt %s codering.\n"
 
-#: wcd.c:2266
+#: wcd.c:2292
 #, c-format
 msgid "With Unicode support.\n"
 msgstr "Met Unicode ondersteuning.\n"
 
-#: wcd.c:2271
+#: wcd.c:2297
 #, c-format
 msgid "  Euro symbol: "
 msgstr "  Euro symbool:"
 
-#: wcd.c:2273
+#: wcd.c:2299
 #, c-format
 msgid "  Chinese characters: "
 msgstr "  Chinese letters:"
 
-#: wcd.c:2277
+#: wcd.c:2303
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr "Zonder Unicode ondersteuning.\n"
 
-#: wcd.c:2280
+#: wcd.c:2306
 #, c-format
 msgid "With Unicode normalization.\n"
 msgstr "Met Unicode-normalisatie.\n"
 
-#: wcd.c:2282
+#: wcd.c:2308
 #, c-format
 msgid "Without Unicode normalization.\n"
 msgstr "Zonder Unicode-normalisatie.\n"
 
-#: wcd.c:2285
+#: wcd.c:2311
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Download de nieuwste versie met broncode van:\n"
 
-#: wcd.c:2286
+#: wcd.c:2312
 #, c-format
 msgid "http://waterlan.home.xs4all.nl/\n"
 msgstr ""
 
-#: wcd.c:2292
+#: wcd.c:2318
 #, c-format
 msgid ""
 "Copyright (C) 1997-2014 Erwin Waterlander\n"
@@ -704,7 +669,7 @@ msgid ""
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
 
-#: wcd.c:2300
+#: wcd.c:2326
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -714,7 +679,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: wcd.c:2306
+#: wcd.c:2332
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -724,7 +689,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: wcd.c:2312
+#: wcd.c:2338
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -734,7 +699,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: wcd.c:2318
+#: wcd.c:2344
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -743,104 +708,85 @@ msgid ""
 "USA.\n"
 msgstr ""
 
-#: wcd.c:2353
+#: wcd.c:2379
 #, c-format
-msgid "Wcd: creating directory %s\n"
-msgstr "Wcd: aanmaken map %s\n"
+msgid "creating directory %s\n"
+msgstr "aanmaken map %s\n"
 
-#: wcd.c:2680
-msgid "Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"
-msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDLOCALEDIR is te lang.\n"
-
-#: wcd.c:2709
+#: wcd.c:2706 wcd.c:2746 wcd.c:2761 wcd.c:2829 wcd.c:2898 wcd.c:3380
+#: wcd.c:3399
 #, c-format
-msgid "Wcd: error: Failed to unset environment variable TERM: %s\n"
-msgstr "Wcd: fout: Niet gelukt om omgevingsvariabele TERM te verwijderen: %s\n"
+msgid "Value of environment variable %s is too long.\n"
+msgstr "Waarde van omgevingsvariabele %s is te lang.\n"
 
-#: wcd.c:2720
-msgid "Wcd: error: Value of environment variable HOME is too long.\n"
-msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME is te lang.\n"
-
-#: wcd.c:2735 wcd.c:2803
-msgid ""
-"Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"
-msgstr "Wcd: fout: Waarde van omgevingsvariabele HOME of WCDHOME is te lang.\n"
-
-#: wcd.c:2767 wcd.c:2796
-msgid "Wcd: error: Environment variable HOME or WCDHOME is not set.\n"
-msgstr "Wcd: fout: Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
-
-#: wcd.c:2872 wcd.c:3354 wcd.c:3373
-msgid "Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"
-msgstr "Wcd: fout: Waarde van omgevingsvariabele WCDUSERSHOME is te lang.\n"
-
-#: wcd.c:2981
+#: wcd.c:2735
 #, c-format
-msgid "Wcd: HOME is not defined\n"
-msgstr "Wcd: HOME is niet gedefinieerd.\n"
+msgid "Failed to unset environment variable TERM: %s\n"
+msgstr "Niet gelukt om omgevingsvariabele TERM te verwijderen: %s\n"
 
-#: wcd.c:2983
+#: wcd.c:2793 wcd.c:2822
+msgid "Environment variable HOME or WCDHOME is not set.\n"
+msgstr "Omgevingsvariabele HOME of WCDHOME zijn niet ingesteld.\n"
+
+#: wcd.c:3007
+msgid "HOME is not defined\n"
+msgstr "HOME is niet gedefinieerd.\n"
+
+#: wcd.c:3009
 #, c-format
-msgid "Wcd: HOME=\"%s\"\n"
+msgid "HOME=\"%s\"\n"
 msgstr ""
 
-#: wcd.c:2985
-#, c-format
-msgid "Wcd: WCDHOME is not defined\n"
-msgstr "Wcd: WCDHOME is niet gedefinieerd.\n"
+#: wcd.c:3011
+msgid "WCDHOME is not defined\n"
+msgstr "WCDHOME is niet gedefinieerd.\n"
 
-#: wcd.c:2987
+#: wcd.c:3013
 #, c-format
-msgid "Wcd: WCDHOME=\"%s\"\n"
+msgid "WCDHOME=\"%s\"\n"
 msgstr ""
 
-#: wcd.c:2989
-#, c-format
-msgid "Wcd: WCDSCAN is not defined\n"
-msgstr "Wcd: WCDSCAN is niet gedefinieerd.\n"
+#: wcd.c:3015
+msgid "WCDSCAN is not defined\n"
+msgstr "WCDSCAN is niet gedefinieerd.\n"
 
-#: wcd.c:3014
-msgid "Wcd: Graphics mode only supported in wcd with curses based interface.\n"
+#: wcd.c:3040
+msgid "Graphics mode only supported in wcd with curses based interface.\n"
 msgstr ""
-"Wcd: Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
+"Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
 "interface.\n"
 
-#: wcd.c:3041
+#: wcd.c:3313
 #, c-format
-msgid "Wcd: use_GoScript = 0\n"
-msgstr ""
+msgid "%s added to aliasfile %s\n"
+msgstr "%s toegevoegd aan aliasbestand %s\n"
 
-#: wcd.c:3287
+#: wcd.c:3412
 #, c-format
-msgid "Wcd: %s added to aliasfile %s\n"
-msgstr "Wcd: %s toegevoegd aan aliasbestand %s\n"
+msgid "Unable to read file %s or %s\n"
+msgstr "Kan bestand %s niet lezen: %s\n"
 
-#: wcd.c:3386
+#: wcd.c:3562
 #, c-format
-msgid "Wcd: error: Unable to read file %s or %s\n"
-msgstr "Wcd: fout: Kan bestand %s of %s niet lezen.\n"
+msgid "WCDSCAN directory {%s}\n"
+msgstr "WCDSCAN map {%s}\n"
 
-#: wcd.c:3536
+#: wcd.c:3564
 #, c-format
-msgid "Wcd: WCDSCAN directory {%s}\n"
-msgstr "Wcd: WCDSCAN map {%s}\n"
+msgid "banning {%s}\n"
+msgstr "verbannen {%s}\n"
 
-#: wcd.c:3538
+#: wcd.c:3566
 #, c-format
-msgid "Wcd: banning {%s}\n"
-msgstr "Wcd: verbannen {%s}\n"
+msgid "excluding {%s}\n"
+msgstr "uitsluiten {%s}\n"
 
-#: wcd.c:3540
+#: wcd.c:3568
 #, c-format
-msgid "Wcd: excluding {%s}\n"
-msgstr "Wcd: uitsluiten {%s}\n"
+msgid "filtering {%s}\n"
+msgstr "filteren {%s}\n"
 
-#: wcd.c:3542
-#, c-format
-msgid "Wcd: filtering {%s}\n"
-msgstr "Wcd: filteren {%s}\n"
-
-#: wcd.c:3809
+#: wcd.c:3835
 #, c-format
 msgid ""
 "Wcd: No directory found matching %s\n"
@@ -849,38 +795,33 @@ msgstr ""
 "Wcd: Geen map gevonden gelijk aan %s\n"
 "Wcd: Misschien moet u de schijf opnieuw aftasten of is het pad verbannen.\n"
 
-#: wcd.c:3975
+#: wcd.c:4001
 #, c-format
 msgid "Wcd: Cannot change to %s\n"
 msgstr "Wcd: Kan niet veranderen naar %s\n"
 
 #: wcddir.c:104
 #, c-format
-msgid "Wcd: Error %lu (\"%s\") reported by \"%s\".\n"
-msgstr "Wcd: Fout %lu (\"%s\") gerapporteerd door \"%s\".\n"
+msgid "%lu (\"%s\") reported by \"%s\".\n"
+msgstr "%lu (\"%s\") gerapporteerd door \"%s\".\n"
 
 #: wcddir.c:127
-#, c-format
-msgid "Wcd: access denied.\n"
-msgstr "Wcd: toegang geweigerd.\n"
+msgid "access denied.\n"
+msgstr "toegang geweigerd.\n"
 
 #: wcddir.c:208
 #, c-format
-msgid "Wcd: Searching for shared directories on server %s\n"
-msgstr "Wcd: Zoeken naar gedeelde mappen op server %s\n"
+msgid "Searching for shared directories on server %s\n"
+msgstr "Zoeken naar gedeelde mappen op server %s\n"
 
 #: wcddir.c:220
 #, c-format
-msgid "Wcd: Found %lu shared directories on server %s\n"
-msgstr "Wcd: %lu gedeelde mappen gevonden op server %s\n"
-
-#: wcddir.c:314
-msgid "Wcd: error: wcd_islink: "
-msgstr "Wcd: Fout: wcd_islink: "
+msgid "Found %lu shared directories on server %s\n"
+msgstr "%lu gedeelde mappen gevonden op server %s\n"
 
 #: wcddir.c:346
-msgid "Wcd: error: Unable to get current working directory: "
-msgstr "Wcd: fout: Kan huidige werkmap niet verkrijgen: "
+msgid "Unable to get current working directory: "
+msgstr "Kan huidige werkmap niet verkrijgen: "
 
 #: wcddir.c:374
 #, c-format
@@ -899,158 +840,120 @@ msgstr "Wcd: fout: Kan map %s niet verwijderen: "
 
 #: wcddir.c:564 wcddir.c:581
 #, c-format
-msgid "Wcd: error: Unable to create directory %s: %s\n"
-msgstr "Wcd: fout: Kan map %s niet aanmaken: %s\n"
+msgid "Unable to create directory %s: %s\n"
+msgstr "Kan map %s niet aanmaken: %s\n"
 
 #: wcddir.c:706
 #, c-format
-msgid "Wcd: error: Unable to get current working directory: %s\n"
-msgstr "Wcd: fout: Kan huidige werkmap niet verkrijgen: %s\n"
+msgid "Unable to get current working directory: %s\n"
+msgstr "Kan huidige werkmap niet verkrijgen: %s\n"
 
 #: wcddir.c:725
 #, c-format
-msgid "Wcd: error: Unable to change to directory %s: %s\n"
-msgstr "Wcd: fout: Kan niet veranderen naar map %s: %s\n"
+msgid "Unable to change to directory %s: %s\n"
+msgstr "Kan niet veranderen naar map %s: %s\n"
 
 #: wcddir.c:740
 #, c-format
-msgid "Wcd: error: Unable to remove directory %s: %s\n"
-msgstr "Wcd: fout: Kan map %s niet verwijderen: %s\n"
+msgid "Unable to remove directory %s: %s\n"
+msgstr "Kan bestand %s niet verwijderen: %s\n"
 
 #: stack.c:101
-msgid "Wcd: Error parsing stack\n"
-msgstr "Wcd: Fout met verwerken stapel\n"
+msgid "Error parsing stack\n"
+msgstr "Fout met verwerken stapel\n"
 
 #: display.c:257
-msgid "Wcd: error in maxLength(), list == NULL\n"
-msgstr "Wcd: fout in maxLength(), list == NULL\n"
+msgid "internal error in maxLength(), list == NULL\n"
+msgstr "interne fout in maxLength(), list == NULL\n"
 
 #: display.c:277
-msgid "Wcd: error in maxLengthStack(), s == NULL\n"
-msgstr "Wcd: fout in maxLengthStack(), s == NULL\n"
+msgid "internal error in maxLengthStack(), s == NULL\n"
+msgstr "interne fout in maxLengthStack(), s == NULL\n"
 
-#. Perfect means here an exact match.
-#. Wild, the next msgid, means a non-exact match or a pattern match,
-#. like a wild card (joker) in card games.
-#. The word Perfect or Wild will be put in front of the following msgid
-#. "match for %d directories."
-#: display.c:1129
-msgid "Perfect "
-msgstr "Perfect "
-
-#: display.c:1131
-msgid "Wild "
-msgstr "Joker "
-
-#: display.c:1132
+#: display.c:1129 display.c:1504
 #, c-format
-msgid "match for %d directories."
-msgstr "gelijke voor %d mappen."
+msgid "Perfect match for %d directories."
+msgstr "Perfecte gelijke voor %d mappen."
 
-#: display.c:1137
+#: display.c:1131 display.c:1506
+#, c-format
+msgid "Wild match for %d directories."
+msgstr "Joker gelijke voor %d mappen."
+
+#: display.c:1136
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=omhoog x=omlaag ?=help  Pagina %d/%d "
 
-#: display.c:1144 display.c:1508
+#: display.c:1143 display.c:1508
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Maak een keuze (<Enter> voor afbreken): "
 
-#: display.c:1160
+#: display.c:1159
 msgid "Screenheight must be > 20 for help."
 msgstr "Schermhoogte moet groter dan 20 zijn voor help"
 
-#: display.c:1163
+#: display.c:1162
 msgid "w or <Up>         Page Up."
 msgstr "w of <Omhoog>      Pagina Omhoog."
 
-#: display.c:1164
+#: display.c:1163
 msgid "x or z or <Down>  Page Down."
 msgstr "x of z of <Omlaag> Pagina Omlaag."
 
-#: display.c:1165
+#: display.c:1164
 msgid ", or <Left>       Scroll 1 left."
 msgstr ", of <Links>       Rol 1 naar links."
 
-#: display.c:1166
+#: display.c:1165
 msgid ". or <Right>      Scroll 1 right."
 msgstr ". of <Rechts>      Rol 1 naar rechts."
 
-#: display.c:1167
+#: display.c:1166
 msgid "< or [            Scroll 10 left."
 msgstr "< of [             Rol 10 naar links."
 
-#: display.c:1168
+#: display.c:1167
 msgid "> or ]            Scroll 10 right."
 msgstr "> of ]             Rol 10 naar rechts."
 
-#: display.c:1169
+#: display.c:1168
 msgid "CTRL-a or <HOME>  Scroll to beginning."
 msgstr "CTRL-a of <HOME>   Rol naar begin."
 
-#: display.c:1170
+#: display.c:1169
 msgid "CTRL-e or <END>   Scroll to end."
 msgstr "CTRL-e of <END>    Rol naar einde."
 
-#: display.c:1171
+#: display.c:1170
 msgid "CTRL-c or <Esc>   Abort."
 msgstr "CTRL-c of <Esc>    Afbreken."
 
-#: display.c:1172
+#: display.c:1171
 msgid "<Enter>           Abort."
 msgstr "<Enter>            Afbreken."
 
-#: display.c:1173 graphics.c:1810 graphics.c:1826 graphics.c:1849
+#: display.c:1172 graphics.c:1810 graphics.c:1826 graphics.c:1849
 #: graphics.c:1866
 msgid "Press any key."
 msgstr "Druk een toets."
 
-#: display.c:1238 graphics.c:2116
-msgid ""
-"Wcd: warning: Error opening terminal, falling back to stdout interface.\n"
-msgstr ""
-"Wcd: let op: Fout tijdens openen terminal, val terug op stdout interface.\n"
+#: display.c:1237 graphics.c:2116
+msgid "Error opening terminal, falling back to stdout interface.\n"
+msgstr "Fout tijdens openen terminal, val terug op stdout interface.\n"
 
-#: display.c:1259
-msgid "Wcd: error: screen height must be larger than 3 lines.\n"
-msgstr "Wcd: fout: scherm hoogte moet groter zijn dan 3 regels.\n"
+#: display.c:1258
+msgid "screen height must be larger than 3 lines.\n"
+msgstr "scherm hoogte moet groter zijn dan 3 regels.\n"
 
-#: display.c:1293 graphics.c:2149
-msgid "Wcd: error creating scroll window.\n"
-msgstr "Wcd: fout tijdens maken rolvenster.\n"
+#: display.c:1292 graphics.c:2149
+msgid "error creating scroll window.\n"
+msgstr "fout tijdens maken rolvenster.\n"
 
-#: display.c:1312
-msgid "Wcd: error creating input window.\n"
-msgstr "Wcd: fout aanmaken invoervenster.\n"
-
-#. Perfect means here an exact match.
-#. Wild, the next msgid, means a non-exact match or a pattern match,
-#. like a wild card (joker) in card games.
-#. The word Perfect or Wild will be put in front of the following msgid
-#. "match for %lu directories."
-#: display.c:1504
-#, c-format
-msgid ""
-"\n"
-"Perfect "
-msgstr ""
-"\n"
-"Perfecte "
-
-#: display.c:1506
-#, c-format
-msgid ""
-"\n"
-"Wild "
-msgstr ""
-"\n"
-"Joker "
-
-#: display.c:1507
-#, c-format
-msgid "match for %lu directories.\n"
-msgstr "gelijke voor %lu mappen.\n"
+#: display.c:1311
+msgid "error creating input window.\n"
+msgstr "fout aanmaken invoervenster.\n"
 
 #: display.c:1550
 #, c-format
@@ -1079,200 +982,200 @@ msgid "Search: "
 msgstr "Zoek: "
 
 #: graphics.c:1795
-msgid "NAVIGATE MODE (1/2):"
+msgid "NAVIGATION MODE (1/2):"
 msgstr "NAVIGATIE MODUS (1/2):"
 
 #: graphics.c:1796
-msgid "h or <Left>       go left."
-msgstr "h of <Links>      ga naar links."
+msgid "h or <Left>       go left"
+msgstr "h of <Links>      ga naar links"
 
 #: graphics.c:1797
-msgid "j or <Down>       go down."
-msgstr "j of <Omlaag>     ga omlaag."
+msgid "j or <Down>       go down"
+msgstr "j of <Omlaag>     ga omlaag"
 
 #: graphics.c:1798
-msgid "k or <Up>         go up."
-msgstr "k of <Omhoog>     ga omhoog."
+msgid "k or <Up>         go up"
+msgstr "k of <Omhoog>     ga omhoog"
 
 #: graphics.c:1799
-msgid "l or <Right>      go right."
-msgstr "l of <Rechts>     ga naar rechts."
+msgid "l or <Right>      go right"
+msgstr "l of <Rechts>     ga naar rechts"
 
 #: graphics.c:1800
-msgid "* or v or <Space> go forward to dir with same name."
-msgstr "* of v of <Spatie> ga vooruit naar map met dezelfde naam."
+msgid "* or v or <Space> go forward to dir with same name"
+msgstr "* of v of <Spatie> ga vooruit naar map met dezelfde naam"
 
 #: graphics.c:1801
-msgid "# or p or <BS>    go backward to dir with same name."
-msgstr "# of p of <BS>    ga achteruit naar map met dezelfde naam."
+msgid "# or p or <BS>    go backward to dir with same name"
+msgstr "# of p of <BS>    ga achteruit naar map met dezelfde naam"
 
 #: graphics.c:1802
-msgid "^ or a            go to beginning of line."
-msgstr "^ of a            ga naar begin van regel."
+msgid "^ or a            go to beginning of line"
+msgstr "^ of a            ga naar begin van regel"
 
 #: graphics.c:1803
-msgid "$ or e            go to end of line."
-msgstr "$ of e            ga naar einde van regel."
+msgid "$ or e            go to end of line"
+msgstr "$ of e            ga naar einde van regel"
 
 #: graphics.c:1804
-msgid "1                 go to root dir."
-msgstr "1                 ga naar eerste map."
+msgid "1                 go to root dir"
+msgstr "1                 ga naar eerste map"
 
 #: graphics.c:1805
-msgid "g or G            go to last dir."
-msgstr "g of G            ga naar laatste map."
+msgid "g or G            go to last dir"
+msgstr "g of G            ga naar laatste map"
 
 #: graphics.c:1806
-msgid "f                 go page forward."
-msgstr "f                 ga pagina vooruit."
+msgid "f                 go page forward"
+msgstr "f                 ga pagina vooruit"
 
 #: graphics.c:1807
-msgid "b                 go page backward."
-msgstr "b                 ga pagina achteruit."
+msgid "b                 go page backward"
+msgstr "b                 ga pagina achteruit"
 
 #: graphics.c:1808
-msgid "u                 go half page up."
-msgstr "u                 ga halve pagina omhoog."
+msgid "u                 go half page up"
+msgstr "u                 ga halve pagina omhoog"
 
 #: graphics.c:1809
-msgid "d                 go half page down."
-msgstr "d                 ga halve pagina omlaag."
+msgid "d                 go half page down"
+msgstr "d                 ga halve pagina omlaag"
 
 #: graphics.c:1816
-msgid "NAVIGATE MODE (2/2):"
+msgid "NAVIGATION MODE (2/2):"
 msgstr "NAVIGATIE MODUS (2/2):"
 
 #: graphics.c:1817
-msgid "A                 switch alternative tree navigation on/off."
-msgstr "A                 in- uitschakelen alternatieve boomnavigatie."
+msgid "A                 switch alternative tree navigation on/off"
+msgstr "A                 in- uitschakelen alternatieve boomnavigatie"
 
 #: graphics.c:1818
-msgid "t                 switch centered mode on/off."
-msgstr "t                 in- uitschakelen gecentreerde modus."
+msgid "t                 switch centered mode on/off"
+msgstr "t                 in- uitschakelen gecentreerde modus"
 
 #: graphics.c:1819
-msgid "T                 toggle between line drawing and ASCII characters."
-msgstr "T                 schakel tussen lijnen en ASCII lettertekens."
+msgid "T                 toggle between line drawing and ASCII characters"
+msgstr "T                 schakel tussen lijnen en ASCII lettertekens"
 
 #: graphics.c:1820
-msgid "m                 toggle between compact and wide tree."
-msgstr "m                 schakel tussen compacte en brede boom."
+msgid "m                 toggle between compact and wide tree"
+msgstr "m                 schakel tussen compacte en brede boom"
 
 #: graphics.c:1821
-msgid "<Esc> or q        Abort."
-msgstr "<Esc> of q        Afbreken."
+msgid "<Esc> or q        abort"
+msgstr "<Esc> of q        afbreken"
 
 #: graphics.c:1822
-msgid "/                 Search forward."
-msgstr "/                 Zoek vooruit."
+msgid "/                 search forward"
+msgstr "/                 zoek vooruit"
 
 #: graphics.c:1823
-msgid "?                 Search backward."
-msgstr "?                 Zoek achteruit."
+msgid "?                 search backward"
+msgstr "?                 zoek achteruit"
 
 #: graphics.c:1824
-msgid "n                 Repeat latest / or ? search."
-msgstr "n                 Herhaal laatste / of ? zoekopdracht."
+msgid "n                 repeat last / or ? search"
+msgstr "n                 herhaal laatste / of ? zoekopdracht"
 
 #: graphics.c:1825 graphics.c:1848
-msgid "<Enter>           Select directory."
-msgstr "<Enter>           Kies map."
+msgid "<Enter>           select directory"
+msgstr "<Enter>           kies map"
 
 #: graphics.c:1832
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "ZOEK MODUS met jokertekens en submap ondersteuning:"
 
 #: graphics.c:1833
-msgid "<Left>            go left."
-msgstr "<Links>           ga naar links."
+msgid "<Left>            go left"
+msgstr "<Links>           ga naar links"
 
 #: graphics.c:1834
-msgid "<Down>            go down."
-msgstr "<Omlaag>          ga omlaag."
+msgid "<Down>            go down"
+msgstr "<Omlaag>          ga omlaag"
 
 #: graphics.c:1835
-msgid "<Up>              go up."
-msgstr "<Omhoog>          ga omhoog."
+msgid "<Up>              go up"
+msgstr "<Omhoog>          ga omhoog"
 
 #: graphics.c:1836
-msgid "<Right>           go right."
-msgstr "<Rechts>          ga naar rechts."
+msgid "<Right>           go right"
+msgstr "<Rechts>          ga naar rechts"
 
 #: graphics.c:1837
-msgid "CTRL-v            go forward to dir with same name."
-msgstr "CTRL-v            ga vooruit naar map met dezelfde naam."
+msgid "CTRL-v            go forward to dir with same name"
+msgstr "CTRL-v            ga vooruit naar map met dezelfde naam"
 
 #: graphics.c:1838
-msgid "CTRL-p            go backward to dir with same name."
-msgstr "CTRL-p            ga achteruit naar map met dezelfde naam."
+msgid "CTRL-p            go backward to dir with same name"
+msgstr "CTRL-p            ga achteruit naar map met dezelfde naam"
 
 #: graphics.c:1839
-msgid "CTRL-a            go to beginning of line."
-msgstr "CTRL-a            ga naar begin van regel."
+msgid "CTRL-a            go to beginning of line"
+msgstr "CTRL-a            ga naar begin van regel"
 
 #: graphics.c:1840
-msgid "CTRL-e            go to end of line."
-msgstr "CTRL-e            ga naar einde van regel."
+msgid "CTRL-e            go to end of line"
+msgstr "CTRL-e            ga naar einde van regel"
 
 #: graphics.c:1841
-msgid "CTRL-g            go to last dir."
-msgstr "CTRL-g            ga naar laatste map."
+msgid "CTRL-g            go to last dir"
+msgstr "CTRL-g            ga naar laatste map"
 
 #: graphics.c:1842
-msgid "CTRL-f            go page forward."
-msgstr "CTRL-f            ga pagina vooruit."
+msgid "CTRL-f            go page forward"
+msgstr "CTRL-f            ga pagina vooruit"
 
 #: graphics.c:1843
-msgid "CTRL-b            go page backward."
-msgstr "CTRL-b            ga pagina achteruit."
+msgid "CTRL-b            go page backward"
+msgstr "CTRL-b            ga pagina achteruit"
 
 #: graphics.c:1844
-msgid "CTRL-u            go half page up."
-msgstr "CTRL-u            ga halve pagina omhoog."
+msgid "CTRL-u            go half page up"
+msgstr "CTRL-u            ga halve pagina omhoog"
 
 #: graphics.c:1845
-msgid "CTRL-d            go half page down."
-msgstr "CTRL-d            ga halve pagina omlaag."
+msgid "CTRL-d            go half page down"
+msgstr "CTRL-d            ga halve pagina omlaag"
 
 #: graphics.c:1846
-msgid "<Esc> or CTRL-x   Abort SEARCH MODE."
-msgstr "<Esc> of CTRL-x   ZOEK MODUS afbreken."
+msgid "<Esc> or CTRL-x   abort SEARCH MODE"
+msgstr "<Esc> of CTRL-x   ZOEK MODUS afbreken"
 
 #: graphics.c:1847
-msgid "CTRL-n            Repeat latest / or ? search."
-msgstr "CTRL-n            Herhaal laatste / of ? zoekopdracht."
+msgid "CTRL-n            repeat last / or ? search"
+msgstr "CTRL-n            herhaal laatste / of ? zoekopdracht"
 
 #: graphics.c:1855
 msgid "ZOOMING:"
 msgstr "ZOOMEN:"
 
 #: graphics.c:1856
-msgid "z or i or CTRL-i  zoom in."
-msgstr "z of i of CTRL-i  zoom in."
+msgid "z or i or CTRL-i  zoom in"
+msgstr "z of i of CTRL-i  zoom in"
 
 #: graphics.c:1857
-msgid "Z or o or CTRL-o  zoom out."
-msgstr "Z of o of CTRL-o  zoom uit."
+msgid "Z or o or CTRL-o  zoom out"
+msgstr "Z of o of CTRL-o  zoom uit"
 
 #: graphics.c:1858
-msgid "c                 condense: fold current level."
-msgstr "c                 huidig niveau vouwen."
+msgid "c                 condense: fold current level"
+msgstr "c                 huidig niveau vouwen"
 
 #: graphics.c:1859
-msgid "C                 condense: fold subdir level."
-msgstr "C                 submap niveau vouwen."
+msgid "C                 condense: fold subdir level"
+msgstr "C                 submap niveau vouwen"
 
 #: graphics.c:1860
-msgid "w                 condense: fold current and sub levels."
-msgstr "w                 huidig en subniveaus vouwen."
+msgid "w                 condense: fold current and subdir levels"
+msgstr "w                 huidig en subniveaus vouwen"
 
 #: graphics.c:1861
-msgid "y or CTRL-y       uncondense: unfold current and sub levels."
-msgstr "y of CTRL-y       huidig en subniveaus ontvouwen."
+msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
+msgstr "y of CTRL-y       huidig en subniveaus ontvouwen"
 
 #: graphics.c:1862
-msgid "r or CTRL-r       uncondense: unfold all directories."
-msgstr "r of CTRL-r       alle mappen ontvouwen."
+msgid "r or CTRL-r       uncondense: unfold all directories"
+msgstr "r of CTRL-r       alle mappen ontvouwen"
 
 #: graphics.c:1863
 msgid "-                 fold directory."
@@ -1287,12 +1190,12 @@ msgid "l or <Right>      unfold and go right."
 msgstr "l of <Rechts>     ontvouwen en naar rechts gaan."
 
 #: graphics.c:1869
-msgid "Screenheight must be > 21 for help"
-msgstr "Schermhoogte moet groter dan 21 zijn voor help"
+msgid "Screenheight must be > 21 for help."
+msgstr "Schermhoogte moet groter dan 21 zijn voor help."
 
 #: wfixpath.c:64
-msgid "Wcd: malloc error in wcd_fixpath()\n"
-msgstr "Wcd: malloc fout in wcd_fixpath()\n"
+msgid "malloc error in wcd_fixpath()\n"
+msgstr "malloc fout in wcd_fixpath()\n"
 
 #: c3po/Error.c:40
 #, c-format

@@ -61,7 +61,7 @@ void wcd_fixpath(char *in, size_t lim)
 
   if ((out = (char *) malloc(lim)) == NULL)
   {
-  	fprintf(stderr, "%s", _("Wcd: malloc error in wcd_fixpath()\n"));
+  	print_error("%s", _("malloc error in wcd_fixpath()\n"));
 	return;
   }
 

@@ -120,6 +120,32 @@ const wcd_char *default_mask = ALL_FILES_MASK;
  }
 #endif
 
+int print_msg(const char *format, ...)
+{
+   va_list args;
+   int rc;
+   
+   printf("Wcd: ");
+   va_start(args, format);
+   rc = vprintf(format, args);
+   va_end(args);
+
+   return(rc);
+}
+
+int print_error(const char *format, ...)
+{
+   va_list args;
+   int rc;
+   
+   fprintf(stderr,_("Wcd: error: "));
+   va_start(args, format);
+   rc = vfprintf(stderr, format, args);
+   va_end(args);
+
+   return(rc);
+}
+
 /* Use wcd_fprintf() when we write to files. To get an
  * error message when the disk is full or quota is exceeded.
 
@@ -144,7 +170,7 @@ int wcd_fprintf(FILE *stream, const char *format, ...)
    if (rc < 0)
    {
       errstr = strerror(errno);
-      fprintf(stderr,_("Wcd: error: %s\n"), errstr);
+      print_error("%s\n", errstr);
    }
 
    return(rc);
@@ -158,7 +184,7 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
   int loc_quiet;
 
 #if DEBUG
-  fprintf(stderr, _("Wcd: wcd_fopen: Opening file \"%s\" mode=%s quiet=%d\n"),filename, m, quiet);
+  fprintf(stderr, "Wcd: wcd_fopen: Opening file \"%s\" mode=%s quiet=%d\n",filename, m, quiet);
   loc_quiet = 0;
 #else
   loc_quiet = quiet;
@@ -171,7 +197,7 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
       if ( !loc_quiet )
       {
         errstr = strerror(errno);
-        fprintf(stderr,_("Wcd: error: Unable to read file %s: %s\n"), filename, errstr);
+        print_error(_("Unable to read file %s: %s\n"), filename, errstr);
       }
       return(NULL);
     }
@@ -180,7 +206,7 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
     {
       if ( !loc_quiet )
       {
-        fprintf(stderr,_("Wcd: error: Unable to read file %s: Not a regular file.\n"), filename);
+        print_error(_("Unable to read file %s: Not a regular file.\n"), filename);
       }
       return(NULL);
     }
@@ -191,12 +217,12 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
   {
     errstr = strerror(errno);
     if (m[0] == 'r')
-      fprintf(stderr,_("Wcd: error: Unable to read file %s: %s\n"), filename, errstr);
+      print_error(_("Unable to read file %s: %s\n"), filename, errstr);
     else
-      fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
+      print_error(_("Unable to write file %s: %s\n"), filename, errstr);
   }
 #if DEBUG
-  fprintf(stderr, _("Wcd: wcd_fopen: Opening file \"%s\" OK.\n"), filename);
+  fprintf(stderr, "Wcd: wcd_fopen: Opening file \"%s\" OK.\n", filename);
 #endif
   return(f);
 }
@@ -281,13 +307,13 @@ void wcd_fclose(FILE *fp, const char *filename, const char *m, const char *funct
    {
      errstr = strerror(errno);
      if (m[0] == 'w')
-       fprintf(stderr,_("Wcd: error: Unable to write file %s: %s\n"), filename, errstr);
+       print_error(_("Unable to write file %s: %s\n"), filename, errstr);
      else
-       fprintf(stderr,_("Wcd: error: Unable to close file %s: %s\n"), filename, errstr);
+       print_error(_("Unable to close file %s: %s\n"), filename, errstr);
    }
 #if DEBUG
    else
-     fprintf(stderr, _("Wcd: %sClosing file \"%s\" OK.\n"), functionname, filename);
+     fprintf(stderr, "Wcd: %sClosing file \"%s\" OK.\n", functionname, filename);
 #endif
 }
 
@@ -773,7 +799,7 @@ void rmTree(char *dir)
       if ( unlink(fb.ff_name) != 0)  /* not a directory */
       {
          errstr = strerror(errno);
-         fprintf(stderr,_("Wcd: error: Unable to remove file %s: %s\n"), fb.ff_name, errstr);
+         print_error(_("Unable to remove file %s: %s\n"), fb.ff_name, errstr);
       }
 
       rc = findnext(&fb);
@@ -838,7 +864,7 @@ void rmTree(char *dir)
       if ( unlink(fb.dd_name) != 0)  /* not a directory */
       {
          errstr = strerror(errno);
-         fprintf(stderr,_("Wcd: error: Unable to remove file %s: %s\n"), fb.dd_name, errstr);
+         print_error(_("Unable to remove file %s: %s\n"), fb.dd_name, errstr);
       }
 
       rc = dd_findnext(&fb);
@@ -926,7 +952,7 @@ void finddirs(char* dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
    {
-      fprintf(stdout,_("Wcd: error: finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
+      print_error(_("finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
       wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
       return;
    };
@@ -994,7 +1020,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
    {
-      fprintf(stdout,_("Wcd: error: finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
+      print_error(_("finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
       wcd_chdir(DIR_PARENT,1); /* go to parent directory */
       return;
    };
@@ -1170,12 +1196,12 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
                }
          }
       }
-      fprintf(stderr,_("Wcd: Writing file \"%s\"\n"), treefile);
+      print_msg(_("Writing file \"%s\"\n"), treefile);
    }
 
    if (outfile == NULL) /* Did we succeed? */
    {
-      fprintf(stderr, "%s", _("Wcd: error: Write access to tree-file denied.\nWcd: Set TEMP environment variable if this is a read-only disk.\n"));
+      print_error("%s", _("Write access to tree-file denied.\nWcd: Set TEMP environment variable if this is a read-only disk.\n"));
       return ;
    }
 #else
@@ -1309,7 +1335,7 @@ void deleteLink(char *path, char *treefile)
         else
         {
           errstr = strerror(errno);
-          fprintf(stderr,_("Wcd: error: Unable to remove symbolic link %s: %s\n"),path, errstr);
+          print_error(_("Unable to remove symbolic link %s: %s\n"),path, errstr);
         }
    }
    else
@@ -1318,7 +1344,7 @@ void deleteLink(char *path, char *treefile)
  else
  {
    errstr = strerror(errno);
-   fprintf(stderr,"Wcd: error: %s: %s\n",path,errstr);
+   print_error("%s: %s\n",path,errstr);
  }
 
 }
@@ -1347,7 +1373,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
    if (lstat(path, &buf) != 0)
    {
      errstr = strerror(errno);
-     fprintf(stderr,"Wcd: error: %s: %s\n",path,errstr);
+     print_error("%s: %s\n",path,errstr);
      return;
    }
 
@@ -1395,7 +1421,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
          {
             while ( (c != 'y') && (c != 'Y') && (c != 'n') && (c != 'N'))
             {
-               printf(_("Wcd: Recursively remove %s  Are you sure? y/n :"),path);
+               print_msg(_("Recursively remove %s? Are you sure? y/n :"),path);
 
                    /* Note that getchar reads from stdin and
                       is line buffered; this means it will
@@ -1453,8 +1479,8 @@ int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const in
 
    if (i >= lim-1)
    {
-      fprintf(stderr,_("Wcd: error: line too long in wcd_getline() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
-      fprintf(stderr,_("Wcd: file: %s, line: %d,"),file_name, *line_nr);
+      print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),"wcd_getline()",(lim-1));
+      print_error(_("file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
       j = i+1;
       while (((c=getc(infile)) != '\n') && (!feof(infile)))
@@ -1513,8 +1539,8 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, cons
 
    if (i >= lim-1)
    {
-      fprintf(stderr,_("Wcd: error: line too long in wcd_wgetline() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
-      fprintf(stderr,_("Wcd: file: %s, line: %d,"),file_name, *line_nr);
+      print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),"wcd_wgetline()",(lim-1));
+      print_error(_("file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
       j = i+1;
       while (((c_low=fgetc(infile)) != EOF)  && ((c_high=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')))
@@ -1572,8 +1598,8 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, c
 
    if (i >= lim-1)
    {
-      fprintf(stderr,_("Wcd: error: line too long in wcd_wgetline_be() ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),(lim-1));
-      fprintf(stderr,_("Wcd: file: %s, line: %d,"),file_name, *line_nr);
+      print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),"wcd_wgetline_be()",(lim-1));
+      print_error(_("file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
       j = i+1;
       while (((c_high=fgetc(infile)) != EOF)  && ((c_low=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')))
@@ -2350,7 +2376,7 @@ void create_dir_for_file(char *f)
 #else
           if (wcd_mkdir(path,0)==0)
 #endif
-             fprintf(stderr,_("Wcd: creating directory %s\n"), path);
+             print_msg(_("creating directory %s\n"), path);
        }
    }
 }
@@ -2370,7 +2396,7 @@ void empty_wcdgo(char *go_file, int use_GoScript, int verbose)
       return;
 
    if (verbose)
-     fprintf(stderr,_("Wcd: Writing file \"%s\"\n"), go_file);
+     print_msg(_("Writing file \"%s\"\n"), go_file);
 
    /* try to create directory for go-script if it doesn't exist */
    create_dir_for_file(go_file);
@@ -2393,7 +2419,7 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript, 
       return;
 
    if (verbose)
-     fprintf(stderr,_("Wcd: Writing file \"%s\"\n"), go_file);
+     print_msg(_("Writing file \"%s\"\n"), go_file);
 
    /* try to create directory for go-script if it doesn't exist */
    create_dir_for_file(go_file);
@@ -2472,7 +2498,7 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
       return;
 
    if (verbose)
-     fprintf(stderr,_("Wcd: Writing file \"%s\"\n"), go_file);
+     print_msg(_("Writing file \"%s\"\n"), go_file);
 
    /* try to create directory for go-script if it doesn't exist */
    create_dir_for_file(go_file);
@@ -2677,7 +2703,7 @@ int main(int argc,char** argv)
       }
       else
       {
-         fprintf(stderr, "%s", _("Wcd: error: Value of environment variable WCDLOCALEDIR is too long.\n"));
+         print_error(_("Value of environment variable %s is too long.\n"),"WCDLOCALEDIR");
          strcpy(localedir,LOCALEDIR);
       }
    }
@@ -2706,7 +2732,7 @@ int main(int argc,char** argv)
         if (putenv("TERM=") != 0)
         {
              ptr = strerror(errno);
-             fprintf(stderr,_("Wcd: error: Failed to unset environment variable TERM: %s\n"), ptr);
+             print_error(_("Failed to unset environment variable TERM: %s\n"), ptr);
         }
     }
 #endif
@@ -2717,7 +2743,7 @@ int main(int argc,char** argv)
     } else {
        if (strlen(ptr) > (DD_MAXPATH -20))
        {
-         fprintf(stderr, "%s", _("Wcd: error: Value of environment variable HOME is too long.\n"));
+         print_error(_("Value of environment variable %s is too long.\n"),"HOME");
          return(1);
        }
        strncpy(rootscandir,ptr,sizeof(rootscandir));
@@ -2732,7 +2758,7 @@ int main(int argc,char** argv)
    {
       if (strlen(ptr) > (DD_MAXPATH -20))
       {
-         fprintf(stderr, "%s", _("Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"));
+         print_error(_("Value of environment variable %s is too long.\n"),"HOME or WCDHOME");
          return(1);
       }
 
@@ -2764,7 +2790,7 @@ int main(int argc,char** argv)
    else
    {
 # if (defined(WCD_WINZSH) || defined(WCD_WINPWRSH))
-     fprintf(stderr, "%s", _("Wcd: error: Environment variable HOME or WCDHOME is not set.\n"));
+     print_error("%s", _("Environment variable HOME or WCDHOME is not set.\n"));
       return(1);
 # endif
 # if (defined(_WIN32) || defined(WCD_DOSBASH) || defined(__OS2__))
@@ -2793,14 +2819,14 @@ int main(int argc,char** argv)
 
    if (ptr == NULL)
    {
-      fprintf(stderr, "%s", _("Wcd: error: Environment variable HOME or WCDHOME is not set.\n"));
+      print_error("%s", _("Environment variable HOME or WCDHOME is not set.\n"));
       return(1);
    }
    else
    {
       if (strlen(ptr) > (DD_MAXPATH -20))
       {
-         fprintf(stderr, "%s", _("Wcd: error: Value of environment variable HOME or WCDHOME is too long.\n"));
+         print_error(_("Value of environment variable %s is too long.\n"),"HOME or WCDHOME");
          return(1);
       }
       strcpy(rootdir,ptr);
@@ -2869,7 +2895,7 @@ int main(int argc,char** argv)
    {
       if (strlen(ptr) > DD_MAXPATH)
       {
-         fprintf(stderr, "%s", _("Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"));
+         print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
          return(1);
       }
       strcpy(homedir,ptr);
@@ -2978,15 +3004,15 @@ int main(int argc,char** argv)
          case 'v':
             verbose = 1;
             if ((ptr = getenv("HOME")) == NULL)
-               printf(_("Wcd: HOME is not defined\n"));
+               print_msg(_("HOME is not defined\n"));
             else
-               printf(_("Wcd: HOME=\"%s\"\n"),ptr);
+               print_msg(_("HOME=\"%s\"\n"),ptr);
             if ((ptr = getenv("WCDHOME")) == NULL)
-               printf(_("Wcd: WCDHOME is not defined\n"));
+               print_msg(_("WCDHOME is not defined\n"));
             else
-               printf(_("Wcd: WCDHOME=\"%s\"\n"),ptr);
+               print_msg(_("WCDHOME=\"%s\"\n"),ptr);
             if ((ptr = getenv("WCDSCAN")) == NULL)
-               printf(_("Wcd: WCDSCAN is not defined\n"));
+               print_msg(_("WCDSCAN is not defined\n"));
             break;
          case 'q':
             quieter = 1;
@@ -3011,7 +3037,7 @@ int main(int argc,char** argv)
             if (argv[i][2] == 'd') /* dump tree to stdout */
                graphics |= WCD_GRAPH_DUMP ;
 #else
-            fprintf(stderr, "%s", _("Wcd: Graphics mode only supported in wcd with curses based interface.\n"));
+            print_msg("%s", _("Graphics mode only supported in wcd with curses based interface.\n"));
 #endif
             break;
          case 'L':
@@ -3038,7 +3064,7 @@ int main(int argc,char** argv)
             {
                use_GoScript = 0;
                if (verbose)
-                  printf(_("Wcd: use_GoScript = 0\n"));
+                  print_msg("use_GoScript = 0\n");
             }
 #endif
             break;
@@ -3284,7 +3310,7 @@ int main(int argc,char** argv)
                   wcd_fixpath(tmp,sizeof(tmp)) ;
                   rmDriveLetter(tmp,&use_HOME);
                   wcd_fprintf(outfile,"%s %s\n",argv[i],tmp);
-                  printf(_("Wcd: %s added to aliasfile %s\n"),tmp,aliasfile);
+                  print_msg(_("%s added to aliasfile %s\n"),tmp,aliasfile);
                   wcd_fclose(outfile, aliasfile, "w", "main: ");
                }
             }
@@ -3351,7 +3377,7 @@ int main(int argc,char** argv)
                   strcpy(tmp,homedir);
                if ((strlen(tmp)+strlen(argv[i])+strlen(TREEFILE)+1) > DD_MAXPATH )
                {
-                  fprintf(stderr, "%s", _("Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"));
+                  print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
                   return(1);
                }
                strcat(tmp,"/");
@@ -3370,7 +3396,7 @@ int main(int argc,char** argv)
                      strcpy(tmp2,homedir);
                   if ((strlen(tmp2)+strlen(argv[i])+strlen(TREEFILE)+1+5) > DD_MAXPATH )
                   {
-                     fprintf(stderr, "%s", _("Wcd: error: Value of environment variable WCDUSERSHOME is too long.\n"));
+                     print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
                      return(1);
                   }
                   strcat(tmp2,"/");
@@ -3383,7 +3409,7 @@ int main(int argc,char** argv)
                      addToNamesetArray(textNew(tmp2),extra_files);
                   }
                   else
-                     fprintf(stderr, _("Wcd: error: Unable to read file %s or %s\n"), tmp, tmp2);
+                     print_error(_("Unable to read file %s or %s\n"), tmp, tmp2);
                }
             }
             else
@@ -3533,13 +3559,13 @@ int main(int argc,char** argv)
    if (verbose > 0)
    {
       for (ii=0; ii<scan_dirs->size; ++ii)
-         printf(_("Wcd: WCDSCAN directory {%s}\n"),elementAtNamesetArray(ii, scan_dirs));
+         print_msg(_("WCDSCAN directory {%s}\n"),elementAtNamesetArray(ii, scan_dirs));
       for (ii=0; ii<banned_dirs->size; ++ii)
-         printf(_("Wcd: banning {%s}\n"),elementAtNamesetArray(ii, banned_dirs));
+         print_msg(_("banning {%s}\n"),elementAtNamesetArray(ii, banned_dirs));
       for (ii=0; ii<exclude->size; ++ii)
-         printf(_("Wcd: excluding {%s}\n"),elementAtNamesetArray(ii, exclude));
+         print_msg(_("excluding {%s}\n"),elementAtNamesetArray(ii, exclude));
       for (ii=0; ii<filter->size; ++ii)
-         printf(_("Wcd: filtering {%s}\n"),elementAtNamesetArray(ii, filter));
+         print_msg(_("filtering {%s}\n"),elementAtNamesetArray(ii, filter));
    }
 
 

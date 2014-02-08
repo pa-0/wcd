@@ -156,6 +156,8 @@ int check_double_match(char *dir, nameset set);
 void scanfile(char *org_dir, char *filename, int ignore_case, nameset pm, nameset wm, nameset bd, nameset filter, int relative, int wildOnly, int ignore_diacritics);
 void scanaliasfile(char *org_dir, char *filename, nameset pm, nameset wm, int wildOnly);
 int  strcompare(const char*, const char*, int);
+int print_msg(const char *format, ...);
+int print_error(const char *format, ...);
 void print_help(void);
 #ifdef ENABLE_NLS
 void print_version(char *localedir);

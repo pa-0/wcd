@@ -8,7 +8,7 @@ Author: Erwin Waterlander
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 2002-2013 Erwin Waterlander
+Copyright (C) 2002-2014 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -101,7 +101,7 @@ void exterr( void )
 
    errbuf[0] = namebuf[0] = '\0';
    if ( WNetGetLastError( &err, errbuf, sizeof errbuf, namebuf, sizeof namebuf ) == NO_ERROR )
-      printf( _("Wcd: Error %lu (\"%s\") reported by \"%s\".\n"),
+      print_error(_("%lu (\"%s\") reported by \"%s\".\n"),
          err, errbuf, namebuf );
    return;
 }
@@ -124,7 +124,7 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
    if ( rc == ERROR_ACCESS_DENIED )
    {
       /* printf( "%-6.6s %-4.4s%*s  Error 5 -- access denied\n", "", "", level * 2, "" ); */
-      printf( _("Wcd: access denied.\n"));
+      print_msg( _("access denied.\n"));
       return 1;
    }
 
@@ -156,7 +156,7 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
                /* type = "server"; */ break;
             case RESOURCEDISPLAYTYPE_SHARE:
                /* type = "share"; */
-               printf( "Wcd: %s\n", buf[ui].lpRemoteName );
+               print_msg( "%s\n", buf[ui].lpRemoteName );
                strncpy(path, buf[ui].lpRemoteName, DD_MAXPATH);
                wcd_fixpath(path, DD_MAXPATH);
                addToNamesetArray(textNew(path), n);
@@ -205,7 +205,7 @@ void wcd_getshares(char* path, nameset n)
       *path = '\\';
       *(path+1) = '\\';
 
-      printf(_("Wcd: Searching for shared directories on server %s\n"), path);
+      print_msg(_("Searching for shared directories on server %s\n"), path);
 
       nr.dwScope       = RESOURCE_GLOBALNET;
       nr.dwType        = RESOURCETYPE_ANY;
@@ -217,7 +217,7 @@ void wcd_getshares(char* path, nameset n)
 
       doEnum( 0, &nr, n );
    }
-   printf(_("Wcd: Found %lu shared directories on server %s\n"), (unsigned long)getSizeOfNamesetArray(n), path);
+   print_msg(_("Found %lu shared directories on server %s\n"), (unsigned long)getSizeOfNamesetArray(n), path);
 }
 
 #endif
@@ -228,7 +228,7 @@ void wcd_getshares(char* path, nameset n)
    Use WIN32 API */
 
 
-void PrintError(DWORD dw)
+void wcd_PrintError(DWORD dw)
 {
     /* Retrieve the system error message for the last-error code */
 
@@ -311,8 +311,8 @@ int wcd_islink(const char *dir, int quiet)
       if ( !quiet )
       {
          dw = GetLastError();
-         wcd_printf(_("Wcd: error: wcd_islink: "));
-         PrintError(dw);
+         print_error("wcd_islink(): ");
+         wcd_PrintError(dw);
       }
       return(0);
    }
@@ -343,8 +343,8 @@ char *wcd_getcwd(char *buf, size_t size)
    if (err == 0)
    {
      dw = GetLastError();
-     fprintf(stderr, "%s", _("Wcd: error: Unable to get current working directory: "));
-     PrintError(dw);
+     print_error("%s", _("Unable to get current working directory: "));
+     wcd_PrintError(dw);
      return(NULL);  /* fail */
    }
    else
@@ -372,7 +372,7 @@ int wcd_chdir(char *buf, int quiet)
       {
          dw = GetLastError();
          wcd_printf(_("Wcd: error: Unable to change to directory %s: "), buf);
-         PrintError(dw);
+         wcd_PrintError(dw);
       }
       return(1);   /* fail */
    }
@@ -403,7 +403,7 @@ int wcd_mkdir(char *buf, int quiet)
      {
        dw = GetLastError();
        wcd_printf(_("Wcd: error: Unable to create directory %s: "), buf);
-       PrintError(dw);
+       wcd_PrintError(dw);
      }
      return(1);  /* fail */
    }
@@ -432,7 +432,7 @@ int wcd_rmdir(char *buf, int quiet)
      {
        dw = GetLastError();
        wcd_printf(_("Wcd: error: Unable to remove directory %s: "), buf);
-       PrintError(dw);
+       wcd_PrintError(dw);
      }
      return(1);  /* fail */
    }
@@ -519,7 +519,7 @@ int wcd_isdir(char *dir, int quiet)
         {
           dw = GetLastError();
           wcd_printf("Wcd: %s: ", dir);
-          PrintError(dw);
+          wcd_PrintError(dw);
         }
         return(-1);  /* fail */
       }
@@ -536,7 +536,7 @@ int wcd_isdir(char *dir, int quiet)
          if (!quiet)
          {
            errstr = strerror(errno);
-           fprintf(stderr,"Wcd: %s: %s\n", dir, errstr);
+           print_error("%s: %s\n", dir, errstr);
          }
          return(-1);
       }
@@ -561,7 +561,7 @@ int wcd_mkdir(char *buf, mode_t m, int quiet)
   if ( !quiet && err)
   {
     errstr = strerror(errno);
-    fprintf(stderr,_("Wcd: error: Unable to create directory %s: %s\n"), buf, errstr);
+    print_error(_("Unable to create directory %s: %s\n"), buf, errstr);
   }
   return(err);
 }
@@ -578,7 +578,7 @@ int wcd_mkdir(char *buf, int quiet)
   if ( !quiet && err)
   {
     errstr = strerror(errno);
-    fprintf(stderr,_("Wcd: error: Unable to create directory %s: %s\n"), buf, errstr);
+    print_error(_("Unable to create directory %s: %s\n"), buf, errstr);
   }
   return(err);
 }
@@ -703,7 +703,7 @@ char *wcd_getcwd(char *buf, size_t size)
    if ( err == NULL)
    {
      errstr = strerror(errno);
-     fprintf(stderr,_("Wcd: error: Unable to get current working directory: %s\n"), errstr);
+     print_error(_("Unable to get current working directory: %s\n"), errstr);
    }
 #ifdef UNIX
    else
@@ -722,7 +722,7 @@ int wcd_chdir(char *buf, int quiet)
   if ( !quiet && err)
   {
     errstr = strerror(errno);
-    fprintf(stderr,_("Wcd: error: Unable to change to directory %s: %s\n"), buf, errstr);
+    print_error(_("Unable to change to directory %s: %s\n"), buf, errstr);
   }
   return(err);
 }
@@ -737,7 +737,7 @@ int wcd_rmdir(char *buf, int quiet)
   if ( !quiet && err)
   {
     errstr = strerror(errno);
-    fprintf(stderr,_("Wcd: error: Unable to remove directory %s: %s\n"), buf, errstr);
+    print_error(_("Unable to remove directory %s: %s\n"), buf, errstr);
   }
   return(err);
 }
@@ -768,7 +768,7 @@ int wcd_isdir(char *dir, int quiet)
       if (!quiet)
       {
         errstr = strerror(errno);
-        fprintf(stderr,"Wcd: %s: %s\n", dir, errstr);
+        print_error("%s: %s\n", dir, errstr);
       }
       return(-1);
    }

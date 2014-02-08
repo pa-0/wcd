@@ -254,7 +254,7 @@ size_t maxLength(nameset list)
 
    if (list == NULL)
    {
-      fprintf(stderr, "%s", _("Wcd: error in maxLength(), list == NULL\n"));
+      print_error("%s", _("internal error in maxLength(), list == NULL\n"));
       return 32 ;
    }
 
@@ -274,7 +274,7 @@ size_t maxLengthStack(WcdStack s)
 
    if (s == NULL)
    {
-      fprintf(stderr, "%s", _("Wcd: error in maxLengthStack(), s == NULL\n"));
+      print_error("%s", _("internal error in maxLengthStack(), s == NULL\n"));
       return 32 ;
    }
 
@@ -512,10 +512,9 @@ struct text_info ti;
    if (list != NULL)
    {
       if(perfect)
-         cprintf("Perfect ");
+         cprintf("Perfect match for %d directories.\n\r",size);
       else
-         cprintf("Wild ");
-      cprintf("match for %d directories.\n\r",size);
+         cprintf("Wild match for %d directories.\n\r",size);
    }
    else
       cprintf("\n\r");
@@ -1125,11 +1124,11 @@ void displayRefresh(int init)
 
    if (wcd_display.list != NULL)
    {
+      wmove (wcd_display.inputWin, 1, 0);
       if(wcd_display.perfect)
-        wcd_mvwaddstr(wcd_display.inputWin,1,0,_("Perfect "));
+         wprintw(wcd_display.inputWin,_("Perfect match for %d directories."),wcd_display.size);
       else
-        wcd_mvwaddstr(wcd_display.inputWin,1,0,_("Wild "));
-      wprintw(wcd_display.inputWin,_("match for %d directories."),wcd_display.size);
+         wprintw(wcd_display.inputWin,_("Wild match for %d directories."),wcd_display.size);
    }
 
    page = wcd_display.bottom / wcd_display.lines_per_page + 1 ;
@@ -1235,7 +1234,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
    sp = newterm(NULL,stdout,stdin);
    if (sp == NULL)
    {
-      fprintf(stderr, "%s", _("Wcd: warning: Error opening terminal, falling back to stdout interface.\n"));
+      print_error("%s", _("Error opening terminal, falling back to stdout interface.\n"));
       return WCD_ERR_CURSES;
    }
 #endif
@@ -1256,7 +1255,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 #ifdef XCURSES
       XCursesExit();
 #endif
-      fprintf(stderr, "%s", _("Wcd: error: screen height must be larger than 3 lines.\n"));
+      print_error("%s", _("screen height must be larger than 3 lines.\n"));
       return WCD_ERR_CURSES;
    }
 
@@ -1290,7 +1289,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 #ifdef XCURSES
       XCursesExit();
 #endif
-      fprintf(stderr, "%s", _("Wcd: error creating scroll window.\n"));
+      print_error("%s", _("error creating scroll window.\n"));
       return WCD_ERR_CURSES;
    }
 
@@ -1309,7 +1308,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 #ifdef XCURSES
       XCursesExit();
 #endif
-      fprintf(stderr, "%s", _("Wcd: error creating input window.\n"));
+      print_error("%s", _("error creating input window.\n"));
       return WCD_ERR_CURSES;
    }
 
@@ -1500,11 +1499,12 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
          return(WCD_ERR_LIST);
       else
       {
+         printf("\n");
          if(perfect)
-           printf(_("\nPerfect "));
+           printf(_("Perfect match for %d directories."),(int)list->size);
          else
-           printf(_("\nWild "));
-         printf(_("match for %lu directories.\n"),(unsigned long)list->size);
+           printf(_("Wild match for %d directories."),(int)list->size);
+         printf("\n");
          printf(_("Please choose one (<Enter> to abort): "));
       }
 
