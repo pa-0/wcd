@@ -920,7 +920,7 @@ msgstr "<Enter>            afbreken"
 
 #: display.c:694
 msgid "Type w or x to quit help."
-msgstr ""
+msgstr "Type w of x om help te verlaten"
 
 #: display.c:1178
 msgid "x or z or <Down>  page down"
