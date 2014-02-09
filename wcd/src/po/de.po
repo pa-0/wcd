@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-09 20:17+0100\n"
+"POT-Creation-Date: 2014-02-09 22:34+0100\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -907,90 +907,102 @@ msgstr "interner Fehler in maxLength(), list == NULL\n"
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr "interner Fehler in maxLengthStack(), s == NULL\n"
 
-#: display.c:1129 display.c:1504
+#: display.c:517 display.c:1144 display.c:1519
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr "Perfekt passt auf %d Verzeichnisse."
 
-#: display.c:1131 display.c:1506
+#: display.c:519 display.c:1146 display.c:1521
 #, c-format
 msgid "Wild match for %d directories."
 msgstr "Platzhalter passt auf %d Verzeichnisse."
 
-#: display.c:1136
-#, c-format
-msgid " w=up x=down ?=help  Page %d/%d "
-msgstr " w=hoch x=runter ?=Hilfe Seite %d/%d "
-
-#: display.c:1143 display.c:1508 display.c:1551
+#: display.c:525 display.c:1158 display.c:1523 display.c:1566
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Bitte wählen Sie eins aus (<Eingabe> bricht ab): "
 
-#: display.c:1159
+#: display.c:527 display.c:603 display.c:635 display.c:1151
+#, c-format
+msgid " w=up x=down ?=help  Page %d/%d "
+msgstr " w=hoch x=runter ?=Hilfe Seite %d/%d "
+
+#: display.c:679 display.c:1174
 msgid "Screenheight must be > 20 for help."
 msgstr "Bildschirmhöhe muss für Hilfe > 20 sein."
 
-#: display.c:1162
-msgid "w or <Up>         Page Up."
-msgstr "w oder <hoch>      Seite hoch."
+#: display.c:684 display.c:1177
+msgid "w or <Up>         page up"
+msgstr "w oder <hoch>      Seite hoch"
 
-#: display.c:1163
-msgid "x or z or <Down>  Page Down."
-msgstr "x,z oder <Runter>  Seite runter."
+#: display.c:685
+msgid "x or z or <Down>  page down."
+msgstr "x,z oder <Runter>  Seite runter"
 
-#: display.c:1164
-msgid ", or <Left>       Scroll 1 left."
-msgstr ", oder <Links>     1 nach links rollen."
+#: display.c:686 display.c:1179
+msgid ", or <Left>       scroll 1 left"
+msgstr ", oder <Links>     1 nach links rollen"
 
-#: display.c:1165
-msgid ". or <Right>      Scroll 1 right."
-msgstr ". oder <Rechts>    1 nach rechts rollen."
+#: display.c:687 display.c:1180
+msgid ". or <Right>      scroll 1 right"
+msgstr ". oder <Rechts>    1 nach rechts rollen"
 
-#: display.c:1166
-msgid "< or [            Scroll 10 left."
-msgstr "< oder [           10 nach links rollen."
+#: display.c:688 display.c:1181
+msgid "< or [            scroll 10 left"
+msgstr "< oder [           10 nach links rollen"
 
-#: display.c:1167
-msgid "> or ]            Scroll 10 right."
-msgstr "> oder ]           10 nach rechtsw rollen."
+#: display.c:689 display.c:1182
+msgid "> or ]            scroll 10 right"
+msgstr "> oder ]           10 nach rechtsw rollen"
 
-#: display.c:1168
-msgid "CTRL-a or <HOME>  Scroll to beginning."
-msgstr "Strg-a oder <Home> An den Anfang springen."
+#: display.c:690 display.c:1183
+msgid "CTRL-a or <HOME>  scroll to beginning"
+msgstr "Strg-a oder <Home> an den Anfang springen"
 
-#: display.c:1169
-msgid "CTRL-e or <END>   Scroll to end."
-msgstr "Strg-e oder <Ende> Zum Ende springen."
+#: display.c:691
+msgid "CTRL-e or <END>   scroll to end."
+msgstr "Strg-e oder <Ende> zum Ende springen"
 
-#: display.c:1170
-msgid "CTRL-c or <Esc>   Abort."
-msgstr "Strg-c oder <Esc>  Abbruch."
+#: display.c:692 display.c:1185
+msgid "CTRL-c or <Esc>   abort"
+msgstr "Strg-c oder <Esc>  Abbruch"
 
-#: display.c:1171
-msgid "<Enter>           Abort."
-msgstr "<Eingabe>          Abbruch."
+#: display.c:693 display.c:1186
+msgid "<Enter>           abort"
+msgstr "<Eingabe>          Abbruch"
 
-#: display.c:1172 graphics.c:1810 graphics.c:1826 graphics.c:1849
+#: display.c:694
+msgid "Type w or x to quit help."
+msgstr ""
+
+#: display.c:1178
+msgid "x or z or <Down>  page down"
+msgstr "x,z oder <Runter>  Seite runter"
+
+#: display.c:1184
+msgid "CTRL-e or <END>   scroll to end"
+msgstr "Strg-e oder <Ende> zum Ende springen"
+
+#: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
 #: graphics.c:1866
 msgid "Press any key."
 msgstr "Eine beliebige Taste drücken."
 
-#: display.c:1237 graphics.c:2116
+#: display.c:1252 graphics.c:2116
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Fehler beim Öffnen des Terminals, es wird die\n"
 "Stdout-Schnittstelle verwendet.\n"
 
-#: display.c:1258
+#: display.c:1273
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "die Bildschirmhöhe muss mehr als 3 Zeilen sein.\n"
 
-#: display.c:1292 graphics.c:2149
+#: display.c:1307 graphics.c:2149
 msgid "error creating scroll window.\n"
 msgstr "Fehler beim Erzeugen des rollbaren Fensters.\n"
 
-#: display.c:1311
+#: display.c:1326
 msgid "error creating input window.\n"
 msgstr "Fehler beim Erzeugen des Eingabefensters.\n"
 

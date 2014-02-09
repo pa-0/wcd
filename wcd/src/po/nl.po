@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-09 20:17+0100\n"
+"POT-Creation-Date: 2014-02-09 22:34+0100\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -854,88 +854,100 @@ msgstr "interne fout in maxLength(), list == NULL\n"
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr "interne fout in maxLengthStack(), s == NULL\n"
 
-#: display.c:1129 display.c:1504
+#: display.c:517 display.c:1144 display.c:1519
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr "Perfecte gelijke voor %d mappen."
 
-#: display.c:1131 display.c:1506
+#: display.c:519 display.c:1146 display.c:1521
 #, c-format
 msgid "Wild match for %d directories."
 msgstr "Joker gelijke voor %d mappen."
 
-#: display.c:1136
-#, c-format
-msgid " w=up x=down ?=help  Page %d/%d "
-msgstr " w=omhoog x=omlaag ?=help  Pagina %d/%d "
-
-#: display.c:1143 display.c:1508 display.c:1551
+#: display.c:525 display.c:1158 display.c:1523 display.c:1566
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Maak een keuze (<Enter> voor afbreken): "
 
-#: display.c:1159
+#: display.c:527 display.c:603 display.c:635 display.c:1151
+#, c-format
+msgid " w=up x=down ?=help  Page %d/%d "
+msgstr " w=omhoog x=omlaag ?=help  Pagina %d/%d "
+
+#: display.c:679 display.c:1174
 msgid "Screenheight must be > 20 for help."
 msgstr "Schermhoogte moet groter dan 20 zijn voor help"
 
-#: display.c:1162
-msgid "w or <Up>         Page Up."
-msgstr "w of <Omhoog>      Pagina Omhoog."
+#: display.c:684 display.c:1177
+msgid "w or <Up>         page up"
+msgstr "w of <Omhoog>      pagina omhoog"
 
-#: display.c:1163
-msgid "x or z or <Down>  Page Down."
-msgstr "x of z of <Omlaag> Pagina Omlaag."
+#: display.c:685
+msgid "x or z or <Down>  page down."
+msgstr "x of z of <Omlaag> pagina omlaag"
 
-#: display.c:1164
-msgid ", or <Left>       Scroll 1 left."
-msgstr ", of <Links>       Rol 1 naar links."
+#: display.c:686 display.c:1179
+msgid ", or <Left>       scroll 1 left"
+msgstr ", of <Links>       rol 1 naar links"
 
-#: display.c:1165
-msgid ". or <Right>      Scroll 1 right."
-msgstr ". of <Rechts>      Rol 1 naar rechts."
+#: display.c:687 display.c:1180
+msgid ". or <Right>      scroll 1 right"
+msgstr ". of <Rechts>      rol 1 naar rechts"
 
-#: display.c:1166
-msgid "< or [            Scroll 10 left."
-msgstr "< of [             Rol 10 naar links."
+#: display.c:688 display.c:1181
+msgid "< or [            scroll 10 left"
+msgstr "< of [             rol 10 naar links"
 
-#: display.c:1167
-msgid "> or ]            Scroll 10 right."
-msgstr "> of ]             Rol 10 naar rechts."
+#: display.c:689 display.c:1182
+msgid "> or ]            scroll 10 right"
+msgstr "> of ]             rol 10 naar rechts"
 
-#: display.c:1168
-msgid "CTRL-a or <HOME>  Scroll to beginning."
-msgstr "CTRL-a of <HOME>   Rol naar begin."
+#: display.c:690 display.c:1183
+msgid "CTRL-a or <HOME>  scroll to beginning"
+msgstr "CTRL-a of <HOME>   rol naar begin"
 
-#: display.c:1169
-msgid "CTRL-e or <END>   Scroll to end."
-msgstr "CTRL-e of <END>    Rol naar einde."
+#: display.c:691
+msgid "CTRL-e or <END>   scroll to end."
+msgstr "CTRL-e of <END>    rol naar einde"
 
-#: display.c:1170
-msgid "CTRL-c or <Esc>   Abort."
-msgstr "CTRL-c of <Esc>    Afbreken."
+#: display.c:692 display.c:1185
+msgid "CTRL-c or <Esc>   abort"
+msgstr "CTRL-c of <Esc>    afbreken"
 
-#: display.c:1171
-msgid "<Enter>           Abort."
-msgstr "<Enter>            Afbreken."
+#: display.c:693 display.c:1186
+msgid "<Enter>           abort"
+msgstr "<Enter>            afbreken"
 
-#: display.c:1172 graphics.c:1810 graphics.c:1826 graphics.c:1849
+#: display.c:694
+msgid "Type w or x to quit help."
+msgstr ""
+
+#: display.c:1178
+msgid "x or z or <Down>  page down"
+msgstr "x of z of <Omlaag> pagina omlaag"
+
+#: display.c:1184
+msgid "CTRL-e or <END>   scroll to end"
+msgstr "CTRL-e of <END>    rol naar einde"
+
+#: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
 #: graphics.c:1866
 msgid "Press any key."
 msgstr "Druk een toets."
 
-#: display.c:1237 graphics.c:2116
+#: display.c:1252 graphics.c:2116
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr "Fout tijdens openen terminal, val terug op stdout interface.\n"
 
-#: display.c:1258
+#: display.c:1273
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "scherm hoogte moet groter zijn dan 3 regels.\n"
 
-#: display.c:1292 graphics.c:2149
+#: display.c:1307 graphics.c:2149
 msgid "error creating scroll window.\n"
 msgstr "fout tijdens maken rolvenster.\n"
 
-#: display.c:1311
+#: display.c:1326
 msgid "error creating input window.\n"
 msgstr "fout aanmaken invoervenster.\n"
 
@@ -1180,3 +1192,4 @@ msgid ""
 msgstr ""
 "Wcd: fout in '%s', geen ruimte meer voor toewijzing\n"
 "Wcd: Onvoldoende geheugen\n"
+

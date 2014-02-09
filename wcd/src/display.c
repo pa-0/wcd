@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2013 Erwin Waterlander
+Copyright (C) 1997-2014 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -427,6 +427,8 @@ int lines_per_page ; /* number of lines to print per page */
 char number_str[WCD_MAX_INPSTR];
 char *buffer;
 struct text_info ti;
+int pageoffset;
+char buf[WCD_MAX_INPSTR];
 
    gettextinfo(&ti);
 
@@ -508,21 +510,26 @@ struct text_info ti;
 
    clrscr();
 
-   cprintf("\n\r");
+   cprintf("\r\n");
    if (list != NULL)
    {
       if(perfect)
-         cprintf("Perfect match for %d directories.\n\r",size);
+         cprintf(_("Perfect match for %d directories."),size);
       else
-         cprintf("Wild match for %d directories.\n\r",size);
+         cprintf(_("Wild match for %d directories."),size);
+      cprintf("\r\n");
    }
    else
-      cprintf("\n\r");
+      cprintf("\r\n");
 
-   cprintf("Please choose one (<Enter> to abort): ");
+   cprintf(_("Please choose one (<Enter> to abort): "));
    fflush(stdout);
-   gotoxy (PAGEOFFSET, 2);
-   cprintf("w=up x=down ?=help  Page %d/%d      ",page,(size -1)/lines_per_page +1);
+   sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+   pageoffset = ti.screenwidth - (int)strlen(buf);
+   if (pageoffset < 0)
+      pageoffset = 0;
+   gotoxy (pageoffset, 2);
+   cprintf("%s",buf);
    gotoxy (OFFSET + n, 3);
 
    while ((c != 13 )&&(( c < 'a' ) || ( c > ('a'+scrollWinHeight-1) || ( c > 'v' ) )))
@@ -593,8 +600,12 @@ struct text_info ti;
          page = bottom / lines_per_page + 1 ;
 
          window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
-         gotoxy (PAGEOFFSET, 2);
-         cprintf("w=up x=down ?=help  Page %d/%d      ",page,(size -1)/lines_per_page +1);
+         sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+         pageoffset = ti.screenwidth - (int)strlen(buf);
+         if (pageoffset < 0)
+            pageoffset = 0;
+         gotoxy (pageoffset, 2);
+         cprintf("%s",buf);
          gotoxy (OFFSET + n, 3);
 
 
@@ -621,8 +632,12 @@ struct text_info ti;
          page = bottom / lines_per_page + 1 ;
 
          window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
-         gotoxy (PAGEOFFSET, 2);
-         cprintf("w=up x=down ?=help  Page %d/%d      ",page,(size -1)/lines_per_page +1);
+         sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+         pageoffset = ti.screenwidth - (int)strlen(buf);
+         if (pageoffset < 0)
+            pageoffset = 0;
+         gotoxy (pageoffset, 2);
+         cprintf("%s",buf);
          gotoxy (OFFSET + n, 3);
       }/* Page down */
 
@@ -661,22 +676,22 @@ struct text_info ti;
           if (scrollWinHeight < 17)
           {
              gotoxy(1,1);
-             cprintf("Screenheight must be > 20 for help.");
+             cprintf(_("Screenheight must be > 20 for help."));
           }
           else
           {
              gotoxy(1,1);
-             cprintf("w or <Up>         Page Up.\r\n");
-             cprintf("x or z or <Down>  Page Down.\r\n");
-             cprintf(", or <Left>       Scroll 1 left.\r\n");
-             cprintf(". or <Right>      Scroll 1 right.\r\n");
-             cprintf("< or [            Scroll 10 left.\r\n");
-             cprintf("> or ]            Scroll 10 right.\r\n");
-             cprintf("CTRL-a or <HOME>  Scroll to beginning.\r\n");
-             cprintf("CTRL-e or <END>   Scroll to end.\r\n");
-             cprintf("CTRL-c or <Esc>   Abort.\r\n");
-             cprintf("<Enter>           Abort.\r\n");
-             cprintf("Type w or x to quit help.\r\n");
+             cprintf(_("w or <Up>         page up")); cprintf("\r\n");
+             cprintf(_("x or z or <Down>  page down.")); cprintf("\r\n");
+             cprintf(_(", or <Left>       scroll 1 left")); cprintf("\r\n");
+             cprintf(_(". or <Right>      scroll 1 right")); cprintf("\r\n");
+             cprintf(_("< or [            scroll 10 left")); cprintf("\r\n");
+             cprintf(_("> or ]            scroll 10 right")); cprintf("\r\n");
+             cprintf(_("CTRL-a or <HOME>  scroll to beginning")); cprintf("\r\n");
+             cprintf(_("CTRL-e or <END>   scroll to end.")); cprintf("\r\n");
+             cprintf(_("CTRL-c or <Esc>   abort")); cprintf("\r\n");
+             cprintf(_("<Enter>           abort")); cprintf("\r\n");
+             cprintf(_("Type w or x to quit help.")); cprintf("\r\n");
           }
       }
 
@@ -1159,16 +1174,16 @@ void displayHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win,0,0,_("Screenheight must be > 20 for help."));
    else
    {
-      wcd_mvwaddstr(win, 0,0,_("w or <Up>         Page Up."));
-      wcd_mvwaddstr(win, 1,0,_("x or z or <Down>  Page Down."));
-      wcd_mvwaddstr(win, 2,0,_(", or <Left>       Scroll 1 left."));
-      wcd_mvwaddstr(win, 3,0,_(". or <Right>      Scroll 1 right."));
-      wcd_mvwaddstr(win, 4,0,_("< or [            Scroll 10 left."));
-      wcd_mvwaddstr(win, 5,0,_("> or ]            Scroll 10 right."));
-      wcd_mvwaddstr(win, 6,0,_("CTRL-a or <HOME>  Scroll to beginning."));
-      wcd_mvwaddstr(win, 7,0,_("CTRL-e or <END>   Scroll to end."));
-      wcd_mvwaddstr(win, 8,0,_("CTRL-c or <Esc>   Abort."));
-      wcd_mvwaddstr(win, 9,0,_("<Enter>           Abort."));
+      wcd_mvwaddstr(win, 0,0,_("w or <Up>         page up"));
+      wcd_mvwaddstr(win, 1,0,_("x or z or <Down>  page down"));
+      wcd_mvwaddstr(win, 2,0,_(", or <Left>       scroll 1 left"));
+      wcd_mvwaddstr(win, 3,0,_(". or <Right>      scroll 1 right"));
+      wcd_mvwaddstr(win, 4,0,_("< or [            scroll 10 left"));
+      wcd_mvwaddstr(win, 5,0,_("> or ]            scroll 10 right"));
+      wcd_mvwaddstr(win, 6,0,_("CTRL-a or <HOME>  scroll to beginning"));
+      wcd_mvwaddstr(win, 7,0,_("CTRL-e or <END>   scroll to end"));
+      wcd_mvwaddstr(win, 8,0,_("CTRL-c or <Esc>   abort"));
+      wcd_mvwaddstr(win, 9,0,_("<Enter>           abort"));
       wcd_mvwaddstr(win,11,0,_("Press any key."));
    }
    prefresh(win,0,0,0,0,height-1,COLS-1);
