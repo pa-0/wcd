@@ -652,7 +652,8 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
    if  ((outfile = wcd_fopen(filename,"a",0)) != NULL)
    {
      wcd_fprintf(outfile,"%s\n",tmp);
-     wcd_printf(_("Wcd: %s added to file %s\n"),tmp,filename);
+     print_msg("");
+     wcd_printf(_("%s added to file %s\n"),tmp,filename);
 
      if (parents)
      {
@@ -665,7 +666,8 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
          if (strrchr(tmp,DIR_SEPARATOR) != NULL)
          {
             wcd_fprintf(outfile,"%s\n",tmp);
-            wcd_printf(_("Wcd: %s added to file %s\n"),tmp,filename);
+            print_msg("");
+            wcd_printf(_("%s added to file %s\n"),tmp,filename);
          }
       }
      }
@@ -952,7 +954,8 @@ void finddirs(char* dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
    {
-      print_error(_("finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
+      print_error(_("finddirs(): can't determine path in directory %s\n"),dir);
+      print_error(_("path probably too long.\n"));
       wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
       return;
    };
@@ -1020,7 +1023,8 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 
    if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
    {
-      print_error(_("finddirs(): can't determine path in directory %s\nWcd: path probably too long.\n"),dir);
+      print_error(_("finddirs(): can't determine path in directory %s\n"),dir);
+      print_error(_("path probably too long.\n"));
       wcd_chdir(DIR_PARENT,1); /* go to parent directory */
       return;
    };
@@ -1131,11 +1135,13 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
 
    if(wcd_isdir(path,0) != 0)
    {
-      wcd_printf(_("Wcd: %s is not a directory.\n"),path);
+      print_msg("");
+      wcd_printf(_("%s is not a directory.\n"),path);
       return ;
    }
 
-   wcd_printf(_("Wcd: Please wait. Scanning disk. Building treedata-file %s from %s\n"),treefile, path);
+   print_msg("");
+   wcd_printf(_("Please wait. Scanning disk. Building treedata-file %s from %s\n"),treefile, path);
 
 #ifdef _WCD_DOSFS
       changeDisk(path,&changedrive,drive,use_HOME);
@@ -1201,7 +1207,8 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
 
    if (outfile == NULL) /* Did we succeed? */
    {
-      print_error("%s", _("Write access to tree-file denied.\nWcd: Set TEMP environment variable if this is a read-only disk.\n"));
+      print_error("%s", _("Write access to tree-file denied.\n"));
+      print_error("%s", _("Set TEMP environment variable if this is a read-only disk.\n"));
       return ;
    }
 #else
@@ -1329,7 +1336,8 @@ void deleteLink(char *path, char *treefile)
         if (unlink(tmp2)==0)    /* delete the link */
 #endif
           {
-            wcd_printf(_("Wcd: Removed symbolic link %s\n"),path);
+            print_msg("");
+            wcd_printf(_("Removed symbolic link %s\n"),path);
             cleanTreeFile(treefile,path);
           }
         else
@@ -1339,7 +1347,8 @@ void deleteLink(char *path, char *treefile)
         }
    }
    else
-      wcd_printf(_("Wcd: %s is a symbolic link to a file.\n"),path);
+      print_msg("");
+      wcd_printf(_("%s is a symbolic link to a file.\n"),path);
  }
  else
  {
@@ -1442,7 +1451,8 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
             /* rmTree leaves an empty directory */
             if (wcd_rmdir(path,0)==0)
             {
-                wcd_printf(_("Wcd: Removed directory %s\n"),path);
+                print_msg("");
+                wcd_printf(_("Removed directory %s\n"),path);
                 cleanTreeFile(treefile,path);
             }
 
@@ -1451,12 +1461,16 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
       else
         if (wcd_rmdir(path,0)==0)
         {
-          wcd_printf(_("Wcd: Removed directory %s\n"),path);
+          print_msg("");
+          wcd_printf(_("Removed directory %s\n"),path);
           cleanTreeFile(treefile,path);
         }
    }
    else
-     wcd_printf(_("Wcd: %s is not a directory.\n"),path);
+   {
+     print_msg("");
+     wcd_printf(_("%s is not a directory.\n"),path);
+   }
 }
 /********************************************************************
  *
@@ -2309,7 +2323,7 @@ void print_version()
 #endif
    printf("\n");
    printf(_("Download the latest executables and sources from:\n"));
-   printf(_("http://waterlan.home.xs4all.nl/\n"));
+   printf("http://waterlan.home.xs4all.nl/\n");
 }
 
 void print_license()
@@ -3006,11 +3020,11 @@ int main(int argc,char** argv)
             if ((ptr = getenv("HOME")) == NULL)
                print_msg(_("HOME is not defined\n"));
             else
-               print_msg(_("HOME=\"%s\"\n"),ptr);
+               print_msg("HOME=\"%s\"\n",ptr);
             if ((ptr = getenv("WCDHOME")) == NULL)
                print_msg(_("WCDHOME is not defined\n"));
             else
-               print_msg(_("WCDHOME=\"%s\"\n"),ptr);
+               print_msg("WCDHOME=\"%s\"\n",ptr);
             if ((ptr = getenv("WCDSCAN")) == NULL)
                print_msg(_("WCDSCAN is not defined\n"));
             break;
@@ -3832,7 +3846,9 @@ int main(int argc,char** argv)
    if ((perfect_list->size==0)&&(wild_list->size == 0))  /* No match at all */
    {
       if ( !(use_stdout & WCD_STDOUT_DUMP) ) /* don't print message if option -od is used */
-         wcd_printf(_("Wcd: No directory found matching %s\nWcd: Perhaps you need to rescan the disk or path is banned.\n"),dir);
+         print_msg("");
+         wcd_printf(_("No directory found matching %s\n"),dir);
+         print_msg(_("Perhaps you need to rescan the disk or path is banned.\n"));
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
       empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
@@ -3998,7 +4014,8 @@ int main(int argc,char** argv)
          }
          else
          {
-            wcd_printf(_("Wcd: Cannot change to %s\n"),best_match);
+            print_msg("");
+            wcd_printf(_("Cannot change to %s\n"),best_match);
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript,verbose);
 #endif

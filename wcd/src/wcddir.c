@@ -371,7 +371,8 @@ int wcd_chdir(char *buf, int quiet)
       if ( !quiet )
       {
          dw = GetLastError();
-         wcd_printf(_("Wcd: error: Unable to change to directory %s: "), buf);
+         print_error("");
+         wcd_printf(_("Unable to change to directory %s: "), buf);
          wcd_PrintError(dw);
       }
       return(1);   /* fail */
@@ -402,7 +403,8 @@ int wcd_mkdir(char *buf, int quiet)
      if ( !quiet )
      {
        dw = GetLastError();
-       wcd_printf(_("Wcd: error: Unable to create directory %s: "), buf);
+       print_error("");
+       wcd_printf(_("Unable to create directory %s: "), buf);
        wcd_PrintError(dw);
      }
      return(1);  /* fail */
@@ -431,7 +433,8 @@ int wcd_rmdir(char *buf, int quiet)
      if ( !quiet )
      {
        dw = GetLastError();
-       wcd_printf(_("Wcd: error: Unable to remove directory %s: "), buf);
+       print_error("");
+       wcd_printf(_("Unable to remove directory %s: "), buf);
        wcd_PrintError(dw);
      }
      return(1);  /* fail */

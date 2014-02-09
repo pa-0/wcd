@@ -1547,7 +1547,8 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
             if ( use_stdout & WCD_STDOUT_DUMP )
               return(WCD_ERR_LIST);
 
-            printf(_("\nPlease choose one (<Enter> to abort): "));
+	    printf("\n");
+            printf(_("Please choose one (<Enter> to abort): "));
             i = wcd_get_int();
 
             if (( i <=0)||(i > (int)ws->size)) /* fail */
