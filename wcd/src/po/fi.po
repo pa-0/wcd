@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-09 22:34+0100\n"
+"POT-Creation-Date: 2014-02-10 21:59+0100\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -282,7 +282,7 @@ msgstr "  -I,  --ignore-diacritics     Ohita diakrittiset merkit\n"
 
 #: wcd.c:2157
 #, c-format
-msgid "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
+msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
 msgstr ""
 "  +I,  --no-ignore-diacritics  Ota huomioon diakriittiset merkit (oletus)\n"
 
@@ -750,7 +750,7 @@ msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN ympäristömuuttujaa ei ole asetettu\n"
 
 #: wcd.c:3054
-msgid "Graphics mode only supported in wcd with curses based interface.\n"
+msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr ""
 "Graffinen moodi tuettu ainoastaan ohjelman curses-kirjaston versioissa.\n"
 
@@ -899,8 +899,8 @@ msgstr ""
 msgid "w or <Up>         page up"
 msgstr "w tai <Up>          Sivu ylös"
 
-#: display.c:685
-msgid "x or z or <Down>  page down."
+#: display.c:685 display.c:1178
+msgid "x or z or <Down>  page down"
 msgstr "x tai z tai <Down>  Sivu alas"
 
 #: display.c:686 display.c:1179
@@ -923,8 +923,8 @@ msgstr "> tai ]             Vieritys 10 oikealle"
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr "CTRL-a tai <HOME>   Sivun alkuun"
 
-#: display.c:691
-msgid "CTRL-e or <END>   scroll to end."
+#: display.c:691 display.c:1184
+msgid "CTRL-e or <END>   scroll to end"
 msgstr "CTRL-e tai <END>    Sivun loppuun"
 
 #: display.c:692 display.c:1185
@@ -938,14 +938,6 @@ msgstr "<Enter>             Keskeytys"
 #: display.c:694
 msgid "Type w or x to quit help."
 msgstr ""
-
-#: display.c:1178
-msgid "x or z or <Down>  page down"
-msgstr "x tai z tai <Down>  Sivu alas"
-
-#: display.c:1184
-msgid "CTRL-e or <END>   scroll to end"
-msgstr "CTRL-e tai <END>    Sivun loppuun"
 
 #: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
 #: graphics.c:1866
@@ -972,8 +964,8 @@ msgstr "syötteen ikkunaa ei voi luoda.\n"
 
 #: graphics.c:279
 #, c-format
-msgid "Wcd: error: line too long in function getTreeLine()"
-msgstr "Wcd: error: line too long in function getTreeLine()"
+msgid "Wcd: error: path too long"
+msgstr ""
 
 #: graphics.c:1771
 msgid "/ = search forward,  ? = search backward,  : = help"
@@ -1184,32 +1176,34 @@ msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r tai CTRL-r        näkymä: avaa kaikki hakemistot"
 
 #: graphics.c:1863
-msgid "-                 fold directory."
-msgstr "-                   näkymä: tiivistä hakemisto."
+msgid "-                 fold directory"
+msgstr "-                   näkymä: tiivistä hakemisto"
 
 #: graphics.c:1864
-msgid "+ or =            unfold directory."
-msgstr "+ tai =             näkymä: avaa hakemisto."
+msgid "+ or =            unfold directory"
+msgstr "+ tai =             näkymä: avaa hakemisto"
 
 #: graphics.c:1865
-msgid "l or <Right>      unfold and go right."
-msgstr "l tai <Right>       näkymä: avaa ja siirry oikealle."
+msgid "l or <Right>      unfold and go right"
+msgstr "l tai <Right>       näkymä: avaa ja siirry oikealle"
 
 #: graphics.c:1869
 msgid "Screenheight must be > 21 for help."
 msgstr ""
 "Help-ikkunan avaaminen ei onnistu. Ikkunan korkeuden tulee olla > 21 riviä."
 
-#: wfixpath.c:64
+#: wfixpath.c:65
 msgid "malloc error in wcd_fixpath()\n"
 msgstr "malloc virhe funktiossa wcd_fixpath()\n"
 
-#: c3po/Error.c:40
+#: c3po/Error.c:41
 #, c-format
-msgid ""
-"Wcd: error in '%s', no space left for allocation\n"
-"Wcd: Insufficient memory\n"
+msgid "in '%s', insufficient memory for allocation\n"
 msgstr ""
-"Wcd: virhe kohdassa '%s', muistin varaus ei onnistu\n"
-"Wcd: Riitämätön määrä muistia\n"
 
+#~ msgid ""
+#~ "Wcd: error in '%s', no space left for allocation\n"
+#~ "Wcd: Insufficient memory\n"
+#~ msgstr ""
+#~ "Wcd: virhe kohdassa '%s', muistin varaus ei onnistu\n"
+#~ "Wcd: Riitämätön määrä muistia\n"

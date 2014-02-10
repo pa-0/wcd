@@ -24,6 +24,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "std_macr.h"
 #include "structur.h"
 #include "../config.h"
+#include "../wcd.h"
 
 expfun void c3po_beep(int number_times)
 {
@@ -37,7 +38,6 @@ expfun void c3po_beep(int number_times)
 expfun void malloc_error(text function_name)
 {
    c3po_beep(1);
-   fprintf (stderr, _("Wcd: error in '%s', no space left for allocation\nWcd: Insufficient memory\n"), function_name);
-
-	exit(1);
+   print_error(_("in '%s', insufficient memory for allocation\n"), function_name);
+   exit(1);
 }

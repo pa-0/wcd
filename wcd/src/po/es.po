@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-09 22:34+0100\n"
+"POT-Creation-Date: 2014-02-10 21:59+0100\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -285,9 +285,9 @@ msgstr "  -I,  --ignore-diacritics     Ignora signos diacríticos\n"
 
 #: wcd.c:2157
 #, c-format
-msgid "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
+msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
 msgstr ""
-"  +I,  --no-ignore-diacritics  Contempla signos diacríticos (por defecto)\n"
+"  +I,  --no-ignore-diacritics  contempla signos diacríticos (por defecto)\n"
 
 #: wcd.c:2158
 #, c-format
@@ -750,7 +750,7 @@ msgid "WCDSCAN is not defined\n"
 msgstr "La variable de entorno WCDSCAN no está definida\n"
 
 #: wcd.c:3054
-msgid "Graphics mode only supported in wcd with curses based interface.\n"
+msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Modo gráfico sólo soportado en wcd con interfase basada en curses.\n"
 
 #: wcd.c:3327
@@ -895,8 +895,8 @@ msgstr "La altura de la pantalla debe ser > 20 para la ayuda."
 msgid "w or <Up>         page up"
 msgstr "w o <Arriba>      avanza página"
 
-#: display.c:685
-msgid "x or z or <Down>  page down."
+#: display.c:685 display.c:1178
+msgid "x or z or <Down>  page down"
 msgstr "x o <Abajo>       retrocede página"
 
 #: display.c:686 display.c:1179
@@ -919,8 +919,8 @@ msgstr "> o ]             desliza 10 a la derecha"
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr "CTRL-a o <Inicio> desliza al inicio"
 
-#: display.c:691
-msgid "CTRL-e or <END>   scroll to end."
+#: display.c:691 display.c:1184
+msgid "CTRL-e or <END>   scroll to end"
 msgstr "CTRL-e o <Fin>    desliza al fin"
 
 #: display.c:692 display.c:1185
@@ -934,14 +934,6 @@ msgstr "<Intro>           aborta"
 #: display.c:694
 msgid "Type w or x to quit help."
 msgstr ""
-
-#: display.c:1178
-msgid "x or z or <Down>  page down"
-msgstr "x o <Abajo>       retrocede página"
-
-#: display.c:1184
-msgid "CTRL-e or <END>   scroll to end"
-msgstr "CTRL-e o <Fin>    desliza al fin"
 
 #: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
 #: graphics.c:1866
@@ -966,8 +958,8 @@ msgstr "error al crear ventana de entrada.\n"
 
 #: graphics.c:279
 #, c-format
-msgid "Wcd: error: line too long in function getTreeLine()"
-msgstr "Wcd: error: línea demasiado larga en función getTreeLine()"
+msgid "Wcd: error: path too long"
+msgstr "Wcd: error: la ruta es demasiado larga"
 
 #: graphics.c:1771
 msgid "/ = search forward,  ? = search backward,  : = help"
@@ -1178,31 +1170,33 @@ msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r o CTRL-r        expandir: expandir todos los directorios"
 
 #: graphics.c:1863
-msgid "-                 fold directory."
-msgstr "-                 abrir directorio."
+msgid "-                 fold directory"
+msgstr "-                 abrir directorio"
 
 #: graphics.c:1864
-msgid "+ or =            unfold directory."
-msgstr "+ o =             cerrar directorio."
+msgid "+ or =            unfold directory"
+msgstr "+ o =             cerrar directorio"
 
 #: graphics.c:1865
-msgid "l or <Right>      unfold and go right."
-msgstr "l o <Derecha>     cerrar e ir a la derecha."
+msgid "l or <Right>      unfold and go right"
+msgstr "l o <Derecha>     cerrar e ir a la derecha"
 
 #: graphics.c:1869
 msgid "Screenheight must be > 21 for help."
 msgstr "La altura de la pantalla debe ser > 21 para la ayuda."
 
-#: wfixpath.c:64
+#: wfixpath.c:65
 msgid "malloc error in wcd_fixpath()\n"
 msgstr "error de malloc en wcd_fixpath()\n"
 
-#: c3po/Error.c:40
+#: c3po/Error.c:41
 #, c-format
-msgid ""
-"Wcd: error in '%s', no space left for allocation\n"
-"Wcd: Insufficient memory\n"
+msgid "in '%s', insufficient memory for allocation\n"
 msgstr ""
-"Wcd: error en '%s', no hay espacio para asignación\n"
-"Wcd: Memoria insuficiente\n"
 
+#~ msgid ""
+#~ "Wcd: error in '%s', no space left for allocation\n"
+#~ "Wcd: Insufficient memory\n"
+#~ msgstr ""
+#~ "Wcd: error en '%s', no hay espacio para asignación\n"
+#~ "Wcd: Memoria insuficiente\n"

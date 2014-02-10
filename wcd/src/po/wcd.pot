@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-09 22:34+0100\n"
+"POT-Creation-Date: 2014-02-10 21:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -260,7 +260,7 @@ msgstr ""
 
 #: wcd.c:2157
 #, c-format
-msgid "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
+msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
 msgstr ""
 
 #: wcd.c:2158
@@ -716,7 +716,7 @@ msgid "WCDSCAN is not defined\n"
 msgstr ""
 
 #: wcd.c:3054
-msgid "Graphics mode only supported in wcd with curses based interface.\n"
+msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr ""
 
 #: wcd.c:3327
@@ -861,8 +861,8 @@ msgstr ""
 msgid "w or <Up>         page up"
 msgstr ""
 
-#: display.c:685
-msgid "x or z or <Down>  page down."
+#: display.c:685 display.c:1178
+msgid "x or z or <Down>  page down"
 msgstr ""
 
 #: display.c:686 display.c:1179
@@ -885,8 +885,8 @@ msgstr ""
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr ""
 
-#: display.c:691
-msgid "CTRL-e or <END>   scroll to end."
+#: display.c:691 display.c:1184
+msgid "CTRL-e or <END>   scroll to end"
 msgstr ""
 
 #: display.c:692 display.c:1185
@@ -899,14 +899,6 @@ msgstr ""
 
 #: display.c:694
 msgid "Type w or x to quit help."
-msgstr ""
-
-#: display.c:1178
-msgid "x or z or <Down>  page down"
-msgstr ""
-
-#: display.c:1184
-msgid "CTRL-e or <END>   scroll to end"
 msgstr ""
 
 #: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
@@ -932,7 +924,7 @@ msgstr ""
 
 #: graphics.c:279
 #, c-format
-msgid "Wcd: error: line too long in function getTreeLine()"
+msgid "Wcd: error: path too long"
 msgstr ""
 
 #: graphics.c:1771
@@ -1144,28 +1136,26 @@ msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr ""
 
 #: graphics.c:1863
-msgid "-                 fold directory."
+msgid "-                 fold directory"
 msgstr ""
 
 #: graphics.c:1864
-msgid "+ or =            unfold directory."
+msgid "+ or =            unfold directory"
 msgstr ""
 
 #: graphics.c:1865
-msgid "l or <Right>      unfold and go right."
+msgid "l or <Right>      unfold and go right"
 msgstr ""
 
 #: graphics.c:1869
 msgid "Screenheight must be > 21 for help."
 msgstr ""
 
-#: wfixpath.c:64
+#: wfixpath.c:65
 msgid "malloc error in wcd_fixpath()\n"
 msgstr ""
 
-#: c3po/Error.c:40
+#: c3po/Error.c:41
 #, c-format
-msgid ""
-"Wcd: error in '%s', no space left for allocation\n"
-"Wcd: Insufficient memory\n"
+msgid "in '%s', insufficient memory for allocation\n"
 msgstr ""

@@ -1,4 +1,4 @@
-5.2.5 beta 3
+5.2.5 beta 4
   - Switch to MinGW-w64 compiler for Windows 32 bit.
   - Makefile: Wcd compiles in MSYS2/MinGW-w64 environment.
     See http://sourceforge.net/projects/msys2/

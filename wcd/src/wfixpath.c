@@ -18,6 +18,7 @@
 #include <string.h>
 #include "tailor.h"
 #include "config.h"
+#include "wcd.h"
 
 int wcd_is_slash(int c)
 {

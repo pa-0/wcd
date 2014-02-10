@@ -2154,7 +2154,7 @@ void print_help()
 #endif
 
    printf(_("  -I,  --ignore-diacritics     Ignore diacritics\n"));
-   printf(_("  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"));
+   printf(_("  +I,  --no-ignore-diacritics  regard diacritics (default)\n"));
    printf(_("  -j,  --just-go          Just go mode\n"));
    printf(_("  -k,  --keep-paths       Keep paths\n"));
    printf(_("  -K,  --color            colors\n"));
@@ -3051,7 +3051,7 @@ int main(int argc,char** argv)
             if (argv[i][2] == 'd') /* dump tree to stdout */
                graphics |= WCD_GRAPH_DUMP ;
 #else
-            print_msg("%s", _("Graphics mode only supported in wcd with curses based interface.\n"));
+            print_msg("%s", _("Graphics mode only supported in wcd with curses-based interface.\n"));
 #endif
             break;
          case 'L':

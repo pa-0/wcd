@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-09 22:34+0100\n"
+"POT-Creation-Date: 2014-02-10 21:59+0100\n"
 "PO-Revision-Date: 2010-11-12 12:15+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -286,13 +286,13 @@ msgstr ""
 #: wcd.c:2156
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
-msgstr "  -I,  --ignore-diacritics     Diakritische Zeichen ignorieren\n"
+msgstr "  -I,  --ignore-diacritics     diakritische Zeichen Ignorieren\n"
 
 #: wcd.c:2157
 #, c-format
-msgid "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
+msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
 msgstr ""
-"  +I,  --no-ignore-diacritics  Diakritische Zeichen nicht ignorieren "
+"  +I,  --no-ignore-diacritics  diakritische Zeichen nicht ignorieren "
 "(Standardeinstellung)\n"
 
 #: wcd.c:2158
@@ -787,9 +787,9 @@ msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN ist nicht definiert\n"
 
 #: wcd.c:3054
-msgid "Graphics mode only supported in wcd with curses based interface.\n"
+msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr ""
-"Grafikmodus wird nur von wcd mit Curses basierter Oberfläche\n"
+"Grafikmodus wird nur von wcd mit Curses-basierter Oberfläche\n"
 "     unterstützt.\n"
 
 #: wcd.c:3327
@@ -935,8 +935,8 @@ msgstr "Bildschirmhöhe muss für Hilfe > 20 sein."
 msgid "w or <Up>         page up"
 msgstr "w oder <hoch>      Seite hoch"
 
-#: display.c:685
-msgid "x or z or <Down>  page down."
+#: display.c:685 display.c:1178
+msgid "x or z or <Down>  page down"
 msgstr "x,z oder <Runter>  Seite runter"
 
 #: display.c:686 display.c:1179
@@ -959,8 +959,8 @@ msgstr "> oder ]           10 nach rechtsw rollen"
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr "Strg-a oder <Home> an den Anfang springen"
 
-#: display.c:691
-msgid "CTRL-e or <END>   scroll to end."
+#: display.c:691 display.c:1184
+msgid "CTRL-e or <END>   scroll to end"
 msgstr "Strg-e oder <Ende> zum Ende springen"
 
 #: display.c:692 display.c:1185
@@ -974,14 +974,6 @@ msgstr "<Eingabe>          Abbruch"
 #: display.c:694
 msgid "Type w or x to quit help."
 msgstr ""
-
-#: display.c:1178
-msgid "x or z or <Down>  page down"
-msgstr "x,z oder <Runter>  Seite runter"
-
-#: display.c:1184
-msgid "CTRL-e or <END>   scroll to end"
-msgstr "Strg-e oder <Ende> zum Ende springen"
 
 #: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
 #: graphics.c:1866
@@ -1008,8 +1000,8 @@ msgstr "Fehler beim Erzeugen des Eingabefensters.\n"
 
 #: graphics.c:279
 #, c-format
-msgid "Wcd: error: line too long in function getTreeLine()"
-msgstr "wcd: Fehler: Die Zeile ist zu lang in der Funktion getTreeLine()"
+msgid "Wcd: error: path too long"
+msgstr "wcd: Fehler: Pfad zu lang."
 
 #: graphics.c:1771
 msgid "/ = search forward,  ? = search backward,  : = help"
@@ -1223,31 +1215,33 @@ msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r oder Strg-r         dekomprimieren: alle Ebenen ausfalten"
 
 #: graphics.c:1863
-msgid "-                 fold directory."
-msgstr "-                     Verzeichnis einfalten."
+msgid "-                 fold directory"
+msgstr "-                     Verzeichnis einfalten"
 
 #: graphics.c:1864
-msgid "+ or =            unfold directory."
-msgstr "+ oder =              Verzeinis auffalten."
+msgid "+ or =            unfold directory"
+msgstr "+ oder =              Verzeinis auffalten"
 
 #: graphics.c:1865
-msgid "l or <Right>      unfold and go right."
-msgstr "l oder <Rechts>       auffalten und nach rechts gehen."
+msgid "l or <Right>      unfold and go right"
+msgstr "l oder <Rechts>       auffalten und nach rechts gehen"
 
 #: graphics.c:1869
 msgid "Screenheight must be > 21 for help."
 msgstr "Bildschirmhöhe muss für die Hilfe > 21 sein."
 
-#: wfixpath.c:64
+#: wfixpath.c:65
 msgid "malloc error in wcd_fixpath()\n"
 msgstr "Malloc-Fehler in wcd_fixpath()\n"
 
-#: c3po/Error.c:40
+#: c3po/Error.c:41
 #, c-format
-msgid ""
-"Wcd: error in '%s', no space left for allocation\n"
-"Wcd: Insufficient memory\n"
+msgid "in '%s', insufficient memory for allocation\n"
 msgstr ""
-"wcd: Fehler in »%s«, kein freier Speicher verfügbar\n"
-"wcd: Hauptspeicher reicht nicht aus\n"
 
+#~ msgid ""
+#~ "Wcd: error in '%s', no space left for allocation\n"
+#~ "Wcd: Insufficient memory\n"
+#~ msgstr ""
+#~ "wcd: Fehler in »%s«, kein freier Speicher verfügbar\n"
+#~ "wcd: Hauptspeicher reicht nicht aus\n"

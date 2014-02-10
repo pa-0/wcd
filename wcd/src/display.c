@@ -682,13 +682,13 @@ char buf[WCD_MAX_INPSTR];
           {
              gotoxy(1,1);
              cprintf(_("w or <Up>         page up")); cprintf("\r\n");
-             cprintf(_("x or z or <Down>  page down.")); cprintf("\r\n");
+             cprintf(_("x or z or <Down>  page down")); cprintf("\r\n");
              cprintf(_(", or <Left>       scroll 1 left")); cprintf("\r\n");
              cprintf(_(". or <Right>      scroll 1 right")); cprintf("\r\n");
              cprintf(_("< or [            scroll 10 left")); cprintf("\r\n");
              cprintf(_("> or ]            scroll 10 right")); cprintf("\r\n");
              cprintf(_("CTRL-a or <HOME>  scroll to beginning")); cprintf("\r\n");
-             cprintf(_("CTRL-e or <END>   scroll to end.")); cprintf("\r\n");
+             cprintf(_("CTRL-e or <END>   scroll to end")); cprintf("\r\n");
              cprintf(_("CTRL-c or <Esc>   abort")); cprintf("\r\n");
              cprintf(_("<Enter>           abort")); cprintf("\r\n");
              cprintf(_("Type w or x to quit help.")); cprintf("\r\n");

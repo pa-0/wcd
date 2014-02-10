@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-09 22:34+0100\n"
+"POT-Creation-Date: 2014-02-10 21:59+0100\n"
 "PO-Revision-Date: 2008-06-01 17:57+0200\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -274,9 +274,9 @@ msgstr "  -I,  --ignore-diacritics     Diakritische tekens negeren\n"
 
 #: wcd.c:2157
 #, c-format
-msgid "  +I,  --no-ignore-diacritics  Regard diacritics (default)\n"
+msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
 msgstr ""
-"  +I,  --no-ignore-diacritics  Diakritische tekens achten (standaard)\n"
+"  +I,  --no-ignore-diacritics  diakritische tekens achten (standaard)\n"
 
 #: wcd.c:2158
 #, c-format
@@ -735,9 +735,9 @@ msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN is niet gedefinieerd.\n"
 
 #: wcd.c:3054
-msgid "Graphics mode only supported in wcd with curses based interface.\n"
+msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr ""
-"Grafische modus wordt alleen ondersteund in wcd met curses gebaseerde "
+"Grafische modus wordt alleen ondersteund in wcd met curses-gebaseerde "
 "interface.\n"
 
 #: wcd.c:3327
@@ -882,8 +882,8 @@ msgstr "Schermhoogte moet groter dan 20 zijn voor help"
 msgid "w or <Up>         page up"
 msgstr "w of <Omhoog>      pagina omhoog"
 
-#: display.c:685
-msgid "x or z or <Down>  page down."
+#: display.c:685 display.c:1178
+msgid "x or z or <Down>  page down"
 msgstr "x of z of <Omlaag> pagina omlaag"
 
 #: display.c:686 display.c:1179
@@ -906,8 +906,8 @@ msgstr "> of ]             rol 10 naar rechts"
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr "CTRL-a of <HOME>   rol naar begin"
 
-#: display.c:691
-msgid "CTRL-e or <END>   scroll to end."
+#: display.c:691 display.c:1184
+msgid "CTRL-e or <END>   scroll to end"
 msgstr "CTRL-e of <END>    rol naar einde"
 
 #: display.c:692 display.c:1185
@@ -921,14 +921,6 @@ msgstr "<Enter>            afbreken"
 #: display.c:694
 msgid "Type w or x to quit help."
 msgstr "Type w of x om help te verlaten"
-
-#: display.c:1178
-msgid "x or z or <Down>  page down"
-msgstr "x of z of <Omlaag> pagina omlaag"
-
-#: display.c:1184
-msgid "CTRL-e or <END>   scroll to end"
-msgstr "CTRL-e of <END>    rol naar einde"
 
 #: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
 #: graphics.c:1866
@@ -953,8 +945,8 @@ msgstr "fout aanmaken invoervenster.\n"
 
 #: graphics.c:279
 #, c-format
-msgid "Wcd: error: line too long in function getTreeLine()"
-msgstr "Wcd: fout: regel te lang in functie getTreeLine()"
+msgid "Wcd: error: path too long"
+msgstr "Wcd: fout: pad te lang"
 
 #: graphics.c:1771
 msgid "/ = search forward,  ? = search backward,  : = help"
@@ -1165,31 +1157,29 @@ msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r of CTRL-r       alle mappen ontvouwen"
 
 #: graphics.c:1863
-msgid "-                 fold directory."
-msgstr "-                 vouw map."
+msgid "-                 fold directory"
+msgstr "-                 vouw map"
 
 #: graphics.c:1864
-msgid "+ or =            unfold directory."
-msgstr "+ of =            ontvouw map."
+msgid "+ or =            unfold directory"
+msgstr "+ of =            ontvouw map"
 
 #: graphics.c:1865
-msgid "l or <Right>      unfold and go right."
-msgstr "l of <Rechts>     ontvouwen en naar rechts gaan."
+msgid "l or <Right>      unfold and go right"
+msgstr "l of <Rechts>     ontvouwen en naar rechts gaan"
 
 #: graphics.c:1869
 msgid "Screenheight must be > 21 for help."
 msgstr "Schermhoogte moet groter dan 21 zijn voor help."
 
-#: wfixpath.c:64
+#: wfixpath.c:65
 msgid "malloc error in wcd_fixpath()\n"
 msgstr "malloc fout in wcd_fixpath()\n"
 
-#: c3po/Error.c:40
+#: c3po/Error.c:41
 #, c-format
-msgid ""
-"Wcd: error in '%s', no space left for allocation\n"
-"Wcd: Insufficient memory\n"
-msgstr ""
-"Wcd: fout in '%s', geen ruimte meer voor toewijzing\n"
-"Wcd: Onvoldoende geheugen\n"
+msgid "in '%s', insufficient memory for allocation\n"
+msgstr "in '%s', onvoldoende geheugen voor toewijzing\n"
 
+#~ msgid "Wcd: error: line too long in function getTreeLine()"
+#~ msgstr "Wcd: fout: regel te lang in functie getTreeLine()"

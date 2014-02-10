@@ -276,7 +276,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
     */
    if ((strlen(line) + len + 8) > WCD_GRAPH_MAX_LINE_LENGTH)
    {
-      sprintf(line,_("Wcd: error: line too long in function getTreeLine()"));
+      sprintf(line,_("Wcd: error: path too long"));
       return(line);
    }
 
@@ -1860,9 +1860,9 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win, 5,0,_("w                 condense: fold current and subdir levels"));
       wcd_mvwaddstr(win, 6,0,_("y or CTRL-y       uncondense: unfold current and subdir levels"));
       wcd_mvwaddstr(win, 7,0,_("r or CTRL-r       uncondense: unfold all directories"));
-      wcd_mvwaddstr(win, 8,0,_("-                 fold directory."));
-      wcd_mvwaddstr(win, 9,0,_("+ or =            unfold directory."));
-      wcd_mvwaddstr(win,10,0,_("l or <Right>      unfold and go right."));
+      wcd_mvwaddstr(win, 8,0,_("-                 fold directory"));
+      wcd_mvwaddstr(win, 9,0,_("+ or =            unfold directory"));
+      wcd_mvwaddstr(win,10,0,_("l or <Right>      unfold and go right"));
       wcd_mvwaddstr(win,11,0,_("Press any key."));
    }
    else
