@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-10 21:59+0100\n"
+"POT-Creation-Date: 2014-02-10 22:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -833,92 +833,92 @@ msgstr ""
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr ""
 
-#: display.c:517 display.c:1144 display.c:1519
+#: display.c:517 display.c:1142 display.c:1517
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr ""
 
-#: display.c:519 display.c:1146 display.c:1521
+#: display.c:519 display.c:1144 display.c:1519
 #, c-format
 msgid "Wild match for %d directories."
 msgstr ""
 
-#: display.c:525 display.c:1158 display.c:1523 display.c:1566
+#: display.c:523 display.c:1156 display.c:1521 display.c:1564
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr ""
 
-#: display.c:527 display.c:603 display.c:635 display.c:1151
+#: display.c:525 display.c:601 display.c:633 display.c:1149
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr ""
 
-#: display.c:679 display.c:1174
+#: display.c:677 display.c:1172
 msgid "Screenheight must be > 20 for help."
 msgstr ""
 
-#: display.c:684 display.c:1177
+#: display.c:682 display.c:1175
 msgid "w or <Up>         page up"
 msgstr ""
 
-#: display.c:685 display.c:1178
+#: display.c:683 display.c:1176
 msgid "x or z or <Down>  page down"
 msgstr ""
 
-#: display.c:686 display.c:1179
+#: display.c:684 display.c:1177
 msgid ", or <Left>       scroll 1 left"
 msgstr ""
 
-#: display.c:687 display.c:1180
+#: display.c:685 display.c:1178
 msgid ". or <Right>      scroll 1 right"
 msgstr ""
 
-#: display.c:688 display.c:1181
+#: display.c:686 display.c:1179
 msgid "< or [            scroll 10 left"
 msgstr ""
 
-#: display.c:689 display.c:1182
+#: display.c:687 display.c:1180
 msgid "> or ]            scroll 10 right"
 msgstr ""
 
-#: display.c:690 display.c:1183
+#: display.c:688 display.c:1181
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr ""
 
-#: display.c:691 display.c:1184
+#: display.c:689 display.c:1182
 msgid "CTRL-e or <END>   scroll to end"
 msgstr ""
 
-#: display.c:692 display.c:1185
+#: display.c:690 display.c:1183
 msgid "CTRL-c or <Esc>   abort"
 msgstr ""
 
-#: display.c:693 display.c:1186
+#: display.c:691 display.c:1184
 msgid "<Enter>           abort"
 msgstr ""
 
-#: display.c:694
+#: display.c:692
 msgid "Type w or x to quit help."
 msgstr ""
 
-#: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
+#: display.c:1185 graphics.c:1810 graphics.c:1826 graphics.c:1849
 #: graphics.c:1866
 msgid "Press any key."
 msgstr ""
 
-#: display.c:1252 graphics.c:2116
+#: display.c:1250 graphics.c:2116
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 
-#: display.c:1273
+#: display.c:1271
 msgid "screen height must be larger than 3 lines.\n"
 msgstr ""
 
-#: display.c:1307 graphics.c:2149
+#: display.c:1305 graphics.c:2149
 msgid "error creating scroll window.\n"
 msgstr ""
 
-#: display.c:1326
+#: display.c:1324
 msgid "error creating input window.\n"
 msgstr ""
 

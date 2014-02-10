@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-10 21:59+0100\n"
+"POT-Creation-Date: 2014-02-10 22:10+0100\n"
 "PO-Revision-Date: 2009-09-06 13:36+0200\n"
 "Last-Translator: Jari Aalto <jari.aalto@cante.net>\n"
 "Language-Team: Finnish\n"
@@ -870,95 +870,95 @@ msgstr "internal error in maxLength(), list == NULL\n"
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr "internal error in maxLengthStack(), s == NULL\n"
 
-#: display.c:517 display.c:1144 display.c:1519
+#: display.c:517 display.c:1142 display.c:1517
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr "Ok osumaa %d hakemistossa."
 
-#: display.c:519 display.c:1146 display.c:1521
+#: display.c:519 display.c:1144 display.c:1519
 #, c-format
 msgid "Wild match for %d directories."
 msgstr "Villi osumaa %d hakemistossa."
 
-#: display.c:525 display.c:1158 display.c:1523 display.c:1566
+#: display.c:523 display.c:1156 display.c:1521 display.c:1564
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Valitse toiminta (<Enter> keskeytys): "
 
-#: display.c:527 display.c:603 display.c:635 display.c:1151
+#: display.c:525 display.c:601 display.c:633 display.c:1149
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=yläs x=alas ?=help  Sivu %d/%d "
 
-#: display.c:679 display.c:1174
+#: display.c:677 display.c:1172
 msgid "Screenheight must be > 20 for help."
 msgstr ""
 "Help-ikkunan avaaminen ei onnistu. Ikkunan korkeuden tulee olla > 20 riviä."
 
-#: display.c:684 display.c:1177
+#: display.c:682 display.c:1175
 msgid "w or <Up>         page up"
 msgstr "w tai <Up>          Sivu ylös"
 
-#: display.c:685 display.c:1178
+#: display.c:683 display.c:1176
 msgid "x or z or <Down>  page down"
 msgstr "x tai z tai <Down>  Sivu alas"
 
-#: display.c:686 display.c:1179
+#: display.c:684 display.c:1177
 msgid ", or <Left>       scroll 1 left"
 msgstr ", tai <Left>        Vieritys 1 vasemmalle"
 
-#: display.c:687 display.c:1180
+#: display.c:685 display.c:1178
 msgid ". or <Right>      scroll 1 right"
 msgstr ". tai <Right>       Vieritys 1 oikealle"
 
-#: display.c:688 display.c:1181
+#: display.c:686 display.c:1179
 msgid "< or [            scroll 10 left"
 msgstr "< tai [             Vieritys 10 vasemmalle"
 
-#: display.c:689 display.c:1182
+#: display.c:687 display.c:1180
 msgid "> or ]            scroll 10 right"
 msgstr "> tai ]             Vieritys 10 oikealle"
 
-#: display.c:690 display.c:1183
+#: display.c:688 display.c:1181
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr "CTRL-a tai <HOME>   Sivun alkuun"
 
-#: display.c:691 display.c:1184
+#: display.c:689 display.c:1182
 msgid "CTRL-e or <END>   scroll to end"
 msgstr "CTRL-e tai <END>    Sivun loppuun"
 
-#: display.c:692 display.c:1185
+#: display.c:690 display.c:1183
 msgid "CTRL-c or <Esc>   abort"
 msgstr "CTRL-c tai <Esc>    Keskeytys"
 
-#: display.c:693 display.c:1186
+#: display.c:691 display.c:1184
 msgid "<Enter>           abort"
 msgstr "<Enter>             Keskeytys"
 
-#: display.c:694
+#: display.c:692
 msgid "Type w or x to quit help."
 msgstr ""
 
-#: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
+#: display.c:1185 graphics.c:1810 graphics.c:1826 graphics.c:1849
 #: graphics.c:1866
 msgid "Press any key."
 msgstr "Paina jotakin näppäintä."
 
-#: display.c:1252 graphics.c:2116
+#: display.c:1250 graphics.c:2116
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Terminaalin avaus ei onnistu, käytössä vain stdout.\n"
 "komentorivi.\n"
 
-#: display.c:1273
+#: display.c:1271
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "terminaalin korkeus ei ole vähintään 3 riviä.\n"
 
-#: display.c:1307 graphics.c:2149
+#: display.c:1305 graphics.c:2149
 msgid "error creating scroll window.\n"
 msgstr "vierityspalkin luonti ei onnistu ikkunaan.\n"
 
-#: display.c:1326
+#: display.c:1324
 msgid "error creating input window.\n"
 msgstr "syötteen ikkunaa ei voi luoda.\n"
 

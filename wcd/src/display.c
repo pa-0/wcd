@@ -517,10 +517,8 @@ char buf[WCD_MAX_INPSTR];
          cprintf(_("Perfect match for %d directories."),size);
       else
          cprintf(_("Wild match for %d directories."),size);
-      cprintf("\r\n");
    }
-   else
-      cprintf("\r\n");
+   cprintf("\r\n");
 
    cprintf(_("Please choose one (<Enter> to abort): "));
    fflush(stdout);
