@@ -1,0 +1,1185 @@
+# Ukrainian translation of wcd
+# Copyright 2014 Erwin Waterlander (msgids).
+# This file is distributed under the same license as the wcd package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: wcd-5.2.5-b4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-02-10 22:10+0100\n"
+"PO-Revision-Date: 2014-02-12 19:19+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: wcd.c:141
+#, c-format
+msgid "Wcd: error: "
+msgstr "Wcd: помилка: "
+
+#: wcd.c:200 wcd.c:220
+#, c-format
+msgid "Unable to read file %s: %s\n"
+msgstr "Не вдалося прочитати файл %s: %s\n"
+
+#: wcd.c:209
+#, c-format
+msgid "Unable to read file %s: Not a regular file.\n"
+msgstr "Не вдалося прочитати файл %s: це не звичайний файл.\n"
+
+#: wcd.c:222 wcd.c:310
+#, c-format
+msgid "Unable to write file %s: %s\n"
+msgstr "Не вдалося виконати запис до файла %s: %s\n"
+
+#: wcd.c:312
+#, c-format
+msgid "Unable to close file %s: %s\n"
+msgstr "Не вдалося закрити файл %s: %s\n"
+
+#: wcd.c:656 wcd.c:670
+#, c-format
+msgid "%s added to file %s\n"
+msgstr "%s додано до файла %s\n"
+
+#: wcd.c:804 wcd.c:869
+#, c-format
+msgid "Unable to remove file %s: %s\n"
+msgstr "Не вдалося вилучити файл %s: %s\n"
+
+#: wcd.c:957 wcd.c:1026
+#, c-format
+msgid "finddirs(): can't determine path in directory %s\n"
+msgstr "finddirs(): не вдалося визначити шлях у каталозі %s\n"
+
+#: wcd.c:958 wcd.c:1027
+msgid "path probably too long.\n"
+msgstr "ймовірно, шлях є надто довгим.\n"
+
+#: wcd.c:1139 wcd.c:1472
+#, c-format
+msgid "%s is not a directory.\n"
+msgstr "%s не є каталогом.\n"
+
+#: wcd.c:1144
+#, c-format
+msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
+msgstr "Будь ласка, зачекайте. Скануємо диск. Збираємо файл treedata %s з %s\n"
+
+#: wcd.c:1205 wcd.c:2413 wcd.c:2436 wcd.c:2515
+#, c-format
+msgid "Writing file \"%s\"\n"
+msgstr "Записуємо файл «%s»\n"
+
+#: wcd.c:1210
+msgid "Write access to tree-file denied.\n"
+msgstr "Доступ до запису файла ієрархії заборонено.\n"
+
+#: wcd.c:1211
+msgid "Set TEMP environment variable if this is a read-only disk.\n"
+msgstr "Встановити змінну середовища TEMP, якщо цей диск є придатним лише для читання.\n"
+
+#: wcd.c:1340
+#, c-format
+msgid "Removed symbolic link %s\n"
+msgstr "Вилучено символічне посилання %s\n"
+
+#: wcd.c:1346
+#, c-format
+msgid "Unable to remove symbolic link %s: %s\n"
+msgstr "Не вдалося вилучити символічне посилання %s: %s\n"
+
+#: wcd.c:1351
+#, c-format
+msgid "%s is a symbolic link to a file.\n"
+msgstr "%s є символічним посиланням на файл.\n"
+
+#: wcd.c:1433
+#, c-format
+msgid "Recursively remove %s? Are you sure? y/n :"
+msgstr "Рекурсивно вилучити %s? Ви впевнені? y (так)/n (ні):"
+
+#: wcd.c:1455 wcd.c:1465
+#, c-format
+msgid "Removed directory %s\n"
+msgstr "Вилучено каталог %s\n"
+
+#: wcd.c:1496 wcd.c:1556 wcd.c:1615
+#, c-format
+msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
+msgstr "надто довгий рядок у %s ( > %d). Можливо, файл ієрархії пошкоджено. Якщо це не так, виправити ситуацію можна збільшивши значення DD_MAXPATH у початковому коді.\n"
+
+#: wcd.c:1497 wcd.c:1557 wcd.c:1616
+#, c-format
+msgid "file: %s, line: %d,"
+msgstr "файл: %s, рядок: %d,"
+
+#: wcd.c:1504 wcd.c:1564 wcd.c:1623
+#, c-format
+msgid " length: %d\n"
+msgstr " довжина: %d\n"
+
+#: wcd.c:2126
+#, c-format
+msgid ""
+"Usage: wcd [options] [directory]\n"
+"\n"
+msgstr ""
+"Користування: wcd [параметри] [каталого]\n"
+"\n"
+
+#: wcd.c:2127
+#, c-format
+msgid "directory:  Name of directory to change to.\n"
+msgstr "каталог:   назва каталогу, до якого слід внести зміни.\n"
+
+#: wcd.c:2128
+#, c-format
+msgid ""
+"            Wildcards *, ? and [SET] are supported.\n"
+"\n"
+msgstr ""
+"            Передбачено підтримку символів-замінників: *, ? та [НАБІР].\n"
+"\n"
+
+#: wcd.c:2130
+#, c-format
+msgid "options:\n"
+msgstr "параметри:\n"
+
+#: wcd.c:2131
+#, c-format
+msgid "  -a                      Add current path to treefile\n"
+msgstr "  -a                      додати поточний файл до файла ієрархії\n"
+
+#: wcd.c:2132
+#, c-format
+msgid "  -aa                     Add current and all parent paths to treefile\n"
+msgstr "  -aa                     додати поточний і усі батьківські шляхи до файла ієрархії\n"
+
+#: wcd.c:2133
+#, c-format
+msgid "  -A PATH                 Add tree from PATH\n"
+msgstr "  -A ШЛЯХ                 додати ієрархію зі шляху ШЛЯХ\n"
+
+#: wcd.c:2134
+#, c-format
+msgid "  -b                      Ban current path\n"
+msgstr "  -b                      заблокувати поточний шлях\n"
+
+#: wcd.c:2135
+#, c-format
+msgid "  -c,  --direct-cd        direct CD mode\n"
+msgstr "  -c,  --direct-cd        безпосередній режим CD\n"
+
+#: wcd.c:2136
+#, c-format
+msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
+msgstr "  -d ДИСК                 встановити ДИСК для файлів стосу і переходу (DOS)\n"
+
+#: wcd.c:2137
+#, c-format
+msgid "  -e                      add current path to Extra treefile\n"
+msgstr "  -e                      додати поточний шлях до додаткового файла ієрархії\n"
+
+#: wcd.c:2138
+#, c-format
+msgid "  -ee                     add current and all parent paths to Extra treefile\n"
+msgstr "  -ee                     додати поточний і усі батьківські шляхи до додаткового файла ієрархії\n"
+
+#: wcd.c:2139
+#, c-format
+msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
+msgstr "  -E ШЛЯХ                 додати ієрархію зі шляху ШЛЯХ до додаткового файла ієрархії\n"
+
+#: wcd.c:2140
+#, c-format
+msgid "  -f FILE                 use extra treeFile\n"
+msgstr "  -f ФАЙЛ                 використовувати додатковий файл ієрархії\n"
+
+#: wcd.c:2141
+#, c-format
+msgid "  +f FILE                 add extra treeFile\n"
+msgstr "  +f ФАЙЛ                 додати додатковий файл ієрархії\n"
+
+#: wcd.c:2142
+#, c-format
+msgid "  -g                      Graphics\n"
+msgstr "  -g                      графіка\n"
+
+#: wcd.c:2143
+#, c-format
+msgid "  -gd                     Graphics, dump tree\n"
+msgstr "  -gd                     графіка, створити дамп ієрархії\n"
+
+#: wcd.c:2144
+#, c-format
+msgid "  -G PATH                 set PATH Go-script\n"
+msgstr "  -G ШЛЯХ                 встановити шлях для скрипту переходу\n"
+
+#: wcd.c:2145
+#, c-format
+msgid "  -GN, --no-go-script     No Go-script\n"
+msgstr "  -GN, --no-go-script     без скрипту переходу\n"
+
+#: wcd.c:2146
+#, c-format
+msgid "  -h,  --help             show this Help\n"
+msgstr "  -h,  --help             показати цю довідкову інформацію\n"
+
+#: wcd.c:2149
+#, c-format
+msgid "  -i,  --ignore-case      Ignore case (default)\n"
+msgstr "  -i,  --ignore-case      не брати до уваги регістр символів (типово)\n"
+
+#: wcd.c:2150
+#, c-format
+msgid "  +i,  --no-ignore-case   regard case\n"
+msgstr "  +i,  --no-ignore-case   брати до уваги регістр символів\n"
+
+#: wcd.c:2152
+#, c-format
+msgid "  -i,  --ignore-case      Ignore case\n"
+msgstr "  -i,  --ignore-case      не брати до уваги регістр символів\n"
+
+#: wcd.c:2153
+#, c-format
+msgid "  +i,  --no-ignore-case   regard case (default)\n"
+msgstr "  +i,  --no-ignore-case   брати до уваги регістр символів (типово)\n"
+
+#: wcd.c:2156
+#, c-format
+msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
+msgstr "  -I,  --ignore-diacritics     не брати до уваги діакритичні позначки\n"
+
+#: wcd.c:2157
+#, c-format
+msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
+msgstr "  +I,  --no-ignore-diacritics  брати до уваги діакритичні позначки (типово)\n"
+
+#: wcd.c:2158
+#, c-format
+msgid "  -j,  --just-go          Just go mode\n"
+msgstr "  -j,  --just-go          режим простого переходу\n"
+
+#: wcd.c:2159
+#, c-format
+msgid "  -k,  --keep-paths       Keep paths\n"
+msgstr "  -k,  --keep-paths       зберігати шляхи\n"
+
+#: wcd.c:2160
+#, c-format
+msgid "  -K,  --color            colors\n"
+msgstr "  -K,  --color            використовувати розфарбовування\n"
+
+#: wcd.c:2161
+#, c-format
+msgid "  -l ALIAS                aLias current directory\n"
+msgstr "  -l ПСЕВДОНІМ             створити псевдонім для поточного каталогу\n"
+
+#: wcd.c:2162
+#, c-format
+msgid "  -L,  --license          show software License\n"
+msgstr "  -L,  --license          показати ліцензійну угоду щодо програмного забезпечення\n"
+
+#: wcd.c:2163
+#, c-format
+msgid "  -m DIR                  Make DIR, add to treefile\n"
+msgstr "  -m КАТАЛОГ              створити каталог, додати його до файла ієрархії\n"
+
+#: wcd.c:2164
+#, c-format
+msgid "  -M DIR                  Make DIR, add to extra treefile\n"
+msgstr "  -M КАТАЛОГ              створити каталог, додати його до додаткового файла ієрархії\n"
+
+#: wcd.c:2165
+#, c-format
+msgid "  -n PATH                 use relative treefile in PATH\n"
+msgstr "  -n ШЛЯХ                 використовувати відносний файл ієрархії у каталозі ШЛЯХ\n"
+
+#: wcd.c:2166
+#, c-format
+msgid "  +n PATH                 add relative treefile in PATH\n"
+msgstr "  +n ШЛЯХ                 додати відносний файл ієрархії у каталозі ШЛЯХ\n"
+
+#: wcd.c:2167
+#, c-format
+msgid "  -N,  --numbers          use Numbers\n"
+msgstr "  -N,  --numbers          використовувати числа\n"
+
+#: wcd.c:2168
+#, c-format
+msgid "  -o                      use stdOut\n"
+msgstr "  -o                      використовувати stdOut\n"
+
+#: wcd.c:2169
+#, c-format
+msgid "  -od, --to-stdout        dump matches\n"
+msgstr "  -od, --to-stdout        показати дамп відповідників\n"
+
+#: wcd.c:2170
+#, c-format
+msgid "  -q,  --quiet            Quieter operation\n"
+msgstr "  -q,  --quiet            обробка без виведення додаткових повідомлень\n"
+
+#: wcd.c:2171
+#, c-format
+msgid "  -r DIR                  Remove DIR\n"
+msgstr "  -r КАТАЛОГ              вилучити КАТАЛОГ\n"
+
+#: wcd.c:2172
+#, c-format
+msgid "  -rmtree DIR             Remove DIR recursive\n"
+msgstr "  -rmtree КАТАЛОГ         вилучити КАТАЛОГ рекурсивно\n"
+
+#: wcd.c:2173
+#, c-format
+msgid "  -s                      Scan disk from $HOME\n"
+msgstr "  -s                      сканувати диск починаючи від $HOME\n"
+
+#: wcd.c:2174
+#, c-format
+msgid "  -S PATH                 Scan disk from PATH\n"
+msgstr "  -S ШЛЯХ                 сканувати диск починаючи від каталогу ШЛЯХ\n"
+
+#: wcd.c:2175
+#, c-format
+msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
+msgstr "  +S ШЛЯХ                 сканувати диск починаючи від каталогу ШЛЯХ, створити відносний файл ієрархії\n"
+
+#: wcd.c:2176
+#, c-format
+msgid "  -t                      don't strip /tmp_mnt from paths\n"
+msgstr "  -t                      не вилучати рядок /tmp_mnt зі шляхів\n"
+
+#: wcd.c:2177
+#, c-format
+msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
+msgstr "  -T,  --ascii-tree       малювати ієрархію за допомогою символів ASCII\n"
+
+#: wcd.c:2178
+#, c-format
+msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
+msgstr "  -Ta, --alt-tree-nav     альтернативна навігація ієрархією\n"
+
+#: wcd.c:2179
+#, c-format
+msgid "  -TC, --center-tree      Centered tree view\n"
+msgstr "  -TC, --center-tree      центрований перегляд ієрархії\n"
+
+#: wcd.c:2180
+#, c-format
+msgid "  -Tc, --compact-tree     Compact tree\n"
+msgstr "  -Tc, --compact-tree     ущільнена ієрархія\n"
+
+#: wcd.c:2181
+#, c-format
+msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
+msgstr "  -Td, --cjk-width        використати підтримку застарілих ієрогліфічних шрифтів\n"
+
+#: wcd.c:2182
+#, c-format
+msgid "  -u USER                 use USER's treefile\n"
+msgstr "  -u КОРИСТУВАЧ           використати файл ієрархії вказаного користувача\n"
+
+#: wcd.c:2183
+#, c-format
+msgid "  +u USER                 add USER's treefile\n"
+msgstr "  +u КОРИСТУВАЧ           додати файл ієрархії вказаного користувача\n"
+
+#: wcd.c:2184
+#, c-format
+msgid "  -v,  --verbose          Verbose operation\n"
+msgstr "  -v,  --verbose          режим докладних повідомлень\n"
+
+#: wcd.c:2185
+#, c-format
+msgid "  -V,  --version          show Version info\n"
+msgstr "  -V,  --version          вивести дані щодо версії\n"
+
+#: wcd.c:2186
+#, c-format
+msgid "  -w,  --wild-match-only  Wild matching only\n"
+msgstr "  -w,  --wild-match-only  лише неточна відповідність\n"
+
+#: wcd.c:2187
+#, c-format
+msgid "  -x PATH                 eXclude PATH during disk scan\n"
+msgstr "  -x ШЛЯХ                 виключити вказаний шлях під час сканування диска\n"
+
+#: wcd.c:2188
+#, c-format
+msgid "  -xf FILE                eXclude paths from FILE\n"
+msgstr "  -xf ФАЙЛ                виключити шляхи, вказані у файлі ФАЙЛ\n"
+
+#: wcd.c:2189
+#, c-format
+msgid "  -y,  --assume-yes       assume Yes on all queries\n"
+msgstr "  -y,  --assume-yes       відповісти «так» на усі питання\n"
+
+#: wcd.c:2190
+#, c-format
+msgid "  -z NUMBER               set max stack siZe\n"
+msgstr "  -z ЧИСЛО                встановити максимальний розмір стека\n"
+
+#: wcd.c:2191
+#, c-format
+msgid "  -[NUMBER]               push dir (NUMBER times)\n"
+msgstr "  -[ЧИСЛО]                вставити каталог (вказану кількість разів)\n"
+
+#: wcd.c:2192
+#, c-format
+msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
+msgstr "  +[ЧИСЛО]                вийняти каталог (вказану кількість разів)\n"
+
+#: wcd.c:2193
+#, c-format
+msgid "  =                       show stack\n"
+msgstr "  =                       вивести стек\n"
+
+#: wcd.c:2202 wcd.c:2331
+#, c-format
+msgid "wcd %s (%s) - Wherever Change Directory\n"
+msgstr "wcd %s (%s) - довільна зміна каталогу (Wherever Change Directory)\n"
+
+#: wcd.c:2203
+#, c-format
+msgid ""
+"Chdir for Dos and Unix.\n"
+"\n"
+msgstr ""
+"Chdir для Dos та Unix.\n"
+"\n"
+
+#: wcd.c:2207
+#, c-format
+msgid "DOS 16 bit version (WATCOMC).\n"
+msgstr "16-бітова версія для DOS (WATCOMC).\n"
+
+#: wcd.c:2209
+#, c-format
+msgid "DOS 16 bit version (TURBOC).\n"
+msgstr "16-бітова версія для DOS (TURBOC).\n"
+
+#: wcd.c:2211
+#, c-format
+msgid "DOS 32 bit version (DJGPP).\n"
+msgstr "32-бітова версія для DOS (DJGPP).\n"
+
+#: wcd.c:2213
+#, c-format
+msgid "DOS 32 bit version (WATCOMC).\n"
+msgstr "32-бітова версія для DOS (WATCOMC).\n"
+
+#: wcd.c:2220
+#, c-format
+msgid "Win64 version (MSVC %d).\n"
+msgstr "Версія для Win64 (MSVC %d).\n"
+
+#: wcd.c:2222
+#, c-format
+msgid "Win64 version (MinGW-w64).\n"
+msgstr "Версія для Win64 (MinGW-w64).\n"
+
+#: wcd.c:2226
+#, c-format
+msgid "Win32 version (WATCOMC).\n"
+msgstr "Версія для Win32 (WATCOMC).\n"
+
+#: wcd.c:2228
+#, c-format
+msgid "Win32 version (MSVC %d).\n"
+msgstr "Версія для Win32 (MSVC %d).\n"
+
+#: wcd.c:2230
+#, c-format
+msgid "Win32 version (MinGW-w64).\n"
+msgstr "Версія для Win32 (MinGW-w64).\n"
+
+#: wcd.c:2232
+#, c-format
+msgid "Win32 version (MinGW).\n"
+msgstr "Версія для Win32 (MinGW).\n"
+
+#: wcd.c:2239
+#, c-format
+msgid "This version is for MSYS and WinZsh.\n"
+msgstr "Цю версію призначено для MSYS та WinZsh.\n"
+
+#: wcd.c:2241
+#, c-format
+msgid "This version is for Windows PowerShell.\n"
+msgstr "Цю версію призначено для Windows PowerShell.\n"
+
+#: wcd.c:2243
+#, c-format
+msgid "This version is for Windows Command Prompt (cmd.exe).\n"
+msgstr "Цю версію призначено для командної оболонки Windows (cmd.exe).\n"
+
+#: wcd.c:2248
+#, c-format
+msgid "OS/2 version"
+msgstr "Версія для OS/2"
+
+#: wcd.c:2259
+#, c-format
+msgid "This version is for native MSYS.\n"
+msgstr "Цю версію призначено для використання у MSYS.\n"
+
+#: wcd.c:2262
+#, c-format
+msgid "Cygwin version.\n"
+msgstr "Версія для Cygwin.\n"
+
+#: wcd.c:2265
+#, c-format
+msgid "This version is for DJGPP DOS bash.\n"
+msgstr "Цю версію призначено для bash у DJGPP DOS.\n"
+
+#: wcd.c:2268
+#, c-format
+msgid "This version is for OS/2 bash.\n"
+msgstr "Цю версію призначено для bash у OS/2.\n"
+
+#: wcd.c:2271
+#, c-format
+msgid "Interface: "
+msgstr "Інтерфейс:"
+
+#: wcd.c:2277
+#, c-format
+msgid "ncurses version %s.%d\n"
+msgstr "ncurses, версія %s.%d\n"
+
+#: wcd.c:2280
+#, c-format
+msgid "PDCurses build %d\n"
+msgstr "збірка PDCurses, %d\n"
+
+#: wcd.c:2282
+#, c-format
+msgid "curses\n"
+msgstr "curses\n"
+
+#: wcd.c:2291
+#, c-format
+msgid "stdout\n"
+msgstr "stdout\n"
+
+#: wcd.c:2295
+#, c-format
+msgid "Native language support included.\n"
+msgstr "Передбачено підтримку перекладів різними мовами.\n"
+
+#: wcd.c:2296
+#, c-format
+msgid "LOCALEDIR=%s\n"
+msgstr "LOCALEDIR=%s\n"
+
+#: wcd.c:2298
+#, c-format
+msgid "No native language support included.\n"
+msgstr "Підтримку перекладів не включено.\n"
+
+#: wcd.c:2301
+#, c-format
+msgid "Current locale uses CP%u encoding.\n"
+msgstr "У поточній локалі використовується кодування CP%u.\n"
+
+#: wcd.c:2303
+#, c-format
+msgid "Current locale uses %s encoding.\n"
+msgstr "У поточній локалі використовується кодування %s.\n"
+
+#: wcd.c:2306
+#, c-format
+msgid "With Unicode support.\n"
+msgstr "З підтримкою Unicode.\n"
+
+#: wcd.c:2311
+#, c-format
+msgid "  Euro symbol: "
+msgstr "  Символ євро: "
+
+#: wcd.c:2313
+#, c-format
+msgid "  Chinese characters: "
+msgstr "  Китайські ієрогліфи: "
+
+#: wcd.c:2317
+#, c-format
+msgid "Without Unicode support.\n"
+msgstr "Без підтримки Unicode.\n"
+
+#: wcd.c:2320
+#, c-format
+msgid "With Unicode normalization.\n"
+msgstr "З нормалізацією Unicode.\n"
+
+#: wcd.c:2322
+#, c-format
+msgid "Without Unicode normalization.\n"
+msgstr "Без нормалізації Unicode.\n"
+
+#: wcd.c:2325
+#, c-format
+msgid "Download the latest executables and sources from:\n"
+msgstr "Найсвіжіші версії виконуваних файлів та початкового коду можна знайти тут:\n"
+
+#: wcd.c:2332
+#, c-format
+msgid ""
+"Copyright (C) 1997-2014 Erwin Waterlander\n"
+"Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
+"Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"
+"Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n"
+"Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
+"Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
+msgstr ""
+"Copyright (C) 1997-2014 Erwin Waterlander\n"
+"Copyright (C) 1994-2002 Ondrej Popp на C3PO\n"
+"Copyright (C) 1995-1996 DJ Delorie на _fixpath()\n"
+"Copyright (C) 1995-1996 Borja Etxebarria та Olivier Sirol на Ninux Czo Directory\n"
+"Copyright (C) 1994-1996 Jason Mathews на DOSDIR\n"
+"Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
+"Kai Uwe Rommel та Igor Mandrichenko на recmatch()\n"
+
+#: wcd.c:2340
+#, c-format
+msgid ""
+"Source code to scan Windows LAN was originally written and placed\n"
+"in the public domain by Felix Kasza.\n"
+"Markus Kuhn's free wcwidth() and wcswidth() implementations are used.\n"
+"Rugxulo is the original author of query_con_codepage() (public domain).\n"
+"\n"
+msgstr ""
+"Програмний код для сканування локальної мережі у Windows було написано і\n"
+"викладено для відкритого використання Felix Kasza.\n"
+"Використано вільні реалізації wcwidth() та wcswidth() від Markus Kuhn.\n"
+"Першим автором query_con_codepage() є Rugxulo (відкрите використання).\n"
+"\n"
+
+#: wcd.c:2346
+#, c-format
+msgid ""
+"This program is free software; you can redistribute it and/or\n"
+"modify it under the terms of the GNU General Public License\n"
+"as published by the Free Software Foundation; either version 2\n"
+"of the License, or (at your option) any later version.\n"
+"\n"
+msgstr ""
+"Ця програма є вільним програмним забезпеченням; ви можете поширювати та/або\n"
+"змінювати її за умов дотримання GNU General Public License у тому вигляді,\n"
+"що оприлюднений Free Software Foundation; версії  цієї Ліцензії, або (якщо\n"
+"забажаєте) будь-якої іншої версії, випущеної пізніше.\n"
+"\n"
+
+#: wcd.c:2352
+#, c-format
+msgid ""
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"GNU General Public License for more details.\n"
+"\n"
+msgstr ""
+"Ця програма поширюється у сподіванні, що вона буде корисною, але БЕЗ БУДЬ-\n"
+"ЯКИХ ГАРАНТІЙНИХ ЗОБОВ’ЯЗАНЬ; навіть без очевидної гарантії ПРАЦЕЗДАТНОСТІ\n"
+"або ПРИДАТНОСТІ ДЛЯ ВИКОРИСТАННЯ З ПЕВНОЮ МЕТОЮ. Докладніше про це можна\n"
+"дізнатися з GNU General Public License.\n"
+"\n"
+
+#: wcd.c:2358
+#, c-format
+msgid ""
+"You should have received a copy of the GNU General Public License\n"
+"along with this program; if not, write to the Free Software\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+msgstr ""
+"Ви маєте отримати копію GNU General Public License разом з цією програмою;\n"
+"якщо це не так, повідомте про факт за адресою Free Software Foundation,\n"
+"Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n"
+
+#: wcd.c:2393
+#, c-format
+msgid "creating directory %s\n"
+msgstr "створюємо каталог %s\n"
+
+#: wcd.c:2720 wcd.c:2760 wcd.c:2775 wcd.c:2843 wcd.c:2912 wcd.c:3394
+#: wcd.c:3413
+#, c-format
+msgid "Value of environment variable %s is too long.\n"
+msgstr "Значення змінної середовища %s є надто довгим.\n"
+
+#: wcd.c:2749
+#, c-format
+msgid "Failed to unset environment variable TERM: %s\n"
+msgstr "Не вдалося скасувати визначення змінної середовища TERM: %s\n"
+
+#: wcd.c:2807 wcd.c:2836
+msgid "Environment variable HOME or WCDHOME is not set.\n"
+msgstr "Змінну середовища HOME або WCDHOME не визначено.\n"
+
+#: wcd.c:3021
+msgid "HOME is not defined\n"
+msgstr "HOME не визначено\n"
+
+#: wcd.c:3025
+msgid "WCDHOME is not defined\n"
+msgstr "WCDHOME не визначено\n"
+
+#: wcd.c:3029
+msgid "WCDSCAN is not defined\n"
+msgstr "WCDSCAN не визначено\n"
+
+#: wcd.c:3054
+msgid "Graphics mode only supported in wcd with curses-based interface.\n"
+msgstr "Підтримку графічного режиму передбачено лише у wcd з інтерфейсом на основі curses.\n"
+
+#: wcd.c:3327
+#, c-format
+msgid "%s added to aliasfile %s\n"
+msgstr "%s додано до файла псевдонімів %s\n"
+
+#: wcd.c:3426
+#, c-format
+msgid "Unable to read file %s or %s\n"
+msgstr "Не вдалося прочитати файл %s або %s\n"
+
+#: wcd.c:3576
+#, c-format
+msgid "WCDSCAN directory {%s}\n"
+msgstr "Каталог WCDSCAN {%s}\n"
+
+#: wcd.c:3578
+#, c-format
+msgid "banning {%s}\n"
+msgstr "блокуємо {%s}\n"
+
+#: wcd.c:3580
+#, c-format
+msgid "excluding {%s}\n"
+msgstr "виключаємо {%s}\n"
+
+#: wcd.c:3582
+#, c-format
+msgid "filtering {%s}\n"
+msgstr "фільтруємо {%s}\n"
+
+#: wcd.c:3850
+#, c-format
+msgid "No directory found matching %s\n"
+msgstr "Каталогу, відповідного до %s, не знайдено\n"
+
+#: wcd.c:3851
+msgid "Perhaps you need to rescan the disk or path is banned.\n"
+msgstr "Ймовірно, вам слід виконати повторне сканування диска або відповідний шлях заблоковано.\n"
+
+#: wcd.c:4018
+#, c-format
+msgid "Cannot change to %s\n"
+msgstr "Не вдалося перейти до %s\n"
+
+#: wcddir.c:104
+#, c-format
+msgid "%lu (\"%s\") reported by \"%s\".\n"
+msgstr "%lu («%s») повідомлено «%s».\n"
+
+#: wcddir.c:127
+msgid "access denied.\n"
+msgstr "доступ заборонено.\n"
+
+#: wcddir.c:208
+#, c-format
+msgid "Searching for shared directories on server %s\n"
+msgstr "Шукаємо каталоги спільного використання на сервері %s\n"
+
+#: wcddir.c:220
+#, c-format
+msgid "Found %lu shared directories on server %s\n"
+msgstr "На сервері %2$s виявлено %1$lu каталогів спільного використання\n"
+
+#: wcddir.c:346
+msgid "Unable to get current working directory: "
+msgstr "Не вдалося визначити поточний робочий каталог: "
+
+#: wcddir.c:375
+#, c-format
+msgid "Unable to change to directory %s: "
+msgstr "Не вдалося перейти до каталогу %s: "
+
+#: wcddir.c:407
+#, c-format
+msgid "Unable to create directory %s: "
+msgstr "Не вдалося створити каталог %s:"
+
+#: wcddir.c:437
+#, c-format
+msgid "Unable to remove directory %s: "
+msgstr "Не вдалося вилучити каталог %s: "
+
+#: wcddir.c:567 wcddir.c:584
+#, c-format
+msgid "Unable to create directory %s: %s\n"
+msgstr "Не вдалося створити каталог %s: %s\n"
+
+#: wcddir.c:709
+#, c-format
+msgid "Unable to get current working directory: %s\n"
+msgstr "Не вдалося отримати дані щодо поточного робочого каталогу: %s\n"
+
+#: wcddir.c:728
+#, c-format
+msgid "Unable to change to directory %s: %s\n"
+msgstr "Не вдалося перейти до каталогу %s: %s\n"
+
+#: wcddir.c:743
+#, c-format
+msgid "Unable to remove directory %s: %s\n"
+msgstr "Не вдалося вилучити каталог %s: %s\n"
+
+#: stack.c:101
+msgid "Error parsing stack\n"
+msgstr "Помилка під час обробки стека\n"
+
+#: display.c:257
+msgid "internal error in maxLength(), list == NULL\n"
+msgstr "внутрішня помилка у maxLength(), list == NULL\n"
+
+#: display.c:277
+msgid "internal error in maxLengthStack(), s == NULL\n"
+msgstr "внутрішня помилка у maxLengthStack(), s == NULL\n"
+
+#: display.c:517 display.c:1142 display.c:1517
+#, c-format
+msgid "Perfect match for %d directories."
+msgstr "Ідеальна відповідність %d каталогів."
+
+#: display.c:519 display.c:1144 display.c:1519
+#, c-format
+msgid "Wild match for %d directories."
+msgstr "Неточна відповідність %d каталогів."
+
+#: display.c:523 display.c:1156 display.c:1521 display.c:1564
+#, c-format
+msgid "Please choose one (<Enter> to abort): "
+msgstr "Будь ласка, виберіть одну з команд (натисніть <Enter>, щоб перервати): "
+
+#: display.c:525 display.c:601 display.c:633 display.c:1149
+#, c-format
+msgid " w=up x=down ?=help  Page %d/%d "
+msgstr " w=вгору x=вниз ?=довідка  Сторінка %d з %d "
+
+#: display.c:677 display.c:1172
+msgid "Screenheight must be > 20 for help."
+msgstr "Для перегляду довідки висота екрана має перевищувати 20."
+
+#: display.c:682 display.c:1175
+msgid "w or <Up>         page up"
+msgstr "w або <Вгору>     на сторінку вгору"
+
+#: display.c:683 display.c:1176
+msgid "x or z or <Down>  page down"
+msgstr "x, z або <Вниз>   на сторінку вниз"
+
+#: display.c:684 display.c:1177
+msgid ", or <Left>       scroll 1 left"
+msgstr ", або <Ліворуч>   гортати на один символ ліворуч"
+
+#: display.c:685 display.c:1178
+msgid ". or <Right>      scroll 1 right"
+msgstr ". або <Праворуч>  гортати на один символ праворуч"
+
+#: display.c:686 display.c:1179
+msgid "< or [            scroll 10 left"
+msgstr "< або [           гортати на 10 символів ліворуч"
+
+#: display.c:687 display.c:1180
+msgid "> or ]            scroll 10 right"
+msgstr "> або ]           гортати на 10 символів праворуч"
+
+#: display.c:688 display.c:1181
+msgid "CTRL-a or <HOME>  scroll to beginning"
+msgstr "CTRL-a або <HOME> гортати на початок"
+
+#: display.c:689 display.c:1182
+msgid "CTRL-e or <END>   scroll to end"
+msgstr "CTRL-e або <END>  гортати до кінця"
+
+#: display.c:690 display.c:1183
+msgid "CTRL-c or <Esc>   abort"
+msgstr "CTRL-c або <Esc>  перервати"
+
+#: display.c:691 display.c:1184
+msgid "<Enter>           abort"
+msgstr "<Enter>           перервати"
+
+#: display.c:692
+msgid "Type w or x to quit help."
+msgstr "Натисніть клавішу w або x, щоб вийти з режиму довідки."
+
+#: display.c:1185 graphics.c:1810 graphics.c:1826 graphics.c:1849
+#: graphics.c:1866
+msgid "Press any key."
+msgstr "Натисніть будь-яку клавішу."
+
+#: display.c:1250 graphics.c:2116
+msgid "Error opening terminal, falling back to stdout interface.\n"
+msgstr "Помилка під час спроби відкрити термінал, повертаємося до інтерфейсу stdout.\n"
+
+#: display.c:1271
+msgid "screen height must be larger than 3 lines.\n"
+msgstr "висота екрана має перевищувати 3 рядки.\n"
+
+#: display.c:1305 graphics.c:2149
+msgid "error creating scroll window.\n"
+msgstr "помилка під час створення вікна гортання.\n"
+
+#: display.c:1324
+msgid "error creating input window.\n"
+msgstr "помилка під час створення вікна введення даних.\n"
+
+#: graphics.c:279
+#, c-format
+msgid "Wcd: error: path too long"
+msgstr "Wcd: помилка: шлях є надто довгим"
+
+#: graphics.c:1771
+msgid "/ = search forward,  ? = search backward,  : = help"
+msgstr "/ = шукати вперед,  ? = шукати назад,  : = довідка"
+
+#: graphics.c:1776
+msgid "SEARCH: "
+msgstr "ШУКАТИ:"
+
+#: graphics.c:1779
+msgid "Search: "
+msgstr "Шукати:"
+
+#: graphics.c:1795
+msgid "NAVIGATION MODE (1/2):"
+msgstr "РЕЖИМ НАВІГАЦІЇ (1/2):"
+
+#: graphics.c:1796
+msgid "h or <Left>       go left"
+msgstr "h або <Ліворуч>   перейти ліворуч"
+
+#: graphics.c:1797
+msgid "j or <Down>       go down"
+msgstr "j або <Вниз>      перейти нижче"
+
+#: graphics.c:1798
+msgid "k or <Up>         go up"
+msgstr "k або <Вгору>     перейти вище"
+
+#: graphics.c:1799
+msgid "l or <Right>      go right"
+msgstr "l або <Праворуч>  перейти праворуч"
+
+#: graphics.c:1800
+msgid "* or v or <Space> go forward to dir with same name"
+msgstr "*, v або <Пробіл> перейти вперед до каталогу з тією самою назвою"
+
+#: graphics.c:1801
+msgid "# or p or <BS>    go backward to dir with same name"
+msgstr "#, p або <BS>     перейти назад до каталогу з тією самою назвою"
+
+#: graphics.c:1802
+msgid "^ or a            go to beginning of line"
+msgstr "^ або a           перейти на початок рядка"
+
+#: graphics.c:1803
+msgid "$ or e            go to end of line"
+msgstr "$ або e           перейти до кінця рядка"
+
+#: graphics.c:1804
+msgid "1                 go to root dir"
+msgstr "1                 перейти до кореневого каталогу"
+
+#: graphics.c:1805
+msgid "g or G            go to last dir"
+msgstr "g або G           перейти до останнього каталогу"
+
+#: graphics.c:1806
+msgid "f                 go page forward"
+msgstr "f                 перейти на сторінку вперед"
+
+#: graphics.c:1807
+msgid "b                 go page backward"
+msgstr "b                 перейти на сторінку назад"
+
+#: graphics.c:1808
+msgid "u                 go half page up"
+msgstr "u                 перейти на пів сторінки вгору"
+
+#: graphics.c:1809
+msgid "d                 go half page down"
+msgstr "d                 перейти на пів сторінки назад"
+
+#: graphics.c:1816
+msgid "NAVIGATION MODE (2/2):"
+msgstr "РЕЖИМ НАВІГАЦІЇ (2/2):"
+
+#: graphics.c:1817
+msgid "A                 switch alternative tree navigation on/off"
+msgstr "A                 увімкнути або вимкнути альтернативну навігацію ієрархією"
+
+#: graphics.c:1818
+msgid "t                 switch centered mode on/off"
+msgstr "t                 увімкнути або вимкнути центрований режим"
+
+#: graphics.c:1819
+msgid "T                 toggle between line drawing and ASCII characters"
+msgstr "T                 перемкнутися між режимом малювання ліній та режимом символів ASCII"
+
+#: graphics.c:1820
+msgid "m                 toggle between compact and wide tree"
+msgstr "m                 перемкнутися між ущільненим виглядом та широким виглядом ієрархії"
+
+#: graphics.c:1821
+msgid "<Esc> or q        abort"
+msgstr "<Esc> або q       перервати"
+
+#: graphics.c:1822
+msgid "/                 search forward"
+msgstr "/                 шукати далі"
+
+#: graphics.c:1823
+msgid "?                 search backward"
+msgstr "?                 пошук у напрямку назад"
+
+#: graphics.c:1824
+msgid "n                 repeat last / or ? search"
+msgstr "n                 повторити останній пошук за допомогою / або ?"
+
+#: graphics.c:1825 graphics.c:1848
+msgid "<Enter>           select directory"
+msgstr "<Enter>           вибрати каталог"
+
+#: graphics.c:1832
+msgid "SEARCH MODE with wildcard and subdir support:"
+msgstr "РЕЖИМ ПОШУКУ з підтримкою символів-замінників та підкаталогів:"
+
+#: graphics.c:1833
+msgid "<Left>            go left"
+msgstr "<Ліворуч>         перейти ліворуч"
+
+#: graphics.c:1834
+msgid "<Down>            go down"
+msgstr "<Вниз>            перейти вниз"
+
+#: graphics.c:1835
+msgid "<Up>              go up"
+msgstr "<Вгору>           перейти вище"
+
+#: graphics.c:1836
+msgid "<Right>           go right"
+msgstr "<Праворуч>        перейти праворуч"
+
+#: graphics.c:1837
+msgid "CTRL-v            go forward to dir with same name"
+msgstr "CTRL-v            перейти вперед до каталогу з тією самою назвою"
+
+#: graphics.c:1838
+msgid "CTRL-p            go backward to dir with same name"
+msgstr "CTRL-p            перейти назад до каталогу з тією самою назвою"
+
+#: graphics.c:1839
+msgid "CTRL-a            go to beginning of line"
+msgstr "CTRL-a            перейти на початок рядка"
+
+#: graphics.c:1840
+msgid "CTRL-e            go to end of line"
+msgstr "CTRL-e            перейти до кінця рядка"
+
+#: graphics.c:1841
+msgid "CTRL-g            go to last dir"
+msgstr "CTRL-g            перейти до останнього каталогу"
+
+#: graphics.c:1842
+msgid "CTRL-f            go page forward"
+msgstr "CTRL-f            перейти на сторінку вперед"
+
+#: graphics.c:1843
+msgid "CTRL-b            go page backward"
+msgstr "CTRL-b            перейти на сторінку назад"
+
+#: graphics.c:1844
+msgid "CTRL-u            go half page up"
+msgstr "CTRL-u            перейти на пів сторінки вище"
+
+#: graphics.c:1845
+msgid "CTRL-d            go half page down"
+msgstr "CTRL-d            перейти на пів сторінки нижче"
+
+#: graphics.c:1846
+msgid "<Esc> or CTRL-x   abort SEARCH MODE"
+msgstr "<Esc> або CTRL-x  вийти з режиму пошуку"
+
+#: graphics.c:1847
+msgid "CTRL-n            repeat last / or ? search"
+msgstr "CTRL-n            повторити останній пошук за допомогою / або ?"
+
+#: graphics.c:1855
+msgid "ZOOMING:"
+msgstr "ЗМІНА МАСШТАБУ:"
+
+#: graphics.c:1856
+msgid "z or i or CTRL-i  zoom in"
+msgstr "z, i або CTRL-i  збільшити"
+
+#: graphics.c:1857
+msgid "Z or o or CTRL-o  zoom out"
+msgstr "Z, o або CTRL-o  зменшити"
+
+#: graphics.c:1858
+msgid "c                 condense: fold current level"
+msgstr "c                 згорнути поточний рівень"
+
+#: graphics.c:1859
+msgid "C                 condense: fold subdir level"
+msgstr "C                 згорнути рівень підкаталогів"
+
+#: graphics.c:1860
+msgid "w                 condense: fold current and subdir levels"
+msgstr "w                 згорнути поточний рівень і рівень підкаталогів"
+
+#: graphics.c:1861
+msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
+msgstr "y або CTRL-y      розгорнути поточний рівень і рівень підкаталогів"
+
+#: graphics.c:1862
+msgid "r or CTRL-r       uncondense: unfold all directories"
+msgstr "r або CTRL-r      розгорнути усі каталоги"
+
+#: graphics.c:1863
+msgid "-                 fold directory"
+msgstr "-                 згорнути каталог"
+
+#: graphics.c:1864
+msgid "+ or =            unfold directory"
+msgstr "+ або =           розгорнути каталог"
+
+#: graphics.c:1865
+msgid "l or <Right>      unfold and go right"
+msgstr "l або <Праворуч>  розгорнути і перейти праворуч"
+
+#: graphics.c:1869
+msgid "Screenheight must be > 21 for help."
+msgstr "Для перегляду довідки висота екрана має перевищувати 21."
+
+#: wfixpath.c:65
+msgid "malloc error in wcd_fixpath()\n"
+msgstr "помилка malloc у wcd_fixpath()\n"
+
+#: c3po/Error.c:41
+#, c-format
+msgid "in '%s', insufficient memory for allocation\n"
+msgstr "у «%s», недостатньо пам’яті для розподілу\n"

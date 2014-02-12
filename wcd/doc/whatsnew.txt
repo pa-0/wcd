@@ -13,6 +13,10 @@
     'make maintainer-clean'.
   - Split help text in small pieces to make it easier for translators, and
     cleanup messages. Thanks to Benno Schulenberg.
+  - Translations:
+    * New Esperanto, thanks to Benno Schulenberg.
+    * Updated Dutch, thanks to Benno Schulenberg.
+    * New Ukainian, thanks to Yuri Chornoivan.
 
 5.2.4 2013-08-28
   - Support user names with a space in the name in cmd.exe.

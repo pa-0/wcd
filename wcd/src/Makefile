@@ -521,6 +521,10 @@ tags: $(POT)
 
 merge: $(POFILES)
 
+# Get new po files from the Translation Project.
+getpo:
+	rsync -Lrtvz  translationproject.org::tp/latest/wcd/  po/incoming/
+
 dist-zip:
 	rm -f $(prefix)/$(ZIPFILE)
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)

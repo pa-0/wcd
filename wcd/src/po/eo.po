@@ -1,132 +1,131 @@
-# Dutch translations for wcd.
-# Copyright 2014 Erwin Waterlander (msgids).
+# Esperanto translations for wcd.
+# Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
 #
-# Erwin Waterlander <waterlan@xs4all.nl>, 2008-2014.
 # Benno Schulenberg <benno@vertaalt.nl>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.2.5-b4\n"
+"Project-Id-Version: wcd-5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-10 22:10+0100\n"
-"PO-Revision-Date: 2014-02-11 21:20+0100\n"
+"PO-Revision-Date: 2014-02-12 15:01+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
-"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
-"Language: nl\n"
+"Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:141
 #, c-format
 msgid "Wcd: error: "
-msgstr "Wcd: fout: "
+msgstr "Wcd: eraro: "
 
 #: wcd.c:200 wcd.c:220
 #, c-format
 msgid "Unable to read file %s: %s\n"
-msgstr "Kan bestand %s niet lezen: %s\n"
+msgstr "Ne eblas legi dosieron %s: %s\n"
 
 #: wcd.c:209
 #, c-format
 msgid "Unable to read file %s: Not a regular file.\n"
-msgstr "Kan bestand %s niet lezen: geen regulier bestand.\n"
+msgstr "Ne eblas legi dosieron %s: ne estas normala dosiero.\n"
 
 #: wcd.c:222 wcd.c:310
 #, c-format
 msgid "Unable to write file %s: %s\n"
-msgstr "Kan bestand %s niet schrijven: %s\n"
+msgstr "Ne eblas skribi dosieron %s: %s\n"
 
 #: wcd.c:312
 #, c-format
 msgid "Unable to close file %s: %s\n"
-msgstr "Kan bestand %s niet sluiten: %s\n"
+msgstr "Ne eblas fermi dosieron %s: %s\n"
 
 #: wcd.c:656 wcd.c:670
 #, c-format
 msgid "%s added to file %s\n"
-msgstr "%s toegevoegd aan bestand %s\n"
+msgstr "Aldoniĝis %s al dosiero %s\n"
 
 #: wcd.c:804 wcd.c:869
 #, c-format
 msgid "Unable to remove file %s: %s\n"
-msgstr "Kan bestand %s niet verwijderen: %s\n"
+msgstr "Ne eblas forigi dosieron %s: %s\n"
 
 #: wcd.c:957 wcd.c:1026
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
-msgstr "finddirs(): kan pad in map %s niet achterhalen\n"
+msgstr "finddirs(): malsukcesis eltrovi padon en dosierujo %s\n"
 
 #: wcd.c:958 wcd.c:1027
 msgid "path probably too long.\n"
-msgstr "pad is waarschijnlijk te lang.\n"
+msgstr "probable la pado tro longas.\n"
 
 #: wcd.c:1139 wcd.c:1472
 #, c-format
 msgid "%s is not a directory.\n"
-msgstr "%s is geen map.\n"
+msgstr "%s ne estas dosierujo.\n"
 
 #: wcd.c:1144
 #, c-format
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
-msgstr "Even geduld, schijf wordt gescand.  Boombestand %s wordt opgebouwd vanaf %s\n"
+msgstr "Bonvolu atendi, skaniĝas disko... Konstruiĝas arbodosiero %s el %s...\n"
 
 #: wcd.c:1205 wcd.c:2413 wcd.c:2436 wcd.c:2515
 #, c-format
 msgid "Writing file \"%s\"\n"
-msgstr "Schrijven van bestand '%s'\n"
+msgstr "Skribiĝas dosiero '%s'\n"
 
 #: wcd.c:1210
 msgid "Write access to tree-file denied.\n"
-msgstr "Schrijftoegang tot boombestand is geweigerd.\n"
+msgstr "Skribi al arbodosiero malpermesatas.\n"
 
 #: wcd.c:1211
 msgid "Set TEMP environment variable if this is a read-only disk.\n"
-msgstr "Stel omgevingsvariabele TEMP in wanneer dit een alleen-lezen schijf is.\n"
+msgstr "Argordu la ĉirkaŭaĵan variablon TEMP se ĉi tiu estas nurlega disko.\n"
 
 #: wcd.c:1340
 #, c-format
 msgid "Removed symbolic link %s\n"
-msgstr "Symbolische koppeling %s is verwijderd.\n"
+msgstr "Forigiĝis simbola ligo %s\n"
 
 #: wcd.c:1346
 #, c-format
 msgid "Unable to remove symbolic link %s: %s\n"
-msgstr "Kan symbolische koppeling %s niet verwijderen: %s\n"
+msgstr "Ne eblas forigi simbolan ligon %s: %s\n"
 
 #: wcd.c:1351
 #, c-format
 msgid "%s is a symbolic link to a file.\n"
-msgstr "%s is een symbolische koppeling naar een bestand.\n"
+msgstr "%s estas simbola ligo al dosiero.\n"
 
 #: wcd.c:1433
 #, c-format
 msgid "Recursively remove %s? Are you sure? y/n :"
-msgstr "Map %s recursief verwijderen?  Weet u het zeker?  y(ja)/n(nee) :"
+msgstr "Ĉu rikure forigi %s?  Ĉu vi certas?  y(jes)/n(ne):"
 
 #: wcd.c:1455 wcd.c:1465
 #, c-format
 msgid "Removed directory %s\n"
-msgstr "Map %s is verwijderd.\n"
+msgstr "Forigiĝis dosierujo %s\n"
 
 #: wcd.c:1496 wcd.c:1556 wcd.c:1615
 #, c-format
 msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
 msgstr ""
-"Regel in %s is te lang (> %d).  Het boombestand kan beschadigd zijn,\n"
-"of anders is het op te lossen door DD_MAXPATH in broncode te verhogen.\n"
+"Linio en %s tro longas (> %d).  Eble la arbodosiero difektiĝis,\n"
+"aŭ alie evitu ĉi tiun per pligrandigi DD_MAXPATH en la programo.\n"
 
 #: wcd.c:1497 wcd.c:1557 wcd.c:1616
 #, c-format
 msgid "file: %s, line: %d,"
-msgstr "bestand: %s, regel: %d,"
+msgstr "dosiero: %s, linio: %d,"
 
 #: wcd.c:1504 wcd.c:1564 wcd.c:1623
 #, c-format
 msgid " length: %d\n"
-msgstr " lengte: %d\n"
+msgstr " longo: %d\n"
 
 #: wcd.c:2126
 #, c-format
@@ -134,13 +133,13 @@ msgid ""
 "Usage: wcd [options] [directory]\n"
 "\n"
 msgstr ""
-"Gebruik:  wcd [opties] [MAP]\n"
+"Uzmaniero:  wcd [OPCIO...] [DOSIERUJO]\n"
 "\n"
 
 #: wcd.c:2127
 #, c-format
 msgid "directory:  Name of directory to change to.\n"
-msgstr "MAP is de naam van de map waarnaartoe veranderd moet worden.\n"
+msgstr "DOSIERUJO estas la nomo de la dosierujo al kiu ŝanĝi.\n"
 
 #: wcd.c:2128
 #, c-format
@@ -148,309 +147,309 @@ msgid ""
 "            Wildcards *, ? and [SET] are supported.\n"
 "\n"
 msgstr ""
-"De jokertekens * en ? worden ondersteund, en ook [SET].\n"
+"Ĵokeraj signoj * kaj ? subtenatas, kaj ankaŭ [ARO].\n"
 "\n"
 
 #: wcd.c:2130
 #, c-format
 msgid "options:\n"
-msgstr "Opties:\n"
+msgstr "Opcioj:\n"
 
 #: wcd.c:2131
 #, c-format
 msgid "  -a                      Add current path to treefile\n"
-msgstr "  -a                       huidig pad toevoegen aan boombestand\n"
+msgstr "  -a                      aldoni nunan padon al arbodosiero\n"
 
 #: wcd.c:2132
 #, c-format
 msgid "  -aa                     Add current and all parent paths to treefile\n"
-msgstr "  -aa                      huidig pad en alle hogere paden toevoegen aan boombestand\n"
+msgstr "  -aa                     aldoni nunan kaj suprajn padojn al arbodosiero\n"
 
 #: wcd.c:2133
 #, c-format
 msgid "  -A PATH                 Add tree from PATH\n"
-msgstr "  -A PAD                   boom vanaf dit pad toevoegen\n"
+msgstr "  -A PADO                 aldoni arbon el ĉi tiu pado\n"
 
 #: wcd.c:2134
 #, c-format
 msgid "  -b                      Ban current path\n"
-msgstr "  -b                       huidig pad verbannen\n"
+msgstr "  -b                      escepti nunan padon\n"
 
 #: wcd.c:2135
 #, c-format
 msgid "  -c,  --direct-cd        direct CD mode\n"
-msgstr "  -c,  --direct-cd         direkte CD-modus\n"
+msgstr "  -c,  --direct-cd        rekta CD-moduso\n"
 
 #: wcd.c:2136
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
-msgstr "  -d SCHIJF                te gebruiken schijf voor stapel- & go-bestanden in (DOS)\n"
+msgstr "  -d DISKO                uzenda disko por stakaj kaj 'go'-dosieroj (DOS)\n"
 
 #: wcd.c:2137
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
-msgstr "  -e                       huidig pad toevoegen aan extra boombestand\n"
+msgstr "  -e                      aldoni nunan padon al aldona arbodosiero\n"
 
 #: wcd.c:2138
 #, c-format
 msgid "  -ee                     add current and all parent paths to Extra treefile\n"
-msgstr "  -ee                      huidig pad en alle hogere paden toevoegen aan extra boombestand\n"
+msgstr "  -ee                     aldoni nunan kaj suprajn padojn al aldona arbodosiero\n"
 
 #: wcd.c:2139
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
-msgstr "  -E PAD                   boom vanaf dit pad toevoegen aan extra boombestand\n"
+msgstr "  -E PADO                 aldoni arbon de ĉi tiu pado al aldona arbodosiero\n"
 
-# FIXME:  s/extra/this/
 #: wcd.c:2140
 #, c-format
 msgid "  -f FILE                 use extra treeFile\n"
-msgstr "  -f BESTAND               te gebruiken boombestand\n"
+msgstr "  -f DOSIERO              uzenda arbodosiero\n"
 
 #: wcd.c:2141
 #, c-format
 msgid "  +f FILE                 add extra treeFile\n"
-msgstr "  +f BESTAND               toe te voegen extra boombestand\n"
+msgstr "  +f DOSIERO              aldona arbodosiero\n"
 
 #: wcd.c:2142
 #, c-format
 msgid "  -g                      Graphics\n"
-msgstr "  -g                       grafisch\n"
+msgstr "  -g                      grafika moduso\n"
 
 #: wcd.c:2143
 #, c-format
 msgid "  -gd                     Graphics, dump tree\n"
-msgstr "  -gd                      grafisch, de boom dumpen\n"
+msgstr "  -gd                     grafika moduso, deponi arbon\n"
 
 #: wcd.c:2144
 #, c-format
 msgid "  -G PATH                 set PATH Go-script\n"
-msgstr "  -G PAD                   te gebruiken pad voor Go-script\n"
+msgstr "  -G PADO                 uzenda pado por trovi Go-skripton\n"
 
 #: wcd.c:2145
 #, c-format
 msgid "  -GN, --no-go-script     No Go-script\n"
-msgstr "  -GN, --no-go-script      geen Go-script gebruiken\n"
+msgstr "  -GN, --no-go-script     ne uzi Go-skripton\n"
 
 #: wcd.c:2146
 #, c-format
 msgid "  -h,  --help             show this Help\n"
-msgstr "  -h,  --help              deze hulptekst tonen\n"
+msgstr "  -h,  --help             montri ĉi tiun helptekston\n"
 
 #: wcd.c:2149
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
-msgstr "  -i,  --ignore-case       hoofdletterongevoelig (standaard)\n"
+msgstr "  -i,  --ignore-case      ignori usklecon  (defaŭlto)\n"
 
 #: wcd.c:2150
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case\n"
-msgstr "  +i,  --no-ignore-case    hoofdlettergevoelig\n"
+msgstr "  +i,  --no-ignore-case   atenti usklecon\n"
 
 #: wcd.c:2152
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case\n"
-msgstr "  -i,  --ignore-case       hoofdletterongevoelig\n"
+msgstr "  -i,  --ignore-case      ignori usklecon\n"
 
 #: wcd.c:2153
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case (default)\n"
-msgstr "  +i,  --no-ignore-case    hoofdlettergevoelig (standaard)\n"
+msgstr "  +i,  --no-ignore-case   atenti usklecon  (defaŭlto)\n"
 
 #: wcd.c:2156
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
-msgstr "  -I,  --ignore-diacritics     diakritische tekens negeren\n"
+msgstr "  -I,  --ignore-diacritics     ignori diakritajn signojn\n"
 
 #: wcd.c:2157
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
-msgstr "  +I,  --no-ignore-diacritics  diakritische tekens achten (standaard)\n"
+msgstr "  +I,  --no-ignore-diacritics  atenti diakritajn signojn  (defaŭlto)\n"
 
 #: wcd.c:2158
 #, c-format
 msgid "  -j,  --just-go          Just go mode\n"
-msgstr "  -j,  --just-go           ga-nou-maar-modus\n"
+msgstr "  -j,  --just-go          «simple iru»-moduso\n"
 
 #: wcd.c:2159
 #, c-format
 msgid "  -k,  --keep-paths       Keep paths\n"
-msgstr "  -k,  --keep-paths        paden bewaren\n"
+msgstr "  -k,  --keep-paths       reteni padojn\n"
 
 #: wcd.c:2160
 #, c-format
 msgid "  -K,  --color            colors\n"
-msgstr "  -K,  --color             kleuren gebruiken\n"
+msgstr "  -K,  --color            uzi kolorojn\n"
 
 #: wcd.c:2161
 #, c-format
 msgid "  -l ALIAS                aLias current directory\n"
-msgstr "  -l ALIAS                 alias voor huidige map\n"
+msgstr "  -l ALINOMO              uzenda alinomo por nuna dosierujo\n"
 
 #: wcd.c:2162
 #, c-format
 msgid "  -L,  --license          show software License\n"
-msgstr "  -L,  --license           softwarelicentie tonen\n"
+msgstr "  -L,  --license          montri la permesilon de la programo\n"
 
 #: wcd.c:2163
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
-msgstr "  -m MAP                   deze MAP aanmaken, en toevoegen aan boombestand\n"
+msgstr "  -m UJO                  krei ĉi tiun dosierujon kaj aldoni ĝin al arbodosiero\n"
 
 #: wcd.c:2164
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
-msgstr "  -M MAP                   deze MAP aanmaken, en toevoegen aan extra boombestand\n"
+msgstr "  -M UJO                  krei dosierujon kaj aldoni ĝin al aldona arbodosiero\n"
 
 #: wcd.c:2165
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
-msgstr "  -n PAD                   relatief boombestand in dit pad gebruiken\n"
+msgstr "  -n PADO                 uzi relativan arbodosieron en ĉi tiu pado\n"
 
 #: wcd.c:2166
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
-msgstr "  +n PAD                   relatief boombestand in dit pad toevoegen\n"
+msgstr "  +n PADO                 aldoni relativan arbodosieron en ĉi tiu pado\n"
 
 #: wcd.c:2167
 #, c-format
 msgid "  -N,  --numbers          use Numbers\n"
-msgstr "  -N,  --numbers           nummers gebruiken\n"
+msgstr "  -N,  --numbers          uzi numerojn\n"
 
 #: wcd.c:2168
 #, c-format
 msgid "  -o                      use stdOut\n"
-msgstr "  -o                       standaarduitvoer gebruiken\n"
+msgstr "  -o                      uzi ĉefeligujon\n"
 
 #: wcd.c:2169
 #, c-format
 msgid "  -od, --to-stdout        dump matches\n"
-msgstr "  -od, --to-stdout         treffers dumpen\n"
+msgstr "  -od, --to-stdout        deponi kongruojn\n"
 
 #: wcd.c:2170
 #, c-format
 msgid "  -q,  --quiet            Quieter operation\n"
-msgstr "  -q,  --quiet             stillere werking\n"
+msgstr "  -q,  --quiet            silentema funkciado\n"
 
 #: wcd.c:2171
 #, c-format
 msgid "  -r DIR                  Remove DIR\n"
-msgstr "  -r MAP                   deze map verwijderen\n"
+msgstr "  -r UJO                  forigi ĉi tiun dosierujon\n"
 
 #: wcd.c:2172
 #, c-format
 msgid "  -rmtree DIR             Remove DIR recursive\n"
-msgstr "  -rmtree MAP              deze map recursief verwijderen\n"
+msgstr "  -rmtree UJO             rikure forigi ĉi tiun dosierujon\n"
 
 #: wcd.c:2173
 #, c-format
 msgid "  -s                      Scan disk from $HOME\n"
-msgstr "  -s                       schijf scannen vanaf $HOME\n"
+msgstr "  -s                      skani diskon ekde $HOME\n"
 
 #: wcd.c:2174
 #, c-format
 msgid "  -S PATH                 Scan disk from PATH\n"
-msgstr "  -S PAD                   schijf scannen vanaf dit pad\n"
+msgstr "  -S PADO                 skani diskon ekde ĉi tiu pado\n"
 
 #: wcd.c:2175
 #, c-format
 msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
-msgstr "  +S PAD                   schijf scannen vanaf dit pad, en relatief boombestand aanmaken\n"
+msgstr "  +S PADO                 skani diskon ekde pado, krei relativan arbodosieron\n"
 
 #: wcd.c:2176
 #, c-format
 msgid "  -t                      don't strip /tmp_mnt from paths\n"
-msgstr "  -t                       paden niet van '/tmp_mnt' ontdoen\n"
+msgstr "  -t                      ne forpreni '/tmp_mnt' de la padojn\n"
 
 #: wcd.c:2177
 #, c-format
 msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
-msgstr "  -T,  --ascii-tree        boom weergeven via ASCII-tekens\n"
+msgstr "  -T,  --ascii-tree       montri arbon per ASCII-signoj\n"
 
 #: wcd.c:2178
 #, c-format
 msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
-msgstr "  -Ta, --alt-tree-nav      alternatieve boomnavigatie\n"
+msgstr "  -Ta, --alt-tree-nav     alternativa navigado de la arbo\n"
 
 #: wcd.c:2179
 #, c-format
 msgid "  -TC, --center-tree      Centered tree view\n"
-msgstr "  -TC, --center-tree       gecentreerde boomweergave\n"
+msgstr "  -TC, --center-tree      centrigita arbomontro\n"
 
 #: wcd.c:2180
 #, c-format
 msgid "  -Tc, --compact-tree     Compact tree\n"
-msgstr "  -Tc, --compact-tree      compacte boomweergave\n"
+msgstr "  -Tc, --compact-tree     densa arbomontro\n"
 
 #: wcd.c:2181
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
-msgstr "  -Td, --cjk-width         oude CJK-lettertypes ondersteunen\n"
+msgstr "  -Td, --cjk-width        subteni antikvajn CJK-tiparojn\n"
 
 #: wcd.c:2182
 #, c-format
 msgid "  -u USER                 use USER's treefile\n"
-msgstr "  -u GEBRUIKER             boombestand van deze gebruiker gebruiken\n"
+msgstr "  -u USANTO               uzi arbodosieron de ĉi tiu uzanto\n"
 
 #: wcd.c:2183
 #, c-format
 msgid "  +u USER                 add USER's treefile\n"
-msgstr "  +u GEBRUIKER             boombestand van deze gebruiker toevoegen\n"
+msgstr "  +u USANTO               aldone uzi arbodosieron de ĉi tiu uzanto\n"
 
 #: wcd.c:2184
 #, c-format
 msgid "  -v,  --verbose          Verbose operation\n"
-msgstr "  -v,  --verbose           gedetailleerde uitvoer produceren\n"
+msgstr "  -v,  --verbose          parolema funkciado\n"
 
 #: wcd.c:2185
 #, c-format
 msgid "  -V,  --version          show Version info\n"
-msgstr "  -V,  --version           programmaversie tonen\n"
+msgstr "  -V,  --version          montri programversion\n"
 
 #: wcd.c:2186
 #, c-format
 msgid "  -w,  --wild-match-only  Wild matching only\n"
-msgstr "  -w,  --wild-match-only   alleen jokervergelijkingen doen\n"
+msgstr "  -w,  --wild-match-only  nur ĵokeraj kongruoj\n"
 
 #: wcd.c:2187
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
-msgstr "  -x PAD                   uit te sluiten pad tijdens scannen van schijf\n"
+msgstr "  -x PADO                 ekskludenda pado dum skanado de disko\n"
 
 #: wcd.c:2188
 #, c-format
 msgid "  -xf FILE                eXclude paths from FILE\n"
-msgstr "  -xf BESTAND              paden uit dit bestand uitsluiten\n"
+msgstr "  -xf DOSIERO             ekskludi la padojn listigitaj en ĉi tiu dosiero\n"
 
+# FIXME:  s/query/question/
 #: wcd.c:2189
 #, c-format
 msgid "  -y,  --assume-yes       assume Yes on all queries\n"
-msgstr "  -y,  --assume-yes        op alle vragen als antwoord Ja aannemen\n"
+msgstr "  -y,  --assume-yes       alpreni 'jes' je ĉiuj demandoj\n"
 
 #: wcd.c:2190
 #, c-format
 msgid "  -z NUMBER               set max stack siZe\n"
-msgstr "  -z GETAL                 te gebruiken maximum stapelgrootte\n"
+msgstr "  -z NOMBRO               agordi maksimuman grandon de stako\n"
 
 #: wcd.c:2191
 #, c-format
 msgid "  -[NUMBER]               push dir (NUMBER times)\n"
-msgstr "  -[GETAL]                 map aan stapel toevoegen (dit aantal maal)\n"
+msgstr "  -[NOMBRO]               surstakigi nunan dosierujon (NOMBRO fojojn)\n"
 
 #: wcd.c:2192
 #, c-format
 msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
-msgstr "  +[GETAL]                 map van stapel halen (dit aantal maal)\n"
+msgstr "  +[NOMBRO]               elstakigi dosierujon (NOMBRO fojojn)\n"
 
 #: wcd.c:2193
 #, c-format
 msgid "  =                       show stack\n"
-msgstr "  =                        stapel tonen\n"
+msgstr "  =                       montri stakon\n"
 
 #: wcd.c:2202 wcd.c:2331
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
-msgstr "wcd %s (%s) - Wherever Change Directory\n"
+msgstr "wcd %s (%s) -- «ien ajn ŝanĝi dosierujon»\n"
 
 #: wcd.c:2203
 #, c-format
@@ -458,113 +457,113 @@ msgid ""
 "Chdir for Dos and Unix.\n"
 "\n"
 msgstr ""
-"Een slimme 'chdir' voor Dos en Unix.\n"
+"Lerta 'chdir' por DOS kaj Unix.\n"
 "\n"
 
 #: wcd.c:2207
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
-msgstr "DOS 16-bits versie (WATCOMC).\n"
+msgstr "DOS 16-bita versio (WATCOMC).\n"
 
 #: wcd.c:2209
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
-msgstr "DOS 16-bits versie (TURBOC).\n"
+msgstr "DOS 16-bita versio (TURBOC).\n"
 
 #: wcd.c:2211
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
-msgstr "DOS 32-bits versie (DJGPP).\n"
+msgstr "DOS 32-bita versio (DJGPP).\n"
 
 #: wcd.c:2213
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
-msgstr "DOS 32-bits versie (WATCOMC).\n"
+msgstr "DOS 32-bita versio (WATCOMC).\n"
 
 #: wcd.c:2220
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
-msgstr "Windows 64-bits versie (MSVC %d).\n"
+msgstr "Windows 64-bita versio (MSVC %d).\n"
 
 #: wcd.c:2222
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
-msgstr "Windows 64-bits versie (MinGW-w64).\n"
+msgstr "Windows 64-bita versio (MinGW-w64).\n"
 
 #: wcd.c:2226
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
-msgstr "Windows 32-bits versie (WATCOMC).\n"
+msgstr "Windows 32-bita versio (WATCOMC).\n"
 
 #: wcd.c:2228
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
-msgstr "Windows 32-bits versie (MSVC %d).\n"
+msgstr "Windows 32-bita versio (MSVC %d).\n"
 
 #: wcd.c:2230
 #, c-format
 msgid "Win32 version (MinGW-w64).\n"
-msgstr "Windows 32-bits versie (MinGW-w64).\n"
+msgstr "Windows 32-bita versio (MinGW-w64).\n"
 
 #: wcd.c:2232
 #, c-format
 msgid "Win32 version (MinGW).\n"
-msgstr "Windows 32-bits versie (MinGW)\n"
+msgstr "Windows 32-bita versio (MinGW)\n"
 
 #: wcd.c:2239
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
-msgstr "Deze versie is voor MSYS en WinZsh.\n"
+msgstr "Ĉi tiu versio estas por MSYS kaj WinZsh.\n"
 
 #: wcd.c:2241
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
-msgstr "Deze versie is voor Windows PowerShell.\n"
+msgstr "Ĉi tiu versio estas por Windows PowerShell.\n"
 
 #: wcd.c:2243
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
-msgstr "Deze versie is voor Windows Opdrachtprompt (cmd.exe).\n"
+msgstr "Ĉi tiu versio estas por Windows Command Prompt (cmd.exe).\n"
 
 #: wcd.c:2248
 #, c-format
 msgid "OS/2 version"
-msgstr "OS/2-versie"
+msgstr "OS/2-versio"
 
 #: wcd.c:2259
 #, c-format
 msgid "This version is for native MSYS.\n"
-msgstr "Deze versie is voor MSYS.\n"
+msgstr "Ĉi tiu versio estas por MSYS.\n"
 
 #: wcd.c:2262
 #, c-format
 msgid "Cygwin version.\n"
-msgstr "Cygwin-versie.\n"
+msgstr "Cygwin-versio.\n"
 
 #: wcd.c:2265
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
-msgstr "Deze versie is voor DJGPP DOS bash.\n"
+msgstr "Ĉi tiu versio estas por DJGPP DOS bash.\n"
 
 #: wcd.c:2268
 #, c-format
 msgid "This version is for OS/2 bash.\n"
-msgstr "Deze versie is voor OS/2 bash.\n"
+msgstr "Ĉi tiu versio estas por OS/2 bash.\n"
 
 #: wcd.c:2271
 #, c-format
 msgid "Interface: "
-msgstr "Interface: "
+msgstr "Interfaco: "
 
 #: wcd.c:2277
 #, c-format
 msgid "ncurses version %s.%d\n"
-msgstr "ncurses-versie %s.%d\n"
+msgstr "ncurses, versio %s.%d\n"
 
 #: wcd.c:2280
 #, c-format
 msgid "PDCurses build %d\n"
-msgstr "PDCurses-versie %d\n"
+msgstr "PDCurses, versio %d\n"
 
 #: wcd.c:2282
 #, c-format
@@ -574,12 +573,12 @@ msgstr "curses\n"
 #: wcd.c:2291
 #, c-format
 msgid "stdout\n"
-msgstr "standaarduitvoer\n"
+msgstr "ĉefeligujo\n"
 
 #: wcd.c:2295
 #, c-format
 msgid "Native language support included.\n"
-msgstr "Met ondersteuning voor taalregio's.\n"
+msgstr "Kun subteno por lokaĵoj.\n"
 
 #: wcd.c:2296
 #, c-format
@@ -589,52 +588,52 @@ msgstr "LOCALEDIR=%s\n"
 #: wcd.c:2298
 #, c-format
 msgid "No native language support included.\n"
-msgstr "Zonder ondersteuning voor taalregio's.\n"
+msgstr "Sen subteno por lokaĵoj.\n"
 
 #: wcd.c:2301
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
-msgstr "Huidige taalregio gebruikt CP%u-codering.\n"
+msgstr "La nuna lokaĵo uzas kodon CP%u.\n"
 
 #: wcd.c:2303
 #, c-format
 msgid "Current locale uses %s encoding.\n"
-msgstr "Huidige taalregio gebruikt %s-codering.\n"
+msgstr "La nuna lokaĵo uzas kodon %s.\n"
 
 #: wcd.c:2306
 #, c-format
 msgid "With Unicode support.\n"
-msgstr "Met ondersteuning voor Unicode.\n"
+msgstr "Kun subteno por Unikodo.\n"
 
 #: wcd.c:2311
 #, c-format
 msgid "  Euro symbol: "
-msgstr "  Euro-symbool: "
+msgstr "  Eŭro-simbolo: "
 
 #: wcd.c:2313
 #, c-format
 msgid "  Chinese characters: "
-msgstr "  Chinese karakters: "
+msgstr "  Ĉinaj signoj: "
 
 #: wcd.c:2317
 #, c-format
 msgid "Without Unicode support.\n"
-msgstr "Zonder ondersteuning voor Unicode.\n"
+msgstr "Sen subteno por Unikodo.\n"
 
 #: wcd.c:2320
 #, c-format
 msgid "With Unicode normalization.\n"
-msgstr "Met Unicode-normalisatie.\n"
+msgstr "Kun Unikoda normigo.\n"
 
 #: wcd.c:2322
 #, c-format
 msgid "Without Unicode normalization.\n"
-msgstr "Zonder Unicode-normalisatie.\n"
+msgstr "Sen Unikoda normigo.\n"
 
 #: wcd.c:2325
 #, c-format
 msgid "Download the latest executables and sources from:\n"
-msgstr "Download de nieuwste versie en/of de broncode van:\n"
+msgstr "Elŝutu la lastan version el:\n"
 
 #: wcd.c:2332
 #, c-format
@@ -648,12 +647,12 @@ msgid ""
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
 "Copyright (C) 1997-2014 Erwin Waterlander\n"
-"Copyright (C) 1994-2002 Ondrej Popp (op C3PO)\n"
-"Copyright (C) 1995-1996 DJ Delorie (on _fixpath())\n"
-"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol (op Ninux Czo Directory)\n"
-"Copyright (C) 1994-1996 Jason Mathews (op DOSDIR)\n"
+"Copyright (C) 1994-2002 Ondrej Popp  [je C3PO]\n"
+"Copyright (C) 1995-1996 DJ Delorie  [je_fixpath()]\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol  [je Ninux Czo Directory]\n"
+"Copyright (C) 1994-1996 Jason Mathews  [je DOSDIR]\n"
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
-"Kai Uwe Rommel en Igor Mandrichenko (op recmatch())\n"
+"Kai Uwe Rommel kaj Igor Mandrichenko  [je recmatch()]\n"
 
 #: wcd.c:2340
 #, c-format
@@ -664,10 +663,9 @@ msgid ""
 "Rugxulo is the original author of query_con_codepage() (public domain).\n"
 "\n"
 msgstr ""
-"Het programmadeel om een Windows-LAN te scannen werd oorspronkelijk\n"
-"geschreven en in het publieke domein geplaatst door Felix Kasza.\n"
-"Markus Kuhns vrije implementaties van wcwidth() en wcswidth() worden gebruikt.\n"
-"Rugxulo is de oorspronkelijke auteur van query_con_codepage() (publieke domein).\n"
+"Programparto por skani Windows LAN origine skribiĝis kaj ĉiesaĵiĝis per Felix Kasza.\n"
+"Uziĝas la liberaj realigoj de 'wcwidth()' kaj 'wcswidth()' de Markus Kuhn.\n"
+"La origina aŭtoro de la ĉiesaĵa 'query_con_codepage()' estas Rugxulo.\n"
 "\n"
 
 #: wcd.c:2346
@@ -679,11 +677,10 @@ msgid ""
 "of the License, or (at your option) any later version.\n"
 "\n"
 msgstr ""
-"Dit programma is vrije software: u mag het vrijelijk wijzigen en/of verder\n"
-"verspreiden onder de voorwaarden van de GNU General Public License (versie 2\n"
-"of nieuwer) zoals die gepubliceerd is door de Free Software Foundation.\n"
-"Zie <http://gnu.org/licenses/gpl.html> voor de volledige (Engelse) tekst.\n"
-"\n"
+"Tiu ĉi estas libera programo; vi povas ĝin redistribui kaj/aŭ modifi laŭ\n"
+"la kondiĉoj de la GNU-a Ĝenerala Publika Liberpermeso kiel ĝi publikiĝis\n"
+"de la 'Free Software Foundation'; aŭ laŭ versio 2 de tiu permesilo, aŭ\n"
+"(je via elekto) laŭ iu ajn posta versio.\n"
 
 #: wcd.c:2352
 #, c-format
@@ -694,10 +691,10 @@ msgid ""
 "GNU General Public License for more details.\n"
 "\n"
 msgstr ""
-"Dit programma wordt uitgegeven in de hoop dat het nuttig is,\n"
-"maar ZONDER ENIGE GARANTIE; zelfs zonder de impliciete garantie\n"
-"van VERKOOPBAARHEID of GESCHIKTHEID VOOR EEN BEPAALD DOEL.\n"
-"Zie de GNU General Public License voor meer details.\n"
+"Tiu ĉi programo distribuiĝas esperante ke ĝi estu utila,\n"
+"sed SEN IU AJN GARANTIO; sen eĉ implicita garantio pri\n"
+"VENDEBLECO aŭ TAŬGECO POR IU SPECIFA APLIKO.  Vidu la\n"
+"GNU-an Ĝeneralan Publikan Liberpermeson por pli da detaloj.\n"
 "\n"
 
 #: wcd.c:2358
@@ -707,483 +704,482 @@ msgid ""
 "along with this program; if not, write to the Free Software\n"
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 msgstr ""
-"Bij dit programma hoort u een kopie van de GNU General Public License\n"
-"ontvangen te hebben; is dit niet het geval, dan kunt u deze licentie\n"
-"ook vinden op http://www.gnu.org/licenses/\n"
+"Vi devus esti ricevinte kopion de la GNU-a Ĝenerala Publika Liberpermeso\n"
+"kune kun tiu ĉi programo; se ne, vidu <http://www.gnu.org/licenses/>.\n"
 
 #: wcd.c:2393
 #, c-format
 msgid "creating directory %s\n"
-msgstr "aanmaken van map %s\n"
+msgstr "kreiĝas dosierujo %s\n"
 
 #: wcd.c:2720 wcd.c:2760 wcd.c:2775 wcd.c:2843 wcd.c:2912 wcd.c:3394
 #: wcd.c:3413
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
-msgstr "Waarde van omgevingsvariabele %s is te lang.\n"
+msgstr "Valoro de ĉirkaŭaĵa variablo %s tro longas.\n"
 
 #: wcd.c:2749
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
-msgstr "Verwijderen van omgevingsvariabele TERM is mislukt: %s\n"
+msgstr "Malsukcesis agordi ĉirkaŭaĵan variablon TERM: %s\n"
 
 #: wcd.c:2807 wcd.c:2836
 msgid "Environment variable HOME or WCDHOME is not set.\n"
-msgstr "Omgevingsvariabelen HOME en WCDHOME zijn niet ingesteld.\n"
+msgstr "Cirkaŭaĵaj variabloj HOME kaj WCDHOME ne agordiĝis.\n"
 
 #: wcd.c:3021
 msgid "HOME is not defined\n"
-msgstr "HOME is niet gedefinieerd.\n"
+msgstr "HOME ne havas valoron\n"
 
 #: wcd.c:3025
 msgid "WCDHOME is not defined\n"
-msgstr "WCDHOME is niet gedefinieerd.\n"
+msgstr "WCDHOME ne havas valoron\n"
 
 #: wcd.c:3029
 msgid "WCDSCAN is not defined\n"
-msgstr "WCDSCAN is niet gedefinieerd.\n"
+msgstr "WCDSCAN ne havas valoron\n"
 
 #: wcd.c:3054
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
-msgstr "Grafische modus wordt alleen ondersteund met een op 'curses' gebaseerde interface.\n"
+msgstr "Grafika moduso nur subtenatas en interfaco kiu baziĝas sur 'curses'.\n"
 
 #: wcd.c:3327
 #, c-format
 msgid "%s added to aliasfile %s\n"
-msgstr "%s is toegevoegd aan aliasbestand %s\n"
+msgstr "Aldoniĝis alinomo %s al dosiero %s\n"
 
 #: wcd.c:3426
 #, c-format
 msgid "Unable to read file %s or %s\n"
-msgstr "Kan bestand %s of %s niet lezen.\n"
+msgstr "Ne eblas legi dosieron %s aŭ %s\n"
 
 #: wcd.c:3576
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
-msgstr "WCDSCAN-map {%s}\n"
+msgstr "WCDSCAN-dosierujo {%s}\n"
 
 #: wcd.c:3578
 #, c-format
 msgid "banning {%s}\n"
-msgstr "verbannen van {%s}\n"
+msgstr "esceptiĝas {%s}\n"
 
 #: wcd.c:3580
 #, c-format
 msgid "excluding {%s}\n"
-msgstr "uitsluiten van {%s}\n"
+msgstr "ekskludiĝas {%s}\n"
 
 #: wcd.c:3582
 #, c-format
 msgid "filtering {%s}\n"
-msgstr "filteren van {%s}\n"
+msgstr "filtriĝas {%s}\n"
 
 #: wcd.c:3850
 #, c-format
 msgid "No directory found matching %s\n"
-msgstr "Geen map gevonden die overeenkomt met %s\n"
+msgstr "Ne troviĝas dosierujo kiu kongruas kun %s\n"
 
 #: wcd.c:3851
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
-msgstr "Misschien moet u de schijf opnieuw scannen of is het pad verbannen.\n"
+msgstr "Eble necesas reskani la diskon, aŭ la pado esceptiĝis.\n"
 
 #: wcd.c:4018
 #, c-format
 msgid "Cannot change to %s\n"
-msgstr "Kan niet veranderen naar %s\n"
+msgstr "Ne eblas ŝanĝi al %s\n"
 
 #: wcddir.c:104
 #, c-format
 msgid "%lu (\"%s\") reported by \"%s\".\n"
-msgstr "%lu (\"%s\") gerapporteerd door \"%s\".\n"
+msgstr "%lu (\"%s\") raportiĝis por \"%s\".\n"
 
 #: wcddir.c:127
 msgid "access denied.\n"
-msgstr "toegang is geweigerd.\n"
+msgstr "atingo malpermesatas.\n"
 
 #: wcddir.c:208
 #, c-format
 msgid "Searching for shared directories on server %s\n"
-msgstr "Zoeken naar gedeelde mappen op server %s\n"
+msgstr "Serĉado de komunaj dosierujoj en servilo %s\n"
 
 #: wcddir.c:220
 #, c-format
 msgid "Found %lu shared directories on server %s\n"
-msgstr "Er zijn %lu gedeelde mappen gevonden op server %s\n"
+msgstr "Troviĝis %lu komunajn dosierujojn en servilo %s\n"
 
 #: wcddir.c:346
 msgid "Unable to get current working directory: "
-msgstr "Kan huidige werkmap niet verkrijgen: "
+msgstr "Ne eblas eltrovi nunan labordosierujon: "
 
 #: wcddir.c:375
 #, c-format
 msgid "Unable to change to directory %s: "
-msgstr "Kan niet veranderen naar map %s: "
+msgstr "Ne eblas ŝanĝi al dosierujo %s"
 
 #: wcddir.c:407
 #, c-format
 msgid "Unable to create directory %s: "
-msgstr "Kan map %s niet aanmaken: "
+msgstr "Ne eblas krei dosierujon %s: "
 
 #: wcddir.c:437
 #, c-format
 msgid "Unable to remove directory %s: "
-msgstr "Kan map %s niet verwijderen: "
+msgstr "Ne eblas forigi dosierujon %s: "
 
 #: wcddir.c:567 wcddir.c:584
 #, c-format
 msgid "Unable to create directory %s: %s\n"
-msgstr "Kan map %s niet aanmaken: %s\n"
+msgstr "Ne eblas krei dosierujon %s: %s\n"
 
 #: wcddir.c:709
 #, c-format
 msgid "Unable to get current working directory: %s\n"
-msgstr "Kan huidige werkmap niet verkrijgen: %s\n"
+msgstr "Ne eblas eltrovi nunan labordosierujon: %s\n"
 
 #: wcddir.c:728
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
-msgstr "Kan niet veranderen naar map %s: %s\n"
+msgstr "Ne eblas ŝanĝi al dosierujo %s: %s\n"
 
 #: wcddir.c:743
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
-msgstr "Kan bestand %s niet verwijderen: %s\n"
+msgstr "Ne eblas forigi dosierujon %s: %s\n"
 
 #: stack.c:101
 msgid "Error parsing stack\n"
-msgstr "Fout bij verwerken van stapel\n"
+msgstr "Eraro dum analizo de stako\n"
 
 #: display.c:257
 msgid "internal error in maxLength(), list == NULL\n"
-msgstr "**interne programmafout** in maxLength(): list == NULL\n"
+msgstr "**interna programmiso** en maxLength(): list == NULL\n"
 
 #: display.c:277
 msgid "internal error in maxLengthStack(), s == NULL\n"
-msgstr "**interne programmafout** in maxLengthStack(): s == NULL\n"
+msgstr "**interna programmiso** en maxLengthStack(): s == NULL\n"
 
 #: display.c:517 display.c:1142 display.c:1517
 #, c-format
 msgid "Perfect match for %d directories."
-msgstr "Perfecte overeenkomst voor %d mappen."
+msgstr "Perfekta kongruo por %d dosierujoj."
 
 #: display.c:519 display.c:1144 display.c:1519
 #, c-format
 msgid "Wild match for %d directories."
-msgstr "Jokerovereenkomst voor %d mappen."
+msgstr "Ĵokera kongruo por %d dosierujoj."
 
 #: display.c:523 display.c:1156 display.c:1521 display.c:1564
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
-msgstr "Maak een keuze (<Enter> om af te breken): "
+msgstr "Bonvolu elekti unu (<Enter> por ĉesigi): "
 
 #: display.c:525 display.c:601 display.c:633 display.c:1149
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
-msgstr " w=omhoog x=omlaag ?=help  Pagina %d/%d "
+msgstr " w=supren x=suben ?=helpo  Paĝo %d/%d "
 
 #: display.c:677 display.c:1172
 msgid "Screenheight must be > 20 for help."
-msgstr "Schermhoogte moet groter zijn dan 20 voor hulp."
+msgstr "Ekranalto devas esti pli ol 20 por helpo."
 
 #: display.c:682 display.c:1175
 msgid "w or <Up>         page up"
-msgstr "w of <Omhoog>       pagina omhoog"
+msgstr "w aŭ <Supren>       paĝon supren"
 
 #: display.c:683 display.c:1176
 msgid "x or z or <Down>  page down"
-msgstr "x of z of <Omlaag>  pagina omlaag"
+msgstr "x aŭ z aŭ <Suben>   paĝon malsupren"
 
 #: display.c:684 display.c:1177
 msgid ", or <Left>       scroll 1 left"
-msgstr ", of <Links>        scroll 1 naar links"
+msgstr ", aŭ <Liven>        rulumi 1 pozicion maldekstren"
 
 #: display.c:685 display.c:1178
 msgid ". or <Right>      scroll 1 right"
-msgstr ". of <Rechts>       scroll 1 naar rechts"
+msgstr ". or <Dekstren>     rulumi 1 pozicion dekstren"
 
 #: display.c:686 display.c:1179
 msgid "< or [            scroll 10 left"
-msgstr "< of [              scroll 10 naar links"
+msgstr "< aŭ [              rulumi 10 poziciojn maldekstren"
 
 #: display.c:687 display.c:1180
 msgid "> or ]            scroll 10 right"
-msgstr "> of ]              scroll 10 naar rechts"
+msgstr "> aŭ ]              rulumi 10 poziciojn dekstren"
 
 #: display.c:688 display.c:1181
 msgid "CTRL-a or <HOME>  scroll to beginning"
-msgstr "Ctrl-a of <HOME>    scroll naar begin"
+msgstr "Ctrl-a aŭ <Home>    rulumi al komenco"
 
 #: display.c:689 display.c:1182
 msgid "CTRL-e or <END>   scroll to end"
-msgstr "Ctrl-e of <END>     scroll naar einde"
+msgstr "Ctrl-e aŭ <End>     rulumi al fino"
 
 #: display.c:690 display.c:1183
 msgid "CTRL-c or <Esc>   abort"
-msgstr "Ctrl-c of <Esc>     afbreken"
+msgstr "Ctrl-c aŭ <Esc>     ĉesigi"
 
 #: display.c:691 display.c:1184
 msgid "<Enter>           abort"
-msgstr "<Enter>             afbreken"
+msgstr "<Enter>             ĉesigi"
 
 #: display.c:692
 msgid "Type w or x to quit help."
-msgstr "Typ w of x om hulp te verlaten."
+msgstr "Tajpu w aŭ x por eliri de helpo."
 
 #: display.c:1185 graphics.c:1810 graphics.c:1826 graphics.c:1849
 #: graphics.c:1866
 msgid "Press any key."
-msgstr "Druk op een toets."
+msgstr "Premu iu ajn klavon."
 
 #: display.c:1250 graphics.c:2116
 msgid "Error opening terminal, falling back to stdout interface.\n"
-msgstr "Fout tijdens openen van terminal, teruggevallen op standaarduitvoer-interface.\n"
+msgstr "Eraro dum malfermo de terminalo; anstataŭe uziĝas ĉefeliguja interfaco.\n"
 
 #: display.c:1271
 msgid "screen height must be larger than 3 lines.\n"
-msgstr "Schermhoogte moet groter zijn dan 3 regels.\n"
+msgstr "ekranalto devas esti pli ol 3 linioj.\n"
 
 #: display.c:1305 graphics.c:2149
 msgid "error creating scroll window.\n"
-msgstr "fout bij aanmaken van scroll-venster.\n"
+msgstr "eraro dum kreado de ruluma fenestro.\n"
 
 #: display.c:1324
 msgid "error creating input window.\n"
-msgstr "fout bij aanmaken van invoervenster.\n"
+msgstr "eraro dum kreado de eniga fenestro.\n"
 
 #: graphics.c:279
 #, c-format
 msgid "Wcd: error: path too long"
-msgstr "Wcd: fout: pad is te lang"
+msgstr "Wcd: eraro: pado tro longas"
 
 #: graphics.c:1771
 msgid "/ = search forward,  ? = search backward,  : = help"
-msgstr "/ = vooruit zoeken,  ? = achteruit zoeken,  : = hulp"
+msgstr "/ = serĉi antaŭen,  ? = serĉi malantaŭen,  : = helpo"
 
 #: graphics.c:1776
 msgid "SEARCH: "
-msgstr "ZOEK: "
+msgstr "SERĈI : "
 
 #: graphics.c:1779
 msgid "Search: "
-msgstr "Zoek: "
+msgstr "Serĉi: "
 
 #: graphics.c:1795
 msgid "NAVIGATION MODE (1/2):"
-msgstr "NAVIGATIEMODUS (1/2):"
+msgstr "NAVIGA MODUSO (1/2):"
 
 #: graphics.c:1796
 msgid "h or <Left>       go left"
-msgstr "h of <Links>        naar links"
+msgstr "h aŭ <Liven>        maldekstren"
 
 #: graphics.c:1797
 msgid "j or <Down>       go down"
-msgstr "j of <Omlaag>       omlaag"
+msgstr "j aŭ <Suben>        malsupren"
 
 #: graphics.c:1798
 msgid "k or <Up>         go up"
-msgstr "k of <Omhoog>       omhoog"
+msgstr "k aŭ <Supren>       supren"
 
 #: graphics.c:1799
 msgid "l or <Right>      go right"
-msgstr "l of <Rechts>       naar rechts"
+msgstr "l aŭ <Dekstren>     dekstren"
 
 #: graphics.c:1800
 msgid "* or v or <Space> go forward to dir with same name"
-msgstr "* of v of <Spatie>  vooruit naar map met dezelfde naam"
+msgstr "* aŭ v aŭ <Spaceto>     antaŭen al dosierujo kun sama nomo"
 
 #: graphics.c:1801
 msgid "# or p or <BS>    go backward to dir with same name"
-msgstr "# of p of <BS>      achteruit naar map met dezelfde naam"
+msgstr "# aŭ p aŭ <Backspace>   malantaŭen al dosierujo kun sama nomo"
 
 #: graphics.c:1802
 msgid "^ or a            go to beginning of line"
-msgstr "^ of a              naar begin van regel"
+msgstr "^ aŭ a              al komenco de linio"
 
 #: graphics.c:1803
 msgid "$ or e            go to end of line"
-msgstr "$ of e              naar einde van regel"
+msgstr "$ aŭ e              al fino de linio"
 
 #: graphics.c:1804
 msgid "1                 go to root dir"
-msgstr "1                   naar eerste map"
+msgstr "1                   al ĉefa dosierujo"
 
 #: graphics.c:1805
 msgid "g or G            go to last dir"
-msgstr "g of G              naar laatste map"
+msgstr "g aŭ G              al lasta dosierujo"
 
 #: graphics.c:1806
 msgid "f                 go page forward"
-msgstr "f                   pagina vooruit"
+msgstr "f                   paĝon antaŭen"
 
 #: graphics.c:1807
 msgid "b                 go page backward"
-msgstr "b                   pagina achteruit"
+msgstr "b                   paĝon malantaŭen"
 
 #: graphics.c:1808
 msgid "u                 go half page up"
-msgstr "u                   halve pagina omhoog"
+msgstr "u                   duonpaĝon supren"
 
 #: graphics.c:1809
 msgid "d                 go half page down"
-msgstr "d                   halve pagina omlaag"
+msgstr "d                   duonpaĝon malsupren"
 
 #: graphics.c:1816
 msgid "NAVIGATION MODE (2/2):"
-msgstr "NAVIGATIEMODUS (2/2):"
+msgstr "NAVIGA MODUSO (2/2):"
 
 #: graphics.c:1817
 msgid "A                 switch alternative tree navigation on/off"
-msgstr "A                   alternatieve boomnavigatie in- of uitschakelen"
+msgstr "A                 ŝalti alternativan arbonavigadon"
 
 #: graphics.c:1818
 msgid "t                 switch centered mode on/off"
-msgstr "t                   gecentreerde modus in- of uitschakelen"
+msgstr "t                 ŝalti centrigitan moduson"
 
 #: graphics.c:1819
 msgid "T                 toggle between line drawing and ASCII characters"
-msgstr "T                   schakelen tussen lijnen en ASCII-tekens"
+msgstr "T                 ŝalti inter linioj kaj ASCII-signoj"
 
 #: graphics.c:1820
 msgid "m                 toggle between compact and wide tree"
-msgstr "m                   schakelen tussen compacte boom en brede boom"
+msgstr "m                 ŝalti inter densa kaj larĝa arbo"
 
 #: graphics.c:1821
 msgid "<Esc> or q        abort"
-msgstr "<Esc> of q          afbreken"
+msgstr "<Esc> aŭ q        ĉesigi"
 
 #: graphics.c:1822
 msgid "/                 search forward"
-msgstr "/                   voorwaarts zoeken"
+msgstr "/                 serĉi antaŭen"
 
 #: graphics.c:1823
 msgid "?                 search backward"
-msgstr "?                   achterwaarts zoeken"
+msgstr "?                 serĉi malantaŭen"
 
 #: graphics.c:1824
 msgid "n                 repeat last / or ? search"
-msgstr "n                   laatste zoekopdracht met / of ? herhalen"
+msgstr "n                 ripeti lastan serĉon per / aŭ ?"
 
 #: graphics.c:1825 graphics.c:1848
 msgid "<Enter>           select directory"
-msgstr "<Enter>             de map kiezen"
+msgstr "<Enter>           elekti la dosierujon"
 
 #: graphics.c:1832
 msgid "SEARCH MODE with wildcard and subdir support:"
-msgstr "ZOEKMODUS met ondersteuning voor jokertekens en submappen:"
+msgstr "SERĈ-MODUSO kun subteno por ĵokeroj kaj subdosieroj:"
 
 #: graphics.c:1833
 msgid "<Left>            go left"
-msgstr "<Links>             naar links"
+msgstr "<Liven>             maldekstren"
 
 #: graphics.c:1834
 msgid "<Down>            go down"
-msgstr "<Omlaag>            omlaag"
+msgstr "<Suben>             malsupren"
 
 #: graphics.c:1835
 msgid "<Up>              go up"
-msgstr "<Omhoog>            omhoog"
+msgstr "<Supren>            supren"
 
 #: graphics.c:1836
 msgid "<Right>           go right"
-msgstr "<Rechts>            naar rechts"
+msgstr "<Dekstren>          dekstren"
 
 #: graphics.c:1837
 msgid "CTRL-v            go forward to dir with same name"
-msgstr "Ctrl-v              vooruit naar map met dezelfde naam"
+msgstr "Ctrl-v              antaŭen al dosierujo kun sama nomo"
 
 #: graphics.c:1838
 msgid "CTRL-p            go backward to dir with same name"
-msgstr "Ctrl-p              achteruit naar map met dezelfde naam"
+msgstr "Ctrl-p              malantaŭen al dosierujo kun sama nomo"
 
 #: graphics.c:1839
 msgid "CTRL-a            go to beginning of line"
-msgstr "Ctrl-a              naar begin van regel"
+msgstr "Ctrl-a              al komenco de linio"
 
 #: graphics.c:1840
 msgid "CTRL-e            go to end of line"
-msgstr "Ctrl-e              naar einde van regel"
+msgstr "Ctrl-e              al fino de linio"
 
 #: graphics.c:1841
 msgid "CTRL-g            go to last dir"
-msgstr "Ctrl-g              naar laatste map"
+msgstr "Ctrl-g              al lasta dosierujo"
 
 #: graphics.c:1842
 msgid "CTRL-f            go page forward"
-msgstr "Ctrl-f              pagina vooruit"
+msgstr "Ctrl-f              paĝon antaŭen"
 
 #: graphics.c:1843
 msgid "CTRL-b            go page backward"
-msgstr "Ctrl-b              pagina achteruit"
+msgstr "Ctrl-b              paĝon malantaŭen"
 
 #: graphics.c:1844
 msgid "CTRL-u            go half page up"
-msgstr "Ctrl-u              halve pagina omhoog"
+msgstr "Ctrl-u              duonpaĝon supren"
 
 #: graphics.c:1845
 msgid "CTRL-d            go half page down"
-msgstr "Ctrl-d              halve pagina omlaag"
+msgstr "Ctrl-d              duonpaĝon malsupren"
 
 #: graphics.c:1846
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
-msgstr "<Esc> of Ctrl-x     ZOEKMODUS afbreken"
+msgstr "<Esc> aŭ Ctrl-x     ĉesigi SERĈ-MODUSON"
 
 #: graphics.c:1847
 msgid "CTRL-n            repeat last / or ? search"
-msgstr "Ctrl-n              laatste zoekopdracht met / of ? herhalen"
+msgstr "Ctrl-n              ripeti lastan serĉon per / aŭ ?"
 
 #: graphics.c:1855
 msgid "ZOOMING:"
-msgstr "ZOOMEN:"
+msgstr "ZOMI:"
 
 #: graphics.c:1856
 msgid "z or i or CTRL-i  zoom in"
-msgstr "z of i of Ctrl-i    inzoomen"
+msgstr "z aŭ i aŭ Ctrl-i    zomi"
 
 #: graphics.c:1857
 msgid "Z or o or CTRL-o  zoom out"
-msgstr "Z of o of Ctrl-o    uitzoomen"
+msgstr "Z aŭ o aŭ Ctrl-o    malzomi"
 
 #: graphics.c:1858
 msgid "c                 condense: fold current level"
-msgstr "c                   huidig niveau opvouwen"
+msgstr "c                   faldi la nunan nivelon"
 
 #: graphics.c:1859
 msgid "C                 condense: fold subdir level"
-msgstr "C                   submapniveau opvouwen"
+msgstr "C                   faldi la suban nivelon"
 
 #: graphics.c:1860
 msgid "w                 condense: fold current and subdir levels"
-msgstr "w                   huidige niveau en subniveaus opvouwen"
+msgstr "w                   faldi la nunan kaj subajn nivelojn"
 
 #: graphics.c:1861
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
-msgstr "y of Ctrl-y         huidige niveau en subniveaus uitvouwen"
+msgstr "y aŭ Ctrl-y         malfaldi la nunan kaj subajn nivelojn"
 
 #: graphics.c:1862
 msgid "r or CTRL-r       uncondense: unfold all directories"
-msgstr "r of Ctrl-r         alle mappen uitvouwen"
+msgstr "r aŭ Ctrl-r         malfaldi ĉiujn dosierujojn"
 
 #: graphics.c:1863
 msgid "-                 fold directory"
-msgstr "-                   map opvouwen"
+msgstr "-                   faldi dosierujon"
 
 #: graphics.c:1864
 msgid "+ or =            unfold directory"
-msgstr "+ of =              map uitvouwen"
+msgstr "+ aŭ =              malfaldi dosierujon"
 
 #: graphics.c:1865
 msgid "l or <Right>      unfold and go right"
-msgstr "l of <Rechts>       uitvouwen en naar rechts gaan"
+msgstr "l aŭ <Dekstren>     malfaldi kaj iri dekstren"
 
 #: graphics.c:1869
 msgid "Screenheight must be > 21 for help."
-msgstr "Schermhoogte moet groter zijn dan 21 voor hulp."
+msgstr "Ekranalto devas esti pli ol 21 por helpo."
 
 #: wfixpath.c:65
 msgid "malloc error in wcd_fixpath()\n"
-msgstr "onvoldoende geheugen beschikbaar in wcd_fixpath()\n"
+msgstr "mankas sufiĉa memoro en wcd_fixpath()\n"
 
 #: c3po/Error.c:41
 #, c-format
 msgid "in '%s', insufficient memory for allocation\n"
-msgstr "in '%s', onvoldoende geheugen beschikbaar voor reservering\n"
+msgstr "en '%s', mankas sufiĉas memoro\n"

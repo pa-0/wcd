@@ -4,12 +4,13 @@ TO DO
 
 * Translate the program messages.
 
-  Translate wcd's messages into more languages. Contact Erwin Waterlander
-  if you want to help (waterlan@xs4all.nl). Programming skills
-  are not required.
+  Translation of the messages for wcd is going via the Translation Project (TP).
+  See http://translationproject.org/domain/wcd.html 
 
 
 * Translate the manual.
+
+  Contact Erwin Waterlander if you want to help (waterlan@xs4all.nl).
 
 
 * Support scripts that write from right to left like Arabic, Persian or Hebrew.
