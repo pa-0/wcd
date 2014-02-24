@@ -274,7 +274,7 @@ Table of Contents
         Dutch                 Benno Schulenberg <Tranlation Project>           Version 5.2.5
         Esperanto             Benno Schulenberg <Tranlation Project>           Version 5.2.5
         Finnish               Jari Aalto <jari.aalto@cante.net>                Version 5.1.0 - 5.2.4
-        German                Philipp Thomas <psmt@opensuse.org> <pth@suse.de> Version 5.1.3 - 5.2.3
+        German                Philipp Thomas <psmt@opensuse.org> <pth@suse.de> Version 5.1.3 - 5.2.5
         German                Lars Wendler <polynomial-c@gentoo.org>           Version 5.2.4
         Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>    Version 5.0.4 - 5.2.4
         Ukrainian             Yuri Chornoivan <Tranlation Project>             Version 5.2.5

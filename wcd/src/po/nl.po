@@ -1,5 +1,5 @@
 # Dutch translations for wcd.
-# Copyright 2014 Erwin Waterlander (msgids).
+# Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
 #
 # Erwin Waterlander <waterlan@xs4all.nl>, 2008-2014.
@@ -458,7 +458,7 @@ msgid ""
 "Chdir for Dos and Unix.\n"
 "\n"
 msgstr ""
-"Een slimme 'chdir' voor Dos en Unix.\n"
+"Een slimme 'chdir' voor DOS en Unix.\n"
 "\n"
 
 #: wcd.c:2207
@@ -648,12 +648,12 @@ msgid ""
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
 "Copyright (C) 1997-2014 Erwin Waterlander\n"
-"Copyright (C) 1994-2002 Ondrej Popp (op C3PO)\n"
-"Copyright (C) 1995-1996 DJ Delorie (on _fixpath())\n"
-"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol (op Ninux Czo Directory)\n"
-"Copyright (C) 1994-1996 Jason Mathews (op DOSDIR)\n"
+"Copyright (C) 1994-2002 Ondrej Popp  [op C3PO]\n"
+"Copyright (C) 1995-1996 DJ Delorie  [on _fixpath()]\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol  [op Ninux Czo Directory]\n"
+"Copyright (C) 1994-1996 Jason Mathews  [op DOSDIR]\n"
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
-"Kai Uwe Rommel en Igor Mandrichenko (op recmatch())\n"
+"Kai Uwe Rommel en Igor Mandrichenko  [op recmatch()]\n"
 
 #: wcd.c:2340
 #, c-format
@@ -667,7 +667,7 @@ msgstr ""
 "Het programmadeel om een Windows-LAN te scannen werd oorspronkelijk\n"
 "geschreven en in het publieke domein geplaatst door Felix Kasza.\n"
 "Markus Kuhns vrije implementaties van wcwidth() en wcswidth() worden gebruikt.\n"
-"Rugxulo is de oorspronkelijke auteur van query_con_codepage() (publieke domein).\n"
+"Rugxulo is de oorspronkelijke auteur van query_con_codepage() (publiek domein).\n"
 "\n"
 
 #: wcd.c:2346
