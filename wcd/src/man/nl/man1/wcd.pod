@@ -134,42 +134,43 @@ B.v.:
 
     wcd srcWILDSTAR()/WILDSTAR()1?/a*2
 
-=head2 Other uses
+=head2 Overig gebruik
 
-If no wildcards are used and wcd finds a perfect match, wcd will ignore all
-wild matches by default. This behaviour can be changed with the B<-w> option.
+Wanneer geen jokertekens gebruikt zijn en wcd vindt een perfecte treffer,
+zullen alle niet exacte treffers genegeerd worden. Dit gedrag kan gewijzigd
+worden met de B<-w> optie.
 
-The interactive directory tree browser can be started by using option B<-g>.
+De interactieve mappen-verkenner kan met de optie B<-g> gestart worden.
 
     wcd -g
 
-Wcd generates a treedata file were it searches the directory. On Unix and
-Windows systems wcd does add symbolic links to the treedata file while
-scanning the disk, but does not follow them. While following links wcd could
-end up scanning infinite loops, or scan very large portions of a network.
+Wcd genereert een boombestand waarin de map gezocht wordt. Op Unix en Windows
+voegt wcd ook symbolische koppelingen toe wanneer de schijf gescand wordt,
+maar deze worden niet gevolgd. Wanneer symbolische koppelingen gevolgd worden,
+zou wcd oneindige lussen kunnen scannen, of zeer grote delen van een netwerk.
 
-Wcd can also change to directories that are not in the treedata file. E.g.:
+Wcd kan ook veranderen naar mappen die niet in het boombestand staan. B.v.:
 
     wcd ..
 
-If wcd found a match but can't change to the directory it tries to remove
-it from the default treedata file. Not from the extra treedata file. See
-also option B<-k>.
+Wanneer wcd een treffer heeft gevonden, maar niet naar de map kan veranderen,
+probeert hij deze te verwijderen uit het standaard boombestand. Niet uit het
+extra boombestand. Zie ook optie B<-k>.
 
-Wcd keeps a directory stack which is stored on disk. The stack has a
-default size of 10 and is cyclic. See options B<-z>, B<->, B<+> and
+Wcd houdt een mappenstapel bij die opgeslagen wordt op schijf. De stapel heeft
+een standaard grootte van 10 en is cyclisch. Zie opties B<-z>, B<->, B<+> en
 B<=>.
 
-In multi-user environments option B<-u> can be used to change to
-directories of other users.
+In een omgeving met meerdere gebruikers kan optie B<-u> gebruikt worden om naar
+mappen van andere gebruikers te veranderen.
 
 #ifdef dos
 
-On DOS and Windows systems it does not matter if you use a slash "/" or a
-backslash "\" as a directory-separator.
+Op DOS en Windows systemen maakt het niet uit of een slash "/" of een
+backslash "\" als mappenscheider gebruikt wordt.
 
-It is possible on DOS and Windows systems to change drive and directory in
-one go by preceding the directory name with the drive name.
+Het is mogelijk op DOS en Windows systemen om tegelijk van schijf en map
+te veranderen door de mapnaam vooraf te laten gaan door de schijf naam.
 
     wcd d:games
 
@@ -177,100 +178,102 @@ one go by preceding the directory name with the drive name.
 
 #ifdef dos
 
-=head2 Windows UNC paths
+=head2 Windows UNC paden
 
-The Windows versions (Command Prompt, PowerShell, MSYS, zsh, cygwin) support
-Windows SMB LAN UNC paths without drive letter such as
-C<\\servername\sharename>. Wcd for Windows Command Prompt makes use of the "pushd"
-command to automatically map a UNC path to a drive letter. In Windows
-PowerShell, MSYS, zsh and Cygwin UNC paths are fully supported. The
-current working directory can be a UNC path.
+De Windows versies (Opdrachtprompt, PowerShell, MSYS, zsh, Cygwin) ondersteunen
+Windows SMB LAN UNC paden zonder schijfletter, zoals
+C<\\servername\sharename>. Wcd voor de Opdrachtprompt maakt gebruik van het "pushd"
+commando om automatisch een UNC pad toe te wijzen aan een schijfletter. In Windows
+PowerShell, MSYS, zsh en Cygwin worden UNC paden volledig ondersteund. De huidige
+werkmap kan een UNC pad zijn.
 
 #endif
 
 =head2 Interfaces
 
-Wcd has three different interfaces to choose from a list of matches. The
-interface can be chosen at compile time.
+Wcd heeft drie verschillende interface om uit een lijst van treffers te
+kiezen. De interface kan gekozen worden bij het bouwen van Wcd.
 
-The first interface uses plain stdin/stdout. A numbered list is printed in
-the terminal. The user has to choose from the list by typing a number
-followed by <Enter>. This interface does not provide scroll back
-functionality in case of a long list. The scroll back capability of the
-terminal/console has to be used. It is very small and portable.
+De eerste interface gebruikt standaard in- en uitvoer. Een genummerde lijst
+wordt in de terminal geprint. De gebruiker kan kiezen uit de lijst door een
+nummber te typen gevolgd door <Enter>. Deze interface biedt geen terug-blader
+functionaliteit bij een lange lijst. De terug-blader functionaliteit van de
+terminal/console moet gebruikt worden. Deze interface is heel klein en
+overdraagbaar.
 
-The second interface is built with the conio library. It provides a builtin
-scroll back capability. The user is presented a list numbered with letters.
-Choosing from a list can be done by pressing just one letter. This
-interface is fast because it saves keystrokes. If possible the screen
-will be restored after exiting. One who prefers to type numbers can use the
-B<-N> option.
+De tweede interface is gebouwd met de conio bibliotheek. Het biedt een
+ingebouwde terug-blader functie. De gebruiker wordt een lijst gepresenteerd,
+genummerd met letters. Het kiezen uit de lijst kan gedaan worden met een
+enkele toetsaanslag van een letter. Deze interface is snel, omdat het toetsaanslagen
+bespaart. Wanneer mogelijk wordt het scherm hersteld na afsluiten. Iemand die
+prefereert nummers te typen kan de B<-N> optie gebruiken.
 
-The third interface is built with the curses library. It is similar to the
-conio interface. The curses version of wcd has also an additional 'graphical'
-interface. It lets the user select a directory via a full screen
-interactive directory tree browser. It has a vim(1) like navigation and search
-method. It can be activated with option B<-g>.
+De derde bibliotheek is gebouwd met de curses bibliotheek. Het is gelijk aan
+de conio interface. De curses versie van wcd heeft een extra 'grafische' interface.
+Het laat de gebruiker een map kiezen via een volledig-scherm interactieve mappenboom
+verkenner. Het heeft vim(1) gelijke navigatie en zoek methodes. Het kan geactiveerd
+worden met de optie B<-g>.
+ 
+Door de B<-o> optie te gebruiken kan men altijd terugvallen op de standaard
+in- en uitvoer interface.
 
-By using the B<-o> option one can always fall back to the stdin/stdout
-interface.
-
-=head1 OPTIONS
+=head1 OPTIES
 
 =over 4
 
 =item B<-a>
 
-Add current path to default treedata file.
+Voeg huidig pad to aan het standaard boombestand.
 
-Use this option to quickly add the current path to the default treedata
-file. Re-scanning the complete disk can take a long time in some cases.
+Gebruik deze optie om snel het huidige pad aan het standaard boombestand
+toe te voegen. Opnieuw scannen van de hele schijf kan soms lang duren.
 
 =item B<-aa>
 
-Add current and all parent paths to default treedata.
+Voeg het huidige en alle bovenliggende paden toe aan het staandaard boombestand.
 
 =item B<-A PATH>
 
-Scan directory tree from PATH and append to the default treedata
-file. Examples:
+Scan mappenboom vanaf PATH en voeg to aan het standaard boombestand.
+Voorbeelden:
 
     wcd -A .
     wcd -A /home -A /etc
 #ifdef dos
     wcd -A d: -A e: -A \\server\share
 
-On Windows one can scan all shared directories of a Windows LAN server by
-typing something like: C<wcd -A \\servername>.
+Op Windows kan men alle gedeelde mappen van een Windows LAN server scannen
+door iets te typen als: C<wcd -A \\servername>.
 
 #endif
 
-See also option B<-S> and B<-s> and B<-E>.
+Zie ook opties B<-S> en B<-s> en B<-E>.
 
 =item B<-b>
 
-Ban current path.
+Verban het huidige pad.
 
-Wcd places the current path in the ban file. This means that wcd ignores
-all matches of this directory and its sub directories.
+Wcd plaatst het huidige pad in het ban-bestand. Dit betekent dat wcd
+alle treffers van deze map en zijn sub-mappen negeert.
 
-The ban file can be edited with a text editor. Use of wildcards are
-supported and it is matched against absolute path.
+Het ban-bestand kan gewijzigd worden met een tekstbewerker. Gebruik
+van jokertekens wordt ondersteund. Er wordt vergeleken met het volledige
+pad.
 
-Banned paths are not excluded from scanning the disk. To do that use option
-B<-xf>.
+Verbannen paden worden niet uitgesloten van het scannen van de schijf. Gebruik
+optie B<-xf> om dat te doen.
 
 =item B<-c, --direct-cd>
 
-Direct CD mode. By default wcd works as follows:
+Direkte CD modus. Standaard werkt wcd als volgt:
 
-    1. Try to find a match in the treedata file(s)
-    2. If no match, try to open the directory you typed.
+    1. Probeer een treffer te vinden in een boombestand.
+    2. Wanneer geen treffer, probeer het getypte pad te openen.
 
-In direct CD mode wcd works in reversed order.
+In direkte CD modus werkt wcd in omgekeerde volgorde.
 
-    1. Try to open the directory you typed.
-    2. If not, try to find a match in the treedata file(s).
+    1. Probeer het getypte pad te openen.
+    2. Indien niet gelukt, probeer een treffer te vinden in een boombestand.
 
 #ifdef dos
 
@@ -286,13 +289,13 @@ B<+> and B<=>.
 
 =item B<-e>
 
-Add current path to extra treedata file.
+Voeg huidig pad to aan het extra boombestand.
 
-Use this option to quickly add the current path to the extra treedata file.
+Gebruik deze optie om snel het huidige toe te voegen aan het extra boombestand.
 
 =item B<-ee>
 
-Add current and all parent paths to extra treedata file.
+Voeg het huidige en alle bovenliggende paden toe aan het extra boombestand.
 
 =item B<-E PATH>
 
