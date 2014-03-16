@@ -111,8 +111,8 @@ INSTALL_OBJS_DOC   = \
   ../doc/todo.txt \
   $(INSTALL_OBJS_DOC_INSTALL) \
   $(INSTALL_OBJS_DOC_COPYING) \
-  ../doc/$(PACKAGE).txt \
-  ../doc/$(PACKAGE).$(HTMLEXT)
+  man/man1/$(PACKAGE).txt \
+  man/man1/$(PACKAGE).$(HTMLEXT)
 
 ifdef ENABLE_NLS
 POT		= po/$(PACKAGE).pot
@@ -120,12 +120,12 @@ POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 NLSSUFFIX	= -nls
 endif
-DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).$(HTMLEXT)
+DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 
 MANPOTFILE      = man/man1/wcd-man.pot
 MANPOFILES      = $(wildcard man/*/man1/wcd.po)
 PODFILES	= $(patsubst %.po,%.pod,$(MANPOFILES))
-PODFILES_ALL	= man/man1/dos2unix.pod $(PODFILES)
+PODFILES_ALL	= man/man1/wcd.pod $(PODFILES)
 MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
 TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
 HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_ALL))
@@ -511,27 +511,25 @@ $(MANPOTFILE) : man/man1/wcd.pod
 %.1 : %.pod
 	$(MAKE) -C man/man1 $(subst man/,../,$@)
 
-../doc/$(PACKAGE).txt : man/man1/wcd1.pod
+%.txt : %.pod
 	LC_CTYPE=C pod2text $< > $@
 
-../doc/$(PACKAGE).ps : man/man1/wcd.1
+%.ps : %.1
 	groff -man $< -T ps > $@
 
-../doc/$(PACKAGE).$(HTMLEXT) : man/man1/wcd1.pod
+%.$(HTMLEXT) : %.pod
 	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
 
 
-pod: man/man1/wcd1.pod
+man: man/man1/wcd.1 $(MANFILES) $(MANPOTFILE)
 
-man: man/man1/wcd.1
+html: $(HTMLFILES)
 
-html: ../doc/$(PACKAGE).$(HTMLEXT)
+txt: $(TXTFILES)
 
-txt: ../doc/$(PACKAGE).txt
+ps: $(PSFILES)
 
-ps: ../doc/$(PACKAGE).ps
-
-pdf: ../doc/$(PACKAGE).pdf
+pdf: $(PDFFILES)
 
 mofiles: $(MOFILES)
 
@@ -583,18 +581,24 @@ mostlyclean:
 
 clean: mostlyclean
 	@echo "-- target: clean"
-	rm -f \
-	    ../doc/$(PACKAGE).ps ../doc/$(PACKAGE).pdf
+	rm -f man/man1/*.ps
+	rm -f man/man1/*.pdf
+	rm -f man/*/man1/*.ps
+	rm -f man/*/man1/*.pdf
 
 distclean: clean
 	@echo "-- target: distclean"
 
 maintainer-clean: distclean
 	@echo "-- target: maintainer-clean:"
-	rm -f \
-	  man/man1/wcd1.pod \
-	  man/man1/wcd.1 \
-	  $(DOCFILES)
+	rm -f man/man1/*.1
+	rm -f man/man1/*.txt
+	rm -f man/man1/*.$(HTMLEXT)
+	rm -f man/man1/dos2unix-man.pot
+	rm -f man/*/man1/*.1
+	rm -f man/*/man1/*.txt
+	rm -f man/*/man1/*.pod
+	rm -f man/*/man1/*.$(HTMLEXT)
 
 # 'maintainer-clean' was 'realclean' in old GNU standards.
 realclean: maintainer-clean
@@ -623,12 +627,25 @@ install-mo: $(MOFILES)
 install-doc: $(DOCFILES)
 	@echo "-- target: install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
-	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(wildcard ../doc/$(PACKAGE).ps) $(wildcard ../doc/$(PACKAGE).pdf) $(DESTDIR)$(docdir)
+	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
+	# Install translated manuals when they have been generated.
+	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
+	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(INSTALL) -m 644 $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
+	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
+	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(INSTALL) -m 644 $(htmlfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
+	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
+	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(INSTALL) -m 644 $(pdffile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
+	$(foreach pdffile, $(wildcard man/man1/*.pdf), $(INSTALL) -m 644 $(pdffile) $(DESTDIR)$(docdir) ;)
+	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
+	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
+	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir) ;)
 
 install-man: $(INSTALL_OBJS_MAN1)
 	@echo "-- target: install-man"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
 	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(DESTDIR)$(man1dir)
+	$(foreach manfile, $(MANFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
+	$(foreach manfile, $(MANFILES), $(INSTALL_DATA) -m 644 $(manfile) $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
 
 install-bin: $(BIN)
 	@echo "-- target: install-bin"
