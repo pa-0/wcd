@@ -48,6 +48,10 @@ endif
 
 include version.mk
 
+.PHONY: man txt html pdf mofiles tags merge
+
+.PRECIOUS: %.1 %.pod
+
 CC		?= gcc
 STATIC		=
 STRIP		= strip
@@ -117,6 +121,16 @@ MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 NLSSUFFIX	= -nls
 endif
 DOCFILES	= ../doc/$(PACKAGE).txt ../doc/$(PACKAGE).$(HTMLEXT)
+
+MANPOTFILE      = man/man1/wcd-man.pot
+MANPOFILES      = $(wildcard man/*/man1/wcd.po)
+PODFILES	= $(patsubst %.po,%.pod,$(MANPOFILES))
+PODFILES_ALL	= man/man1/dos2unix.pod $(PODFILES)
+MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
+TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
+HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_ALL))
+PSFILES 	= $(patsubst %.pod,%.ps,$(PODFILES_ALL))
+PDFFILES	= $(patsubst %.pod,%.pdf,$(PODFILES_ALL))
 
 CPP		= cpp
 CPP_FLAGS_POD	= -Dunix -Ddos
@@ -436,7 +450,7 @@ OBJS1 += colors.o \
 	graphics.o
 endif
 
-all: $(BIN) $(DOCFILES) $(MOFILES) $(INSTALL_OBJS_MAN1)
+all: $(BIN) $(DOCFILES) $(MOFILES) $(INSTALL_OBJS_MAN1) $(MANFILES) $(MANPOTFILE)
 
 status:
 	@echo "-- $(PACKAGE) Makefile settings begin --"
@@ -485,11 +499,17 @@ $(BIN): $(OBJS1)
 $(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
-man/man1/wcd1.pod : man/man1/wcd1pod.in
-	$(CPP) -traditional-cpp -P -fno-show-column $(CPP_FLAGS_POD) $< > $@
+#man/man1/wcd1.pod : man/man1/wcd1pod.in
+#	$(CPP) -traditional-cpp -P -fno-show-column $(CPP_FLAGS_POD) $< > $@
 
-man/man1/wcd.1 : man/man1/wcd1.pod
-	$(MAKE) -C man/man1
+$(MANPOTFILE) : man/man1/wcd.pod
+	$(MAKE) -C man/man1 $(notdir $@)
+
+%.pod : %.po
+	$(MAKE) -C man/man1 $(subst man/,../,$@)
+
+%.1 : %.pod
+	$(MAKE) -C man/man1 $(subst man/,../,$@)
 
 ../doc/$(PACKAGE).txt : man/man1/wcd1.pod
 	LC_CTYPE=C pod2text $< > $@

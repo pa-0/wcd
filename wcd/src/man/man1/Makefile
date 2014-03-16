@@ -3,6 +3,7 @@
 #   Copyright information
 #
 #	Copyright (C) 2008-2009 Jari Aalto
+#	Copyright (C) 2010-2014 Erwin Waterlander
 #
 #   License
 #
@@ -25,6 +26,8 @@ ifneq (,)
     This makefile requires GNU Make.
 endif
 
+.PRECIOUS: %.pod
+
 # This variable *must* be set when calling
 PACKAGE		?= wcd
 
@@ -36,24 +39,48 @@ PODCENTER	?= $$(date "+%Y-%m-%d")
 MANSRC		=
 MANDEST		= $(MANSRC)
 
-MANPOD		= $(MANSRC)$(PACKAGE)$(MANSECT).pod
+MANPOD		= $(MANSRC)$(PACKAGE).pod
 MANPAGE		= $(MANDEST)$(PACKAGE).$(MANSECT)
 
 POD2MAN		= pod2man
 POD2MAN_FLAGS	=
 
-all: $(MANPAGE)
+POFILES = $(wildcard ../*/man1/wcd.po)
+PODFILES = $(patsubst %.po,%.pod,$(POFILES))
+MAN_OBJECTS = wcd.1 $(patsubst %.pod,%.1,$(PODFILES))
 
-$(MANPAGE): $(MANPOD)
+all: $(MAN_OBJECTS) wcd-man.pot
+
+
+wcd-man.pot : wcd.pod
+	po4a-updatepo -f pod -m $< -p $@
+
+
+# Create pod files from po.
+# Fix problem that =encoding is before =pod command.
+%.pod : %.po
+	po4a-translate -f pod -m wcd.pod -p $< > $@
+	sed -i '/=encoding UTF-8/d' $@
+	sed -i 's/=pod/=pod\n\n=encoding UTF-8/' $@
+
+%.1 : %.pod
 	# make target - create manual page from a *.pod page
-	podchecker $(MANPOD)
-	LC_CTYPE=C $(POD2MAN) $(POD2MAN_FLAGS) \
+	podchecker $<
+	$(POD2MAN) $(POD2MAN_FLAGS) \
+                --utf8 \
 		--center="$(PODCENTER)" \
 		--name="$(PACKAGE)" \
 		--section="$(MANSECT)" \
-		$(MANPOD) \
+		$< \
 	| perl -p -e 's/[Pp]erl v[0-9.]+/$(PACKAGE)/;' \
-	  > $(MANPAGE) && \
+	  > $@ && \
 	rm -f pod*.tmp
+
+
+
+clean:
+	rm -f $(MAN_OBJECTS)
+	rm -f wcd-man.pot
+	rm -f $(PODFILES)
 
 # End of of Makefile part
