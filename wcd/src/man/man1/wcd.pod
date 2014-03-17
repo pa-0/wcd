@@ -1,4 +1,3 @@
-/*
 #  Copyright and License
 #
 #      Copyright (C) 1997-2013 Erwin Waterlander
@@ -36,7 +35,6 @@
 #       Create manual page with command:
 #
 #           pod2man PAGE.N.pod > PAGE.N
-*/
 
 =pod
 
@@ -126,11 +124,9 @@ for directory that begins with "Desk" and which path matches I<*me/Desk*>.
 It is allowed to type any kind of expression with slashes and wildcards.
 E.g.:
 
-/*  Break the statement, to not interpret "/ *" as  comment start  */
-#define srcWILDSTAR() src*
-#define WILDSTAR() *
 
-    wcd srcWILDSTAR()/WILDSTAR()1?/a*2
+
+    wcd src*/*1?/a*2
 
 =head2 Other uses
 
@@ -161,7 +157,6 @@ B<=>.
 In multi-user environments option B<-u> can be used to change to
 directories of other users.
 
-#ifdef dos
 
 On DOS and Windows systems it does not matter if you use a slash "/" or a
 backslash "\" as a directory-separator.
@@ -171,9 +166,7 @@ one go by preceding the directory name with the drive name.
 
     wcd d:games
 
-#endif
 
-#ifdef dos
 
 =head2 Windows UNC paths
 
@@ -184,7 +177,6 @@ command to automatically map a UNC path to a drive letter. In Windows
 PowerShell, MSYS, zsh and Cygwin UNC paths are fully supported. The
 current working directory can be a UNC path.
 
-#endif
 
 =head2 Interfaces
 
@@ -235,13 +227,11 @@ file. Examples:
 
     wcd -A .
     wcd -A /home -A /etc
-#ifdef dos
     wcd -A d: -A e: -A \\server\share
 
 On Windows one can scan all shared directories of a Windows LAN server by
 typing something like: C<wcd -A \\servername>.
 
-#endif
 
 See also option B<-S> and B<-s> and B<-E>.
 
@@ -270,7 +260,6 @@ In direct CD mode wcd works in reversed order.
     1. Try to open the directory you typed.
     2. If not, try to find a match in the treedata file(s).
 
-#ifdef dos
 
 =item B<-d DRIVE>
 
@@ -280,7 +269,6 @@ The stack file and the go-script are by default stored on drive C: if
 environment variable I<HOME> is not set. Use this option if drive C: is a
 read-only drive. This option must be used in front of the stack options B<->,
 B<+> and B<=>.
-#endif
 
 =item B<-e>
 
@@ -357,10 +345,8 @@ Print help and exit.
 =item B<-i, --ignore-case>
 
 Ignore case.
-#ifdef dos
 Dos and Windows versions of wcd ignore case default. Unix/Cygwin
 versions regard case by default.
-#endif
 
 =item  B<+i, --no-ignore-case>
 
@@ -405,14 +391,12 @@ you have to use old style command substitution with back-quotes.
         cd "`$HOME/bin/wcd.exe -j $@`"
     }
 
-#ifdef dos
 
 On Windows systems, if one is running 4NT shell, one could make the
 following alias:
 
     alias wcd `cd %@execstr[wcdwin32.exe -z 0 -j %1]`
 
-#endif
 
 This method eliminates the need of the go-script, so one can use option B<-GN>
 in combination with B<-j>.
@@ -527,7 +511,6 @@ Unix:
     wcd -S /
     wcd -S /home -A /etc -A /usr
 
-#ifdef dos
 DOS/Windows:
 
     wcd -S c:/
@@ -536,7 +519,6 @@ DOS/Windows:
 With the Windows versions one can scan all shared directories of a Windows
 LAN server by typing something like: C<wcd -S \\servername>.
 
-#endif
 
 =item B<+S PATH>
 
@@ -611,11 +593,9 @@ On Unix/Cygwin the base directory
 for user home directories is assumed to be C</home>. Wcd will look for
 C</home/USER/.treedata.wcd> and C</home/USER/.wcd/.treedata.wcd>, in that
 order, and read the first one that exists and is readable.
-#ifdef dos
 On DOS/Windows the base directory for user
 home directories is assumed to be C<\\users>, so wcd tries to read
 C<\\users\USER\treedata.wcd> and C<\\users\USER\.wcd\treedata.wcd>.
-#endif
 
 =item B<+u USER>
 
@@ -648,7 +628,6 @@ absolute paths. Option -x can be used multiple times.
 Option -x must be used in front of any scan option (B<-s>, B<-S>, B<+S>,
 B<-A>, B<-E>).
 
-#ifdef dos
 
 On DOS/Windows systems one must specify the drive letter depending on if
 environment variable I<HOME> or I<WCDHOME> is set. If I<HOME> or I<WCDHOME>
@@ -660,7 +639,6 @@ Otherwise do not specify drive letter.
 
     wcd -x /temp -s
 
-#endif
 
 =item B<-xf FILE>
 
@@ -776,7 +754,6 @@ installed. Reload the shell initialization files or start new shell.
 
 The location of the go-script C<wcd.go> differs per shell.
 
-#ifdef dos
 Wcd for DJGPP DOS bash requires a different function. The go script is not
 written in a directory C<bin>, and if WCDHOME and HOME are both not defined the
 go-script is written on c:/.
@@ -794,7 +771,6 @@ The WinZsh version of wcd is also a bit different. No C<bin> directory.
         <PATH>/wcd.exe "$@"
         . ${WCDHOME:-${HOME}}/wcd.go
     }
-#endif
 
 See section FILES for more information.
 
@@ -812,7 +788,6 @@ C<$HOME/.tcshrc> :
 Replace <PATH> with the location where wcd executable have been installed.
 Reload the shell initialization files or start new shell.
 
-#ifdef dos
 
 =head2 Windows Command Prompt version
 
@@ -855,7 +830,6 @@ which must be executed in the current shell. The script C<wcd.cmd>
 first executes C<wcdos2.exe>, which creates the C<wcdgo.cmd> script.
 Then C<wcd.cmd> executes the wcdgo.cmd script.
 
-#endif
 
 =head1 LOCALIZATION
 
@@ -908,13 +882,11 @@ If you have installed wcd in a different directory than the default
 directory you may need to set the environment variable I<WCDLOCALEDIR> to
 point to the locale directory.
 
-#ifdef dos
 
 An example for Windows cmd:
 
     set WCDLOCALEDIR=c:/my_prefix/share/locale
 
-#endif
 
 An example for a POSIX shell:
 
@@ -952,7 +924,6 @@ I<LC_ALL> over I<LC_COLLATE> and I<LC_CTYPE>.
 
 =back
 
-#ifdef dos
 
 =head2 WINDOWS CODE PAGES
 
@@ -987,7 +958,6 @@ When you type C<wcd -V>, the actual character encoding used by wcd is
 shown. Type command C<chcp> to display the active code page of the Windows
 console.
 
-#endif
 
 =head2 UNICODE
 
@@ -1016,8 +986,7 @@ support UTF-8. The xterm version that comes with XFree86 4.0 or higher
 includes UTF-8 support. To activate it, start I<xterm(1)> in a UTF-8
 locale and use a font with iso10646-1 encoding, for instance with
 
-    LC_CTYPE=en_GB.UTF-8 xterm -u8 \
-    -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'
+    LC_CTYPE=en_GB.UTF-8 xterm -u8 -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'
 
 Modern distributions of GNU/Linux support UTF-8 by default. Other multi-byte
 character encodings should also work, but that has not been tested.
@@ -1025,7 +994,6 @@ character encodings should also work, but that has not been tested.
 Wcd assumes that the treedata files are encoded in the locale character
 encoding. There are no Byte Order Marks written to treedata files.
 
-#ifdef dos
 
 =head3 UTF-16 on Windows
 
@@ -1067,7 +1035,6 @@ default system ANSI code page. The Unicode Windows version of wcd writes
 a BOM in the UTF-8 encoded treedata files since version 5.2.0, which makes
 them also readable by notepad.
 
-#endif
 
 =head3 UTF-8 on Cygwin
 
@@ -1088,11 +1055,9 @@ they are encoded in the B<Cygwin> locale character encoding.
 If the environment variable I<WCDHOME> is set wcd will use I<WCDHOME>
 instead of I<HOME>. All C<*.wcd> files are text files. They can be
 edited with a text-editor.
-#ifdef dos
 The Windows Command Prompt version of wcd behaves as
 the DOS version. The Cygwin version of wcd behaves as the Unix
 version.
-#endif
 
 =over 4
 
@@ -1108,59 +1073,39 @@ INSTALLATION.
 This is the default treedata file where wcd searches for matches. If it is
 not readable wcd will create a new one.
 
-#ifdef dos
     DOS: \treedata.wcd or %HOME%\treedata.wcd
-#endif
-#ifdef unix
     Unix: $HOME/.treedata.wcd
-#endif
 
 =item B<extra treedata file>
 
 An optional extra treedata file. If it exists and is readable wcd will try
 to find matches in this file also.
 
-#ifdef dos
     DOS: \extra.wcd or %HOME%\extra.wcd
-#endif
-#ifdef unix
     Unix: $HOME/.extra.wcd
-#endif
 
 =item B<ban file>
 
 In this optional file wcd places banned paths. See option B<-b>. Wildcards are
 supported.
 
-#ifdef dos
     DOS: \ban.wcd or %HOME%\ban.wcd
-#endif
-#ifdef unix
     Unix: $HOME/.ban.wcd
-#endif
 
 =item B<alias file>
 
 Optional file with wcd aliases. See option B<-l>.
 
-#ifdef dos
     DOS: \alias.wcd or %HOME%\alias.wcd
-#endif
-#ifdef unix
     Unix: $HOME/.alias.wcd
-#endif
 
 =item B<stack file>
 
 In this file wcd stores its stack. The drive letter can be changed with
 the B<-d> option.
 
-#ifdef dos
     DOS: c:\stack.wcd or %HOME%\stack.wcd
-#endif
-#ifdef unix
     Unix: $HOME/.stack.wcd
-#endif
 
 The name of the stack file can be changed with environment variable I<WCDSTACKFILE>.
 See section ENVIRONMENT VARIABLES.
@@ -1172,29 +1117,21 @@ a function or an alias. The drive letter can be changed with the B<-d> option.
 For history reasons it is placed by default in C<$HOME/bin> on Unix
 systems. The directory of this file can be changed with the option B<-G>.
 
-#ifdef dos
     DOS bash: c:/wcd.go or $HOME/wcd.go
     Windows Command Prompt: c:\wcdgo.bat or %HOME%\wcdgo.bat
     Windows PowerShell: $env:HOME\wcdgo.ps1
     WinZsh: $HOME/wcd.go
     Cygwin/MSYS: $HOME/bin/wcd.go
     OS/2 Command Prompt: c:\wcdgo.cmd or %HOME%\wcdgo.cmd
-#endif
-#ifdef unix
     Unix: $HOME/bin/wcd.go
-#endif
 
 =item B<relative treedata file>
 
 Text  file  with relative paths from DIR>. See options B<+S>, B<-n> and
 B<+n>.
 
-#ifdef dos
     DOS: <path>\rtdata.wcd
-#endif
-#ifdef unix
     Unix: <path>/.rtdata.wcd
-#endif
 
 =back
 
@@ -1211,7 +1148,6 @@ variable I<WCDHOME>.
 I<HOME> also defines where to start scanning the disk when option C<-s> is
 used. This can be overruled with environment variable I<WCDSCAN>.
 
-#ifdef dos
 
 For the Unix, Cygwin, Windows PowerShell, WinZsh and MSYS version
 it is required that I<HOME> or I<WCDHOME> is set. For the other
@@ -1228,7 +1164,6 @@ explicitly. E.g.:
 
 Matching of directories is now global over all scanned drives.
 
-#endif
 
 =item B<WCDHOME>
 
@@ -1241,11 +1176,9 @@ This has changed. Since version 5.1.5 WCDHOME does not change the default scan
 directory. See option -s. From version 5.1.5, use environment I<WCDSCAN> to
 overrule the default scan directory.
 
-#ifdef dos
 Example for DOS, Windows, OS/2 Command Prompt:
 
     set WCDHOME=C:\Users\erwin\wcd
-#endif
 
 An example for POSIX type shells:
 
@@ -1260,17 +1193,13 @@ An example for Csh type shells:
 Use environment variable I<WCDSCAN> to overrule the default scan
 directory I<HOME>. Define a colon separated list (Unix) to define more
 than one directory.
-#ifdef dos
 On DOS/Windows make the list semi-colon separated.
-#endif
 
-#ifdef dos
 Examples for DOS, Windows, OS/2 Command Prompt:
 
     set WCDSCAN=C:\Users\erwin;D:\data
 
     set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\projectdrive\projectX
-#endif
 
 An example for POSIX type shells:
 
@@ -1288,11 +1217,9 @@ specified by separating filters by the shell path
 separator. Similar as specifying the PATH variable.
 The case sensitivity is mandated by the Operating system.
 
-#ifdef dos
 An example for DOS, Windows, OS/2 Command Prompt:
 
     set WCDFILTER=projects;doc
-#endif
 
 An example for POSIX type shells:
 
@@ -1315,11 +1242,9 @@ wcd. See also options B<-x> and B<-xf>. Specify a list of paths
 separated by shell PATH separator
 
 
-#ifdef dos
 An example for DOS, Windows, OS/2 Command Prompt:
 
     set WCDEXCLUDE=*/windows;*/temp;*CVS
-#endif
 
 An example for POSIX type shells:
 
@@ -1332,9 +1257,7 @@ An example for Csh type shells:
 =item B<WCDUSERSHOME>
 
 Set the base of user's home directories.
-#ifdef dos
 On DOS/Windows the default value is C<\\users>.
-#endif
 On Unix/Cygwin the default value is C</home>.
 This variable is used to scan treedata files of other users. See also
 options B<-u> an B<+u>. In verbose mode wcd will print all filters,
@@ -1373,7 +1296,6 @@ Wcd with PDCurses interface recognizes the environment variable
 I<PDC_RESTORE_SCREEN>. If this environment variable is set, PDCurses
 will take a copy of the contents of the screen at the time that wcd is
 started; when wcd exits, the screen will be restored.
-#ifdef dos
 An example for Windows Command Prompt:
 
     set PDC_RESTORE_SCREEN=1
@@ -1382,7 +1304,6 @@ Windows allows only a small buffer to be saved. So it is not always
 possible to restore everything. Some garbage data may be printed in
 the console after wcd exists if you have set a large buffer width.
 
-#endif
 
 =item B<SHELL>
 
@@ -1393,7 +1314,6 @@ source it. In Cygwin Bash the variable I<SHELL> must be set in
 environment using the C<export> command, otherwise wcd can't read the
 variable.
 
-#ifdef dos
 
 =item B<BASH>
 
@@ -1401,7 +1321,6 @@ Wcd for DOS bash uses C<$BASH> instead of C<$SHELL>, because C<$SHELL>
 points to the DOS command shell. One may need to define C<$BASH> with
 an C<export> command, otherwise wcd can't read the variable.
 
-#endif
 
 =back
 

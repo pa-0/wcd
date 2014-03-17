@@ -25,19 +25,9 @@
 #
 #   Developer notes
 #
-#	The documentation default is set for DOS and Unix.
+#       In order to clean generated POD files and manuals:
 #
-#       In order to generate documentation for Unix only, use:
-#
-#	    make CPP_FLAGS_POD="-Dunix" man
-#
-#       In order to generate documentation for DOS/Windows only, use:
-#
-#	    make CPP_FLAGS_POD="-Ddos" man
-#
-#       In order to clean but preserve generated POD file:
-#
-#           make mostlyclean
+#           make maintainer-clean
 #
 #	Set additional flags for the build with variables CFLAGS_USER,
 #	DEFS_USER and LDFLAGS_USER.
@@ -48,7 +38,9 @@ endif
 
 include version.mk
 
-.PHONY: man txt html pdf mofiles tags merge
+.PHONY: status uninstall install install-doc dist dist-zip dist-tgz
+.PHONY: man txt html ps pdf mofiles tags merge
+
 
 .PRECIOUS: %.1 %.pod
 
@@ -133,7 +125,6 @@ PSFILES 	= $(patsubst %.pod,%.ps,$(PODFILES_ALL))
 PDFFILES	= $(patsubst %.pod,%.pdf,$(PODFILES_ALL))
 
 CPP		= cpp
-CPP_FLAGS_POD	= -Dunix -Ddos
 CFLAGS_VERSION	= -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 DEF_UNIX        = -DUNIX
 EXTRA_DEFS      =
@@ -457,7 +448,6 @@ status:
 	@echo "OS            = $(OS)"
 	@echo "prefix        = $(prefix)"
 	@echo "EXT           = $(EXT)"
-	@echo "CPP_FLAGS_POD = $(CPP_FLAGS_POD)"
 	@echo "UNINORM       = $(UNINORM)"
 	@echo "STATIC        = $(STATIC)"
 	@echo "UCS           = $(UCS)"
@@ -498,9 +488,6 @@ $(BIN): $(OBJS1)
 
 $(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
 	xgettext -C --keyword=_ $+ -o $(POT)
-
-#man/man1/wcd1.pod : man/man1/wcd1pod.in
-#	$(CPP) -traditional-cpp -P -fno-show-column $(CPP_FLAGS_POD) $< > $@
 
 $(MANPOTFILE) : man/man1/wcd.pod
 	$(MAKE) -C man/man1 $(notdir $@)
@@ -640,7 +627,7 @@ install-doc: $(DOCFILES)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
 	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir) ;)
 
-install-man: $(INSTALL_OBJS_MAN1)
+install-man: $(INSTALL_OBJS_MAN1) $(MANFILES) $(MANPOTFILE)
 	@echo "-- target: install-man"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
 	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(DESTDIR)$(man1dir)
@@ -662,8 +649,5 @@ ifdef ENABLE_NLS
 endif
 	-rm -f $(DESTDIR)$(mandir)/man1/$(PACKAGE).1
 	-rm -rf $(DESTDIR)$(docdir)
-
-.PHONY: status uninstall install install-doc dist dist-zip dist-tgz
-.PHONY: man pod ps txt html pdf
 
 # End of file

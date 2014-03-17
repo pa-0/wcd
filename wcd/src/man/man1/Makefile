@@ -55,13 +55,18 @@ all: $(MAN_OBJECTS) wcd-man.pot
 wcd-man.pot : wcd.pod
 	po4a-updatepo -f pod -m $< -p $@
 
+%.po : wcd.pod
+	po4a-updatepo -f pod -m $< -p $@ --msgmerge-opt --backup=numbered
 
 # Create pod files from po.
 # Fix problem that =encoding is before =pod command.
 %.pod : %.po
-	po4a-translate -f pod -m wcd.pod -p $< > $@
+	po4a-translate -f pod -m wcd.pod -p $< > $@ -k 30
 	sed -i '/=encoding UTF-8/d' $@
 	sed -i 's/=pod/=pod\n\n=encoding UTF-8/' $@
+
+# An empty rule for wcd.pod to break circular dependency.
+wcd.pod : ;
 
 %.1 : %.pod
 	# make target - create manual page from a *.pod page
