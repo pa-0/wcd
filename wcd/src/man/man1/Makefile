@@ -65,7 +65,7 @@ wcd-man.pot : wcd.pod
 	sed -i '/=encoding UTF-8/d' $@
 	sed -i 's/=pod/=pod\n\n=encoding UTF-8/' $@
 
-# An empty rule for wcd.pod to break circular dependency.
+# An empty recipe for wcd.pod to break circular dependency.
 wcd.pod : ;
 
 %.1 : %.pod
