@@ -955,6 +955,9 @@ msgid ""
 "method can be used. One could make the following function for a POSIX "
 "compatible shell:"
 msgstr ""
+"Wcd print the map waar naar te gaan naar standaard uitvoer. Zo kan een andere "
+"installatie methode gebruikt worden. Men zou de volgende functie kunnen maken "
+"voor een POSIX compatibele shell:"
 
 #. type: verbatim
 #: wcd.pod:381
@@ -966,6 +969,11 @@ msgid ""
 "    }\n"
 "\n"
 msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        cd \"$($HOME/bin/wcd.exe -j $@)\"\n"
+"    }\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:386
@@ -973,6 +981,8 @@ msgid ""
 "When you are using an old shell that doesn't support \"$()\" command "
 "substitution you have to use old style command substitution with back-quotes."
 msgstr ""
+"Wanneer je een oude shell gebruikt die geen \"$()\" opdracht vervanging "
+"ondersteunt, moet je de oude stijl opdrachtvervanging gebruiken met accent graves."
 
 #. type: verbatim
 #: wcd.pod:389
@@ -984,6 +994,11 @@ msgid ""
 "    }\n"
 "\n"
 msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        cd \"`$HOME/bin/wcd.exe -j $@`\"\n"
+"    }\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:395
@@ -991,6 +1006,8 @@ msgid ""
 "On Windows systems, if one is running 4NT shell, one could make the "
 "following alias:"
 msgstr ""
+"Op Windows systemen, wanneer men 4NT shell draait, kan men de volgende "
+"alias maken:"
 
 #. type: verbatim
 #: wcd.pod:398
@@ -999,6 +1016,8 @@ msgid ""
 "    alias wcd `cd %@execstr[wcdwin32.exe -z 0 -j %1]`\n"
 "\n"
 msgstr ""
+"    alias wcd `cd %@execstr[wcdwin32.exe -z 0 -j %1]`\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:401
@@ -1006,6 +1025,8 @@ msgid ""
 "This method eliminates the need of the go-script, so one can use option B<-"
 "GN> in combination with B<-j>."
 msgstr ""
+"Deze methode elimineert de noodzaak voor het go-script, zodat men de optie "
+"B<-GN> in combinatie met B<-j> kan gebruiken."
 
 #. type: =item
 #: wcd.pod:404
@@ -1015,7 +1036,7 @@ msgstr "B<-k, --keep-paths>"
 #. type: textblock
 #: wcd.pod:406
 msgid "Keep paths."
-msgstr ""
+msgstr "Bewaar paden."
 
 #. type: textblock
 #: wcd.pod:408
@@ -1024,6 +1045,9 @@ msgid ""
 "of wcd is that it tries to remove paths from the treedata when wcd can't "
 "change to them. With this option this behaviour is turned off."
 msgstr ""
+"Bewaar paden in boombestanden wanneer wcd er niet naar kan veranderen. Het "
+"standaard gedrag van wcd is dat het probeert de paden te verwijderen wanneer "
+"wcd niet naar ze kan veranderen. Met deze optie wordt dit gedrag uitgeschakeld."
 
 #. type: =item
 #: wcd.pod:412
@@ -1033,12 +1057,12 @@ msgstr "B<-K, --color>"
 #. type: textblock
 #: wcd.pod:414
 msgid "Use colors in graphical mode."
-msgstr ""
+msgstr "Gebruik kleuren in grafische modus."
 
 #. type: =item
 #: wcd.pod:416
 msgid "B<-l ALIAS>"
-msgstr ""
+msgstr "B<-l ALIAS>"
 
 #. type: textblock
 #: wcd.pod:418
