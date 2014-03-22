@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man\n"
 "POT-Creation-Date: 2014-03-17 21:58+0100\n"
-"PO-Revision-Date: 2014-03-16 18:24+0100\n"
+"PO-Revision-Date: 2014-03-22 11:45+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.6.4\n"
 
 #. type: =head1
 #: wcd.pod:41
@@ -720,8 +720,8 @@ msgid ""
 "Scan directory tree from PATH and append to Extra treedata file. See also "
 "options B<-A> and B<-S>."
 msgstr ""
-"Scan mappenboom vanaf PAD en voeg het toe aan het Extra boombestand."
-"Zie ook opties B<-A> en B<-S>."
+"Scan mappenboom vanaf PAD en voeg het toe aan het Extra boombestand.Zie ook "
+"opties B<-A> en B<-S>."
 
 #. type: =item
 #: wcd.pod:288
@@ -760,9 +760,9 @@ msgid ""
 "a directory via a full-screen interactive directory tree browser. It has a "
 "vim(1) like navigation and search method."
 msgstr ""
-"Wcd start een tekstuele curses gebaseerde 'grafische' interface. De gebruiker "
-"kan een map selecteren via een vol-scherm interactieve mappenverkenner. Het "
-"heeft een vim(1) achtige navigatie en zoek methode."
+"Wcd start een tekstuele curses gebaseerde 'grafische' interface. De "
+"gebruiker kan een map selecteren via een vol-scherm interactieve "
+"mappenverkenner. Het heeft een vim(1) achtige navigatie en zoek methode."
 
 #. type: textblock
 #: wcd.pod:304
@@ -770,16 +770,16 @@ msgid ""
 "If no search string is given wcd presents the whole tree which is in the "
 "default treedata file and the extra treedata files."
 msgstr ""
-"Wanneer geen zoekstring gegeven is presenteert wcd de gehele boom die "
-"in het standaard en het extra boombestand staat."
+"Wanneer geen zoekstring gegeven is presenteert wcd de gehele boom die in het "
+"standaard en het extra boombestand staat."
 
 #. type: textblock
 #: wcd.pod:307
 msgid ""
 "If a search string is given the match list is presented as a directory tree."
 msgstr ""
-"Wanneer een zoekstring gegeven is wordt de trefferlijst gepresenteerd als een "
-"mappenboom"
+"Wanneer een zoekstring gegeven is wordt de trefferlijst gepresenteerd als "
+"een mappenboom"
 
 #. type: textblock
 #: wcd.pod:310
@@ -795,13 +795,13 @@ msgid ""
 "down from one sub-branch to another sub-branch."
 msgstr ""
 "De standaard boom opmaak is gelijk aan de boomopmaak van de originele NCD op "
-"DOS. Het verschil in opmaak is dat in NCD alle mappen van dezelfde diepteniveau "
-"vertikaal uitgelijnd waren over de hele boom. Dit was mogelijk in NCD, omdat "
-"de maximale breedte van een mapnaam in DOS 8.3 tekens was. Op moderne "
-"besturingssystemen kunnen namen erg lang zijn. Daarom zijn mappen met dezelfde "
-"diepte in wcd niet vertikaal uitgelijnd over de hele boom, maar alleen in "
-"sub-takken. Daarom is er wat zijdelingse beweging wanneer recht omhoog of omlaag "
-"bewogen wordt van de ene sub-tak naar de ander sub-tak."
+"DOS. Het verschil in opmaak is dat in NCD alle mappen van dezelfde "
+"diepteniveau vertikaal uitgelijnd waren over de hele boom. Dit was mogelijk "
+"in NCD, omdat de maximale breedte van een mapnaam in DOS 8.3 tekens was. Op "
+"moderne besturingssystemen kunnen namen erg lang zijn. Daarom zijn mappen "
+"met dezelfde diepte in wcd niet vertikaal uitgelijnd over de hele boom, maar "
+"alleen in sub-takken. Daarom is er wat zijdelingse beweging wanneer recht "
+"omhoog of omlaag bewogen wordt van de ene sub-tak naar de ander sub-tak."
 
 #. type: textblock
 #: wcd.pod:320
@@ -812,9 +812,9 @@ msgid ""
 "through the tree."
 msgstr ""
 "Het navigatie gedrag in wcd is exact hetzelfde als in de originele NCD. "
-"Bijvoorbeeld wanneer je de Omlaag knopt drukt ga je omlaag naar de volgende map "
-"met dezelfde diepte, springend over takken. Dit maakt snelle navigatie door de "
-"boom mogelijk."
+"Bijvoorbeeld wanneer je de Omlaag knopt drukt ga je omlaag naar de volgende "
+"map met dezelfde diepte, springend over takken. Dit maakt snelle navigatie "
+"door de boom mogelijk."
 
 #. type: textblock
 #: wcd.pod:325
@@ -869,7 +869,7 @@ msgstr "B<-h, --help>"
 #. type: textblock
 #: wcd.pod:343
 msgid "Print help and exit."
-msgstr "Toon helptext en sluit af.""
+msgstr "Toon helptext en sluit af."
 
 #. type: =item
 #: wcd.pod:345
@@ -883,7 +883,8 @@ msgid ""
 "Cygwin versions regard case by default."
 msgstr ""
 "Hoofdletterongevoelig. DOS en Windows versies van wcd zijn standaard "
-"hoofdletterongevoelig. Unix/Cygwin versies zijn standaard hoofdlettergevoelig."
+"hoofdletterongevoelig. Unix/Cygwin versies zijn standaard "
+"hoofdlettergevoelig."
 
 #. type: =item
 #: wcd.pod:351
@@ -909,11 +910,12 @@ msgid ""
 "ISO-8859-2, and Unicode Latin-1, Latin Extended-A, and Latin Extended-B.  "
 "See also L<http://en.wikipedia.org/wiki/Diacritic>"
 msgstr ""
-"Ongevoelig voor diakritische tekens voor Latijnse geschriften. Letter met een "
-"diakritisch teken treffen hun basisletter zonder diakritisch teken. De volgende "
-"Latijnse coderingen worden ondersteund: CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, "
-"ISO-8859-2, en Unicode Latin-1, Latin Extended-A, en Latin Extended-B.  "
-"Zie ook L<http://nl.wikipedia.org/wiki/Diakritisch_teken>"
+"Ongevoelig voor diakritische tekens voor Latijnse geschriften. Letter met "
+"een diakritisch teken treffen hun basisletter zonder diakritisch teken. De "
+"volgende Latijnse coderingen worden ondersteund: CP437, CP850, CP852, "
+"CP1250, CP1252, ISO-8859-1, ISO-8859-2, en Unicode Latin-1, Latin Extended-"
+"A, en Latin Extended-B.  Zie ook L<http://nl.wikipedia.org/wiki/"
+"Diakritisch_teken>"
 
 #. type: =item
 #: wcd.pod:364
@@ -945,8 +947,8 @@ msgid ""
 msgstr ""
 "In deze modus zal wcd geen lijst tonen wanneer er meer dan een map is die "
 "treft met de ingegeven map. Wcd zal veranderen naar de eerste optie. Wanneer "
-"wcd opnieuw aangeroepen wordt met hetzelfde argument, zal wcd veranderen naar "
-"de volgende optie, en zo verder."
+"wcd opnieuw aangeroepen wordt met hetzelfde argument, zal wcd veranderen "
+"naar de volgende optie, en zo verder."
 
 #. type: textblock
 #: wcd.pod:377
@@ -955,9 +957,9 @@ msgid ""
 "method can be used. One could make the following function for a POSIX "
 "compatible shell:"
 msgstr ""
-"Wcd print the map waar naar te gaan naar standaard uitvoer. Zo kan een andere "
-"installatie methode gebruikt worden. Men zou de volgende functie kunnen maken "
-"voor een POSIX compatibele shell:"
+"Wcd print the map waar naar te gaan naar standaard uitvoer. Zo kan een "
+"andere installatie methode gebruikt worden. Men zou de volgende functie "
+"kunnen maken voor een POSIX compatibele shell:"
 
 #. type: verbatim
 #: wcd.pod:381
@@ -982,7 +984,8 @@ msgid ""
 "substitution you have to use old style command substitution with back-quotes."
 msgstr ""
 "Wanneer je een oude shell gebruikt die geen \"$()\" opdracht vervanging "
-"ondersteunt, moet je de oude stijl opdrachtvervanging gebruiken met accent graves."
+"ondersteunt, moet je de oude stijl opdrachtvervanging gebruiken met accent "
+"graves."
 
 #. type: verbatim
 #: wcd.pod:389
@@ -1006,8 +1009,8 @@ msgid ""
 "On Windows systems, if one is running 4NT shell, one could make the "
 "following alias:"
 msgstr ""
-"Op Windows systemen, wanneer men 4NT shell draait, kan men de volgende "
-"alias maken:"
+"Op Windows systemen, wanneer men 4NT shell draait, kan men de volgende alias "
+"maken:"
 
 #. type: verbatim
 #: wcd.pod:398
@@ -1047,7 +1050,8 @@ msgid ""
 msgstr ""
 "Bewaar paden in boombestanden wanneer wcd er niet naar kan veranderen. Het "
 "standaard gedrag van wcd is dat het probeert de paden te verwijderen wanneer "
-"wcd niet naar ze kan veranderen. Met deze optie wordt dit gedrag uitgeschakeld."
+"wcd niet naar ze kan veranderen. Met deze optie wordt dit gedrag "
+"uitgeschakeld."
 
 #. type: =item
 #: wcd.pod:412
@@ -1072,7 +1076,6 @@ msgid ""
 msgstr ""
 "Noem het huidige pad ALIAS. Wcd plaatst het huidige pad met alias ALIAS in "
 "het alias-bestand. Aliassen zijn hoofdlettergevoelig."
-
 
 #. type: =item
 #: wcd.pod:421
@@ -1131,7 +1134,8 @@ msgid ""
 "An example: Suppose another system has been mounted to mount point C</mnt/"
 "network>:"
 msgstr ""
-"Een voorbeeld: Stel een ander systeem is gekoppend aan koppeling C</mnt/network>:"
+"Een voorbeeld: Stel een ander systeem is gekoppend aan koppeling C</mnt/"
+"network>:"
 
 #. type: verbatim
 #: wcd.pod:444
@@ -1149,8 +1153,8 @@ msgid ""
 "Wcd opens the relative treedata file in C</mnt/network/>. The file contains "
 "the paths relative from that point."
 msgstr ""
-"Wcd opent het relatieve boomdata-bestand in C</mnt/network/>. The bestand bevat "
-"de paden relatief vanaf dat punt."
+"Wcd opent het relatieve boomdata-bestand in C</mnt/network/>. The bestand "
+"bevat de paden relatief vanaf dat punt."
 
 #. type: =item
 #: wcd.pod:449
@@ -1184,6 +1188,11 @@ msgid ""
 "the match list is numbered with numbers. Regardless of the B<-N> option one "
 "can type a letter or numbers to make a selection from the list of matches."
 msgstr ""
+"Wcd met een conio of curses gebaseerde interface (zie paragraaf INTERFACE) "
+"presenteert een trefferlijst standaard genummerd met letters. Wanneer de "
+"optie B<-N> is gebruikt wordt de trefferlijst genummerd met nummers. "
+"Onafhankelijk van de optie B<-N> can men een letter of een nummer typen om "
+"een selectie uit de lijst te maken."
 
 #. type: =item
 #: wcd.pod:463
@@ -1193,7 +1202,7 @@ msgstr "B<-o>"
 #. type: textblock
 #: wcd.pod:465
 msgid "Use stdin/stdout interface."
-msgstr ""
+msgstr "Gebruik standaard invoer/uitvoer interface."
 
 #. type: textblock
 #: wcd.pod:467
@@ -1202,6 +1211,9 @@ msgid ""
 "work one can fall back to the stdin/stdout interface of wcd by using the B<-"
 "o> option."
 msgstr ""
+"Wanneer om een of andere reden de conio of curses interface van wcd niet "
+"werkt kan men terugvallen op de standaar invoer/uitvoer interface van wcd "
+"door het gebruik van de B<-o> optie."
 
 #. type: =item
 #: wcd.pod:471
@@ -1211,7 +1223,7 @@ msgstr "B<-od, --to-stdout>"
 #. type: textblock
 #: wcd.pod:473
 msgid "Dump all matches to stdout."
-msgstr ""
+msgstr "Dump alle treffers naar standaard uitvoer."
 
 #. type: =item
 #: wcd.pod:475
@@ -1222,16 +1234,17 @@ msgstr "B<-q, --quiet>"
 #: wcd.pod:477
 msgid "Quieter operation. Printing of the final match is suppressed."
 msgstr ""
+"Stillere werking. Het printen van de uiteindelijke treffer wordt onderdrukt."
 
 #. type: =item
 #: wcd.pod:479
 msgid "B<-r DIR>"
-msgstr ""
+msgstr "B<-r DIR>"
 
 #. type: textblock
 #: wcd.pod:481
 msgid "Remove directory and remove from treedata file."
-msgstr ""
+msgstr "Verwijder map en verwijder uit boomdata-bestand."
 
 #. type: textblock
 #: wcd.pod:483
@@ -1239,16 +1252,18 @@ msgid ""
 "If the directory is empty, wcd will remove it, and try to remove it from the "
 "treedata file."
 msgstr ""
+"Als de map leeg is zal wcd het verwijderen, en proberen het te verwijderen "
+"uit het boomdata-bestand."
 
 #. type: =item
 #: wcd.pod:486
 msgid "B<-rmtree DIR>"
-msgstr ""
+msgstr "B<-rmtree DIR>"
 
 #. type: textblock
 #: wcd.pod:488
 msgid "Recursively remove directory and remove from treedata file."
-msgstr ""
+msgstr "Recursief map verwijderen en verwijderen uit boomdata-bestand."
 
 #. type: textblock
 #: wcd.pod:490
@@ -1260,7 +1275,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:493
 msgid "B<-s>"
-msgstr ""
+msgstr "B<-s>"
 
 #. type: textblock
 #: wcd.pod:495
@@ -1272,7 +1287,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:498
 msgid "The existing default treedata file is overwritten."
-msgstr ""
+msgstr "Het bestaande standaard boomdata-bestand is overschreven."
 
 #. type: textblock
 #: wcd.pod:500
@@ -1284,7 +1299,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:503
 msgid "B<-S PATH>"
-msgstr ""
+msgstr "B<-S PATH>"
 
 #. type: textblock
 #: wcd.pod:505
@@ -1311,7 +1326,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:514
 msgid "DOS/Windows:"
-msgstr ""
+msgstr "DOS/Windows:"
 
 #. type: verbatim
 #: wcd.pod:516
@@ -1335,7 +1350,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:523
 msgid "B<+S PATH>"
-msgstr ""
+msgstr "B<+S PATH>"
 
 #. type: textblock
 #: wcd.pod:525
@@ -1353,7 +1368,7 @@ msgstr "B<-t>"
 #. type: textblock
 #: wcd.pod:531
 msgid "Do not strip tmp mount dir C</tmp_mnt> (Unix only)"
-msgstr ""
+msgstr "Verwijder niet tmp koppelmap C</tmp_mnt> (alleen Unix)"
 
 #. type: textblock
 #: wcd.pod:533
@@ -1868,9 +1883,8 @@ msgid ""
 "Replace <PATH> with the location where the wcd executable has been "
 "installed. Reload the shell initialization files or start new shell."
 msgstr ""
-"Vervang <PAD> door de locatie waar het uitvoerbare wcd bestand"
-"geïnstalleerd is. Laad de shell initialisatiebestanden opnieuw"
-"of start een nieuwe shell."
+"Vervang <PAD> door de locatie waar het uitvoerbare wcd bestandgeïnstalleerd "
+"is. Laad de shell initialisatiebestanden opnieuwof start een nieuwe shell."
 
 #. type: textblock
 #: wcd.pod:755
