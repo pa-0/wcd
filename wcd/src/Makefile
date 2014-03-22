@@ -492,8 +492,14 @@ $(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
 $(MANPOTFILE) : man/man1/wcd.pod
 	$(MAKE) -C man/man1 $(notdir $@)
 
+%.po : man/man1/wcd.pod
+	$(MAKE) -C man/man1 $(subst man/,../,$@)
+
 %.pod : %.po
 	$(MAKE) -C man/man1 $(subst man/,../,$@)
+
+# Empty recipe to break circular dependency.
+man/man1/wcd.pod : ;
 
 %.1 : %.pod
 	$(MAKE) -C man/man1 $(subst man/,../,$@)

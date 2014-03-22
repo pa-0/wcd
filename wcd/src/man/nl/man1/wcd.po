@@ -1070,16 +1070,19 @@ msgid ""
 "Name the current path with ALIAS. Wcd places the current path with alias "
 "ALIAS in the alias file. Aliases are case sensitive."
 msgstr ""
+"Noem het huidige pad ALIAS. Wcd plaatst het huidige pad met alias ALIAS in "
+"het alias-bestand. Aliassen zijn hoofdlettergevoelig."
+
 
 #. type: =item
 #: wcd.pod:421
 msgid "B<-m DIR>"
-msgstr ""
+msgstr "B<-m DIR>"
 
 #. type: textblock
 #: wcd.pod:423
 msgid "Make directory and add to treedata file."
-msgstr ""
+msgstr "Maak map en voeg toe aan boomdata-bestand."
 
 #. type: =item
 #: wcd.pod:425
@@ -1089,27 +1092,27 @@ msgstr "B<-L, --license>"
 #. type: textblock
 #: wcd.pod:427
 msgid "Print the distribution license."
-msgstr ""
+msgstr "Print de distributie licentie."
 
 #. type: =item
 #: wcd.pod:429
 msgid "B<-M DIR>"
-msgstr ""
+msgstr "B<-M DIR>"
 
 #. type: textblock
 #: wcd.pod:431
 msgid "Make directory and add to extra treedata file."
-msgstr ""
+msgstr "Maak map en voeg toe aan extra boomdata-bestand."
 
 #. type: =item
 #: wcd.pod:433
 msgid "B<-n PATH>"
-msgstr ""
+msgstr "B<-n PATH>"
 
 #. type: textblock
 #: wcd.pod:435
 msgid "Read relative treedata file from PATH."
-msgstr ""
+msgstr "Lees relatief boomdata-bestand vanaf PAD."
 
 #. type: textblock
 #: wcd.pod:437
@@ -1118,6 +1121,9 @@ msgid ""
 "already have been created using the wcd B<+S> option.  PATH may also point "
 "to a file directly."
 msgstr ""
+"Lees niet het standaard boomdata-bestand. Het relatieve boomdata-bestand zou "
+"al gemaakt moeten zijn met de wcd optie B<+S>. PAD mag ook direct naar een "
+"bestand wijzen."
 
 #. type: textblock
 #: wcd.pod:441
@@ -1125,6 +1131,7 @@ msgid ""
 "An example: Suppose another system has been mounted to mount point C</mnt/"
 "network>:"
 msgstr ""
+"Een voorbeeld: Stel een ander systeem is gekoppend aan koppeling C</mnt/network>:"
 
 #. type: verbatim
 #: wcd.pod:444
@@ -1133,6 +1140,8 @@ msgid ""
 "    wcd -n /mnt/network src\n"
 "\n"
 msgstr ""
+"    wcd -n /mnt/network src\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:446
@@ -1140,11 +1149,13 @@ msgid ""
 "Wcd opens the relative treedata file in C</mnt/network/>. The file contains "
 "the paths relative from that point."
 msgstr ""
+"Wcd opent het relatieve boomdata-bestand in C</mnt/network/>. The bestand bevat "
+"de paden relatief vanaf dat punt."
 
 #. type: =item
 #: wcd.pod:449
 msgid "B<+n PATH>"
-msgstr ""
+msgstr "B<+n PATH>"
 
 #. type: textblock
 #: wcd.pod:451
@@ -1152,6 +1163,8 @@ msgid ""
 "Read relative treedata file in addition to the default treedata file. See "
 "option B<-n>."
 msgstr ""
+"Lees relatief boomdata-bestand bovenop het standaard boomdata-bestand. Zie "
+"optie B<-n>."
 
 #. type: =item
 #: wcd.pod:454
@@ -1161,7 +1174,7 @@ msgstr "B<-N, --numbers>"
 #. type: textblock
 #: wcd.pod:456
 msgid "Use numbers instead of letters."
-msgstr ""
+msgstr "Gebruik nummers in plaats van letters."
 
 #. type: textblock
 #: wcd.pod:458
@@ -1842,6 +1855,12 @@ msgid ""
 "    }\n"
 "\n"
 msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        <PAD>/wcd.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME}}/bin/wcd.go\n"
+"    }\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:752
@@ -1850,7 +1869,7 @@ msgid ""
 "installed. Reload the shell initialization files or start new shell."
 msgstr ""
 "Vervang <PAD> door de locatie waar het uitvoerbare wcd bestand"
-"geinstalleerd is. Laad de shell initialisatiebestanden opnieuw"
+"geïnstalleerd is. Laad de shell initialisatiebestanden opnieuw"
 "of start een nieuwe shell."
 
 #. type: textblock
@@ -1877,6 +1896,12 @@ msgid ""
 "    }\n"
 "\n"
 msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        <PAD>/wcd.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+"    }\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:767
