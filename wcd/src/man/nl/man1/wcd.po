@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man\n"
 "POT-Creation-Date: 2014-03-17 21:58+0100\n"
-"PO-Revision-Date: 2014-03-22 11:45+0100\n"
+"PO-Revision-Date: 2014-03-22 13:07+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -1271,6 +1271,8 @@ msgid ""
 "Wcd will remove the directory and all its sub directories and files, and "
 "remove the directories from the treedata file."
 msgstr ""
+"Wcd zal de map verwijderen en al zijn sub-mappen en bestanden, en verwijdert "
+"de mappen uit het boomdata-bestand."
 
 #. type: =item
 #: wcd.pod:493
@@ -1283,6 +1285,8 @@ msgid ""
 "(re)Scan disk from C<$HOME> directory. If HOME is not defined the disk is "
 "scanned from root directory /."
 msgstr ""
+"(her)scannen schijf vanaf C<$HOME> map. Als HOME niet gedefinieerd is, wordt "
+"de schijf gescant vanaf hoofdmap /."
 
 #. type: textblock
 #: wcd.pod:498
@@ -1295,6 +1299,8 @@ msgid ""
 "The default scan directory can be overruled with environment variable "
 "C<WCDSCAN>. See section ENVIRONMENT VARIABLES."
 msgstr ""
+"De standaard scan map kan overstemd worden met omgevingsvariabele "
+"C<WCDSCAN>. Zie sectie OMGEVINGSVARIABELEN."
 
 #. type: =item
 #: wcd.pod:503
@@ -1308,6 +1314,9 @@ msgid ""
 "also options B<-A>, B<-s> and B<-E>. E.g. with option B<-A> you can create a "
 "default treedata file of your choice. Examples:"
 msgstr ""
+"Scan mappenboom vanaf PAD en overschrijf het standaard boomdata-bestand. Zie "
+"ook opties B<-A>, B<-s> en B<-E>. B.v. met optie B<-A> kun je een standaard "
+"boomdata-bestand maken naar eigen smaak. Bijvoorbeeld:"
 
 #. type: textblock
 #: wcd.pod:509
@@ -1322,6 +1331,9 @@ msgid ""
 "    wcd -S /home -A /etc -A /usr\n"
 "\n"
 msgstr ""
+"    wcd -S /\n"
+"    wcd -S /home -A /etc -A /usr\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:514
@@ -1346,6 +1358,8 @@ msgid ""
 "With the Windows versions one can scan all shared directories of a Windows "
 "LAN server by typing something like: C<wcd -S \\\\servername>."
 msgstr ""
+"Met de Windows versies kan men alle gedeelde mappen scannen van een Windows "
+"LAN server door iets een typen als: C<wcd -S \\\\servernaam>."
 
 #. type: =item
 #: wcd.pod:523
@@ -1359,6 +1373,9 @@ msgid ""
 "This file is used by the B<-n> and +n options of wcd. E.g. C<wcd -n PATH "
 "+src>,"
 msgstr ""
+"Scan schijf vanaf PAD en plaats relatieve paden in het relatieve boomdata-"
+"bestand. Dit bestand wordt gebruikt door de B<-n> en B<+n> opties van wcd. B."
+"v. C<wcd -n PAD +src>,"
 
 #. type: =item
 #: wcd.pod:529
@@ -1377,6 +1394,9 @@ msgid ""
 "used by the auto-mounter. This behaviour can be turned off with the B<-t> "
 "option."
 msgstr ""
+"Wcd verwijderd standaard C</tmp_mnt/> van de treffer. Map C</tmp_mnt> wordt "
+"gebruikt door de 'auto-mounter'. Dit gedrag kan uitgeschakeld worden met de "
+"B<-t> optie."
 
 #. type: =item
 #: wcd.pod:537
@@ -1389,6 +1409,8 @@ msgid ""
 "Draw tree with ASCII characters. Use this option if line drawing characters "
 "are not displayed properly in your terminal."
 msgstr ""
+"Teken boom met ASCII tekens. Gebruik deze opties als lijntekens niet goed "
+"getoond worden in de terminal."
 
 #. type: =item
 #: wcd.pod:542
@@ -1398,7 +1420,7 @@ msgstr "B<-Ta, --alt-tree-nav>"
 #. type: textblock
 #: wcd.pod:544
 msgid "Alternative way of navigation in the graphical tree."
-msgstr ""
+msgstr "Alternatieve manier van navigeren in de grafische boom."
 
 #. type: textblock
 #: wcd.pod:546
@@ -1406,6 +1428,8 @@ msgid ""
 "In the default NCD style tree layout the -Ta option disables jumping to "
 "unrelated directories."
 msgstr ""
+"In de standaard NCD stijl opmaak zet de -Ta optie het springen naar "
+"ongerelateerde mappen uit."
 
 #. type: textblock
 #: wcd.pod:549
@@ -1415,6 +1439,11 @@ msgid ""
 "Konqueror. Moving up and down moves just one line up or down. Moving left "
 "first folds the sub-folders and the next move left moves really left."
 msgstr ""
+"In compacte-boom-modus maakt de alternatieve mode de navigatie gelijk aan de "
+"navigatie in GUI bestandsverkenners zoals de Windows Verkenner of Linux KDE "
+"Konqueror. Omhoog en omlaag bewegen beweegt slechts een regel op en neer. "
+"Naar links gaan vouwt eerst de sub-mappen in en de volgende beweging naar "
+"links gaat echt naar links."
 
 #. type: textblock
 #: wcd.pod:554
@@ -1422,6 +1451,8 @@ msgid ""
 "You can switch on-the-fly between default and alternative navigation by "
 "pressing Shift-A."
 msgstr ""
+"U kunt onmiddelijk tussen standaard en alternatief navigeren schakelen door "
+"Shift-A te drukken."
 
 #. type: textblock
 #: wcd.pod:557
@@ -1429,6 +1460,8 @@ msgid ""
 "When alternative navigation mode is on, you will see a \"A\" in the lower "
 "right corner."
 msgstr ""
+"Wanneer alternatieve navigatie aan staat, ziet u een \"A\" in de linker "
+"onderhoek."
 
 #. type: =item
 #: wcd.pod:559
@@ -1442,6 +1475,9 @@ msgid ""
 "middle of the screen. The centered mode can also be switched on and off with "
 "key 't' in the graphical tree."
 msgstr ""
+"Gecentreerde weergave in de grafische boom. De geselecteerde map blijft in "
+"het midden van het scherm. De gecentreerde modus kan ook aan- en "
+"uitgeschakeld worden met de 't' toets in de grafische boom."
 
 #. type: textblock
 #: wcd.pod:565
@@ -1449,6 +1485,8 @@ msgid ""
 "The standard non-centered behaviour, which minimises tree movement, is the "
 "same as the original NCD."
 msgstr ""
+"De standaard niet-gecentreerde weergave, die boombeweging minimaliseert, is "
+"gelijk aan hoe het in de originele NCD was."
 
 #. type: =item
 #: wcd.pod:568
@@ -1489,7 +1527,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:587
 msgid "B<-u USER>"
-msgstr ""
+msgstr "B<-u USER>"
 
 #. type: textblock
 #: wcd.pod:589
@@ -2167,6 +2205,8 @@ msgid ""
 "    set WCDLOCALEDIR=c:/my_prefix/share/locale\n"
 "\n"
 msgstr ""
+"    set WCDLOCALEDIR=c:/my_prefix/share/locale\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:891
