@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man\n"
 "POT-Creation-Date: 2014-03-17 21:58+0100\n"
-"PO-Revision-Date: 2014-03-22 13:07+0100\n"
+"PO-Revision-Date: 2014-03-25 23:33+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -1503,6 +1503,12 @@ msgid ""
 "file managers, with only one folder per line.  Use option -Tc or switch on-"
 "the-fly with the 'm' key."
 msgstr ""
+"Standaard wordt de 'grafische' boom getekend op dezelfde manier zoals de "
+"originele NCD op DOS het deed. In DOS kon een pad in totaal slechts 66 "
+"tekens bevatten. Met de diepe mappenstructuur van vandaag kan de boom erg "
+"breed worden. Om dit te beheersen kan wcd de boom op een compacte manier "
+"tekenen, gelijk aan de meeste GUI mappenverkenners, met een map per regel. "
+"Gebruik optie -Tc of schakel onmiddelijk met de 'm' toets."
 
 #. type: =item
 #: wcd.pod:577
@@ -1518,11 +1524,17 @@ msgid ""
 "Chinese CP936 raster font on Windows and the Simsun font.  Use this option "
 "for a correct outlining of the graphical tree when a legacy CJK font is used."
 msgstr ""
+"Oude Oost-Aziatische CJK (Chinees, Japans, en Koreaans) fonts hebben "
+"bepaalde letters en lijnsymbolen met een kolombreedte van 2, terwijl de "
+"normale Unicode breedte voor deze tekens 1 kolom is. Bijvoorbeeld het "
+"Chinese CP936 raster font op Windows en het Simsun font. Gebruik deze optie "
+"voor een juiste uitlijning van de grafische boom wanneer een oud CJK font "
+"gebruikt wordt."
 
 #. type: textblock
 #: wcd.pod:585
 msgid "When CJK mode is on, you will see a \"C\" in the lower right corner."
-msgstr ""
+msgstr "Wanneer CJK modus actief is, ziet u een \"C\" in de rechter onderhoek."
 
 #. type: =item
 #: wcd.pod:587
@@ -1536,6 +1548,9 @@ msgid ""
 "default treedata file. See also section ENVIRONMENT VARIABLES for "
 "I<WCDUSERSHOME>."
 msgstr ""
+"Scan boomdata-bestand van een andere gebruiker gebaseerd op GEBRUIKER, scan "
+"niet het eigen boomdata-bestand. Zie ook paragraaf OMGEVINGSVARIABELEN voor "
+"I<WCDUSERSHOME>."
 
 #. type: textblock
 #: wcd.pod:592
@@ -1547,6 +1562,13 @@ msgid ""
 "assumed to be C<\\\\users>, so wcd tries to read C<\\\\users\\USER\\treedata."
 "wcd> and C<\\\\users\\USER\\.wcd\\treedata.wcd>."
 msgstr ""
+"Op Unix/Cygwin wordt aangenomen dat de basismap voor de thuismap voor "
+"gebruikers C</home> is. Wcd zal zoeken naar C</home/GEBRUIKER/.treedata.wcd> "
+"en C</home/GEBRUIKER/.wcd/.treedata.wcd>, in deze volgorde, en de eerste "
+"lezen die bestaat en leesbaar is. Op DOS/Windows wordt aangenomen dat de "
+"basismap voor de thuismap van gebruikers C<\\\\users> is, dus wcd probeert "
+"te lezen C<\\\\users\\GEBRUIKER\\treedata.wcd> en C<\\\\users\\GEBRUIKER\\."
+"wcd\\treedata.wcd>."
 
 #. type: =item
 #: wcd.pod:600
@@ -1558,6 +1580,8 @@ msgstr "B<+u USER>"
 msgid ""
 "Read default treedata file of USER in addition to your own treedata file."
 msgstr ""
+"Lees het stanaard boomdata-bestand van GEBRUIKER bovenop uw eigen boomdata-"
+"bestand."
 
 #. type: =item
 #: wcd.pod:605
@@ -1570,6 +1594,8 @@ msgid ""
 "Display verbose messages. With this option wcd prints all filters, bans and "
 "excludes."
 msgstr ""
+"Toon gedetailleerde berichten. Met deze optie toont wcd alle filters, "
+"verbannen mappen en uitsluitingen."
 
 #. type: =item
 #: wcd.pod:610
@@ -1589,7 +1615,7 @@ msgstr "B<-w, --wild-match-only>"
 #. type: textblock
 #: wcd.pod:616
 msgid "Wild matching only. Treat all matches as wild matches."
-msgstr ""
+msgstr "Alleen jokervergelijkingen. Behandel alle treffers als jokertreffers."
 
 #. type: =item
 #: wcd.pod:618
@@ -1608,6 +1634,9 @@ msgid ""
 "when wcd is scanning a disk. Wildcards are supported and matched against "
 "absolute paths. Option -x can be used multiple times."
 msgstr ""
+"Wanneer deze optie gebruikt is zal wcd PAD uitsluiten en al zijn sub-mappen "
+"wanneer wcd een schijf scant. Jokertekens worden ondersteund en vergeleken "
+"met absolute paden. Optie -x kan meerder keren gebruikt worden."
 
 #. type: verbatim
 #: wcd.pod:626
@@ -1625,6 +1654,8 @@ msgid ""
 "Option -x must be used in front of any scan option (B<-s>, B<-S>, B<+S>, B<-"
 "A>, B<-E>)."
 msgstr ""
+"Optie -x moet voorafgaand gebruikt worden aan iedere scan-optie (B<-s>, B<-"
+"S>, B<+S>, B<-A>, B<-E>)."
 
 #. type: textblock
 #: wcd.pod:632
@@ -1633,6 +1664,10 @@ msgid ""
 "environment variable I<HOME> or I<WCDHOME> is set. If I<HOME> or I<WCDHOME> "
 "is set one needs to specify the drive letter. An example:"
 msgstr ""
+"Op DOS/Windows systemen moet men de schijfletter specificeren afhankelijk "
+"van of omgevingsvariabele I<HOME> or I<WCDHOME> gedefinieerd is. Wanneer "
+"I<HOME> of I<WCDHOME> gedefinieerd is moet men de schijfletter specificeren. "
+"Een voorbeeld:"
 
 #. type: verbatim
 #: wcd.pod:636
@@ -1680,6 +1715,13 @@ msgid ""
 "times. When one wants to exclude all banned paths from scanning one can do "
 "the following (example for wcd on unix):"
 msgstr ""
+"Wanneer deze optie gebruikt is zal wcd alle paden genoemd in BESTAND "
+"uitsluiten en al hun sub-mappen wanneer wcd een schijf scant. Jokertekens "
+"worden ondersteund en vergeleken met absolute paden, een pad per regel. Wees "
+"bewust dat wcd spaties aan het begin of einde op een regel niet zal negeren, "
+"omdat het geldige tekens zijn in een mapnaam. Optie B<-xf> can meerdere "
+"keren gebruikt worden. Wanneer men alle verbannen paden wil uitsluiten van "
+"scannen zou het volgende gedaan kunnen worden (voorbeeld voor wcd op Unix):"
 
 #. type: verbatim
 #: wcd.pod:655
@@ -1697,6 +1739,8 @@ msgid ""
 "Wildcards are supported. For instance to exclude all your CVS directories "
 "with administrative files add a line with C<*/CVS>."
 msgstr ""
+"Jokertekens worden ondersteund. Om bijvoorbeeld al uw CVS mappen met "
+"administratieve bestanden uit te sluiten, voeg een regel toe met C<*/CVS>."
 
 #. type: textblock
 #: wcd.pod:660
@@ -1704,6 +1748,8 @@ msgid ""
 "Option B<-xf> must be used in front of any scan option (B<-s>, B<-S>, B<+S>, "
 "B<-A>, B<-E>)."
 msgstr ""
+"Optie B<-xf> moet vooraf gaan aan elke scan optie (B<-s>, B<-S>, B<+S>, B<-"
+"A>, B<-E>)."
 
 #. type: =item
 #: wcd.pod:663
@@ -1723,6 +1769,10 @@ msgid ""
 "rmtree>. This option must be used in front of options that can lead to yes/"
 "no questions."
 msgstr ""
+"Wcd zal de gebruiker geen ja/nee vraag stellen, maar neemt aan dat de "
+"gebruiker ja antwoordt op alle vragen. Dit kan gebruikt worden in combinatie "
+"met optie B<-rmtree>. Deze optie moet voorafgaand gebruikt worden aan opties "
+"die tot ja/nee vragen kunen leiden."
 
 #. type: =item
 #: wcd.pod:672
@@ -1742,6 +1792,10 @@ msgid ""
 "operations (B<->,B<+>,B<=>). Otherwise the size of the stack will be set "
 "back to the default 10."
 msgstr ""
+"De standaard grootte van de stapel is 10. Stapelwerking kan uitgezet worden "
+"door de grootte op 0 in te stellen. Deze optie moet voorafgaand aan elke "
+"stapel optie (B<->, B<+>, B<=>) gebruikt worden. Anders wordt de "
+"stapelgrootte teruggezet naar de standaard 10."
 
 #. type: textblock
 #: wcd.pod:681
@@ -1764,6 +1818,8 @@ msgid ""
 "The new stack size will be 50, wcd will go one directory back. A wrong "
 "command is:"
 msgstr ""
+"De nieuwe stapelgrootte zal 50 zijn, wcd gaat een map terug. Een foute "
+"opdracht is:"
 
 #. type: verbatim
 #: wcd.pod:688
@@ -1781,6 +1837,8 @@ msgid ""
 "Wcd goes one directory back, the stack gets the default size 10. The B<-z "
 "50> is ignored."
 msgstr ""
+"Wcd gaat een map terug, de stapel krijgt de standaard grootte 10. B<-z 50> "
+"wordt genegeerd."
 
 #. type: textblock
 #: wcd.pod:693
@@ -1788,6 +1846,8 @@ msgid ""
 "Add this option as the first option to your wcd alias or function. E.g.  for "
 "the a POSIX compatible shell this would be:"
 msgstr ""
+"Voeg deze optie als eerste toe aan uw wcd alias of functie. B.v. voor een "
+"POSIX compatibele shell zou dit zijn:"
 
 #. type: verbatim
 #: wcd.pod:696
@@ -1824,6 +1884,8 @@ msgid ""
 "directories back add a number to it. E.g. command C<wcd -3>. The stack is "
 "cyclic."
 msgstr ""
+"Ga een map terug. Opdracht C<wcd -> gaat een map terug. Voeg een nummer toe "
+"om meer mappen terug te gaan. B.v. opdracht C<wcd -3>. De stapel is cyclisch."
 
 #. type: =item
 #: wcd.pod:710
@@ -1842,6 +1904,9 @@ msgid ""
 "more directories forward add a number to it. E.g. command C<wcd +2>. The "
 "stack is cyclic."
 msgstr ""
+"Ga een map vooruit. Opdracht C<wcd +> gaat een map vooruit. Voeg een nummer "
+"toe om meerdere mappen vooruit te gaan. B.v. opdracht C<wcd +2>. De stapel "
+"is cyclisch."
 
 #. type: =item
 #: wcd.pod:718
@@ -1860,6 +1925,9 @@ msgid ""
 "stack is printed and you can choose a number. The current place in the stack "
 "is marked with an asterisk C<*>."
 msgstr ""
+"Gebruik deze optie als u niet meer weet waar u in de stapel zit. De stapel "
+"wordt getoond en u kan een nummer kiezen. De huidige plaats in de stapel is "
+"gemarkeerd met een sterretje C<*>."
 
 #. type: =head1
 #: wcd.pod:728
@@ -1875,6 +1943,11 @@ msgid ""
 "generated by the wcd program. Wcd can only work after the function or alias "
 "is defined."
 msgstr ""
+"De huidige werkmap in een Unix shell kan alleen veranderd worden door de "
+"ingebouwde cd opdracht. Daarom wordt het programma altijd aangeroepen door "
+"een functie of alias. De functie of alias leest een script (go-script) in "
+"dat gegenereerd is door het wcd programma. Wcd kan alleen werken nadat de "
+"functie of alias gedefinieerd is."
 
 #. type: textblock
 #: wcd.pod:736
@@ -1883,6 +1956,8 @@ msgid ""
 "environment variables I<HOME> and I<WCDHOME>. See section ENVIRONMENT "
 "VARIABLES."
 msgstr ""
+"Een andere belangrijke invloed op uw installatie is de definitie van de "
+"omgevingsvariabelen I<HOME> en I<WCDHOME>. Zie paragraaf OMGEVINGSVARIABELEN."
 
 #. type: =head2
 #: wcd.pod:740
@@ -1896,6 +1971,9 @@ msgid ""
 "MSYS add the following function to the shell startup file (e.g. Bash uses C<"
 "$HOME/.bashrc>):"
 msgstr ""
+"Voor een POSIX shell (ksh, bash, zsh, etc) op Unix, Linux, Cygwin, of MSYS, "
+"voeg de volgende functie toe aan het shell opstartbestand (b.v. Bash "
+"gebruikt C<$HOME/.bashrc>):"
 
 #. type: verbatim
 #: wcd.pod:746
@@ -1936,6 +2014,9 @@ msgid ""
 "written in a directory C<bin>, and if WCDHOME and HOME are both not defined "
 "the go-script is written on c:/."
 msgstr ""
+"Wcd voor DJGPP DOS bash heeft een andere functie nodig. Het go-script wordt "
+"niet in map C<bin> geschreven, en wanneer WCDHOME en HOME beide niet "
+"gedefinieerd zijn wordt het go-script geschreven in C:/."
 
 #. type: verbatim
 #: wcd.pod:761
@@ -1981,12 +2062,12 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:775
 msgid "See section FILES for more information."
-msgstr ""
+msgstr "Zie paragraaf BESTANDEN voor meer informatie."
 
 #. type: =head2
 #: wcd.pod:777
 msgid "Install for C-alike shells (csh, tcsh)"
-msgstr ""
+msgstr "Installatie voor C-achtige shells (csh, tcsh)"
 
 #. type: textblock
 #: wcd.pod:779
@@ -1994,6 +2075,8 @@ msgid ""
 "Add the following alias to the shell startup file C<$HOME/.cshrc> or C<"
 "$HOME/.tcshrc> :"
 msgstr ""
+"Voeg de volgende alias toe aan het shell opstartbestand C<$HOME/.cshrc> of C<"
+"$HOME/.tcshrc>:"
 
 #. type: verbatim
 #: wcd.pod:782
@@ -2006,6 +2089,12 @@ msgid ""
 "    endif\n"
 "\n"
 msgstr ""
+"    if ( ${?WCDHOME} ) then\n"
+"        alias wcd \"<PAD>/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
+"    else\n"
+"        alias wcd \"<PAD>/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
+"    endif\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:788
@@ -2013,11 +2102,13 @@ msgid ""
 "Replace <PATH> with the location where wcd executable have been installed.  "
 "Reload the shell initialization files or start new shell."
 msgstr ""
+"Vervang <PAD> met de lokatie waar het wcd uitvoerbare bestand geïnstalleerd "
+"is. Herlaad de shell initialisatiebestanden of start een nieuwe shell."
 
 #. type: =head2
 #: wcd.pod:792
 msgid "Windows Command Prompt version"
-msgstr ""
+msgstr "Windows Opdrachtprompt versie"
 
 #. type: textblock
 #: wcd.pod:794
@@ -2025,6 +2116,7 @@ msgid ""
 "Unpack the zip file and add directory 'bin' to your environment variable "
 "PATH."
 msgstr ""
+"Pak het zip-bestand uit en voeg map 'bin' toe aan omgevingsvariabele PATH."
 
 #. type: textblock
 #: wcd.pod:797
@@ -2034,6 +2126,10 @@ msgid ""
 "program which generates a new batch script \"wcdgo.bat\". Then wcd.bat runs "
 "wcdgo.bat which actually changes the directory."
 msgstr ""
+"In Windows Opdrachtprompt kan een Windows programma niet de huidige werkmap "
+"veranderen, maar een .bat bestand kan dat wel. Het batch script \"wcd.bat\" "
+"draait het wcd programma dat een nieuw batch script \"wcdgo.bat\" genereert. "
+"Daarna start wcd.bat wcdgo.bat die feitelijk de map verandert."
 
 #. type: =head2
 #: wcd.pod:802
@@ -2048,11 +2144,16 @@ msgid ""
 "rights. You can get a Command Prompt with administrator rights if you right "
 "click on the Command Prompt icon and select I<Run as administrator>."
 msgstr ""
+"In een Windows VISTA/7 Opdrachtprompt kan men beperkte toegang hebben tot "
+"mappen. Om toegang tot meer mappen te verkrijgen heeft men beheerdersrechten "
+"nodig. U kunt een Opdrachtprompt met beheerdersrechten verkrijgen door "
+"rechts te klikken op het Opdrachtprompt icoon en dan te selecteren "
+"I<Uitvoeren als Administrator>."
 
 #. type: =head2
 #: wcd.pod:809
 msgid "Windows PowerShell version"
-msgstr ""
+msgstr "Windows PowerShell versie"
 
 #. type: textblock
 #: wcd.pod:811
@@ -2061,6 +2162,9 @@ msgid ""
 "this profile is stored in the $profile variable. It is required that "
 "environment variable I<HOME> or I<WCDHOME> is defined."
 msgstr ""
+"Voeg de volgende functie toe aan uw PowerShell gebruikersprofiel. De locatie "
+"van dit profiel is opgeslagen in de $profile variabele. Het is vereist dat "
+"omgevingsvariabele I<HOME> of I<WCDHOME> gedefinieerd is."
 
 #. type: verbatim
 #: wcd.pod:815
@@ -2075,7 +2179,7 @@ msgid ""
 msgstr ""
 "    function wcd\n"
 "    {\n"
-"        <PATH>\\wcdwin32psh.exe $args\n"
+"        <PAD>\\wcdwin32psh.exe $args\n"
 "        & $env:HOME\\wcdgo.ps1\n"
 "    }\n"
 "\n"
@@ -2087,11 +2191,14 @@ msgid ""
 "Start a new PowerShell. Wcd for PowerShell supports only the file system "
 "provider. No other providers."
 msgstr ""
+"Vervang <PAD> met de lokatie waar het uitvoerbare wcd bestand geïnstalleerd "
+"is. Start een nieuwe PowerShell. Wcd voor PowerShell ondersteund alleen de "
+"bestandssysteem 'provider'. Geen andere 'providers'."
 
 #. type: =head2
 #: wcd.pod:825
 msgid "OS/2 Command Prompt version"
-msgstr ""
+msgstr "OS/2 Opdrachtprompt versie"
 
 #. type: textblock
 #: wcd.pod:827
@@ -2102,11 +2209,16 @@ msgid ""
 "executes C<wcdos2.exe>, which creates the C<wcdgo.cmd> script.  Then C<wcd."
 "cmd> executes the wcdgo.cmd script."
 msgstr ""
+"In een OS/2 Opdrachtprompt (cmd.exe) kan een OS/2 programma niet de huidige "
+"werkmap veranderen. Dat is waarom wcd een opdracht-script genereerd (wcdgo."
+"cmd) welke uitgevoerd moet worden in de huidige shell. Het script C<wcd.cmd> "
+"voert eerst C<wcdos2.exe> uit, die vervolgens het C<wcdgo.cmd> script "
+"creëert. Daarna voert C<wcd.cmd> het wcdgo.cmd script uit."
 
 #. type: =head1
 #: wcd.pod:834
 msgid "LOCALIZATION"
-msgstr ""
+msgstr "LOKALISATIE"
 
 #. type: =item
 #: wcd.pod:838
@@ -2123,6 +2235,12 @@ msgid ""
 "third part: character encoding, preceded with a dot. A few examples for "
 "POSIX standard type shells:"
 msgstr ""
+"The primaire taal wordt geselecteerd via de omgevingsvariabele LANG. De "
+"variabele LANG bestaat uit verschillende onderdelen. Het eerste deel is in "
+"kleine letters de taalcode. Het tweede deel is optioneel en is de landcode "
+"in hoofdletters, voorafgegaan door een liggend streepje. Er is ook een "
+"optioneel derde deel: de tekencodering, voorafgegaan door een punt. Enkele "
+"voorbeelden voor een POSIX-shell:"
 
 #. type: verbatim
 #: wcd.pod:847
@@ -2136,6 +2254,13 @@ msgid ""
 "    export LANG=en_US.iso88591   English, USA, Latin-1 encoding\n"
 "\n"
 msgstr ""
+"    export LANG=nl               Dutch\n"
+"    export LANG=nl_NL            Nederlands, Nederland\n"
+"    export LANG=nl_BE            Nederlands, België\n"
+"    export LANG=es_ES            Spaans, Spanje\n"
+"    export LANG=es_MX            Spaans, Mexico\n"
+"    export LANG=en_US.iso88591   Engels, VS, Latin-1 encoding\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:854
@@ -2145,6 +2270,10 @@ msgid ""
 "Unix systems you can use to command locale(1) to get locale specific "
 "information."
 msgstr ""
+" Voor een complete lijst van taal- en landcodes zie de gettext-handleiding: "
+"L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes> Op "
+"Unix-systemen kunt u de opdracht locale(1) gebruiken om specifieke taalregio-"
+"informatie te verkrijgen."
 
 #. type: =item
 #: wcd.pod:860
@@ -2162,6 +2291,14 @@ msgid ""
 "the LANGUAGE variable. See also the gettext manual: L<http://www.gnu.org/"
 "software/gettext/manual/gettext.html#The-LANGUAGE-variable>"
 msgstr ""
+"Met de omgevingsvariabele LANGUAGE kunt u een prioriteitenlijst specificeren "
+"van talen, gescheiden door dubbele punten.  Dos2unix geeft voorrang aan "
+"LANGUAGE boven LANG.  Bijvoorbeeld, eerst Nederlands en dan Duits: "
+"C<LANGUAGE=nl:de>.  U moet eerst lokalisatie in werking stellen, door het "
+"instellen van LANG (of LC_ALL) op een waarde ongelijk aan \"C\", voordat u "
+"een talen-prioriteitenlijst kunt gebruiken via de variabele LANGUAGE.  Zie "
+"ook de gettext-handleiding: L<http://www.gnu.org/software/gettext/manual/"
+"gettext.html#The-LANGUAGE-variable>"
 
 #. type: textblock
 #: wcd.pod:870
@@ -2169,6 +2306,8 @@ msgid ""
 "If you select a language which is not available you will get the standard "
 "English messages."
 msgstr ""
+"Als u een taal kiest die niet beschikbaar is, worden de standaard Engelse "
+"berichten gebruikt."
 
 #. type: =item
 #: wcd.pod:873
@@ -2184,6 +2323,10 @@ msgid ""
 "default value is /usr/local/share/locale. By typing C<wcd -V> wcd will print "
 "the I<LOCALEDIR> that is used."
 msgstr ""
+"Met de omgevingsvariabele I<WCDLOCALEDIR> kan de I<LOCALEDIR> die ingesteld "
+"werd tijdens compilatie worden overstemd.  I<LOCALEDIR> wordt gebruikt om de "
+"taalbestanden te vinden.  De GNU standaardwaarde is /usr/local/share/"
+"locale.  Door C<wcd -V> te typen zal wcd de gebruikte LOCALEDIR laten zien."
 
 #. type: textblock
 #: wcd.pod:881
@@ -2211,7 +2354,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:891
 msgid "An example for a POSIX shell:"
-msgstr ""
+msgstr "Een voorbeeld voor een POSIX shell:"
 
 #. type: verbatim
 #: wcd.pod:893
@@ -2709,7 +2852,7 @@ msgstr ""
 #. type: =head1
 #: wcd.pod:1138
 msgid "ENVIRONMENT VARIABLES"
-msgstr ""
+msgstr "OMGEVINGSVARIABELEN"
 
 #. type: =item
 #: wcd.pod:1142
@@ -2804,7 +2947,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:1183 wcd.pod:1204 wcd.pod:1224 wcd.pod:1249
 msgid "An example for POSIX type shells:"
-msgstr ""
+msgstr "Een voorbeeld voor POSIC type shells:"
 
 #. type: verbatim
 #: wcd.pod:1185
@@ -2819,7 +2962,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:1187 wcd.pod:1208 wcd.pod:1228 wcd.pod:1253
 msgid "An example for Csh type shells:"
-msgstr ""
+msgstr "Een voorbeeld voor Csh type shells:"
 
 #. type: verbatim
 #: wcd.pod:1189
@@ -2866,6 +3009,8 @@ msgid ""
 "    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\\\projectdrive\\projectX\n"
 "\n"
 msgstr ""
+"    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\\\projectdrive\\projectX\n"
+"\n"
 
 #. type: verbatim
 #: wcd.pod:1206
@@ -2874,6 +3019,8 @@ msgid ""
 "    export WCDSCAN=\"$HOME:/projectdisk/projectX\"\n"
 "\n"
 msgstr ""
+"    export WCDSCAN=\"$HOME:/projectdisk/projectX\"\n"
+"\n"
 
 #. type: verbatim
 #: wcd.pod:1210
@@ -2882,6 +3029,8 @@ msgid ""
 "    setenv WCDSCAN \"$HOME:/projectdisk/projectX\"\n"
 "\n"
 msgstr ""
+"    setenv WCDSCAN \"$HOME:/projectdisk/projectX\"\n"
+"\n"
 
 #. type: =item
 #: wcd.pod:1212
@@ -2900,7 +3049,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:1220 wcd.pod:1245
 msgid "An example for DOS, Windows, OS/2 Command Prompt:"
-msgstr ""
+msgstr "Een voorbeeld voor DOS, Windows, OS/2 Opdrachtprompt:"
 
 #. type: verbatim
 #: wcd.pod:1222
@@ -2909,6 +3058,8 @@ msgid ""
 "    set WCDFILTER=projects;doc\n"
 "\n"
 msgstr ""
+"    set WCDFILTER=projects;doc\n"
+"\n"
 
 #. type: verbatim
 #: wcd.pod:1226
@@ -2917,6 +3068,8 @@ msgid ""
 "    export WCDFILTER=\"projects:doc\"\n"
 "\n"
 msgstr ""
+"    export WCDFILTER=\"projects:doc\"\n"
+"\n"
 
 #. type: verbatim
 #: wcd.pod:1230
@@ -2925,6 +3078,8 @@ msgid ""
 "    setenv WCDFILTER \"projects:doc\"\n"
 "\n"
 msgstr ""
+"    setenv WCDFILTER \"projects:doc\"\n"
+"\n"
 
 #. type: =item
 #: wcd.pod:1232
@@ -2958,6 +3113,8 @@ msgid ""
 "    set WCDEXCLUDE=*/windows;*/temp;*CVS\n"
 "\n"
 msgstr ""
+"    set WCDEXCLUDE=*/windows;*/temp;*CVS\n"
+"\n"
 
 #. type: verbatim
 #: wcd.pod:1251
@@ -2966,6 +3123,8 @@ msgid ""
 "    export WCDEXCLUDE=\"/dev:/tmp:*CVS\"\n"
 "\n"
 msgstr ""
+"    export WCDEXCLUDE=\"/dev:/tmp:*CVS\"\n"
+"\n"
 
 #. type: verbatim
 #: wcd.pod:1255
@@ -2974,6 +3133,8 @@ msgid ""
 "    setenv WCDEXCLUDE \"/dev:/tmp:*CVS\"\n"
 "\n"
 msgstr ""
+"    setenv WCDEXCLUDE \"/dev:/tmp:*CVS\"\n"
+"\n"
 
 #. type: =item
 #: wcd.pod:1257
@@ -3125,6 +3286,10 @@ msgid ""
 "points to the DOS command shell. One may need to define C<$BASH> with an "
 "C<export> command, otherwise wcd can't read the variable."
 msgstr ""
+"Wcd voor DOS bash gebruikt C<$BASH> in plaats van C<$SHELL>, omdat C<$SHELL> "
+"verwijst naar de DOS opdrachtprompt. Het kan nodig zijn dat men C<$BASH> met "
+"een C<export> opdracht moet definiëren, anders kan wcd de variabele niet "
+"lezen."
 
 #. type: =head1
 #: wcd.pod:1327
@@ -3144,12 +3309,12 @@ msgstr "AUTEURS"
 #. type: textblock
 #: wcd.pod:1339
 msgid "Wcd was written by Erwin Waterlander <waterlan@xs4all.nl>"
-msgstr ""
+msgstr "Wcd is geschreven door Erwin Waterlander <waterlan@xs4all.nl>"
 
 #. type: textblock
 #: wcd.pod:1341
 msgid "Project homepage: L<http://waterlan.home.xs4all.nl/>"
-msgstr ""
+msgstr "Project beginpagina L<http://waterlan.home.xs4all.nl/>"
 
 #. type: textblock
 #: wcd.pod:1344
@@ -3166,6 +3331,8 @@ msgstr "Freecode: L<http://freecode.com/projects/wcd/>"
 msgid ""
 "The manual page formatting was provided by Jari Aalto <jari.aalto@cante.net>."
 msgstr ""
+"De opmaak van de handleiding was verzorgd door Jari Aalto <jari.aalto@cante."
+"net>."
 
 #. type: textblock
 #: wcd.pod:1353
@@ -3174,6 +3341,9 @@ msgid ""
 "Utilities\" around 1987. See also L<http://www.softpanorama.org/OFM/"
 "norton_change_directory_clones.shtml>"
 msgstr ""
+"NCD was oorspronkelijk geschreven door Brad Kingsbury voor Peter Norton's "
+"\"Norton Utilities\" omstreeks 1987. Zie ook L<http://www.softpanorama.org/"
+"OFM/norton_change_directory_clones.shtml>"
 
 #~ msgid ""
 #~ "    wcd srcWILDSTAR()/WILDSTAR()1?/a*2\n"
