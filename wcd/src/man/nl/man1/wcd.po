@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man\n"
 "POT-Creation-Date: 2014-03-17 21:58+0100\n"
-"PO-Revision-Date: 2014-03-25 23:33+0100\n"
+"PO-Revision-Date: 2014-03-27 23:08+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -542,7 +542,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:223
 msgid "B<-A PATH>"
-msgstr "B<-A PATH>"
+msgstr "B<-A PAD>"
 
 #. type: textblock
 #: wcd.pod:225
@@ -712,7 +712,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:283
 msgid "B<-E PATH>"
-msgstr "B<-E PATH>"
+msgstr "B<-E PAD>"
 
 #. type: textblock
 #: wcd.pod:285
@@ -836,7 +836,7 @@ msgstr "Dump de boomdatabestanden als een boom naar standaard uitvoer."
 #. type: =item
 #: wcd.pod:331
 msgid "B<-G PATH>"
-msgstr "B<-G PATH>"
+msgstr "B<-G PAD>"
 
 #. type: textblock
 #: wcd.pod:333
@@ -1080,7 +1080,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:421
 msgid "B<-m DIR>"
-msgstr "B<-m DIR>"
+msgstr "B<-m MAP>"
 
 #. type: textblock
 #: wcd.pod:423
@@ -1100,7 +1100,7 @@ msgstr "Print de distributie licentie."
 #. type: =item
 #: wcd.pod:429
 msgid "B<-M DIR>"
-msgstr "B<-M DIR>"
+msgstr "B<-M MAP>"
 
 #. type: textblock
 #: wcd.pod:431
@@ -1110,7 +1110,7 @@ msgstr "Maak map en voeg toe aan extra boomdata-bestand."
 #. type: =item
 #: wcd.pod:433
 msgid "B<-n PATH>"
-msgstr "B<-n PATH>"
+msgstr "B<-n PAD>"
 
 #. type: textblock
 #: wcd.pod:435
@@ -1159,7 +1159,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:449
 msgid "B<+n PATH>"
-msgstr "B<+n PATH>"
+msgstr "B<+n PAD>"
 
 #. type: textblock
 #: wcd.pod:451
@@ -1239,7 +1239,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:479
 msgid "B<-r DIR>"
-msgstr "B<-r DIR>"
+msgstr "B<-r MAP>"
 
 #. type: textblock
 #: wcd.pod:481
@@ -1258,7 +1258,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:486
 msgid "B<-rmtree DIR>"
-msgstr "B<-rmtree DIR>"
+msgstr "B<-rmtree MAP>"
 
 #. type: textblock
 #: wcd.pod:488
@@ -1305,7 +1305,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:503
 msgid "B<-S PATH>"
-msgstr "B<-S PATH>"
+msgstr "B<-S PAD>"
 
 #. type: textblock
 #: wcd.pod:505
@@ -1364,7 +1364,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:523
 msgid "B<+S PATH>"
-msgstr "B<+S PATH>"
+msgstr "B<+S PAD>"
 
 #. type: textblock
 #: wcd.pod:525
@@ -1539,7 +1539,7 @@ msgstr "Wanneer CJK modus actief is, ziet u een \"C\" in de rechter onderhoek."
 #. type: =item
 #: wcd.pod:587
 msgid "B<-u USER>"
-msgstr "B<-u USER>"
+msgstr "B<-u GEBRUIKER>"
 
 #. type: textblock
 #: wcd.pod:589
@@ -1573,7 +1573,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:600
 msgid "B<+u USER>"
-msgstr "B<+u USER>"
+msgstr "B<+u GEBRUIKER>"
 
 #. type: textblock
 #: wcd.pod:602
@@ -1620,7 +1620,7 @@ msgstr "Alleen jokervergelijkingen. Behandel alle treffers als jokertreffers."
 #. type: =item
 #: wcd.pod:618
 msgid "B<-x PATH>"
-msgstr "B<-x PATH>"
+msgstr "B<-x PAD>"
 
 #. type: textblock
 #: wcd.pod:620
@@ -1777,7 +1777,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:672
 msgid "B<-z NUMBER>"
-msgstr "B<-z NUMBER>"
+msgstr "B<-z GETAL>"
 
 #. type: textblock
 #: wcd.pod:674
@@ -1870,7 +1870,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:702
 msgid "B<-[NUMBER]>"
-msgstr "B<-[NUMBER]>"
+msgstr "B<-[GETAL]>"
 
 #. type: textblock
 #: wcd.pod:704
@@ -1890,7 +1890,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:710
 msgid "B<+[NUMBER]>"
-msgstr "B<+[NUMBER]>"
+msgstr "B<+[GETAL]>"
 
 #. type: textblock
 #: wcd.pod:712
@@ -2335,11 +2335,14 @@ msgid ""
 "directory you may need to set the environment variable I<WCDLOCALEDIR> to "
 "point to the locale directory."
 msgstr ""
+"Als u wcd geïnstalleerd heeft in een andere map dan de standaard map kan het "
+"nodig zijn om omgevingsvariabele I<WCDLOCALEDIR> te definiëren om te wijzen "
+"naar de locale map."
 
 #. type: textblock
 #: wcd.pod:886
 msgid "An example for Windows cmd:"
-msgstr ""
+msgstr "Een voorbeeld voor Windows cmd:"
 
 #. type: verbatim
 #: wcd.pod:888
@@ -2363,6 +2366,8 @@ msgid ""
 "    export WCDLOCALEDIR=$HOME/share/locale\n"
 "\n"
 msgstr ""
+"    export WCDLOCALEDIR=$HOME/share/locale\n"
+"\n"
 
 #. type: =item
 #: wcd.pod:895
@@ -2378,6 +2383,12 @@ msgid ""
 "language. For instance dots and dashes are ignored, or letters e with and "
 "without accent are equal, or upper and lower case is ignored."
 msgstr ""
+"Wanneer er meerdere maptreffers zijn presenteert wcd een gesorteerde lijst. "
+"Het sorteren hangt af van de lokalisatie instellingen. Wanneer de "
+"omgevingsvariabele LANG ingesteld is worden de treffers gesorteert als in "
+"een woordenboek of telefoonboek in die taal. Bijvoorbeeld punten en "
+"streepjes worden genegeerd, of letters e met en zonder accent zijn gelijk, "
+"of sortering is ongevoelig voor hoofd en kleine letters."
 
 #. type: textblock
 #: wcd.pod:903
@@ -2387,6 +2398,10 @@ msgid ""
 "sorting is turned off. For instance if you want Dutch language, but not "
 "Dutch sorting, you can do something like this:"
 msgstr ""
+"De sortering geeft prioriteit aan omgevingsvariabele I<LC_COLLATE> boven "
+"I<LANG>. Wanneer u I<LC_COLLATE> gelijk maakt aan \"C\" of \"POSIX\", wordt "
+"sortering met lokalisatie uitgeschakeld. Bijvoorbeeld als u Nederlandse taal "
+"wilt, maar geen Nederlandse sortering, dan kunt u iets doen als:"
 
 #. type: verbatim
 #: wcd.pod:908
@@ -2412,6 +2427,9 @@ msgid ""
 "I<LC_CTYPE> over I<LANG>. For instance to set character encoding to UTF-8 "
 "the following environment setting can be done."
 msgstr ""
+"Met betrekking to tekencodering geeft Wcd prioriteit aan variabele "
+"I<LC_CTYPE> boven I<LANG>. Bijvoorbeeld om de tekencodering op UTF-8 te "
+"zetten kan de volgende omgevings instelling gemaakt worden."
 
 #. type: verbatim
 #: wcd.pod:917
@@ -2435,11 +2453,14 @@ msgid ""
 "environment variable I<LC_ALL> if it is defined. Wcd gives preference to "
 "I<LC_ALL> over I<LC_COLLATE> and I<LC_CTYPE>."
 msgstr ""
+"Alle lokalisatie omgevingsvariabelen die beginnen met \"LC_\" worden "
+"overstemd de omgevingsvariabele I<LC_ALL> wanneer die ingesteld is. Wcd "
+"geeft prioriteit aan I<LC_ALL> boven I<LC_COLLATE> en I<LC_CTYPE>."
 
 #. type: =head2
 #: wcd.pod:928
 msgid "WINDOWS CODE PAGES"
-msgstr ""
+msgstr "WINDOWS CODETABELLEN"
 
 #. type: textblock
 #: wcd.pod:930
@@ -2453,6 +2474,15 @@ msgid ""
 "the DOS code page.  But the DOS version of wcd lacks support for long "
 "directory names and network drives on Windows."
 msgstr ""
+"Er zijn twee groepen van codetabellen, DOS codetabellen (OEM) en Windows "
+"codetabellen (ANSI). De standaard codering voor Windows, wanneer "
+"geconfigureerd met Westerse regionale instellingen, is ANSI CP1252. Windows "
+"programma's, bijvoorbeeld kladblok, gebruiken deze standaard systeem ANSI "
+"codetabel. De Windows Opdrachtprompt gebruikt standaard een OEM codetabel "
+"(CP437 of CP850) voor compatibeliteit met DOS programma's. Als u een DOS "
+"versie van Wcd in een Windows Opdrachtprompt gebruikt zal het werken, "
+"vanwege de DOS codetabel. Maar de DOS versie van wcd ontbeert ondersteuning "
+"voor lange mapnamen en netwerkschijven op Windows."
 
 #. type: textblock
 #: wcd.pod:939
@@ -2464,6 +2494,12 @@ msgid ""
 "of Wcd translate ANSI output to Unicode output in the Command Prompt and "
 "PowerShell."
 msgstr ""
+"De Windows versie van wcd is een echt Windows programma en zal de Windows "
+"systeem ANSI codetabel gebruiken. Dus op een Westers regionale Windows zal "
+"het de codetabel CP1252 gebruiken voor directory namen en berichten. Om een "
+"consistente uitvoer te verkrijgen, onafhankelijk van de ingestelde "
+"codetabel, vertalen alle Windows versies van wcd ANSI uitvoer naar Unicode "
+"uitvoer in de Opdrachtprompt en PowerShell."
 
 #. type: textblock
 #: wcd.pod:945
@@ -2472,6 +2508,9 @@ msgid ""
 "with Windows, so you have to change the console's font to true type Lucida "
 "Console to make Unicode (and ANSI) letters appear correctly."
 msgstr ""
+"Het Opdrachtprompt rastertypefont ondersteunt alleen de originele OEM "
+"codetabel van Windows, dus u moet het Opdrachtprompt font veranderen naar "
+"Lucida Console om Unicode (en ANSI) tekens correct te laten verschijnen."
 
 #. type: textblock
 #: wcd.pod:949
@@ -2482,6 +2521,11 @@ msgid ""
 "work properly with special characters such as accented characters or the "
 "euro symbol."
 msgstr ""
+"Niet-Unicode versies van Wcd I<voorafgaande aan versie 5.2.0> gebruiken "
+"gewone ANSI uitvoer. Voor deze oude versie moet de codetabel van de "
+"Opdrachtprompt gelijk gemaakt worden aan de systeem codetabel (naar 1252) om "
+"wcd voor Windows goed te laten werken met speciale tekens zoals "
+"geaccentueerde tekens of een euroteken."
 
 #. type: textblock
 #: wcd.pod:954
@@ -2489,6 +2533,9 @@ msgid ""
 "The Windows system code page can be changed via the Control Panel regional "
 "options. The Windows console code page is changed with the C<chcp> command."
 msgstr ""
+"De Windows systeem codetabel kan veranderd worden via het Configuratiescherm "
+"Klok, taal en land/regio opties. De Windows Opdrachtprompt codetabel wordt "
+"veranderd met de C<chcp> opdracht."
 
 #. type: textblock
 #: wcd.pod:957
@@ -2496,6 +2543,9 @@ msgid ""
 "When you type C<wcd -V>, the actual character encoding used by wcd is shown. "
 "Type command C<chcp> to display the active code page of the Windows console."
 msgstr ""
+"Wanneer u C<wcd -V> typet, wordt de actuele tekencodering getoond die door "
+"wcd gebruikt wordt.  Type opdracht C<chcp> op de actieve codetabel van de "
+"Opdrachtprompt te tonen."
 
 #. type: =head2
 #: wcd.pod:962
@@ -2509,6 +2559,10 @@ msgid ""
 "support type C<wcd -V>. If your terminal/console and font supports it, you "
 "should see the euro symbol and Chinese characters (meaning: \"Chinese\")."
 msgstr ""
+"Wcd heeft optioneel oversteuning voor Unicode. Om te zien of wcd gebouwd is "
+"met Unicode ondersteuning type C<wcd -V>. Als uw terminal en font het "
+"ondersteunt, zou u een euroteken en Chineze tekens (betekenis: \"Chinees\") "
+"zien."
 
 #. type: textblock
 #: wcd.pod:969
@@ -2519,6 +2573,11 @@ msgid ""
 "has no UTF-8 specific code. See also L<http://www.cl.cam.ac.uk/~mgk25/"
 "unicode.html>"
 msgstr ""
+"Wcd is I<zacht> omgezet naar Unicode. In de kern behandelt wcd alle data als "
+"een stroom van bytes. Alleen de regels die op het scherm geprint worden, "
+"worden terstond omgezet naar Unicode brede tekens. Wcd hangt volledig af van "
+"libc functies en heeft geen UTF-8 specifieke broncode. Zie ook L<http://www."
+"cl.cam.ac.uk/~mgk25/unicode.html>"
 
 #. type: textblock
 #: wcd.pod:975
@@ -2530,11 +2589,17 @@ msgid ""
 "they are binary equivalent.  See also L<http://en.wikipedia.org/wiki/"
 "Unicode_normalization>"
 msgstr ""
+"Wcd heeft optioneel ondersteuning voor Unicode vergelijkingen met "
+"normalisatie. Om er achter te komen of Wcd normalisatie ondersteunt type "
+"C<wcd -V>. Wcd met Unicode normalisatie ondersteuning vergelijkt Unicode "
+"namen gebaseerd op I<compatibele> gelijkwaardigheid. Zonder Unicode "
+"normalisatie worden treffen namen een gelijke wanneer ze binair gelijk zijn. "
+"Zie ook L<http://en.wikipedia.org/wiki/Unicode_normalization>"
 
 #. type: =head3
 #: wcd.pod:982
 msgid "UTF-8 on Unix/Linux"
-msgstr ""
+msgstr "UTF-8 op Unix/Linux"
 
 #. type: textblock
 #: wcd.pod:984
@@ -2544,6 +2609,10 @@ msgid ""
 "includes UTF-8 support. To activate it, start I<xterm(1)> in a UTF-8 locale "
 "and use a font with iso10646-1 encoding, for instance with"
 msgstr ""
+"Om UTF-8 tekens te zien moet uw terminal ook UTF-8 ondersteunen. De xterm "
+"versie die meekomt met XFree86 4.0 of hoger bevat UTF-8 ondersteuning. Om "
+"het te activeren, start I<xterm(1)> in een UTF-8 taalregio en gebruik een "
+"font met iso10646-1 codering, bijvoorbeeld met"
 
 #. type: verbatim
 #: wcd.pod:989
@@ -2552,6 +2621,8 @@ msgid ""
 "    LC_CTYPE=en_GB.UTF-8 xterm -u8 -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'\n"
 "\n"
 msgstr ""
+"    LC_CTYPE=en_GB.UTF-8 xterm -u8 -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:991
@@ -2559,6 +2630,8 @@ msgid ""
 "Modern distributions of GNU/Linux support UTF-8 by default. Other multi-byte "
 "character encodings should also work, but that has not been tested."
 msgstr ""
+"Moderne uitgaves van GNU/Linux ondersteunen standaard UTF-8. Andere multi-"
+"byte tekencoderingen zouden ook moeten werken, maar dat is niet getest."
 
 #. type: textblock
 #: wcd.pod:994
@@ -2566,11 +2639,14 @@ msgid ""
 "Wcd assumes that the treedata files are encoded in the locale character "
 "encoding. There are no Byte Order Marks written to treedata files."
 msgstr ""
+"Wcd veronderstelt dat de boomdata-bestanden gecodeerd zijn in de lokale "
+"tekencodering. Er worden geen Byte Order Marks geschreven in de boomdata-"
+"bestanden."
 
 #. type: =head3
 #: wcd.pod:998
 msgid "UTF-16 on Windows"
-msgstr ""
+msgstr "UTF-16 op Windows"
 
 #. type: textblock
 #: wcd.pod:1000
@@ -2642,7 +2718,7 @@ msgstr ""
 #. type: =head3
 #: wcd.pod:1039
 msgid "UTF-8 on Cygwin"
-msgstr ""
+msgstr "UTF-8 in Cygwin"
 
 #. type: textblock
 #: wcd.pod:1041
@@ -2667,7 +2743,7 @@ msgstr ""
 #. type: =head1
 #: wcd.pod:1053
 msgid "FILES"
-msgstr ""
+msgstr "BESTANDEN"
 
 #. type: textblock
 #: wcd.pod:1055
@@ -2715,7 +2791,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:1079
 msgid "B<extra treedata file>"
-msgstr ""
+msgstr "B<extra boomdata-bestand>"
 
 #. type: textblock
 #: wcd.pod:1081
@@ -2723,6 +2799,8 @@ msgid ""
 "An optional extra treedata file. If it exists and is readable wcd will try "
 "to find matches in this file also."
 msgstr ""
+"Een optioneel extra boomdata-bestand. Wanneer het bestaat en leesbaar is zal "
+"wcd ook in dit bestand proberen treffers te vinden."
 
 #. type: verbatim
 #: wcd.pod:1084
@@ -2732,11 +2810,14 @@ msgid ""
 "    Unix: $HOME/.extra.wcd\n"
 "\n"
 msgstr ""
+"    DOS: \\extra.wcd of HOME%\\extra.wcd\n"
+"    Unix: $HOME/.extra.wcd\n"
+"\n"
 
 #. type: =item
 #: wcd.pod:1087
 msgid "B<ban file>"
-msgstr ""
+msgstr "B< ban-bestand>"
 
 #. type: textblock
 #: wcd.pod:1089
@@ -2744,6 +2825,8 @@ msgid ""
 "In this optional file wcd places banned paths. See option B<-b>. Wildcards "
 "are supported."
 msgstr ""
+"In dit optionele bestand plaatst wcd de verbannen paden. Zie optie B<-b>. "
+"Jokertekens worden ondersteund."
 
 #. type: verbatim
 #: wcd.pod:1092
@@ -2753,16 +2836,19 @@ msgid ""
 "    Unix: $HOME/.ban.wcd\n"
 "\n"
 msgstr ""
+"    DOS: \\ban.wcd of %HOME%\\ban.wcd\n"
+"    Unix: $HOME/.ban.wcd\n"
+"\n"
 
 #. type: =item
 #: wcd.pod:1095
 msgid "B<alias file>"
-msgstr ""
+msgstr "B<alias-bestand>"
 
 #. type: textblock
 #: wcd.pod:1097
 msgid "Optional file with wcd aliases. See option B<-l>."
-msgstr ""
+msgstr "Optioneel bestand met wcd aliassen. Zie optie B<-I>."
 
 #. type: verbatim
 #: wcd.pod:1099
@@ -2772,11 +2858,14 @@ msgid ""
 "    Unix: $HOME/.alias.wcd\n"
 "\n"
 msgstr ""
+"    DOS: \\alias.wcd of %HOME%\\alias.wcd\n"
+"    Unix: $HOME/.alias.wcd\n"
+"\n"
 
 #. type: =item
 #: wcd.pod:1102
 msgid "B<stack file>"
-msgstr ""
+msgstr "B<stapel-bestand>"
 
 #. type: textblock
 #: wcd.pod:1104
@@ -2784,6 +2873,8 @@ msgid ""
 "In this file wcd stores its stack. The drive letter can be changed with the "
 "B<-d> option."
 msgstr ""
+"In dit bestand slaat wcd zijn stapel op. De schijfletter kan veranderd "
+"worden met de B<-d> optie."
 
 #. type: verbatim
 #: wcd.pod:1107
@@ -2793,6 +2884,9 @@ msgid ""
 "    Unix: $HOME/.stack.wcd\n"
 "\n"
 msgstr ""
+"    DOS: c:\\stack.wcd of %HOME%\\stack.wcd\n"
+"    Unix: $HOME/.stack.wcd\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:1110
@@ -2832,7 +2926,7 @@ msgstr ""
 #. type: =item
 #: wcd.pod:1128
 msgid "B<relative treedata file>"
-msgstr ""
+msgstr "B<relatieve boomdata-bestand>"
 
 #. type: textblock
 #: wcd.pod:1130
@@ -2848,6 +2942,9 @@ msgid ""
 "    Unix: <path>/.rtdata.wcd\n"
 "\n"
 msgstr ""
+"    DOS: <path>\\rtdata.wcd\n"
+"    Unix: <path>/.rtdata.wcd\n"
+"\n"
 
 #. type: =head1
 #: wcd.pod:1138
@@ -2932,7 +3029,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:1179
 msgid "Example for DOS, Windows, OS/2 Command Prompt:"
-msgstr ""
+msgstr "Voorbeeld voor DOS, Windows, OS/2 Opdrachtprompt:"
 
 #. type: verbatim
 #: wcd.pod:1181
