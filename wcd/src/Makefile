@@ -570,6 +570,8 @@ mostlyclean:
 		*/*~ \
 		*/*/*.bak \
 		*/*/*~ \
+		*/*/*/*.bak \
+		*/*/*/*~ \
 		*.stackdump
 
 clean: mostlyclean
