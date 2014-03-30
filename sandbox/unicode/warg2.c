@@ -29,6 +29,7 @@ int main (int argc, char ** argv) {
     wchar_t *cmdstr;
     wchar_t **wargv;
     int i;
+    wchar_t j[2];
 
     printf("system cp=%d\n",GetACP());
     printf("console cp=%d\n",GetConsoleOutputCP());
@@ -49,6 +50,42 @@ int main (int argc, char ** argv) {
   my_wprintf(L"Dutch IJ=%s\n",L"\u0132");      // Latin extended-A
   my_wprintf(L"Dutch ij=%s\n",L"\u0133");      // Latin extended-A
   my_wprintf(L"Dutch Florin=%s\n",L"\u0192");  // Latin extended-B
+
+  // Hebrew combining characters.
+  my_wprintf(L" Hebrew combining characters\n");
+  j[1] = 0x0;
+  j[0] = 0x0591;
+  while (j[0] < 0x05c6)
+  {
+     my_wprintf(L" %s",j);
+     j[0]++;
+     if (j[0]%16 == 0)
+        my_wprintf(L"\n");
+  }
+  j[0]= 0x05c7;
+  my_wprintf(L" %s",j);
+
+  // Hebrew characters.
+  my_wprintf(L"\n");
+  my_wprintf(L" Hebrew characters\n");
+  j[0]= 0x05c6;
+  my_wprintf(L" %s",j);
+  j[0] = 0x05d0;
+  while (j[0] < 0x05eb)
+  {
+     my_wprintf(L" %s",j);
+     j[0]++;
+     if (j[0]%16 == 0)
+        my_wprintf(L"\n");
+  }
+  j[0] = 0x05f0;
+  while (j[0] < 0x05f5)
+  {
+     my_wprintf(L" %s",j);
+     j[0]++;
+     if (j[0]%16 == 0)
+        my_wprintf(L"\n");
+  }
 
   return 0;
 }

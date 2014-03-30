@@ -38,6 +38,8 @@
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 wcd - Wherever Change Directory
