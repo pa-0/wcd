@@ -478,17 +478,6 @@ $(BIN): $(OBJS1)
 %.pdf: %.ps
 	ps2pdf $< $@
 
-%.po : $(POT)
-	msgmerge -U $@ $(POT) --backup=numbered
-	# change timestamp in case .po file was not updated.
-	touch $@
-
-%.mo : %.po
-	msgfmt -c $< -o $@
-
-$(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
-	xgettext -C --keyword=_ $+ -o $(POT)
-
 $(MANPOTFILE) : man/man1/wcd.pod
 	$(MAKE) -C man/man1 $(notdir $@)
 
@@ -535,6 +524,17 @@ merge: $(POFILES)
 # Get new po files from the Translation Project.
 getpo:
 	rsync -Lrtvz  translationproject.org::tp/latest/wcd/  po/incoming/
+
+po/%.po : $(POT)
+	msgmerge -U $@ $(POT) --backup=numbered
+	# change timestamp in case .po file was not updated.
+	touch $@
+
+%.mo : %.po
+	msgfmt -c $< -o $@
+
+$(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
+	xgettext -C --keyword=_ $+ -o $(POT)
 
 dist-zip:
 	rm -f $(prefix)/$(ZIPFILE)
