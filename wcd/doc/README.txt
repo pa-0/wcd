@@ -278,6 +278,7 @@ Table of Contents
         German                Lars Wendler <polynomial-c@gentoo.org>           Version 5.2.4
         Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>    Version 5.0.4 - 5.2.4
         Ukrainian             Yuri Chornoivan <Tranlation Project>             Version 5.2.5
+	Vietnamese            Trần Ngọc Quân <vnwildman@gmail.com>             Version 5.2.5
 
 
         For translations of the manual contact Erwin Waterlander.
