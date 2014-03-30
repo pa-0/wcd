@@ -31,7 +31,7 @@ dist:
 		wcd-${VERSION}/src/man/man1/*.pot \
 		wcd-${VERSION}/src/man/*/man1/*.1 \
 		wcd-${VERSION}/src/man/*/man1/*.txt \
-		wcd-${VERSION}/src/man/*/man1/*.htm \
+		wcd-${VERSION}/src/man/*/man1/*.htm* \
 		wcd-${VERSION}/src/man/*/man1/*.pod
 	# Make sure .po files are up to date.
 	cd ${RELEASE_DIR}/src ; ${MAKE} merge
