@@ -281,7 +281,9 @@ Table of Contents
 	Vietnamese            Trần Ngọc Quân <vnwildman@gmail.com>             Version 5.2.5
 
 
-        For translations of the manual contact Erwin Waterlander.
+        Translations of the manual:
+
+        Dutch                 Erwin Waterlander <waterlan@xs4all.nl>           Version 5.2.5
 
 
     3.2 Works of others used in the program

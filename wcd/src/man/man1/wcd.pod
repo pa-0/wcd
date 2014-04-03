@@ -1,6 +1,6 @@
 #  Copyright and License
 #
-#      Copyright (C) 1997-2013 Erwin Waterlander
+#      Copyright (C) 1997-2014 Erwin Waterlander
 #      Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -106,11 +106,11 @@ match the character exactly, precede the character with a backslash (C<\>)
 marker.
 
 Using wildcards makes powerful searching possible. For instance this
-matched any directory name that ends with "top".
+matches any directory name that ends with "top":
 
     wcd *top
 
-Match any directory that has contain "top" anywhere:
+Match directories that have "top" anywhere in the name:
 
     wcd *top*
 
@@ -125,8 +125,6 @@ for directory that begins with "Desk" and which path matches I<*me/Desk*>.
 
 It is allowed to type any kind of expression with slashes and wildcards.
 E.g.:
-
-
 
     wcd src*/*1?/a*2
 
@@ -161,7 +159,7 @@ directories of other users.
 
 
 On DOS and Windows systems it does not matter if you use a slash "/" or a
-backslash "\" as a directory-separator.
+backslash "\" as a directory separator.
 
 It is possible on DOS and Windows systems to change drive and directory in
 one go by preceding the directory name with the drive name.
@@ -213,14 +211,14 @@ interface.
 
 =item B<-a>
 
-Add current path to default treedata file.
+Add current path to the default treedata file.
 
 Use this option to quickly add the current path to the default treedata
 file. Re-scanning the complete disk can take a long time in some cases.
 
 =item B<-aa>
 
-Add current and all parent paths to default treedata.
+Add current and all parent paths to the default treedata file.
 
 =item B<-A PATH>
 
@@ -245,7 +243,7 @@ Wcd places the current path in the ban file. This means that wcd ignores
 all matches of this directory and its sub directories.
 
 The ban file can be edited with a text editor. Use of wildcards are
-supported and it is matched against absolute path.
+supported and names are matched against the absolute path.
 
 Banned paths are not excluded from scanning the disk. To do that use option
 B<-xf>.
@@ -274,7 +272,7 @@ B<+> and B<=>.
 
 =item B<-e>
 
-Add current path to extra treedata file.
+Add current path to the extra treedata file.
 
 Use this option to quickly add the current path to the extra treedata file.
 
@@ -289,11 +287,11 @@ also options B<-A> and B<-S>.
 
 =item B<-f FILE>
 
-Read treedata FILE. Do not read the default treedata file.
+Read treedata file FILE. Do not read the default treedata file.
 
 =item B<+f FILE>
 
-Read treedata FILE in addition to the default treedata file.
+Read treedata file FILE in addition to the default treedata file.
 
 =item B<-g>
 
@@ -312,7 +310,7 @@ tree.
 The default tree layout is similar to the tree layout of the original NCD on
 DOS. The difference in layout is that in NCD all directories of a same depth
 level were vertically aligned over the whole tree. This was possible in NCD,
-because the maximum width of a directory name in DOS was 8.3 characters. On
+because the maximum width of a directory name in DOS was 12 (8.3) characters. On
 modern operating systems directory names can be very long, so also the
 differences in length can be large.  Therefore folders with a same depth are
 not vertically aligned over the whole tree in wcd, but only in sub-branches.
@@ -342,7 +340,7 @@ option B<-j> if one does not want wcd to create a go-script.
 
 =item B<-h, --help>
 
-Print help and exit.
+Show help and exit.
 
 =item B<-i, --ignore-case>
 
@@ -352,7 +350,7 @@ versions regard case by default.
 
 =item  B<+i, --no-ignore-case>
 
-Regard case.  See also option B<-i>.
+Regard case. See also option B<-i>.
 
 =item B<-I, --ignore-diacritics>
 
@@ -407,7 +405,7 @@ in combination with B<-j>.
 
 Keep paths.
 
-Keep paths in treedata when wcd can't change to them. The default
+Keep paths in the treedata file when wcd can't change to them. The default
 behaviour of wcd is that it tries to remove paths from the treedata when
 wcd can't change to them. With this option this behaviour is turned off.
 
@@ -440,7 +438,7 @@ Do not read the default treedata file. The relative treedata file
 should already have been created using the wcd B<+S> option.
 PATH may also point to a file directly.
 
-An example: Suppose another system has been mounted to mount point
+An example. Suppose another system has been mounted to mount point
 C</mnt/network>:
 
     wcd -n /mnt/network src
@@ -458,7 +456,7 @@ option B<-n>.
 Use numbers instead of letters.
 
 Wcd with a conio or curses based interface (see section INTERFACE) presents
-a match list default numbered with letters. When the B<-N> option is used
+a match list by default numbered with letters. When the B<-N> option is used
 the match list is numbered with numbers. Regardless of the B<-N> option one
 can type a letter or numbers to make a selection from the list of matches.
 
@@ -480,14 +478,14 @@ Quieter operation. Printing of the final match is suppressed.
 
 =item B<-r DIR>
 
-Remove directory and remove from treedata file.
+Remove directory and remove from the treedata file.
 
 If the directory is empty, wcd will remove it, and try to remove it from
 the treedata file.
 
 =item B<-rmtree DIR>
 
-Recursively remove directory and remove from treedata file.
+Recursively remove directory and remove from the treedata file.
 
 Wcd will remove the directory and all its sub directories and files, and
 remove the directories from the treedata file.
@@ -526,7 +524,7 @@ LAN server by typing something like: C<wcd -S \\servername>.
 
 Scan disk from PATH and place relative paths in a relative treedata file.
 This file is used by the B<-n> and +n options of wcd. E.g. C<wcd -n PATH
-+src>,
+src>.
 
 =item B<-t>
 
@@ -550,8 +548,9 @@ jumping to unrelated directories.
 
 In compact tree mode the alternative mode makes navigation similar to
 navigation in GUI file managers such as Windows Explorer or Linux KDE
-Konqueror. Moving up and down moves just one line up or down. Moving left first
-folds the sub-folders and the next move left moves really left.
+Konqueror. Pressing Up and Down moves the selected folder one line up or
+down. Pressing Left first folds the sub-folders and the next move left moves
+really left.
 
 You can switch on-the-fly between default and alternative navigation
 by pressing Shift-A.
@@ -565,7 +564,7 @@ of the screen. The centered mode can also be switched on and off with key 't'
 in the graphical tree.
 
 The standard non-centered behaviour, which minimises tree movement, is the same
-as the original NCD.
+as in the original NCD.
 
 =item B<-Tc, --compact-tree>
 
@@ -656,8 +655,8 @@ the following (example for wcd on unix):
 
     wcd -xf ~/.ban.wcd -s
 
-Wildcards are supported. For instance to exclude all your CVS directories
-with administrative files add a line with C<*/CVS>.
+Wildcards are supported. For instance to exclude all your Subversion directories
+with administrative files add a line with C<*/.svn>.
 
 Option B<-xf> must be used in front of any scan option (B<-s>, B<-S>, B<+S>,
 B<-A>, B<-E>).
@@ -1129,7 +1128,7 @@ systems. The directory of this file can be changed with the option B<-G>.
 
 =item B<relative treedata file>
 
-Text  file  with relative paths from DIR>. See options B<+S>, B<-n> and
+Text file with relative paths from DIR. See options B<+S>, B<-n> and
 B<+n>.
 
     DOS: <path>\rtdata.wcd
