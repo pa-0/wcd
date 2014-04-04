@@ -15,9 +15,10 @@ unix2dos:
 	cd ../../${DOSVERSION} ; unix2dos --keepdate */Makefile
 	cd ../../${DOSVERSION}/src/c3po ; unix2dos --keepdate *
 	cd ../../${DOSVERSION}/src/patch ; unix2dos --keepdate *.*
-	cd ../../${DOSVERSION}/src/po ; unix2dos --keepdate *.pot
-	cd ../../${DOSVERSION}/src/po ; unix2dos --keepdate *.po
 	cd ../../${DOSVERSION} ; unix2dos --keepdate *.txt
 	cd ../../${DOSVERSION}/doc ; unix2dos --keepdate *.txt
+	cd ../../${DOSVERSION}/doc ; unix2dos --keepdate --add-bom README.txt
 	cd ../../${DOSVERSION} ; unix2dos --keepdate file_id.diz
+	cd ../../${DOSVERSION}/src/man ; unix2dos --keepdate man1/*.txt */man1/*.txt
+	cd ../../${DOSVERSION}/src/man ; unix2dos --keepdate man1/*.htm */man1/*.htm
 

@@ -272,6 +272,8 @@ else
 endif
 	LDFLAGS_EXTRA = -Wl,--enable-auto-import
 	INSTALL_TARGETS += install-profile
+	docsubdir	= $(PACKAGE)
+	VERSIONSUFFIX	= -cygwin
 endif
 
 ifndef OS
@@ -303,6 +305,7 @@ ifeq ($(findstring MSYS,$(shell uname)),MSYS)
 	OS = msys
 	PROGRAM = wcdmsys.exe
 	LIBS_EXTRA  = -lkernel32 -luser32 -lmpr
+	VERSIONSUFFIX	= -msys
 ifdef ENABLE_NLS
 	LIBS_EXTRA += -lintl
 endif
@@ -494,7 +497,7 @@ man/man1/wcd.pod : ;
 	$(MAKE) -C man/man1 $(subst man/,../,$@)
 
 %.txt : %.pod
-	LC_CTYPE=C pod2text $< > $@
+	pod2text $< > $@
 
 %.ps : %.1
 	groff -man $< -T ps > $@

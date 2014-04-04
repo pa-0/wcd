@@ -1,17 +1,15 @@
 File list
 
-    README.txt    : This file.
-    SOURCE.txt    : Notes about the source code.
-    INSTALL.txt   : Installation documentation.
-    wcd.txt       : Manual, text format.
-    wcd.ps        : Manual, PostScript format.
-    wcd.pdf       : Manual, PDF format.
-    wcd.htm       : Manual, HTML format.
-    whatsnew.txt  : Change log.
-    faq.txt       : Frequently Asked Questions.
-    copying.txt   : distribution license.
-    problems.txt  : Known problems.
-    todo.txt      : Things to do.
+    README.txt               : This file.
+    SOURCE.txt               : Notes about the source code.
+    INSTALL.txt              : Installation documentation.
+    ../src/man/man1/wcd.txt  : Manual, text format.
+    ../src/man/man1/wcd.htm  : Manual, HTML format.
+    whatsnew.txt             : Change log.
+    faq.txt                  : Frequently Asked Questions.
+    copying.txt              : distribution license.
+    problems.txt             : Known problems.
+    todo.txt                 : Things to do.
 
 
 Table of Contents
