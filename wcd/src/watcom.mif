@@ -108,18 +108,15 @@ install: $(PROGRAM) $(DOCFILES) $(bindir) $(docdir) .SYMBOLIC
 !endif
 	$(MAKE) install-doc
 
-$(SRCDIR)\man\man1\wcd1.pod : $(SRCDIR)\man\man1\wcd1pod.in
-	wcc386 -pc -ddos -dunix $< > $@
-
-$(SRCDIR)\..\doc\wcd.txt : $(SRCDIR)\man\man1\wcd1.pod
+$(SRCDIR)\man\man1\wcd.txt : $(SRCDIR)\man\man1\wcd.pod
 	pod2text $< > $@
 
-$(SRCDIR)\..\doc\wcd.$(HTMLEXT) : $(SRCDIR)\man\man1\wcd1.pod
+$(SRCDIR)\man\man1\wcd.$(HTMLEXT) : $(SRCDIR)\man\man1\wcd.pod
 	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
 
-txt: $(SRCDIR)\..\doc\wcd.txt .SYMBOLIC
+txt: $(SRCDIR)\man\man1\wcd.txt .SYMBOLIC
 
-html: $(SRCDIR)\..\doc\wcd.$(HTMLEXT) .SYMBOLIC
+html: $(SRCDIR)\man\man1\wcd.$(HTMLEXT) .SYMBOLIC
 
 doc : $(DOCFILES) .SYMBOLIC
 
@@ -194,4 +191,7 @@ mostlyclean: .SYMBOLIC
 	-del $(DISTCMD)
 
 clean: mostlyclean .SYMBOLIC
+
+
+maintainer-clean: clean .SYMBOLIC
 	-del $(DOCFILES)

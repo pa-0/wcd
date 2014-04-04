@@ -26,7 +26,7 @@ docsubdir = wcd-$(VERSION_SHORT)
 VERSIONSUFFIX = bh
 ZIPFILE = wcd$(VERSION_SHORT)$(VERSIONSUFFIX).zip
 HTMLEXT     = htm
-DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
+DOCFILES    = $(SRCDIR)\man\man1\wcd.txt $(SRCDIR)\man\man1\wcd.$(HTMLEXT)
 ZIPOBJ_EXTRA = bin\cwstub.exe
 #ZIPOBJ_EXTRA = bin\dos4gw.exe
 

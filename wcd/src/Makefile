@@ -528,6 +528,9 @@ merge: $(POFILES)
 getpo:
 	rsync -Lrtvz  translationproject.org::tp/latest/wcd/  po/incoming/
 
+getpoman:
+	rsync -Lrtvz  translationproject.org::tp/latest/wcd-man/  man/incoming/
+
 po/%.po : $(POT)
 	msgmerge -U $@ $(POT) --backup=numbered
 	# change timestamp in case .po file was not updated.

@@ -30,7 +30,7 @@ VERSIONSUFFIX = -win32zsh-ucs
 VERSIONSUFFIX = -win32zsh
 !endif
 HTMLEXT     = htm
-DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
+DOCFILES    = $(SRCDIR)\man\man1\wcd.txt $(SRCDIR)\man\man1\wcd.$(HTMLEXT)
 
 prefix = c:\usr\local
 

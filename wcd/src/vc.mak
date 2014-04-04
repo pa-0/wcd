@@ -1,5 +1,13 @@
 # Common parts of the Microsoft Visual C++ makefiles.
 
+DOCFILES    = $(SRCDIR)\man\man1\wcd.txt $(SRCDIR)\man\man1\wcd.$(HTMLEXT)
+
+all: $(PROGRAM) $(DOCFILES)
+
+$(PROGRAM): $(OBJS)
+	$(LINK) /out:$@ $(LDFLAGS) $(OBJS) $(LIBS)
+
+
 !if "$(ASCII_TREE)" == "1"
 CFLAGS = $(CFLAGS) /DASCII_TREE
 !endif
@@ -110,18 +118,15 @@ install: $(PROGRAM) $(DOCFILES) $(bindir) $(docdir)
 !endif
 	$(MAKE) install-doc
 
-$(SRCDIR)\man\man1\wcd1.pod : $(SRCDIR)\man\man1\wcd1pod.in
-	cl /EP /C /Ddos /Dunix $** > $@
-
-$(SRCDIR)\..\doc\wcd.txt : $(SRCDIR)\man\man1\wcd1.pod
+$(SRCDIR)\man\man1\wcd.txt : $(SRCDIR)\man\man1\wcd.pod
 	pod2text $** > $@
 
-$(SRCDIR)\..\doc\wcd.$(HTMLEXT) : $(SRCDIR)\man\man1\wcd1.pod
+$(SRCDIR)\man\man1\wcd.$(HTMLEXT) : $(SRCDIR)\man\man1\wcd.pod
 	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $** > $@
 
-txt: $(SRCDIR)\..\doc\wcd.txt
+txt: $(SRCDIR)\man\man1\wcd.txt
 
-html: $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
+html: $(SRCDIR)\man\man1\wcd.$(HTMLEXT)
 
 doc : $(DOCFILES)
 
@@ -134,8 +139,8 @@ install-doc: $(docdir) $(DOCFILES)
 	copy $(SRCDIR)\..\doc\INSTALL.txt $(docdir)
 	copy $(SRCDIR)\..\doc\INST_DOS.txt $(docdir)
 	copy $(SRCDIR)\..\doc\copying.txt $(docdir)
-	copy $(SRCDIR)\..\doc\$(PACKAGE).txt $(docdir)
-	copy $(SRCDIR)\..\doc\$(PACKAGE).$(HTMLEXT) $(docdir)
+	copy $(SRCDIR)\man\man1\$(PACKAGE).txt $(docdir)
+	copy $(SRCDIR)\man\man1\$(PACKAGE).$(HTMLEXT) $(docdir)
 
 uninstall:
 	-del $(bindir)\$(PROGRAM)
@@ -180,5 +185,6 @@ mostlyclean:
 	-del $(DISTCMD)
 
 clean: mostlyclean
-	-del $(DOCFILES)
 
+maintainer-clean: clean
+	-del $(DOCFILES)

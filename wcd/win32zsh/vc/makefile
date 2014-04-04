@@ -32,15 +32,9 @@ VERSIONSUFFIX = -win32zsh-ucs
 VERSIONSUFFIX = -win32zsh
 !endif
 HTMLEXT     = htm
-DOCFILES    = $(SRCDIR)\..\doc\wcd.txt $(SRCDIR)\..\doc\wcd.$(HTMLEXT)
 
 prefix = c:\usr\local
 
-
-all: $(PROGRAM) $(DOCFILES)
-
-$(PROGRAM): $(OBJS)
-	$(LINK) /out:$@ $(LDFLAGS) $(OBJS) $(LIBS)
 
 !include $(SRCDIR)\vc.mak
 
