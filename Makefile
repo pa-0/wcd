@@ -23,16 +23,6 @@ dist:
 	svn export ${SVNREPO}/trunk/wcd ${RELEASE_DIR}
 	# Include doc files, to make it easier to build wcd.
 	cd ${RELEASE_DIR}/src ; ${MAKE} man txt html
-	# Create doc package for people who are not able to create it.
-	cd .. ; tar cvzf wcd-${VERSION}-doc.tar.gz \
-		wcd-${VERSION}/src/man/man1/*.1 \
-		wcd-${VERSION}/src/man/man1/*.txt \
-		wcd-${VERSION}/src/man/man1/*.htm* \
-		wcd-${VERSION}/src/man/man1/*.pot \
-		wcd-${VERSION}/src/man/*/man1/*.1 \
-		wcd-${VERSION}/src/man/*/man1/*.txt \
-		wcd-${VERSION}/src/man/*/man1/*.htm* \
-		wcd-${VERSION}/src/man/*/man1/*.pod
 	# Make sure .po files are up to date.
 	cd ${RELEASE_DIR}/src ; ${MAKE} merge
 	# cleanup.
