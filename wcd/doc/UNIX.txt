@@ -6,10 +6,12 @@ PREREQUISITES
             * sh        : POSIX type shell
             * coreutils : GNU core utilities package (chmod, install, mkdir, mv, rm, uname)
             * sed       : Stream editor
-            * perl      : Practical Extraction and Report Language (perlpod)
 
         Optional (depending on build targets):
+            * perl        : Practical Extraction and Report Language (perlpod)
+                            perl >= 5.10.1 is required.
             * gettext     : Framework to help GNU packages produce multi-lingual messages.
+            * po4a        : PO for anything.
             * ncurses     : CRT screen handling and optimization package.
             * groff       : GNU troff text formatting system.
             * ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
@@ -146,15 +148,58 @@ SHELL INTEGRATION
 
         Under Cygwin these shell scripts are always installed.
 
+
+INTERNATIONAL MAN PAGES
+
+    All man pages are encoded in UTF-8, because even Western-European man pages
+    may contain Unicode characters not supported by the Latin-1 (ISO-8859-1)
+    character set.
+
+    Originally the Unix man system supported only man pages in Latin1 format.
+    Although the world is moving to Unicode format (UTF-8) there is still a lot
+    of Latin1 legacy around.
+
+    The English man page is a pure ASCII file and is readable on all platforms.
+
+    Non-English man pages are encoded in UTF-8. These do not show properly on
+    old systems.  Man pages in UTF-8 format are shown properly on Linux. Not
+    all roff implementations support UTF-8.
+
+    In order to show UTF-8 man pages properly on Cygwin you need to do the
+    following:
+
+    In /etc/man.conf, change the NROFF definition to use 'preconv'.
+
+        NROFF        /usr/bin/preconv | /usr/bin/nroff -c -mandoc 2>/dev/null
+
+    To view the man page set the correct locale. E.g. for Ukrainian:
+
+        export LANG=uk_UA.UTF-8
+        man dos2unix
+
+
 DOCUMENTATION
 
-        Manual pages are generated from Perl POD files. By default
-        the manual pages are are created in text and html format.
-        To create a manual in PDF format type:
+    Manual pages are generated from Perl POD files.
 
-            make pdf
+    The manual pages in text and html format are by default only
+    created in English language. To create text and html manuals
+    for other languages type:
 
-        PDF generation requires GhostScript to be installed.
+        make txt
+        make html
+
+    Once the manuals in non-English languages have been created,
+    they will also be installed under share/doc/ when you type
+    'make install'
+
+    Manuals in PDF format are by default not created.
+    To create manuals in PDF format type:
+
+        make pdf
+
+    PDF generation requires GhostScript to be installed.
+
 
 BINARY DISTRIBUTION PACKAGE CREATION
 
