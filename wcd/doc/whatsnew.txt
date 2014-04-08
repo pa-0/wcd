@@ -1,4 +1,4 @@
-5.2.5 beta 6 2014-04-03
+5.2.5 beta 7 2014-04-08
   - Switch to MinGW-w64 compiler for Windows 32 bit.
   - Makefile: Wcd compiles in MSYS2/MinGW-w64 environment.
     See http://sourceforge.net/projects/msys2/
@@ -18,7 +18,8 @@
     * New Esperanto, thanks to Benno Schulenberg.
     * New Ukainian, thanks to Yuri Chornoivan.
     * New Vietnamese, thanks to Trần Ngọc Quân.
-  - New Dutch translation of the manual.
+  - Translations of the manual:
+    * New Dutch translation.
 
 5.2.4 2013-08-28
   - Support user names with a space in the name in cmd.exe.

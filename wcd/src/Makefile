@@ -484,6 +484,19 @@ $(BIN): $(OBJS1)
 $(MANPOTFILE) : man/man1/wcd.pod
 	$(MAKE) -C man/man1 $(notdir $@)
 
+#  WARNING: Backward-incompatibility since GNU make 3.82.
+#  The pattern-specific variables and pattern rules are now applied in the
+#  shortest stem first order instead of the definition order (variables
+#  and rules with the same stem length are still applied in the definition
+#  order).
+#  In order to stay compatible with GNU make < 3.82 we put the rule with
+#  the shortest stem first.
+
+po/%.po : $(POT)
+	msgmerge -U $@ $(POT) --backup=numbered
+	# change timestamp in case .po file was not updated.
+	touch $@
+
 %.po : man/man1/wcd.pod
 	$(MAKE) -C man/man1 $(subst man/,../,$@)
 
@@ -530,11 +543,6 @@ getpo:
 
 getpoman:
 	rsync -Lrtvz  translationproject.org::tp/latest/wcd-man/  man/incoming/
-
-po/%.po : $(POT)
-	msgmerge -U $@ $(POT) --backup=numbered
-	# change timestamp in case .po file was not updated.
-	touch $@
 
 %.mo : %.po
 	msgfmt -c $< -o $@

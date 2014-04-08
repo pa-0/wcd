@@ -268,23 +268,23 @@ Table of Contents
         All translations of the messages go via the Translation Project.
         see http://translationproject.org/domain/wcd.html
 
-        Dutch                 Erwin Waterlander <waterlan@xs4all.nl>           Version 4.0.0 - 5.2.4
-        Dutch                 Benno Schulenberg <benno@vertaalt.nl>            Version 5.2.5
-        Esperanto             Benno Schulenberg <benno@vertaalt.nl>            Version 5.2.5
-        Finnish               Jari Aalto <jari.aalto@cante.net>                Version 5.1.0 - 5.2.4
-        German                Philipp Thomas <psmt@opensuse.org> <pth@suse.de> Version 5.1.3 - 5.2.5
-        German                Lars Wendler <polynomial-c@gentoo.org>           Version 5.2.4
-        Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>    Version 5.0.4 - 5.2.4
-        Ukrainian             Yuri Chornoivan <yurchor@ukr.net>                Version 5.2.5
-	Vietnamese            Trần Ngọc Quân <vnwildman@gmail.com>             Version 5.2.5
+        Dutch                 Erwin Waterlander            Version 4.0.0 - 5.2.4
+        Dutch                 Benno Schulenberg            Version 5.2.5
+        Esperanto             Benno Schulenberg            Version 5.2.5
+        Finnish               Jari Aalto                   Version 5.1.0 - 5.2.4
+        German                Philipp Thomas               Version 5.1.3 - 5.2.5
+        German                Lars Wendler                 Version 5.2.4
+        Spanish               Julio A. Freyre-Gonzalez     Version 5.0.4 - 5.2.4
+        Ukrainian             Yuri Chornoivan              Version 5.2.5
+	Vietnamese            Trần Ngọc Quân               Version 5.2.5
 
 
         Translations of the manual:
         See http://translationproject.org/domain/wcd-man.html
 
-        Dutch                 Erwin Waterlander <waterlan@xs4all.nl>           Version 5.2.5
-        German                Mario Blättermann <mario.blaettermann@gmail.com> Version 5.2.5
-        Ukrainian             Yuri Chornoivan <yurchor@ukr.net>                Version 5.2.5
+        Dutch                 Erwin Waterlander            Version 5.2.5
+        German                Mario Blättermann            Version 5.2.5
+        Ukrainian             Yuri Chornoivan              Version 5.2.5
 
 
     3.2 Works of others used in the program
