@@ -7,7 +7,7 @@ LIBS_EXTRA = -lkernel32 -luser32 -lmpr
 
 CFLAGS = -O2 -Wall -Wextra -Wconversion -Wno-unused-parameter
 CURSES = pdcursesw
-ENABLE_NLS = 1
+ENABLE_NLS =
 DEFS   =
 
 ifdef CURSES

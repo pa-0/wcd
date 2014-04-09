@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man-5.2.5-beta6\n"
 "POT-Creation-Date: 2014-04-03 21:21+0300\n"
-"PO-Revision-Date: 2014-04-05 12:27+0300\n"
+"PO-Revision-Date: 2014-04-08 22:20+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -60,27 +60,27 @@ msgstr "Огляд"
 #. type: textblock
 #: wcd.pod:57
 msgid "Wcd is a command-line program to change directory fast. It saves time typing at the keyboard. One needs to type only a part of a directory name and wcd will jump to it. Wcd has a fast selection method in case of multiple matches and allows aliasing and banning of directories. Wcd also includes a full screen interactive directory tree browser with speed search."
-msgstr ""
+msgstr "Wcd — програма, що керується з командного рядка і надає змогу швидко змінювати каталоги. Вона економить час на введенні даних з клавіатури. Достатньо ввести лише частину назву каталогу і wcd перейде до цього каталогу. У wcd передбачено можливості пришвидшення вибору потрібного варіанта з декількох, створення альтернативних назв каталогів та блокування каталогів. Крім того, у wcd ви зможете скористатися повноекранною інтерактивною навігацією деревом каталогів з швидким пошуком."
 
 #. type: textblock
 #: wcd.pod:63
 msgid "Wcd was modeled after Norton Change Directory (NCD). NCD appeared first in I<The Norton Utilities, Release 4>, for DOS in 1987, published by Peter Norton."
-msgstr ""
+msgstr "Ідеї wcd часткового запозичено з Norton Change Directory (NCD). Першу версію NCD у I<The Norton Utilities, Release 4> для DOS було випущено 1987 року компанією Пітера Нортона (Peter Norton)."
 
 #. type: textblock
 #: wcd.pod:66
 msgid "Wcd has been ported to different command-line shells: DOS command.com, Windows cmd.exe and PowerShell, OS/2 cmd.exe, and Unix shells such as Bourne (sh), Bourne Again (bash), Korn (ksh), Z (zsh), and C (csh) shell and others running on any operating system."
-msgstr ""
+msgstr "Wcd було портовано на різні командні оболонки: command.com для DOS, cmd.exe та PowerShell для Windows, cmd.exe для OS/2 і командні оболонки Unix, зокрема Bourne (sh), Bourne Again (bash), Korn (ksh), Z (zsh) та C (csh), а також інші оболонки, що працюють у будь-якій операційній системі."
 
 #. type: textblock
 #: wcd.pod:71
 msgid "Wcd supports 8 bit character sets on all systems, and has optional support for Unicode. See section LOCALIZATION."
-msgstr ""
+msgstr "У Wcd передбачено підтримку 8-бітових наборів символів на усіх системах та додаткову підтримку Unicode. Докладніше про це у розділі «ЛОКАЛІЗАЦІЯ»."
 
 #. type: textblock
 #: wcd.pod:74
 msgid "See section INSTALLATION how to setup wcd for personal use."
-msgstr ""
+msgstr "Щоб дізнатися більше про налаштовування wcd для особистого користування, зверніться до розділу «ВСТАНОВЛЕННЯ»."
 
 #. type: =head2
 #: wcd.pod:76
@@ -90,12 +90,12 @@ msgstr "Основні прийоми використання"
 #. type: textblock
 #: wcd.pod:78
 msgid "By default (if no wildcards are used) wcd searches for a directory with a name that begins with the typed name."
-msgstr ""
+msgstr "Типово (якщо не використано символів-замінників), wcd шукає каталог, назва якого починається з введених вами символів."
 
 #. type: textblock
 #: wcd.pod:81
 msgid "For instance this command will change to directory to the current user's C</home/user/Desktop>:"
-msgstr ""
+msgstr "Наприклад, вказана нижче команда змінить каталог на каталог поточного користувача C</home/user/Desktop>:"
 
 #. type: verbatim
 #: wcd.pod:84
@@ -110,7 +110,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:86
 msgid "When there are multiple matches, wcd will present the user a list of all matches. The user can then make a selection with a few keystrokes (most of the times only one)."
-msgstr ""
+msgstr "Якщо буде виявлено декілька відповідників, wcd покаже користувачеві список цих відповідників. Після цього користувач зможе вибрати потрібний варіант декількома натисканнями клавіш (найчастіше, достатньо одного натискання)."
 
 #. type: =head2
 #: wcd.pod:90
@@ -120,7 +120,7 @@ msgstr "Шаблони-замінники"
 #. type: textblock
 #: wcd.pod:92
 msgid "Wcd supports following wildcards:"
-msgstr ""
+msgstr "У wcd передбачено підтримку таких символів-замінників:"
 
 #. type: verbatim
 #: wcd.pod:94
@@ -132,16 +132,21 @@ msgid ""
 "    [!SET]  or [^SET] matches any character not in the specified set.\n"
 "\n"
 msgstr ""
+"    *       відповідає будь-якій послідовності символів (нульової або більшої довжини)\n"
+"    ?       відповідає довільному символу\n"
+"    [НАБІР] відповідає довільному символу з вказаного набору,\n"
+"    [!НАБІР] або [^НАБІР] відповідає будь-якому символу, що не належить до вказаного набору.\n"
+"\n"
 
 #. type: textblock
 #: wcd.pod:99
 msgid "A set is composed of characters or ranges; a range looks like I<character hyphen character> as in C<0-9> or C<A-Z>. The C<[0-9a-zA-Z_]> is the minimal set of characters allowed in the C<[..]> pattern construct. International characters (i.e. 8 bit characters) are allowed if the system supports them. To suppress the special syntactic significance of any of C<[]*?!^-\\> inside or outside a C<[..]> construct and match the character exactly, precede the character with a backslash (C<\\>)  marker."
-msgstr ""
+msgstr "Набір символів може складатися з окремих символів або діапазонів символів. Діапазон слід вказувати так: I<символ дефіс символ>, наприклад, C<0-9> або C<A-Z>. Мінімальним набором символів у конструкції C<[..]> є C<[0-9a-zA-Z_]>. Можна використовувати символи з розширеного набору (тобто 8-бітові символи), якщо у системі передбачено підтримку цих символів. Щоб придушити використання символів з набору C<[]*?!^-\\> для побудови синтаксичних лексем у межах конструкцій C<[..]> тобто їхнього буквального використання, додавайте перед цими символами символ зворотної риски (C<\\>)."
 
 #. type: textblock
 #: wcd.pod:108
 msgid "Using wildcards makes powerful searching possible. For instance this matches any directory name that ends with \"top\":"
-msgstr ""
+msgstr "Використання символів-замінників надає доступ до досить потужних можливостей з пошуку. Наприклад, за допомогою вказаного нижче виразу можна знайти будь-який каталог, назва якого завершується на «top»:"
 
 #. type: verbatim
 #: wcd.pod:111
@@ -156,7 +161,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:113
 msgid "Match directories that have \"top\" anywhere in the name:"
-msgstr ""
+msgstr "Знайти каталоги, у назві яких будь-де міститься частина «top»:"
 
 #. type: verbatim
 #: wcd.pod:115
@@ -171,7 +176,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:117
 msgid "Match any directory name that begins with \"a\", \"b\" or \"c\":"
-msgstr ""
+msgstr "Знайти будь-який каталог, назва якого починається з «a», «b» або «c»:"
 
 #. type: verbatim
 #: wcd.pod:119
@@ -186,7 +191,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:121
 msgid "It is also possible to give a part of a directory path. Here Wcd searches for directory that begins with \"Desk\" and which path matches I<*me/Desk*>."
-msgstr ""
+msgstr "Крім того, можна вказати частину шляху до каталогу. У наведеному нижче прикладі wcd шукатиме каталог, назва якого починається з «Desk», шлях якого відповідає шаблону I<*me/Desk*>."
 
 #. type: verbatim
 #: wcd.pod:124
@@ -201,7 +206,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:126
 msgid "It is allowed to type any kind of expression with slashes and wildcards.  E.g.:"
-msgstr ""
+msgstr "Можна використовувати будь-який вираз, що містить риски та символи замінники. Приклад:"
 
 #. type: verbatim
 #: wcd.pod:129
@@ -221,12 +226,12 @@ msgstr "Інші варіанти використання"
 #. type: textblock
 #: wcd.pod:133
 msgid "If no wildcards are used and wcd finds a perfect match, wcd will ignore all wild matches by default. This behaviour can be changed with the B<-w> option."
-msgstr ""
+msgstr "Якщо у виразі не використано символів-замінників, а wcd знаходить повний відповідник з вказаним шляхом і назвою, wcd типово проігнорує усі відповідники, які могло б бути знайдено з використанням символів-замінників. Типову поведінку програми можна змінити за допомогою параметра B<-w>."
 
 #. type: textblock
 #: wcd.pod:136
 msgid "The interactive directory tree browser can be started by using option B<-g>."
-msgstr ""
+msgstr "Інтерактивний навігатор ієрархією каталогів можна запустити за допомогою параметра B<-g>."
 
 #. type: verbatim
 #: wcd.pod:138
@@ -241,12 +246,12 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:140
 msgid "Wcd generates a treedata file were it searches the directory. On Unix and Windows systems wcd does add symbolic links to the treedata file while scanning the disk, but does not follow them. While following links wcd could end up scanning infinite loops, or scan very large portions of a network."
-msgstr ""
+msgstr "Wcd створює файл даних ієрархії (treedata) у каталогах, звідки виконується пошук. У системах Unix та Windows wcd додає символічні посилання на файл treedata під час сканування диска, але не переходить за створеними посиланнями. Перехід за посиланнями може призвести до зациклювання wcd у ієрархії каталогів або сканування великих масивів каталогів у мережі."
 
 #. type: textblock
 #: wcd.pod:145
 msgid "Wcd can also change to directories that are not in the treedata file. E.g.:"
-msgstr ""
+msgstr "Крім того, wcd може переходити до каталогів, яких немає у файлі treedata. Приклад:"
 
 #. type: verbatim
 #: wcd.pod:147
@@ -261,7 +266,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:149
 msgid "If wcd found a match but can't change to the directory it tries to remove it from the default treedata file. Not from the extra treedata file. See also option B<-k>."
-msgstr ""
+msgstr "Якщо wcd буде виявлено відповідник критерію пошуку, але програма не зможе перейти до цього каталогу, буде виконано спробу вилучення каталогу з типового файла treedata, але не з додаткового файла treedata. Див. також параметр B<-k>."
 
 #. type: textblock
 #: wcd.pod:153
@@ -296,7 +301,7 @@ msgstr ""
 #. type: =head2
 #: wcd.pod:171
 msgid "Windows UNC paths"
-msgstr ""
+msgstr "Шляхи UNC Windows"
 
 #. type: textblock
 #: wcd.pod:173
@@ -346,7 +351,7 @@ msgstr "B<-a>"
 #. type: textblock
 #: wcd.pod:214
 msgid "Add current path to the default treedata file."
-msgstr ""
+msgstr "Додати поточний шлях до типового файла ієрархії."
 
 #. type: textblock
 #: wcd.pod:216
@@ -361,7 +366,7 @@ msgstr "B<-aa>"
 #. type: textblock
 #: wcd.pod:221
 msgid "Add current and all parent paths to the default treedata file."
-msgstr ""
+msgstr "Додати поточний і усі батьківські шляхи до типового файла ієрархії каталогів (treedata)."
 
 #. type: =item
 #: wcd.pod:223
@@ -371,7 +376,7 @@ msgstr "B<-A ШЛЯХ>"
 #. type: textblock
 #: wcd.pod:225
 msgid "Scan directory tree from PATH and append to the default treedata file. Examples:"
-msgstr ""
+msgstr "Сканувати ієрархію каталогів, починаючи з каталогу ШЛЯХ, і дописати усі виявлені каталоги до файла ієрархії каталогів (treedata). Приклади:"
 
 #. type: verbatim
 #: wcd.pod:228
@@ -395,7 +400,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:236
 msgid "See also option B<-S> and B<-s> and B<-E>."
-msgstr ""
+msgstr "Див. також параметри B<-S>, B<-s> та B<-E>."
 
 #. type: =item
 #: wcd.pod:238
@@ -405,7 +410,7 @@ msgstr "B<-b>"
 #. type: textblock
 #: wcd.pod:240
 msgid "Ban current path."
-msgstr ""
+msgstr "Заблокувати поточний шлях."
 
 #. type: textblock
 #: wcd.pod:242
@@ -478,7 +483,7 @@ msgstr "B<-e>"
 #. type: textblock
 #: wcd.pod:275
 msgid "Add current path to the extra treedata file."
-msgstr ""
+msgstr "Додати поточний шлях до додаткового файла ієрархії."
 
 #. type: textblock
 #: wcd.pod:277
@@ -563,7 +568,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:325
 msgid "See options B<-Ta>, B<-TC>, and B<-Tc> to change the navigation behaviour."
-msgstr ""
+msgstr "Поведінку засобу навігації можна змінити за допомогою параметрів B<-Ta>, B<-TC> та B<-Tc>."
 
 #. type: =item
 #: wcd.pod:327
@@ -573,7 +578,7 @@ msgstr "B<-gd>"
 #. type: textblock
 #: wcd.pod:329
 msgid "Dump the treedata files as a tree to stdout."
-msgstr ""
+msgstr "Створити дамп файлів ієрархії каталогів (treedata) і вивести дані до стандартного виведення (stdout)."
 
 #. type: =item
 #: wcd.pod:331
@@ -623,7 +628,7 @@ msgstr "B<+i, --no-ignore-case>"
 #. type: textblock
 #: wcd.pod:353
 msgid "Regard case. See also option B<-i>."
-msgstr ""
+msgstr "Брати до уваги регістр символів. Див. також параметр B<-i>."
 
 #. type: =item
 #: wcd.pod:355
@@ -643,7 +648,7 @@ msgstr "B<+I, --no-ignore-diacritics>"
 #. type: textblock
 #: wcd.pod:366
 msgid "Regard diacritics (default).  See also option B<-I>."
-msgstr ""
+msgstr "Брати до уваги діакритичні позначки (типово). Див. також параметр B<-I>."
 
 #. type: =item
 #: wcd.pod:368
@@ -653,7 +658,7 @@ msgstr "B<-j, --just-go>"
 #. type: textblock
 #: wcd.pod:370
 msgid "Just go mode."
-msgstr ""
+msgstr "Режим простого переходу."
 
 #. type: textblock
 #: wcd.pod:372
@@ -730,7 +735,7 @@ msgstr "B<-k, --keep-paths>"
 #. type: textblock
 #: wcd.pod:406
 msgid "Keep paths."
-msgstr ""
+msgstr "Зберігати шляхи."
 
 #. type: textblock
 #: wcd.pod:408

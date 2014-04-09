@@ -11,7 +11,7 @@ CFLAGS = -O2 -Wall
 #CURSES = pdcurses
 # Ncurses
 CURSES = ncurses
-ENABLE_NLS = 1
+ENABLE_NLS =
 DEFS   =
 
 ifeq ($(CURSES),pdcurses)
