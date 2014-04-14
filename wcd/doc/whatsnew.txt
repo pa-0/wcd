@@ -14,12 +14,14 @@
   - Split help text in small pieces to make it easier for translators, and
     cleanup messages. Thanks to Benno Schulenberg.
   - Translations of UI messages:
-    * Updated Dutch, thanks to Benno Schulenberg.
-    * New Esperanto, thanks to Benno Schulenberg.
-    * New Ukainian, thanks to Yuri Chornoivan.
-    * New Vietnamese, thanks to Trần Ngọc Quân.
+    * Updated Dutch translation. Thanks to Benno Schulenberg.
+    * New Esperanto translation. Thanks to Benno Schulenberg.
+    * New Ukrainian translation. Thanks to Yuri Chornoivan.
+    * New Vietnamese translation. Thanks to Trần Ngọc Quân.
   - Translations of the manual:
     * New Dutch translation.
+    * New German translation. Thanks to Mario Blättermann.
+    * New Ukrainian translation. Thanks to Yuri Chornoivan.
 
 5.2.4 2013-08-28
   - Support user names with a space in the name in cmd.exe.
