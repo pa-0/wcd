@@ -272,6 +272,7 @@ Table of Contents
         Dutch                 Benno Schulenberg            Version 5.2.5
         Esperanto             Benno Schulenberg            Version 5.2.5
         Finnish               Jari Aalto                   Version 5.1.0 - 5.2.4
+	Finnish               Jorma Karvonen               Version 5.2.5
         German                Philipp Thomas               Version 5.1.3 - 5.2.5
         German                Lars Wendler                 Version 5.2.4
         Spanish               Julio A. Freyre-Gonzalez     Version 5.0.4 - 5.2.4

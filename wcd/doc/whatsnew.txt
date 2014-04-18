@@ -15,6 +15,7 @@
     cleanup messages. Thanks to Benno Schulenberg.
   - Translations of UI messages:
     * Updated Dutch translation. Thanks to Benno Schulenberg.
+    * Updated Finnish translation. Thanks to Jorma Karvonen.
     * New Esperanto translation. Thanks to Benno Schulenberg.
     * New Ukrainian translation. Thanks to Yuri Chornoivan.
     * New Vietnamese translation. Thanks to Trần Ngọc Quân.
