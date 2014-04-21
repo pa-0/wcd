@@ -19,6 +19,7 @@ unix2dos:
 	cd ../../${DOSVERSION}/doc ; unix2dos --keepdate *.txt
 	cd ../../${DOSVERSION}/doc ; unix2dos --keepdate --add-bom README.txt
 	cd ../../${DOSVERSION} ; unix2dos --keepdate file_id.diz
-	cd ../../${DOSVERSION}/src/man ; unix2dos --keepdate man1/*.txt */man1/*.txt
+	cd ../../${DOSVERSION}/src/man ; unix2dos --keepdate man1/*.txt
+	cd ../../${DOSVERSION}/src/man ; unix2dos --keepdate --add-bom */man1/*.txt
 	cd ../../${DOSVERSION}/src/man ; unix2dos --keepdate man1/*.htm */man1/*.htm
 
