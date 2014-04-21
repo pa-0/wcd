@@ -786,7 +786,7 @@ C<$HOME/.tcshrc> :
         alias wcd "<PATH>/wcd.exe \!* ; source $HOME/bin/wcd.go"
     endif
 
-Replace <PATH> with the location where wcd executable have been installed.
+Replace <PATH> with the location where wcd executable has been installed.
 Reload the shell initialization files or start new shell.
 
 
@@ -825,7 +825,7 @@ provider. No other providers.
 
 =head2 OS/2 Command Prompt version
 
-In an OS/2 Command Prompt (cmd.exe) an OS/2-program can't change the current work
+In and OS/2 Command Prompt (cmd.exe) an OS/2-program can't change the current work
 directory. That is why wcd generates a command script (wcdgo.cmd)
 which must be executed in the current shell. The script C<wcd.cmd>
 first executes C<wcdos2.exe>, which creates the C<wcdgo.cmd> script.
