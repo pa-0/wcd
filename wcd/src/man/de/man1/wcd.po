@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man 5.2.5-beta6\n"
 "POT-Creation-Date: 2014-04-03 21:21+0300\n"
-"PO-Revision-Date: 2014-04-14 21:06+0100\n"
+"PO-Revision-Date: 2014-04-21 19:42+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -1863,7 +1863,7 @@ msgstr "Seit Windows 7 ist es möglich, im Windows-Befehlszeileninterpreter mit 
 #. type: textblock
 #: wcd.pod:1028
 msgid "You need to set the font to True Type Lucida Console (not raster font) when letters don't appear correctly."
-msgstr " Sie müssen die Schrift auf die TrueType-Schriftart »Lucida Console« setzen (nicht auf die Rasterschrift), falls Zeichen nicht korrekt angezeigt werden."
+msgstr "Sie müssen die Schrift auf die TrueType-Schriftart »Lucida Console« setzen (nicht auf die Rasterschrift), falls Zeichen nicht korrekt angezeigt werden."
 
 #. type: textblock
 #: wcd.pod:1031
