@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-10 22:10+0100\n"
+"POT-Creation-Date: 2014-04-22 21:07+0200\n"
 "PO-Revision-Date: 2014-02-12 19:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -15,7 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.5\n"
 
 #: wcd.c:141
@@ -72,7 +73,7 @@ msgstr "%s не є каталогом.\n"
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "Будь ласка, зачекайте. Скануємо диск. Збираємо файл treedata %s з %s\n"
 
-#: wcd.c:1205 wcd.c:2413 wcd.c:2436 wcd.c:2515
+#: wcd.c:1205 wcd.c:2414 wcd.c:2437 wcd.c:2516
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Записуємо файл «%s»\n"
@@ -83,7 +84,9 @@ msgstr "Доступ до запису файла ієрархії заборо�
 
 #: wcd.c:1211
 msgid "Set TEMP environment variable if this is a read-only disk.\n"
-msgstr "Встановити змінну середовища TEMP, якщо цей диск є придатним лише для читання.\n"
+msgstr ""
+"Встановити змінну середовища TEMP, якщо цей диск є придатним лише для "
+"читання.\n"
 
 #: wcd.c:1340
 #, c-format
@@ -112,8 +115,13 @@ msgstr "Вилучено каталог %s\n"
 
 #: wcd.c:1496 wcd.c:1556 wcd.c:1615
 #, c-format
-msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
-msgstr "надто довгий рядок у %s ( > %d). Можливо, файл ієрархії пошкоджено. Якщо це не так, виправити ситуацію можна збільшивши значення DD_MAXPATH у початковому коді.\n"
+msgid ""
+"line too long in %s ( > %d). The treefile could be corrupt, else fix by "
+"increasing DD_MAXPATH in source code.\n"
+msgstr ""
+"надто довгий рядок у %s ( > %d). Можливо, файл ієрархії пошкоджено. Якщо це "
+"не так, виправити ситуацію можна збільшивши значення DD_MAXPATH у "
+"початковому коді.\n"
 
 #: wcd.c:1497 wcd.c:1557 wcd.c:1616
 #, c-format
@@ -160,8 +168,11 @@ msgstr "  -a                      додати поточний файл до ф
 
 #: wcd.c:2132
 #, c-format
-msgid "  -aa                     Add current and all parent paths to treefile\n"
-msgstr "  -aa                     додати поточний і усі батьківські шляхи до файла ієрархії\n"
+msgid ""
+"  -aa                     Add current and all parent paths to treefile\n"
+msgstr ""
+"  -aa                     додати поточний і усі батьківські шляхи до файла "
+"ієрархії\n"
 
 #: wcd.c:2133
 #, c-format
@@ -181,22 +192,31 @@ msgstr "  -c,  --direct-cd        безпосередній режим CD\n"
 #: wcd.c:2136
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
-msgstr "  -d ДИСК                 встановити ДИСК для файлів стосу і переходу (DOS)\n"
+msgstr ""
+"  -d ДИСК                 встановити ДИСК для файлів стосу і переходу (DOS)\n"
 
 #: wcd.c:2137
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
-msgstr "  -e                      додати поточний шлях до додаткового файла ієрархії\n"
+msgstr ""
+"  -e                      додати поточний шлях до додаткового файла "
+"ієрархії\n"
 
 #: wcd.c:2138
 #, c-format
-msgid "  -ee                     add current and all parent paths to Extra treefile\n"
-msgstr "  -ee                     додати поточний і усі батьківські шляхи до додаткового файла ієрархії\n"
+msgid ""
+"  -ee                     add current and all parent paths to Extra "
+"treefile\n"
+msgstr ""
+"  -ee                     додати поточний і усі батьківські шляхи до "
+"додаткового файла ієрархії\n"
 
 #: wcd.c:2139
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
-msgstr "  -E ШЛЯХ                 додати ієрархію зі шляху ШЛЯХ до додаткового файла ієрархії\n"
+msgstr ""
+"  -E ШЛЯХ                 додати ієрархію зі шляху ШЛЯХ до додаткового файла "
+"ієрархії\n"
 
 #: wcd.c:2140
 #, c-format
@@ -236,7 +256,8 @@ msgstr "  -h,  --help             показати цю довідкову ін�
 #: wcd.c:2149
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
-msgstr "  -i,  --ignore-case      не брати до уваги регістр символів (типово)\n"
+msgstr ""
+"  -i,  --ignore-case      не брати до уваги регістр символів (типово)\n"
 
 #: wcd.c:2150
 #, c-format
@@ -256,12 +277,14 @@ msgstr "  +i,  --no-ignore-case   брати до уваги регістр си
 #: wcd.c:2156
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
-msgstr "  -I,  --ignore-diacritics     не брати до уваги діакритичні позначки\n"
+msgstr ""
+"  -I,  --ignore-diacritics     не брати до уваги діакритичні позначки\n"
 
 #: wcd.c:2157
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
-msgstr "  +I,  --no-ignore-diacritics  брати до уваги діакритичні позначки (типово)\n"
+msgstr ""
+"  +I,  --no-ignore-diacritics  брати до уваги діакритичні позначки (типово)\n"
 
 #: wcd.c:2158
 #, c-format
@@ -286,27 +309,35 @@ msgstr "  -l ПСЕВДОНІМ             створити псевдонім 
 #: wcd.c:2162
 #, c-format
 msgid "  -L,  --license          show software License\n"
-msgstr "  -L,  --license          показати ліцензійну угоду щодо програмного забезпечення\n"
+msgstr ""
+"  -L,  --license          показати ліцензійну угоду щодо програмного "
+"забезпечення\n"
 
 #: wcd.c:2163
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
-msgstr "  -m КАТАЛОГ              створити каталог, додати його до файла ієрархії\n"
+msgstr ""
+"  -m КАТАЛОГ              створити каталог, додати його до файла ієрархії\n"
 
 #: wcd.c:2164
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
-msgstr "  -M КАТАЛОГ              створити каталог, додати його до додаткового файла ієрархії\n"
+msgstr ""
+"  -M КАТАЛОГ              створити каталог, додати його до додаткового файла "
+"ієрархії\n"
 
 #: wcd.c:2165
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
-msgstr "  -n ШЛЯХ                 використовувати відносний файл ієрархії у каталозі ШЛЯХ\n"
+msgstr ""
+"  -n ШЛЯХ                 використовувати відносний файл ієрархії у каталозі "
+"ШЛЯХ\n"
 
 #: wcd.c:2166
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
-msgstr "  +n ШЛЯХ                 додати відносний файл ієрархії у каталозі ШЛЯХ\n"
+msgstr ""
+"  +n ШЛЯХ                 додати відносний файл ієрархії у каталозі ШЛЯХ\n"
 
 #: wcd.c:2167
 #, c-format
@@ -326,7 +357,8 @@ msgstr "  -od, --to-stdout        показати дамп відповідни
 #: wcd.c:2170
 #, c-format
 msgid "  -q,  --quiet            Quieter operation\n"
-msgstr "  -q,  --quiet            обробка без виведення додаткових повідомлень\n"
+msgstr ""
+"  -q,  --quiet            обробка без виведення додаткових повідомлень\n"
 
 #: wcd.c:2171
 #, c-format
@@ -350,8 +382,11 @@ msgstr "  -S ШЛЯХ                 сканувати диск починаю
 
 #: wcd.c:2175
 #, c-format
-msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
-msgstr "  +S ШЛЯХ                 сканувати диск починаючи від каталогу ШЛЯХ, створити відносний файл ієрархії\n"
+msgid ""
+"  +S PATH                 Scan disk from PATH, create relative treefile\n"
+msgstr ""
+"  +S ШЛЯХ                 сканувати диск починаючи від каталогу ШЛЯХ, "
+"створити відносний файл ієрархії\n"
 
 #: wcd.c:2176
 #, c-format
@@ -361,7 +396,8 @@ msgstr "  -t                      не вилучати рядок /tmp_mnt зі
 #: wcd.c:2177
 #, c-format
 msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
-msgstr "  -T,  --ascii-tree       малювати ієрархію за допомогою символів ASCII\n"
+msgstr ""
+"  -T,  --ascii-tree       малювати ієрархію за допомогою символів ASCII\n"
 
 #: wcd.c:2178
 #, c-format
@@ -381,12 +417,15 @@ msgstr "  -Tc, --compact-tree     ущільнена ієрархія\n"
 #: wcd.c:2181
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
-msgstr "  -Td, --cjk-width        використати підтримку застарілих ієрогліфічних шрифтів\n"
+msgstr ""
+"  -Td, --cjk-width        використати підтримку застарілих ієрогліфічних "
+"шрифтів\n"
 
 #: wcd.c:2182
 #, c-format
 msgid "  -u USER                 use USER's treefile\n"
-msgstr "  -u КОРИСТУВАЧ           використати файл ієрархії вказаного користувача\n"
+msgstr ""
+"  -u КОРИСТУВАЧ           використати файл ієрархії вказаного користувача\n"
 
 #: wcd.c:2183
 #, c-format
@@ -411,7 +450,8 @@ msgstr "  -w,  --wild-match-only  лише неточна відповідніс
 #: wcd.c:2187
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
-msgstr "  -x ШЛЯХ                 виключити вказаний шлях під час сканування диска\n"
+msgstr ""
+"  -x ШЛЯХ                 виключити вказаний шлях під час сканування диска\n"
 
 #: wcd.c:2188
 #, c-format
@@ -630,7 +670,8 @@ msgstr "Без нормалізації Unicode.\n"
 #: wcd.c:2325
 #, c-format
 msgid "Download the latest executables and sources from:\n"
-msgstr "Найсвіжіші версії виконуваних файлів та початкового коду можна знайти тут:\n"
+msgstr ""
+"Найсвіжіші версії виконуваних файлів та початкового коду можна знайти тут:\n"
 
 #: wcd.c:2332
 #, c-format
@@ -638,7 +679,8 @@ msgid ""
 "Copyright (C) 1997-2014 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
-"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo "
+"Directory\n"
 "Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n"
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
@@ -646,7 +688,8 @@ msgstr ""
 "Copyright (C) 1997-2014 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp на C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie на _fixpath()\n"
-"Copyright (C) 1995-1996 Borja Etxebarria та Olivier Sirol на Ninux Czo Directory\n"
+"Copyright (C) 1995-1996 Borja Etxebarria та Olivier Sirol на Ninux Czo "
+"Directory\n"
 "Copyright (C) 1994-1996 Jason Mathews на DOSDIR\n"
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel та Igor Mandrichenko на recmatch()\n"
@@ -701,88 +744,93 @@ msgstr ""
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
 "along with this program; if not, write to the Free Software\n"
-"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 "
+"USA.\n"
 msgstr ""
 "Ви маєте отримати копію GNU General Public License разом з цією програмою;\n"
 "якщо це не так, повідомте про факт за адресою Free Software Foundation,\n"
 "Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n"
 
-#: wcd.c:2393
+#: wcd.c:2394
 #, c-format
 msgid "creating directory %s\n"
 msgstr "створюємо каталог %s\n"
 
-#: wcd.c:2720 wcd.c:2760 wcd.c:2775 wcd.c:2843 wcd.c:2912 wcd.c:3394
-#: wcd.c:3413
+#: wcd.c:2721 wcd.c:2761 wcd.c:2776 wcd.c:2844 wcd.c:2913 wcd.c:3395
+#: wcd.c:3414
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Значення змінної середовища %s є надто довгим.\n"
 
-#: wcd.c:2749
+#: wcd.c:2750
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Не вдалося скасувати визначення змінної середовища TERM: %s\n"
 
-#: wcd.c:2807 wcd.c:2836
+#: wcd.c:2808 wcd.c:2837
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Змінну середовища HOME або WCDHOME не визначено.\n"
 
-#: wcd.c:3021
+#: wcd.c:3022
 msgid "HOME is not defined\n"
 msgstr "HOME не визначено\n"
 
-#: wcd.c:3025
+#: wcd.c:3026
 msgid "WCDHOME is not defined\n"
 msgstr "WCDHOME не визначено\n"
 
-#: wcd.c:3029
+#: wcd.c:3030
 msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN не визначено\n"
 
-#: wcd.c:3054
+#: wcd.c:3055
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
-msgstr "Підтримку графічного режиму передбачено лише у wcd з інтерфейсом на основі curses.\n"
+msgstr ""
+"Підтримку графічного режиму передбачено лише у wcd з інтерфейсом на основі "
+"curses.\n"
 
-#: wcd.c:3327
+#: wcd.c:3328
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s додано до файла псевдонімів %s\n"
 
-#: wcd.c:3426
+#: wcd.c:3427
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Не вдалося прочитати файл %s або %s\n"
 
-#: wcd.c:3576
+#: wcd.c:3577
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "Каталог WCDSCAN {%s}\n"
 
-#: wcd.c:3578
+#: wcd.c:3579
 #, c-format
 msgid "banning {%s}\n"
 msgstr "блокуємо {%s}\n"
 
-#: wcd.c:3580
+#: wcd.c:3581
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "виключаємо {%s}\n"
 
-#: wcd.c:3582
+#: wcd.c:3583
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "фільтруємо {%s}\n"
 
-#: wcd.c:3850
+#: wcd.c:3851
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Каталогу, відповідного до %s, не знайдено\n"
 
-#: wcd.c:3851
+#: wcd.c:3852
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
-msgstr "Ймовірно, вам слід виконати повторне сканування диска або відповідний шлях заблоковано.\n"
+msgstr ""
+"Ймовірно, вам слід виконати повторне сканування диска або відповідний шлях "
+"заблоковано.\n"
 
-#: wcd.c:4018
+#: wcd.c:4019
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Не вдалося перейти до %s\n"
@@ -870,7 +918,8 @@ msgstr "Неточна відповідність %d каталогів."
 #: display.c:523 display.c:1156 display.c:1521 display.c:1564
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
-msgstr "Будь ласка, виберіть одну з команд (натисніть <Enter>, щоб перервати): "
+msgstr ""
+"Будь ласка, виберіть одну з команд (натисніть <Enter>, щоб перервати): "
 
 #: display.c:525 display.c:601 display.c:633 display.c:1149
 #, c-format
@@ -932,7 +981,9 @@ msgstr "Натисніть будь-яку клавішу."
 
 #: display.c:1250 graphics.c:2116
 msgid "Error opening terminal, falling back to stdout interface.\n"
-msgstr "Помилка під час спроби відкрити термінал, повертаємося до інтерфейсу stdout.\n"
+msgstr ""
+"Помилка під час спроби відкрити термінал, повертаємося до інтерфейсу "
+"stdout.\n"
 
 #: display.c:1271
 msgid "screen height must be larger than 3 lines.\n"
@@ -1029,7 +1080,8 @@ msgstr "РЕЖИМ НАВІГАЦІЇ (2/2):"
 
 #: graphics.c:1817
 msgid "A                 switch alternative tree navigation on/off"
-msgstr "A                 увімкнути або вимкнути альтернативну навігацію ієрархією"
+msgstr ""
+"A                 увімкнути або вимкнути альтернативну навігацію ієрархією"
 
 #: graphics.c:1818
 msgid "t                 switch centered mode on/off"
@@ -1037,11 +1089,15 @@ msgstr "t                 увімкнути або вимкнути центр�
 
 #: graphics.c:1819
 msgid "T                 toggle between line drawing and ASCII characters"
-msgstr "T                 перемкнутися між режимом малювання ліній та режимом символів ASCII"
+msgstr ""
+"T                 перемкнутися між режимом малювання ліній та режимом "
+"символів ASCII"
 
 #: graphics.c:1820
 msgid "m                 toggle between compact and wide tree"
-msgstr "m                 перемкнутися між ущільненим виглядом та широким виглядом ієрархії"
+msgstr ""
+"m                 перемкнутися між ущільненим виглядом та широким виглядом "
+"ієрархії"
 
 #: graphics.c:1821
 msgid "<Esc> or q        abort"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-10 22:10+0100\n"
+"POT-Creation-Date: 2014-04-22 21:07+0200\n"
 "PO-Revision-Date: 2014-04-18 13:43+0200\n"
 "Last-Translator: Jorma Karvonen <karvonen.jorma@gmail.com>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -70,9 +70,11 @@ msgstr "%s ei ole hakemisto.\n"
 #: wcd.c:1144
 #, c-format
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
-msgstr "Odota hetki, levyaseman tutkinta käynnissä. Treedata-tiedosto %s rakennetaan lähteestä %s\n"
+msgstr ""
+"Odota hetki, levyaseman tutkinta käynnissä. Treedata-tiedosto %s rakennetaan "
+"lähteestä %s\n"
 
-#: wcd.c:1205 wcd.c:2413 wcd.c:2436 wcd.c:2515
+#: wcd.c:1205 wcd.c:2414 wcd.c:2437 wcd.c:2516
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Kirjoitetaan tiedostoa ”%s”\n"
@@ -83,7 +85,9 @@ msgstr "Ei kirjoitusoikeutta tree-file-tiedostoon.\n"
 
 #: wcd.c:1211
 msgid "Set TEMP environment variable if this is a read-only disk.\n"
-msgstr "Aseta ympäristömuuttuja TEMP osoittamaan eri levyasemalle, jos tämä on kirjoitussuojattu levyasema.\n"
+msgstr ""
+"Aseta ympäristömuuttuja TEMP osoittamaan eri levyasemalle, jos tämä on "
+"kirjoitussuojattu levyasema.\n"
 
 #: wcd.c:1340
 #, c-format
@@ -112,8 +116,12 @@ msgstr "Hakemisto %s poistettu\n"
 
 #: wcd.c:1496 wcd.c:1556 wcd.c:1615
 #, c-format
-msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
-msgstr "rivi liian pitkä kohteessa %s ( > %d). Tiedosto treefile saattaa olla rikkinäinen, tai korjaa kasvattamalla DD_MAXPATH-kokoa lähdekoodissa.\n"
+msgid ""
+"line too long in %s ( > %d). The treefile could be corrupt, else fix by "
+"increasing DD_MAXPATH in source code.\n"
+msgstr ""
+"rivi liian pitkä kohteessa %s ( > %d). Tiedosto treefile saattaa olla "
+"rikkinäinen, tai korjaa kasvattamalla DD_MAXPATH-kokoa lähdekoodissa.\n"
 
 #: wcd.c:1497 wcd.c:1557 wcd.c:1616
 #, c-format
@@ -160,8 +168,11 @@ msgstr "  -a                      Lisää nykyinen polku tiedostoon treefile\n"
 
 #: wcd.c:2132
 #, c-format
-msgid "  -aa                     Add current and all parent paths to treefile\n"
-msgstr "  -aa                     Lisää nykyinen ja kaikki polut yläpuolelta tiedostoon treefile\n"
+msgid ""
+"  -aa                     Add current and all parent paths to treefile\n"
+msgstr ""
+"  -aa                     Lisää nykyinen ja kaikki polut yläpuolelta "
+"tiedostoon treefile\n"
 
 #: wcd.c:2133
 #, c-format
@@ -181,22 +192,31 @@ msgstr "  -c,  --direct-cd        suora CD-tila\n"
 #: wcd.c:2136
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
-msgstr "  -d ASEMA                Aseta ASEMA toimintojen stack & go -tiedostoille (DOS)\n"
+msgstr ""
+"  -d ASEMA                Aseta ASEMA toimintojen stack & go -tiedostoille "
+"(DOS)\n"
 
 #: wcd.c:2137
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
-msgstr "  -e                      lisää nykyinen polku tiedostoon Extra treefile\n"
+msgstr ""
+"  -e                      lisää nykyinen polku tiedostoon Extra treefile\n"
 
 #: wcd.c:2138
 #, c-format
-msgid "  -ee                     add current and all parent paths to Extra treefile\n"
-msgstr "  -ee                     lisää nykyinen ja kaikki polut yläpuolella tiedostoon Extra treefile\n"
+msgid ""
+"  -ee                     add current and all parent paths to Extra "
+"treefile\n"
+msgstr ""
+"  -ee                     lisää nykyinen ja kaikki polut yläpuolella "
+"tiedostoon Extra treefile\n"
 
 #: wcd.c:2139
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
-msgstr "  -E POLKU                lisää puuhierarkia kohteesta POLKU tiedostoon Extra treefile\n"
+msgstr ""
+"  -E POLKU                lisää puuhierarkia kohteesta POLKU tiedostoon "
+"Extra treefile\n"
 
 #: wcd.c:2140
 #, c-format
@@ -261,7 +281,8 @@ msgstr "  -I,  --ignore-diacritics     Ohita diakriittiset merkit\n"
 #: wcd.c:2157
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
-msgstr "  +I,  --no-ignore-diacritics  älä ohita diakriittisiä merkkejä (oletus)\n"
+msgstr ""
+"  +I,  --no-ignore-diacritics  älä ohita diakriittisiä merkkejä (oletus)\n"
 
 #: wcd.c:2158
 #, c-format
@@ -296,12 +317,14 @@ msgstr "  -m HAKEMISTO            Tee HAKEMISTO, lisää tiedostoon treefile\n"
 #: wcd.c:2164
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
-msgstr "  -M HAKEMISTO            Tee HAKEMISTO, lisää tiedostoon extra treefile\n"
+msgstr ""
+"  -M HAKEMISTO            Tee HAKEMISTO, lisää tiedostoon extra treefile\n"
 
 #: wcd.c:2165
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
-msgstr "  -n POLKU                käytä suhteellista treefile-osoitetta POLUSSA\n"
+msgstr ""
+"  -n POLKU                käytä suhteellista treefile-osoitetta POLUSSA\n"
 
 #: wcd.c:2166
 #, c-format
@@ -350,8 +373,11 @@ msgstr "  -S POLKU                Tutki levyasema kohteesta POLKU alaspäin\n"
 
 #: wcd.c:2175
 #, c-format
-msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
-msgstr "  +S POLKU                Tutki levyasema kohteesta POLKU alaspäin, mutta käyttäen suhteellisia osoitteita (treefile)\n"
+msgid ""
+"  +S PATH                 Scan disk from PATH, create relative treefile\n"
+msgstr ""
+"  +S POLKU                Tutki levyasema kohteesta POLKU alaspäin, mutta "
+"käyttäen suhteellisia osoitteita (treefile)\n"
 
 #: wcd.c:2176
 #, c-format
@@ -381,7 +407,8 @@ msgstr "  -Tc, --compact-tree     Suppea esitystapa\n"
 #: wcd.c:2181
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
-msgstr "  -Td, --cjk-width        aktivoi tuki perinteisille CJK-kirjasimille\n"
+msgstr ""
+"  -Td, --cjk-width        aktivoi tuki perinteisille CJK-kirjasimille\n"
 
 #: wcd.c:2182
 #, c-format
@@ -406,7 +433,8 @@ msgstr "  -V,  --version          näytä ohjelman versio\n"
 #: wcd.c:2186
 #, c-format
 msgid "  -w,  --wild-match-only  Wild matching only\n"
-msgstr "  -w,  --wild-match-only  Jokerimerkkihaku, etsi annetun säännön mukaan\n"
+msgstr ""
+"  -w,  --wild-match-only  Jokerimerkkihaku, etsi annetun säännön mukaan\n"
 
 #: wcd.c:2187
 #, c-format
@@ -421,7 +449,8 @@ msgstr "  -xf TIEDOSTO            ohita polut, jotka on mainittu TIEDOSTOssa\n"
 #: wcd.c:2189
 #, c-format
 msgid "  -y,  --assume-yes       assume Yes on all queries\n"
-msgstr "  -y,  --assume-yes       käytä oletusarvoa KYLLÄ kaikkiin kysymyksiin\n"
+msgstr ""
+"  -y,  --assume-yes       käytä oletusarvoa KYLLÄ kaikkiin kysymyksiin\n"
 
 #: wcd.c:2190
 #, c-format
@@ -446,7 +475,8 @@ msgstr "  =                       näytä pino\n"
 #: wcd.c:2202 wcd.c:2331
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
-msgstr "wcd %s (%s) - Wherever Change Directory, siirry mihin tahansa hakemistoon\n"
+msgstr ""
+"wcd %s (%s) - Wherever Change Directory, siirry mihin tahansa hakemistoon\n"
 
 #: wcd.c:2203
 #, c-format
@@ -638,7 +668,8 @@ msgid ""
 "Copyright (C) 1997-2014 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
-"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo "
+"Directory\n"
 "Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n"
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
@@ -646,7 +677,8 @@ msgstr ""
 "Copyright © 1997-2014 Erwin Waterlander\n"
 "Copyright © 1994-2002 Ondrej Popp kohteessa C3PO\n"
 "Copyright © 1995-1996 DJ Delorie kohteessa _fixpath()\n"
-"Copyright © 1995-1996 Borja Etxebarria & Olivier Sirol kohteessa Ninux Czo Directory\n"
+"Copyright © 1995-1996 Borja Etxebarria & Olivier Sirol kohteessa Ninux Czo "
+"Directory\n"
 "Copyright © 1994-1996 Jason Mathews kohteessa DOSDIR\n"
 "Copyright © 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel ja Igor Mandrichenko kohteessa recmatch()\n"
@@ -702,88 +734,95 @@ msgstr ""
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
 "along with this program; if not, write to the Free Software\n"
-"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 "
+"USA.\n"
 msgstr ""
 "Sinun pitäisi saada kopion GNU General Public License-lisenssistä\n"
-"tämän ohjelman mukana; jos näin ei ole, kirjoita osoittteeseen Free Software\n"
-"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n"
+"tämän ohjelman mukana; jos näin ei ole, kirjoita osoittteeseen Free "
+"Software\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, "
+"USA.\n"
 
-#: wcd.c:2393
+#: wcd.c:2394
 #, c-format
 msgid "creating directory %s\n"
 msgstr "luodaan hakemisto %s\n"
 
-#: wcd.c:2720 wcd.c:2760 wcd.c:2775 wcd.c:2843 wcd.c:2912 wcd.c:3394
-#: wcd.c:3413
+#: wcd.c:2721 wcd.c:2761 wcd.c:2776 wcd.c:2844 wcd.c:2913 wcd.c:3395
+#: wcd.c:3414
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Ympäristömuuttujan %s arvo on liian pitkä.\n"
 
-#: wcd.c:2749
+#: wcd.c:2750
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Ympäristömuuttujan TERM poistaminen epäonnistui: %s\n"
 
-#: wcd.c:2807 wcd.c:2836
+#: wcd.c:2808 wcd.c:2837
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Ympäristömuuttujaa HOME tai WCDHOME is ole asetettu.\n"
 
-#: wcd.c:3021
+#: wcd.c:3022
 msgid "HOME is not defined\n"
 msgstr "HOME-ympäristömuuttujaa ei ole asetettu\n"
 
-#: wcd.c:3025
+#: wcd.c:3026
 msgid "WCDHOME is not defined\n"
 msgstr "WCDHOME-ympäristömuuttujaa ei ole asetettu\n"
 
-#: wcd.c:3029
+#: wcd.c:3030
 msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN-ympäristömuuttujaa ei ole asetettu\n"
 
-#: wcd.c:3054
+#: wcd.c:3055
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
-msgstr "Graafinen tila tuettu ainoastaan ohjelman curses-perustaisessa käyttöliitymässä.\n"
+msgstr ""
+"Graafinen tila tuettu ainoastaan ohjelman curses-perustaisessa "
+"käyttöliitymässä.\n"
 
-#: wcd.c:3327
+#: wcd.c:3328
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s lisätty alias-tiedostoon %s\n"
 
-#: wcd.c:3426
+#: wcd.c:3427
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Tiedoston %s tai %s lukeminen epäonnistui\n"
 
-#: wcd.c:3576
+#: wcd.c:3577
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "WCDSCAN-hakemisto {%s}\n"
 
-#: wcd.c:3578
+#: wcd.c:3579
 #, c-format
 msgid "banning {%s}\n"
 msgstr "asetetaan {%s} mustalle listalle\n"
 
-#: wcd.c:3580
+#: wcd.c:3581
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "ohitetaan {%s}\n"
 
-#: wcd.c:3582
+#: wcd.c:3583
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "suodatetaan {%s}\n"
 
-#: wcd.c:3850
+#: wcd.c:3851
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Ei löytynyt %s-täsmäävää hakemistoa\n"
 
-#: wcd.c:3851
+#: wcd.c:3852
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
-msgstr "Levyasema on ehkä tutkittava uudelleen tai hakemistopolku on mustalla listalla\n"
+msgstr ""
+"Levyasema on ehkä tutkittava uudelleen tai hakemistopolku on mustalla "
+"listalla\n"
 
-#: wcd.c:4018
+#: wcd.c:4019
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Ei voi vaihtaa hakemistoon %s\n"
@@ -1174,7 +1213,8 @@ msgstr "l tai <Right>       näkymä: avaa ja siirry oikealle"
 
 #: graphics.c:1869
 msgid "Screenheight must be > 21 for help."
-msgstr "Opasteikkunan avaaminen ei onnistu. Ikkunan korkeuden on oltava > 21 riviä."
+msgstr ""
+"Opasteikkunan avaaminen ei onnistu. Ikkunan korkeuden on oltava > 21 riviä."
 
 #: wfixpath.c:65
 msgid "malloc error in wcd_fixpath()\n"

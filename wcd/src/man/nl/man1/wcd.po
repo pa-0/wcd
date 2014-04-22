@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man\n"
-"POT-Creation-Date: 2014-04-03 21:09+0300\n"
+"POT-Creation-Date: 2014-04-22 20:57+0300\n"
 "PO-Revision-Date: 2014-04-03 20:53+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -788,13 +788,25 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:310
+#, fuzzy
+#| msgid ""
+#| "The default tree layout is similar to the tree layout of the original NCD "
+#| "on DOS. The difference in layout is that in NCD all directories of a same "
+#| "depth level were vertically aligned over the whole tree. This was "
+#| "possible in NCD, because the maximum width of a directory name in DOS was "
+#| "12 (8.3) characters. On modern operating systems directory names can be "
+#| "very long, so also the differences in length can be large.  Therefore "
+#| "folders with a same depth are not vertically aligned over the whole tree "
+#| "in wcd, but only in sub-branches.  So there is some sideways movement "
+#| "when moving straight up and down from one sub-branch to another sub-"
+#| "branch."
 msgid ""
 "The default tree layout is similar to the tree layout of the original NCD on "
 "DOS. The difference in layout is that in NCD all directories of a same depth "
 "level were vertically aligned over the whole tree. This was possible in NCD, "
 "because the maximum width of a directory name in DOS was 12 (8.3) "
 "characters. On modern operating systems directory names can be very long, so "
-"also the differences in length can be large.  Therefore folders with a same "
+"also the differences in length can be large. Therefore folders with a same "
 "depth are not vertically aligned over the whole tree in wcd, but only in sub-"
 "branches.  So there is some sideways movement when moving straight up and "
 "down from one sub-branch to another sub-branch."
@@ -909,9 +921,16 @@ msgstr "B<-I, --ignore-diacritics>"
 
 #. type: textblock
 #: wcd.pod:357
+#, fuzzy
+#| msgid ""
+#| "Ignore diacritics for Latin-based scripts.  Letters with diacritical "
+#| "marks match their base letter without diacritical mark.  The following "
+#| "Latin encodings are supported: CP437, CP850, CP852, CP1250, CP1252, "
+#| "ISO-8859-1, ISO-8859-2, and Unicode Latin-1, Latin Extended-A, and Latin "
+#| "Extended-B.  See also L<http://en.wikipedia.org/wiki/Diacritic>"
 msgid ""
 "Ignore diacritics for Latin-based scripts.  Letters with diacritical marks "
-"match their base letter without diacritical mark.  The following Latin "
+"match their base letter without diacritical mark. The following Latin "
 "encodings are supported: CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, "
 "ISO-8859-2, and Unicode Latin-1, Latin Extended-A, and Latin Extended-B.  "
 "See also L<http://en.wikipedia.org/wiki/Diacritic>"
@@ -930,7 +949,9 @@ msgstr "B<+I, --no-ignore-diacritics>"
 
 #. type: textblock
 #: wcd.pod:366
-msgid "Regard diacritics (default).  See also option B<-I>."
+#, fuzzy
+#| msgid "Regard diacritics (default).  See also option B<-I>."
+msgid "Regard diacritics (default). See also option B<-I>."
 msgstr "Gevoelig voor diakritische tekens (standaard). Zie ook optie B<-I>."
 
 #. type: =item
@@ -1502,12 +1523,20 @@ msgstr "B<-Tc, --compact-tree>"
 
 #. type: textblock
 #: wcd.pod:571
+#, fuzzy
+#| msgid ""
+#| "By default the 'graphical' tree is drawn the same way as the original NCD "
+#| "on DOS did it. On DOS a directory path could only be 66 characters in "
+#| "total. With the deep directory structures of today the tree can become "
+#| "very wide. To overcome this wcd can draw the tree in a compact way, "
+#| "similar to most GUI file managers, with only one folder per line.  Use "
+#| "option -Tc or switch on-the-fly with the 'm' key."
 msgid ""
 "By default the 'graphical' tree is drawn the same way as the original NCD on "
 "DOS did it. On DOS a directory path could only be 66 characters in total. "
 "With the deep directory structures of today the tree can become very wide. "
 "To overcome this wcd can draw the tree in a compact way, similar to most GUI "
-"file managers, with only one folder per line.  Use option -Tc or switch on-"
+"file managers, with only one folder per line. Use option -Tc or switch on-"
 "the-fly with the 'm' key."
 msgstr ""
 "Standaard wordt de 'grafische' boom getekend op dezelfde manier zoals de "
@@ -1524,11 +1553,19 @@ msgstr "B<-Td, --cjk-width>"
 
 #. type: textblock
 #: wcd.pod:580
+#, fuzzy
+#| msgid ""
+#| "Legacy East-Asian CJK (Chinese, Japanese, and Korean) fonts have certain "
+#| "characters and line drawing symbols with a column width of 2, while the "
+#| "normal Unicode width for these characters is 1 column.  For instance the "
+#| "Chinese CP936 raster font on Windows and the Simsun font.  Use this "
+#| "option for a correct outlining of the graphical tree when a legacy CJK "
+#| "font is used."
 msgid ""
 "Legacy East-Asian CJK (Chinese, Japanese, and Korean) fonts have certain "
 "characters and line drawing symbols with a column width of 2, while the "
-"normal Unicode width for these characters is 1 column.  For instance the "
-"Chinese CP936 raster font on Windows and the Simsun font.  Use this option "
+"normal Unicode width for these characters is 1 column. For instance the "
+"Chinese CP936 raster font on Windows and the Simsun font. Use this option "
 "for a correct outlining of the graphical tree when a legacy CJK font is used."
 msgstr ""
 "Oude Oost-Aziatische CJK (Chinees, Japans, en Koreaans) fonts hebben "
@@ -2105,12 +2142,16 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:789
+#, fuzzy
+#| msgid ""
+#| "Replace <PATH> with the location where the wcd executable has been "
+#| "installed. Reload the shell initialization files or start new shell."
 msgid ""
-"Replace <PATH> with the location where wcd executable have been installed.  "
-"Reload the shell initialization files or start new shell."
+"Replace <PATH> with the location where the wcd executable has been "
+"installed.  Reload the shell initialization files or start new shell."
 msgstr ""
-"Vervang <PAD> met de locatie waar het wcd uitvoerbare bestand geïnstalleerd "
-"is. Herlaad de shell initialisatiebestanden of start een nieuwe shell."
+"Vervang <PAD> door de locatie waar het uitvoerbare wcd bestand geïnstalleerd "
+"is. Laad de shell initialisatiebestanden opnieuw of start een nieuwe shell."
 
 #. type: =head2
 #: wcd.pod:793
@@ -2127,9 +2168,15 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:798
+#, fuzzy
+#| msgid ""
+#| "In Windows Command Prompt a Windows program cannot change the current "
+#| "work directory, but a .bat file can.  The batch scrip \"wcd.bat\" runs "
+#| "the wcd program which generates a new batch script \"wcdgo.bat\". Then "
+#| "wcd.bat runs wcdgo.bat which actually changes the directory."
 msgid ""
 "In Windows Command Prompt a Windows program cannot change the current work "
-"directory, but a .bat file can.  The batch scrip \"wcd.bat\" runs the wcd "
+"directory, but a .bat file can. The batch scrip \"wcd.bat\" runs the wcd "
 "program which generates a new batch script \"wcdgo.bat\". Then wcd.bat runs "
 "wcdgo.bat which actually changes the directory."
 msgstr ""
@@ -2193,10 +2240,15 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:822
+#, fuzzy
+#| msgid ""
+#| "Replace <PATH> with the location where wcd executable have been "
+#| "installed.  Start a new PowerShell. Wcd for PowerShell supports only the "
+#| "file system provider. No other providers."
 msgid ""
-"Replace <PATH> with the location where wcd executable have been installed.  "
-"Start a new PowerShell. Wcd for PowerShell supports only the file system "
-"provider. No other providers."
+"Replace <PATH> with the location where the wcd executable has been "
+"installed.  Start a new PowerShell. Wcd for PowerShell supports only the "
+"file system provider. No other providers."
 msgstr ""
 "Vervang <PAD> met de locatie waar het uitvoerbare wcd bestand geïnstalleerd "
 "is. Start een nieuwe PowerShell. Wcd voor PowerShell ondersteund alleen de "
@@ -2209,12 +2261,19 @@ msgstr "OS/2 Opdrachtprompt versie"
 
 #. type: textblock
 #: wcd.pod:828
+#, fuzzy
+#| msgid ""
+#| "In an OS/2 Command Prompt (cmd.exe) an OS/2-program can't change the "
+#| "current work directory. That is why wcd generates a command script (wcdgo."
+#| "cmd)  which must be executed in the current shell. The script C<wcd.cmd> "
+#| "first executes C<wcdos2.exe>, which creates the C<wcdgo.cmd> script.  "
+#| "Then C<wcd.cmd> executes the wcdgo.cmd script."
 msgid ""
 "In an OS/2 Command Prompt (cmd.exe) an OS/2-program can't change the current "
-"work directory. That is why wcd generates a command script (wcdgo.cmd)  "
-"which must be executed in the current shell. The script C<wcd.cmd> first "
-"executes C<wcdos2.exe>, which creates the C<wcdgo.cmd> script.  Then C<wcd."
-"cmd> executes the wcdgo.cmd script."
+"work directory. That is why wcd generates a command script (wcdgo.cmd) which "
+"must be executed in the current shell. The script C<wcd.cmd> first executes "
+"C<wcdos2.exe>, which creates the C<wcdgo.cmd> script. Then C<wcd.cmd> "
+"executes the wcdgo.cmd script."
 msgstr ""
 "In een OS/2 Opdrachtprompt (cmd.exe) kan een OS/2 programma niet de huidige "
 "werkmap veranderen. Dat is waarom wcd een opdracht-script genereert (wcdgo."
@@ -2493,9 +2552,17 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:940
+#, fuzzy
+#| msgid ""
+#| "The Windows version of wcd is a native Windows program and will use the "
+#| "Windows system ANSI code page.  So on a Western regional Windows it will "
+#| "use code page CP1252 for directory names and messages. In order to get "
+#| "consistent output, independent of the active code page, all Windows "
+#| "versions of Wcd translate ANSI output to Unicode output in the Command "
+#| "Prompt and PowerShell."
 msgid ""
 "The Windows version of wcd is a native Windows program and will use the "
-"Windows system ANSI code page.  So on a Western regional Windows it will use "
+"Windows system ANSI code page. So on a Western regional Windows it will use "
 "code page CP1252 for directory names and messages. In order to get "
 "consistent output, independent of the active code page, all Windows versions "
 "of Wcd translate ANSI output to Unicode output in the Command Prompt and "
@@ -3037,9 +3104,14 @@ msgstr "B<HOME>"
 
 #. type: textblock
 #: wcd.pod:1145
+#, fuzzy
+#| msgid ""
+#| "Wcd uses by default environment variable I<HOME> to determine where to "
+#| "store its files. See also section FILES.  This can be overruled with "
+#| "environment variable I<WCDHOME>."
 msgid ""
 "Wcd uses by default environment variable I<HOME> to determine where to store "
-"its files. See also section FILES.  This can be overruled with environment "
+"its files. See also section FILES. This can be overruled with environment "
 "variable I<WCDHOME>."
 msgstr ""
 "Wcd gebruikt standaard omgevingsvariabele I<HOME> om te bepalen waar z'n "
@@ -3356,11 +3428,18 @@ msgstr "B<WCDUSERSHOME>"
 
 #. type: textblock
 #: wcd.pod:1260
+#, fuzzy
+#| msgid ""
+#| "Set the base of user's home directories.  On DOS/Windows the default "
+#| "value is C<\\\\users>.  On Unix/Cygwin the default value is C</home>.  "
+#| "This variable is used to scan treedata files of other users. See also "
+#| "options B<-u> an B<+u>. In verbose mode wcd will print all filters, bans "
+#| "and excludes. See option B<-v>."
 msgid ""
 "Set the base of user's home directories.  On DOS/Windows the default value "
 "is C<\\\\users>.  On Unix/Cygwin the default value is C</home>.  This "
 "variable is used to scan treedata files of other users. See also options B<-"
-"u> an B<+u>. In verbose mode wcd will print all filters, bans and excludes. "
+"u> and B<+u>. In verbose mode wcd will print all filters, bans and excludes. "
 "See option B<-v>."
 msgstr ""
 "Stel de basis in de de thuismappen van de gebruikers. Op DOS/Windows is de "
@@ -3587,3 +3666,15 @@ msgstr ""
 "NCD was oorspronkelijk geschreven door Brad Kingsbury voor Peter Norton's "
 "\"Norton Utilities\" omstreeks 1987. Zie ook L<http://www.softpanorama.org/"
 "OFM/norton_change_directory_clones.shtml>"
+
+#, fuzzy
+#~| msgid ""
+#~| "Replace <PATH> with the location where wcd executable have been "
+#~| "installed.  Reload the shell initialization files or start new shell."
+#~ msgid ""
+#~ "Replace <PATH> with the location where wcd executable has been "
+#~ "installed.  Reload the shell initialization files or start new shell."
+#~ msgstr ""
+#~ "Vervang <PAD> met de locatie waar het wcd uitvoerbare bestand "
+#~ "geïnstalleerd is. Herlaad de shell initialisatiebestanden of start een "
+#~ "nieuwe shell."

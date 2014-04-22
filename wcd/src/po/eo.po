@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-10 22:10+0100\n"
+"POT-Creation-Date: 2014-04-22 21:07+0200\n"
 "PO-Revision-Date: 2014-02-12 15:01+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -70,9 +70,10 @@ msgstr "%s ne estas dosierujo.\n"
 #: wcd.c:1144
 #, c-format
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
-msgstr "Bonvolu atendi, skaniĝas disko... Konstruiĝas arbodosiero %s el %s...\n"
+msgstr ""
+"Bonvolu atendi, skaniĝas disko... Konstruiĝas arbodosiero %s el %s...\n"
 
-#: wcd.c:1205 wcd.c:2413 wcd.c:2436 wcd.c:2515
+#: wcd.c:1205 wcd.c:2414 wcd.c:2437 wcd.c:2516
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Skribiĝas dosiero '%s'\n"
@@ -112,7 +113,9 @@ msgstr "Forigiĝis dosierujo %s\n"
 
 #: wcd.c:1496 wcd.c:1556 wcd.c:1615
 #, c-format
-msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
+msgid ""
+"line too long in %s ( > %d). The treefile could be corrupt, else fix by "
+"increasing DD_MAXPATH in source code.\n"
 msgstr ""
 "Linio en %s tro longas (> %d).  Eble la arbodosiero difektiĝis,\n"
 "aŭ alie evitu ĉi tiun per pligrandigi DD_MAXPATH en la programo.\n"
@@ -162,8 +165,10 @@ msgstr "  -a                      aldoni nunan padon al arbodosiero\n"
 
 #: wcd.c:2132
 #, c-format
-msgid "  -aa                     Add current and all parent paths to treefile\n"
-msgstr "  -aa                     aldoni nunan kaj suprajn padojn al arbodosiero\n"
+msgid ""
+"  -aa                     Add current and all parent paths to treefile\n"
+msgstr ""
+"  -aa                     aldoni nunan kaj suprajn padojn al arbodosiero\n"
 
 #: wcd.c:2133
 #, c-format
@@ -183,7 +188,8 @@ msgstr "  -c,  --direct-cd        rekta CD-moduso\n"
 #: wcd.c:2136
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
-msgstr "  -d DISKO                uzenda disko por stakaj kaj 'go'-dosieroj (DOS)\n"
+msgstr ""
+"  -d DISKO                uzenda disko por stakaj kaj 'go'-dosieroj (DOS)\n"
 
 #: wcd.c:2137
 #, c-format
@@ -192,13 +198,18 @@ msgstr "  -e                      aldoni nunan padon al aldona arbodosiero\n"
 
 #: wcd.c:2138
 #, c-format
-msgid "  -ee                     add current and all parent paths to Extra treefile\n"
-msgstr "  -ee                     aldoni nunan kaj suprajn padojn al aldona arbodosiero\n"
+msgid ""
+"  -ee                     add current and all parent paths to Extra "
+"treefile\n"
+msgstr ""
+"  -ee                     aldoni nunan kaj suprajn padojn al aldona "
+"arbodosiero\n"
 
 #: wcd.c:2139
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
-msgstr "  -E PADO                 aldoni arbon de ĉi tiu pado al aldona arbodosiero\n"
+msgstr ""
+"  -E PADO                 aldoni arbon de ĉi tiu pado al aldona arbodosiero\n"
 
 #: wcd.c:2140
 #, c-format
@@ -293,12 +304,16 @@ msgstr "  -L,  --license          montri la permesilon de la programo\n"
 #: wcd.c:2163
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
-msgstr "  -m UJO                  krei ĉi tiun dosierujon kaj aldoni ĝin al arbodosiero\n"
+msgstr ""
+"  -m UJO                  krei ĉi tiun dosierujon kaj aldoni ĝin al "
+"arbodosiero\n"
 
 #: wcd.c:2164
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
-msgstr "  -M UJO                  krei dosierujon kaj aldoni ĝin al aldona arbodosiero\n"
+msgstr ""
+"  -M UJO                  krei dosierujon kaj aldoni ĝin al aldona "
+"arbodosiero\n"
 
 #: wcd.c:2165
 #, c-format
@@ -308,7 +323,8 @@ msgstr "  -n PADO                 uzi relativan arbodosieron en ĉi tiu pado\n"
 #: wcd.c:2166
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
-msgstr "  +n PADO                 aldoni relativan arbodosieron en ĉi tiu pado\n"
+msgstr ""
+"  +n PADO                 aldoni relativan arbodosieron en ĉi tiu pado\n"
 
 #: wcd.c:2167
 #, c-format
@@ -352,8 +368,11 @@ msgstr "  -S PADO                 skani diskon ekde ĉi tiu pado\n"
 
 #: wcd.c:2175
 #, c-format
-msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
-msgstr "  +S PADO                 skani diskon ekde pado, krei relativan arbodosieron\n"
+msgid ""
+"  +S PATH                 Scan disk from PATH, create relative treefile\n"
+msgstr ""
+"  +S PADO                 skani diskon ekde pado, krei relativan "
+"arbodosieron\n"
 
 #: wcd.c:2176
 #, c-format
@@ -418,7 +437,8 @@ msgstr "  -x PADO                 ekskludenda pado dum skanado de disko\n"
 #: wcd.c:2188
 #, c-format
 msgid "  -xf FILE                eXclude paths from FILE\n"
-msgstr "  -xf DOSIERO             ekskludi la padojn listigitaj en ĉi tiu dosiero\n"
+msgstr ""
+"  -xf DOSIERO             ekskludi la padojn listigitaj en ĉi tiu dosiero\n"
 
 # FIXME:  s/query/question/
 #: wcd.c:2189
@@ -434,7 +454,8 @@ msgstr "  -z NOMBRO               agordi maksimuman grandon de stako\n"
 #: wcd.c:2191
 #, c-format
 msgid "  -[NUMBER]               push dir (NUMBER times)\n"
-msgstr "  -[NOMBRO]               surstakigi nunan dosierujon (NOMBRO fojojn)\n"
+msgstr ""
+"  -[NOMBRO]               surstakigi nunan dosierujon (NOMBRO fojojn)\n"
 
 #: wcd.c:2192
 #, c-format
@@ -641,7 +662,8 @@ msgid ""
 "Copyright (C) 1997-2014 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
-"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo "
+"Directory\n"
 "Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n"
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
@@ -649,7 +671,8 @@ msgstr ""
 "Copyright (C) 1997-2014 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp  [je C3PO]\n"
 "Copyright (C) 1995-1996 DJ Delorie  [je_fixpath()]\n"
-"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol  [je Ninux Czo Directory]\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol  [je Ninux Czo "
+"Directory]\n"
 "Copyright (C) 1994-1996 Jason Mathews  [je DOSDIR]\n"
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel kaj Igor Mandrichenko  [je recmatch()]\n"
@@ -663,7 +686,8 @@ msgid ""
 "Rugxulo is the original author of query_con_codepage() (public domain).\n"
 "\n"
 msgstr ""
-"Programparto por skani Windows LAN origine skribiĝis kaj ĉiesaĵiĝis per Felix Kasza.\n"
+"Programparto por skani Windows LAN origine skribiĝis kaj ĉiesaĵiĝis per "
+"Felix Kasza.\n"
 "Uziĝas la liberaj realigoj de 'wcwidth()' kaj 'wcswidth()' de Markus Kuhn.\n"
 "La origina aŭtoro de la ĉiesaĵa 'query_con_codepage()' estas Rugxulo.\n"
 "\n"
@@ -702,87 +726,88 @@ msgstr ""
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
 "along with this program; if not, write to the Free Software\n"
-"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 "
+"USA.\n"
 msgstr ""
 "Vi devus esti ricevinte kopion de la GNU-a Ĝenerala Publika Liberpermeso\n"
 "kune kun tiu ĉi programo; se ne, vidu <http://www.gnu.org/licenses/>.\n"
 
-#: wcd.c:2393
+#: wcd.c:2394
 #, c-format
 msgid "creating directory %s\n"
 msgstr "kreiĝas dosierujo %s\n"
 
-#: wcd.c:2720 wcd.c:2760 wcd.c:2775 wcd.c:2843 wcd.c:2912 wcd.c:3394
-#: wcd.c:3413
+#: wcd.c:2721 wcd.c:2761 wcd.c:2776 wcd.c:2844 wcd.c:2913 wcd.c:3395
+#: wcd.c:3414
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Valoro de ĉirkaŭaĵa variablo %s tro longas.\n"
 
-#: wcd.c:2749
+#: wcd.c:2750
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Malsukcesis agordi ĉirkaŭaĵan variablon TERM: %s\n"
 
-#: wcd.c:2807 wcd.c:2836
+#: wcd.c:2808 wcd.c:2837
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Cirkaŭaĵaj variabloj HOME kaj WCDHOME ne agordiĝis.\n"
 
-#: wcd.c:3021
+#: wcd.c:3022
 msgid "HOME is not defined\n"
 msgstr "HOME ne havas valoron\n"
 
-#: wcd.c:3025
+#: wcd.c:3026
 msgid "WCDHOME is not defined\n"
 msgstr "WCDHOME ne havas valoron\n"
 
-#: wcd.c:3029
+#: wcd.c:3030
 msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN ne havas valoron\n"
 
-#: wcd.c:3054
+#: wcd.c:3055
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Grafika moduso nur subtenatas en interfaco kiu baziĝas sur 'curses'.\n"
 
-#: wcd.c:3327
+#: wcd.c:3328
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "Aldoniĝis alinomo %s al dosiero %s\n"
 
-#: wcd.c:3426
+#: wcd.c:3427
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Ne eblas legi dosieron %s aŭ %s\n"
 
-#: wcd.c:3576
+#: wcd.c:3577
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "WCDSCAN-dosierujo {%s}\n"
 
-#: wcd.c:3578
+#: wcd.c:3579
 #, c-format
 msgid "banning {%s}\n"
 msgstr "esceptiĝas {%s}\n"
 
-#: wcd.c:3580
+#: wcd.c:3581
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "ekskludiĝas {%s}\n"
 
-#: wcd.c:3582
+#: wcd.c:3583
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "filtriĝas {%s}\n"
 
-#: wcd.c:3850
+#: wcd.c:3851
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Ne troviĝas dosierujo kiu kongruas kun %s\n"
 
-#: wcd.c:3851
+#: wcd.c:3852
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Eble necesas reskani la diskon, aŭ la pado esceptiĝis.\n"
 
-#: wcd.c:4018
+#: wcd.c:4019
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Ne eblas ŝanĝi al %s\n"
@@ -932,7 +957,8 @@ msgstr "Premu iu ajn klavon."
 
 #: display.c:1250 graphics.c:2116
 msgid "Error opening terminal, falling back to stdout interface.\n"
-msgstr "Eraro dum malfermo de terminalo; anstataŭe uziĝas ĉefeliguja interfaco.\n"
+msgstr ""
+"Eraro dum malfermo de terminalo; anstataŭe uziĝas ĉefeliguja interfaco.\n"
 
 #: display.c:1271
 msgid "screen height must be larger than 3 lines.\n"

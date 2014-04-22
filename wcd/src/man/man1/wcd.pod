@@ -312,7 +312,7 @@ DOS. The difference in layout is that in NCD all directories of a same depth
 level were vertically aligned over the whole tree. This was possible in NCD,
 because the maximum width of a directory name in DOS was 12 (8.3) characters. On
 modern operating systems directory names can be very long, so also the
-differences in length can be large.  Therefore folders with a same depth are
+differences in length can be large. Therefore folders with a same depth are
 not vertically aligned over the whole tree in wcd, but only in sub-branches.
 So there is some sideways movement when moving straight up and down from one
 sub-branch to another sub-branch.
@@ -348,7 +348,7 @@ Ignore case.
 Dos and Windows versions of wcd ignore case default. Unix/Cygwin
 versions regard case by default.
 
-=item  B<+i, --no-ignore-case>
+=item B<+i, --no-ignore-case>
 
 Regard case. See also option B<-i>.
 
@@ -356,14 +356,14 @@ Regard case. See also option B<-i>.
 
 Ignore diacritics for Latin-based scripts.
 Letters with diacritical marks match their base letter without diacritical
-mark.  The following Latin encodings are supported:
+mark. The following Latin encodings are supported:
 CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, ISO-8859-2, and Unicode
 Latin-1, Latin Extended-A, and Latin Extended-B.
 See also L<http://en.wikipedia.org/wiki/Diacritic>
 
-=item  B<+I, --no-ignore-diacritics>
+=item B<+I, --no-ignore-diacritics>
 
-Regard diacritics (default).  See also option B<-I>.
+Regard diacritics (default). See also option B<-I>.
 
 =item B<-j, --just-go>
 
@@ -413,7 +413,7 @@ wcd can't change to them. With this option this behaviour is turned off.
 
 Use colors in graphical mode.
 
-=item  B<-l ALIAS>
+=item B<-l ALIAS>
 
 Name the current path with ALIAS. Wcd places the current path with alias
 ALIAS in the alias file. Aliases are case sensitive.
@@ -422,7 +422,7 @@ ALIAS in the alias file. Aliases are case sensitive.
 
 Make directory and add to treedata file.
 
-=item  B<-L, --license>
+=item B<-L, --license>
 
 Print the distribution license.
 
@@ -572,16 +572,16 @@ By default the 'graphical' tree is drawn the same way as the original NCD on
 DOS did it. On DOS a directory path could only be 66 characters in total. With
 the deep directory structures of today the tree can become very wide. To
 overcome this wcd can draw the tree in a compact way, similar to most GUI file
-managers, with only one folder per line.  Use option -Tc or switch on-the-fly
+managers, with only one folder per line. Use option -Tc or switch on-the-fly
 with the 'm' key.
 
 =item B<-Td, --cjk-width>
 
 Legacy East-Asian CJK (Chinese, Japanese, and Korean) fonts have certain
 characters and line drawing symbols with a column width of 2, while the normal
-Unicode width for these characters is 1 column.  For instance the Chinese CP936
-raster font on Windows and the Simsun font.  Use this option for a correct
-outlining of the graphical tree when a legacy CJK font is used. 
+Unicode width for these characters is 1 column. For instance the Chinese CP936
+raster font on Windows and the Simsun font. Use this option for a correct
+outlining of the graphical tree when a legacy CJK font is used.
 
 When CJK mode is on, you will see a "C" in the lower right corner.
 
@@ -786,7 +786,7 @@ C<$HOME/.tcshrc> :
         alias wcd "<PATH>/wcd.exe \!* ; source $HOME/bin/wcd.go"
     endif
 
-Replace <PATH> with the location where wcd executable has been installed.
+Replace <PATH> with the location where the wcd executable has been installed.
 Reload the shell initialization files or start new shell.
 
 
@@ -796,7 +796,7 @@ Unpack the zip file and add directory 'bin' to your environment
 variable PATH.
 
 In Windows Command Prompt a Windows program cannot change the current work
-directory, but a .bat file can.  The batch scrip "wcd.bat" runs the wcd program
+directory, but a .bat file can. The batch scrip "wcd.bat" runs the wcd program
 which generates a new batch script "wcdgo.bat". Then wcd.bat runs wcdgo.bat
 which actually changes the directory.
 
@@ -819,17 +819,17 @@ environment variable I<HOME> or I<WCDHOME> is defined.
         & $env:HOME\wcdgo.ps1
     }
 
-Replace <PATH> with the location where wcd executable have been installed.
+Replace <PATH> with the location where the wcd executable has been installed.
 Start a new PowerShell. Wcd for PowerShell supports only the file system
 provider. No other providers.
 
 =head2 OS/2 Command Prompt version
 
-In and OS/2 Command Prompt (cmd.exe) an OS/2-program can't change the current work
-directory. That is why wcd generates a command script (wcdgo.cmd)
-which must be executed in the current shell. The script C<wcd.cmd>
-first executes C<wcdos2.exe>, which creates the C<wcdgo.cmd> script.
-Then C<wcd.cmd> executes the wcdgo.cmd script.
+In an OS/2 Command Prompt (cmd.exe) an OS/2-program can't change the current
+work directory. That is why wcd generates a command script (wcdgo.cmd) which
+must be executed in the current shell. The script C<wcd.cmd> first executes
+C<wcdos2.exe>, which creates the C<wcdgo.cmd> script. Then C<wcd.cmd> executes
+the wcdgo.cmd script.
 
 
 =head1 LOCALIZATION
@@ -938,10 +938,10 @@ But the DOS version of wcd lacks support for long directory names and network
 drives on Windows.
 
 The Windows version of wcd is a native Windows program and will use the Windows
-system ANSI code page.  So on a Western regional Windows it will use code page
+system ANSI code page. So on a Western regional Windows it will use code page
 CP1252 for directory names and messages. In order to get consistent output,
 independent of the active code page, all Windows versions of Wcd translate ANSI
-output to Unicode output in the  Command Prompt and PowerShell.
+output to Unicode output in the Command Prompt and PowerShell.
 
 The console raster font only supports the original OEM code page installed with
 Windows, so you have to change the console's font to true type Lucida
@@ -1143,7 +1143,7 @@ B<+n>.
 =item B<HOME>
 
 Wcd uses by default environment variable I<HOME> to determine where to store
-its files. See also section FILES.  This can be overruled with environment
+its files. See also section FILES. This can be overruled with environment
 variable I<WCDHOME>.
 
 I<HOME> also defines where to start scanning the disk when option C<-s> is
@@ -1261,7 +1261,7 @@ Set the base of user's home directories.
 On DOS/Windows the default value is C<\\users>.
 On Unix/Cygwin the default value is C</home>.
 This variable is used to scan treedata files of other users. See also
-options B<-u> an B<+u>. In verbose mode wcd will print all filters,
+options B<-u> and B<+u>. In verbose mode wcd will print all filters,
 bans and excludes. See option B<-v>.
 
 =item B<WCDSTACKFILE>

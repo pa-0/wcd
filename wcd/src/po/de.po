@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-10 22:10+0100\n"
+"POT-Creation-Date: 2014-04-22 21:07+0200\n"
 "PO-Revision-Date: 2014-02-13 11:56+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -57,7 +57,9 @@ msgstr "Die Datei %s konnte nicht entfernt werden: %s\n"
 #: wcd.c:957 wcd.c:1026
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
-msgstr "finddirs(): Der in Verzeichnis %s enthaltene Pfad kann nicht bestimmt werden\n"
+msgstr ""
+"finddirs(): Der in Verzeichnis %s enthaltene Pfad kann nicht bestimmt "
+"werden\n"
 
 #: wcd.c:958 wcd.c:1027
 msgid "path probably too long.\n"
@@ -71,9 +73,11 @@ msgstr "%s ist kein Verzeichnis.\n"
 #: wcd.c:1144
 #, c-format
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
-msgstr "Bitte warten Sie. Das Laufwerk wird durchsucht und aus %2$s die Datei mit den Dateibaumdaten %1$s erstellt .\n"
+msgstr ""
+"Bitte warten Sie. Das Laufwerk wird durchsucht und aus %2$s die Datei mit "
+"den Dateibaumdaten %1$s erstellt .\n"
 
-#: wcd.c:1205 wcd.c:2413 wcd.c:2436 wcd.c:2515
+#: wcd.c:1205 wcd.c:2414 wcd.c:2437 wcd.c:2516
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Schreibe Datei \"%s\"\n"
@@ -84,7 +88,9 @@ msgstr "Der Schreibzugriff auf die Dateibaum-Datei wurde verweigert.\n"
 
 #: wcd.c:1211
 msgid "Set TEMP environment variable if this is a read-only disk.\n"
-msgstr "Setzen Sie bitte die Umgebungsvariable TEMP wenn dies ein nur lesbares Laufwerk ist.\n"
+msgstr ""
+"Setzen Sie bitte die Umgebungsvariable TEMP wenn dies ein nur lesbares "
+"Laufwerk ist.\n"
 
 #: wcd.c:1340
 #, c-format
@@ -113,8 +119,12 @@ msgstr "Verzeichnis %s wurde entfernt\n"
 
 #: wcd.c:1496 wcd.c:1556 wcd.c:1615
 #, c-format
-msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
-msgstr "die Zeile ist zu lang in %s ( > %d). Die Baumdatei könnte beschädigt sein, ansonsten erhöhen sie DD_MAXPATH im Quellcode.\n"
+msgid ""
+"line too long in %s ( > %d). The treefile could be corrupt, else fix by "
+"increasing DD_MAXPATH in source code.\n"
+msgstr ""
+"die Zeile ist zu lang in %s ( > %d). Die Baumdatei könnte beschädigt sein, "
+"ansonsten erhöhen sie DD_MAXPATH im Quellcode.\n"
 
 #: wcd.c:1497 wcd.c:1557 wcd.c:1616
 #, c-format
@@ -138,7 +148,8 @@ msgstr ""
 #: wcd.c:2127
 #, c-format
 msgid "directory:  Name of directory to change to.\n"
-msgstr "Verzeichnis:  Name des Verzeichnisses, in welches gewechselt werden soll.\n"
+msgstr ""
+"Verzeichnis:  Name des Verzeichnisses, in welches gewechselt werden soll.\n"
 
 #: wcd.c:2128
 #, c-format
@@ -161,7 +172,8 @@ msgstr "  -a                      Aktuellen Pfad zur Baumdatei hinzu fügen\n"
 
 #: wcd.c:2132
 #, c-format
-msgid "  -aa                     Add current and all parent paths to treefile\n"
+msgid ""
+"  -aa                     Add current and all parent paths to treefile\n"
 msgstr ""
 "  -aa                     Aktuellen und alle darüberliegenden Pfade zur\n"
 "                          Baumdatei hinzufügen\n"
@@ -191,11 +203,15 @@ msgstr ""
 #: wcd.c:2137
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
-msgstr "  -e                      aktuellen Pfad zu zusätzlicher Baumdatei hinzufügen\n"
+msgstr ""
+"  -e                      aktuellen Pfad zu zusätzlicher Baumdatei "
+"hinzufügen\n"
 
 #: wcd.c:2138
 #, c-format
-msgid "  -ee                     add current and all parent paths to Extra treefile\n"
+msgid ""
+"  -ee                     add current and all parent paths to Extra "
+"treefile\n"
 msgstr ""
 "  -ee                     Aktuellen und alle darüber liegenden Pfade zu\n"
 "                          zusätzlicher Baumdatei hinzufügen\n"
@@ -203,7 +219,9 @@ msgstr ""
 #: wcd.c:2139
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
-msgstr "  -E PFAD                 Dateibaum von PFAD zu zusätzlicher Baumdatei hinzufügen\n"
+msgstr ""
+"  -E PFAD                 Dateibaum von PFAD zu zusätzlicher Baumdatei "
+"hinzufügen\n"
 
 #: wcd.c:2140
 #, c-format
@@ -243,7 +261,9 @@ msgstr "  -h,  --help             Diese Hilfe anzeigen\n"
 #: wcd.c:2149
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
-msgstr "  -i,  --ignore-case      Gross-/Kleinschreibung ignorieren (Standardeinstellung)\n"
+msgstr ""
+"  -i,  --ignore-case      Gross-/Kleinschreibung ignorieren "
+"(Standardeinstellung)\n"
 
 #: wcd.c:2150
 #, c-format
@@ -258,7 +278,9 @@ msgstr "  -i,  --ignore-case      Gross-/Kleinschreibung ignorieren\n"
 #: wcd.c:2153
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case (default)\n"
-msgstr "  +i,  --no-ignore-case   Gross-/Kleinschreibung beachten (Standardeinstellung)\n"
+msgstr ""
+"  +i,  --no-ignore-case   Gross-/Kleinschreibung beachten "
+"(Standardeinstellung)\n"
 
 #: wcd.c:2156
 #, c-format
@@ -268,7 +290,9 @@ msgstr "  -I,  --ignore-diacritics     diakritische Zeichen Ignorieren\n"
 #: wcd.c:2157
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
-msgstr "  +I,  --no-ignore-diacritics  diakritische Zeichen nicht ignorieren (Standardeinstellung)\n"
+msgstr ""
+"  +I,  --no-ignore-diacritics  diakritische Zeichen nicht ignorieren "
+"(Standardeinstellung)\n"
 
 #: wcd.c:2158
 #, c-format
@@ -298,12 +322,15 @@ msgstr "  -L,  --license          Software-Lizenz ausgeben\n"
 #: wcd.c:2163
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
-msgstr "  -m VERZ.                Erzeuge VERZEICHNIS und füge zu Baumdatei hinzu\n"
+msgstr ""
+"  -m VERZ.                Erzeuge VERZEICHNIS und füge zu Baumdatei hinzu\n"
 
 #: wcd.c:2164
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
-msgstr "  -M VERZ.                Erzeuge VERZEICHNIS und füge zu extra Baumdatei hinzu\n"
+msgstr ""
+"  -M VERZ.                Erzeuge VERZEICHNIS und füge zu extra Baumdatei "
+"hinzu\n"
 
 #: wcd.c:2165
 #, c-format
@@ -357,8 +384,11 @@ msgstr "  -S PFAD                 Platte ab PFAD durchsuchen\n"
 
 #: wcd.c:2175
 #, c-format
-msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
-msgstr "  +S PFAD                 Platte ab PFAD durchsuchen, relative Baumdatei erzeugen\n"
+msgid ""
+"  +S PATH                 Scan disk from PATH, create relative treefile\n"
+msgstr ""
+"  +S PFAD                 Platte ab PFAD durchsuchen, relative Baumdatei "
+"erzeugen\n"
 
 #: wcd.c:2176
 #, c-format
@@ -418,7 +448,8 @@ msgstr "  -w,  --wild-match-only  Nur Übereinstimmung von Platzhaltern\n"
 #: wcd.c:2187
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
-msgstr "  -x PFAD                 PFAD beim Durchsuchen der Platte ignorieren\n"
+msgstr ""
+"  -x PFAD                 PFAD beim Durchsuchen der Platte ignorieren\n"
 
 #: wcd.c:2188
 #, c-format
@@ -637,7 +668,8 @@ msgstr "Ohne Unicode-Normalisierung.\n"
 #: wcd.c:2325
 #, c-format
 msgid "Download the latest executables and sources from:\n"
-msgstr "Die neuesten Programme und Quellen können heruntergeladen werden von:\n"
+msgstr ""
+"Die neuesten Programme und Quellen können heruntergeladen werden von:\n"
 
 #: wcd.c:2332
 #, c-format
@@ -645,7 +677,8 @@ msgid ""
 "Copyright (C) 1997-2014 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
-"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo "
+"Directory\n"
 "Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n"
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
@@ -654,7 +687,8 @@ msgstr ""
 "Copyright © 1997-2014 Erwin Waterlander\n"
 "Copyright © 1994-2002 Ondrej Popp auf C3PO\n"
 "Copyright © 1995-1996 DJ Delorie auf _fixpath()\n"
-"Copyright © 1995-1996 Borja Etxebarria & Olivier Sirol auf Ninux Czo Verzeichnis\n"
+"Copyright © 1995-1996 Borja Etxebarria & Olivier Sirol auf Ninux Czo "
+"Verzeichnis\n"
 "Copyright © 1994-1996 Jason Mathews auf DOSDIR\n"
 "Copyright © 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel und Igor Mandrichenko auf recmatch()\n"
@@ -672,7 +706,8 @@ msgstr ""
 "Felix Kasza geschrieben und unter Public Domain gestellt.\n"
 "Markus Kuhn's freie wcwidth() und wcswidth() Implementierung wurden in\n"
 " verwendet.\n"
-"Rugxulo ist der ursprüngliche Author von query_con_codepage() (public domain).\n"
+"Rugxulo ist der ursprüngliche Author von query_con_codepage() (public "
+"domain).\n"
 "\n"
 
 #: wcd.c:2346
@@ -710,91 +745,93 @@ msgstr ""
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
 "along with this program; if not, write to the Free Software\n"
-"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 "
+"USA.\n"
 msgstr ""
 "Sie sollten eine Kopie der GNU General Public License zusammen mit diesem\n"
 "Programm erhalten haben. Wenn nicht, schreiben Sie bitte an die Free\n"
 "Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,\n"
 "MA 02110-1301 USA.\n"
 
-#: wcd.c:2393
+#: wcd.c:2394
 #, c-format
 msgid "creating directory %s\n"
 msgstr "Verzeichnis %s wird erzeugt\n"
 
-#: wcd.c:2720 wcd.c:2760 wcd.c:2775 wcd.c:2843 wcd.c:2912 wcd.c:3394
-#: wcd.c:3413
+#: wcd.c:2721 wcd.c:2761 wcd.c:2776 wcd.c:2844 wcd.c:2913 wcd.c:3395
+#: wcd.c:3414
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Der Inhalt der Umgebungsvariable %s ist zu lang.\n"
 
-#: wcd.c:2749
+#: wcd.c:2750
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Konnte Umgebungsvariable TERM nicht entfernen: %s\n"
 
-#: wcd.c:2807 wcd.c:2836
+#: wcd.c:2808 wcd.c:2837
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Die Umgebungsvariablen HOME oder WCDHOOME sind nicht gesetzt.\n"
 
-#: wcd.c:3021
+#: wcd.c:3022
 msgid "HOME is not defined\n"
 msgstr "HOME ist nicht definiert\n"
 
-#: wcd.c:3025
+#: wcd.c:3026
 msgid "WCDHOME is not defined\n"
 msgstr "WCDHOME ist nicht definiert\n"
 
-#: wcd.c:3029
+#: wcd.c:3030
 msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN ist nicht definiert\n"
 
-#: wcd.c:3054
+#: wcd.c:3055
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr ""
 "Grafikmodus wird nur von wcd mit Curses-basierter Oberfläche\n"
 "     unterstützt.\n"
 
-#: wcd.c:3327
+#: wcd.c:3328
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s wurde zur Aliasdatei %s hinzugefügt\n"
 
-#: wcd.c:3426
+#: wcd.c:3427
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Die Datei %s konnte nicht gelesen werden: %s\n"
 
-#: wcd.c:3576
+#: wcd.c:3577
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "WCDSCAN Verzeichnis {%s}\n"
 
-#: wcd.c:3578
+#: wcd.c:3579
 #, c-format
 msgid "banning {%s}\n"
 msgstr "{%s} wird verbannt\n"
 
-#: wcd.c:3580
+#: wcd.c:3581
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "{%s} wird ausgeschlossen\n"
 
-#: wcd.c:3582
+#: wcd.c:3583
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "{%s} wird gefiltert\n"
 
-#: wcd.c:3850
+#: wcd.c:3851
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Es wurde kein auf %s passendes Verzeichnis gefunden\n"
 
-#: wcd.c:3851
+#: wcd.c:3852
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
-msgstr "Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist verbannt.\n"
+msgstr ""
+"Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist verbannt.\n"
 
-#: wcd.c:4018
+#: wcd.c:4019
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Zu %s kann nicht gewechselt werden\n"
@@ -1051,7 +1088,8 @@ msgstr "t                  Zentrieren ein- bzw. ausschalten"
 
 #: graphics.c:1819
 msgid "T                 toggle between line drawing and ASCII characters"
-msgstr "T                  Wechseln zwischen Sonderzeichen und ASCII für das Zeichnen"
+msgstr ""
+"T                  Wechseln zwischen Sonderzeichen und ASCII für das Zeichnen"
 
 #: graphics.c:1820
 msgid "m                 toggle between compact and wide tree"
@@ -1167,7 +1205,9 @@ msgstr "w                     verkürzen: aktuelle Ebene mit Unterebenen falten"
 
 #: graphics.c:1861
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
-msgstr "y oder Strg-y         dekomprimieren: aktuelle Ebene samt Unterebenen auffalten"
+msgstr ""
+"y oder Strg-y         dekomprimieren: aktuelle Ebene samt Unterebenen "
+"auffalten"
 
 #: graphics.c:1862
 msgid "r or CTRL-r       uncondense: unfold all directories"
