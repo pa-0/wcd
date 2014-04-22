@@ -11,6 +11,7 @@
     produce better output (also for old systems).  Tip from pod2man maintainer
     Russ Allbery.  When you want to generate man pages yourself just run first
     'make maintainer-clean'.
+  - wcd.c: Fixed a dangerous string usage. Thanks to David Binderman.
   - Split help text in small pieces to make it easier for translators, and
     cleanup messages. Thanks to Benno Schulenberg.
   - Translations of UI messages:

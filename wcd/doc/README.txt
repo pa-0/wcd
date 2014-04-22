@@ -259,6 +259,8 @@ Table of Contents
         Eli Zaretskii       Don't follow symbolic links on Windows.
         Thomas Dickey       Use of ncurses on Windows.
         Misty De Meo        Fix: Compilation on OS X/FreeBSD.
+        David Binderman     Fixed a dangerous string usage.
+
 
     3.1 Translators
 
