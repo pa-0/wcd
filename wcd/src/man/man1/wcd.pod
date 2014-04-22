@@ -796,13 +796,13 @@ Unpack the zip file and add directory 'bin' to your environment
 variable PATH.
 
 In Windows Command Prompt a Windows program cannot change the current work
-directory, but a .bat file can. The batch scrip "wcd.bat" runs the wcd program
-which generates a new batch script "wcdgo.bat". Then wcd.bat runs wcdgo.bat
+directory, but a .bat file can. The batch scrip C<wcd.bat> runs the wcd program
+which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat>
 which actually changes the directory.
 
-=head2 Windows VISTA/7
+=head2 Windows VISTA and higher
 
-In a Windows VISTA/7 Command Prompt you may have limited access to
+In a Windows VISTA and higher Command Prompt you may have limited access to
 directories. To get access to more directories you need administrator
 rights. You can get a Command Prompt with administrator rights if you right
 click on the Command Prompt icon and select I<Run as administrator>.
@@ -826,10 +826,10 @@ provider. No other providers.
 =head2 OS/2 Command Prompt version
 
 In an OS/2 Command Prompt (cmd.exe) an OS/2-program can't change the current
-work directory. That is why wcd generates a command script (wcdgo.cmd) which
+work directory. That is why wcd generates a command script C<wcdgo.cmd> which
 must be executed in the current shell. The script C<wcd.cmd> first executes
 C<wcdos2.exe>, which creates the C<wcdgo.cmd> script. Then C<wcd.cmd> executes
-the wcdgo.cmd script.
+the C<wcdgo.cmd> script.
 
 
 =head1 LOCALIZATION
@@ -1022,7 +1022,7 @@ with a batch script to a directory with Unicode letters in the name. The
 directory name needs to be encoded in UTF-8, and the batch script must I<not>
 have a BOM. The active code page of the Command Prompt needs to be set to 65001
 (UTF-8) prior to the cd command. Wcd for Command Prompt will create such a go
-script (wcdgo.bat). It first changes the code page to 65001, then changes
+script C<wcdgo.bat>. It first changes the code page to 65001, then changes
 directory, and finally sets the code page back to the original code page.
 
 You need to set the font to True Type Lucida Console (not raster font) when
