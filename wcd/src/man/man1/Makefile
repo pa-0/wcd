@@ -62,8 +62,8 @@ wcd-man.pot : wcd.pod
 # Fix problem that =encoding is before =pod command.
 %.pod : %.po
 	po4a-translate -f pod -m wcd.pod -p $< > $@ -k 30
-	sed -i '/=encoding UTF-8/d' $@
-	sed -i 's/=pod/=pod\n\n=encoding UTF-8/' $@
+	perl -ni.bak -e 'print unless /=encoding UTF-8/' $@
+	perl -pli.bak -e 's/=pod/=pod\n\n=encoding UTF-8/' $@
 
 # An empty recipe for wcd.pod to break circular dependency.
 wcd.pod : ;
