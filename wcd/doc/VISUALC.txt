@@ -44,9 +44,8 @@ Perl
 ====
 
 Perl is required for the generation of the manual in text and html format. The
-wcd source package in DOS text format includes all documentation files. When
-you have the Unix package, which does not include the manuals, or just want to
-recreate the manuals, then you need a 'perl' installation.
+wcd source package includes all documentation files. When you want to recreate
+the manuals, you need a 'perl' installation.
 
 There exist ready-to-run perl packages.
 
@@ -55,8 +54,8 @@ There exist ready-to-run perl packages.
         Active Perl    : http://www.activestate.com/activeperl
 
 
-Problems on Windows VISTA/7
-===========================
+Problems on Windows VISTA and higher
+====================================
 
 To be able to run `nmake install' you may need adminstrator rights. You can get
 a Command Prompt with administrator rights if you right click on the Command
@@ -69,9 +68,11 @@ Basic Installation
 win32    : Windows 32 bit console version.
 win32zsh : Windows 32 bit for WinZsh or MSYS.
 win32psh : Windows 32 bit PowerShell version.
+win64    : Windows 64 bit console version.
+win64psh : Windows 64 bit PowerShell version.
 
 Change to the appropriate directory `win32', `win32zsh', `win32psh',
-Then change to the `vc' subdirectory.
+`win64', or `win64psh' directory. Then change to the `vc' subdirectory.
 
 
 Build wcd:
@@ -88,19 +89,13 @@ To start clean:
 
   Type `nmake clean'
 
-Mostly clean:
-
-  The target `mostlyclean' will preserve the documentation files.
-
-  Type `nmake mostlyclean'
-
 
 Curses interface
 ================
 
 The default interface is pdcurses.
 
-win32* uses PDCurses with wide character support (CURSES=pdcursesw)
+Wcd uses PDCurses with wide character support (CURSES=pdcursesw)
 
 To disable CURSES and compile with stdio interface, reset the CURSES variable:
 
@@ -145,6 +140,8 @@ The default prefixes are the same for as for GCC.
 win32    : The default PREFIX is c:\usr\local
 win32zsh : The default PREFIX is c:\usr\local
 win32psh : The default PREFIX is c:\usr\local
+win64    : The default PREFIX is c:\usr\local64
+win64psh : The default PREFIX is c:\usr\local64
 
 
 manual pages in html and text format

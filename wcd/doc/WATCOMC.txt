@@ -46,9 +46,8 @@ Perl
 ====
 
 Perl is required for the generation of the manual in text and html format. The
-wcd source package in DOS text format includes all documentation files. When
-you have the Unix package, which does not include the manuals, or just want to
-recreate the manuals, then you need a 'perl' installation.
+wcd source package includes all documentation files. When you want to recreate
+the manuals, you need a 'perl' installation.
 
 There exist ready-to-run perl packages.
 
@@ -61,8 +60,8 @@ There exist ready-to-run perl packages.
         Active Perl    : http://www.activestate.com/activeperl
 
 
-Problems on Windows VISTA/7
-===========================
+Problems on Windows VISTA and higher
+====================================
 
 To be able to run `wmake install' you may need adminstrator rights. You can get
 a Command Prompt with administrator rights if you right click on the Command
@@ -98,12 +97,6 @@ Install wcd:
 To start clean:
 
   Type `wmake clean'
-
-Mostly clean:
-
-  The target `mostlyclean' will preserve the documentation files.
-
-  Type `wmake mostlyclean'
 
 
 Curses interface
