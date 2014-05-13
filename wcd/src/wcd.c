@@ -41,6 +41,7 @@ Jason Mathews' file filelist.c was a starting point for this file.
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
+#include <stdarg.h>
 #if !defined(__TURBOC__) && !defined(_MSC_VER)
 # include <unistd.h>
 #endif

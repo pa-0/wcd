@@ -12,6 +12,7 @@
     Russ Allbery.  When you want to generate man pages yourself just run first
     'make maintainer-clean'.
   - wcd.c: Fixed a dangerous string usage. Thanks to David Binderman.
+  - wcd.c, display.c: Fixed compilation for stdio interface (no curses).
   - Split help text in small pieces to make it easier for translators, and
     cleanup messages. Thanks to Benno Schulenberg.
   - Translations of UI messages:

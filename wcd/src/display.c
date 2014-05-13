@@ -146,6 +146,7 @@ void wcd_printf( const char* format, ... ) {
  * 8 bit characters.
  */
 
+#if (defined(WCD_USECONIO) || defined(WCD_USECURSES))
 size_t str_columns (char *s)
 {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
@@ -170,6 +171,7 @@ size_t str_columns (char *s)
    return(strlen(s));
 #endif
 }
+#endif
 
 /************************************************************************
  *
