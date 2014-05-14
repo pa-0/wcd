@@ -4,9 +4,9 @@
     See http://sourceforge.net/projects/msys2/
   - New makefiles for Microsoft Visual C++ 64 bit.
   - display.c, graphics.c: Don't use newterm() on Windows when ncurses
-    is used. Newterm() of old versions of ncurses (<5.9.20120922)
+    is used. Newterm() in old ncurses versions (<5.9.20120922)
     is not working on Windows.
-  - Makefile: Include generated manual in source the package.  Adding man
+  - Makefile: Include generated manuals in the source package.  Adding man
     files to the source package, which have been generated with a high version
     of perl/pod2man, is a favour to users, because newer perl/pod2man versions
     produce better output (also for old systems).  Tip from pod2man maintainer

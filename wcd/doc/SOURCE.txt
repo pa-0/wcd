@@ -87,27 +87,3 @@
         files exists for each of these platforms. Get it at
         http://pdcurses.sourceforge.net/
 
-    1.3 DOS DJGPP support
-
-        DJGPP is a project to port the GNU C/C++ compiler to DOS.
-        It includes a shell (bash) and many ported unix utilities.
-        For more information about DJGPP take a look at this
-        internet homepage:   http://www.delorie.com/djgpp/
-
-    1.4 Cygwin support
-
-        Cygwin is a project to port the GNU C/C++ compiler to Windows.
-        It includes a shell (bash) and many ported unix utilities.
-        For more information about Cygwin take a look at this
-        internet homepage:   http://cygwin.com/
-
-    1.5 MingW support
-
-        MinGW is a project to port GNU C/C++ compiler to Windows.
-        internet homepage: http://www.mingw.org/
-
-    1.6 LCC suport
-
-        LCC is a free C compiler for windows. internet homepage:
-        http://www.cs.virginia.edu/~lcc-win32/
-
