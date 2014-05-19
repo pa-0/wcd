@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man 5.2.5-beta6\n"
-"POT-Creation-Date: 2014-04-22 21:22+0300\n"
+"POT-Creation-Date: 2014-05-19 23:19+0300\n"
 "PO-Revision-Date: 2014-04-21 19:42+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -331,8 +331,15 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:140
+#, fuzzy
+#| msgid ""
+#| "Wcd generates a treedata file were it searches the directory. On Unix and "
+#| "Windows systems wcd does add symbolic links to the treedata file while "
+#| "scanning the disk, but does not follow them. While following links wcd "
+#| "could end up scanning infinite loops, or scan very large portions of a "
+#| "network."
 msgid ""
-"Wcd generates a treedata file were it searches the directory. On Unix and "
+"Wcd generates a treedata file where it searches the directory. On Unix and "
 "Windows systems wcd does add symbolic links to the treedata file while "
 "scanning the disk, but does not follow them. While following links wcd could "
 "end up scanning infinite loops, or scan very large portions of a network."
@@ -562,8 +569,12 @@ msgstr "B<-A PFAD>"
 
 #. type: textblock
 #: wcd.pod:225
+#, fuzzy
+#| msgid ""
+#| "Scan directory tree from PATH and append to the default treedata file. "
+#| "Examples:"
 msgid ""
-"Scan directory tree from PATH and append to the default treedata file. "
+"Scan directory tree from I<PATH> and append to the default treedata file. "
 "Examples:"
 msgstr ""
 "liest den Verzeichnisbaum aus PFAD und fügt ihn zur vorgegebenen Baumdatei "
@@ -620,9 +631,13 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:245
+#, fuzzy
+#| msgid ""
+#| "The ban file can be edited with a text editor. Use of wildcards are "
+#| "supported and names are matched against the absolute path."
 msgid ""
-"The ban file can be edited with a text editor. Use of wildcards are "
-"supported and names are matched against the absolute path."
+"The ban file can be edited with a text editor. Use of wildcards is supported "
+"and names are matched against the absolute path."
 msgstr ""
 "Die Bann-Datei kann mit einem Texteditor bearbeitet werden. Die Verwendung "
 "von Platzhaltern ist möglich, außerdem werden Namensübereinstimmungen auf "
@@ -740,8 +755,12 @@ msgstr "B<-E PFAD>"
 
 #. type: textblock
 #: wcd.pod:285
+#, fuzzy
+#| msgid ""
+#| "Scan directory tree from PATH and append to Extra treedata file. See also "
+#| "options B<-A> and B<-S>."
 msgid ""
-"Scan directory tree from PATH and append to Extra treedata file. See also "
+"Scan directory tree from I<PATH> and append to Extra treedata file. See also "
 "options B<-A> and B<-S>."
 msgstr ""
 "liest den Verzeichnisbaum aus PFAD und fügt ihn zur zusätzlichen Baumdatei "
@@ -754,7 +773,9 @@ msgstr "B<-f DATEI>"
 
 #. type: textblock
 #: wcd.pod:290
-msgid "Read treedata file FILE. Do not read the default treedata file."
+#, fuzzy
+#| msgid "Read treedata file FILE. Do not read the default treedata file."
+msgid "Read treedata file I<FILE>. Do not read the default treedata file."
 msgstr ""
 "liest die Baumdatei DATEI. Die vorgegebene Baumdatei wird nicht gelesen."
 
@@ -765,7 +786,9 @@ msgstr "B<+f DATEI>"
 
 #. type: textblock
 #: wcd.pod:294
-msgid "Read treedata file FILE in addition to the default treedata file."
+#, fuzzy
+#| msgid "Read treedata file FILE in addition to the default treedata file."
+msgid "Read treedata file I<FILE> in addition to the default treedata file."
 msgstr "liest die Baumdatei DATEI zusätzlich zur vorgegebenen Baumdatei."
 
 #. type: =item
@@ -885,9 +908,13 @@ msgstr "B<-G PFAD>"
 
 #. type: textblock
 #: wcd.pod:333
+#, fuzzy
+#| msgid ""
+#| "Write go-script in directory PATH. For instance on Unix, C<wcd -G PATH> "
+#| "will write a go-script PATH/wcd.go."
 msgid ""
-"Write go-script in directory PATH. For instance on Unix, C<wcd -G PATH> will "
-"write a go-script PATH/wcd.go."
+"Write go-script in directory I<PATH>. For instance on Unix, C<wcd -G PATH> "
+"will write a go-script B<PATH/wcd.go>."
 msgstr ""
 "schreibt das Go-Skript in das Verzeichnis PFAD. Unter Unix beispielsweise "
 "schreibt C<wcd -G PFAD> ein Go-Skript in PFAD/wcd.go."
@@ -1098,10 +1125,16 @@ msgstr "erhält Pfade."
 
 #. type: textblock
 #: wcd.pod:408
+#, fuzzy
+#| msgid ""
+#| "Keep paths in the treedata file when wcd can't change to them. The "
+#| "default behaviour of wcd is that it tries to remove paths from the "
+#| "treedata when wcd can't change to them. With this option this behaviour "
+#| "is turned off."
 msgid ""
 "Keep paths in the treedata file when wcd can't change to them. The default "
 "behaviour of wcd is that it tries to remove paths from the treedata when wcd "
-"can't change to them. With this option this behaviour is turned off."
+"can't change to them. With this option this behavior is turned off."
 msgstr ""
 "Die Pfade werden in der Baumdatei weiter vorgehalten, wenn wcd nicht dorthin "
 "wechseln kann. Das Vorgabeverhalten in diesem Fall ist, dass wcd versucht, "
@@ -1125,9 +1158,13 @@ msgstr "B<-l ALIAS>"
 
 #. type: textblock
 #: wcd.pod:418
+#, fuzzy
+#| msgid ""
+#| "Name the current path with ALIAS. Wcd places the current path with alias "
+#| "ALIAS in the alias file. Aliases are case sensitive."
 msgid ""
-"Name the current path with ALIAS. Wcd places the current path with alias "
-"ALIAS in the alias file. Aliases are case sensitive."
+"Name the current path with I<ALIAS>. Wcd places the current path with alias "
+"I<ALIAS> in the alias file. Aliases are case sensitive."
 msgstr ""
 "benennt den aktuellen Pfad mit ALIAS. Wcd speichert den aktuellen Pfad mit "
 "dem ALIAS in der Alias-Datei. Bei Aliasen wird Groß-/Kleinschreibung "
@@ -1170,15 +1207,22 @@ msgstr "B<-n PFAD>"
 
 #. type: textblock
 #: wcd.pod:435
-msgid "Read relative treedata file from PATH."
+#, fuzzy
+#| msgid "Read relative treedata file from PATH."
+msgid "Read relative treedata file from I<PATH>."
 msgstr "liest die relative Baumdatei aus PFAD."
 
 #. type: textblock
 #: wcd.pod:437
+#, fuzzy
+#| msgid ""
+#| "Do not read the default treedata file. The relative treedata file should "
+#| "already have been created using the wcd B<+S> option.  PATH may also "
+#| "point to a file directly."
 msgid ""
 "Do not read the default treedata file. The relative treedata file should "
-"already have been created using the wcd B<+S> option.  PATH may also point "
-"to a file directly."
+"already have been created using the wcd B<+S> option.  I<PATH> may also "
+"point to a file directly."
 msgstr ""
 "Die Datei für die vorgegebene Baumansicht wird nicht gelesen. Die Datei für "
 "die relative Baumansicht sollte schon von wcd mit der Option B<+S> angelegt "
@@ -1338,8 +1382,12 @@ msgstr "B<-s>"
 
 #. type: textblock
 #: wcd.pod:495
+#, fuzzy
+#| msgid ""
+#| "(re)Scan disk from C<$HOME> directory. If HOME is not defined the disk is "
+#| "scanned from root directory /."
 msgid ""
-"(re)Scan disk from C<$HOME> directory. If HOME is not defined the disk is "
+"(re)Scan disk from C<$HOME> directory. If I<HOME> is not defined the disk is "
 "scanned from root directory /."
 msgstr ""
 "liest den Laufwerksinhalt (evtl. erneut) aus dem Verzeichnis C<$HOME> ein. "
@@ -1368,10 +1416,15 @@ msgstr "B<-S PFAD>"
 
 #. type: textblock
 #: wcd.pod:505
+#, fuzzy
+#| msgid ""
+#| "Scan directory tree from PATH and overwrite the default treedata file.  "
+#| "See also options B<-A>, B<-s> and B<-E>. E.g. with option B<-A> you can "
+#| "create a default treedata file of your choice. Examples:"
 msgid ""
-"Scan directory tree from PATH and overwrite the default treedata file.  See "
-"also options B<-A>, B<-s> and B<-E>. E.g. with option B<-A> you can create a "
-"default treedata file of your choice. Examples:"
+"Scan directory tree from I<PATH> and overwrite the default treedata file.  "
+"See also options B<-A>, B<-s> and B<-E>. E.g. with option B<-A> you can "
+"create a default treedata file of your choice. Examples:"
 msgstr ""
 "liest den Verzeichnisbaum aus PFAD und überschreibt die vorgegebene "
 "Baumdatei. Siehe auch die Optionen B<-A>, B<-s> und B<-E>. Zum Beispiel "
@@ -1429,10 +1482,15 @@ msgstr "B<-S PFAD>"
 
 #. type: textblock
 #: wcd.pod:525
+#, fuzzy
+#| msgid ""
+#| "Scan disk from PATH and place relative paths in a relative treedata "
+#| "file.  This file is used by the B<-n> and +n options of wcd. E.g. C<wcd -"
+#| "n PATH src>."
 msgid ""
-"Scan disk from PATH and place relative paths in a relative treedata file.  "
-"This file is used by the B<-n> and +n options of wcd. E.g. C<wcd -n PATH "
-"src>."
+"Scan disk from I<PATH> and place relative paths in a relative treedata "
+"file.  This file is used by the B<-n> and B<+n> options of wcd. E.g. C<wcd -"
+"n PATH src>."
 msgstr ""
 "liest das Laufwerk aus PFAD ein und platziert relative Pfade in der Datei "
 "der relativen Baumansicht. Diese Datei wird in wcd von den Optionen B<-n> "
@@ -1489,8 +1547,12 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:546
+#, fuzzy
+#| msgid ""
+#| "In the default NCD style tree layout the -Ta option disables jumping to "
+#| "unrelated directories."
 msgid ""
-"In the default NCD style tree layout the -Ta option disables jumping to "
+"In the default NCD style tree layout the B<-Ta> option disables jumping to "
 "unrelated directories."
 msgstr ""
 "In der vorgegebenen Baumansicht im NCD-Stil verhindert die Option -Ta das "
@@ -1515,17 +1577,25 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:555
+#, fuzzy
+#| msgid ""
+#| "You can switch on-the-fly between default and alternative navigation by "
+#| "pressing Shift-A."
 msgid ""
 "You can switch on-the-fly between default and alternative navigation by "
-"pressing Shift-A."
+"pressing <Shift-A>."
 msgstr ""
 "Sie können direkt zwischen dem Vorgabe- und dem Alternativmodus wechseln, "
 "indem Sie Umschalt-A drücken."
 
 #. type: textblock
 #: wcd.pod:558
+#, fuzzy
+#| msgid ""
+#| "When alternative navigation mode is on, you will see a \"A\" in the lower "
+#| "right corner."
 msgid ""
-"When alternative navigation mode is on, you will see a \"A\" in the lower "
+"When alternative navigation mode is on, you will see an \"A\" in the lower "
 "right corner."
 msgstr ""
 "Wenn der alternative Navigationsmodus eingeschaltet ist, sehen Sie ein »A« "
@@ -1538,10 +1608,15 @@ msgstr "B<-TC, --center-tree>"
 
 #. type: textblock
 #: wcd.pod:562
+#, fuzzy
+#| msgid ""
+#| "Centered view in the graphical tree. The selected directory stays in the "
+#| "middle of the screen. The centered mode can also be switched on and off "
+#| "with key 't' in the graphical tree."
 msgid ""
 "Centered view in the graphical tree. The selected directory stays in the "
 "middle of the screen. The centered mode can also be switched on and off with "
-"key 't' in the graphical tree."
+"key <t> in the graphical tree."
 msgstr ""
 "zentriert die Ansicht im grafischen Baum. Das ausgewählte Verzeichnis steht "
 "in der Mitte des Bildschirms. Der zentrierte Modus kann mit der Taste »t« im "
@@ -1576,8 +1651,8 @@ msgid ""
 "DOS did it. On DOS a directory path could only be 66 characters in total. "
 "With the deep directory structures of today the tree can become very wide. "
 "To overcome this wcd can draw the tree in a compact way, similar to most GUI "
-"file managers, with only one folder per line. Use option -Tc or switch on-"
-"the-fly with the 'm' key."
+"file managers, with only one folder per line. Use option B<-Tc> or switch on-"
+"the-fly with the <m> key."
 msgstr ""
 "Per Vorgabe wird die »grafische« Baumansicht auf die gleiche Art gezeichnet "
 "wie im originalen NCD unter DOS. Dort darf ein Verzeichnispfad nicht länger "
@@ -1630,8 +1705,13 @@ msgstr "B<-u BENUTZER>"
 
 #. type: textblock
 #: wcd.pod:590
+#, fuzzy
+#| msgid ""
+#| "Scan treedata file of another user based on USER, do not scan your own "
+#| "default treedata file. See also section ENVIRONMENT VARIABLES for "
+#| "I<WCDUSERSHOME>."
 msgid ""
-"Scan treedata file of another user based on USER, do not scan your own "
+"Scan treedata file of another user based on I<USER>, do not scan your own "
 "default treedata file. See also section ENVIRONMENT VARIABLES for "
 "I<WCDUSERSHOME>."
 msgstr ""
@@ -1713,15 +1793,22 @@ msgstr "B<-x PFAD>"
 
 #. type: textblock
 #: wcd.pod:621
-msgid "Exclude PATH from scanning."
+#, fuzzy
+#| msgid "Exclude PATH from scanning."
+msgid "Exclude I<PATH> from scanning."
 msgstr "schließt PFAD vom Einlesen aus."
 
 #. type: textblock
 #: wcd.pod:623
+#, fuzzy
+#| msgid ""
+#| "When this option is used wcd will exclude PATH and all its subdirectories "
+#| "when wcd is scanning a disk. Wildcards are supported and matched against "
+#| "absolute paths. Option -x can be used multiple times."
 msgid ""
-"When this option is used wcd will exclude PATH and all its subdirectories "
+"When this option is used wcd will exclude I<PATH> and all its subdirectories "
 "when wcd is scanning a disk. Wildcards are supported and matched against "
-"absolute paths. Option -x can be used multiple times."
+"absolute paths. Option B<-x> can be used multiple times."
 msgstr ""
 "Mit dieser Option schließt wcd PFAD und dessen Unterverzeichnisse aller "
 "Ebenen beim Einlesen eines Laufwerks aus. Platzhalter werden unterstützt und "
@@ -1739,12 +1826,16 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:629
+#, fuzzy
+#| msgid ""
+#| "Option B<-xf> must be used in front of any scan option (B<-s>, B<-S>, B<"
+#| "+S>, B<-A>, B<-E>)."
 msgid ""
-"Option -x must be used in front of any scan option (B<-s>, B<-S>, B<+S>, B<-"
-"A>, B<-E>)."
+"Option B<-x> must be used in front of any scan option (B<-s>, B<-S>, B<+S>, "
+"B<-A>, B<-E>)."
 msgstr ""
-"Die Option -x muss vor jeder anderen Einleseoption angegeben werden (B<-s>, "
-"B<-S>, B<+S>, B<-A>, B<-E>)."
+"Die Option B<-xf> muss vor jeder anderen Einleseoption angegeben werden (B<-"
+"s>, B<-S>, B<+S>, B<-A>, B<-E>)."
 
 #. type: textblock
 #: wcd.pod:633
@@ -1790,19 +1881,30 @@ msgstr "B<-xf DATEI>"
 
 #. type: textblock
 #: wcd.pod:646
-msgid "Exclude all paths listed in FILE from scanning."
+#, fuzzy
+#| msgid "Exclude all paths listed in FILE from scanning."
+msgid "Exclude all paths listed in I<FILE> from scanning."
 msgstr "schließt alle in DATEI aufgelisteten Pfade vom Einlesen aus."
 
 #. type: textblock
 #: wcd.pod:648
+#, fuzzy
+#| msgid ""
+#| "When this option is used wcd will exclude all paths listed in FILE and "
+#| "all their subdirectories when wcd is scanning a disk. Wildcards are "
+#| "supported and they are matched against absolute paths; one path per line. "
+#| "Be aware that wcd will not ignore leading or trailing blanks on a line, "
+#| "because they are legal characters in a directory name. Option B<-xf> can "
+#| "be used multiple times. When one wants to exclude all banned paths from "
+#| "scanning one can do the following (example for wcd on unix):"
 msgid ""
-"When this option is used wcd will exclude all paths listed in FILE and all "
-"their subdirectories when wcd is scanning a disk. Wildcards are supported "
-"and they are matched against absolute paths; one path per line. Be aware "
-"that wcd will not ignore leading or trailing blanks on a line, because they "
-"are legal characters in a directory name. Option B<-xf> can be used multiple "
-"times. When one wants to exclude all banned paths from scanning one can do "
-"the following (example for wcd on unix):"
+"When this option is used wcd will exclude all paths listed in I<FILE> and "
+"all their subdirectories when wcd is scanning a disk. Wildcards are "
+"supported and they are matched against absolute paths; one path per line. Be "
+"aware that wcd will not ignore leading or trailing blanks on a line, because "
+"they are legal characters in a directory name. Option B<-xf> can be used "
+"multiple times. When one wants to exclude all banned paths from scanning one "
+"can do the following (example for wcd on unix):"
 msgstr ""
 "Wenn diese Option ausgewählt ist, schließt wcd alle in DATEI aufgelisteten "
 "Pfade und sämtliche derer Unterverzeichnisse beim Einlesen eines Laufwerks "
@@ -2013,10 +2115,15 @@ msgstr "zeigt den Stapel an."
 
 #. type: textblock
 #: wcd.pod:723
+#, fuzzy
+#| msgid ""
+#| "Use this option if do not know anymore how many times to push or pop.  "
+#| "The stack is printed and you can choose a number. The current place in "
+#| "the stack is marked with an asterisk C<*>."
 msgid ""
-"Use this option if do not know anymore how many times to push or pop.  The "
-"stack is printed and you can choose a number. The current place in the stack "
-"is marked with an asterisk C<*>."
+"Use this option if you do not know anymore how many times to push or pop.  "
+"The stack is printed and you can choose a number. The current place in the "
+"stack is marked with an asterisk C<*>."
 msgstr ""
 "Verwenden Sie diese Option, wenn Sie nicht mehr wissen, wie oft Sie im "
 "Stapel die Ebene gewechselt haben. Der Stapel wird ausgegeben und Sie können "
@@ -2030,12 +2137,19 @@ msgstr "INSTALLATION"
 
 #. type: textblock
 #: wcd.pod:731
+#, fuzzy
+#| msgid ""
+#| "The current working directory of a Unix shell can only be changed by the "
+#| "builtin cd command. Therefore the program is always called by a function "
+#| "or alias. The function or alias sources a shell script (go-script) which "
+#| "is generated by the wcd program. Wcd can only work after the function or "
+#| "alias is defined."
 msgid ""
 "The current working directory of a Unix shell can only be changed by the "
-"builtin cd command. Therefore the program is always called by a function or "
-"alias. The function or alias sources a shell script (go-script) which is "
-"generated by the wcd program. Wcd can only work after the function or alias "
-"is defined."
+"builtin cd(1) command. Therefore the program is always called by a function "
+"or an alias. The function or alias sources a shell script (go-script) which "
+"is generated by the wcd program. Wcd can only work after the function or "
+"alias is defined."
 msgstr ""
 "Das aktuelle Arbeitsverzeichnis einer Unix-Shell kann nur über den "
 "eingebauten cd-Befehl gewechselt werden. Daher wird das Programm stets über "
@@ -2090,8 +2204,12 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:753
+#, fuzzy
+#| msgid ""
+#| "Replace <PATH> with the location where the wcd executable has been "
+#| "installed. Reload the shell initialization files or start new shell."
 msgid ""
-"Replace <PATH> with the location where the wcd executable has been "
+"Replace I<PATH> with the location where the wcd executable has been "
 "installed. Reload the shell initialization files or start new shell."
 msgstr ""
 "<PFAD> wird durch den Ort ersetzt, in dem das ausführbare wcd-Programm "
@@ -2105,10 +2223,15 @@ msgstr "Der Ort des Go-Skripts C<wcd.go> ist abhängig von der Shell selbst."
 
 #. type: textblock
 #: wcd.pod:758
+#, fuzzy
+#| msgid ""
+#| "Wcd for DJGPP DOS bash requires a different function. The go script is "
+#| "not written in a directory C<bin>, and if WCDHOME and HOME are both not "
+#| "defined the go-script is written on c:/."
 msgid ""
 "Wcd for DJGPP DOS bash requires a different function. The go script is not "
-"written in a directory C<bin>, and if WCDHOME and HOME are both not defined "
-"the go-script is written on c:/."
+"written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not "
+"defined the go-script is written on c:/."
 msgstr ""
 "Wcd für die auf DJGPP basierende DOS-Bash erfordert eine andere "
 "Funktionalität. Das Go-Skript wird nicht in einem Verzeichnis C<bin> "
@@ -2202,8 +2325,8 @@ msgstr ""
 #| "Replace <PATH> with the location where the wcd executable has been "
 #| "installed. Reload the shell initialization files or start new shell."
 msgid ""
-"Replace <PATH> with the location where the wcd executable has been "
-"installed.  Reload the shell initialization files or start new shell."
+"Replace I<PATH> with the location where the wcd executable has been "
+"installed.  Reload the shell initialization files or start a new shell."
 msgstr ""
 "<PFAD> wird durch den Ort ersetzt, in dem das ausführbare wcd-Programm "
 "gespeichert ist. Laden Sie die Initialisierungsdateien der Shell oder "
@@ -2216,9 +2339,13 @@ msgstr "Version für den Windows-Befehlszeileninterpreter"
 
 #. type: textblock
 #: wcd.pod:795
+#, fuzzy
+#| msgid ""
+#| "Unpack the zip file and add directory 'bin' to your environment variable "
+#| "PATH."
 msgid ""
-"Unpack the zip file and add directory 'bin' to your environment variable "
-"PATH."
+"Unpack the zip file and add directory C<bin> to your environment variable "
+"I<PATH>."
 msgstr ""
 "Entpacken Sie die Zip-Datei und fügen Sie den Ordner »bin« zu Ihrer "
 "Umgebungsvariable PATH hinzu."
@@ -2278,10 +2405,15 @@ msgstr "Version für die Windows PowerShell"
 
 #. type: textblock
 #: wcd.pod:812
+#, fuzzy
+#| msgid ""
+#| "Add the following function to your PowerShell user profile. The location "
+#| "of this profile is stored in the $profile variable. It is required that "
+#| "environment variable I<HOME> or I<WCDHOME> is defined."
 msgid ""
 "Add the following function to your PowerShell user profile. The location of "
-"this profile is stored in the $profile variable. It is required that "
-"environment variable I<HOME> or I<WCDHOME> is defined."
+"this profile is stored in the $profile variable. It is required that one of "
+"the environment variables I<HOME> or I<WCDHOME> is defined."
 msgstr ""
 "Fügen Sie die folgende Funktion zu Ihrem PowerShell-Benutzerprofil hinzu. "
 "Der Ort dieses Profils wird durch die Variable $profile bestimmt. Es ist "
@@ -2314,7 +2446,7 @@ msgstr ""
 #| "installed.  Start a new PowerShell. Wcd for PowerShell supports only the "
 #| "file system provider. No other providers."
 msgid ""
-"Replace <PATH> with the location where the wcd executable has been "
+"Replace I<PATH> with the location where the wcd executable has been "
 "installed.  Start a new PowerShell. Wcd for PowerShell supports only the "
 "file system provider. No other providers."
 msgstr ""
@@ -2362,13 +2494,21 @@ msgstr "B<LANG>"
 
 #. type: textblock
 #: wcd.pod:841
+#, fuzzy
+#| msgid ""
+#| "The primary language is selected with the environment variable LANG. The "
+#| "LANG variable consists out of several parts. The first part is in small "
+#| "letters the language code. The second is optional and is the country code "
+#| "in capital letters, preceded with an underscore. There is also an "
+#| "optional third part: character encoding, preceded with a dot. A few "
+#| "examples for POSIX standard type shells:"
 msgid ""
-"The primary language is selected with the environment variable LANG. The "
-"LANG variable consists out of several parts. The first part is in small "
-"letters the language code. The second is optional and is the country code in "
-"capital letters, preceded with an underscore. There is also an optional "
-"third part: character encoding, preceded with a dot. A few examples for "
-"POSIX standard type shells:"
+"The primary language is selected with the environment variable I<LANG>. The "
+"I<LANG> variable consists out of several parts. The first part is in small "
+"letters the language code. The second one is optional and is the country "
+"code in capital letters, preceded with an underscore. There is also an "
+"optional third part: character encoding, preceded with a dot. A few examples "
+"for POSIX standard type shells:"
 msgstr ""
 "Die primäre Sprache wird durch die Umgebungsvariable LANG festgelegt. Diese "
 "Variable besteht aus mehreren Teilen: Der erste Teil besteht aus zwei "
@@ -2400,11 +2540,17 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:855
+#, fuzzy
+#| msgid ""
+#| "For a complete list of language and country codes see the gettext manual: "
+#| "L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes> "
+#| "On Unix systems you can use to command locale(1) to get locale specific "
+#| "information."
 msgid ""
-"For a complete list of language and country codes see the gettext manual: "
-"L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes> On "
-"Unix systems you can use to command locale(1) to get locale specific "
-"information."
+"For a complete list of language and country codes see the gettext(1)  "
+"manual: L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-"
+"Codes> On Unix systems you can use to command locale(1) to get locale "
+"specific information."
 msgstr ""
 "Eine vollständige Liste der Sprachen und Ländercodes finden Sie im Gettext-"
 "Handbuch: L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-"
@@ -2418,14 +2564,24 @@ msgstr "B<LANGUAGE>"
 
 #. type: textblock
 #: wcd.pod:863
+#, fuzzy
+#| msgid ""
+#| "With the I<LANGUAGE> environment variable you can specify a priority list "
+#| "of languages, separated by colons. Wcd gives preference to I<LANGUAGE> "
+#| "over I<LANG>. For instance, first Dutch and then German: C<LANGUAGE=nl:"
+#| "de>. You have to first enable localization, by setting I<LANG> or "
+#| "I<LC_ALL> to a value other than \"C\", before you can use a language "
+#| "priority list through the LANGUAGE variable. See also the gettext manual: "
+#| "L<http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-"
+#| "variable>"
 msgid ""
 "With the I<LANGUAGE> environment variable you can specify a priority list of "
 "languages, separated by colons. Wcd gives preference to I<LANGUAGE> over "
 "I<LANG>. For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You "
 "have to first enable localization, by setting I<LANG> or I<LC_ALL> to a "
-"value other than \"C\", before you can use a language priority list through "
-"the LANGUAGE variable. See also the gettext manual: L<http://www.gnu.org/"
-"software/gettext/manual/gettext.html#The-LANGUAGE-variable>"
+"value other than I<C>, before you can use a language priority list through "
+"the I<LANGUAGE> variable. See also the gettext(1) manual: L<http://www.gnu."
+"org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>"
 msgstr ""
 "Mit der Umgebungsvariable LANGUAGE können Sie eine Prioritätenliste für "
 "Sprachen übergeben, die Sie durch Doppelpunkte voneinander trennen. Dos2unix "
@@ -2452,12 +2608,19 @@ msgstr "B<WCDLOCALEDIR>"
 
 #. type: textblock
 #: wcd.pod:876
+#, fuzzy
+#| msgid ""
+#| "With the environment variable I<WCDLOCALEDIR> the I<LOCALEDIR> used "
+#| "during compilation and installation of wcd can be overruled. I<LOCALEDIR> "
+#| "is used by wcd with native language support to find the language files. "
+#| "The GNU default value is /usr/local/share/locale. By typing C<wcd -V> wcd "
+#| "will print the I<LOCALEDIR> that is used."
 msgid ""
 "With the environment variable I<WCDLOCALEDIR> the I<LOCALEDIR> used during "
 "compilation and installation of wcd can be overruled. I<LOCALEDIR> is used "
 "by wcd with native language support to find the language files. The GNU "
-"default value is /usr/local/share/locale. By typing C<wcd -V> wcd will print "
-"the I<LOCALEDIR> that is used."
+"default value is C</usr/local/share/locale>. By typing C<wcd -V> wcd will "
+"print the I<LOCALEDIR> that is used."
 msgstr ""
 "Mit der Umgebungsvariable I<WCDLOCALEDIR> kann die während der Kompilierung "
 "und Installation verwendete Variable I<LOCALEDIR> außer Kraft gesetzt "
@@ -2514,12 +2677,19 @@ msgstr "B<LC_COLLATE>"
 
 #. type: textblock
 #: wcd.pod:898
+#, fuzzy
+#| msgid ""
+#| "When there are multiple directory matches wcd presents a sorted list. The "
+#| "sorting depends on the locale settings. If the environment LANG has been "
+#| "set the matches are sorted like dictionaries or phone books are sorted in "
+#| "that language. For instance dots and dashes are ignored, or letters e "
+#| "with and without accent are equal, or upper and lower case is ignored."
 msgid ""
 "When there are multiple directory matches wcd presents a sorted list. The "
-"sorting depends on the locale settings. If the environment LANG has been set "
-"the matches are sorted like dictionaries or phone books are sorted in that "
-"language. For instance dots and dashes are ignored, or letters e with and "
-"without accent are equal, or upper and lower case is ignored."
+"sorting depends on the locale settings. If the environment I<LANG> has been "
+"set the matches are sorted like dictionaries or phone books are sorted in "
+"that language. For instance dots and dashes are ignored, or letters e with "
+"and without accent are equal, or upper and lower case is ignored."
 msgstr ""
 "Wenn mehrere Treffer für Verzeichnisse gefunden werden, zeigt wcd eine "
 "sortierte Liste an. Die Art der Sortierung hängt von der Spracheinstellung "
@@ -2531,11 +2701,17 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:904
+#, fuzzy
+#| msgid ""
+#| "The sorting gives preference to environment variable I<LC_COLLATE> over "
+#| "I<LANG>. If you make I<LC_COLLATE> equal to \"C\" or \"POSIX\", locale "
+#| "sorting is turned off. For instance if you want Dutch language, but not "
+#| "Dutch sorting, you can do something like this:"
 msgid ""
 "The sorting gives preference to environment variable I<LC_COLLATE> over "
-"I<LANG>. If you make I<LC_COLLATE> equal to \"C\" or \"POSIX\", locale "
-"sorting is turned off. For instance if you want Dutch language, but not "
-"Dutch sorting, you can do something like this:"
+"I<LANG>. If you make I<LC_COLLATE> equal to I<C> or I<POSIX>, locale sorting "
+"is turned off. For instance if you want Dutch language, but not Dutch "
+"sorting, you can do something like this:"
 msgstr ""
 "Die Sortierung bevorzugt die Umgebungsvariable I<LC_COLLATE> vor I<LANG>. "
 "Falls Sie I<LC_COLLATE> auf »C« oder »POSIX« setzen, wird die sprachbezogene "
@@ -2587,8 +2763,13 @@ msgstr "B<LC_ALL>"
 
 #. type: textblock
 #: wcd.pod:922
+#, fuzzy
+#| msgid ""
+#| "All locale environment variables that start with \"LC_\" are overruled by "
+#| "environment variable I<LC_ALL> if it is defined. Wcd gives preference to "
+#| "I<LC_ALL> over I<LC_COLLATE> and I<LC_CTYPE>."
 msgid ""
-"All locale environment variables that start with \"LC_\" are overruled by "
+"All locale environment variables that start with I<LC_> are overruled by the "
 "environment variable I<LC_ALL> if it is defined. Wcd gives preference to "
 "I<LC_ALL> over I<LC_COLLATE> and I<LC_CTYPE>."
 msgstr ""
@@ -2603,8 +2784,18 @@ msgstr "WINDOWS CODE PAGES"
 
 #. type: textblock
 #: wcd.pod:931
+#, fuzzy
+#| msgid ""
+#| "There are two groups of code pages. DOS code pages (OEM) and Windows code "
+#| "pages (ANSI). The default encoding for Windows, when configured with "
+#| "Western regional settings, is ANSI CP1252. Windows programs, for instance "
+#| "notepad, use this default system ANSI code page. The Windows console uses "
+#| "by default an OEM code page (CP437 or CP850) for compatibility with DOS "
+#| "programs. If you use a DOS version of wcd in a Windows console it will "
+#| "work, because of the DOS code page.  But the DOS version of wcd lacks "
+#| "support for long directory names and network drives on Windows."
 msgid ""
-"There are two groups of code pages. DOS code pages (OEM) and Windows code "
+"There are two groups of code pages: DOS code pages (OEM) and Windows code "
 "pages (ANSI). The default encoding for Windows, when configured with Western "
 "regional settings, is ANSI CP1252. Windows programs, for instance notepad, "
 "use this default system ANSI code page. The Windows console uses by default "
@@ -2664,12 +2855,19 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:950
+#, fuzzy
+#| msgid ""
+#| "Non-Unicode versions of Wcd I<prior to version 5.2.0> use plain ANSI "
+#| "output.  For these older versions the code page of the console has to be "
+#| "made equal to the system code page (changed to 1252) to make wcd for "
+#| "Windows work properly with special characters such as accented characters "
+#| "or the euro symbol."
 msgid ""
 "Non-Unicode versions of Wcd I<prior to version 5.2.0> use plain ANSI "
 "output.  For these older versions the code page of the console has to be "
 "made equal to the system code page (changed to 1252) to make wcd for Windows "
 "work properly with special characters such as accented characters or the "
-"euro symbol."
+"Euro symbol."
 msgstr ""
 "Die Nicht-Unicode-Versionen von Wcd I<vor Version 5.2.0> verwenden die "
 "gewöhnliche ANSI-Ausgabe. Für diese älteren Versionen muss die Codepage der "
@@ -2689,9 +2887,15 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:958
+#, fuzzy
+#| msgid ""
+#| "When you type C<wcd -V>, the actual character encoding used by wcd is "
+#| "shown. Type command C<chcp> to display the active code page of the "
+#| "Windows console."
 msgid ""
 "When you type C<wcd -V>, the actual character encoding used by wcd is shown. "
-"Type command C<chcp> to display the active code page of the Windows console."
+"Type the command C<chcp> to display the active code page of the Windows "
+"console."
 msgstr ""
 "Wenn Sie C<wcd -V> eingeben, wird die gegenwärtige von wcd verwendete "
 "Zeichenkodierung angezeigt. Geben Sie den Befehl C<chcp> ein, um die aktive "
@@ -2704,10 +2908,16 @@ msgstr "UNICODE"
 
 #. type: textblock
 #: wcd.pod:965
+#, fuzzy
+#| msgid ""
+#| "Wcd has optional support for Unicode. To see if wcd was built with "
+#| "Unicode support type C<wcd -V>. If your terminal/console and font "
+#| "supports it, you should see the euro symbol and Chinese characters "
+#| "(meaning: \"Chinese\")."
 msgid ""
 "Wcd has optional support for Unicode. To see if wcd was built with Unicode "
 "support type C<wcd -V>. If your terminal/console and font supports it, you "
-"should see the euro symbol and Chinese characters (meaning: \"Chinese\")."
+"should see the Euro symbol and Chinese characters (meaning: \"Chinese\")."
 msgstr ""
 "Wcd verfügt über optionale Unterstützung für Unicode. Um zu sehen, ob wcd "
 "mit Unicode-Unterstützung erstellt wurde, geben Sie C<wcd -V> ein. Sofern "
@@ -2755,11 +2965,17 @@ msgstr "UTF-8 unter Unix/Linux"
 
 #. type: textblock
 #: wcd.pod:985
+#, fuzzy
+#| msgid ""
+#| "In order to view UTF-8 characters your console/terminal also needs to "
+#| "support UTF-8. The xterm version that comes with XFree86 4.0 or higher "
+#| "includes UTF-8 support. To activate it, start I<xterm(1)> in a UTF-8 "
+#| "locale and use a font with iso10646-1 encoding, for instance with"
 msgid ""
 "In order to view UTF-8 characters your console/terminal also needs to "
 "support UTF-8. The xterm version that comes with XFree86 4.0 or higher "
-"includes UTF-8 support. To activate it, start I<xterm(1)> in a UTF-8 locale "
-"and use a font with iso10646-1 encoding, for instance with"
+"includes UTF-8 support. To activate it, start xterm(1) in a UTF-8 locale and "
+"use a font with iso10646-1 encoding, for instance with"
 msgstr ""
 "Um UTF-8-Zeichen in Ihrer Konsole oder Ihrem Terminal anzeigen zu lassen, "
 "muss dieses auch UTF-8 unterstützen. Die mit XFree86 4.0 oder neuer "
@@ -2962,10 +3178,16 @@ msgstr "DATEIEN"
 
 #. type: textblock
 #: wcd.pod:1056
+#, fuzzy
+#| msgid ""
+#| "If the environment variable I<WCDHOME> is set wcd will use I<WCDHOME> "
+#| "instead of I<HOME>. All C<*.wcd> files are text files. They can be edited "
+#| "with a text-editor.  The Windows Command Prompt version of wcd behaves as "
+#| "the DOS version. The Cygwin version of wcd behaves as the Unix version."
 msgid ""
 "If the environment variable I<WCDHOME> is set wcd will use I<WCDHOME> "
 "instead of I<HOME>. All C<*.wcd> files are text files. They can be edited "
-"with a text-editor.  The Windows Command Prompt version of wcd behaves as "
+"with a text editor.  The Windows Command Prompt version of wcd behaves as "
 "the DOS version. The Cygwin version of wcd behaves as the Unix version."
 msgstr ""
 "Falls die Umgebungsvariable I<WCDHOME> gesetzt ist, verwendet wcd I<WCDHOME> "
@@ -3174,8 +3396,13 @@ msgstr "B<Datei für relative Baumansicht>"
 
 #. type: textblock
 #: wcd.pod:1131
+#, fuzzy
+#| msgid ""
+#| "Text file with relative paths from DIR. See options B<+S>, B<-n> and B<"
+#| "+n>."
 msgid ""
-"Text file with relative paths from DIR. See options B<+S>, B<-n> and B<+n>."
+"Text file with relative paths from I<DIR>. See options B<+S>, B<-n> and B<"
+"+n>."
 msgstr ""
 "Textdatei mit relativen Pfaden von VERZEICHNIS. Siehe die Optionen B<+S>, B<-"
 "n> und B<+n>."
@@ -3220,9 +3447,13 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:1149
+#, fuzzy
+#| msgid ""
+#| "I<HOME> also defines where to start scanning the disk when option C<-s> "
+#| "is used. This can be overruled with environment variable I<WCDSCAN>."
 msgid ""
 "I<HOME> also defines where to start scanning the disk when option C<-s> is "
-"used. This can be overruled with environment variable I<WCDSCAN>."
+"used. This can be overruled with the environment variable I<WCDSCAN>."
 msgstr ""
 "I<HOME> legt außerdem fest, wo mit dem Einlesen des Laufwerks begonnen wird, "
 "wenn die Option C<-s> verwendet wird. Dies kann mit der Umgebungsvariable "
@@ -3241,12 +3472,19 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:1157
+#, fuzzy
+#| msgid ""
+#| "If HOME is set on DOS/Windows, wcd will place all its files (treedata."
+#| "wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) in directory I<HOME>. The "
+#| "behaviour of wcd is then equal to the Unix version of wcd. Wcd will scan "
+#| "the disk default from I<HOME>. Drives will not be automatically scanned "
+#| "by changing to them. You need to tell wcd explicitly. E.g.:"
 msgid ""
-"If HOME is set on DOS/Windows, wcd will place all its files (treedata.wcd, "
-"extra.wcd, alias.wcd, ban.wcd, wcd.go) in directory I<HOME>. The behaviour "
-"of wcd is then equal to the Unix version of wcd. Wcd will scan the disk "
-"default from I<HOME>. Drives will not be automatically scanned by changing "
-"to them. You need to tell wcd explicitly. E.g.:"
+"If I<HOME> is set on DOS/Windows, wcd will place all its files (treedata."
+"wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) in directory I<HOME>. The "
+"behaviour of wcd is then equal to the Unix version of wcd. Wcd will scan the "
+"disk default from I<HOME>. Drives will not be automatically scanned by "
+"changing to them. You need to tell wcd explicitly. E.g.:"
 msgstr ""
 "Falls HOME unter DOS/Windows gesetzt ist, platziert wcd alle seine Dateien "
 "(treedata.wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) im Verzeichnis "
@@ -3290,10 +3528,16 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:1175
+#, fuzzy
+#| msgid ""
+#| "In wcd versions prior to 5.1.5 WCDHOME also changed the default scan "
+#| "directory.  This has changed. Since version 5.1.5 WCDHOME does not change "
+#| "the default scan directory. See option -s. From version 5.1.5, use "
+#| "environment I<WCDSCAN> to overrule the default scan directory."
 msgid ""
-"In wcd versions prior to 5.1.5 WCDHOME also changed the default scan "
-"directory.  This has changed. Since version 5.1.5 WCDHOME does not change "
-"the default scan directory. See option -s. From version 5.1.5, use "
+"In wcd versions prior to 5.1.5 I<WCDHOME> also changed the default scan "
+"directory.  This has changed. Since version 5.1.5 I<WCDHOME> does not change "
+"the default scan directory. See option B<-s>. From version 5.1.5, use "
 "environment I<WCDSCAN> to overrule the default scan directory."
 msgstr ""
 "In Wcd-Versionen vor 5.1.5 wurde durch WCDHOME auch das vorgegebene "
@@ -3417,11 +3661,17 @@ msgstr "B<WCDFILTER>"
 
 #. type: textblock
 #: wcd.pod:1215
+#, fuzzy
+#| msgid ""
+#| "Specify filters with environment variable I<WCDFILTER>. All directories "
+#| "that do not match the filter(s) are ignored. A list can be specified by "
+#| "separating filters by the shell path separator. Similar as specifying the "
+#| "PATH variable.  The case sensitivity is mandated by the Operating system."
 msgid ""
 "Specify filters with environment variable I<WCDFILTER>. All directories that "
 "do not match the filter(s) are ignored. A list can be specified by "
 "separating filters by the shell path separator. Similar as specifying the "
-"PATH variable.  The case sensitivity is mandated by the Operating system."
+"I<PATH> variable.  The case sensitivity is mandated by the Operating system."
 msgstr ""
 "Geben Sie Filter mit der Umgebungsvariable I<WCDFILTER> an. Alle "
 "Verzeichnisse, die nicht auf diese(n) Filter passen, werden ignoriert. Sie "
@@ -3472,9 +3722,15 @@ msgstr "B<WCDBAN>"
 
 #. type: textblock
 #: wcd.pod:1235
+#, fuzzy
+#| msgid ""
+#| "The paths specified with environment I<WCDBAN> will be banned by wcd.  "
+#| "See also option B<-b>. Specify a list of paths separated by shell PATH "
+#| "separator"
 msgid ""
 "The paths specified with environment I<WCDBAN> will be banned by wcd.  See "
-"also option B<-b>. Specify a list of paths separated by shell PATH separator"
+"also option B<-b>. Specify a list of paths separated by shell I<PATH> "
+"separator."
 msgstr ""
 "Die in der Umgebungsvariable I<WCDBAN> angegebenen Pfade werden gebannt, "
 "siehe auch die Option B<-b>. Geben Sie eine Liste der Pfade an, durch das "
@@ -3487,10 +3743,15 @@ msgstr "B<WCDEXCLUDE>"
 
 #. type: textblock
 #: wcd.pod:1241
+#, fuzzy
+#| msgid ""
+#| "The paths specified with environment I<WCDEXCLUDE> will be excluded by "
+#| "wcd. See also options B<-x> and B<-xf>. Specify a list of paths separated "
+#| "by shell PATH separator"
 msgid ""
 "The paths specified with environment I<WCDEXCLUDE> will be excluded by wcd. "
 "See also options B<-x> and B<-xf>. Specify a list of paths separated by "
-"shell PATH separator"
+"shell I<PATH> separator."
 msgstr ""
 "Die in der Umgebungsvariable I<WCDEXCLUDE> angegebenen Pfade werden von wcd "
 "ausgeschlossen, siehe auch die Optionen B<-x> und B<-xf>. Geben Sie eine "
@@ -3591,7 +3852,11 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:1278
-msgid "For a stack per xterm(1), use the xterm WINDOWID environment variable:"
+#, fuzzy
+#| msgid ""
+#| "For a stack per xterm(1), use the xterm WINDOWID environment variable:"
+msgid ""
+"For a stack per xterm(1), use the xterm I<WINDOWID> environment variable:"
 msgstr ""
 "Für einen Stapel pro xterm(1) verwenden Sie die Umgebungsvariable WINDOWID:"
 
@@ -3770,6 +4035,13 @@ msgstr ""
 "NCD wurde ursprünglich von Brad Kingsbury für Peter Nortons »Norton "
 "Utilities« etwa 1987 geschrieben. Siehe auch L<http://www.softpanorama.org/"
 "OFM/norton_change_directory_clones.shtml>"
+
+#~ msgid ""
+#~ "Option -x must be used in front of any scan option (B<-s>, B<-S>, B<+S>, "
+#~ "B<-A>, B<-E>)."
+#~ msgstr ""
+#~ "Die Option -x muss vor jeder anderen Einleseoption angegeben werden (B<-"
+#~ "s>, B<-S>, B<+S>, B<-A>, B<-E>)."
 
 #, fuzzy
 #~| msgid ""
