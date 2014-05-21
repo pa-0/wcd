@@ -824,7 +824,7 @@ void rmTree(char *dir)
 {
    static dd_ffblk fb;       /* file block structure */
    char tmp[DD_MAXPATH];     /* tmp string */
-   int rc;                   /* error code */
+   wcd_intptr_t rc;          /* error code */
    char *errstr;
    TDirList list;            /* directory queue */
 
@@ -1009,7 +1009,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 {
    static dd_ffblk fb;       /* file block structure */
    static char tmp[DD_MAXPATH];  /* tmp string buffer */
-   int rc;                       /* error code */
+   wcd_intptr_t rc;              /* error code */
    size_t len ;
    TDirList list;                /* directory queue */
    char *tmp_ptr ;

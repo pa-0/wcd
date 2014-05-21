@@ -7,6 +7,8 @@ all: $(PROGRAM) $(DOCFILES)
 $(PROGRAM): $(OBJS)
 	$(LINK) /out:$@ $(LDFLAGS) $(OBJS) $(LIBS)
 
+DEBUG = 0
+CFLAGS = $(CFLAGS) /DDEBUG=$(DEBUG)
 
 !if "$(ASCII_TREE)" == "1"
 CFLAGS = $(CFLAGS) /DASCII_TREE

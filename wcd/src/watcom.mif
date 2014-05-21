@@ -1,5 +1,8 @@
 # Common parts of the Watcom C makefiles.
 
+DEBUG = 0
+CFLAGS += -dDEBUG=$(DEBUG)
+
 !ifdef ASCII_TREE
 CFLAGS += -dASCII_TREE
 !endif
@@ -129,8 +132,8 @@ install-doc: $(docdir) $(DOCFILES) .SYMBOLIC
 	copy $(SRCDIR)\..\doc\INSTALL.txt $(docdir)
 	copy $(SRCDIR)\..\doc\INST_DOS.txt $(docdir)
 	copy $(SRCDIR)\..\doc\copying.txt $(docdir)
-	copy $(SRCDIR)\..\doc\$(PACKAGE).txt $(docdir)
-	copy $(SRCDIR)\..\doc\$(PACKAGE).$(HTMLEXT) $(docdir)
+	copy $(SRCDIR)\man\man1\$(PACKAGE).txt $(docdir)
+	copy $(SRCDIR)\man\man1\$(PACKAGE).$(HTMLEXT) $(docdir)
 
 uninstall: .SYMBOLIC
 	-del $(bindir)\$(PROGRAM)

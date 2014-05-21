@@ -304,9 +304,9 @@ static int dd_initstruct( dd_ffblk* fb )
 
 # if defined(_WIN32) || (defined(__OS2__) && !defined(__EMX__))
 
-int dd_findnext( dd_ffblk* fb )
+wcd_intptr_t dd_findnext( dd_ffblk* fb )
 {
-    int rc;
+    wcd_intptr_t rc;
     /* repeat until file info is initialized or no more files are left */
    while ((rc=FNEXT(fb->nHandle,&fb->dos_fb)) == 0 && (rc=dd_initstruct(fb)) != 0);
    if (rc != 0) /* no more files left */
@@ -314,9 +314,9 @@ int dd_findnext( dd_ffblk* fb )
    return rc;
 }
 
-int dd_findfirst( const wcd_char *path, dd_ffblk *fb, int attrib )
+wcd_intptr_t dd_findfirst( const wcd_char *path, dd_ffblk *fb, int attrib )
 {
-   int rc;
+   wcd_intptr_t rc;
    if ((rc = FFIRST( path, &fb->dos_fb)) != -1)
    {
    fb->nHandle = rc;
