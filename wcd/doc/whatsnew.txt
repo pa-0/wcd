@@ -2,7 +2,9 @@
   - Switch to MinGW-w64 compiler for Windows 32 bit.
   - Makefile: Wcd compiles in MSYS2/MinGW-w64 environment.
     See http://sourceforge.net/projects/msys2/
-  - New makefiles for Microsoft Visual C++ 64 bit.
+  - New makefiles for Microsoft Visual C++ (MS VC) 64 bit.
+  - Watcom and VC makefiles support DEBUG=1.
+  - dosdir.h, dosdir.c: Fixed disk scanning when built with MS VC 64 bit.
   - display.c, graphics.c: Don't use newterm() on Windows when ncurses
     is used. Newterm() in old ncurses versions (<5.9.20120922)
     is not working on Windows.
