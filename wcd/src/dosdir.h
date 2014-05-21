@@ -38,7 +38,7 @@
 #ifdef _MSC_VER
 typedef unsigned int mode_t;
 #endif
-/* intptr_t is new since C99. An unsigned integer type capable of holding a pointer.
+/* intptr_t is new since C99. An integer type capable of holding a pointer.
    When you use an older C standard your compiler may still support intptr_t.
    Older compilers may not support it. Wcd built with Microsoft Visual C++ 
    64 bit crashes if we don't use intptr_t */
