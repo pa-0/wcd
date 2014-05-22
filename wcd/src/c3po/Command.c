@@ -32,7 +32,7 @@ expfun text getBasename(text input_file)
    static char base[200];
    int i;
    strcpy(base, input_file);
-   i = strlen(base) - 1;
+   i = (int)strlen(base) - 1;
    while(i >= 0)
    {
       if (base[i] eq '/')
@@ -46,7 +46,7 @@ expfun text getCore(text input_file)
    static char core[200];
    int i;
    strcpy(core, getBasename(input_file));
-   i = strlen(core) - 1;
+   i = (int)strlen(core) - 1;
    while(i >= 0)
    {
       if (core[i] eq '.')

@@ -2078,7 +2078,7 @@ void scanaliasfile(char *org_dir, char *filename,
  *
  ********************************************************************/
 
-int wcd_get_int()
+int wcd_get_int(void)
 {
    int i;
    char string[32];
@@ -2122,7 +2122,7 @@ int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdSta
  *                 Print help
  *
  ********************************************************************/
-void print_help()
+void print_help(void)
 {
    printf(_("Usage: wcd [options] [directory]\n\n"));
    printf(_("directory:  Name of directory to change to.\n"));
@@ -2197,7 +2197,7 @@ void print_help()
 #ifdef ENABLE_NLS
 void print_version(char *localedir)
 #else
-void print_version()
+void print_version(void)
 #endif
 {
    printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
@@ -2327,7 +2327,7 @@ void print_version()
    printf("http://waterlan.home.xs4all.nl/\n");
 }
 
-void print_license()
+void print_license(void)
 {
    printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
    printf(_("\

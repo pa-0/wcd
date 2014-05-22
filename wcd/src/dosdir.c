@@ -197,7 +197,7 @@ int setdisk( int drive )
 }
 #elif defined(_WIN32)
 
-int getdisk()
+int getdisk(void)
 {
 	int d;
 	d = _getdrive();
@@ -320,7 +320,7 @@ wcd_intptr_t dd_findfirst( const wcd_char *path, dd_ffblk *fb, int attrib )
    if ((rc = FFIRST( path, &fb->dos_fb)) != -1)
    {
    fb->nHandle = rc;
-   fb->dd_attribs = attrib;
+   fb->dd_attribs = (char)attrib;
 
    if ((rc = dd_initstruct(fb)) != 0) /* initialization failed? */
             rc = dd_findnext( fb );
