@@ -143,15 +143,16 @@ Basic Installation
 dos32    : DOS 32 bit
 dos32bsh : DOS 32 bit for BASH
 win32    : Windows 32 bit console version.
-win32zsh : Windows 32 bit MSYS and ZSH version.
 win32psh : Windows 32 bit PowerShell version.
+win32zsh : Windows 32 bit MSYS and ZSH version.
 win64    : Windows 64 bit console version.
 win64psh : Windows 64 bit PowerShell version.
+win64zsh : Windows 64 bit MSYS and ZSH version.
 msys     : Native MSYS version.
 os2      : OS/2 32 bit console version.
 
 Change to the appropriate directory `dos32', `dos32bsh', `win32',
-`win32zsh', `win32psh', 'msys', 'os2'.
+`win32psh', `win32zsh', `win64', `win64psh', `win64zsh', 'msys', 'os2'.
 
 
 Build wcd:
@@ -255,10 +256,11 @@ Example:
 dos32    : The default PREFIX is c:/dos32
 dos32bsh : The default PREFIX is c:/dos32
 win32    : The default PREFIX is c:/usr/local
-win32zsh : The default PREFIX is c:/usr/local
 win32psh : The default PREFIX is c:/usr/local
+win32zsh : The default PREFIX is c:/usr/local
 win64    : The default PREFIX is c:/usr/local64
 win64psh : The default PREFIX is c:/usr/local64
+win64zsh : The default PREFIX is c:/usr/local64
 msys     : The default PREFIX is /usr
 os2      : The default PREFIX is c:/usr
 

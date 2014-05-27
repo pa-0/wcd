@@ -2372,7 +2372,7 @@ void create_dir_for_file(char *f)
    mode_t m;
 #endif
 
-   strncpy(path, f, DD_MAXPATH - 1);
+   strncpy(path, f, (size_t)(DD_MAXPATH - 1));
    path[DD_MAXPATH - 1] = '\0';
    if ( (ptr = strrchr(path,DIR_SEPARATOR)) != NULL)
    {

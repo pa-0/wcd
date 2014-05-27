@@ -902,7 +902,7 @@ that language. For instance dots and dashes are ignored, or letters e with
 and without accent are equal, or upper and lower case is ignored.
 
 The sorting gives preference to environment variable I<LC_COLLATE>
-over I<LANG>. If you make I<LC_COLLATE> equal to I<C> or I<POSIX>,
+over I<LANG>. If you make I<LC_COLLATE> equal to C<C> or C<POSIX>,
 locale sorting is turned off. For instance if you want Dutch language,
 but not Dutch sorting, you can do something like this:
 
@@ -1146,7 +1146,7 @@ Wcd uses by default environment variable I<HOME> to determine where to store
 its files. See also section FILES. This can be overruled with environment
 variable I<WCDHOME>.
 
-I<HOME> also defines where to start scanning the disk when option C<-s> is
+I<HOME> also defines where to start scanning the disk when option B<-s> is
 used. This can be overruled with the environment variable I<WCDSCAN>.
 
 

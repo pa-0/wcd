@@ -66,13 +66,15 @@ Basic Installation
 ==================
 
 win32    : Windows 32 bit console version.
-win32zsh : Windows 32 bit for WinZsh or MSYS.
 win32psh : Windows 32 bit PowerShell version.
+win32zsh : Windows 32 bit for WinZsh or MSYS.
 win64    : Windows 64 bit console version.
 win64psh : Windows 64 bit PowerShell version.
+win64zsh : Windows 64 bit for WinZsh or MSYS.
 
-Change to the appropriate directory `win32', `win32zsh', `win32psh',
-`win64', or `win64psh' directory. Then change to the `vc' subdirectory.
+Change to the appropriate directory `win32', `win32psh', `win32zsh',
+`win64', `win64psh', or `win64zsh' directory. Then change to the `vc'
+subdirectory.
 
 
 Build wcd:
@@ -142,6 +144,7 @@ win32zsh : The default PREFIX is c:\usr\local
 win32psh : The default PREFIX is c:\usr\local
 win64    : The default PREFIX is c:\usr\local64
 win64psh : The default PREFIX is c:\usr\local64
+win64zsh : The default PREFIX is c:\usr\local64
 
 
 manual pages in html and text format
