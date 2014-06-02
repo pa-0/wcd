@@ -277,6 +277,7 @@ Table of Contents
 	Finnish               Jorma Karvonen               Version 5.2.5
         German                Philipp Thomas               Version 5.1.3 - 5.2.5
         German                Lars Wendler                 Version 5.2.4
+        German                Mario Blättermann            Version 5.2.5
         Spanish               Julio A. Freyre-Gonzalez     Version 5.0.4 - 5.2.4
         Ukrainian             Yuri Chornoivan              Version 5.2.5
 	Vietnamese            Trần Ngọc Quân               Version 5.2.5

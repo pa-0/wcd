@@ -2459,12 +2459,6 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:904
-#, fuzzy
-#| msgid ""
-#| "The sorting gives preference to environment variable I<LC_COLLATE> over "
-#| "I<LANG>. If you make I<LC_COLLATE> equal to I<C> or I<POSIX>, locale "
-#| "sorting is turned off. For instance if you want Dutch language, but not "
-#| "Dutch sorting, you can do something like this:"
 msgid ""
 "The sorting gives preference to environment variable I<LC_COLLATE> over "
 "I<LANG>. If you make I<LC_COLLATE> equal to C<C> or C<POSIX>, locale sorting "
@@ -2473,7 +2467,7 @@ msgid ""
 msgstr ""
 "Під час визначення параметрів упорядковування перевага надається змінній "
 "середовища I<LC_COLLATE>, а не змінній I<LANG>. Якщо ви вкажете для "
-"I<LC_COLLATE> значення I<C> або I<POSIX>, упорядковування за параметрами "
+"I<LC_COLLATE> значення C<C> або C<POSIX>, упорядковування за параметрами "
 "локалі буде вимкнено. Наприклад, якщо ви хочете скористатися українською "
 "мовою інтерфейсу, але не хочете використовувати українські параметри "
 "упорядковування, ви можете зробити так:"
@@ -3131,16 +3125,12 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:1149
-#, fuzzy
-#| msgid ""
-#| "I<HOME> also defines where to start scanning the disk when option C<-s> "
-#| "is used. This can be overruled with the environment variable I<WCDSCAN>."
 msgid ""
 "I<HOME> also defines where to start scanning the disk when option B<-s> is "
 "used. This can be overruled with the environment variable I<WCDSCAN>."
 msgstr ""
 "I<HOME> також визначає місце, звідки слід розпочинати сканування диска, якщо "
-"використано параметр C<-s>. Перевизначити це місце можна за допомогою "
+"використано параметр B<-s>. Перевизначити це місце можна за допомогою "
 "змінної середовища I<WCDSCAN>."
 
 #. type: textblock
@@ -3685,17 +3675,3 @@ msgstr ""
 "Utilities\" Пітера Нортона близько 1987 року. Див. також L<http://www."
 "softpanorama.org/OFM/norton_change_directory_clones.shtml>"
 
-#~ msgid ""
-#~ "Option -x must be used in front of any scan option (B<-s>, B<-S>, B<+S>, "
-#~ "B<-A>, B<-E>)."
-#~ msgstr ""
-#~ "Параметр -x слід вказувати до усіх параметрів сканування (B<-s>, B<-S>, B<"
-#~ "+S>, B<-A>, B<-E>)."
-
-#~ msgid ""
-#~ "Replace <PATH> with the location where wcd executable have been "
-#~ "installed.  Reload the shell initialization files or start new shell."
-#~ msgstr ""
-#~ "Замініть <ШЛЯХ> на адресу каталогу, до якого встановлено виконуваний файл "
-#~ "wcd. Перезавантажте файли ініціалізації оболонки або запустіть нову "
-#~ "оболонку."

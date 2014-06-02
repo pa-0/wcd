@@ -166,7 +166,7 @@ INTERNATIONAL MAN PAGES
     all roff implementations support UTF-8.
 
     In order to show UTF-8 man pages properly on Cygwin you need to do the
-    following:
+    following when you use classic man:
 
     In /etc/man.conf, change the NROFF definition to use 'preconv'.
 
@@ -177,6 +177,7 @@ INTERNATIONAL MAN PAGES
         export LANG=uk_UA.UTF-8
         man dos2unix
 
+    When you use man-db all pages are shown correctly automatically.
 
 DOCUMENTATION
 
