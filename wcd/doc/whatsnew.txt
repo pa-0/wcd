@@ -1,4 +1,14 @@
 5.2.5 beta 12 2014-05-27
+  - Translations of UI messages:
+    * Updated Dutch translation. Thanks to Benno Schulenberg.
+    * Updated Finnish translation. Thanks to Jorma Karvonen.
+    * New Esperanto translation. Thanks to Benno Schulenberg.
+    * New Ukrainian translation. Thanks to Yuri Chornoivan.
+    * New Vietnamese translation. Thanks to Trần Ngọc Quân.
+  - Translations of the manual:
+    * New Dutch translation.
+    * New German translation. Thanks to Mario Blättermann.
+    * New Ukrainian translation. Thanks to Yuri Chornoivan.
   - Switch to MinGW-w64 compiler for Windows 32 bit.
   - Makefile: Wcd compiles in MSYS2/MinGW-w64 environment.
     See http://sourceforge.net/projects/msys2/
@@ -19,16 +29,6 @@
   - wcd.c, display.c: Fixed compilation for stdio interface (no curses).
   - Split help text in small pieces to make it easier for translators, and
     cleanup messages. Thanks to Benno Schulenberg.
-  - Translations of UI messages:
-    * Updated Dutch translation. Thanks to Benno Schulenberg.
-    * Updated Finnish translation. Thanks to Jorma Karvonen.
-    * New Esperanto translation. Thanks to Benno Schulenberg.
-    * New Ukrainian translation. Thanks to Yuri Chornoivan.
-    * New Vietnamese translation. Thanks to Trần Ngọc Quân.
-  - Translations of the manual:
-    * New Dutch translation.
-    * New German translation. Thanks to Mario Blättermann.
-    * New Ukrainian translation. Thanks to Yuri Chornoivan.
 
 5.2.4 2013-08-28
   - Support user names with a space in the name in cmd.exe.

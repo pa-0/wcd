@@ -22,10 +22,6 @@ PREREQUISITES
             make --version
             gcc --version
 
-        If you are not able to generate the documentation files, download the documentation
-        package wcd-<version>-doc.tar.gz with the generated documentation files and unpack
-        it over the source package.
-
 
 BASIC INSTALLATION
 
