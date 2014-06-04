@@ -1000,7 +1000,7 @@ void finddirs(char* dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    while (q_remove(&list, tmp))
       finddirs(tmp,offset, outfile, use_HOME, exclude, 1);
 
-   if (dir) wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
+   wcd_chdir(DIR_PARENT,1); /* go to parent directory */
 }
 
 #else /* not DJGPP */
