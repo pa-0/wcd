@@ -260,6 +260,7 @@ Table of Contents
         Thomas Dickey       Use of ncurses on Windows.
         Misty De Meo        Fix: Compilation on OS X/FreeBSD.
         David Binderman     Fixed a dangerous string usage.
+        Benno Schulenberg   Cleanup user interface messages.
 
 
     3.1 Translators

@@ -31,6 +31,9 @@
             Using DOSDIR in combination with DJGPP would make scanning
             the disk very slow.
 
+            DJGPP gcc >= 4.6 seems to cause problems. Crashes of gcc itself,
+            or crashing wcd binaries. Use DJGPP gcc <= 4.5.3.
+
             A 32 bit DOS wcd can also be build with the Open Watcom compiler.
 
         Windows

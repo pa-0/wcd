@@ -9,6 +9,18 @@
     * New Dutch translation.
     * New German translation. Thanks to Mario Blättermann.
     * New Ukrainian translation. Thanks to Yuri Chornoivan.
+  - Use po4a to create international man pages.
+    See http://po4a.alioth.debian.org/
+  - Wcd is member of Translation Project for translation of
+    messages and manual. See
+    http://translationproject.org/domain/wcd.html
+    http://translationproject.org/domain/wcd-man.html
+  - Makefile: Include generated manuals in the source package.  Adding man
+    files to the source package, which have been generated with a high version
+    of perl/pod2man, is a favour to users, because newer perl/pod2man versions
+    produce better output (also for old systems).  Tip from pod2man maintainer
+    Russ Allbery.  When you want to generate man pages yourself just run first
+    'make maintainer-clean'.
   - Switch to MinGW-w64 compiler for Windows 32 bit.
   - Makefile: Wcd compiles in MSYS2/MinGW-w64 environment.
     See http://sourceforge.net/projects/msys2/
@@ -19,16 +31,12 @@
   - display.c, graphics.c: Don't use newterm() on Windows when ncurses
     is used. Newterm() in old ncurses versions (<5.9.20120922)
     is not working on Windows.
-  - Makefile: Include generated manuals in the source package.  Adding man
-    files to the source package, which have been generated with a high version
-    of perl/pod2man, is a favour to users, because newer perl/pod2man versions
-    produce better output (also for old systems).  Tip from pod2man maintainer
-    Russ Allbery.  When you want to generate man pages yourself just run first
-    'make maintainer-clean'.
   - wcd.c: Fixed a dangerous string usage. Thanks to David Binderman.
   - wcd.c, display.c: Fixed compilation for stdio interface (no curses).
   - Split help text in small pieces to make it easier for translators, and
     cleanup messages. Thanks to Benno Schulenberg.
+  - Switch back to DJGPP gcc 4.5.3. Binaries built with DJGPP gcc >= 4.6
+    crash in DOSEMU and DosBOX.
 
 5.2.4 2013-08-28
   - Support user names with a space in the name in cmd.exe.
