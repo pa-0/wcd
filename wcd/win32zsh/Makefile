@@ -42,8 +42,14 @@ ZIPOBJ_EXTRA =
 ifdef ENABLE_NLS
 # Using MinGW gettext,iconv
 ZIPOBJ_EXTRA += bin/libintl-8.dll bin/libiconv-2.dll
+# libgcc_s_dw2-1 and libwinpthread-1 are needed when built with MSYS2 
+ZIPOBJ_EXTRA += bin/libgcc_s_dw2-1.dll bin/libwinpthread-1.dll
 endif
+
 ifdef UNINORM
+ifndef ENABLE_NLS
+ZIPOBJ_EXTRA += bin/libgcc_s_dw2-1.dll bin/libwinpthread-1.dll
+endif
 ZIPOBJ_EXTRA += bin/libunistring-0.dll
 endif
 
