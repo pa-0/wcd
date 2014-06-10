@@ -1,11 +1,10 @@
 open sftp://waterlan,wcd@frs.sourceforge.net
 cd /home/frs/project/w/wc/wcd/wcd
-mkdir 5.2.4
-cd 5.2.4
-mput wcd-5.2.4-src.tar.gz wcd524s.zip wcd524b.zip wcd524pm.zip wcd524bh.zip wcd-5.2.4-win32-nls.zip wcd-5.2.4-win32psh-nls.zip trunk/wcd/doc/whatsnew.txt
-mput wcd-5.2.4-win32.zip wcd-5.2.4-win32psh.zip
-mput wcd-5.2.4-doc.tar.gz
-mput wcd-5.2.4-win32-nls-ucs.zip wcd-5.2.4-win32psh-nls-ucs.zip
-mput wcd-5.2.4-win64.zip wcd-5.2.4-win64psh.zip
-mput wcd-5.2.4-win64-ucs.zip wcd-5.2.4-win64psh-ucs.zip
+mkdir 5.2.5
+cd 5.2.5
+mput wcd-5.2.5-src.tar.gz wcd525s.zip wcd525b.zip wcd525pm.zip wcd525bh.zip wcd-5.2.5-win32-nls.zip wcd-5.2.5-win32psh-nls.zip trunk/wcd/doc/whatsnew.txt
+mput wcd-5.2.5-win32.zip wcd-5.2.5-win32psh.zip
+mput wcd-5.2.5-win32-nls-ucs.zip wcd-5.2.5-win32psh-nls-ucs.zip
+mput wcd-5.2.5-win64.zip wcd-5.2.5-win64psh.zip
+mput wcd-5.2.5-win64-ucs.zip wcd-5.2.5-win64psh-ucs.zip
 exit

@@ -36,11 +36,14 @@ gcc
 ===
 
 DOS     : DJGPP     : http://www.delorie.com/djgpp/
+Windows : MinGW     : http://www.mingw.org/
 Windows : MSYS2     : http://sourceforge.net/projects/msys2/
 OS/2    : EMX       :
 
 DJGPP gcc >= 4.6 seems to cause problems. Crashes of gcc itself, or crashing
 wcd binaries. Use DJGPP gcc <= 4.5.3.
+
+Wcd compiles with mingw.org and mingw-w64. I recommend using the MSYS2 project.
 
 The MSYS2 project includes the MinGW-w64 compiler <http://mingw-w64.sourceforge.net/>
 for both 32 and 64 bit. Plus it includes a complete building environment. A

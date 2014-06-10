@@ -1,4 +1,4 @@
-5.2.5 beta 12 2014-05-27
+5.2.5 2014-06-10
   - Translations of UI messages:
     * Updated Dutch translation. Thanks to Benno Schulenberg.
     * Updated Finnish translation. Thanks to Jorma Karvonen.
