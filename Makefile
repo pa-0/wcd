@@ -34,9 +34,9 @@ dist:
 	# Remove generated doc files from Unix package.
 	cd ${RELEASE_DIR}/src ; ${MAKE} clean
 	# Create the packages.
-	cd .. ; tar cvzf wcd-${VERSION}-src.tar.gz wcd-${VERSION}
-	cd .. ; rm -f wcd${VERSION_SHORT}s.zip
-	cd .. ; zip -r wcd${VERSION_SHORT}s.zip wcd${VERSION_SHORT}
+	cd .. ; tar cvzf wcd-${VERSION}.tar.gz wcd-${VERSION}
+	cd .. ; rm -f wcd${VERSION_SHORT}.zip
+	cd .. ; zip -r wcd${VERSION_SHORT}.zip wcd${VERSION_SHORT}
 
 tag:
 	svn copy ${SVNSSHREPO}/trunk \

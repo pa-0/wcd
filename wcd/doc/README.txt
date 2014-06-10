@@ -339,10 +339,10 @@ Table of Contents
         For each release of wcd there are two source packages
         (the question marks indicate the version number):
 
-        wcd-?.?.?-src.tar.gz   : source package
+        wcd-?.?.?.tar.gz   : source package
            Source code in unix text.
 
-        wcd???s.zip : source package
+        wcd???.zip : source package
            Source code in DOS text.
 
 
