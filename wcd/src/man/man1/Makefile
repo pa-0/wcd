@@ -57,6 +57,8 @@ wcd-man.pot : wcd.pod
 
 %.po : wcd.pod
 	po4a-updatepo -f pod -m $< -p $@ --msgmerge-opt --backup=numbered
+	# change timestamp in case .po file was not updated.
+	touch $@
 
 # Create pod files from po.
 # Fix problem that =encoding is before =pod command.
