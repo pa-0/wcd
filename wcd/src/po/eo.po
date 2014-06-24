@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-13 21:51+0200\n"
+"POT-Creation-Date: 2014-06-24 23:02+0200\n"
 "PO-Revision-Date: 2014-02-12 15:01+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -950,12 +950,12 @@ msgstr "<Enter>             ĉesigi"
 msgid "Type w or x to quit help."
 msgstr "Tajpu w aŭ x por eliri de helpo."
 
-#: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
-#: graphics.c:1866
+#: display.c:1187 graphics.c:1810 graphics.c:1827 graphics.c:1850
+#: graphics.c:1867
 msgid "Press any key."
 msgstr "Premu iu ajn klavon."
 
-#: display.c:1252 graphics.c:2116
+#: display.c:1252 graphics.c:2117
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Eraro dum malfermo de terminalo; anstataŭe uziĝas ĉefeliguja interfaco.\n"
@@ -964,7 +964,7 @@ msgstr ""
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "ekranalto devas esti pli ol 3 linioj.\n"
 
-#: display.c:1307 graphics.c:2149
+#: display.c:1307 graphics.c:2150
 msgid "error creating scroll window.\n"
 msgstr "eraro dum kreado de ruluma fenestro.\n"
 
@@ -1085,119 +1085,123 @@ msgstr "?                 serĉi malantaŭen"
 msgid "n                 repeat last / or ? search"
 msgstr "n                 ripeti lastan serĉon per / aŭ ?"
 
-#: graphics.c:1825 graphics.c:1848
+#: graphics.c:1825
+msgid "F5 or CTRL-l      redraw screen"
+msgstr ""
+
+#: graphics.c:1826 graphics.c:1849
 msgid "<Enter>           select directory"
 msgstr "<Enter>           elekti la dosierujon"
 
-#: graphics.c:1832
+#: graphics.c:1833
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "SERĈ-MODUSO kun subteno por ĵokeroj kaj subdosieroj:"
 
-#: graphics.c:1833
+#: graphics.c:1834
 msgid "<Left>            go left"
 msgstr "<Liven>             maldekstren"
 
-#: graphics.c:1834
+#: graphics.c:1835
 msgid "<Down>            go down"
 msgstr "<Suben>             malsupren"
 
-#: graphics.c:1835
+#: graphics.c:1836
 msgid "<Up>              go up"
 msgstr "<Supren>            supren"
 
-#: graphics.c:1836
+#: graphics.c:1837
 msgid "<Right>           go right"
 msgstr "<Dekstren>          dekstren"
 
-#: graphics.c:1837
+#: graphics.c:1838
 msgid "CTRL-v            go forward to dir with same name"
 msgstr "Ctrl-v              antaŭen al dosierujo kun sama nomo"
 
-#: graphics.c:1838
+#: graphics.c:1839
 msgid "CTRL-p            go backward to dir with same name"
 msgstr "Ctrl-p              malantaŭen al dosierujo kun sama nomo"
 
-#: graphics.c:1839
+#: graphics.c:1840
 msgid "CTRL-a            go to beginning of line"
 msgstr "Ctrl-a              al komenco de linio"
 
-#: graphics.c:1840
+#: graphics.c:1841
 msgid "CTRL-e            go to end of line"
 msgstr "Ctrl-e              al fino de linio"
 
-#: graphics.c:1841
+#: graphics.c:1842
 msgid "CTRL-g            go to last dir"
 msgstr "Ctrl-g              al lasta dosierujo"
 
-#: graphics.c:1842
+#: graphics.c:1843
 msgid "CTRL-f            go page forward"
 msgstr "Ctrl-f              paĝon antaŭen"
 
-#: graphics.c:1843
+#: graphics.c:1844
 msgid "CTRL-b            go page backward"
 msgstr "Ctrl-b              paĝon malantaŭen"
 
-#: graphics.c:1844
+#: graphics.c:1845
 msgid "CTRL-u            go half page up"
 msgstr "Ctrl-u              duonpaĝon supren"
 
-#: graphics.c:1845
+#: graphics.c:1846
 msgid "CTRL-d            go half page down"
 msgstr "Ctrl-d              duonpaĝon malsupren"
 
-#: graphics.c:1846
+#: graphics.c:1847
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
 msgstr "<Esc> aŭ Ctrl-x     ĉesigi SERĈ-MODUSON"
 
-#: graphics.c:1847
+#: graphics.c:1848
 msgid "CTRL-n            repeat last / or ? search"
 msgstr "Ctrl-n              ripeti lastan serĉon per / aŭ ?"
 
-#: graphics.c:1855
+#: graphics.c:1856
 msgid "ZOOMING:"
 msgstr "ZOMI:"
 
-#: graphics.c:1856
+#: graphics.c:1857
 msgid "z or i or CTRL-i  zoom in"
 msgstr "z aŭ i aŭ Ctrl-i    zomi"
 
-#: graphics.c:1857
+#: graphics.c:1858
 msgid "Z or o or CTRL-o  zoom out"
 msgstr "Z aŭ o aŭ Ctrl-o    malzomi"
 
-#: graphics.c:1858
+#: graphics.c:1859
 msgid "c                 condense: fold current level"
 msgstr "c                   faldi la nunan nivelon"
 
-#: graphics.c:1859
+#: graphics.c:1860
 msgid "C                 condense: fold subdir level"
 msgstr "C                   faldi la suban nivelon"
 
-#: graphics.c:1860
+#: graphics.c:1861
 msgid "w                 condense: fold current and subdir levels"
 msgstr "w                   faldi la nunan kaj subajn nivelojn"
 
-#: graphics.c:1861
+#: graphics.c:1862
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
 msgstr "y aŭ Ctrl-y         malfaldi la nunan kaj subajn nivelojn"
 
-#: graphics.c:1862
+#: graphics.c:1863
 msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r aŭ Ctrl-r         malfaldi ĉiujn dosierujojn"
 
-#: graphics.c:1863
+#: graphics.c:1864
 msgid "-                 fold directory"
 msgstr "-                   faldi dosierujon"
 
-#: graphics.c:1864
+#: graphics.c:1865
 msgid "+ or =            unfold directory"
 msgstr "+ aŭ =              malfaldi dosierujon"
 
-#: graphics.c:1865
+#: graphics.c:1866
 msgid "l or <Right>      unfold and go right"
 msgstr "l aŭ <Dekstren>     malfaldi kaj iri dekstren"
 
-#: graphics.c:1869
+#: graphics.c:1870
 msgid "Screenheight must be > 21 for help."
 msgstr "Ekranalto devas esti pli ol 21 por helpo."
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-13 21:51+0200\n"
+"POT-Creation-Date: 2014-06-24 23:02+0200\n"
 "PO-Revision-Date: 2014-02-12 19:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -974,12 +974,12 @@ msgstr "<Enter>           перервати"
 msgid "Type w or x to quit help."
 msgstr "Натисніть клавішу w або x, щоб вийти з режиму довідки."
 
-#: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
-#: graphics.c:1866
+#: display.c:1187 graphics.c:1810 graphics.c:1827 graphics.c:1850
+#: graphics.c:1867
 msgid "Press any key."
 msgstr "Натисніть будь-яку клавішу."
 
-#: display.c:1252 graphics.c:2116
+#: display.c:1252 graphics.c:2117
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Помилка під час спроби відкрити термінал, повертаємося до інтерфейсу "
@@ -989,7 +989,7 @@ msgstr ""
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "висота екрана має перевищувати 3 рядки.\n"
 
-#: display.c:1307 graphics.c:2149
+#: display.c:1307 graphics.c:2150
 msgid "error creating scroll window.\n"
 msgstr "помилка під час створення вікна гортання.\n"
 
@@ -1115,119 +1115,123 @@ msgstr "?                 пошук у напрямку назад"
 msgid "n                 repeat last / or ? search"
 msgstr "n                 повторити останній пошук за допомогою / або ?"
 
-#: graphics.c:1825 graphics.c:1848
+#: graphics.c:1825
+msgid "F5 or CTRL-l      redraw screen"
+msgstr ""
+
+#: graphics.c:1826 graphics.c:1849
 msgid "<Enter>           select directory"
 msgstr "<Enter>           вибрати каталог"
 
-#: graphics.c:1832
+#: graphics.c:1833
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "РЕЖИМ ПОШУКУ з підтримкою символів-замінників та підкаталогів:"
 
-#: graphics.c:1833
+#: graphics.c:1834
 msgid "<Left>            go left"
 msgstr "<Ліворуч>         перейти ліворуч"
 
-#: graphics.c:1834
+#: graphics.c:1835
 msgid "<Down>            go down"
 msgstr "<Вниз>            перейти вниз"
 
-#: graphics.c:1835
+#: graphics.c:1836
 msgid "<Up>              go up"
 msgstr "<Вгору>           перейти вище"
 
-#: graphics.c:1836
+#: graphics.c:1837
 msgid "<Right>           go right"
 msgstr "<Праворуч>        перейти праворуч"
 
-#: graphics.c:1837
+#: graphics.c:1838
 msgid "CTRL-v            go forward to dir with same name"
 msgstr "CTRL-v            перейти вперед до каталогу з тією самою назвою"
 
-#: graphics.c:1838
+#: graphics.c:1839
 msgid "CTRL-p            go backward to dir with same name"
 msgstr "CTRL-p            перейти назад до каталогу з тією самою назвою"
 
-#: graphics.c:1839
+#: graphics.c:1840
 msgid "CTRL-a            go to beginning of line"
 msgstr "CTRL-a            перейти на початок рядка"
 
-#: graphics.c:1840
+#: graphics.c:1841
 msgid "CTRL-e            go to end of line"
 msgstr "CTRL-e            перейти до кінця рядка"
 
-#: graphics.c:1841
+#: graphics.c:1842
 msgid "CTRL-g            go to last dir"
 msgstr "CTRL-g            перейти до останнього каталогу"
 
-#: graphics.c:1842
+#: graphics.c:1843
 msgid "CTRL-f            go page forward"
 msgstr "CTRL-f            перейти на сторінку вперед"
 
-#: graphics.c:1843
+#: graphics.c:1844
 msgid "CTRL-b            go page backward"
 msgstr "CTRL-b            перейти на сторінку назад"
 
-#: graphics.c:1844
+#: graphics.c:1845
 msgid "CTRL-u            go half page up"
 msgstr "CTRL-u            перейти на пів сторінки вище"
 
-#: graphics.c:1845
+#: graphics.c:1846
 msgid "CTRL-d            go half page down"
 msgstr "CTRL-d            перейти на пів сторінки нижче"
 
-#: graphics.c:1846
+#: graphics.c:1847
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
 msgstr "<Esc> або CTRL-x  вийти з режиму пошуку"
 
-#: graphics.c:1847
+#: graphics.c:1848
 msgid "CTRL-n            repeat last / or ? search"
 msgstr "CTRL-n            повторити останній пошук за допомогою / або ?"
 
-#: graphics.c:1855
+#: graphics.c:1856
 msgid "ZOOMING:"
 msgstr "ЗМІНА МАСШТАБУ:"
 
-#: graphics.c:1856
+#: graphics.c:1857
 msgid "z or i or CTRL-i  zoom in"
 msgstr "z, i або CTRL-i  збільшити"
 
-#: graphics.c:1857
+#: graphics.c:1858
 msgid "Z or o or CTRL-o  zoom out"
 msgstr "Z, o або CTRL-o  зменшити"
 
-#: graphics.c:1858
+#: graphics.c:1859
 msgid "c                 condense: fold current level"
 msgstr "c                 згорнути поточний рівень"
 
-#: graphics.c:1859
+#: graphics.c:1860
 msgid "C                 condense: fold subdir level"
 msgstr "C                 згорнути рівень підкаталогів"
 
-#: graphics.c:1860
+#: graphics.c:1861
 msgid "w                 condense: fold current and subdir levels"
 msgstr "w                 згорнути поточний рівень і рівень підкаталогів"
 
-#: graphics.c:1861
+#: graphics.c:1862
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
 msgstr "y або CTRL-y      розгорнути поточний рівень і рівень підкаталогів"
 
-#: graphics.c:1862
+#: graphics.c:1863
 msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r або CTRL-r      розгорнути усі каталоги"
 
-#: graphics.c:1863
+#: graphics.c:1864
 msgid "-                 fold directory"
 msgstr "-                 згорнути каталог"
 
-#: graphics.c:1864
+#: graphics.c:1865
 msgid "+ or =            unfold directory"
 msgstr "+ або =           розгорнути каталог"
 
-#: graphics.c:1865
+#: graphics.c:1866
 msgid "l or <Right>      unfold and go right"
 msgstr "l або <Праворуч>  розгорнути і перейти праворуч"
 
-#: graphics.c:1869
+#: graphics.c:1870
 msgid "Screenheight must be > 21 for help."
 msgstr "Для перегляду довідки висота екрана має перевищувати 21."
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-13 21:51+0200\n"
+"POT-Creation-Date: 2014-06-24 23:02+0200\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -935,12 +935,12 @@ msgstr "<Intro>           aborta"
 msgid "Type w or x to quit help."
 msgstr ""
 
-#: display.c:1187 graphics.c:1810 graphics.c:1826 graphics.c:1849
-#: graphics.c:1866
+#: display.c:1187 graphics.c:1810 graphics.c:1827 graphics.c:1850
+#: graphics.c:1867
 msgid "Press any key."
 msgstr "Presione alguna tecla."
 
-#: display.c:1252 graphics.c:2116
+#: display.c:1252 graphics.c:2117
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr "Error al abrir la terminal, usando interfase stdout.\n"
 
@@ -948,7 +948,7 @@ msgstr "Error al abrir la terminal, usando interfase stdout.\n"
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "la altura de la pantalla debe ser mayor de 3 líneas.\n"
 
-#: display.c:1307 graphics.c:2149
+#: display.c:1307 graphics.c:2150
 msgid "error creating scroll window.\n"
 msgstr "error al crear ventana deslizable.\n"
 
@@ -1069,119 +1069,123 @@ msgstr "?                 Busca hacia atrás"
 msgid "n                 repeat last / or ? search"
 msgstr "n                 Repetir la última búsqueda / o ?"
 
-#: graphics.c:1825 graphics.c:1848
+#: graphics.c:1825
+msgid "F5 or CTRL-l      redraw screen"
+msgstr ""
+
+#: graphics.c:1826 graphics.c:1849
 msgid "<Enter>           select directory"
 msgstr "<Intro>           Selecciona directorio"
 
-#: graphics.c:1832
+#: graphics.c:1833
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "MODO BUSQUEDA con soporte de comodines y subdirectorios:"
 
-#: graphics.c:1833
+#: graphics.c:1834
 msgid "<Left>            go left"
 msgstr "<Izquierda>       ir a la izquierda"
 
-#: graphics.c:1834
+#: graphics.c:1835
 msgid "<Down>            go down"
 msgstr "<Abajo>           ir hacia abajo"
 
-#: graphics.c:1835
+#: graphics.c:1836
 msgid "<Up>              go up"
 msgstr "<Arriba>          ir hacia arriba"
 
-#: graphics.c:1836
+#: graphics.c:1837
 msgid "<Right>           go right"
 msgstr "<Derecha>         ir a la derecha"
 
-#: graphics.c:1837
+#: graphics.c:1838
 msgid "CTRL-v            go forward to dir with same name"
 msgstr "CTRL-v            ir hacia delante al directorio con el mismo nombre"
 
-#: graphics.c:1838
+#: graphics.c:1839
 msgid "CTRL-p            go backward to dir with same name"
 msgstr "CTRL-p            ir hacia atrás al directorio con el mismo nombre"
 
-#: graphics.c:1839
+#: graphics.c:1840
 msgid "CTRL-a            go to beginning of line"
 msgstr "CTRL-a            ir al inicio de la línea"
 
-#: graphics.c:1840
+#: graphics.c:1841
 msgid "CTRL-e            go to end of line"
 msgstr "CTRL-e            ir al final de la línea"
 
-#: graphics.c:1841
+#: graphics.c:1842
 msgid "CTRL-g            go to last dir"
 msgstr "CTRL-g            ir al último directorio"
 
-#: graphics.c:1842
+#: graphics.c:1843
 msgid "CTRL-f            go page forward"
 msgstr "CTRL-f            avanzar página"
 
-#: graphics.c:1843
+#: graphics.c:1844
 msgid "CTRL-b            go page backward"
 msgstr "CTRL-b            retroceder página"
 
-#: graphics.c:1844
+#: graphics.c:1845
 msgid "CTRL-u            go half page up"
 msgstr "CTRL-u            avanzar media página"
 
-#: graphics.c:1845
+#: graphics.c:1846
 msgid "CTRL-d            go half page down"
 msgstr "CTRL-d            retroceder media página"
 
-#: graphics.c:1846
+#: graphics.c:1847
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
 msgstr "<Esc> o CTRL-x    Abortar MODO BUSQUEDA"
 
-#: graphics.c:1847
+#: graphics.c:1848
 msgid "CTRL-n            repeat last / or ? search"
 msgstr "CTRL-n            Repetir la última búsqueda / o ?"
 
-#: graphics.c:1855
+#: graphics.c:1856
 msgid "ZOOMING:"
 msgstr "ZOOMING:"
 
-#: graphics.c:1856
+#: graphics.c:1857
 msgid "z or i or CTRL-i  zoom in"
 msgstr "z o i o CTRL-i    acercamiento"
 
-#: graphics.c:1857
+#: graphics.c:1858
 msgid "Z or o or CTRL-o  zoom out"
 msgstr "Z o o o CTRL-o    alejamiento"
 
-#: graphics.c:1858
+#: graphics.c:1859
 msgid "c                 condense: fold current level"
 msgstr "c                 condensar: condensar nivel actual"
 
-#: graphics.c:1859
+#: graphics.c:1860
 msgid "C                 condense: fold subdir level"
 msgstr "C                 condensar: condensar nivel del subdirectorio"
 
-#: graphics.c:1860
+#: graphics.c:1861
 msgid "w                 condense: fold current and subdir levels"
 msgstr "w                 condensar: condensar nivel actual y subdirectorios"
 
-#: graphics.c:1861
+#: graphics.c:1862
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
 msgstr "y o CTRL-y        expandir: expandir nivel actual y subdirectorios"
 
-#: graphics.c:1862
+#: graphics.c:1863
 msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r o CTRL-r        expandir: expandir todos los directorios"
 
-#: graphics.c:1863
+#: graphics.c:1864
 msgid "-                 fold directory"
 msgstr "-                 abrir directorio"
 
-#: graphics.c:1864
+#: graphics.c:1865
 msgid "+ or =            unfold directory"
 msgstr "+ o =             cerrar directorio"
 
-#: graphics.c:1865
+#: graphics.c:1866
 msgid "l or <Right>      unfold and go right"
 msgstr "l o <Derecha>     cerrar e ir a la derecha"
 
-#: graphics.c:1869
+#: graphics.c:1870
 msgid "Screenheight must be > 21 for help."
 msgstr "La altura de la pantalla debe ser > 21 para la ayuda."
 

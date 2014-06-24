@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2000-2013 Erwin Waterlander
+Copyright (C) 2000-2014 Erwin Waterlander
 
 Ideas and source code of NCD (Ninux Czo Directory) have been
 used in the WCD graphical interface.
@@ -139,7 +139,6 @@ void dataRefresh(int ydiff, int init);
 #  define CAN_RESIZE 0
 #endif
 
-#if CAN_RESIZE
 /* The most portable way of resizing seems to be
  * to just rebuild the windows from scratch */
 void ioResize()
@@ -170,6 +169,7 @@ void ioResize()
    dataRefresh(0, 1);
 }
 
+#if CAN_RESIZE
 void signalSigwinch (int sig)
 {
   ioResize ();
@@ -1673,8 +1673,8 @@ void dataRefresh(int ydiff, int init)
   if ((yposition < 0)|| init)
      yposition = (wcd_cwin.scrollWinHeight /2);
 
-  werase(wcd_cwin.scrollWin);
-  werase(wcd_cwin.inputWin);
+  wclear(wcd_cwin.scrollWin);
+  wclear(wcd_cwin.inputWin);
 
   if (ydiff < 0 )
   {
@@ -1789,7 +1789,7 @@ void dataRefresh(int ydiff, int init)
 /************************************************************/
 void showHelp(WINDOW *win, int height)
 {
-   werase(win);
+   wclear(win);
    if (height > 21)
    {
       wcd_mvwaddstr(win, 0,0,_("NAVIGATION MODE (1/2):"));
@@ -1811,7 +1811,7 @@ void showHelp(WINDOW *win, int height)
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
-      werase(win);
+      wclear(win);
 
       wcd_mvwaddstr(win, 0,0,_("NAVIGATION MODE (2/2):"));
       wcd_mvwaddstr(win, 1,0,_("A                 switch alternative tree navigation on/off"));
@@ -1822,12 +1822,13 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win, 6,0,_("/                 search forward"));
       wcd_mvwaddstr(win, 7,0,_("?                 search backward"));
       wcd_mvwaddstr(win, 8,0,_("n                 repeat last / or ? search"));
-      wcd_mvwaddstr(win, 9,0,_("<Enter>           select directory"));
-      wcd_mvwaddstr(win,11,0,_("Press any key."));
+      wcd_mvwaddstr(win, 9,0,_("F5 or CTRL-l      redraw screen"));
+      wcd_mvwaddstr(win,10,0,_("<Enter>           select directory"));
+      wcd_mvwaddstr(win,12,0,_("Press any key."));
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
-      werase(win);
+      wclear(win);
 
       wcd_mvwaddstr(win, 0,0,_("SEARCH MODE with wildcard and subdir support:"));
       wcd_mvwaddstr(win, 1,0,_("<Left>            go left"));
@@ -1850,7 +1851,7 @@ void showHelp(WINDOW *win, int height)
 
       prefresh(win,0,0,0,0,height-1,COLS-1);
       getch();
-      werase(win);
+      wclear(win);
 
       wcd_mvwaddstr(win, 0,0,_("ZOOMING:"));
       wcd_mvwaddstr(win, 1,0,_("z or i or CTRL-i  zoom in"));
@@ -2486,6 +2487,10 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          break;
       case KEY_F (1):
             showHelp(wcd_cwin.scrollWin,wcd_cwin.scrollWinHeight);
+         break;
+      case KEY_F (5):
+      case Key_CTRL ('l'):
+            ioResize();
          break;
       case Key_CTRL ('i'):
             pushZoom(wcd_cwin.zoomStack,wcd_cwin.curNode,&ymax);

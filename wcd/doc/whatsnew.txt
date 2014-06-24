@@ -1,3 +1,11 @@
+5.2.6-beta1 2014-06-24
+  - graphics.c: Use wclear again iso werase (wclear was introduced
+    in wcd 5.2.4). wclear gives a cleaner screen on Windows in a
+    Chinese locale.
+    wclear gives some screen flickering when used with ncurses on
+    Windows.
+  - New keys in graphical tree mode: F5 or CRTL-l to redraw the screen.
+
 5.2.5 2014-06-10
   - Translations of UI messages:
     * Updated Dutch translation. Thanks to Benno Schulenberg.
