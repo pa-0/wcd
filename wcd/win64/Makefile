@@ -45,9 +45,21 @@ ifdef ENABLE_NLS
 # Using MinGW gettext,iconv
 ZIPOBJ_EXTRA += bin/libintl-8.dll bin/libiconv-2.dll
 endif
+
 ifdef UNINORM
+ifndef ENABLE_NLS
+# libunistring needs libiconv
+ZIPOBJ_EXTRA += bin/libiconv-2.dll
+endif
 ZIPOBJ_EXTRA += bin/libunistring-0.dll
 endif
+
+ifeq ($(findstring ncurses,$(CURSES)),ncurses)
+ifneq ($(findstring libwinpthread,$(ZIPOBJ_EXTRA)),libwinpthread)
+ZIPOBJ_EXTRA += bin/libwinpthread-1.dll
+endif
+endif
+
 
 all :
 	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES=${LIB_CURSES} DEFS="${DEFS}" LIBS_EXTRA="${LIBS_EXTRA}" prefix=${prefix} EXTRA_OBJ="${EXTRA_OBJ}" ENABLE_NLS=${ENABLE_NLS} CC=$(CC)
