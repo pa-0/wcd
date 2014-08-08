@@ -190,7 +190,7 @@
   - Drop support for Borland C compiler, because it's hard to get
     now and not developed any more since a long time. Default to
     OpenWatcom for DOS 16 bit.
-  - Removed Imakefile, because imake is depreciated.
+  - Removed Imakefile, because imake is deprecated.
   - Removed old makefiles for native HP-UX and Solaris C compiler.
     I'm not able to test these compilers.
 

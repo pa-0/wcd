@@ -44,7 +44,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 
 #ifdef WCD_ANSI
-/* wide char to UTF-8 */
+/* wide char to ANSI */
 size_t wcstoansi(char *mbstr, const wchar_t *wcstr, int len)
 {
    return((size_t)(WideCharToMultiByte(CP_ACP, 0, wcstr, -1, mbstr, len, NULL, NULL) -1));
