@@ -52,7 +52,7 @@ ZIPOBJ_EXTRA += bin/libgcc_s_dw2-1.dll bin/libwinpthread-1.dll
 # libunistring needs libiconv
 ZIPOBJ_EXTRA += bin/libiconv-2.dll
 endif
-ZIPOBJ_EXTRA += bin/libunistring-0.dll
+ZIPOBJ_EXTRA += bin/libunistring-2.dll
 endif
 
 ifeq ($(findstring ncurses,$(CURSES)),ncurses)
