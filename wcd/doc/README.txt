@@ -261,6 +261,7 @@ Table of Contents
         Misty De Meo        Fix: Compilation on OS X/FreeBSD.
         David Binderman     Fixed a dangerous string usage.
         Benno Schulenberg   Cleanup user interface messages.
+        Andreas Schwab      Fix: etc/profile.d/wcd.sh: wcd function was overwriting shell's $go variable.
 
 
     3.1 Translators

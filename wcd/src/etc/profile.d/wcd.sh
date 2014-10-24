@@ -1,6 +1,6 @@
 #   Copyright
 #
-#       Copyright (C) 2011      Erwin Waterlander
+#       Copyright (C) 2011-2014 Erwin Waterlander
 #       Copyright (C) 2009-2011 Jari Aalto
 #
 #   License
@@ -34,15 +34,13 @@
 
 wcd ()
 {
-    go="${WCDHOME:-${HOME}}/bin/wcd.go"
+    typeset go="${WCDHOME:-${HOME}}/bin/wcd.go"
 
     rm -f "$go" 2> /dev/null
 
     BINDIR/PROGRAM "$@"
 
     [ -f "$go" ] && . "$go"
-
-    unset go
 }
 
 # End of file
