@@ -10,6 +10,7 @@
   - win*/Makefile:
     * Add libiconv-2.dll when compiled with Unicode normalization.
     * Add libwinpthread-1.dll when compiled with ncurses.
+  - msys2/Makefile: New makefile for building for native msys2.
 
 5.2.5 2014-06-10
   - Translations of UI messages:
