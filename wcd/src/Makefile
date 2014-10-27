@@ -301,13 +301,13 @@ endif
 ifndef OS
 ifeq ($(findstring MSYS,$(shell uname)),MSYS)
 	CC = gcc
-	DEF_UNIX =
 	OS = msys
+	CFLAGS_OS = -DWCD_MSYS
 	PROGRAM = wcdmsys.exe
 	LIBS_EXTRA  = -lkernel32 -luser32 -lmpr
 	VERSIONSUFFIX	= -msys
 ifdef ENABLE_NLS
-	LIBS_EXTRA += -lintl
+	LIBS_EXTRA += -lintl -liconv
 endif
 endif
 endif

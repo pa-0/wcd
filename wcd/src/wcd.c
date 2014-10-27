@@ -64,7 +64,7 @@ Jason Mathews' file filelist.c was a starting point for this file.
 #include <locale.h>
 #endif
 
-#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__) && !defined(__MSYS__)  /* Unix, Cygwin */
+#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__) && !(defined(__MSYS__) && (__GNUC__ == 3 ))/* Unix, Cygwin, MSYS2 */
 # include <langinfo.h>
 #endif
 
