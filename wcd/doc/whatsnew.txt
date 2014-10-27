@@ -1,4 +1,4 @@
-5.2.6-beta2 2014-06-25
+5.2.6-beta3 2014-10-27
   - graphics.c: Use wclear again iso werase (werase was introduced
     in wcd 5.2.4). wclear gives a cleaner screen on Windows in a
     Chinese locale. wclear gives some screen flickering when used
@@ -11,6 +11,7 @@
     * Add libiconv-2.dll when compiled with Unicode normalization.
     * Add libwinpthread-1.dll when compiled with ncurses.
   - msys2/Makefile: New makefile for building for native msys2.
+  - wcd.c, Makefile: Updated for msys2.
 
 5.2.5 2014-06-10
   - Translations of UI messages:
