@@ -1182,9 +1182,10 @@ void displayHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win, 5,0,_("> or ]            scroll 10 right"));
       wcd_mvwaddstr(win, 6,0,_("CTRL-a or <HOME>  scroll to beginning"));
       wcd_mvwaddstr(win, 7,0,_("CTRL-e or <END>   scroll to end"));
-      wcd_mvwaddstr(win, 8,0,_("CTRL-c or <Esc>   abort"));
-      wcd_mvwaddstr(win, 9,0,_("<Enter>           abort"));
-      wcd_mvwaddstr(win,11,0,_("Press any key."));
+      wcd_mvwaddstr(win, 8,0,_("CTRL-l or F5      redraw screen"));
+      wcd_mvwaddstr(win, 9,0,_("CTRL-c or <Esc>   abort"));
+      wcd_mvwaddstr(win,10,0,_("<Enter>           abort"));
+      wcd_mvwaddstr(win,12,0,_("Press any key."));
    }
    prefresh(win,0,0,0,0,height-1,COLS-1);
    getch();
@@ -1412,6 +1413,10 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
       case KEY_F (1):
       case '?':
             displayHelp(wcd_display.scrollWin, wcd_display.scrollWinHeight);
+         break;
+      case KEY_F (5):
+      case Key_CTRL ('l'):
+            displayResize ();
          break;
      case 3:  /* Control-C */
      case 27: /* Escape */

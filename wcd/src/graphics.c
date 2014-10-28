@@ -1822,7 +1822,7 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win, 6,0,_("/                 search forward"));
       wcd_mvwaddstr(win, 7,0,_("?                 search backward"));
       wcd_mvwaddstr(win, 8,0,_("n                 repeat last / or ? search"));
-      wcd_mvwaddstr(win, 9,0,_("F5 or CTRL-l      redraw screen"));
+      wcd_mvwaddstr(win, 9,0,_("CTRL-l or F5      redraw screen"));
       wcd_mvwaddstr(win,10,0,_("<Enter>           select directory"));
       wcd_mvwaddstr(win,12,0,_("Press any key."));
 

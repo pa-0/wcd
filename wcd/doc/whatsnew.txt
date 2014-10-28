@@ -4,9 +4,10 @@
     Chinese locale. wclear gives some screen flickering when used
     with ncurses on Windows.
   - display.c: Use wclear iso werase.
-  - New keys in graphical tree mode: F5 or CRTL-l to redraw the screen.
-  - etc/profile.d/wcd.sh: Fix: wcd function was overwriting shell's $go variable.
-    Thanks to Andreas Schwab.
+  - New keys in match list and graphical tree mode: F5 or CRTL-l
+    to redraw the screen.
+  - etc/profile.d/wcd.sh: Fix: wcd function was overwriting shell's
+    $go variable. Thanks to Andreas Schwab.
   - win*/Makefile:
     * Add libiconv-2.dll when compiled with Unicode normalization.
     * Add libwinpthread-1.dll when compiled with ncurses.

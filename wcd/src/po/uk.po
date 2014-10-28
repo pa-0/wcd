@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-27 22:41+0100\n"
+"POT-Creation-Date: 2014-10-28 22:01+0100\n"
 "PO-Revision-Date: 2014-02-12 19:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -905,17 +905,17 @@ msgstr "внутрішня помилка у maxLength(), list == NULL\n"
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr "внутрішня помилка у maxLengthStack(), s == NULL\n"
 
-#: display.c:519 display.c:1144 display.c:1519
+#: display.c:519 display.c:1144 display.c:1524
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr "Ідеальна відповідність %d каталогів."
 
-#: display.c:521 display.c:1146 display.c:1521
+#: display.c:521 display.c:1146 display.c:1526
 #, c-format
 msgid "Wild match for %d directories."
 msgstr "Неточна відповідність %d каталогів."
 
-#: display.c:525 display.c:1158 display.c:1523 display.c:1566
+#: display.c:525 display.c:1158 display.c:1528 display.c:1571
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr ""
@@ -962,11 +962,11 @@ msgstr "CTRL-a або <HOME> гортати на початок"
 msgid "CTRL-e or <END>   scroll to end"
 msgstr "CTRL-e або <END>  гортати до кінця"
 
-#: display.c:692 display.c:1185
+#: display.c:692 display.c:1186
 msgid "CTRL-c or <Esc>   abort"
 msgstr "CTRL-c або <Esc>  перервати"
 
-#: display.c:693 display.c:1186
+#: display.c:693 display.c:1187
 msgid "<Enter>           abort"
 msgstr "<Enter>           перервати"
 
@@ -974,26 +974,30 @@ msgstr "<Enter>           перервати"
 msgid "Type w or x to quit help."
 msgstr "Натисніть клавішу w або x, щоб вийти з режиму довідки."
 
-#: display.c:1187 graphics.c:1810 graphics.c:1827 graphics.c:1850
+#: display.c:1185 graphics.c:1825
+msgid "CTRL-l or F5      redraw screen"
+msgstr ""
+
+#: display.c:1188 graphics.c:1810 graphics.c:1827 graphics.c:1850
 #: graphics.c:1867
 msgid "Press any key."
 msgstr "Натисніть будь-яку клавішу."
 
-#: display.c:1252 graphics.c:2117
+#: display.c:1253 graphics.c:2117
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Помилка під час спроби відкрити термінал, повертаємося до інтерфейсу "
 "stdout.\n"
 
-#: display.c:1273
+#: display.c:1274
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "висота екрана має перевищувати 3 рядки.\n"
 
-#: display.c:1307 graphics.c:2150
+#: display.c:1308 graphics.c:2150
 msgid "error creating scroll window.\n"
 msgstr "помилка під час створення вікна гортання.\n"
 
-#: display.c:1326
+#: display.c:1327
 msgid "error creating input window.\n"
 msgstr "помилка під час створення вікна введення даних.\n"
 
@@ -1114,10 +1118,6 @@ msgstr "?                 пошук у напрямку назад"
 #: graphics.c:1824
 msgid "n                 repeat last / or ? search"
 msgstr "n                 повторити останній пошук за допомогою / або ?"
-
-#: graphics.c:1825
-msgid "F5 or CTRL-l      redraw screen"
-msgstr ""
 
 #: graphics.c:1826 graphics.c:1849
 msgid "<Enter>           select directory"

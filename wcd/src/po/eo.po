@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-27 22:41+0100\n"
+"POT-Creation-Date: 2014-10-28 22:01+0100\n"
 "PO-Revision-Date: 2014-02-12 15:01+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -882,17 +882,17 @@ msgstr "**interna programmiso** en maxLength(): list == NULL\n"
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr "**interna programmiso** en maxLengthStack(): s == NULL\n"
 
-#: display.c:519 display.c:1144 display.c:1519
+#: display.c:519 display.c:1144 display.c:1524
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr "Perfekta kongruo por %d dosierujoj."
 
-#: display.c:521 display.c:1146 display.c:1521
+#: display.c:521 display.c:1146 display.c:1526
 #, c-format
 msgid "Wild match for %d directories."
 msgstr "Ĵokera kongruo por %d dosierujoj."
 
-#: display.c:525 display.c:1158 display.c:1523 display.c:1566
+#: display.c:525 display.c:1158 display.c:1528 display.c:1571
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Bonvolu elekti unu (<Enter> por ĉesigi): "
@@ -938,11 +938,11 @@ msgstr "Ctrl-a aŭ <Home>    rulumi al komenco"
 msgid "CTRL-e or <END>   scroll to end"
 msgstr "Ctrl-e aŭ <End>     rulumi al fino"
 
-#: display.c:692 display.c:1185
+#: display.c:692 display.c:1186
 msgid "CTRL-c or <Esc>   abort"
 msgstr "Ctrl-c aŭ <Esc>     ĉesigi"
 
-#: display.c:693 display.c:1186
+#: display.c:693 display.c:1187
 msgid "<Enter>           abort"
 msgstr "<Enter>             ĉesigi"
 
@@ -950,25 +950,29 @@ msgstr "<Enter>             ĉesigi"
 msgid "Type w or x to quit help."
 msgstr "Tajpu w aŭ x por eliri de helpo."
 
-#: display.c:1187 graphics.c:1810 graphics.c:1827 graphics.c:1850
+#: display.c:1185 graphics.c:1825
+msgid "CTRL-l or F5      redraw screen"
+msgstr ""
+
+#: display.c:1188 graphics.c:1810 graphics.c:1827 graphics.c:1850
 #: graphics.c:1867
 msgid "Press any key."
 msgstr "Premu iu ajn klavon."
 
-#: display.c:1252 graphics.c:2117
+#: display.c:1253 graphics.c:2117
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Eraro dum malfermo de terminalo; anstataŭe uziĝas ĉefeliguja interfaco.\n"
 
-#: display.c:1273
+#: display.c:1274
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "ekranalto devas esti pli ol 3 linioj.\n"
 
-#: display.c:1307 graphics.c:2150
+#: display.c:1308 graphics.c:2150
 msgid "error creating scroll window.\n"
 msgstr "eraro dum kreado de ruluma fenestro.\n"
 
-#: display.c:1326
+#: display.c:1327
 msgid "error creating input window.\n"
 msgstr "eraro dum kreado de eniga fenestro.\n"
 
@@ -1084,10 +1088,6 @@ msgstr "?                 serĉi malantaŭen"
 #: graphics.c:1824
 msgid "n                 repeat last / or ? search"
 msgstr "n                 ripeti lastan serĉon per / aŭ ?"
-
-#: graphics.c:1825
-msgid "F5 or CTRL-l      redraw screen"
-msgstr ""
 
 #: graphics.c:1826 graphics.c:1849
 msgid "<Enter>           select directory"

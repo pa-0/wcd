@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-27 22:41+0100\n"
+"POT-Creation-Date: 2014-10-28 22:01+0100\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -867,17 +867,17 @@ msgstr " error interno en maxLength(), list == NULL\n"
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr "error interno en maxLengthStack(), s == NULL\n"
 
-#: display.c:519 display.c:1144 display.c:1519
+#: display.c:519 display.c:1144 display.c:1524
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr "Perfecta concordancia para %d directorios."
 
-#: display.c:521 display.c:1146 display.c:1521
+#: display.c:521 display.c:1146 display.c:1526
 #, c-format
 msgid "Wild match for %d directories."
 msgstr "Inexacta concordancia para %d directorios."
 
-#: display.c:525 display.c:1158 display.c:1523 display.c:1566
+#: display.c:525 display.c:1158 display.c:1528 display.c:1571
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Favor de elegir uno (<Intro> para abortar): "
@@ -923,11 +923,11 @@ msgstr "CTRL-a o <Inicio> desliza al inicio"
 msgid "CTRL-e or <END>   scroll to end"
 msgstr "CTRL-e o <Fin>    desliza al fin"
 
-#: display.c:692 display.c:1185
+#: display.c:692 display.c:1186
 msgid "CTRL-c or <Esc>   abort"
 msgstr "CTRL-c o <Esc>    aborta"
 
-#: display.c:693 display.c:1186
+#: display.c:693 display.c:1187
 msgid "<Enter>           abort"
 msgstr "<Intro>           aborta"
 
@@ -935,24 +935,28 @@ msgstr "<Intro>           aborta"
 msgid "Type w or x to quit help."
 msgstr ""
 
-#: display.c:1187 graphics.c:1810 graphics.c:1827 graphics.c:1850
+#: display.c:1185 graphics.c:1825
+msgid "CTRL-l or F5      redraw screen"
+msgstr ""
+
+#: display.c:1188 graphics.c:1810 graphics.c:1827 graphics.c:1850
 #: graphics.c:1867
 msgid "Press any key."
 msgstr "Presione alguna tecla."
 
-#: display.c:1252 graphics.c:2117
+#: display.c:1253 graphics.c:2117
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr "Error al abrir la terminal, usando interfase stdout.\n"
 
-#: display.c:1273
+#: display.c:1274
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "la altura de la pantalla debe ser mayor de 3 líneas.\n"
 
-#: display.c:1307 graphics.c:2150
+#: display.c:1308 graphics.c:2150
 msgid "error creating scroll window.\n"
 msgstr "error al crear ventana deslizable.\n"
 
-#: display.c:1326
+#: display.c:1327
 msgid "error creating input window.\n"
 msgstr "error al crear ventana de entrada.\n"
 
@@ -1068,10 +1072,6 @@ msgstr "?                 Busca hacia atrás"
 #: graphics.c:1824
 msgid "n                 repeat last / or ? search"
 msgstr "n                 Repetir la última búsqueda / o ?"
-
-#: graphics.c:1825
-msgid "F5 or CTRL-l      redraw screen"
-msgstr ""
 
 #: graphics.c:1826 graphics.c:1849
 msgid "<Enter>           select directory"
