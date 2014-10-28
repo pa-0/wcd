@@ -135,8 +135,10 @@ VERSIONSUFFIX	= -bin
 LFS             = 1
 DEBUG           = 0
 
+wcd_os := $(shell uname)
+
 # Enble Unicode for Cygwin
-ifeq ($(findstring CYGWIN,$(shell uname)),CYGWIN)
+ifeq ($(findstring CYGWIN,$(wcd_os)),CYGWIN)
 UCS = 1
 UNINORM = 1
 endif
@@ -206,7 +208,7 @@ endif
 
 
 INCPREFIX=/usr
-ifeq ($(findstring MINGW,$(shell uname)),MINGW)
+ifeq ($(findstring MINGW,$(wcd_os)),MINGW)
 ifeq ($(shell gcc -dumpmachine),i686-w64-mingw32)
 INCPREFIX=/mingw32
 CFLAGS_COMPILER = -DWCD_COMPILER=MINGW32_W64
@@ -253,16 +255,39 @@ endif
 OS =
 
 ifndef OS
-ifeq (Linux, $(shell uname -s))
-	OS = linux
+ifeq ($(findstring CYGWIN,$(wcd_os)),CYGWIN)
+	OS = cygwin
 endif
 endif
 
 ifndef OS
-ifeq ($(findstring CYGWIN,$(shell uname)),CYGWIN)
-	OS = cygwin
+ifeq ($(findstring MSYS,$(wcd_os)),MSYS)
+	OS = msys
 endif
 endif
+
+ifndef OS
+ifeq ($(findstring MINGW32,$(wcd_os)),MINGW32)
+	OS = mingw32
+endif
+endif
+
+ifndef OS
+ifneq ($(DJGPP),)
+	OS = msdos
+endif
+endif
+
+ifndef OS
+ifneq (, $(wildcard /opt/csw))
+	OS = sun
+endif
+endif
+
+ifndef OS
+	OS=$(shell echo $(wcd_os) | tr [A-Z] [a-z])
+endif
+
 
 ifeq (cygwin,$(OS))
 ifdef ENABLE_NLS
@@ -276,45 +301,28 @@ endif
 	VERSIONSUFFIX	= -cygwin
 endif
 
-ifndef OS
-ifneq ($(DJGPP),)
+ifeq (os/2,$(OS))
 	DEF_UNIX =
-	OS = msdos
-endif
 endif
 
-ifndef OS
-ifeq ($(shell uname),OS/2)
-	DEF_UNIX =
-	OS = os/2
-endif
-endif
-
-ifndef OS
-ifeq ($(findstring MINGW32,$(shell uname)),MINGW32)
+ifeq (mingw32,$(OS))
 	CC = gcc
 	DEF_UNIX =
-	OS = mingw32
-endif
 endif
 
-ifndef OS
-ifeq ($(findstring MSYS,$(shell uname)),MSYS)
+ifeq (msdos,$(OS))
 	CC = gcc
-	OS = msys
+	DEF_UNIX =
+endif
+
+ifeq (msys,$(OS))
+	CC = gcc
 	CFLAGS_OS = -DWCD_MSYS
 	PROGRAM = wcdmsys.exe
 	LIBS_EXTRA  = -lkernel32 -luser32 -lmpr
 	VERSIONSUFFIX	= -msys
 ifdef ENABLE_NLS
 	LIBS_EXTRA += -lintl -liconv
-endif
-endif
-endif
-
-ifndef OS
-ifeq (FreeBSD, $(shell uname -s))
-	OS = freebsd
 endif
 endif
 
@@ -327,8 +335,7 @@ ifdef ENABLE_NLS
 endif
 endif
 
-ifeq (Darwin, $(shell uname -s))
-	OS = Darwin
+ifeq (darwin, $(OS))
 ifdef ENABLE_NLS
 	CFLAGS_OS     = -I/usr/local/include
 	LDFLAGS_EXTRA = -L/usr/local/lib
@@ -337,33 +344,17 @@ endif
 endif
 
 
-ifndef OS
-ifneq (, $(wildcard /opt/csw))
-	OS = sun
-endif
-endif
-
 ifeq (sun,$(OS))
 	# Running under SunOS/Solaris
 	LIBS_EXTRA = -lintl
 endif
 
-ifndef OS
-ifeq (HP-UX, $(shell uname -s))
-	OS = hpux
-endif
-endif
-
-ifeq (hpux,$(OS))
+ifeq (hp-ux,$(OS))
 	# Running under HP-UX
 	EXTRA_DEFS += -Dhpux -D_HPUX_SOURCE -D_XOPEN_SOURCE_EXTENDED
 
 	# These flags were for native HP compiler
 	# CFLAGS_OS = -O -Aa
-endif
-
-ifndef OS
-	OS = $(shell uname -s)
 endif
 
 # ............................................................ flags ...
