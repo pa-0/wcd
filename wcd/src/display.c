@@ -837,7 +837,6 @@ void displayRefresh(int init);
 #  define CAN_RESIZE 0
 #endif
 
-#if CAN_RESIZE
 /* The most portable way of resizing seems to be
  * to just rebuild the windows from scratch */
 void displayResize()
@@ -880,6 +879,7 @@ void displayResize()
    displayRefresh(1);
 }
 
+#if CAN_RESIZE
 void signalSigwinchDisplay (int sig)
 {
   displayResize ();
