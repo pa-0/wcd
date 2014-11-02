@@ -11,6 +11,7 @@
   - win*/Makefile:
     * Add libiconv-2.dll when compiled with Unicode normalization.
     * Add libwinpthread-1.dll when compiled with ncurses.
+    * Replaced libuninstring-0.dll with libunistring-2.dll.
   - msys2/Makefile: New makefile for building for native msys2.
   - wcd.c, Makefile: Updated for msys2.
   - wcddir.c: Fix in replacing volume manager path with $HOME for other
