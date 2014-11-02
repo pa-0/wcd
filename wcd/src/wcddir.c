@@ -636,8 +636,8 @@ char *replace_volume_path_HOME(char *buf, size_t size)
                          /* Both paths have same user name. Strip user name, so that
                           * also paths from other users benefit if users have a common
                           * volume prefix. Depends on how Volume Manager was configured. */
-                         ptr1 = '\0';
-                         ptr2 = '\0';
+                         *ptr1 = '\0';
+                         *ptr2 = '\0';
                      }
                   }
                   strncpy(pattern, home_abs, sizeof(pattern)-1);
