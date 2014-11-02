@@ -51,7 +51,7 @@ ifndef ENABLE_NLS
 # libunistring needs libiconv
 ZIPOBJ_EXTRA += bin/libiconv-2.dll
 endif
-ZIPOBJ_EXTRA += bin/libunistring-0.dll
+ZIPOBJ_EXTRA += bin/libunistring-2.dll
 endif
 
 ifeq ($(findstring ncurses,$(CURSES)),ncurses)
