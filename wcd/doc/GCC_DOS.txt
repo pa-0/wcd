@@ -123,6 +123,27 @@ compiler and the curses.h file in the \include directory.
 The DJGPP and MinGW project also provide ready-to-use binary PDCurses packages.
 
 
+Ncurses
+=======
+
+You can also build the Windows version of wcd with Ncurses. It is best to take
+the most recent version from http://invisible-island.net/ncurses/
+See also whatsnew.txt for issues with Ncurses that have been solved.
+To compile for ncurses add CURSES=ncursesw to the make command line.
+
+* By default the Ncurses interface does not work in the Console2 console. Set
+  environment variable NCURSES_CONSOLE2 to 1 to make it work.
+* The ncurses interface shows some trembling while moving around in the tree.
+* The ncurses interface has better support for Unicode than PDCurses, because Ncurses
+  supports combining characters, while PDCurses doesn't.
+
+Both Ncurses and PDCurses have misalignment at highlighted directory in tree
+with true type CJK font, e.g. the Chinese Simsun font. (PDCurses has same
+problem.)
+
+Ncurses is still in active development, while PDCurses development is on hold.
+
+
 groff and ghostscript
 ==========================
 
@@ -155,10 +176,11 @@ win64    : Windows 64 bit console version.
 win64psh : Windows 64 bit PowerShell version.
 win64zsh : Windows 64 bit MSYS and ZSH version.
 msys     : Native MSYS version.
+msys2    : Native MSYS2 version.
 os2      : OS/2 32 bit console version.
 
-Change to the appropriate directory `dos32', `dos32bsh', `win32',
-`win32psh', `win32zsh', `win64', `win64psh', `win64zsh', 'msys', 'os2'.
+Change to the appropriate directory `dos32', `dos32bsh', `win32', `win32psh',
+`win32zsh', `win64', `win64psh', `win64zsh', 'msys', 'msys2', 'os2'.
 
 
 Build wcd:
@@ -268,6 +290,7 @@ win64    : The default PREFIX is c:/usr/local64
 win64psh : The default PREFIX is c:/usr/local64
 win64zsh : The default PREFIX is c:/usr/local64
 msys     : The default PREFIX is /usr
+msys2    : The default PREFIX is /usr
 os2      : The default PREFIX is c:/usr
 
 

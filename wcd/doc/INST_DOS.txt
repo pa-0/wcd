@@ -102,6 +102,14 @@ The batch scrip "wcd.bat" runs the wcd program which generates a new batch
 script "wcdgo.bat". Then wcd.bat runs wcdgo.bat which actually changes the
 directory.
 
+- Console2
+
+If you use the Console2 Windows console (https://sourceforge.net/projects/console/)
+and wcd has an "ncurses" interface, you need to set the NCURSES_CONSOLE2 environment
+variable to 1.
+
+set NCURSES_CONSOLE2=1
+
 ......................................................................
 - Windows VISTA/7
 
