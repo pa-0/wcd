@@ -673,7 +673,7 @@ msgstr ""
 "Die neuesten Programme und Quellen können heruntergeladen werden von:\n"
 
 #: wcd.c:2335
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 1997-2015 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
@@ -685,7 +685,7 @@ msgid ""
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
 "Chdir für Dos und Unix.\n"
-"Copyright © 1997-2014 Erwin Waterlander\n"
+"Copyright © 1997-2015 Erwin Waterlander\n"
 "Copyright © 1994-2002 Ondrej Popp auf C3PO\n"
 "Copyright © 1995-1996 DJ Delorie auf _fixpath()\n"
 "Copyright © 1995-1996 Borja Etxebarria & Olivier Sirol auf Ninux Czo "

@@ -674,7 +674,7 @@ msgstr ""
 "Найсвіжіші версії виконуваних файлів та початкового коду можна знайти тут:\n"
 
 #: wcd.c:2335
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 1997-2015 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
@@ -685,7 +685,7 @@ msgid ""
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
-"Copyright (C) 1997-2014 Erwin Waterlander\n"
+"Copyright (C) 1997-2015 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp на C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie на _fixpath()\n"
 "Copyright (C) 1995-1996 Borja Etxebarria та Olivier Sirol на Ninux Czo "
