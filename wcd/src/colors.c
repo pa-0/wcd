@@ -68,7 +68,7 @@ void colorbox(WINDOW *win, chtype color, int hasbox)
 #endif
         wbkgd(win, color);
 
-    werase(win);
+    wclear(win);
 
 #ifdef PDCURSES
     maxy = getmaxy(win);

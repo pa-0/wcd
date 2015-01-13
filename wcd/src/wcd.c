@@ -12,7 +12,7 @@ WWW     : http://waterlan.home.xs4all.nl/
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 1997-2014 Erwin Waterlander
+Copyright (C) 1997-2015 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -2333,7 +2333,7 @@ void print_license(void)
 {
    printf(_("wcd %s (%s) - Wherever Change Directory\n"),VERSION,VERSION_DATE);
    printf(_("\
-Copyright (C) 1997-2014 Erwin Waterlander\n\
+Copyright (C) 1997-2015 Erwin Waterlander\n\
 Copyright (C) 1994-2002 Ondrej Popp on C3PO\n\
 Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n\
 Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n\

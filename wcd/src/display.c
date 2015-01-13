@@ -864,14 +864,8 @@ void displayResize()
    delwin(wcd_display.inputWin);
 
    /* create new windows */
-   wcd_display.scrollWin = newpad(wcd_display.scrollWinHeight,COLS);
-
-   if (COLS < INPUT_WIN_LEN)
-      wcd_display.inputWinLen = INPUT_WIN_LEN;
-   else
-      wcd_display.inputWinLen = COLS;
-
-   wcd_display.inputWin = newpad(INPUT_WIN_HEIGHT,wcd_display.inputWinLen);
+   wcd_display.scrollWin = newwin(wcd_display.scrollWinHeight,COLS,0,0);
+   wcd_display.inputWin = newwin(INPUT_WIN_HEIGHT,COLS,wcd_display.scrollWinHeight,0);
 
    scrollok(wcd_display.scrollWin, TRUE);
 
@@ -1163,8 +1157,8 @@ void displayRefresh(int init)
    n = (int)str_columns(wcd_display.number_str) ;
    wmove (wcd_display.inputWin, 2, offset + n);
 
-   prefresh(wcd_display.scrollWin,0,0,0,0,wcd_display.scrollWinHeight-1,COLS-1);
-   prefresh(wcd_display.inputWin,0,0,wcd_display.scrollWinHeight,0,wcd_display.scrollWinHeight+INPUT_WIN_HEIGHT-1,COLS-1);
+   wrefresh(wcd_display.scrollWin);
+   wrefresh(wcd_display.inputWin);
 
 }
 void displayHelp(WINDOW *win, int height)
@@ -1187,7 +1181,7 @@ void displayHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win,10,0,_("<Enter>           abort"));
       wcd_mvwaddstr(win,12,0,_("Press any key."));
    }
-   prefresh(win,0,0,0,0,height-1,COLS-1);
+   wrefresh(win);
    getch();
 
 }
@@ -1298,7 +1292,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
    refresh();
 
-   wcd_display.scrollWin = newpad(wcd_display.scrollWinHeight,COLS);
+   wcd_display.scrollWin = newwin(wcd_display.scrollWinHeight,COLS,0,0);
    if (wcd_display.scrollWin == NULL)
    {
       endwin();
@@ -1311,13 +1305,8 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
    scrollok(wcd_display.scrollWin, TRUE);
 
+   wcd_display.inputWin = newwin(INPUT_WIN_HEIGHT,COLS,wcd_display.scrollWinHeight,0);
 
-   if (COLS < INPUT_WIN_LEN)
-      wcd_display.inputWinLen = INPUT_WIN_LEN;
-   else
-      wcd_display.inputWinLen = COLS;
-
-   wcd_display.inputWin = newpad(INPUT_WIN_HEIGHT,wcd_display.inputWinLen);
    if (wcd_display.inputWin == NULL)
    {
       endwin();

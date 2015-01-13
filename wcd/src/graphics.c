@@ -116,7 +116,6 @@ struct wcdwin /* structure with window information */
 {
    WINDOW *scrollWin;
    int scrollWinHeight;
-   int scrollWinLen;
    WINDOW *inputWin;
    dirnode curNode;
    char str[WCD_MAX_INPSTR];
@@ -148,15 +147,14 @@ void ioResize()
    refresh();  /* start curses */
 
    wcd_cwin.scrollWinHeight = LINES - INPUT_WIN_HEIGHT;
-   wcd_cwin.scrollWinLen = COLS;
 
    /* free resources */
    delwin(wcd_cwin.scrollWin);
    delwin(wcd_cwin.inputWin);
 
    /* create new windows */
-   wcd_cwin.scrollWin = newpad(wcd_cwin.scrollWinHeight,COLS);
-   wcd_cwin.inputWin  = newpad(INPUT_WIN_HEIGHT,COLS);
+   wcd_cwin.scrollWin = newwin(wcd_cwin.scrollWinHeight,COLS,0,0);
+   wcd_cwin.inputWin = newwin(INPUT_WIN_HEIGHT,COLS,wcd_cwin.scrollWinHeight,0);
 
    if (wcd_cwin.graphics_mode & WCD_GRAPH_COLOR)
    {
@@ -1781,9 +1779,9 @@ void dataRefresh(int ydiff, int init)
 #endif
   }
 
-  prefresh(wcd_cwin.scrollWin, 0, 0, 0, 0, wcd_cwin.scrollWinHeight-1, COLS-1);
-  prefresh(wcd_cwin.inputWin, 0, 0, wcd_cwin.scrollWinHeight, 0,
-                          wcd_cwin.scrollWinHeight+INPUT_WIN_HEIGHT-1, COLS-1);
+  wrefresh(wcd_cwin.scrollWin);
+  wrefresh(wcd_cwin.inputWin);
+
 }
 
 /************************************************************/
@@ -1809,7 +1807,7 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win,14,0,_("d                 go half page down"));
       wcd_mvwaddstr(win,16,0,_("Press any key."));
 
-      prefresh(win,0,0,0,0,height-1,COLS-1);
+      wrefresh(win);
       getch();
       wclear(win);
 
@@ -1826,7 +1824,7 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win,10,0,_("<Enter>           select directory"));
       wcd_mvwaddstr(win,12,0,_("Press any key."));
 
-      prefresh(win,0,0,0,0,height-1,COLS-1);
+      wrefresh(win);
       getch();
       wclear(win);
 
@@ -1849,7 +1847,7 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win,16,0,_("<Enter>           select directory"));
       wcd_mvwaddstr(win,18,0,_("Press any key."));
 
-      prefresh(win,0,0,0,0,height-1,COLS-1);
+      wrefresh(win);
       getch();
       wclear(win);
 
@@ -1870,7 +1868,7 @@ void showHelp(WINDOW *win, int height)
       wcd_mvwaddstr(win, 0,0,_("Screenheight must be > 21 for help."));
 
 
-   prefresh(win,0,0,0,0,height-1,COLS-1);
+   wrefresh(win);
    getch();
 }
 
@@ -2131,10 +2129,8 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
 
    wcd_cwin.scrollWinHeight = LINES - INPUT_WIN_HEIGHT;
-   wcd_cwin.scrollWinLen = COLS;
-   wcd_cwin.scrollWin = newpad(wcd_cwin.scrollWinHeight,COLS);
-
-   wcd_cwin.inputWin = newpad(INPUT_WIN_HEIGHT,COLS);
+   wcd_cwin.scrollWin = newwin(wcd_cwin.scrollWinHeight,COLS,0,0);
+   wcd_cwin.inputWin = newwin(INPUT_WIN_HEIGHT,COLS,wcd_cwin.scrollWinHeight,0);
 
    if (wcd_cwin.graphics_mode & WCD_GRAPH_COLOR)
    {

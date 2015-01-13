@@ -51,7 +51,6 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout);
 
 #ifdef WCD_USECURSES
 void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str);
-#  define INPUT_WIN_LEN 80
 #endif
 #define PAGEOFFSET 38
 

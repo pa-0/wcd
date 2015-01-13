@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-28 22:01+0100\n"
+"POT-Creation-Date: 2015-01-13 23:56+0100\n"
 "PO-Revision-Date: 2014-02-12 15:01+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -657,9 +657,9 @@ msgid "Download the latest executables and sources from:\n"
 msgstr "Elŝutu la lastan version el:\n"
 
 #: wcd.c:2335
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Copyright (C) 1997-2014 Erwin Waterlander\n"
+"Copyright (C) 1997-2015 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
 "Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo "
@@ -882,67 +882,67 @@ msgstr "**interna programmiso** en maxLength(): list == NULL\n"
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr "**interna programmiso** en maxLengthStack(): s == NULL\n"
 
-#: display.c:519 display.c:1144 display.c:1524
+#: display.c:519 display.c:1138 display.c:1513
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr "Perfekta kongruo por %d dosierujoj."
 
-#: display.c:521 display.c:1146 display.c:1526
+#: display.c:521 display.c:1140 display.c:1515
 #, c-format
 msgid "Wild match for %d directories."
 msgstr "Ĵokera kongruo por %d dosierujoj."
 
-#: display.c:525 display.c:1158 display.c:1528 display.c:1571
+#: display.c:525 display.c:1152 display.c:1517 display.c:1560
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Bonvolu elekti unu (<Enter> por ĉesigi): "
 
-#: display.c:527 display.c:603 display.c:635 display.c:1151
+#: display.c:527 display.c:603 display.c:635 display.c:1145
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=supren x=suben ?=helpo  Paĝo %d/%d "
 
-#: display.c:679 display.c:1174
+#: display.c:679 display.c:1168
 msgid "Screenheight must be > 20 for help."
 msgstr "Ekranalto devas esti pli ol 20 por helpo."
 
-#: display.c:684 display.c:1177
+#: display.c:684 display.c:1171
 msgid "w or <Up>         page up"
 msgstr "w aŭ <Supren>       paĝon supren"
 
-#: display.c:685 display.c:1178
+#: display.c:685 display.c:1172
 msgid "x or z or <Down>  page down"
 msgstr "x aŭ z aŭ <Suben>   paĝon malsupren"
 
-#: display.c:686 display.c:1179
+#: display.c:686 display.c:1173
 msgid ", or <Left>       scroll 1 left"
 msgstr ", aŭ <Liven>        rulumi 1 pozicion maldekstren"
 
-#: display.c:687 display.c:1180
+#: display.c:687 display.c:1174
 msgid ". or <Right>      scroll 1 right"
 msgstr ". or <Dekstren>     rulumi 1 pozicion dekstren"
 
-#: display.c:688 display.c:1181
+#: display.c:688 display.c:1175
 msgid "< or [            scroll 10 left"
 msgstr "< aŭ [              rulumi 10 poziciojn maldekstren"
 
-#: display.c:689 display.c:1182
+#: display.c:689 display.c:1176
 msgid "> or ]            scroll 10 right"
 msgstr "> aŭ ]              rulumi 10 poziciojn dekstren"
 
-#: display.c:690 display.c:1183
+#: display.c:690 display.c:1177
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr "Ctrl-a aŭ <Home>    rulumi al komenco"
 
-#: display.c:691 display.c:1184
+#: display.c:691 display.c:1178
 msgid "CTRL-e or <END>   scroll to end"
 msgstr "Ctrl-e aŭ <End>     rulumi al fino"
 
-#: display.c:692 display.c:1186
+#: display.c:692 display.c:1180
 msgid "CTRL-c or <Esc>   abort"
 msgstr "Ctrl-c aŭ <Esc>     ĉesigi"
 
-#: display.c:693 display.c:1187
+#: display.c:693 display.c:1181
 msgid "<Enter>           abort"
 msgstr "<Enter>             ĉesigi"
 
@@ -950,258 +950,258 @@ msgstr "<Enter>             ĉesigi"
 msgid "Type w or x to quit help."
 msgstr "Tajpu w aŭ x por eliri de helpo."
 
-#: display.c:1185 graphics.c:1825
+#: display.c:1179 graphics.c:1823
 msgid "CTRL-l or F5      redraw screen"
 msgstr ""
 
-#: display.c:1188 graphics.c:1810 graphics.c:1827 graphics.c:1850
-#: graphics.c:1867
+#: display.c:1182 graphics.c:1808 graphics.c:1825 graphics.c:1848
+#: graphics.c:1865
 msgid "Press any key."
 msgstr "Premu iu ajn klavon."
 
-#: display.c:1253 graphics.c:2117
+#: display.c:1247 graphics.c:2115
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Eraro dum malfermo de terminalo; anstataŭe uziĝas ĉefeliguja interfaco.\n"
 
-#: display.c:1274
+#: display.c:1268
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "ekranalto devas esti pli ol 3 linioj.\n"
 
-#: display.c:1308 graphics.c:2150
+#: display.c:1302 graphics.c:2146
 msgid "error creating scroll window.\n"
 msgstr "eraro dum kreado de ruluma fenestro.\n"
 
-#: display.c:1327
+#: display.c:1316
 msgid "error creating input window.\n"
 msgstr "eraro dum kreado de eniga fenestro.\n"
 
-#: graphics.c:279
+#: graphics.c:277
 #, c-format
 msgid "Wcd: error: path too long"
 msgstr "Wcd: eraro: pado tro longas"
 
-#: graphics.c:1771
+#: graphics.c:1769
 msgid "/ = search forward,  ? = search backward,  : = help"
 msgstr "/ = serĉi antaŭen,  ? = serĉi malantaŭen,  : = helpo"
 
-#: graphics.c:1776
+#: graphics.c:1774
 msgid "SEARCH: "
 msgstr "SERĈI : "
 
-#: graphics.c:1779
+#: graphics.c:1777
 msgid "Search: "
 msgstr "Serĉi: "
 
-#: graphics.c:1795
+#: graphics.c:1793
 msgid "NAVIGATION MODE (1/2):"
 msgstr "NAVIGA MODUSO (1/2):"
 
-#: graphics.c:1796
+#: graphics.c:1794
 msgid "h or <Left>       go left"
 msgstr "h aŭ <Liven>        maldekstren"
 
-#: graphics.c:1797
+#: graphics.c:1795
 msgid "j or <Down>       go down"
 msgstr "j aŭ <Suben>        malsupren"
 
-#: graphics.c:1798
+#: graphics.c:1796
 msgid "k or <Up>         go up"
 msgstr "k aŭ <Supren>       supren"
 
-#: graphics.c:1799
+#: graphics.c:1797
 msgid "l or <Right>      go right"
 msgstr "l aŭ <Dekstren>     dekstren"
 
-#: graphics.c:1800
+#: graphics.c:1798
 msgid "* or v or <Space> go forward to dir with same name"
 msgstr "* aŭ v aŭ <Spaceto>     antaŭen al dosierujo kun sama nomo"
 
-#: graphics.c:1801
+#: graphics.c:1799
 msgid "# or p or <BS>    go backward to dir with same name"
 msgstr "# aŭ p aŭ <Backspace>   malantaŭen al dosierujo kun sama nomo"
 
-#: graphics.c:1802
+#: graphics.c:1800
 msgid "^ or a            go to beginning of line"
 msgstr "^ aŭ a              al komenco de linio"
 
-#: graphics.c:1803
+#: graphics.c:1801
 msgid "$ or e            go to end of line"
 msgstr "$ aŭ e              al fino de linio"
 
-#: graphics.c:1804
+#: graphics.c:1802
 msgid "1                 go to root dir"
 msgstr "1                   al ĉefa dosierujo"
 
-#: graphics.c:1805
+#: graphics.c:1803
 msgid "g or G            go to last dir"
 msgstr "g aŭ G              al lasta dosierujo"
 
-#: graphics.c:1806
+#: graphics.c:1804
 msgid "f                 go page forward"
 msgstr "f                   paĝon antaŭen"
 
-#: graphics.c:1807
+#: graphics.c:1805
 msgid "b                 go page backward"
 msgstr "b                   paĝon malantaŭen"
 
-#: graphics.c:1808
+#: graphics.c:1806
 msgid "u                 go half page up"
 msgstr "u                   duonpaĝon supren"
 
-#: graphics.c:1809
+#: graphics.c:1807
 msgid "d                 go half page down"
 msgstr "d                   duonpaĝon malsupren"
 
-#: graphics.c:1816
+#: graphics.c:1814
 msgid "NAVIGATION MODE (2/2):"
 msgstr "NAVIGA MODUSO (2/2):"
 
-#: graphics.c:1817
+#: graphics.c:1815
 msgid "A                 switch alternative tree navigation on/off"
 msgstr "A                 ŝalti alternativan arbonavigadon"
 
-#: graphics.c:1818
+#: graphics.c:1816
 msgid "t                 switch centered mode on/off"
 msgstr "t                 ŝalti centrigitan moduson"
 
-#: graphics.c:1819
+#: graphics.c:1817
 msgid "T                 toggle between line drawing and ASCII characters"
 msgstr "T                 ŝalti inter linioj kaj ASCII-signoj"
 
-#: graphics.c:1820
+#: graphics.c:1818
 msgid "m                 toggle between compact and wide tree"
 msgstr "m                 ŝalti inter densa kaj larĝa arbo"
 
-#: graphics.c:1821
+#: graphics.c:1819
 msgid "<Esc> or q        abort"
 msgstr "<Esc> aŭ q        ĉesigi"
 
-#: graphics.c:1822
+#: graphics.c:1820
 msgid "/                 search forward"
 msgstr "/                 serĉi antaŭen"
 
-#: graphics.c:1823
+#: graphics.c:1821
 msgid "?                 search backward"
 msgstr "?                 serĉi malantaŭen"
 
-#: graphics.c:1824
+#: graphics.c:1822
 msgid "n                 repeat last / or ? search"
 msgstr "n                 ripeti lastan serĉon per / aŭ ?"
 
-#: graphics.c:1826 graphics.c:1849
+#: graphics.c:1824 graphics.c:1847
 msgid "<Enter>           select directory"
 msgstr "<Enter>           elekti la dosierujon"
 
-#: graphics.c:1833
+#: graphics.c:1831
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "SERĈ-MODUSO kun subteno por ĵokeroj kaj subdosieroj:"
 
-#: graphics.c:1834
+#: graphics.c:1832
 msgid "<Left>            go left"
 msgstr "<Liven>             maldekstren"
 
-#: graphics.c:1835
+#: graphics.c:1833
 msgid "<Down>            go down"
 msgstr "<Suben>             malsupren"
 
-#: graphics.c:1836
+#: graphics.c:1834
 msgid "<Up>              go up"
 msgstr "<Supren>            supren"
 
-#: graphics.c:1837
+#: graphics.c:1835
 msgid "<Right>           go right"
 msgstr "<Dekstren>          dekstren"
 
-#: graphics.c:1838
+#: graphics.c:1836
 msgid "CTRL-v            go forward to dir with same name"
 msgstr "Ctrl-v              antaŭen al dosierujo kun sama nomo"
 
-#: graphics.c:1839
+#: graphics.c:1837
 msgid "CTRL-p            go backward to dir with same name"
 msgstr "Ctrl-p              malantaŭen al dosierujo kun sama nomo"
 
-#: graphics.c:1840
+#: graphics.c:1838
 msgid "CTRL-a            go to beginning of line"
 msgstr "Ctrl-a              al komenco de linio"
 
-#: graphics.c:1841
+#: graphics.c:1839
 msgid "CTRL-e            go to end of line"
 msgstr "Ctrl-e              al fino de linio"
 
-#: graphics.c:1842
+#: graphics.c:1840
 msgid "CTRL-g            go to last dir"
 msgstr "Ctrl-g              al lasta dosierujo"
 
-#: graphics.c:1843
+#: graphics.c:1841
 msgid "CTRL-f            go page forward"
 msgstr "Ctrl-f              paĝon antaŭen"
 
-#: graphics.c:1844
+#: graphics.c:1842
 msgid "CTRL-b            go page backward"
 msgstr "Ctrl-b              paĝon malantaŭen"
 
-#: graphics.c:1845
+#: graphics.c:1843
 msgid "CTRL-u            go half page up"
 msgstr "Ctrl-u              duonpaĝon supren"
 
-#: graphics.c:1846
+#: graphics.c:1844
 msgid "CTRL-d            go half page down"
 msgstr "Ctrl-d              duonpaĝon malsupren"
 
-#: graphics.c:1847
+#: graphics.c:1845
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
 msgstr "<Esc> aŭ Ctrl-x     ĉesigi SERĈ-MODUSON"
 
-#: graphics.c:1848
+#: graphics.c:1846
 msgid "CTRL-n            repeat last / or ? search"
 msgstr "Ctrl-n              ripeti lastan serĉon per / aŭ ?"
 
-#: graphics.c:1856
+#: graphics.c:1854
 msgid "ZOOMING:"
 msgstr "ZOMI:"
 
-#: graphics.c:1857
+#: graphics.c:1855
 msgid "z or i or CTRL-i  zoom in"
 msgstr "z aŭ i aŭ Ctrl-i    zomi"
 
-#: graphics.c:1858
+#: graphics.c:1856
 msgid "Z or o or CTRL-o  zoom out"
 msgstr "Z aŭ o aŭ Ctrl-o    malzomi"
 
-#: graphics.c:1859
+#: graphics.c:1857
 msgid "c                 condense: fold current level"
 msgstr "c                   faldi la nunan nivelon"
 
-#: graphics.c:1860
+#: graphics.c:1858
 msgid "C                 condense: fold subdir level"
 msgstr "C                   faldi la suban nivelon"
 
-#: graphics.c:1861
+#: graphics.c:1859
 msgid "w                 condense: fold current and subdir levels"
 msgstr "w                   faldi la nunan kaj subajn nivelojn"
 
-#: graphics.c:1862
+#: graphics.c:1860
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
 msgstr "y aŭ Ctrl-y         malfaldi la nunan kaj subajn nivelojn"
 
-#: graphics.c:1863
+#: graphics.c:1861
 msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r aŭ Ctrl-r         malfaldi ĉiujn dosierujojn"
 
-#: graphics.c:1864
+#: graphics.c:1862
 msgid "-                 fold directory"
 msgstr "-                   faldi dosierujon"
 
-#: graphics.c:1865
+#: graphics.c:1863
 msgid "+ or =            unfold directory"
 msgstr "+ aŭ =              malfaldi dosierujon"
 
-#: graphics.c:1866
+#: graphics.c:1864
 msgid "l or <Right>      unfold and go right"
 msgstr "l aŭ <Dekstren>     malfaldi kaj iri dekstren"
 
-#: graphics.c:1870
+#: graphics.c:1868
 msgid "Screenheight must be > 21 for help."
 msgstr "Ekranalto devas esti pli ol 21 por helpo."
 

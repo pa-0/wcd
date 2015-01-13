@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-02 09:13+0100\n"
+"POT-Creation-Date: 2015-01-13 23:56+0100\n"
 "PO-Revision-Date: 2014-11-03 14:15+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -58,7 +58,9 @@ msgstr "Die Datei %s konnte nicht entfernt werden: %s\n"
 #: wcd.c:960 wcd.c:1029
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
-msgstr "finddirs(): Der in Verzeichnis %s enthaltene Pfad kann nicht bestimmt werden\n"
+msgstr ""
+"finddirs(): Der in Verzeichnis %s enthaltene Pfad kann nicht bestimmt "
+"werden\n"
 
 #: wcd.c:961 wcd.c:1030
 msgid "path probably too long.\n"
@@ -72,7 +74,9 @@ msgstr "%s ist kein Verzeichnis.\n"
 #: wcd.c:1147
 #, c-format
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
-msgstr "Bitte warten Sie. Das Laufwerk wird durchsucht und aus %2$s die Datei mit den Dateibaumdaten %1$s erstellt.\n"
+msgstr ""
+"Bitte warten Sie. Das Laufwerk wird durchsucht und aus %2$s die Datei mit "
+"den Dateibaumdaten %1$s erstellt.\n"
 
 #: wcd.c:1208 wcd.c:2417 wcd.c:2440 wcd.c:2519
 #, c-format
@@ -85,7 +89,9 @@ msgstr "Der Schreibzugriff auf die Dateibaum-Datei wurde verweigert.\n"
 
 #: wcd.c:1214
 msgid "Set TEMP environment variable if this is a read-only disk.\n"
-msgstr "Setzen Sie bitte die Umgebungsvariable TEMP, wenn dies ein nur lesbares Laufwerk ist.\n"
+msgstr ""
+"Setzen Sie bitte die Umgebungsvariable TEMP, wenn dies ein nur lesbares "
+"Laufwerk ist.\n"
 
 #: wcd.c:1343
 #, c-format
@@ -114,8 +120,12 @@ msgstr "Verzeichnis %s wurde entfernt\n"
 
 #: wcd.c:1499 wcd.c:1559 wcd.c:1618
 #, c-format
-msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
-msgstr "Die Zeile ist zu lang in %s ( > %d). Die Baumdatei könnte beschädigt sein, ansonsten erhöhen Sie DD_MAXPATH im Quellcode.\n"
+msgid ""
+"line too long in %s ( > %d). The treefile could be corrupt, else fix by "
+"increasing DD_MAXPATH in source code.\n"
+msgstr ""
+"Die Zeile ist zu lang in %s ( > %d). Die Baumdatei könnte beschädigt sein, "
+"ansonsten erhöhen Sie DD_MAXPATH im Quellcode.\n"
 
 #: wcd.c:1500 wcd.c:1560 wcd.c:1619
 #, c-format
@@ -139,7 +149,8 @@ msgstr ""
 #: wcd.c:2130
 #, c-format
 msgid "directory:  Name of directory to change to.\n"
-msgstr "Verzeichnis:  Name des Verzeichnisses, in welches gewechselt werden soll.\n"
+msgstr ""
+"Verzeichnis:  Name des Verzeichnisses, in welches gewechselt werden soll.\n"
 
 #: wcd.c:2131
 #, c-format
@@ -162,7 +173,8 @@ msgstr "  -a                      Aktuellen Pfad zur Baumdatei hinzufügen\n"
 
 #: wcd.c:2135
 #, c-format
-msgid "  -aa                     Add current and all parent paths to treefile\n"
+msgid ""
+"  -aa                     Add current and all parent paths to treefile\n"
 msgstr ""
 "  -aa                     Aktuellen und alle darüber liegenden Pfade zur\n"
 "                          Baumdatei hinzufügen\n"
@@ -192,11 +204,15 @@ msgstr ""
 #: wcd.c:2140
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
-msgstr "  -e                      aktuellen Pfad zu zusätzlicher Baumdatei hinzufügen\n"
+msgstr ""
+"  -e                      aktuellen Pfad zu zusätzlicher Baumdatei "
+"hinzufügen\n"
 
 #: wcd.c:2141
 #, c-format
-msgid "  -ee                     add current and all parent paths to Extra treefile\n"
+msgid ""
+"  -ee                     add current and all parent paths to Extra "
+"treefile\n"
 msgstr ""
 "  -ee                     Aktuellen und alle darüber liegenden Pfade zu\n"
 "                          zusätzlicher Baumdatei hinzufügen\n"
@@ -204,7 +220,9 @@ msgstr ""
 #: wcd.c:2142
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
-msgstr "  -E PFAD                 Dateibaum von PFAD zu zusätzlicher Baumdatei hinzufügen\n"
+msgstr ""
+"  -E PFAD                 Dateibaum von PFAD zu zusätzlicher Baumdatei "
+"hinzufügen\n"
 
 #: wcd.c:2143
 #, c-format
@@ -244,7 +262,9 @@ msgstr "  -h,  --help             Diese Hilfe anzeigen\n"
 #: wcd.c:2152
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
-msgstr "  -i,  --ignore-case      Groß-/Kleinschreibung ignorieren (Standardeinstellung)\n"
+msgstr ""
+"  -i,  --ignore-case      Groß-/Kleinschreibung ignorieren "
+"(Standardeinstellung)\n"
 
 #: wcd.c:2153
 #, c-format
@@ -259,7 +279,9 @@ msgstr "  -i,  --ignore-case      Groß-/Kleinschreibung ignorieren\n"
 #: wcd.c:2156
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case (default)\n"
-msgstr "  +i,  --no-ignore-case   Groß-/Kleinschreibung beachten (Standardeinstellung)\n"
+msgstr ""
+"  +i,  --no-ignore-case   Groß-/Kleinschreibung beachten "
+"(Standardeinstellung)\n"
 
 #: wcd.c:2159
 #, c-format
@@ -269,7 +291,9 @@ msgstr "  -I,  --ignore-diacritics     diakritische Zeichen ignorieren\n"
 #: wcd.c:2160
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
-msgstr "  +I,  --no-ignore-diacritics  diakritische Zeichen nicht ignorieren (Standardeinstellung)\n"
+msgstr ""
+"  +I,  --no-ignore-diacritics  diakritische Zeichen nicht ignorieren "
+"(Standardeinstellung)\n"
 
 #: wcd.c:2161
 #, c-format
@@ -299,12 +323,15 @@ msgstr "  -L,  --license          Software-Lizenz ausgeben\n"
 #: wcd.c:2166
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
-msgstr "  -m VERZ.                VERZEICHNIS erstellen und zu Baumdatei hinzufügen\n"
+msgstr ""
+"  -m VERZ.                VERZEICHNIS erstellen und zu Baumdatei hinzufügen\n"
 
 #: wcd.c:2167
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
-msgstr "  -M VERZ.                VERZEICHNIS erstellen und zu Extra-Baumdatei hinzufügen\n"
+msgstr ""
+"  -M VERZ.                VERZEICHNIS erstellen und zu Extra-Baumdatei "
+"hinzufügen\n"
 
 #: wcd.c:2168
 #, c-format
@@ -358,8 +385,11 @@ msgstr "  -S PFAD                 Platte ab PFAD durchsuchen\n"
 
 #: wcd.c:2178
 #, c-format
-msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
-msgstr "  +S PFAD                 Platte ab PFAD durchsuchen, relative Baumdatei erzeugen\n"
+msgid ""
+"  +S PATH                 Scan disk from PATH, create relative treefile\n"
+msgstr ""
+"  +S PFAD                 Platte ab PFAD durchsuchen, relative Baumdatei "
+"erzeugen\n"
 
 #: wcd.c:2179
 #, c-format
@@ -419,7 +449,8 @@ msgstr "  -w,  --wild-match-only  Nur Übereinstimmung von Platzhaltern\n"
 #: wcd.c:2190
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
-msgstr "  -x PFAD                 PFAD beim Durchsuchen der Platte ignorieren\n"
+msgstr ""
+"  -x PFAD                 PFAD beim Durchsuchen der Platte ignorieren\n"
 
 #: wcd.c:2191
 #, c-format
@@ -638,15 +669,17 @@ msgstr "Ohne Unicode-Normalisierung.\n"
 #: wcd.c:2328
 #, c-format
 msgid "Download the latest executables and sources from:\n"
-msgstr "Die neuesten Programme und Quellen können heruntergeladen werden von:\n"
+msgstr ""
+"Die neuesten Programme und Quellen können heruntergeladen werden von:\n"
 
 #: wcd.c:2335
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Copyright (C) 1997-2014 Erwin Waterlander\n"
+"Copyright (C) 1997-2015 Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
-"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo "
+"Directory\n"
 "Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n"
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
@@ -655,7 +688,8 @@ msgstr ""
 "Copyright © 1997-2014 Erwin Waterlander\n"
 "Copyright © 1994-2002 Ondrej Popp auf C3PO\n"
 "Copyright © 1995-1996 DJ Delorie auf _fixpath()\n"
-"Copyright © 1995-1996 Borja Etxebarria & Olivier Sirol auf Ninux Czo Verzeichnis\n"
+"Copyright © 1995-1996 Borja Etxebarria & Olivier Sirol auf Ninux Czo "
+"Verzeichnis\n"
 "Copyright © 1994-1996 Jason Mathews auf DOSDIR\n"
 "Copyright © 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel und Igor Mandrichenko auf recmatch()\n"
@@ -671,8 +705,10 @@ msgid ""
 msgstr ""
 "Quellcode zum Durchsuchen von Windows LAN wurde ursprünglich von\n"
 "Felix Kasza geschrieben und unter Public Domain gestellt.\n"
-"Markus Kuhns freie wcwidth()- und wcswidth()-Implementierungen wurden verwendet.\n"
-"Rugxulo ist der ursprüngliche Autor von query_con_codepage() (Public Domain).\n"
+"Markus Kuhns freie wcwidth()- und wcswidth()-Implementierungen wurden "
+"verwendet.\n"
+"Rugxulo ist der ursprüngliche Autor von query_con_codepage() (Public "
+"Domain).\n"
 "\n"
 
 #: wcd.c:2349
@@ -710,7 +746,8 @@ msgstr ""
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
 "along with this program; if not, write to the Free Software\n"
-"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 "
+"USA.\n"
 msgstr ""
 "Sie sollten eine Kopie der GNU General Public License zusammen mit diesem\n"
 "Programm erhalten haben. Wenn nicht, schreiben Sie bitte an die Free\n"
@@ -792,7 +829,8 @@ msgstr "Es wurde kein auf %s passendes Verzeichnis gefunden\n"
 
 #: wcd.c:3855
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
-msgstr "Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist verbannt.\n"
+msgstr ""
+"Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist verbannt.\n"
 
 #: wcd.c:4022
 #, c-format
@@ -869,67 +907,67 @@ msgstr "interner Fehler in maxLength(), list == NULL\n"
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr "interner Fehler in maxLengthStack(), s == NULL\n"
 
-#: display.c:519 display.c:1144 display.c:1524
+#: display.c:519 display.c:1138 display.c:1513
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr "Perfekt passt auf %d Verzeichnisse."
 
-#: display.c:521 display.c:1146 display.c:1526
+#: display.c:521 display.c:1140 display.c:1515
 #, c-format
 msgid "Wild match for %d directories."
 msgstr "Platzhalter passt auf %d Verzeichnisse."
 
-#: display.c:525 display.c:1158 display.c:1528 display.c:1571
+#: display.c:525 display.c:1152 display.c:1517 display.c:1560
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Bitte wählen Sie eines aus (<Eingabe> bricht ab): "
 
-#: display.c:527 display.c:603 display.c:635 display.c:1151
+#: display.c:527 display.c:603 display.c:635 display.c:1145
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=hoch x=runter ?=Hilfe Seite %d/%d "
 
-#: display.c:679 display.c:1174
+#: display.c:679 display.c:1168
 msgid "Screenheight must be > 20 for help."
 msgstr "Bildschirmhöhe muss für Hilfe > 20 sein."
 
-#: display.c:684 display.c:1177
+#: display.c:684 display.c:1171
 msgid "w or <Up>         page up"
 msgstr "w oder <hoch>      Seite hoch"
 
-#: display.c:685 display.c:1178
+#: display.c:685 display.c:1172
 msgid "x or z or <Down>  page down"
 msgstr "x,z oder <Runter>  Seite runter"
 
-#: display.c:686 display.c:1179
+#: display.c:686 display.c:1173
 msgid ", or <Left>       scroll 1 left"
 msgstr ", oder <Links>     1 nach links rollen"
 
-#: display.c:687 display.c:1180
+#: display.c:687 display.c:1174
 msgid ". or <Right>      scroll 1 right"
 msgstr ". oder <Rechts>    1 nach rechts rollen"
 
-#: display.c:688 display.c:1181
+#: display.c:688 display.c:1175
 msgid "< or [            scroll 10 left"
 msgstr "< oder [           10 nach links rollen"
 
-#: display.c:689 display.c:1182
+#: display.c:689 display.c:1176
 msgid "> or ]            scroll 10 right"
 msgstr "> oder ]           10 nach rechtsw rollen"
 
-#: display.c:690 display.c:1183
+#: display.c:690 display.c:1177
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr "Strg-a oder <Home> an den Anfang springen"
 
-#: display.c:691 display.c:1184
+#: display.c:691 display.c:1178
 msgid "CTRL-e or <END>   scroll to end"
 msgstr "Strg-e oder <Ende> zum Ende springen"
 
-#: display.c:692 display.c:1186
+#: display.c:692 display.c:1180
 msgid "CTRL-c or <Esc>   abort"
 msgstr "Strg-c oder <Esc>  Abbruch"
 
-#: display.c:693 display.c:1187
+#: display.c:693 display.c:1181
 msgid "<Enter>           abort"
 msgstr "<Eingabe>          Abbruch"
 
@@ -937,259 +975,264 @@ msgstr "<Eingabe>          Abbruch"
 msgid "Type w or x to quit help."
 msgstr "Geben Sie »w« oder »x« ein, um die Hilfe zu beenden."
 
-#: display.c:1185 graphics.c:1825
+#: display.c:1179 graphics.c:1823
 msgid "CTRL-l or F5      redraw screen"
 msgstr "STRG-l oder F5    Bilschirm neu ausgeben"
 
-#: display.c:1188 graphics.c:1810 graphics.c:1827 graphics.c:1850
-#: graphics.c:1867
+#: display.c:1182 graphics.c:1808 graphics.c:1825 graphics.c:1848
+#: graphics.c:1865
 msgid "Press any key."
 msgstr "Eine beliebige Taste drücken."
 
-#: display.c:1253 graphics.c:2117
+#: display.c:1247 graphics.c:2115
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 "Fehler beim Öffnen des Terminals, es wird die\n"
 "Stdout-Schnittstelle verwendet.\n"
 
-#: display.c:1274
+#: display.c:1268
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "Der Bildschirm muss höher als 3 Zeilen sein.\n"
 
-#: display.c:1308 graphics.c:2150
+#: display.c:1302 graphics.c:2146
 msgid "error creating scroll window.\n"
 msgstr "Fehler beim Erzeugen des rollbaren Fensters.\n"
 
-#: display.c:1327
+#: display.c:1316
 msgid "error creating input window.\n"
 msgstr "Fehler beim Erzeugen des Eingabefensters.\n"
 
-#: graphics.c:279
+#: graphics.c:277
 #, c-format
 msgid "Wcd: error: path too long"
 msgstr "wcd: Fehler: Pfad zu lang."
 
-#: graphics.c:1771
+#: graphics.c:1769
 msgid "/ = search forward,  ? = search backward,  : = help"
 msgstr "/ = vorwärts suchen,  ? = rückwärts suchen,  : = Hilfe"
 
-#: graphics.c:1776
+#: graphics.c:1774
 msgid "SEARCH: "
 msgstr "SUCHE: "
 
-#: graphics.c:1779
+#: graphics.c:1777
 msgid "Search: "
 msgstr "Suche: "
 
-#: graphics.c:1795
+#: graphics.c:1793
 msgid "NAVIGATION MODE (1/2):"
 msgstr "NAVIGATIONSMODUS (1/2):"
 
-#: graphics.c:1796
+#: graphics.c:1794
 msgid "h or <Left>       go left"
 msgstr "h oder <Links>         nach links gehen"
 
-#: graphics.c:1797
+#: graphics.c:1795
 msgid "j or <Down>       go down"
 msgstr "j oder <Runter>\"       nach unten gehen"
 
-#: graphics.c:1798
+#: graphics.c:1796
 msgid "k or <Up>         go up"
 msgstr "k oder <Hoch>          nach oben gehen"
 
-#: graphics.c:1799
+#: graphics.c:1797
 msgid "l or <Right>      go right"
 msgstr "l oder <Rechts>        nach rechts gehen"
 
-#: graphics.c:1800
+#: graphics.c:1798
 msgid "* or v or <Space> go forward to dir with same name"
 msgstr "*q oder v oder <Leer>  vorwärts zu Verzeichnis mit gleichem Namen"
 
-#: graphics.c:1801
+#: graphics.c:1799
 msgid "# or p or <BS>    go backward to dir with same name"
 msgstr "# oder p oder <Rück>   rückwärts zu Verzeichnis mit gleichem Namen"
 
-#: graphics.c:1802
+#: graphics.c:1800
 msgid "^ or a            go to beginning of line"
 msgstr "^ oder a               an den Anfang der Zeile gehen"
 
-#: graphics.c:1803
+#: graphics.c:1801
 msgid "$ or e            go to end of line"
 msgstr "$ oder e               ans Ende der Zeile gehen"
 
-#: graphics.c:1804
+#: graphics.c:1802
 msgid "1                 go to root dir"
 msgstr "1                  zum Wurzelverzeichnis gehen"
 
-#: graphics.c:1805
+#: graphics.c:1803
 msgid "g or G            go to last dir"
 msgstr "g oder G           zum letzten Verzeichnis gehen"
 
-#: graphics.c:1806
+#: graphics.c:1804
 msgid "f                 go page forward"
 msgstr "f                  eine Seite vorwärts"
 
-#: graphics.c:1807
+#: graphics.c:1805
 msgid "b                 go page backward"
 msgstr "b                  eine Seite zurück"
 
-#: graphics.c:1808
+#: graphics.c:1806
 msgid "u                 go half page up"
 msgstr "u                  eine halbe Seite nach oben"
 
-#: graphics.c:1809
+#: graphics.c:1807
 msgid "d                 go half page down"
 msgstr "d                  eine halbe Seite nach unten"
 
-#: graphics.c:1816
+#: graphics.c:1814
 msgid "NAVIGATION MODE (2/2):"
 msgstr "NAVIGATIONSMODUS (2/2):"
 
-#: graphics.c:1817
+#: graphics.c:1815
 msgid "A                 switch alternative tree navigation on/off"
 msgstr "A                  Alternative Baumnavigation ein- bzw. ausschalten"
 
-#: graphics.c:1818
+#: graphics.c:1816
 msgid "t                 switch centered mode on/off"
 msgstr "t                  Zentrieren ein- bzw. ausschalten"
 
-#: graphics.c:1819
+#: graphics.c:1817
 msgid "T                 toggle between line drawing and ASCII characters"
-msgstr "T                  Wechseln zwischen Sonderzeichen und ASCII für die Darstellung"
+msgstr ""
+"T                  Wechseln zwischen Sonderzeichen und ASCII für die "
+"Darstellung"
 
-#: graphics.c:1820
+#: graphics.c:1818
 msgid "m                 toggle between compact and wide tree"
 msgstr "m                  zwischen kompaktem und breitem Baum umschalten"
 
-#: graphics.c:1821
+#: graphics.c:1819
 msgid "<Esc> or q        abort"
 msgstr "<Esc> oder q       Abbruch"
 
-#: graphics.c:1822
+#: graphics.c:1820
 msgid "/                 search forward"
 msgstr "/                  vorwärts suchen"
 
-#: graphics.c:1823
+#: graphics.c:1821
 msgid "?                 search backward"
 msgstr "?                  rückwärts suchen"
 
-#: graphics.c:1824
+#: graphics.c:1822
 msgid "n                 repeat last / or ? search"
 msgstr "n                  letzte / oder ? Suche wiederholen"
 
-#: graphics.c:1826 graphics.c:1849
+#: graphics.c:1824 graphics.c:1847
 msgid "<Enter>           select directory"
 msgstr "<Eingabe>          Verzeichnis auswählen"
 
-#: graphics.c:1833
+#: graphics.c:1831
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "SUCHMODUS mit Unterstützung für Platzhalte- und Unterverzeichnisse."
 
-#: graphics.c:1834
+#: graphics.c:1832
 msgid "<Left>            go left"
 msgstr "<Links>            nach links gehen"
 
-#: graphics.c:1835
+#: graphics.c:1833
 msgid "<Down>            go down"
 msgstr "<Runter>           nach unten gehen"
 
-#: graphics.c:1836
+#: graphics.c:1834
 msgid "<Up>              go up"
 msgstr "<Hoch>             nach oben gehen"
 
-#: graphics.c:1837
+#: graphics.c:1835
 msgid "<Right>           go right"
 msgstr "<Rechts>           nach rechts gehen"
 
-#: graphics.c:1838
+#: graphics.c:1836
 msgid "CTRL-v            go forward to dir with same name"
 msgstr "Strg-v             vorwärts gehen zu Verzeichnis mit gleichem Namen"
 
-#: graphics.c:1839
+#: graphics.c:1837
 msgid "CTRL-p            go backward to dir with same name"
 msgstr "Strg-p             rückwärts gehen zu Verzeichnis mit gleichem Namen"
 
-#: graphics.c:1840
+#: graphics.c:1838
 msgid "CTRL-a            go to beginning of line"
 msgstr "Strg-a             an den Anfang der Zeile springen"
 
-#: graphics.c:1841
+#: graphics.c:1839
 msgid "CTRL-e            go to end of line"
 msgstr "Strg-e             an das Ende der Zeile springen"
 
-#: graphics.c:1842
+#: graphics.c:1840
 msgid "CTRL-g            go to last dir"
 msgstr "Strg-g             zum letzten Verzeichnis gehen"
 
-#: graphics.c:1843
+#: graphics.c:1841
 msgid "CTRL-f            go page forward"
 msgstr "Strg-f             eine Seite vorwärts"
 
-#: graphics.c:1844
+#: graphics.c:1842
 msgid "CTRL-b            go page backward"
 msgstr "Strg-b             eine Seite zurück"
 
-#: graphics.c:1845
+#: graphics.c:1843
 msgid "CTRL-u            go half page up"
 msgstr "Strg-u             eine halbe Seite nach oben"
 
-#: graphics.c:1846
+#: graphics.c:1844
 msgid "CTRL-d            go half page down"
 msgstr "Strg-d             eine halbe Seite nach unten"
 
-#: graphics.c:1847
+#: graphics.c:1845
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
 msgstr "<Esc> oder Strg-x  SUCHMODUS abbrechen"
 
-#: graphics.c:1848
+#: graphics.c:1846
 msgid "CTRL-n            repeat last / or ? search"
 msgstr "Strg-n             Letzte / oder ? Suche wiederholen"
 
-#: graphics.c:1856
+#: graphics.c:1854
 msgid "ZOOMING:"
 msgstr "VERGRÖSSERN:"
 
-#: graphics.c:1857
+#: graphics.c:1855
 msgid "z or i or CTRL-i  zoom in"
 msgstr "z oder i oder Strg-i  Ansicht vergrößern"
 
-#: graphics.c:1858
+#: graphics.c:1856
 msgid "Z or o or CTRL-o  zoom out"
 msgstr "Z oder o oder Strg-o  Ansicht verkleinern"
 
-#: graphics.c:1859
+#: graphics.c:1857
 msgid "c                 condense: fold current level"
 msgstr "c                     verkürzen: aktuelle Ebene einklappen"
 
-#: graphics.c:1860
+#: graphics.c:1858
 msgid "C                 condense: fold subdir level"
 msgstr "C                     verkürzen: Unterverzeichnisebene einklappen"
 
-#: graphics.c:1861
+#: graphics.c:1859
 msgid "w                 condense: fold current and subdir levels"
-msgstr "w                     verkürzen: aktuelle Ebene mit Unterebenen einklappen"
+msgstr ""
+"w                     verkürzen: aktuelle Ebene mit Unterebenen einklappen"
 
-#: graphics.c:1862
+#: graphics.c:1860
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
-msgstr "y oder Strg-y         dekomprimieren: aktuelle Ebene samt Unterebenen ausklappen"
+msgstr ""
+"y oder Strg-y         dekomprimieren: aktuelle Ebene samt Unterebenen "
+"ausklappen"
 
-#: graphics.c:1863
+#: graphics.c:1861
 msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r oder Strg-r         dekomprimieren: alle Ebenen ausklappen"
 
-#: graphics.c:1864
+#: graphics.c:1862
 msgid "-                 fold directory"
 msgstr "-                     Verzeichnis einklappen"
 
-#: graphics.c:1865
+#: graphics.c:1863
 msgid "+ or =            unfold directory"
 msgstr "+ oder =              Verzeichnis ausklappen"
 
-#: graphics.c:1866
+#: graphics.c:1864
 msgid "l or <Right>      unfold and go right"
 msgstr "l oder <Rechts>       ausklappen und nach rechts gehen"
 
-#: graphics.c:1870
+#: graphics.c:1868
 msgid "Screenheight must be > 21 for help."
 msgstr "Bildschirmhöhe muss für die Hilfe > 21 sein."
 

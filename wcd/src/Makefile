@@ -1,7 +1,7 @@
 #
 #   Copyright information
 #
-#	Copyright (C) 2009-2014 Erwin Waterlander
+#	Copyright (C) 2009-2015 Erwin Waterlander
 #	Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -507,7 +507,10 @@ man/man1/wcd.pod : ;
 	groff -man $< -T ps > $@
 
 %.$(HTMLEXT) : %.pod
-	pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
+
+man/uk/man1/$(PACKAGE).$(HTMLEXT) : man/uk/man1/$(PACKAGE).pod
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(VERSION) - довільна зміна каталогу (Wherever Change Directory)" $< > $@
 
 
 man: man/man1/wcd.1 $(MANFILES) $(MANPOTFILE)
