@@ -10,8 +10,13 @@ TO DO
 
 * Translate the manual.
 
-  Contact Erwin Waterlander if you want to help (waterlan@xs4all.nl).
+  Translation of the manual for wcd is going via the Translation Project (TP).
+  See http://translationproject.org/domain/wcd-man.html
 
+
+* Improve interface for East Asian double width CJK fonts (Chinese, Japanese, Korean)
+  in a Windows console. This depends on ncurses development. PDCurses development is
+  on hold.
 
 * Support scripts that write from right to left like Arabic, Persian or Hebrew.
 

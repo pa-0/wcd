@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2005 Erwin Waterlander
+Copyright (C) 1997-2015 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -33,6 +33,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  endif
 #endif
 
+#include "wcd.h"
+
 size_t wcstoansi(char *mbstr, const wchar_t *wcstr, int len);
 size_t ansitowcs(wchar_t *wcstr, const char *mbstr, int len);
 size_t wcstoutf8(char *mbstr, const wchar_t *wcstr, int len);
@@ -63,5 +65,16 @@ void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str);
 #define WCD_STDOUT_NO     0 /* no stdout */
 #define WCD_STDOUT_NORMAL 1 /* stdout mode */
 #define WCD_STDOUT_DUMP   2 /* dump to stdout */
+
+#if defined(_WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
+/* On Windows we use wclear, because wclear gives a cleaner screen in a Windows
+ * Command Prompt in an East Asian locale with double width font. E.g. Chinese
+ * locale CP936 with raster or Simsun font. wclear gives some screen
+ * flickering when used with ncurses on Windows. */
+#define WCD_WCLEAR wclear
+#else
+/* We prefer werase, because it gives a steadier screen. Less flickering. */
+#define WCD_WCLEAR werase
+#endif
 
 #endif

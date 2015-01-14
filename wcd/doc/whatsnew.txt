@@ -1,12 +1,12 @@
-5.2.6-beta4 2014-11-02
-  - graphics.c: Use wclear again iso werase (werase was introduced
-    in wcd 5.2.4). wclear gives a cleaner screen on Windows in a
-    Chinese locale. wclear gives some screen flickering when used
-    with ncurses on Windows.
-  - display.c: Use wclear iso werase.
+5.2.6 2015-01-13
+  - graphics.c,display.c: Use wclear again on Windows iso werase (werase was
+    introduced in wcd 5.2.4), because wclear gives a cleaner screen in a
+    Windows Command Prompt in an East Asian locale with double width font. E.g.
+    Chinese locale CP936 with raster or Simsun font. wclear gives some screen
+    flickering when used with ncurses on Windows.
   - New keys in match list and graphical tree mode: F5 or CRTL-l
     to redraw the screen.
-  - etc/profile.d/wcd.sh: Fix: wcd function was overwriting shell's
+  - Fix: etc/profile.d/wcd.sh: wcd function was overwriting shell's
     $go variable. Thanks to Andreas Schwab.
   - win*/Makefile:
     * Add libiconv-2.dll when compiled with Unicode normalization.

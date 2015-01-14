@@ -1094,7 +1094,7 @@ void print_list_stack(WINDOW *scrollWin, int lines_per_page,int line, WcdStack w
 
 void print_list(WINDOW *scrollWin, int lines_per_page,int line, nameset list, WcdStack ws, int start, int top, int bottom, int use_numbers, int xoffset)
 {
-   wclear(scrollWin);
+   WCD_WCLEAR(scrollWin);
    if (list != NULL)
       print_list_normal(scrollWin,lines_per_page,line,list,top,bottom,use_numbers,xoffset);
    else
@@ -1111,8 +1111,8 @@ void displayRefresh(int init)
   int page, pageoffset, offset, n;
   char buf[WCD_MAX_INPSTR];
 
-  wclear(wcd_display.scrollWin);
-  wclear(wcd_display.inputWin);
+  WCD_WCLEAR(wcd_display.scrollWin);
+  WCD_WCLEAR(wcd_display.inputWin);
 
 
  if (init || (wcd_display.bottom >= wcd_display.size) || (wcd_display.size <= wcd_display.lines_per_page)) {
@@ -1163,7 +1163,7 @@ void displayRefresh(int init)
 }
 void displayHelp(WINDOW *win, int height)
 {
-   wclear(win);
+   WCD_WCLEAR(win);
    if (height < 17)
       wcd_mvwaddstr(win,0,0,_("Screenheight must be > 20 for help."));
    else

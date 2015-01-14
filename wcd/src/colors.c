@@ -18,6 +18,7 @@
 #  undef MOUSE_MOVED
 #endif
 #include "colors.h"
+#include "display.h"
 
 void initcolor(void)
 {
@@ -68,7 +69,7 @@ void colorbox(WINDOW *win, chtype color, int hasbox)
 #endif
         wbkgd(win, color);
 
-    wclear(win);
+    WCD_WCLEAR(win);
 
 #ifdef PDCURSES
     maxy = getmaxy(win);

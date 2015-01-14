@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2000-2014 Erwin Waterlander
+Copyright (C) 2000-2015 Erwin Waterlander
 
 Ideas and source code of NCD (Ninux Czo Directory) have been
 used in the WCD graphical interface.
@@ -1671,8 +1671,8 @@ void dataRefresh(int ydiff, int init)
   if ((yposition < 0)|| init)
      yposition = (wcd_cwin.scrollWinHeight /2);
 
-  wclear(wcd_cwin.scrollWin);
-  wclear(wcd_cwin.inputWin);
+  WCD_WCLEAR(wcd_cwin.scrollWin);
+  WCD_WCLEAR(wcd_cwin.inputWin);
 
   if (ydiff < 0 )
   {
@@ -1787,7 +1787,7 @@ void dataRefresh(int ydiff, int init)
 /************************************************************/
 void showHelp(WINDOW *win, int height)
 {
-   wclear(win);
+   WCD_WCLEAR(win);
    if (height > 21)
    {
       wcd_mvwaddstr(win, 0,0,_("NAVIGATION MODE (1/2):"));
@@ -1809,7 +1809,7 @@ void showHelp(WINDOW *win, int height)
 
       wrefresh(win);
       getch();
-      wclear(win);
+      WCD_WCLEAR(win);
 
       wcd_mvwaddstr(win, 0,0,_("NAVIGATION MODE (2/2):"));
       wcd_mvwaddstr(win, 1,0,_("A                 switch alternative tree navigation on/off"));
@@ -1826,7 +1826,7 @@ void showHelp(WINDOW *win, int height)
 
       wrefresh(win);
       getch();
-      wclear(win);
+      WCD_WCLEAR(win);
 
       wcd_mvwaddstr(win, 0,0,_("SEARCH MODE with wildcard and subdir support:"));
       wcd_mvwaddstr(win, 1,0,_("<Left>            go left"));
@@ -1849,7 +1849,7 @@ void showHelp(WINDOW *win, int height)
 
       wrefresh(win);
       getch();
-      wclear(win);
+      WCD_WCLEAR(win);
 
       wcd_mvwaddstr(win, 0,0,_("ZOOMING:"));
       wcd_mvwaddstr(win, 1,0,_("z or i or CTRL-i  zoom in"));
