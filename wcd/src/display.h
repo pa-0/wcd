@@ -33,7 +33,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  endif
 #endif
 
-#include "wcd.h"
+#include "std_macr.h"
+#include "structur.h"
 
 size_t wcstoansi(char *mbstr, const wchar_t *wcstr, int len);
 size_t ansitowcs(wchar_t *wcstr, const char *mbstr, int len);
