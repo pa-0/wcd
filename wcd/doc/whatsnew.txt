@@ -1,4 +1,4 @@
-5.2.6 2015-01-13
+5.2.6 2015-01-18
   - graphics.c,display.c: Use wclear again on Windows iso werase (werase was
     introduced in wcd 5.2.4), because wclear gives a cleaner screen in a
     Windows Command Prompt in an East Asian locale with double width font. E.g.
@@ -6,15 +6,15 @@
     flickering when used with ncurses on Windows.
   - New keys in match list and graphical tree mode: F5 or CRTL-l
     to redraw the screen.
-  - Fix: etc/profile.d/wcd.sh: wcd function was overwriting shell's
-    $go variable. Thanks to Andreas Schwab.
   - win*/Makefile:
     * Add libiconv-2.dll when compiled with Unicode normalization.
     * Add libwinpthread-1.dll when compiled with ncurses.
     * Replaced libuninstring-0.dll with libunistring-2.dll.
   - msys2/Makefile: New makefile for building for native msys2.
   - wcd.c, Makefile: Updated for msys2.
-  - wcddir.c: Fix in replacing volume manager path with $HOME for other
+  - Bugfix: etc/profile.d/wcd.sh: wcd function was overwriting shell's
+    $go variable. Thanks to Andreas Schwab.
+  - Bugfix: wcddir.c: Fix in replacing volume manager path with $HOME for other
     users. Introduced in version 5.1.0.
 
 5.2.5 2014-06-10

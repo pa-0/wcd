@@ -192,9 +192,8 @@ Table of Contents
         originally written by P.J. Kunst and placed in the Public
         Domain.
 
-        Markus Kuhn's free wcwidth() implementation is used in Wcd for
-        Windows. See also
-        http://www.cl.cam.ac.uk/~mgk25/unicode.html
+        Markus Kuhn's free wcwidth() and wcwidth_cjk() implementation is used.
+        See also http://www.cl.cam.ac.uk/~mgk25/unicode.html
 
         Rugxulo is the original autor of query_con_codepage(),
         which is in the public domain.
@@ -304,7 +303,7 @@ Table of Contents
         Borja Etxebarria & Olivier Sirol  Ninux Czo Directory
         Felix Kasza                       WIN32 API sample WNetOpenEnum()/WNetEnumResource()
                                           MVPS.ORG http://www.mvps.org/win32/
-        Markus Kuhn                       wcwidth(), used in Windows version of Wcd.
+        Markus Kuhn                       wcwidth() and wcwidth_cjk()
                                           http://www.cl.cam.ac.uk/~mgk25/unicode.html
         Rugxulo                           query_con_codepage()
                                           http://sites.google.com/site/rugxulo/
