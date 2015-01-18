@@ -1,14 +1,14 @@
 open sftp://waterlan,wcd@frs.sourceforge.net
 cd /home/frs/project/w/wc/wcd/wcd
-mkdir 5.2.5
-cd 5.2.5
-mput wcd-5.2.5.tar.gz wcd525.zip wcd525b.zip wcd525pm.zip wcd525bh.zip trunk/wcd/doc/whatsnew.txt
-mput wcd-5.2.5-win32.zip wcd-5.2.5-win32psh.zip
-mput wcd-5.2.5-win32-nls.zip wcd-5.2.5-win32psh-nls.zip
-mput wcd-5.2.5-win32-ucs.zip wcd-5.2.5-win32psh-ucs.zip
-mput wcd-5.2.5-win32-nls-ucs.zip wcd-5.2.5-win32psh-nls-ucs.zip
-mput wcd-5.2.5-win64.zip wcd-5.2.5-win64psh.zip
-mput wcd-5.2.5-win64-nls.zip wcd-5.2.5-win64psh-nls.zip
-mput wcd-5.2.5-win64-ucs.zip wcd-5.2.5-win64psh-ucs.zip
-mput wcd-5.2.5-win64-nls-ucs.zip wcd-5.2.5-win64psh-nls-ucs.zip
+mkdir 5.2.6
+cd 5.2.6
+mput wcd-5.2.6.tar.gz wcd526.zip wcd526b.zip wcd526pm.zip wcd526bh.zip README.txt
+mput wcd-5.2.6-win32.zip wcd-5.2.6-win32psh.zip
+mput wcd-5.2.6-win32-nls.zip wcd-5.2.6-win32psh-nls.zip
+mput wcd-5.2.6-win32-ucs.zip wcd-5.2.6-win32psh-ucs.zip
+mput wcd-5.2.6-win32-nls-ucs.zip wcd-5.2.6-win32psh-nls-ucs.zip
+mput wcd-5.2.6-win64.zip wcd-5.2.6-win64psh.zip
+mput wcd-5.2.6-win64-nls.zip wcd-5.2.6-win64psh-nls.zip
+mput wcd-5.2.6-win64-ucs.zip wcd-5.2.6-win64psh-ucs.zip
+mput wcd-5.2.6-win64-nls-ucs.zip wcd-5.2.6-win64psh-nls-ucs.zip
 exit
