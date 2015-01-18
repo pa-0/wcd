@@ -33,29 +33,38 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  endif
 #endif
 
+#if (defined(WCD_ANSI) || defined(WCD_UTF16))
 #include <wchar.h>
+#endif
 #include "std_macr.h"
 #include "structur.h"
 
+#ifdef WCD_ANSI
 size_t wcstoansi(char *mbstr, const wchar_t *wcstr, int len);
 size_t ansitowcs(wchar_t *wcstr, const char *mbstr, int len);
+#endif
+#ifdef WCD_UTF16
 size_t wcstoutf8(char *mbstr, const wchar_t *wcstr, int len);
 size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len);
+#endif
 void wcd_printf( const char* format, ... );
-void wcd_wprintf( const wchar_t* format, ... );
+#if (defined(WCD_USECONIO) || defined(WCD_USECURSES))
 size_t str_columns (char *s);
+#endif
 void sort_list(nameset list);
 int display_list(nameset list,int perfect, int use_numbers, int use_stdout);
+#ifdef WCD_USECONIO
 int display_list_conio(nameset list,WcdStack ws, int perfect,int use_numbers);
+#endif
+#ifdef WCD_USECURSES
 int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers);
+void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str);
+#endif
 int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout);
 
 #define OFFSET 39
 #define WCD_MAX_INPSTR 256
 
-#ifdef WCD_USECURSES
-void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str);
-#endif
 #define PAGEOFFSET 38
 
 #define SCROLL_WIN_HEIGHT 22
