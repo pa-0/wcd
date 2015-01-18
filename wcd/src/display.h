@@ -33,6 +33,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  endif
 #endif
 
+#include <wchar.h>
 #include "std_macr.h"
 #include "structur.h"
 
