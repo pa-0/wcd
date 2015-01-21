@@ -20,6 +20,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 */
 
+#ifdef WCD_UNICODE
+#include <wchar.h>
+#endif
+
 #ifndef C3PO_BASIC_TYPES_INCLUDED
 #define C3PO_BASIC_TYPES_INCLUDED
 
