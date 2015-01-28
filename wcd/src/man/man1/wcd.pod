@@ -455,7 +455,7 @@ option B<-n>.
 
 Use numbers instead of letters.
 
-Wcd with a conio or curses based interface (see section INTERFACE) presents
+Wcd with a conio or curses based interface (see section Interfaces) presents
 a match list by default numbered with letters. When the B<-N> option is used
 the match list is numbered with numbers. Regardless of the B<-N> option one
 can type a letter or numbers to make a selection from the list of matches.
