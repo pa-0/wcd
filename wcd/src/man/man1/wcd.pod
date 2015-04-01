@@ -1,6 +1,6 @@
 #  Copyright and License
 #
-#      Copyright (C) 1997-2014 Erwin Waterlander
+#      Copyright (C) 1997-2015 Erwin Waterlander
 #      Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -1344,9 +1344,6 @@ L<http://waterlan.home.xs4all.nl/>
 
 SourceForge:
 L<http://sourceforge.net/projects/wcd/>
-
-Freecode:
-L<http://freecode.com/projects/wcd/>
 
 The manual page formatting was provided by Jari Aalto
 <jari.aalto@cante.net>.

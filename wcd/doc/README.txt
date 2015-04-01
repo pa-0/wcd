@@ -331,9 +331,6 @@ Table of Contents
         SourceForge project page:
         http://sourceforge.net/projects/wcd/
 
-        Freecode project page:
-        http://freecode.com/projects/wcd/
-
         --
 
         For each release of wcd there are two source packages
