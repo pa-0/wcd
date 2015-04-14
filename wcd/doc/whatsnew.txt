@@ -1,3 +1,9 @@
+5.2.7-beta2 2015-04-14
+  - Fix compilation error: unknown type name wchar_t.
+    Happens on some systems when Unicode is enabled.
+  - Makefile, man/man1/Makefile: add option --no-wrap to xgettext and
+    msgmerge. Translation Project standard is not to wrap.
+
 5.2.6 2015-01-18
   - graphics.c,display.c: Use wclear again on Windows iso werase (werase was
     introduced in wcd 5.2.4), because wclear gives a cleaner screen in a

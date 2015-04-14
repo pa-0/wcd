@@ -484,7 +484,7 @@ $(MANPOTFILE) : man/man1/wcd.pod
 #  the shortest stem first.
 
 po/%.po : $(POT)
-	msgmerge -U $@ $(POT) --backup=numbered
+	msgmerge --no-wrap -U $@ $(POT) --backup=numbered
 	# change timestamp in case .po file was not updated.
 	touch $@
 
@@ -542,7 +542,7 @@ getpoman:
 	msgfmt -c $< -o $@
 
 $(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
-	xgettext -C --keyword=_ $+ -o $(POT)
+	xgettext --no-wrap -C --keyword=_ $+ -o $(POT)
 
 dist-zip:
 	rm -f $(prefix)/$(ZIPFILE)
