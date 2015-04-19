@@ -1,6 +1,6 @@
-5.2.7-beta2 2015-04-14
-  - Fix compilation error: unknown type name wchar_t.
-    Happens on some systems when Unicode is enabled.
+5.2.7 2015-04-19
+  - c3po/structur.h: Fix compilation error: unknown type name wchar_t.
+    Happens on some systems when wcd is compiled with Unicode support.
   - Makefile, man/man1/Makefile: add option --no-wrap to xgettext and
     msgmerge. Translation Project standard is not to wrap.
 
