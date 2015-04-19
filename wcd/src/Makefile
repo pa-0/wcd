@@ -145,6 +145,7 @@ endif
 
 ZIPOBJ		= bin/$(BIN) \
 		  share/man/man1/$(PACKAGE).1 \
+		  share/man/*/man1/$(PACKAGE).1 \
 		  share/doc/$(docsubdir) \
 		  $(ZIPOBJ_EXTRA)
 
