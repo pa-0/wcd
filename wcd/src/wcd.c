@@ -1836,6 +1836,59 @@ int check_filter(char *dir, nameset filter)
    }
    return(1);
 }
+
+/********************************************************************
+ *
+ *  read_treefile_line()
+ *
+ *  Read a line from a tree file. Convert the line when the input is UTF-16.
+ *
+ *  Returns the number of characters read.
+ *
+ ********************************************************************/
+int read_treefile_line (char line[], int lim, FILE* infile, const char* filename, const int* line_nr, int bomtype)
+{
+   int len;
+#if defined(_WIN32) || defined(WCD_UNICODE)
+   wchar_t linew[DD_MAXPATH];            /* database path */
+#endif
+
+#if defined(_WIN32) || defined(WCD_UNICODE)
+      /* read a line */
+      switch (bomtype)
+      {
+         case FILE_MBS:
+           len = wcd_getline(line,DD_MAXPATH,infile,filename,line_nr);
+           break;
+         case FILE_UTF16LE:
+           len = wcd_wgetline(linew,DD_MAXPATH,infile,filename,line_nr);
+           WCSTOMBS(line, linew, sizeof(line));
+           break;
+         case FILE_UTF16BE:
+           len = wcd_wgetline_be(linew,DD_MAXPATH,infile,filename,line_nr);
+           WCSTOMBS(line, linew, sizeof(line));
+           break;
+         case FILE_UTF8:
+           len = wcd_getline(line,DD_MAXPATH,infile,filename,line_nr);
+#ifdef WCD_ANSI
+           /* convert UTF-8 to ANSI */
+           MultiByteToWideChar(CP_UTF8, 0, line, -1, linew, sizeof(linew));
+           len = WideCharToMultiByte(CP_ACP, 0, linew, -1, line, DD_MAXPATH, NULL, NULL) -1;
+#endif
+           break;
+         default:
+           len = wcd_getline(line,DD_MAXPATH,infile,filename,line_nr);
+      }
+#else
+      len = wcd_getline(line,DD_MAXPATH,infile,filename,line_nr);
+#endif
+
+   if (len<0)
+     len = 0;
+   return len;
+}
+
+
 /********************************************************************
  *
  *    scanfile(char *org_dir, char *filename, int
@@ -1849,9 +1902,6 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 {
    FILE *infile;
    char line[DD_MAXPATH];            /* database path */
-#if defined(_WIN32) || defined(WCD_UNICODE)
-   wchar_t linew[DD_MAXPATH];            /* database path */
-#endif
    int  bomtype ;
    char *line_end;                  /* database directory */
    char path_str[DD_MAXPATH];        /* path name to match */
@@ -1918,35 +1968,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    {
       int len;
 
-#if defined(_WIN32) || defined(WCD_UNICODE)
-      /* read a line */
-      switch (bomtype)
-      {
-         case FILE_MBS:
-           len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
-           break;
-         case FILE_UTF16LE:
-           len = wcd_wgetline(linew,DD_MAXPATH,infile,filename,&line_nr);
-           WCSTOMBS(line, linew, sizeof(line));
-           break;
-         case FILE_UTF16BE:
-           len = wcd_wgetline_be(linew,DD_MAXPATH,infile,filename,&line_nr);
-           WCSTOMBS(line, linew, sizeof(line));
-           break;
-         case FILE_UTF8:
-           len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
-#ifdef WCD_ANSI
-           /* convert UTF-8 to ANSI */
-           MultiByteToWideChar(CP_UTF8, 0, line, -1, linew, sizeof(linew));
-           WideCharToMultiByte(CP_ACP, 0, linew, -1, line, sizeof(line), NULL, NULL);
-#endif
-           break;
-         default:
-           len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
-      }
-#else
-      len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
-#endif
+      len = read_treefile_line(line,DD_MAXPATH,infile,filename,&line_nr, bomtype);
       ++line_nr;
 
       cleanPath(line,len,1) ;
@@ -3789,18 +3811,18 @@ int main(int argc,char** argv)
          if(dirs != NULL)
          {
             if (use_default_treedata)
-               read_treefile(treefile,dirs,0);
-            read_treefile(extratreefile,dirs,1);
+               buildTreeFromFile(treefile,rootNode,0);
+            buildTreeFromFile(extratreefile,rootNode,1);
             for (ii=0;ii<extra_files->size;ii++)
             {
-               read_treefile(extra_files->array[ii],dirs,0);
+               buildTreeFromFile(extra_files->array[ii],rootNode,0);
             }
             for (ii=0;ii<relative_files->size;ii++)
             {
-               read_treefile(relative_files->array[ii],dirs,0);
+               buildTreeFromFile(relative_files->array[ii],rootNode,0);
             }
 
-            buildTreeFromNameset(dirs, rootNode);
+            sortTree(rootNode);
             setXYTree(rootNode, &graphics);
          }
 

@@ -558,23 +558,24 @@ c3po_bool eqTextDirnode(text t, dirnode d)
 
 size_t inDirnode(text t, dirnode d)
 {
-   size_t index, size;
+   size_t index;
 
    index = 0;
 
-   if(dirHasSubdirs(d) eq true)
+   while(index < d->size)
    {
-      size = getSizeOfDirnode(d);
-      while(index < size)
-      {
-         if (eqTextDirnode(t,elementAtDirnode(index,d)) eq true)
-            return index;
-         index++;
-      }
+      if (strcmp(t,(d->subdirs[index])->name) == 0)
+         return index;
+      ++index;
    }
    return (size_t) -1;
 }
 
+/*
+ * A lot of time is spend in addPath(). addPath() has been made faster by
+ * using pointers directly instead of the dirnode API functions in addPath()
+ * and inDirnode(). This removes overhead due to pointer checks.
+ */
 void addPath(text path, dirnode d)
 {
    char *s;
@@ -619,11 +620,132 @@ void addPath(text path, dirnode d)
       }
       else
       {
-         n = elementAtDirnode(index,d);
+         n = d->subdirs[index];
       }
       addPath(NULL,n);
    }
 }
+
+/************************************************************************
+ *
+ *  swap_dirnodes(), ssort_dirnode() and sort_dirnode()
+ *
+ *  Sort the sub dirnodes of a dirnode alphabeticly
+ *
+ ************************************************************************/
+
+void swap_dirnodes(dirnode* subdirs, int i, int j)
+{  dirnode temp, parent;
+
+   parent = (subdirs[i])->parent;
+
+   temp = subdirs[i];
+   subdirs[i] = subdirs[j];
+   subdirs[j] = temp;
+
+   if (i==0)
+     (subdirs[i])->up = NULL;
+   else {
+     (subdirs[i])->up = subdirs[i-1];
+     (subdirs[i-1])->down = subdirs[i];
+   }
+   if (i== (int)parent->size -1)
+     (subdirs[i])->down = NULL;
+   else {
+     (subdirs[i])->down = subdirs[i+1];
+     (subdirs[i+1])->up = subdirs[i];
+   }
+
+   if (j==0)
+     (subdirs[j])->up = NULL;
+   else {
+     (subdirs[j])->up = subdirs[j-1];
+     (subdirs[j-1])->down = subdirs[j];
+   }
+   if (j== (int)parent->size -1)
+     (subdirs[j])->down = NULL;
+   else {
+     (subdirs[j])->down = subdirs[j+1];
+     (subdirs[j+1])->up = subdirs[j];
+   }
+}
+
+void ssort_dirnode (dirnode* subdirs, int left, int right)
+{
+ int i, last;
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
+ static wchar_t wstr_left[DD_MAXPATH];
+ static wchar_t wstr_right[DD_MAXPATH];
+ size_t len1,len2;
+#endif
+ text t_left, t_right;
+
+  if (left >= right) return; /* fewer than 2 elements */
+
+  swap_dirnodes(subdirs, left, (left + right)/2);
+  last = left;
+
+  for (i = left+1; i <=right; i++)
+  {
+   t_left  = (subdirs[left])->name;
+   t_right = (subdirs[i])->name;
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
+   len1 = MBSTOWCS(wstr_left, t_left, (size_t)DD_MAXPATH);
+   len2 = MBSTOWCS(wstr_right, t_right, (size_t)DD_MAXPATH);
+   if ((len1 == (size_t)(-1)) || (len2 == (size_t)(-1)))
+   {
+      /* Erroneous multi-byte sequence */
+      /* Try 8 bit characters */
+#  ifdef ENABLE_NLS
+      if  (strcoll(t_right,t_left)<0)
+#  else
+      if  (strcmp(t_right,t_left)<0)
+#  endif
+         swap_dirnodes(subdirs, ++last, i);
+   } else {
+      if  (wcscoll(wstr_right,wstr_left)<0)
+         swap_dirnodes(subdirs, ++last, i);
+   }
+#else
+#  ifdef ENABLE_NLS
+  if  (strcoll(t_right,t_left)<0)
+#  else
+  if  (strcmp(t_right,t_left)<0)
+#  endif
+     swap_dirnodes(subdirs, ++last, i);
+#endif
+  }
+
+  swap_dirnodes(subdirs, left, last);
+  ssort_dirnode(subdirs, left, last-1);
+  ssort_dirnode(subdirs, last+1, right);
+}
+
+void sort_subdirs(dirnode d)
+{
+  ssort_dirnode(d->subdirs,0,(int)(d->size)-1);
+}
+
+/*
+ * Sort the tree alphabeticly
+ */
+
+void sortTree(dirnode d)
+{
+   size_t index;
+   dirnode n;
+
+   sort_subdirs(d);
+   index = 0;
+   while(index < d->size)
+   {
+      n = d->subdirs[index];
+      sortTree(n);
+      ++index;
+   }
+}
+
+/*****************************************************/
 
 void buildTreeFromNameset(nameset set, dirnode d)
 {
@@ -662,23 +784,50 @@ void buildTreeFromNameset(nameset set, dirnode d)
  *
  ***********************************************************/
 
-void buildTreeFromFile(char *filename, dirnode d)
+
+/*****************************************************/
+
+/*
+ * When reading complete tree files, it is faster to build the
+ * dirnode tree directly from file, instead of reading the tree files
+ * in a nameset first. Building the nameset costs a lot of reallocs.
+ *
+ * Each time this function is called the file is appended to the dirnode.
+ *
+ * Also sorting a dirnode tree is faster, because we only need to compare
+ * directory names instead of whole paths.
+ *
+ * Most time is spend in addPath(). addPath() has been made faster by
+ * using pointers directly instead of the dirnode API functions.
+ *
+ */
+
+void buildTreeFromFile(char* filename, dirnode d, int quiet)
 {
-   nameset dirs;
+   FILE *infile;
+   int bomtype, line_nr=1;
+   char line[DD_MAXPATH];
 
-   dirs = namesetNew();
-
-   if(dirs != NULL)
-      read_treefile(filename,dirs,0);
-   else
+   if ((filename == NULL)||(d == NULL))
       return;
 
-   if (d == NULL)
-      return;
+   /* open treedata-file */
+   if  ((infile = wcd_fopen_bom(filename,"rb", quiet, &bomtype)) != NULL)
+   {
+       while (!feof(infile) )  /* parse the file */
+       {
+          int len;
 
-   buildTreeFromNameset(dirs,d);
-
-   freeNameset(dirs, 1);
+          len = read_treefile_line(line,DD_MAXPATH,infile,filename,&line_nr, bomtype);
+          ++line_nr;
+          if (len > 0 )
+          {
+             wcd_fixpath(line,sizeof(line));
+             addPath(line,d);
+          }
+       }
+       wcd_fclose(infile, filename, "r", "read_treefile: ");
+   }
 }
 
 /*****************************************************/

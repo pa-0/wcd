@@ -1,3 +1,6 @@
+5.3.0-beta1 2015-05-02
+  - Faster loading of the graphical tree. In about one third less time.
+
 5.2.7 2015-04-19
   - c3po/structur.h: Fix compilation error: unknown type name wchar_t.
     Happens on some systems when wcd is compiled with Unicode support.

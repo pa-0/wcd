@@ -20,8 +20,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #define _WCD_GRAPHICS_H
 
 dirnode createRootNode(void);
-void buildTreeFromFile(char *filename, dirnode d);
+void buildTreeFromFile(char *filename, dirnode d, int quiet);
 void buildTreeFromNameset(nameset set, dirnode d);
+void sortTree(dirnode d);
 void setXYTree(dirnode d, const int *graphics_mode);
 void dumpTree(dirnode d, const int *graphics_mode);
 char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mode,int ignore_diacritics);

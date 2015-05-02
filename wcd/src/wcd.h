@@ -167,6 +167,7 @@ void print_version(void);
 void print_license(void);
 int  wcd_get_int(void);
 int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const int* line_nr);
+int read_treefile_line (char line[], int lim, FILE* infile, const char* file_name, const int* line_nr, int bomtype);
 int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdStack ws, nameset excl);
 void getCurPath(char *buffer, size_t size, int *use_HOME);
 
