@@ -1862,11 +1862,11 @@ int read_treefile_line (char line[], int lim, FILE* infile, const char* filename
            break;
          case FILE_UTF16LE:
            len = wcd_wgetline(linew,DD_MAXPATH,infile,filename,line_nr);
-           WCSTOMBS(line, linew, sizeof(line));
+           WCSTOMBS(line, linew, (size_t)DD_MAXPATH);
            break;
          case FILE_UTF16BE:
            len = wcd_wgetline_be(linew,DD_MAXPATH,infile,filename,line_nr);
-           WCSTOMBS(line, linew, sizeof(line));
+           WCSTOMBS(line, linew, (size_t)DD_MAXPATH);
            break;
          case FILE_UTF8:
            len = wcd_getline(line,DD_MAXPATH,infile,filename,line_nr);
