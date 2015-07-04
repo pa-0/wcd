@@ -22,9 +22,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #define WCD_STACK_SIZE 10
 
-int stack_read(WcdStack ws,char *stackfilename);
+int stack_read(WcdStack ws,const char *stackfilename);
 int stack_print(WcdStack ws, int use_numbers, int use_stdout);
-int stack_write(WcdStack ws,char *stackfilename);
+int stack_write(WcdStack ws,const char *stackfilename);
 int stack_add(WcdStack ws, char *dir);
 char* stack_push(WcdStack ws, int push_ntimes);
 char* stack_pop(WcdStack ws, int pop_ntimes);

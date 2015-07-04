@@ -814,11 +814,12 @@ void buildTreeFromFile(char* filename, dirnode d, int quiet)
    /* open treedata-file */
    if  ((infile = wcd_fopen_bom(filename,"rb", quiet, &bomtype)) != NULL)
    {
-       while (!feof(infile) )  /* parse the file */
+       while (!feof(infile) && !ferror(infile))  /* parse the file */
        {
           int len;
 
           len = read_treefile_line(line,DD_MAXPATH,infile,filename,&line_nr, bomtype);
+          if (ferror(infile)) return;
           ++line_nr;
           if (len > 0 )
           {
@@ -826,7 +827,11 @@ void buildTreeFromFile(char* filename, dirnode d, int quiet)
              addPath(line,d);
           }
        }
-       wcd_fclose(infile, filename, "r", "read_treefile: ");
+       wcd_fclose(infile, filename, "r", "buildTreeFromFile: ");
+   } else {
+      if (!quiet) {
+         wcd_read_error(filename);
+      }
    }
 }
 

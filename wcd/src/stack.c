@@ -65,7 +65,7 @@ int stack_add(WcdStack ws, char *dir)
  *
  ********************************************************************/
 
-int stack_read(WcdStack ws,char *stackfilename)
+int stack_read(WcdStack ws,const char *stackfilename)
 {
 
 	FILE *infile;
@@ -85,7 +85,7 @@ int stack_read(WcdStack ws,char *stackfilename)
 		if(fscanf(infile,"%d %d",&ws->lastadded,&ws->current)==2)
 		{
 
-			while( !feof(infile)&&(ws->size < (size_t)ws->maxsize) )
+			while( !feof(infile) && !ferror(infile) && (ws->size < (size_t)ws->maxsize) )
 			{
 			int len ;
 			/* read a line */
@@ -97,13 +97,16 @@ int stack_read(WcdStack ws,char *stackfilename)
 			}
 		}
 		else
-		  {
+		{
 			print_error("%s", _("Error parsing stack\n"));
 			ws->lastadded = -1;
 			ws->current = -1;
-		  }
+		}
+		if (ferror(infile)) {
+			wcd_read_error(stackfilename);
+		}
 
-                wcd_fclose(infile, stackfilename, "r", "stack_read: ");
+ 		wcd_fclose(infile, stackfilename, "r", "stack_read: ");
 
 		if (ws->lastadded >= (int)ws->size)
 		ws->lastadded = 0;
@@ -111,7 +114,7 @@ int stack_read(WcdStack ws,char *stackfilename)
 		ws->current = 0;
 	}
 
- /*	printWcdStack("READ ", ws, stdout); */
+/*	printWcdStack("READ ", ws, stdout); */
 	return(0);
 }
 
@@ -155,16 +158,16 @@ char* stack_push(WcdStack ws, int push_ntimes)
 		else
 		{
 
-			  push_ntimes = push_ntimes % (int)ws->size;
+			push_ntimes = push_ntimes % (int)ws->size;
 
-			  new_stack_nr = ws->current - push_ntimes;
+			new_stack_nr = ws->current - push_ntimes;
 
-			  if(new_stack_nr < 0)
-			  new_stack_nr = (int)ws->size + new_stack_nr;
+			if(new_stack_nr < 0)
+				new_stack_nr = (int)ws->size + new_stack_nr;
 
-			  ws->current = new_stack_nr;
+			ws->current = new_stack_nr;
 
-			  return(ws->dir[ws->current]);
+			return(ws->dir[ws->current]);
 		}
 }
 /********************************************************************
@@ -185,18 +188,18 @@ char* stack_pop(WcdStack ws, int pop_ntimes)
 	return (NULL);
 	else
 		if( ((ws->size) == 0) || ((ws->size) > (size_t)ws->maxsize) )
-		return (NULL);
+			return (NULL);
 		else
 		{
-	         pop_ntimes = pop_ntimes % (int)ws->size;
+			pop_ntimes = pop_ntimes % (int)ws->size;
 
-	         new_stack_nr = ws->current + pop_ntimes;
+			new_stack_nr = ws->current + pop_ntimes;
 
-	         if(new_stack_nr > (int)(ws->size -1))
-	         new_stack_nr =  new_stack_nr - (int)ws->size;
+			if(new_stack_nr > (int)(ws->size -1))
+				new_stack_nr =  new_stack_nr - (int)ws->size;
 
-	         ws->current = new_stack_nr;
-	         return(ws->dir[ws->current]);
+			ws->current = new_stack_nr;
+			return(ws->dir[ws->current]);
 		}
 }
 /********************************************************************
@@ -205,7 +208,7 @@ char* stack_pop(WcdStack ws, int pop_ntimes)
  *
  ********************************************************************/
 
-int stack_write(WcdStack ws,char *stackfilename)
+int stack_write(WcdStack ws,const char *stackfilename)
 {
 	FILE *outfile;
 	int  i;
@@ -214,8 +217,6 @@ int stack_write(WcdStack ws,char *stackfilename)
 		return(0);
 	else
 	{
-
-
 		/* create directory for stack file if it doesn't exist */
 		create_dir_for_file(stackfilename);
 
@@ -225,13 +226,13 @@ int stack_write(WcdStack ws,char *stackfilename)
 		}
 		else
 		{
-			fprintf(outfile,"%d %d\n",ws->lastadded,ws->current);
+			wcd_fprintf(outfile,"%d %d\n",ws->lastadded,ws->current);
 			for(i=0;((i<(int)ws->size)&&(i<ws->maxsize));i++)
 			{
 			/* printf("writing line %d\n",i);  */
-				fprintf(outfile,"%s\n",ws->dir[i]);
+				wcd_fprintf(outfile,"%s\n",ws->dir[i]);
 			}
-                        wcd_fclose(outfile, stackfilename, "w", "stack_write: ");
+			wcd_fclose(outfile, stackfilename, "w", "stack_write: ");
 		}
 		return(0);
 	}

@@ -142,13 +142,14 @@ typedef char wcd_char;
 
 FILE *wcd_fopen(const char *filename, const char *m, int quiet);
 FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype);
+int wcd_fprintf(FILE *stream, const char *format, ...);
 void wcd_fclose(FILE *fp, const char *filename, const char *m, const char *functionname);
 void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet);
 int read_treefile(char *filename, nameset bd, int silent);
 void rmDirFromList(char *string, nameset n);
 void writeList(char *filename, nameset n, int bomtype);
 void cleanTreeFile(char *filename, char *dir);
-void create_dir_for_file(char *f);
+void create_dir_for_file(const char *f);
 
 char *removeBackSlash(char *string);
 void addCurPathToFile(char *filename, int *use_HOME, int parents);
@@ -158,6 +159,7 @@ void scanaliasfile(char *org_dir, char *filename, nameset pm, nameset wm, int wi
 int  strcompare(const char*, const char*, int);
 int print_msg(const char *format, ...);
 int print_error(const char *format, ...);
+void wcd_read_error(const char *filename);
 void print_help(void);
 #ifdef ENABLE_NLS
 void print_version(char *localedir);

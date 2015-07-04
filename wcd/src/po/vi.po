@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-02 20:05+0200\n"
+"POT-Creation-Date: 2015-07-04 23:37+0200\n"
 "PO-Revision-Date: 2014-11-03 07:13+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -22,109 +22,109 @@ msgstr ""
 msgid "Wcd: error: "
 msgstr "Wcd: lỗi: "
 
-#: wcd.c:203 wcd.c:223
+#: wcd.c:157 wcd.c:212 wcd.c:232
 #, c-format
 msgid "Unable to read file %s: %s\n"
 msgstr "Không đọc tập tin %s: %s\n"
 
-#: wcd.c:212
+#: wcd.c:221
 #, c-format
 msgid "Unable to read file %s: Not a regular file.\n"
 msgstr "Không thể đọc tập tin %s: Đây không phải là một tập tin thường.\n"
 
-#: wcd.c:225 wcd.c:313
+#: wcd.c:234 wcd.c:323
 #, c-format
 msgid "Unable to write file %s: %s\n"
 msgstr "Không thể ghi tập tin “%s”: %s\n"
 
-#: wcd.c:315
+#: wcd.c:325
 #, c-format
 msgid "Unable to close file %s: %s\n"
 msgstr "Không thể đóng tập tin “%s”: %s\n"
 
-#: wcd.c:659 wcd.c:673
+#: wcd.c:669 wcd.c:683
 #, c-format
 msgid "%s added to file %s\n"
 msgstr "%s được thêm vào tập tin %s\n"
 
-#: wcd.c:807 wcd.c:872
+#: wcd.c:817 wcd.c:882
 #, c-format
 msgid "Unable to remove file %s: %s\n"
 msgstr "Không thể gỡ bỏ tập tin %s: %s\n"
 
-#: wcd.c:960 wcd.c:1029
+#: wcd.c:970 wcd.c:1039
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
 msgstr "finddirs(): không thể dò tìm đường dẫn trong thư mục %s\n"
 
-#: wcd.c:961 wcd.c:1030
+#: wcd.c:971 wcd.c:1040
 msgid "path probably too long.\n"
 msgstr "đường dẫn quá dài.\n"
 
-#: wcd.c:1142 wcd.c:1475
+#: wcd.c:1152 wcd.c:1485
 #, c-format
 msgid "%s is not a directory.\n"
 msgstr "%s: không phải là một thư mục.\n"
 
-#: wcd.c:1147
+#: wcd.c:1157
 #, c-format
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "Vui lòng chờ. Đang quét đĩa. Xây dựng tập-tin-dữ-liệu-cây %s từ %s\n"
 
-#: wcd.c:1208 wcd.c:2439 wcd.c:2462 wcd.c:2541
+#: wcd.c:1218 wcd.c:2480 wcd.c:2503 wcd.c:2582
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Đang ghi tập tin \"%s\"\n"
 
-#: wcd.c:1213
+#: wcd.c:1223
 msgid "Write access to tree-file denied.\n"
 msgstr "Không đủ thẩm quyền ghi trên tập-tin-cây.\n"
 
-#: wcd.c:1214
+#: wcd.c:1224
 msgid "Set TEMP environment variable if this is a read-only disk.\n"
 msgstr "Đặt biến môi trường TEMP nếu đây là đĩa chỉ cho đọc.\n"
 
-#: wcd.c:1343
+#: wcd.c:1353
 #, c-format
 msgid "Removed symbolic link %s\n"
 msgstr "Đã gỡ bỏ liên kết mềm %s\n"
 
-#: wcd.c:1349
+#: wcd.c:1359
 #, c-format
 msgid "Unable to remove symbolic link %s: %s\n"
 msgstr "Không thể gỡ bỏ liên kết mềm %s: %s\n"
 
-#: wcd.c:1354
+#: wcd.c:1364
 #, c-format
 msgid "%s is a symbolic link to a file.\n"
 msgstr "%s là một liên kết mềm đến một tập tin.\n"
 
-#: wcd.c:1436
+#: wcd.c:1446
 #, c-format
 msgid "Recursively remove %s? Are you sure? y/n :"
 msgstr "Gỡ bỏ đệ quy %s? Bạn chắc không? y/n c/k :"
 
-#: wcd.c:1458 wcd.c:1468
+#: wcd.c:1468 wcd.c:1478
 #, c-format
 msgid "Removed directory %s\n"
 msgstr "Đã gỡ bỏ thư mục %s\n"
 
-#: wcd.c:1499 wcd.c:1559 wcd.c:1618
+#: wcd.c:1509 wcd.c:1575 wcd.c:1640
 #, c-format
 msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
 msgstr "dòng quá dài trong %s ( > %d). Tập-tin-cây có lẽ đã hỏng, hãy sửa chữa bằng cánh tăng DD_MAXPATH trong mã nguồn.\n"
 
-#: wcd.c:1500 wcd.c:1560 wcd.c:1619
+#: wcd.c:1510 wcd.c:1576 wcd.c:1641
 #, c-format
 msgid "file: %s, line: %d,"
 msgstr "tập tin: %s, dòng: %d,"
 
-#: wcd.c:1507 wcd.c:1567 wcd.c:1626
+#: wcd.c:1517 wcd.c:1583 wcd.c:1648
 #, c-format
 msgid " length: %d\n"
 msgstr " kích cỡ: %d\n"
 
-#: wcd.c:2151
+#: wcd.c:2192
 #, c-format
 msgid ""
 "Usage: wcd [options] [directory]\n"
@@ -133,12 +133,12 @@ msgstr ""
 "Cách dùng: wcd [các-tùy-chọn] [thư-mục]\n"
 "\n"
 
-#: wcd.c:2152
+#: wcd.c:2193
 #, c-format
 msgid "directory:  Name of directory to change to.\n"
 msgstr "thư-mục:  Tên của thư-mục bạn muốn chuyển đến.\n"
 
-#: wcd.c:2153
+#: wcd.c:2194
 #, c-format
 msgid ""
 "            Wildcards *, ? and [SET] are supported.\n"
@@ -147,307 +147,307 @@ msgstr ""
 "          Hỗ trợ ký tự đại diện *, ? và [TẬPHỢP].\n"
 "\n"
 
-#: wcd.c:2155
+#: wcd.c:2196
 #, c-format
 msgid "options:\n"
 msgstr "tùy chọn:\n"
 
-#: wcd.c:2156
+#: wcd.c:2197
 #, c-format
 msgid "  -a                      Add current path to treefile\n"
 msgstr "  -a                      Thêm đường dẫn hiện tại vào tập tin cây\n"
 
-#: wcd.c:2157
+#: wcd.c:2198
 #, c-format
 msgid "  -aa                     Add current and all parent paths to treefile\n"
 msgstr "  -aa                     thêm thư mục hiện tại và đường dẫn chA mẹ vào tập-tin-cây\n"
 
-#: wcd.c:2158
+#: wcd.c:2199
 #, c-format
 msgid "  -A PATH                 Add tree from PATH\n"
 msgstr "  -A ĐƯỜNG_DẪN            Thêm cây từ ĐƯỜNG DẪN\n"
 
-#: wcd.c:2159
+#: wcd.c:2200
 #, c-format
 msgid "  -b                      Ban current path\n"
 msgstr "  -b                      Cấm thư mục hiện tại\n"
 
-#: wcd.c:2160
+#: wcd.c:2201
 #, c-format
 msgid "  -c,  --direct-cd        direct CD mode\n"
 msgstr "  -c,  --direct-cd        chế độ CD trực tiếp\n"
 
-#: wcd.c:2161
+#: wcd.c:2202
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
 msgstr "  -d ĐĨA                  đặt ĐĨA cho các tập tin stack & go (DOS)\n"
 
-#: wcd.c:2162
+#: wcd.c:2203
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
 msgstr "  -e                      thêm đường dẫn hiện tại vào tập-tin-cây mở rộng\n"
 
-#: wcd.c:2163
+#: wcd.c:2204
 #, c-format
 msgid "  -ee                     add current and all parent paths to Extra treefile\n"
 msgstr "  -ee                     thêm đường dẫn cha mẹ và hiện tại vào tập-tin-cây mở rộng\n"
 
-#: wcd.c:2164
+#: wcd.c:2205
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
 msgstr "  -E ĐƯỜNG_DẪN            thêm cây từ ĐƯỜNG DẪN vào tập-tin-cây mở rộng\n"
 
-#: wcd.c:2165
+#: wcd.c:2206
 #, c-format
 msgid "  -f FILE                 use extra treeFile\n"
 msgstr "  -f TẬP-TIN              dùng tập-tin-cây\n"
 
-#: wcd.c:2166
+#: wcd.c:2207
 #, c-format
 msgid "  +f FILE                 add extra treeFile\n"
 msgstr "  +f TẬP-TIN              thêm tập-tin-cây\n"
 
-#: wcd.c:2167
+#: wcd.c:2208
 #, c-format
 msgid "  -g                      Graphics\n"
 msgstr "  -g                      Đồ họa\n"
 
-#: wcd.c:2168
+#: wcd.c:2209
 #, c-format
 msgid "  -gd                     Graphics, dump tree\n"
 msgstr "  -gd                     Đồ họa, đổ cây\n"
 
-#: wcd.c:2169
+#: wcd.c:2210
 #, c-format
 msgid "  -G PATH                 set PATH Go-script\n"
 msgstr "  -G ĐƯỜNG_DẪN            đặt ĐƯỜNG DẪN Go-script\n"
 
-#: wcd.c:2170
+#: wcd.c:2211
 #, c-format
 msgid "  -GN, --no-go-script     No Go-script\n"
 msgstr "  -GN, --no-go-script     Không Go-script\n"
 
-#: wcd.c:2171
+#: wcd.c:2212
 #, c-format
 msgid "  -h,  --help             show this Help\n"
 msgstr "  -h,  --help             hiển thị trợ giúp này\n"
 
-#: wcd.c:2174
+#: wcd.c:2215
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
 msgstr "  -i,  --ignore-case      Không phân biệt HOA/thường (mặc định)\n"
 
-#: wcd.c:2175
+#: wcd.c:2216
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case\n"
 msgstr "  +i,  --no-ignore-case   phân biệt HOA/thường\n"
 
-#: wcd.c:2177
+#: wcd.c:2218
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case\n"
 msgstr "  -i,  --ignore-case      Không phân biệt HOA/thường\n"
 
-#: wcd.c:2178
+#: wcd.c:2219
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case (default)\n"
 msgstr "  +i,  --no-ignore-case   phân biệt HOA/thường (mặc định)\n"
 
-#: wcd.c:2181
+#: wcd.c:2222
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
 msgstr "  -I,  --ignore-diacritics     bỏ qua dấu phụ\n"
 
-#: wcd.c:2182
+#: wcd.c:2223
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
 msgstr "  +I,  --no-ignore-diacritics  quan tâm đến dấu phụ (mặc định)\n"
 
-#: wcd.c:2183
+#: wcd.c:2224
 #, c-format
 msgid "  -j,  --just-go          Just go mode\n"
 msgstr "  -j,  --just-go          Chế độ chỉ di chuyển\n"
 
-#: wcd.c:2184
+#: wcd.c:2225
 #, c-format
 msgid "  -k,  --keep-paths       Keep paths\n"
 msgstr "  -k,  --keep-paths       Giữ lại các đường dẫn\n"
 
-#: wcd.c:2185
+#: wcd.c:2226
 #, c-format
 msgid "  -K,  --color            colors\n"
 msgstr "  -K,  --color            màu\n"
 
-#: wcd.c:2186
+#: wcd.c:2227
 #, c-format
 msgid "  -l ALIAS                aLias current directory\n"
 msgstr "  -l BÍ_DANH              bí danh thư mục hiện tại\n"
 
-#: wcd.c:2187
+#: wcd.c:2228
 #, c-format
 msgid "  -L,  --license          show software License\n"
 msgstr "  -L,  --license          hiển thị giấy phép phần mềm\n"
 
-#: wcd.c:2188
+#: wcd.c:2229
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
 msgstr "  -m THƯ-MỤC              Tạo THƯ-MỤC và thêm nó vào tập-tin-cây\n"
 
-#: wcd.c:2189
+#: wcd.c:2230
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
 msgstr "  -M THƯ-MỤC              Tạo THƯ-MỤC, thêm nó vào tập-tin-cây\n"
 
-#: wcd.c:2190
+#: wcd.c:2231
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
 msgstr "  -n ĐƯỜNG_DẪN            dùng tập-tin-cây tương đối trong ĐƯỜNG_DẪN\n"
 
-#: wcd.c:2191
+#: wcd.c:2232
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
 msgstr "  +n ĐƯỜNG_DẪN            thêm tập-tin-cây tương đối trong ĐƯỜNG_DẪN\n"
 
-#: wcd.c:2192
+#: wcd.c:2233
 #, c-format
 msgid "  -N,  --numbers          use Numbers\n"
 msgstr "  -N,  --numbers          dùng số\n"
 
-#: wcd.c:2193
+#: wcd.c:2234
 #, c-format
 msgid "  -o                      use stdOut\n"
 msgstr "  -o                      dùng đầu ra tiêu chuẩn\n"
 
-#: wcd.c:2194
+#: wcd.c:2235
 #, c-format
 msgid "  -od, --to-stdout        dump matches\n"
 msgstr "  -od, --to-stdout        đổ mẫu khớp\n"
 
-#: wcd.c:2195
+#: wcd.c:2236
 #, c-format
 msgid "  -q,  --quiet            Quieter operation\n"
 msgstr "  -q,  --quiet            Thực hiện im lặng\n"
 
-#: wcd.c:2196
+#: wcd.c:2237
 #, c-format
 msgid "  -r DIR                  Remove DIR\n"
 msgstr "  -r THƯ-MỤC              gỡ bỏ THƯ-MỤC\n"
 
-#: wcd.c:2197
+#: wcd.c:2238
 #, c-format
 msgid "  -rmtree DIR             Remove DIR recursive\n"
 msgstr "  -rmtree THƯ-MỤC         gỡ bỏ đệ quy THƯ-MỤC\n"
 
-#: wcd.c:2198
+#: wcd.c:2239
 #, c-format
 msgid "  -s                      Scan disk from $HOME\n"
 msgstr "  -s                      quét đĩa từ biến $HOME\n"
 
-#: wcd.c:2199
+#: wcd.c:2240
 #, c-format
 msgid "  -S PATH                 Scan disk from PATH\n"
 msgstr "  -S ĐƯỜNG_DẪN            quét đĩa từ ĐƯỜNG DẪN\n"
 
-#: wcd.c:2200
+#: wcd.c:2241
 #, c-format
 msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
 msgstr "  +S ĐƯỜNG_DẪN            quét đĩa từ ĐƯỜNG DẪN, tạo tập-tin-cây tương đối\n"
 
-#: wcd.c:2201
+#: wcd.c:2242
 #, c-format
 msgid "  -t                      don't strip /tmp_mnt from paths\n"
 msgstr "  -t                      không cắt bỏ /tmp_mnt khỏi đường dẫn\n"
 
-#: wcd.c:2202
+#: wcd.c:2243
 #, c-format
 msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
 msgstr "  -T,  --ascii-tree       vẽ cây dùng các ký tự ASCII\n"
 
-#: wcd.c:2203
+#: wcd.c:2244
 #, c-format
 msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
 msgstr "  -Ta, --alt-tree-nav     Điều hướng cây thay thế\n"
 
-#: wcd.c:2204
+#: wcd.c:2245
 #, c-format
 msgid "  -TC, --center-tree      Centered tree view\n"
 msgstr "  -TC, --center-tree      hiển thị cây ở giữa\n"
 
-#: wcd.c:2205
+#: wcd.c:2246
 #, c-format
 msgid "  -Tc, --compact-tree     Compact tree\n"
 msgstr "  -Tc, --compact-tree     nén cây\n"
 
-#: wcd.c:2206
+#: wcd.c:2247
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
 msgstr "  -Td, --cjk-width        hỗ trợ phông chữ cũ CJK\n"
 
-#: wcd.c:2207
+#: wcd.c:2248
 #, c-format
 msgid "  -u USER                 use USER's treefile\n"
 msgstr "  -u TÀI_KHOẢN            dùng tập-tin-cây của TÀI_KHOẢN này\n"
 
-#: wcd.c:2208
+#: wcd.c:2249
 #, c-format
 msgid "  +u USER                 add USER's treefile\n"
 msgstr "  -u TÀI_KHOẢN            thêm tập-tin-cây của TÀI_KHOẢN này\n"
 
-#: wcd.c:2209
+#: wcd.c:2250
 #, c-format
 msgid "  -v,  --verbose          Verbose operation\n"
 msgstr "  -v,  --verbose          mô tả các thao tác đang thực hiện\n"
 
-#: wcd.c:2210
+#: wcd.c:2251
 #, c-format
 msgid "  -V,  --version          show Version info\n"
 msgstr "  -V,  --version          hiển thị thông tin về phiên bản\n"
 
-#: wcd.c:2211
+#: wcd.c:2252
 #, c-format
 msgid "  -w,  --wild-match-only  Wild matching only\n"
 msgstr "  -w,  --wild-match-only  Chỉ khớp ký tự đại diện\n"
 
-#: wcd.c:2212
+#: wcd.c:2253
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
 msgstr "  -x ĐƯỜNG_DẪN            không lấy những đường dẫn khi quét đĩa\n"
 
-#: wcd.c:2213
+#: wcd.c:2254
 #, c-format
 msgid "  -xf FILE                eXclude paths from FILE\n"
 msgstr "  -xf TẬP-TIN             không lấy những đường dẫn có trong TẬP-TIN\n"
 
-#: wcd.c:2214
+#: wcd.c:2255
 #, c-format
 msgid "  -y,  --assume-yes       assume Yes on all queries\n"
 msgstr "  -y,  --assume-yes       trả lời là có cho mọi câu hỏi\n"
 
-#: wcd.c:2215
+#: wcd.c:2256
 #, c-format
 msgid "  -z NUMBER               set max stack siZe\n"
 msgstr "  -z SỐ                                 đặt cỡ ngăn xếp tối đa\n"
 
-#: wcd.c:2216
+#: wcd.c:2257
 #, c-format
 msgid "  -[NUMBER]               push dir (NUMBER times)\n"
 msgstr "  -[SỐ]                   đẩy thư mục (SỐ lần)\n"
 
-#: wcd.c:2217
+#: wcd.c:2258
 #, c-format
 msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
 msgstr "  +[SỐ]                   lấy ra thư mục (SỐ lần)\n"
 
-#: wcd.c:2218
+#: wcd.c:2259
 #, c-format
 msgid "  =                       show stack\n"
 msgstr "  =                       hiển thị ngăn xếp\n"
 
-#: wcd.c:2227 wcd.c:2356
+#: wcd.c:2268 wcd.c:2397
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Đổi thư mục ở bất kỳ chỗ nào\n"
 
-#: wcd.c:2228
+#: wcd.c:2269
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -456,182 +456,182 @@ msgstr ""
 "Chdir dành Dos và Unix.\n"
 "\n"
 
-#: wcd.c:2232
+#: wcd.c:2273
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "Phiên bản DOS 16 bit (WATCOMC).\n"
 
-#: wcd.c:2234
+#: wcd.c:2275
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "Phiên bản DOS 16 bit (TURBOC).\n"
 
-#: wcd.c:2236
+#: wcd.c:2277
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "Phiên bản DOS 32 bit (DJGPP).\n"
 
-#: wcd.c:2238
+#: wcd.c:2279
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "Phiên bản DOS 32 bit (WATCOMC).\n"
 
-#: wcd.c:2245
+#: wcd.c:2286
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
 msgstr "Phiên bản Win64 (MSVC %d).\n"
 
-#: wcd.c:2247
+#: wcd.c:2288
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
 msgstr "Phiên bản Win64 (MinGW-w64).\n"
 
-#: wcd.c:2251
+#: wcd.c:2292
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
 msgstr "Phiên bản Win32 (WATCOMC).\n"
 
-#: wcd.c:2253
+#: wcd.c:2294
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
 msgstr "Phiên bản Win32 (MSVC %d).\n"
 
-#: wcd.c:2255
+#: wcd.c:2296
 #, c-format
 msgid "Win32 version (MinGW-w64).\n"
 msgstr "Phiên bản Win32 (MinGW-w64).\n"
 
-#: wcd.c:2257
+#: wcd.c:2298
 #, c-format
 msgid "Win32 version (MinGW).\n"
 msgstr "Phiên bản Win32 (MinGW).\n"
 
-#: wcd.c:2264
+#: wcd.c:2305
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr "Đây là phiên bản dành cho MSYS và WinZsh.\n"
 
-#: wcd.c:2266
+#: wcd.c:2307
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr "Đây là phiên bản dành cho Windows PowerShell.\n"
 
-#: wcd.c:2268
+#: wcd.c:2309
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
 msgstr "Đây là phiên bản dành cho Windows Command Prompt (cmd.exe).\n"
 
-#: wcd.c:2273
+#: wcd.c:2314
 #, c-format
 msgid "OS/2 version"
 msgstr "Phiên bản OS/2"
 
-#: wcd.c:2284
+#: wcd.c:2325
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr "Đây là phiên bản dành cho MSYS nguyên bản.\n"
 
-#: wcd.c:2287
+#: wcd.c:2328
 #, c-format
 msgid "Cygwin version.\n"
 msgstr "Phiên bản Cygwin.\n"
 
-#: wcd.c:2290
+#: wcd.c:2331
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Đây là phiên bản dành cho DJGPP DOS bash.\n"
 
-#: wcd.c:2293
+#: wcd.c:2334
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Đây là phiên bản dành cho OS/2 bash.\n"
 
-#: wcd.c:2296
+#: wcd.c:2337
 #, c-format
 msgid "Interface: "
 msgstr "Giao diện: "
 
-#: wcd.c:2302
+#: wcd.c:2343
 #, c-format
 msgid "ncurses version %s.%d\n"
 msgstr "Phiên bản ncurses %s.%d\n"
 
-#: wcd.c:2305
+#: wcd.c:2346
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr "PDCurses biên dịch %d\n"
 
-#: wcd.c:2307
+#: wcd.c:2348
 #, c-format
 msgid "curses\n"
 msgstr "thư viện curses\n"
 
-#: wcd.c:2316
+#: wcd.c:2357
 #, c-format
 msgid "stdout\n"
 msgstr "đầu ra tiêu chuẩn\n"
 
-#: wcd.c:2320
+#: wcd.c:2361
 #, c-format
 msgid "Native language support included.\n"
 msgstr "Đã bao gồm hỗ trợ ngôn ngữ tự nhiên.\n"
 
-#: wcd.c:2321
+#: wcd.c:2362
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr "LOCALEDIR=%s\n"
 
-#: wcd.c:2323
+#: wcd.c:2364
 #, c-format
 msgid "No native language support included.\n"
 msgstr "Không hỗ trợ ngôn ngữ bản địa.\n"
 
-#: wcd.c:2326
+#: wcd.c:2367
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
 msgstr "Miền địa phương hiện tại dùng bảng mã CP%u.\n"
 
-#: wcd.c:2328
+#: wcd.c:2369
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr "Miền địa phương hiện nay dùng bảng mã %s.\n"
 
-#: wcd.c:2331
+#: wcd.c:2372
 #, c-format
 msgid "With Unicode support.\n"
 msgstr "Có hỗ trợ Unicode.\n"
 
-#: wcd.c:2336
+#: wcd.c:2377
 #, c-format
 msgid "  Euro symbol: "
 msgstr "  Ký hiệu Euro: "
 
-#: wcd.c:2338
+#: wcd.c:2379
 #, c-format
 msgid "  Chinese characters: "
 msgstr "  Ký tự tiếng Trung Quốc: "
 
-#: wcd.c:2342
+#: wcd.c:2383
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr "Không hỗ trợ Unicode.\n"
 
-#: wcd.c:2345
+#: wcd.c:2386
 #, c-format
 msgid "With Unicode normalization.\n"
 msgstr "Có thường hóa Unicode.\n"
 
-#: wcd.c:2347
+#: wcd.c:2388
 #, c-format
 msgid "Without Unicode normalization.\n"
 msgstr "Không thường hóa Unicode.\n"
 
-#: wcd.c:2350
+#: wcd.c:2391
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Tải về chương trình thực thi và mã nguồn mới nhất từ:\n"
 
-#: wcd.c:2357
+#: wcd.c:2398
 #, c-format
 msgid ""
 "Copyright (C) 1997-2015 Erwin Waterlander\n"
@@ -650,7 +650,7 @@ msgstr ""
 "Bản quyền (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel và Igor Mandrichenko trên recmatch()\n"
 
-#: wcd.c:2365
+#: wcd.c:2406
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -665,7 +665,7 @@ msgstr ""
 "Rugxulo là tác giả gốc của query_con_codepage() (miền công).\n"
 "\n"
 
-#: wcd.c:2371
+#: wcd.c:2412
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -680,7 +680,7 @@ msgstr ""
 "của Giấy Phép này, hoặc (tùy chọn) bất kỳ phiên bản nào mới hơn.\n"
 "\n"
 
-#: wcd.c:2377
+#: wcd.c:2418
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -695,7 +695,7 @@ msgstr ""
 "Hãy xem Giấy phép Công Chung GNU (GPL) để tìm chi tiết.\n"
 "\n"
 
-#: wcd.c:2383
+#: wcd.c:2424
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -706,82 +706,82 @@ msgstr ""
 "nếu không thì hãy viết thư cho Tổ chức Phần mềm Tự do theo địa chỉ:\n"
 "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA (Mỹ).\n"
 
-#: wcd.c:2419
+#: wcd.c:2460
 #, c-format
 msgid "creating directory %s\n"
 msgstr "đang tạo thư mục %s\n"
 
-#: wcd.c:2746 wcd.c:2786 wcd.c:2801 wcd.c:2869 wcd.c:2938 wcd.c:3420
-#: wcd.c:3439
+#: wcd.c:2787 wcd.c:2827 wcd.c:2842 wcd.c:2910 wcd.c:2979 wcd.c:3461
+#: wcd.c:3480
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Giá trị của biến môi trường %s là quá dài.\n"
 
-#: wcd.c:2775
+#: wcd.c:2816
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Gặp lỗi khi bỏ đặt biến môi trường TERM: %s\n"
 
-#: wcd.c:2833 wcd.c:2862
+#: wcd.c:2874 wcd.c:2903
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Biến môi trường HOME hoặc WCDHOME chưa được đặt.\n"
 
-#: wcd.c:3047
+#: wcd.c:3088
 msgid "HOME is not defined\n"
 msgstr "biến HOME chưa được định nghĩa\n"
 
-#: wcd.c:3051
+#: wcd.c:3092
 msgid "WCDHOME is not defined\n"
 msgstr "biến WCDHOME chưa được định nghĩa\n"
 
-#: wcd.c:3055
+#: wcd.c:3096
 msgid "WCDSCAN is not defined\n"
 msgstr "biến WCDSCAN chưa được định nghĩa\n"
 
-#: wcd.c:3080
+#: wcd.c:3121
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Chế độ đồ họa chỉ được hỗ trợ trong wcd với giao diện dựa trên thư viện curse.\n"
 
-#: wcd.c:3353
+#: wcd.c:3394
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s được thêm vào tập-tin-bí-danh %s\n"
 
-#: wcd.c:3452
+#: wcd.c:3493
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Không thể đọc tập tin %s hoặc %s\n"
 
-#: wcd.c:3602
+#: wcd.c:3643
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "thư mục WCDSCAN {%s}\n"
 
-#: wcd.c:3604
+#: wcd.c:3645
 #, c-format
 msgid "banning {%s}\n"
 msgstr "cấm {%s}\n"
 
-#: wcd.c:3606
+#: wcd.c:3647
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "loại trừ {%s}\n"
 
-#: wcd.c:3608
+#: wcd.c:3649
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "đang lọc {%s}\n"
 
-#: wcd.c:3876
+#: wcd.c:3917
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Không tìm thấy thư mục nào khớp với %s\n"
 
-#: wcd.c:3877
+#: wcd.c:3918
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Có lẽ bạn cần quét lại đĩa hoặc là đường dẫn đã bị cấm.\n"
 
-#: wcd.c:4044
+#: wcd.c:4085
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Không thể chuyển sang %s\n"
@@ -924,16 +924,16 @@ msgstr "<Enter>           bãi bỏ"
 msgid "Type w or x to quit help."
 msgstr "Gõ w hay x để thoát khỏi trợ giúp."
 
-#: display.c:1179 graphics.c:1972
+#: display.c:1179 graphics.c:1977
 msgid "CTRL-l or F5      redraw screen"
 msgstr "CTRL-l hay F5     vẽ lại màn hình"
 
-#: display.c:1182 graphics.c:1957 graphics.c:1974 graphics.c:1997
-#: graphics.c:2014
+#: display.c:1182 graphics.c:1962 graphics.c:1979 graphics.c:2002
+#: graphics.c:2019
 msgid "Press any key."
 msgstr "Nhấn phím bất kỳ."
 
-#: display.c:1247 graphics.c:2264
+#: display.c:1247 graphics.c:2269
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr "Gặp lỗi khi mở thiết-bị cuối, quay trở lại giao diện đầu ra tiêu chuẩn.\n"
 
@@ -941,7 +941,7 @@ msgstr "Gặp lỗi khi mở thiết-bị cuối, quay trở lại giao diện �
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "chiều cao màn hình phải lớn hơn 3 dòng.\n"
 
-#: display.c:1302 graphics.c:2295
+#: display.c:1302 graphics.c:2300
 msgid "error creating scroll window.\n"
 msgstr "gặp lỗi khi tạo màn hình cuộn.\n"
 
@@ -954,227 +954,227 @@ msgstr "gặp lỗi khi tạo cửa sổ đầu vào.\n"
 msgid "Wcd: error: path too long"
 msgstr "Wcd: lỗi: đường dẫn quá dài"
 
-#: graphics.c:1918
+#: graphics.c:1923
 msgid "/ = search forward,  ? = search backward,  : = help"
 msgstr "/ = tìm xuôi,  ? = tìm ngược,  : = trợ giúp"
 
-#: graphics.c:1923
+#: graphics.c:1928
 msgid "SEARCH: "
 msgstr "TÌM: "
 
-#: graphics.c:1926
+#: graphics.c:1931
 msgid "Search: "
 msgstr "Tìm: "
 
-#: graphics.c:1942
+#: graphics.c:1947
 msgid "NAVIGATION MODE (1/2):"
 msgstr "CHẾ ĐỘ DI CHUYỂN (1/2):"
 
-#: graphics.c:1943
+#: graphics.c:1948
 msgid "h or <Left>       go left"
 msgstr "h hay <Left>      sang trái"
 
-#: graphics.c:1944
+#: graphics.c:1949
 msgid "j or <Down>       go down"
 msgstr "j hay <Down>      xuống dưới"
 
-#: graphics.c:1945
+#: graphics.c:1950
 msgid "k or <Up>         go up"
 msgstr "k hay <Up>        lên trên"
 
-#: graphics.c:1946
+#: graphics.c:1951
 msgid "l or <Right>      go right"
 msgstr "l hay <Right>     sang phải"
 
-#: graphics.c:1947
+#: graphics.c:1952
 msgid "* or v or <Space> go forward to dir with same name"
 msgstr "* hay v hay <Space> đi tiếp đến thư mục có cùng tên"
 
-#: graphics.c:1948
+#: graphics.c:1953
 msgid "# or p or <BS>    go backward to dir with same name"
 msgstr "# hay p hay <BS>    đi ngược lại thư mục có cùng tên"
 
-#: graphics.c:1949
+#: graphics.c:1954
 msgid "^ or a            go to beginning of line"
 msgstr "^ hay a           đi đến đầu dòng"
 
-#: graphics.c:1950
+#: graphics.c:1955
 msgid "$ or e            go to end of line"
 msgstr "$ hay e           đi đến cuối dòng"
 
-#: graphics.c:1951
+#: graphics.c:1956
 msgid "1                 go to root dir"
 msgstr "1                 nhảy đến thư mục gốc"
 
-#: graphics.c:1952
+#: graphics.c:1957
 msgid "g or G            go to last dir"
 msgstr "g hay G           đi đến thư mục cuối"
 
-#: graphics.c:1953
+#: graphics.c:1958
 msgid "f                 go page forward"
 msgstr "f                 nhảy một trang kế"
 
-#: graphics.c:1954
+#: graphics.c:1959
 msgid "b                 go page backward"
 msgstr "b                 nhảy ngược một trang"
 
-#: graphics.c:1955
+#: graphics.c:1960
 msgid "u                 go half page up"
 msgstr "u                 lên nửa trang"
 
-#: graphics.c:1956
+#: graphics.c:1961
 msgid "d                 go half page down"
 msgstr "d                 xuống nửa trang"
 
-#: graphics.c:1963
+#: graphics.c:1968
 msgid "NAVIGATION MODE (2/2):"
 msgstr "CHẾ ĐỘ DI CHUYỂN (2/2):"
 
-#: graphics.c:1964
+#: graphics.c:1969
 msgid "A                 switch alternative tree navigation on/off"
 msgstr "A                 bật/tắt điều hướng cây thay thế"
 
-#: graphics.c:1965
+#: graphics.c:1970
 msgid "t                 switch centered mode on/off"
 msgstr "t                 bật/tắt chế độ căn giữa"
 
-#: graphics.c:1966
+#: graphics.c:1971
 msgid "T                 toggle between line drawing and ASCII characters"
 msgstr "T                 bật/tắt giữa vẽ bằng đường kẻ và ký tự ASCII"
 
-#: graphics.c:1967
+#: graphics.c:1972
 msgid "m                 toggle between compact and wide tree"
 msgstr "m                 bật/tắt giữa trải rộng và thu gọn cây"
 
-#: graphics.c:1968
+#: graphics.c:1973
 msgid "<Esc> or q        abort"
 msgstr "<Esc> hay q       bãi bỏ"
 
-#: graphics.c:1969
+#: graphics.c:1974
 msgid "/                 search forward"
 msgstr "/                 tìm tiếp"
 
-#: graphics.c:1970
+#: graphics.c:1975
 msgid "?                 search backward"
 msgstr "?                 tìm ngược lại"
 
-#: graphics.c:1971
+#: graphics.c:1976
 msgid "n                 repeat last / or ? search"
 msgstr "n                 tìm lặp lại / hay ? cuối"
 
-#: graphics.c:1973 graphics.c:1996
+#: graphics.c:1978 graphics.c:2001
 msgid "<Enter>           select directory"
 msgstr "<Enter>           chọn thư mục"
 
-#: graphics.c:1980
+#: graphics.c:1985
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "CHẾ ĐỘ TÌM KẾM với hỗ trợ ký tự thay thế và thư mục con:"
 
-#: graphics.c:1981
+#: graphics.c:1986
 msgid "<Left>            go left"
 msgstr "<Left>            sang trái"
 
-#: graphics.c:1982
+#: graphics.c:1987
 msgid "<Down>            go down"
 msgstr "<Down>            đi xuống"
 
-#: graphics.c:1983
+#: graphics.c:1988
 msgid "<Up>              go up"
 msgstr "<Up>              đi lên"
 
-#: graphics.c:1984
+#: graphics.c:1989
 msgid "<Right>           go right"
 msgstr "<Right>           sang phải"
 
-#: graphics.c:1985
+#: graphics.c:1990
 msgid "CTRL-v            go forward to dir with same name"
 msgstr "CTRL-v            đi tiếp đến thư mục với cùng tên"
 
-#: graphics.c:1986
+#: graphics.c:1991
 msgid "CTRL-p            go backward to dir with same name"
 msgstr "CTRL-p            trở lại thư mục có cùng tên"
 
-#: graphics.c:1987
+#: graphics.c:1992
 msgid "CTRL-a            go to beginning of line"
 msgstr "CTRL-a            đi đến đầu dòng"
 
-#: graphics.c:1988
+#: graphics.c:1993
 msgid "CTRL-e            go to end of line"
 msgstr "CTRL-e            đi đến cuối dòng"
 
-#: graphics.c:1989
+#: graphics.c:1994
 msgid "CTRL-g            go to last dir"
 msgstr "CTRL-g            quay lại thư mục cuối"
 
-#: graphics.c:1990
+#: graphics.c:1995
 msgid "CTRL-f            go page forward"
 msgstr "CTRL-f            đi tiếp một trang"
 
-#: graphics.c:1991
+#: graphics.c:1996
 msgid "CTRL-b            go page backward"
 msgstr "CTRL-b            đi ngược một trang"
 
-#: graphics.c:1992
+#: graphics.c:1997
 msgid "CTRL-u            go half page up"
 msgstr "CTRL-u            đi lên nửa trang"
 
-#: graphics.c:1993
+#: graphics.c:1998
 msgid "CTRL-d            go half page down"
 msgstr "CTRL-d            đi xuống nửa trang"
 
-#: graphics.c:1994
+#: graphics.c:1999
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
 msgstr "<Esc> hay CTRL-x  bỏ CHẾ ĐỘ TÌM KIẾM"
 
-#: graphics.c:1995
+#: graphics.c:2000
 msgid "CTRL-n            repeat last / or ? search"
 msgstr "CTRL-n            lặp lại việc tìm / hoặc ?"
 
-#: graphics.c:2003
+#: graphics.c:2008
 msgid "ZOOMING:"
 msgstr "PHÓNG TO:"
 
-#: graphics.c:2004
+#: graphics.c:2009
 msgid "z or i or CTRL-i  zoom in"
 msgstr "z hoặc i hay CTRL-i  phóng to"
 
-#: graphics.c:2005
+#: graphics.c:2010
 msgid "Z or o or CTRL-o  zoom out"
 msgstr "Z hoặc o hay CTRL-o  thu nhỏ"
 
-#: graphics.c:2006
+#: graphics.c:2011
 msgid "c                 condense: fold current level"
 msgstr "c                 cô đặc: gấp nếp mức hiện tại"
 
-#: graphics.c:2007
+#: graphics.c:2012
 msgid "C                 condense: fold subdir level"
 msgstr "C                 cô đặc: gấp nếp mức thư mục con"
 
-#: graphics.c:2008
+#: graphics.c:2013
 msgid "w                 condense: fold current and subdir levels"
 msgstr "w                 cô đặc: gấp nếp mức hiện tại và thư mục con"
 
-#: graphics.c:2009
+#: graphics.c:2014
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
 msgstr "y hay CTRL-y      bỏ cô đặc: trải mức thư mục hiện tại và thư mục con"
 
-#: graphics.c:2010
+#: graphics.c:2015
 msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r hay CTRL-r      bỏ cô đặc: trải mọi thư mục ra"
 
-#: graphics.c:2011
+#: graphics.c:2016
 msgid "-                 fold directory"
 msgstr "-                 gập nếp thư mục"
 
-#: graphics.c:2012
+#: graphics.c:2017
 msgid "+ or =            unfold directory"
 msgstr "+ hoặc =          bỏ gấp nếp thư mục"
 
-#: graphics.c:2013
+#: graphics.c:2018
 msgid "l or <Right>      unfold and go right"
 msgstr "l or <Right>      bỏ gấp nếp và đi sang phải"
 
-#: graphics.c:2017
+#: graphics.c:2022
 msgid "Screenheight must be > 21 for help."
 msgstr "Chiều cao màn hình phải lớn hơn 21 khi dùng trợ giúp."
 

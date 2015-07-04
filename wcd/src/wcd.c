@@ -149,6 +149,15 @@ int print_error(const char *format, ...)
    return(rc);
 }
 
+void wcd_read_error(const char *filename)
+{
+    char *errstr;
+
+    errstr = strerror(errno);
+    print_error(_("Unable to read file %s: %s\n"), filename, errstr);
+}
+
+
 /* Use wcd_fprintf() when we write to files. To get an
  * error message when the disk is full or quota is exceeded.
 
@@ -232,7 +241,7 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
 
 /* wcd_fopen_type, similar as wcd_fopen, but also returns file
  * type based on Unicode BOM.
- */
+   Returns file pointer or NULL in case of a read error */
 
 FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype)
 {
@@ -246,56 +255,57 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
 
    *bomtype = FILE_MBS;
 
-   f = wcd_fopen(filename, m, quiet);
+   if ((f = wcd_fopen(filename, m, 1)) == NULL) return NULL;
 
    /* Check for BOM */
    if ((m[0] == 'r') && (f != NULL))
    {
-      if ((bom[0] = fgetc(f)) == EOF)
-      {
-         ungetc(bom[0], f);
+      if ((bom[0] = fgetc(f)) == EOF) {
+         if (ferror(f)) {
+           return NULL;
+         }
          *bomtype = FILE_MBS;
          return(f);
       }
-      if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef))
-      {
-         ungetc(bom[0], f);
+      if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef)) {
+         if (ungetc(bom[0], f) == EOF) return NULL;
          *bomtype = FILE_MBS;
          return(f);
       }
-      if ((bom[1] = fgetc(f)) == EOF)
-      {
-         ungetc(bom[1], f);
-         ungetc(bom[0], f);
+      if ((bom[1] = fgetc(f)) == EOF) {
+         if (ferror(f)) {
+           return NULL;
+         }
+         if (ungetc(bom[1], f) == EOF) return NULL;
+         if (ungetc(bom[0], f) == EOF) return NULL;
          *bomtype = FILE_MBS;
          return(f);
       }
-      if ((bom[0] == 0xff) && (bom[1] == 0xfe)) /* UTF16-LE */
-      {
+      if ((bom[0] == 0xff) && (bom[1] == 0xfe)) { /* UTF16-LE */
          *bomtype = FILE_UTF16LE;
          return(f);
       }
-      if ((bom[0] == 0xfe) && (bom[1] == 0xff)) /* UTF16-BE */
-      {
+      if ((bom[0] == 0xfe) && (bom[1] == 0xff)) { /* UTF16-BE */
          *bomtype = FILE_UTF16BE;
          return(f);
       }
-      if ((bom[2] = fgetc(f)) == EOF)
-      {
-         ungetc(bom[2], f);
-         ungetc(bom[1], f);
-         ungetc(bom[0], f);
+      if ((bom[2] = fgetc(f)) == EOF) {
+         if (ferror(f)) {
+           return NULL;
+         }
+         if (ungetc(bom[2], f) == EOF) return NULL;
+         if (ungetc(bom[1], f) == EOF) return NULL;
+         if (ungetc(bom[0], f) == EOF) return NULL;
          *bomtype = FILE_MBS;
          return(f);
       }
-      if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) /* UTF-8 */
-      {
+      if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) { /* UTF-8 */
          *bomtype = FILE_UTF8;
          return(f);
       }
-      ungetc(bom[2], f);
-      ungetc(bom[1], f);
-      ungetc(bom[0], f);
+      if (ungetc(bom[2], f) == EOF) return NULL;
+      if (ungetc(bom[1], f) == EOF) return NULL;
+      if (ungetc(bom[0], f) == EOF) return NULL;
       *bomtype = FILE_MBS;
       return(f);
    }
@@ -1486,7 +1496,7 @@ int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const in
 {
    int c, i, j;
 
-   for (i=0; i<lim-1 && ((c=getc(infile)) != '\n') && (!feof(infile)) ; ++i)
+   for (i=0; i<lim-1 && ((c=fgetc(infile)) != '\n') && (c != EOF) ; ++i)
       {
       s[i] = (char)c ;
       if (c == '\r') i--;
@@ -1500,11 +1510,17 @@ int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const in
       print_error(_("file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
       j = i+1;
-      while (((c=getc(infile)) != '\n') && (!feof(infile)))
+      while (((c=getc(infile)) != '\n') && (c != EOF))
       {
          ++j;
       }
       fprintf(stderr,_(" length: %d\n"),j);
+   }
+
+   if (c == EOF) {
+      if (ferror(infile)) {
+        wcd_read_error(file_name);
+      }
    }
 
    return i ;
@@ -1567,6 +1583,12 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, cons
       fprintf(stderr,_(" length: %d\n"),j);
    }
 
+   if ((c_low == EOF) || (c_high == EOF)) {
+      if (ferror(infile)) {
+        wcd_read_error(file_name);
+      }
+   }
+
    return i ;
 }
 
@@ -1626,6 +1648,12 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, c
       fprintf(stderr,_(" length: %d\n"),j);
    }
 
+   if ((c_low == EOF) || (c_high == EOF)) {
+      if (ferror(infile)) {
+        wcd_read_error(file_name);
+      }
+   }
+
    return i ;
 }
 #endif
@@ -1640,7 +1668,7 @@ void read_treefileA(FILE *f, nameset bd, const char* file_name)
     int len, line_nr=1;
     char path[DD_MAXPATH];
 
-    while (!feof(f) )
+    while (!feof(f) && !ferror(f))
     {
        /* read a line */
        len = wcd_getline(path,DD_MAXPATH,f,file_name,&line_nr);
@@ -1651,7 +1679,7 @@ void read_treefileA(FILE *f, nameset bd, const char* file_name)
           wcd_fixpath(path,sizeof(path));
           addToNamesetArray(textNew(path),bd);
        }
-    } /* while (!feof(f) ) */
+    } /* while (!feof(f) && !ferror(f)) */
 }
 #if defined(_WIN32) || defined(WCD_UNICODE)
 void read_treefileUTF16LE(FILE *f, nameset bd, const char* file_name)
@@ -1660,7 +1688,7 @@ void read_treefileUTF16LE(FILE *f, nameset bd, const char* file_name)
     char path[DD_MAXPATH];
     wchar_t pathw[DD_MAXPATH];
 
-    while (!feof(f) )
+    while (!feof(f) && !ferror(f))
     {
        /* read a line */
        len = wcd_wgetline(pathw,DD_MAXPATH,f,file_name,&line_nr);
@@ -1673,7 +1701,7 @@ void read_treefileUTF16LE(FILE *f, nameset bd, const char* file_name)
           wcd_fixpath(path,sizeof(path));
           addToNamesetArray(textNew(path),bd);
        }
-    } /* while (!feof(f) ) */
+    } /* while (!feof(f) && !ferror(f)) */
 }
 void read_treefileUTF16BE(FILE *f, nameset bd, const char* file_name)
 {
@@ -1681,7 +1709,7 @@ void read_treefileUTF16BE(FILE *f, nameset bd, const char* file_name)
     char path[DD_MAXPATH];
     wchar_t pathw[DD_MAXPATH];
 
-    while (!feof(f) )
+    while (!feof(f) && !ferror(f))
     {
        /* read a line */
        len = wcd_wgetline_be(pathw,DD_MAXPATH,f,file_name,&line_nr);
@@ -1694,7 +1722,7 @@ void read_treefileUTF16BE(FILE *f, nameset bd, const char* file_name)
           wcd_fixpath(path,sizeof(path));
           addToNamesetArray(textNew(path),bd);
        }
-    } /* while (!feof(f) ) */
+    } /* while (!feof(f) && !ferror(f)) */
 }
 /* read_treefileUTF8() was made to make it possible that a non-Unicode
    Windows version of Wcd can read UTF-8 encoded tree-data files.
@@ -1711,7 +1739,7 @@ void read_treefileUTF8(FILE *f, nameset bd, const char *file_name)
     wchar_t pathw[DD_MAXPATH];
 #endif
 
-    while (!feof(f) )
+    while (!feof(f) && !ferror(f))
     {
        /* read a line */
        len = wcd_getline(path,DD_MAXPATH,f,file_name,&line_nr);
@@ -1727,17 +1755,17 @@ void read_treefileUTF8(FILE *f, nameset bd, const char *file_name)
           wcd_fixpath(path,sizeof(path));
           addToNamesetArray(textNew(path),bd);
        }
-    } /* while (!feof(f) ) */
+    } /* while (!feof(f) && !ferror(f)) */
 }
 #endif
+
 int read_treefile(char* filename, nameset bd, int quiet)
 {
    FILE *infile;
    int bomtype;
 
    /* open treedata-file */
-   if  ((infile = wcd_fopen_bom(filename,"rb", quiet, &bomtype)) != NULL)
-   {
+   if  ((infile = wcd_fopen_bom(filename,"rb", quiet, &bomtype)) != NULL) {
        switch (bomtype)
        {
          case FILE_MBS:
@@ -1758,8 +1786,13 @@ int read_treefile(char* filename, nameset bd, int quiet)
            read_treefileA(infile, bd, filename);
       }
       wcd_fclose(infile, filename, "r", "read_treefile: ");
+   } else {
+      if (!quiet) {
+         wcd_read_error(filename);
+      }
+      return -1;
    }
-   return(bomtype);
+   return bomtype;
 }
 /********************************************************************
  *
@@ -1775,9 +1808,10 @@ void cleanTreeFile(char *filename, char *dir)
    int bomtype;
 
    dirs = namesetNew();
-   bomtype = read_treefile(filename,dirs,0);
-   rmDirFromList(dir,dirs);
-   writeList(filename, dirs, bomtype);
+   if ((bomtype = read_treefile(filename,dirs,0)) >= 0) {
+      rmDirFromList(dir,dirs);
+      writeList(filename, dirs, bomtype);
+   }
    freeNameset(dirs, 1);
 }
 
@@ -1913,8 +1947,10 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    int line_nr =1;
 
    /* open treedata-file */
-   if  ((infile = wcd_fopen_bom(filename,"rb",0,&bomtype)) == NULL)
+   if  ((infile = wcd_fopen_bom(filename,"rb",0,&bomtype)) == NULL) {
+      wcd_read_error(filename);
       return;
+   }
 
    if( (dir_str = strrchr(org_dir,DIR_SEPARATOR)) != NULL)
       dir_str++;
@@ -1964,11 +2000,12 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    }
 
 
-   while (!feof(infile) )  /* parse the file */
+   while (!feof(infile) && !ferror(infile))  /* parse the file */
    {
       int len;
 
       len = read_treefile_line(line,DD_MAXPATH,infile,filename,&line_nr, bomtype);
+      if (ferror(infile)) return;
       ++line_nr;
 
       cleanPath(line,len,1) ;
@@ -2032,7 +2069,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
                   }
                }
          }
-   }   /* while (!feof(infile) ) */
+   }   /* while (!feof(infile) && !ferror(f)) */
    wcd_fclose(infile, filename, "r", "scanfile: ");
 }
 /********************************************************************
@@ -2065,7 +2102,7 @@ void scanaliasfile(char *org_dir, char *filename,
    if  ((infile = wcd_fopen(filename,"r",1)) != NULL)
    {
 
-      while (!feof(infile) )
+      while (!feof(infile) && !ferror(infile))
       {
          int len;
 
@@ -2073,7 +2110,7 @@ void scanaliasfile(char *org_dir, char *filename,
          {
 
          /* skip spaces between alias and path */
-         while ((line[0]=(char)getc(infile)) == ' '){};
+         while ((line[0]=(char)fgetc(infile)) == ' '){};
 
          /* read a line */
          len = wcd_getline(line+1,DD_MAXPATH,infile,filename,&line_nr);
@@ -2092,7 +2129,11 @@ void scanaliasfile(char *org_dir, char *filename,
                      addToNamesetArray(textNew(line),pm);
                }
          }
-      }   /* while (!feof(infile) ) */
+      }   /* while (!feof(infile) && !ferror(infile)) */
+      if (ferror(infile)) {
+        wcd_read_error(filename);
+      }
+
    wcd_fclose(infile, filename, "r", "scanaliasfile: ");
    }
 }
@@ -2388,7 +2429,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
 /* Recurively create directory path, to enable writing
  * the file */
-void create_dir_for_file(char *f)
+void create_dir_for_file(const char *f)
 {
    char path[DD_MAXPATH];
    char *ptr ;
