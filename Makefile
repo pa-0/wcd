@@ -38,6 +38,19 @@ dist:
 	cd .. ; rm -f wcd${VERSION_SHORT}.zip
 	cd .. ; zip -r wcd${VERSION_SHORT}.zip wcd${VERSION_SHORT}
 
+# Create pgp signature. Required for Debian Linux.
+# See http://narfation.org/2013/06/23/signed-upstream-tarballs-in-debian
+pgpsign:
+	cd ..; gpg --detach-sign --armor ${RELEASE_DIR}.tar.gz
+
+# Send the key tp HKP/SKS keyserver.
+# You might want to add this to receive kes easily:
+#
+#    # .gnupg/gpg.conf
+#    keyserver  hkp://pool.sks-keyservers.net
+pgpsend:
+	cd ..; gpg --keyserver pool.sks-keyservers.net --send-keys B12725BE
+
 tag:
 	svn copy ${SVNSSHREPO}/trunk \
 	         ${SVNSSHREPO}/tags/release-${VERSION} \
