@@ -1,5 +1,5 @@
-5.3.0-beta3 2015-07-04
-  - Faster loading of the graphical tree. In about one third less time.
+5.3.0 2015-09-23
+  - Faster loading of the graphical tree, in about one third less time.
   - Fix reading UTF-16 treedata files.
   - Fix: Check for file I/O errors while reading files. These can happen
     after a file was opened without problems.
