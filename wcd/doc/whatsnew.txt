@@ -1,3 +1,7 @@
+5.3.1-beta1 2015-11-14
+  - src/po/zh_CN.po. New simplified Chinese translation of the messages.
+    Thanks to Mingye Wang (Arthur2e5).
+
 5.3.0 2015-09-23
   - Faster loading of the graphical tree, in about one third less time.
   - Fix reading UTF-16 treedata files.
