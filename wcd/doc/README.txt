@@ -271,7 +271,8 @@ Table of Contents
         All translations of the messages go via the Translation Project.
         see http://translationproject.org/domain/wcd.html
 
-        Chinese (simplified)  Mingye Wang (Arthur2e5)      Version 5.3.1
+        Chinese (simplified)  Mingcong Bai (Jeff) and      Version 5.3.1
+                              Mingye Wang (Arthur)
         Dutch                 Erwin Waterlander            Version 4.0.0 - 5.2.4
         Dutch                 Benno Schulenberg            Version 5.2.5 - 5.2.6
         Esperanto             Benno Schulenberg            Version 5.2.5
