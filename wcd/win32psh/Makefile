@@ -22,10 +22,7 @@ ifdef ENABLE_NLS
 LIBS_EXTRA += -lintl -liconv
 endif
 
-ifdef WCD_UTF8
-# WCD_UTF8 was used in older versions.
 UCS=1
-endif
 
 ifdef UNINORM
 UCS=1

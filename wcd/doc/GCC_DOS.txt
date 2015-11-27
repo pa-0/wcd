@@ -242,15 +242,18 @@ To enable the conio interface instead of curses add CONIO=1:
 Unicode support
 ===============
 
-To activate Unicode support add UCS=1 to the make command:
+Unicode support is by default enabled on Windows and disabled on DOS
+and OS/2. To disable add UCS= to the make command:
 
-  make UCS=1
+  make UCS=
 
-This requires a (pd/n)curses installation with wide character support.
+Unicode support requires a (pd/n)curses installation with wide character support.
 Not supported for DOS versions of wcd.
 
-Unicode is only supported in Windows PowerShell, and Command Prompt
-on Windows 7 or higher.
+Unicode works only in Windows PowerShell, and Command Prompt
+on Windows 7 or higher. On older versions of Windows you need
+Take Command or TCC/LE made by JP Software be able to change to
+Unicode paths.
 
 
 Enable Unicode normalization with UNINORM=1. This implies UCS=1.

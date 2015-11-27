@@ -137,11 +137,16 @@ DEBUG           = 0
 
 wcd_os := $(shell uname)
 
-# Enble Unicode for Cygwin
-ifeq ($(findstring CYGWIN,$(wcd_os)),CYGWIN)
+# Enble Unicode
 UCS = 1
-UNINORM = 1
+ifdef WCD_UTF8
+	# WCD_UTF8 was used in older versions.
+	UCS=1
 endif
+ifdef UNINORM
+	UCS = 1
+endif
+
 
 ZIPOBJ		= bin/$(BIN) \
 		  share/man/man1/$(PACKAGE).1 \
@@ -156,19 +161,137 @@ ifdef ENABLE_NLS
 	ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
 endif
 
-# .......................................................... unicode ...
-
-ifdef WCD_UTF8
-	# WCD_UTF8 was used in older versions.
-	UCS=1
+ifdef ENABLE_NLS
+	NLSDEFS    = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
 endif
+
+# ......................................................... OS flags ...
+
+OS =
+
+ifndef OS
+ifeq ($(findstring CYGWIN,$(wcd_os)),CYGWIN)
+	OS = cygwin
+endif
+endif
+
+ifndef OS
+ifeq ($(findstring MSYS,$(wcd_os)),MSYS)
+	OS = msys
+endif
+endif
+
+ifndef OS
+ifeq ($(findstring MINGW32,$(wcd_os)),MINGW32)
+	OS = mingw32
+endif
+endif
+
+ifndef OS
+ifneq ($(DJGPP),)
+	OS = msdos
+endif
+endif
+
+ifndef OS
+ifneq (, $(wildcard /opt/csw))
+	OS = sun
+endif
+endif
+
+ifndef OS
+	OS=$(shell echo $(wcd_os) | tr [A-Z] [a-z])
+endif
+
+
+ifeq (cygwin,$(OS))
+ifdef ENABLE_NLS
+	LIBS_EXTRA    = -lintl -liconv -lmpr
+else
+	LIBS_EXTRA    = -lmpr
+endif
+	UNINORM = 1  
+	LDFLAGS_EXTRA = -Wl,--enable-auto-import
+	INSTALL_TARGETS += install-profile
+	docsubdir	= $(PACKAGE)
+	VERSIONSUFFIX	= -cygwin
+endif
+
+ifeq (os/2,$(OS))
+	DEF_UNIX =
+	UCS =
+	UNINORM =
+endif
+
+ifeq (mingw32,$(OS))
+	CC = gcc
+	DEF_UNIX =
+endif
+
+ifeq (msdos,$(OS))
+	CC = gcc
+	DEF_UNIX =
+	UCS =
+	UNINORM =
+endif
+
+ifeq (msys,$(OS))
+	CC = gcc
+	CFLAGS_OS = -DWCD_MSYS
+	PROGRAM = wcdmsys.exe
+	LIBS_EXTRA  = -lkernel32 -luser32 -lmpr
+	VERSIONSUFFIX	= -msys
+# MSYS 1 does not support locales and no Unicode.
+ifeq ($(shell ./chk_loc.sh en_US.utf8),no)
+	UCS =
+	UNINORM =
+else
+	UCS = 1
+	UNINORM = 1
+endif
+ifdef ENABLE_NLS
+	LIBS_EXTRA += -lintl -liconv
+endif
+endif
+
+ifeq (freebsd,$(OS))
+	# Running under FreeBSD
+ifdef ENABLE_NLS
+	CFLAGS_OS     = -I/usr/local/include
+	LDFLAGS_EXTRA = -L/usr/local/lib
+	LIBS_EXTRA    = -lintl
+endif
+endif
+
+ifeq (darwin, $(OS))
+ifdef ENABLE_NLS
+	CFLAGS_OS     = -I/usr/local/include
+	LDFLAGS_EXTRA = -L/usr/local/lib
+	LIBS_EXTRA    = -lintl
+endif
+endif
+
+
+ifeq (sun,$(OS))
+	# Running under SunOS/Solaris
+	LIBS_EXTRA = -lintl
+endif
+
+ifeq (hp-ux,$(OS))
+	# Running under HP-UX
+	EXTRA_DEFS += -Dhpux -D_HPUX_SOURCE -D_XOPEN_SOURCE_EXTENDED
+
+	# These flags were for native HP compiler
+	# CFLAGS_OS = -O -Aa
+endif
+
+# .......................................................... unicode ...
 
 ifdef UCS
 	CFLAGS_UCS = -std=gnu99
 	WDEFS	   = -DWCD_UNICODE
 endif
 ifdef UNINORM
-	UCS = 1
 	CFLAGS_UCS = -std=gnu99
 	WDEFS	   = -DWCD_UNICODE -DWCD_UNINORM
 	LIB_UNISTRING  = -lunistring
@@ -177,13 +300,6 @@ endif
 ifdef UCS
 UCSSUFFIX = -ucs
 EXTRA_OBJ += matchw.o
-endif
-
-ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)$(NLSSUFFIX)$(UCSSUFFIX).zip
-TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)$(NLSSUFFIX)$(UCSSUFFIX).tar.gz
-
-ifdef ENABLE_NLS
-	NLSDEFS    = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
 endif
 
 # ........................................................... curses ...
@@ -250,113 +366,6 @@ endif
 #	NCFLAG = -I$(LOCAL_NCURSES)/include
 #	NLFLAG = -L$(LOCAL_NCURSES)/lib
 #endif
-
-# ......................................................... OS flags ...
-
-OS =
-
-ifndef OS
-ifeq ($(findstring CYGWIN,$(wcd_os)),CYGWIN)
-	OS = cygwin
-endif
-endif
-
-ifndef OS
-ifeq ($(findstring MSYS,$(wcd_os)),MSYS)
-	OS = msys
-endif
-endif
-
-ifndef OS
-ifeq ($(findstring MINGW32,$(wcd_os)),MINGW32)
-	OS = mingw32
-endif
-endif
-
-ifndef OS
-ifneq ($(DJGPP),)
-	OS = msdos
-endif
-endif
-
-ifndef OS
-ifneq (, $(wildcard /opt/csw))
-	OS = sun
-endif
-endif
-
-ifndef OS
-	OS=$(shell echo $(wcd_os) | tr [A-Z] [a-z])
-endif
-
-
-ifeq (cygwin,$(OS))
-ifdef ENABLE_NLS
-	LIBS_EXTRA    = -lintl -liconv -lmpr
-else
-	LIBS_EXTRA    = -lmpr
-endif
-	LDFLAGS_EXTRA = -Wl,--enable-auto-import
-	INSTALL_TARGETS += install-profile
-	docsubdir	= $(PACKAGE)
-	VERSIONSUFFIX	= -cygwin
-endif
-
-ifeq (os/2,$(OS))
-	DEF_UNIX =
-endif
-
-ifeq (mingw32,$(OS))
-	CC = gcc
-	DEF_UNIX =
-endif
-
-ifeq (msdos,$(OS))
-	CC = gcc
-	DEF_UNIX =
-endif
-
-ifeq (msys,$(OS))
-	CC = gcc
-	CFLAGS_OS = -DWCD_MSYS
-	PROGRAM = wcdmsys.exe
-	LIBS_EXTRA  = -lkernel32 -luser32 -lmpr
-	VERSIONSUFFIX	= -msys
-ifdef ENABLE_NLS
-	LIBS_EXTRA += -lintl -liconv
-endif
-endif
-
-ifeq (freebsd,$(OS))
-	# Running under FreeBSD
-ifdef ENABLE_NLS
-	CFLAGS_OS     = -I/usr/local/include
-	LDFLAGS_EXTRA = -L/usr/local/lib
-	LIBS_EXTRA    = -lintl
-endif
-endif
-
-ifeq (darwin, $(OS))
-ifdef ENABLE_NLS
-	CFLAGS_OS     = -I/usr/local/include
-	LDFLAGS_EXTRA = -L/usr/local/lib
-	LIBS_EXTRA    = -lintl
-endif
-endif
-
-
-ifeq (sun,$(OS))
-	# Running under SunOS/Solaris
-	LIBS_EXTRA = -lintl
-endif
-
-ifeq (hp-ux,$(OS))
-	# Running under HP-UX
-	EXTRA_DEFS += -Dhpux -D_HPUX_SOURCE -D_XOPEN_SOURCE_EXTENDED
-
-	# These flags were for native HP compiler
-	# CFLAGS_OS = -O -Aa
-endif
 
 # ............................................................ flags ...
 
@@ -544,6 +553,9 @@ getpoman:
 
 $(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
 	xgettext --no-wrap -C --keyword=_ $+ -o $(POT)
+
+ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)$(NLSSUFFIX)$(UCSSUFFIX).zip
+TGZFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)$(NLSSUFFIX)$(UCSSUFFIX).tar.gz
 
 dist-zip:
 	rm -f $(prefix)/$(ZIPFILE)

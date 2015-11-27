@@ -33,9 +33,8 @@ BASIC INSTALLATION
 
         Options that can be enabled during compiling
 
-            UCS=1       Enable Unicode (UTF8) support
-                        The default value is empty.
-                        On Cygwin the default value is 1.
+            UCS=        Disable Unicode (UTF8) support
+                        The default value is 1.
 
             UNINORM=1   Enable Unicode normalization.
                         The default value is empty.
@@ -92,10 +91,9 @@ BASIC INSTALLATION
                         The default value is 'htm' to
                         support all platforms.
 
-        An example to enable unicode support, provided that the library
-        libncursesw is also available:
+        An example to disable unicode support.
 
-            make UCS=1 clean all
+            make clean all UCS=
 
         To disable Native Language Support,
         reset the ENABLE_NLS variable:
