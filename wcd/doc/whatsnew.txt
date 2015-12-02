@@ -3,6 +3,8 @@
     Thanks to Mingcong Bai (Jeff) and Mingye Wang (Arthur).
   - src/Makefile, */vc/Makefile, */watcom/Makefile: Unicode support is by
     default enabled for Windows and Unix.
+  - src/Makefile, src/chk_logc.sh: Automatically detect if we are in MSYS
+    1 or 2, and disable Unicode for MSYS 1.
 
 5.3.0 2015-09-23
   - Faster loading of the graphical tree, in about one third less time.
