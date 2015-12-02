@@ -6,6 +6,7 @@ CC      = wcc386
 PROGRAM = wcdwin32.exe
 DEFINES =
 CURSES = pdcursesw
+UCS = 1
 
 !ifneq CURSES
 DEFINES += -dWCD_USECURSES -dPDC_WIDE

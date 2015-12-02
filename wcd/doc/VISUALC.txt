@@ -117,9 +117,10 @@ can set ASCII_TREE=1 so that ASCII characters are used instead.
 Unicode support
 ===============
 
-To activate Unicode support add UCS=1 to the nmake command:
+Unicode support is by default enabled.
+To disable add UCS= to the make command:
 
-  nmake UCS=1
+  nmake UCS=
 
 
 Installation Names

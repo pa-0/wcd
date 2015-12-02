@@ -1,7 +1,8 @@
-5.3.1-beta1 2015-11-27
+5.3.1 2015-12-02
   - src/po/zh_CN.po: New simplified Chinese translation of the messages.
     Thanks to Mingcong Bai (Jeff) and Mingye Wang (Arthur).
-  - src/Makefile: Unicode support is by default enabled for Windows and Unix.
+  - src/Makefile, */vc/Makefile, */watcom/Makefile: Unicode support is by
+    default enabled for Windows and Unix.
 
 5.3.0 2015-09-23
   - Faster loading of the graphical tree, in about one third less time.

@@ -7,6 +7,7 @@ LINK = link.exe /nologo
 PROGRAM = wcdwin64psh.exe
 DEFINES =  /DWCD_WINPWRSH
 CURSES = pdcursesw
+UCS = 1
 
 !if "$(CURSES)" != ""
 DEFINES = $(DEFINES) /DWCD_USECURSES /DPDC_WIDE
