@@ -1,0 +1,14 @@
+*.bak
+*~
+*.tmp
+
+*.o
+*.mo
+*.exe
+
+*.1
+*.htm
+*.html
+wcd.txt
+wcd-man.pot
+wcd/src/man/*/man1/wcd.pod
