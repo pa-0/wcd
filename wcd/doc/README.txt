@@ -318,9 +318,9 @@ Table of Contents
         --
 
         Latest development source code is maintained in
-        SourceForge Subversion repository:
+        SourceForge Git repository:
 
-        svn checkout svn://svn.code.sf.net/p/wcd/code/trunk wcd-code
+        git clone git://git.code.sf.net/p/wcd/wcd.git
 
 
         The latest WCD packages, executables and sources, can be downloaded from
