@@ -1,6 +1,8 @@
 5.3.2-beta 2015-12-22
   - src/Makefile: Use GNU standard variables INSTALL_PROGRAM and INSTALL_DATA
     for installation.
+  - win64*/Makefile: Use normal 'gcc' instead of cross-compiler
+    (x86_64-w64-mingw32-gcc).
 
 2015-12-21
   - Moved wcd source repository from Subversion to Git. To clone type:

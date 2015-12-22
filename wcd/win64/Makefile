@@ -5,8 +5,10 @@ exec_prefix = $(prefix)
 MKDIR  = mkdir
 LIBS_EXTRA = -lkernel32 -luser32 -lmpr
 
-CC = x86_64-w64-mingw32-gcc
-STRIP = x86_64-w64-mingw32-strip
+#CC = x86_64-w64-mingw32-gcc
+#STRIP = x86_64-w64-mingw32-strip
+CC = gcc
+STRIP = strip
 CFLAGS = -O2 -Wall -Wextra -Wconversion -Wno-unused-parameter
 CURSES = pdcursesw
 ENABLE_NLS =
