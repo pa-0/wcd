@@ -12,3 +12,6 @@
 wcd.txt
 wcd-man.pot
 wcd/src/man/*/man1/wcd.pod
+
+*.gz
+*.zip
