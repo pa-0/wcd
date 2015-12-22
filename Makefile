@@ -22,6 +22,7 @@ dist:
 	rm -rf ${RELEASE_DIR_SHORT}
 	git clone ${GITREPO} ../clone
 	mv ../clone/wcd ${RELEASE_DIR}
+	rm -rf ../clone
 	# Include doc files, to make it easier to build wcd.
 	cd ${RELEASE_DIR}/src ; ${MAKE} man txt html
 	# Make sure .po files are up to date.
