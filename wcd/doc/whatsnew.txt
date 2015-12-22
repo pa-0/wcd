@@ -1,3 +1,7 @@
+5.3.2-beta 2015-12-22
+  - src/Makefile: Use GNU standard variables INSTALL_PROGRAM and INSTALL_DATA
+    for installation.
+
 2015-12-21
   - Moved wcd source repository from Subversion to Git. To clone type:
     git clone git://git.code.sf.net/p/wcd/wcd.git

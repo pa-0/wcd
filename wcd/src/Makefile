@@ -77,7 +77,7 @@ INSTALL		= install
 # On some systems (e.g. GNU Win32) GNU mkdir is installed as `gmkdir'.
 MKDIR           = mkdir
 
-INSTALL_BIN	= $(INSTALL) -m 755
+INSTALL_PROGRAM	= $(INSTALL) -m 755
 INSTALL_DATA	= $(INSTALL) -m 644
 INSTALL_SUID	= $(INSTALL) -m 4755
 
@@ -638,7 +638,7 @@ endif
 install-mo: $(MOFILES)
 	@echo "-- target: install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
-	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(MOFILES), $(INSTALL_DATA) $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 
 install-doc: $(DOCFILES)
 	@echo "-- target: install-doc"
@@ -646,15 +646,15 @@ install-doc: $(DOCFILES)
 	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
 	# Install translated manuals when they have been generated.
 	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
-	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(INSTALL) -m 644 $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
+	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(INSTALL_DATA) $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
 	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
-	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(INSTALL) -m 644 $(htmlfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
+	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(INSTALL_DATA) $(htmlfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
 	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
-	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(INSTALL) -m 644 $(pdffile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
-	$(foreach pdffile, $(wildcard man/man1/*.pdf), $(INSTALL) -m 644 $(pdffile) $(DESTDIR)$(docdir) ;)
+	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
+	$(foreach pdffile, $(wildcard man/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir) ;)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
-	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
-	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir) ;)
+	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
+	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir) ;)
 
 install-man: $(INSTALL_OBJS_MAN1) $(MANFILES) $(MANPOTFILE)
 	@echo "-- target: install-man"
@@ -666,7 +666,7 @@ install-man: $(INSTALL_OBJS_MAN1) $(MANFILES) $(MANPOTFILE)
 install-bin: $(BIN)
 	@echo "-- target: install-bin"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
-	$(INSTALL_BIN) $(INSTALL_OBJS_BIN) $(DESTDIR)$(bindir)
+	$(INSTALL_PROGRAM) $(INSTALL_OBJS_BIN) $(DESTDIR)$(bindir)
 
 install: $(INSTALL_TARGETS)
 
