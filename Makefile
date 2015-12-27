@@ -1,6 +1,6 @@
 include wcd/src/version.mk
 
-GITREPO = git://git.code.sf.net/p/wcd/wcd.git
+GITREPO = git://git.code.sf.net/p/wcd/wcd
 
 help:
 	@echo "${MAKE} dist    : Create source code distribution packages."

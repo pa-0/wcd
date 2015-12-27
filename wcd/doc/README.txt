@@ -320,7 +320,7 @@ Table of Contents
         Latest development source code is maintained in
         SourceForge Git repository:
 
-        git clone git://git.code.sf.net/p/wcd/wcd.git
+        git clone git://git.code.sf.net/p/wcd/wcd
 
 
         The latest WCD packages, executables and sources, can be downloaded from

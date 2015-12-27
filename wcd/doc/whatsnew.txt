@@ -6,7 +6,7 @@
 
 2015-12-21
   - Moved wcd source repository from Subversion to Git. To clone type:
-    git clone git://git.code.sf.net/p/wcd/wcd.git
+    git clone git://git.code.sf.net/p/wcd/wcd
 
 5.3.1 2015-12-02
   - src/po/zh_CN.po: New simplified Chinese translation of the messages.
