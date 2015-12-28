@@ -133,7 +133,10 @@ VERSIONSUFFIX	= -bin
 
 # Large File Support (LFS)
 LFS             = 1
-DEBUG           = 0
+# DEBUG=1 adds the -g option to CFLAGS, for adding debug symbols.
+DEBUG = 0
+# DEBUGMSG=1 adds -DDEBUG=1 to CFLAGS, for extra verbose messages.
+DEBUGMSG = 0
 
 wcd_os := $(shell uname)
 
@@ -388,7 +391,7 @@ EXTRA_CFLAGS	= -Ic3po \
 		  $(NLSDEFS) \
 		  $(NCFLAG) \
 		  $(INCFLAGS) \
-		  -DDEBUG=$(DEBUG)
+		  -DDEBUG=$(DEBUGMSG)
 
 ifeq ($(DEBUG), 1)
 	EXTRA_CFLAGS += -g
@@ -467,6 +470,7 @@ status:
 	@echo "CFLAGS_OS     = $(CFLAGS_OS)"
 	@echo "EXTRA_CFLAGS  = $(EXTRA_CFLAGS)"
 	@echo "DEBUG         = $(DEBUG)"
+	@echo "DEBUGMSG      = $(DEBUGMSG)"
 	@echo "-- $(PACKAGE) Makefile settings end --"
 
 $(BIN): $(OBJS1)

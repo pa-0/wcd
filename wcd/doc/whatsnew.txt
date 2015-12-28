@@ -1,4 +1,8 @@
 5.3.2-beta 2015-12-22
+  - Makefile: Split DEBUG=1 into DEBUG=1 and DEBUGMSG=1.
+    DEBUG=1 will add option -g to CFLAGS for debugging with gdb.
+    DEBUGMSG=1 makes wcd print extra messages about accessing the
+    file system.
   - src/Makefile: Use GNU standard variables INSTALL_PROGRAM and INSTALL_DATA
     for installation.
   - win64*/Makefile: Use normal 'gcc' instead of cross-compiler

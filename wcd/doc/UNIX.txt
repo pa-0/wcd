@@ -55,6 +55,9 @@ BASIC INSTALLATION
             DEBUG=1     A debug enabled build can be made by
                         adding DEBUG=1 to the make command.
 
+            DEBUGMSG=1  DEBUGMSG=1 makes wcd print verbose messages
+                        about accessing the file system.
+
             LFS=
                         Large File Support (LFS) is by default enabled. This
                         enables the use of 64 bit file system interface on 32
