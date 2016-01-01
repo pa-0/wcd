@@ -54,6 +54,7 @@ pgpsend:
 	cd ..; gpg --keyserver pool.sks-keyservers.net --send-keys B12725BE
 
 tag:
-	git tag -a release-${VERSION} -m "Tagging release ${VERSION}."
+	git tag -a wcd-${VERSION} -m "Tagging release ${VERSION}."
+	git push origin wcd-${VERSION}
 
 
