@@ -181,6 +181,12 @@ endif
 ifndef OS
 ifeq ($(findstring MSYS,$(wcd_os)),MSYS)
 	OS = msys
+# MSYS 1 does not support locales and no Unicode.
+ifeq ($(shell ./chk_loc.sh en_US.utf8),no)
+	MSYS_VERSION=1
+else
+	MSYS_VERSION=2
+endif
 endif
 endif
 
@@ -217,7 +223,8 @@ endif
 	LDFLAGS_EXTRA = -Wl,--enable-auto-import
 	INSTALL_TARGETS += install-profile
 	docsubdir	= $(PACKAGE)
-	VERSIONSUFFIX	= -cygwin
+	MACHINE := $(subst -pc-cygwin,,$(shell gcc -dumpmachine))
+	VERSIONSUFFIX	= -cygwin-$(MACHINE)
 endif
 
 ifeq (os/2,$(OS))
@@ -243,14 +250,15 @@ ifeq (msys,$(OS))
 	CFLAGS_OS = -DWCD_MSYS
 	PROGRAM = wcdmsys.exe
 	LIBS_EXTRA  = -lkernel32 -luser32 -lmpr
-	VERSIONSUFFIX	= -msys
-# MSYS 1 does not support locales and no Unicode.
-ifeq ($(shell ./chk_loc.sh en_US.utf8),no)
+	MACHINE := $(subst -pc-msys,,$(shell gcc -dumpmachine))
+ifeq ($(MSYS_VERSION),1)
 	UCS =
 	UNINORM =
+	VERSIONSUFFIX = -msys1-$(MACHINE)
 else
 	UCS = 1
 	UNINORM = 1
+	VERSIONSUFFIX = -msys2-$(MACHINE)
 endif
 ifdef ENABLE_NLS
 	LIBS_EXTRA += -lintl -liconv
@@ -313,6 +321,21 @@ ifdef UCS
 	CURSES = ncursesw
 else
 	CURSES = ncurses
+endif
+
+
+# The default console for msys1 is the cmd.exe console.  rxvt and mintty are
+# available for msys1, but I guess most people use cmd, console, or conemu for
+# msys1.  Therefore we use pdcurses for msys1.  msys2's default console is
+# mintty. For msys2 we use ncurses.
+ifeq (msys,$(OS))
+ifeq ($(MSYS_VERSION),1)
+ifdef UCS
+	CURSES = pdcursesw
+else
+	CURSES = pdcurses
+endif
+endif
 endif
 
 ifdef CURSES

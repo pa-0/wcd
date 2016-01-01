@@ -1,12 +1,16 @@
 5.3.2-beta 2015-12-22
-  - Makefile: Split DEBUG=1 into DEBUG=1 and DEBUGMSG=1.
-    DEBUG=1 will add option -g to CFLAGS for debugging with gdb.
-    DEBUGMSG=1 makes wcd print extra messages about accessing the
-    file system.
-  - src/Makefile: Use GNU standard variables INSTALL_PROGRAM and INSTALL_DATA
-    for installation.
+  - src/Makefile:
+    * Split DEBUG=1 into DEBUG=1 and DEBUGMSG=1. DEBUG=1 will add option -g
+      to CFLAGS for debugging with gdb. DEBUGMSG=1 makes wcd print extra
+      messages about accessing the file system.
+    * Use GNU standard variables INSTALL_PROGRAM and INSTALL_DATA for
+      installation.
+    * Update for msys1/2 to avoid need for msys specifc makefiles.
+  - msys/Makefile: Deleted.
+  - msys2/Makefile: Deleted.
   - win64*/Makefile: Use normal 'gcc' instead of cross-compiler
     (x86_64-w64-mingw32-gcc).
+
 
 2015-12-21
   - Moved wcd source repository from Subversion to Git. To clone type:

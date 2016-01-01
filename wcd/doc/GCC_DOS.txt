@@ -175,12 +175,10 @@ win32zsh : Windows 32 bit MSYS and ZSH version.
 win64    : Windows 64 bit console version.
 win64psh : Windows 64 bit PowerShell version.
 win64zsh : Windows 64 bit MSYS and ZSH version.
-msys     : Native MSYS version.
-msys2    : Native MSYS2 version.
 os2      : OS/2 32 bit console version.
 
 Change to the appropriate directory `dos32', `dos32bsh', `win32', `win32psh',
-`win32zsh', `win64', `win64psh', `win64zsh', 'msys', 'msys2', 'os2'.
+`win32zsh', `win64', `win64psh', `win64zsh', 'os2'.
 
 
 Build wcd:
@@ -292,8 +290,6 @@ win32zsh : The default PREFIX is c:/usr/local
 win64    : The default PREFIX is c:/usr/local64
 win64psh : The default PREFIX is c:/usr/local64
 win64zsh : The default PREFIX is c:/usr/local64
-msys     : The default PREFIX is /usr
-msys2    : The default PREFIX is /usr
 os2      : The default PREFIX is c:/usr
 
 
