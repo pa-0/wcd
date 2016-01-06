@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-21 19:11+0100\n"
+"POT-Creation-Date: 2016-01-06 23:17+0100\n"
 "PO-Revision-Date: 2015-11-13 20:29-0500\n"
 "Last-Translator: Mingye Wang (Arthur2e5) <arthur200126@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -636,7 +636,7 @@ msgstr "可从此处下载到最新的可执行文件及源代码：\n"
 #: wcd.c:2398
 #, fuzzy, c-format
 msgid ""
-"Copyright (C) 1997-2015 Erwin Waterlander\n"
+"Copyright (C) 1997-%d Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
 "Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"
@@ -711,8 +711,7 @@ msgstr ""
 msgid "creating directory %s\n"
 msgstr "正在创建目录 %s\n"
 
-#: wcd.c:2787 wcd.c:2827 wcd.c:2842 wcd.c:2910 wcd.c:2979 wcd.c:3461
-#: wcd.c:3480
+#: wcd.c:2787 wcd.c:2827 wcd.c:2842 wcd.c:2910 wcd.c:2979 wcd.c:3461 wcd.c:3480
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "环境变量 %s 的值太长。\n"
