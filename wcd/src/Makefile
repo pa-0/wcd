@@ -191,8 +191,8 @@ endif
 endif
 
 ifndef OS
-ifeq ($(findstring MINGW32,$(wcd_os)),MINGW32)
-	OS = mingw32
+ifeq ($(findstring MINGW,$(wcd_os)),MINGW)
+	OS = mingw
 endif
 endif
 
@@ -233,9 +233,13 @@ ifeq (os/2,$(OS))
 	UNINORM =
 endif
 
-ifeq (mingw32,$(OS))
+ifeq (mingw,$(OS))
 	CC = gcc
 	DEF_UNIX =
+	LIBS_EXTRA = -lkernel32 -luser32 -lmpr
+ifdef ENABLE_NLS
+	LIBS_EXTRA += -lintl -liconv
+endif
 endif
 
 ifeq (msdos,$(OS))
@@ -336,6 +340,14 @@ else
 	CURSES = pdcurses
 endif
 endif
+endif
+
+# The native Windows versions use PDCurses, because there are problems
+# with the ncurses mingw port.
+# All native Windows versions (with and without Unicode support) use wide
+# (Unicode) curses functions.
+ifeq (mingw,$(OS))
+	CURSES = pdcursesw
 endif
 
 ifdef CURSES
