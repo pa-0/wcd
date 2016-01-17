@@ -2768,7 +2768,15 @@ int main(int argc,char** argv)
 #ifndef __MSDOS__ /* Win32, OS/2, Unix, Cygwin */
    /* setlocale is required for correct working of nl_langinfo()
       DOS versions of wcd will use query_con_codepage(). */
+#if (defined(_WIN32) && !defined(__CYGWIN__))
+/* When the locale is set to "" on Windows all East-Asian multi-byte ANSI encoded
+   text is printed wrongly when you use standard printf() on Windows with East-
+   Asian regional setting.  When we set the locale to "C" gettext still
+   translates the messages on Windows. On Unix this would disable gettext. */
+   setlocale (LC_ALL, "C");
+#else
    setlocale (LC_ALL, "");
+#endif
 #endif
 #ifdef ENABLE_NLS
    char localedir[DD_MAXPATH];

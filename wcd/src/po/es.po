@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-06 23:17+0100\n"
+"POT-Creation-Date: 2016-01-17 15:01+0100\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -687,76 +687,77 @@ msgstr ""
 msgid "creating directory %s\n"
 msgstr "Creando directorio %s\n"
 
-#: wcd.c:2787 wcd.c:2827 wcd.c:2842 wcd.c:2910 wcd.c:2979 wcd.c:3461 wcd.c:3480
+#: wcd.c:2795 wcd.c:2835 wcd.c:2850 wcd.c:2918 wcd.c:2987 wcd.c:3469
+#: wcd.c:3488
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "El valor de la variable de ambiente %s es demasiado largo.\n"
 
-#: wcd.c:2816
+#: wcd.c:2824
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Error al suprimir la variable de entorno TERM: %s\n"
 
-#: wcd.c:2874 wcd.c:2903
+#: wcd.c:2882 wcd.c:2911
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "La variable de ambiente HOME o WCDHOME no tiene valor.\n"
 
-#: wcd.c:3088
+#: wcd.c:3096
 msgid "HOME is not defined\n"
 msgstr "La variable de entorno HOME no está definida\n"
 
-#: wcd.c:3092
+#: wcd.c:3100
 msgid "WCDHOME is not defined\n"
 msgstr "La variable de entorno WCDHOME no está definida\n"
 
-#: wcd.c:3096
+#: wcd.c:3104
 msgid "WCDSCAN is not defined\n"
 msgstr "La variable de entorno WCDSCAN no está definida\n"
 
-#: wcd.c:3121
+#: wcd.c:3129
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Modo gráfico sólo soportado en wcd con interfase basada en curses.\n"
 
-#: wcd.c:3394
+#: wcd.c:3402
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s se añadió al archivo de alias %s\n"
 
-#: wcd.c:3493
+#: wcd.c:3501
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Imposible leer el archivo %s: %s\n"
 
-#: wcd.c:3643
+#: wcd.c:3651
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "Directorio de WCDSCAN {%s}\n"
 
-#: wcd.c:3645
+#: wcd.c:3653
 #, c-format
 msgid "banning {%s}\n"
 msgstr "prohibiendo {%s}\n"
 
-#: wcd.c:3647
+#: wcd.c:3655
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "excluyendo {%s}\n"
 
-#: wcd.c:3649
+#: wcd.c:3657
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "filtrando {%s}\n"
 
-#: wcd.c:3917
+#: wcd.c:3925
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "No se encontró algún directorio que concordara con %s\n"
 
-#: wcd.c:3918
+#: wcd.c:3926
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Quizá necesite reexplorar el disco o la ruta.\n"
 
-#: wcd.c:4085
+#: wcd.c:4093
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "No puedo cambiar el directorio a %s\n"

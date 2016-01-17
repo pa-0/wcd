@@ -1,4 +1,6 @@
 5.3.2-beta 2015-12-22
+  - Fixed printing of East-Asian text on Windows with an East-Asian regional
+    setting.
   - src/Makefile:
     * Split DEBUG=1 into DEBUG=1 and DEBUGMSG=1. DEBUG=1 will add option -g
       to CFLAGS for debugging with gdb. DEBUGMSG=1 makes wcd print extra

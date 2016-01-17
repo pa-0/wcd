@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-06 23:17+0100\n"
+"POT-Creation-Date: 2016-01-17 15:01+0100\n"
 "PO-Revision-Date: 2014-02-12 15:01+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -712,76 +712,77 @@ msgstr ""
 msgid "creating directory %s\n"
 msgstr "kreiĝas dosierujo %s\n"
 
-#: wcd.c:2787 wcd.c:2827 wcd.c:2842 wcd.c:2910 wcd.c:2979 wcd.c:3461 wcd.c:3480
+#: wcd.c:2795 wcd.c:2835 wcd.c:2850 wcd.c:2918 wcd.c:2987 wcd.c:3469
+#: wcd.c:3488
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Valoro de ĉirkaŭaĵa variablo %s tro longas.\n"
 
-#: wcd.c:2816
+#: wcd.c:2824
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Malsukcesis agordi ĉirkaŭaĵan variablon TERM: %s\n"
 
-#: wcd.c:2874 wcd.c:2903
+#: wcd.c:2882 wcd.c:2911
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Cirkaŭaĵaj variabloj HOME kaj WCDHOME ne agordiĝis.\n"
 
-#: wcd.c:3088
+#: wcd.c:3096
 msgid "HOME is not defined\n"
 msgstr "HOME ne havas valoron\n"
 
-#: wcd.c:3092
+#: wcd.c:3100
 msgid "WCDHOME is not defined\n"
 msgstr "WCDHOME ne havas valoron\n"
 
-#: wcd.c:3096
+#: wcd.c:3104
 msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN ne havas valoron\n"
 
-#: wcd.c:3121
+#: wcd.c:3129
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Grafika moduso nur subtenatas en interfaco kiu baziĝas sur 'curses'.\n"
 
-#: wcd.c:3394
+#: wcd.c:3402
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "Aldoniĝis alinomo %s al dosiero %s\n"
 
-#: wcd.c:3493
+#: wcd.c:3501
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Ne eblas legi dosieron %s aŭ %s\n"
 
-#: wcd.c:3643
+#: wcd.c:3651
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "WCDSCAN-dosierujo {%s}\n"
 
-#: wcd.c:3645
+#: wcd.c:3653
 #, c-format
 msgid "banning {%s}\n"
 msgstr "esceptiĝas {%s}\n"
 
-#: wcd.c:3647
+#: wcd.c:3655
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "ekskludiĝas {%s}\n"
 
-#: wcd.c:3649
+#: wcd.c:3657
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "filtriĝas {%s}\n"
 
-#: wcd.c:3917
+#: wcd.c:3925
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Ne troviĝas dosierujo kiu kongruas kun %s\n"
 
-#: wcd.c:3918
+#: wcd.c:3926
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Eble necesas reskani la diskon, aŭ la pado esceptiĝis.\n"
 
-#: wcd.c:4085
+#: wcd.c:4093
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Ne eblas ŝanĝi al %s\n"
