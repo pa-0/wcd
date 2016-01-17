@@ -515,6 +515,9 @@ $(BIN): $(OBJS1)
 %.o: %.c
 	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(DEFS) -c $< -o $@
 
+wcd.o: wcd.c wcd.h version.mk
+	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(DEFS) -c $< -o $@
+
 %.o: c3po/%.c
 	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(DEFS) -c $< -o $@
 
