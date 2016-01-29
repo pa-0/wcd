@@ -1,7 +1,7 @@
 #
 #   Copyright information
 #
-#	Copyright (C) 2009-2015 Erwin Waterlander
+#	Copyright (C) 2009-2016 Erwin Waterlander
 #	Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -114,9 +114,11 @@ NLSSUFFIX	= -nls
 endif
 DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 
-MANPOTFILE      = man/man1/wcd-man.pot
-MANPOFILES      = $(wildcard man/*/man1/wcd.po)
-PODFILES	= $(patsubst %.po,%.pod,$(MANPOFILES))
+ifdef ENABLE_NLS
+MANPOTFILE      = po-man/wcd-man.pot
+MANPOFILES      = $(wildcard po-man/*.po)
+PODFILES	= $(patsubst po-man/%.po,man/%/man1/wcd.pod,$(MANPOFILES))
+endif
 PODFILES_ALL	= man/man1/wcd.pod $(PODFILES)
 MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
 TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
@@ -525,7 +527,7 @@ wcd.o: wcd.c wcd.h version.mk
 	ps2pdf $< $@
 
 $(MANPOTFILE) : man/man1/wcd.pod
-	$(MAKE) -C man/man1 $(notdir $@)
+	$(MAKE) -C man/man1 ../../po-man/$(notdir $@)
 
 #  WARNING: Backward-incompatibility since GNU make 3.82.
 #  The pattern-specific variables and pattern rules are now applied in the
@@ -541,9 +543,9 @@ po/%.po : $(POT)
 	touch $@
 
 %.po : man/man1/wcd.pod
-	$(MAKE) -C man/man1 $(subst man/,../,$@)
+	$(MAKE) -C man/man1 $(subst po-man/,../../po-man/,$@)
 
-%.pod : %.po
+man/%/man1/wcd.pod : po-man/%.po
 	$(MAKE) -C man/man1 $(subst man/,../,$@)
 
 # Empty recipe to break circular dependency.
@@ -652,7 +654,7 @@ maintainer-clean: distclean
 	rm -f man/man1/*.1
 	rm -f man/man1/*.txt
 	rm -f man/man1/*.$(HTMLEXT)
-	rm -f man/man1/dos2unix-man.pot
+	rm -f po-man/wcd-man.pot
 	rm -f man/*/man1/*.1
 	rm -f man/*/man1/*.txt
 	rm -f man/*/man1/*.pod

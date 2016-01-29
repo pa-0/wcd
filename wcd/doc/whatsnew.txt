@@ -1,4 +1,4 @@
-5.3.2-beta1 2016-01-17
+5.3.2-beta2 2016-01-29
   - Fixed printing of East-Asian text on Windows with an East-Asian regional
     setting.
   - src/Makefile:
@@ -8,11 +8,15 @@
     * Use GNU standard variables INSTALL_PROGRAM and INSTALL_DATA for
       installation.
     * Update for msys1/2 to avoid need for msys specifc makefiles.
+    * Don't install international man pages when ENABLE_NLS is empty.
   - msys/Makefile: Deleted.
   - msys2/Makefile: Deleted.
   - win64*/Makefile: Use normal 'gcc' instead of cross-compiler
     (x86_64-w64-mingw32-gcc).
-
+  - man/*/man1/dos2unix.po: Moved all manual .po file to directory
+    po-man/. The .po files now have their original name.
+  - Makefile, man/man1/Makefile: Build international manuals from
+    the .po files in folder po-man/.
 
 2015-12-21
   - Moved wcd source repository from Subversion to Git. To clone type:

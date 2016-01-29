@@ -3,7 +3,7 @@
 #   Copyright information
 #
 #	Copyright (C) 2008-2009 Jari Aalto
-#	Copyright (C) 2010-2014 Erwin Waterlander
+#	Copyright (C) 2010-2016 Erwin Waterlander
 #
 #   License
 #
@@ -49,10 +49,12 @@ POFILES = $(wildcard ../*/man1/wcd.po)
 PODFILES = $(patsubst %.po,%.pod,$(POFILES))
 MAN_OBJECTS = wcd.1 $(patsubst %.pod,%.1,$(PODFILES))
 
-all: $(MAN_OBJECTS) wcd-man.pot
+MKDIR = mkdir
+
+all: $(MAN_OBJECTS) ../../po-man/wcd-man.pot
 
 
-wcd-man.pot : wcd.pod
+../../po-man/wcd-man.pot : wcd.pod
 	po4a-updatepo -f pod -m $< -p $@ --msgmerge-opt --no-wrap
 
 %.po : wcd.pod
@@ -62,7 +64,8 @@ wcd-man.pot : wcd.pod
 
 # Create pod files from po.
 # Fix problem that =encoding is before =pod command.
-%.pod : %.po
+../%/man1/wcd.pod : ../../po-man/%.po
+	$(MKDIR) -p $(dir $@)
 	po4a-translate -f pod -m wcd.pod -p $< > $@ -k 30
 	perl -ni.bak -e 'print unless /=encoding UTF-8/' $@
 	perl -pli.bak -e 's/=pod/=pod\n\n=encoding UTF-8/' $@
@@ -74,7 +77,7 @@ wcd.pod : ;
 	# make target - create manual page from a *.pod page
 	podchecker $<
 	$(POD2MAN) $(POD2MAN_FLAGS) \
-                --utf8 \
+		--utf8 \
 		--center="$(PODCENTER)" \
 		--name="$(PACKAGE)" \
 		--section="$(MANSECT)" \
