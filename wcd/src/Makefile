@@ -155,8 +155,7 @@ endif
 
 ZIPOBJ		= bin/$(BIN) \
 		  share/man/man1/$(PACKAGE).1 \
-		  share/man/*/man1/$(PACKAGE).1 \
-		  share/doc/$(docsubdir) \
+		  share/doc/$(docsubdir)/*.* \
 		  $(ZIPOBJ_EXTRA)
 
 INSTALL_TARGETS = install-bin install-man install-doc
@@ -164,6 +163,8 @@ INSTALL_TARGETS = install-bin install-man install-doc
 ifdef ENABLE_NLS
 	INSTALL_TARGETS += install-mo
 	ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
+	ZIPOBJ += share/man/*/man1/$(PACKAGE).1
+	ZIPOBJ += share/doc/$(docsubdir)/*/*
 endif
 
 ifdef ENABLE_NLS
@@ -590,7 +591,7 @@ getpo:
 	rsync -Lrtvz  translationproject.org::tp/latest/wcd/  po/incoming/
 
 getpoman:
-	rsync -Lrtvz  translationproject.org::tp/latest/wcd-man/  man/incoming/
+	rsync -Lrtvz  translationproject.org::tp/latest/wcd-man/  po-man/incoming/
 
 %.mo : %.po
 	msgfmt -c $< -o $@
@@ -688,6 +689,9 @@ install-doc: $(DOCFILES)
 	@echo "-- target: install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
+	$(foreach pdffile, $(wildcard man/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir) ;)
+	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir) ;)
+ifdef ENABLE_NLS
 	# Install translated manuals when they have been generated.
 	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
 	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(INSTALL_DATA) $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
@@ -695,17 +699,18 @@ install-doc: $(DOCFILES)
 	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(INSTALL_DATA) $(htmlfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
 	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
 	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
-	$(foreach pdffile, $(wildcard man/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir) ;)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
-	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir) ;)
+endif
 
 install-man: $(INSTALL_OBJS_MAN1) $(MANFILES) $(MANPOTFILE)
 	@echo "-- target: install-man"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
 	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(DESTDIR)$(man1dir)
+ifdef ENABLE_NLS
 	$(foreach manfile, $(MANFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
 	$(foreach manfile, $(MANFILES), $(INSTALL_DATA) -m 644 $(manfile) $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
+endif
 
 install-bin: $(BIN)
 	@echo "-- target: install-bin"
@@ -717,10 +722,11 @@ install: $(INSTALL_TARGETS)
 uninstall:
 	@echo "-- target: uninstall"
 	-rm -f $(DESTDIR)$(bindir)/$(BIN)
-ifdef ENABLE_NLS
-	$(foreach mofile, $(MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
-endif
 	-rm -f $(DESTDIR)$(mandir)/man1/$(PACKAGE).1
 	-rm -rf $(DESTDIR)$(docdir)
+ifdef ENABLE_NLS
+	$(foreach mofile, $(MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach manfile, $(MANFILES), rm -f $(DESTDIR)$(datarootdir)/$(manfile) ;)
+endif
 
 # End of file
