@@ -43,7 +43,7 @@ dist:
 # Create pgp signature. Required for Debian Linux.
 # See http://narfation.org/2013/06/23/signed-upstream-tarballs-in-debian
 pgpsign:
-	cd ..; gpg --detach-sign --armor ${RELEASE_DIR}.tar.gz
+	cd ..; gpg --detach-sign --armor wcd-${VERSION}.tar.gz
 
 # Send the key tp HKP/SKS keyserver.
 # You might want to add this to receive kes easily:
