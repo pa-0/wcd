@@ -1,6 +1,6 @@
 #  Copyright and License
 #
-#      Copyright (C) 1997-2015 Erwin Waterlander
+#      Copyright (C) 1997-2016 Erwin Waterlander
 #      Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -417,6 +417,10 @@ Use colors in graphical mode.
 
 Name the current path with I<ALIAS>. Wcd places the current path with alias
 I<ALIAS> in the alias file. Aliases are case sensitive.
+
+=item B<-ls>
+
+Show the name of the alias file, and list all the aliases.
 
 =item B<-m DIR>
 

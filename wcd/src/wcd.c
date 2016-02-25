@@ -2099,35 +2099,32 @@ void scanaliasfile(char *org_dir, char *filename,
 #endif
 
    /* open treedata-file */
-   if  ((infile = wcd_fopen(filename,"r",1)) != NULL)
-   {
+   if  ((infile = wcd_fopen(filename,"r",1)) != NULL) {
 
-      while (!feof(infile) && !ferror(infile))
-      {
+      while (!feof(infile) && !ferror(infile)) {
          int len;
 
-         if(fscanf(infile,"%s",alias)==1)
-         {
+         if(fscanf(infile,"%s",alias)==1) {
 
-         /* skip spaces between alias and path */
-         while ((line[0]=(char)fgetc(infile)) == ' '){};
+            /* skip spaces between alias and path */
+            while ((line[0]=(char)fgetc(infile)) == ' '){};
 
-         /* read a line */
-         len = wcd_getline(line+1,DD_MAXPATH,infile,filename,&line_nr);
-         ++len;
-         ++line_nr;
+            /* read a line */
+            len = wcd_getline(line+1,DD_MAXPATH,infile,filename,&line_nr);
+            ++len;
+            ++line_nr;
 
-         if (len > 0 )
-         /* Only a perfect match counts, case sensitive */
-            if  ((strcmp(alias,dir)==0) &&
-                 (check_double_match(line,pm)==0) /* &&
-                 (check_filter(line,filter)==0) */ )
-               {
-                  if(wildOnly)
-                     addToNamesetArray(textNew(line),wm);
-                  else
-                     addToNamesetArray(textNew(line),pm);
-               }
+            if (len > 0 )
+            /* Only a perfect match counts, case sensitive */
+               if  ((strcmp(alias,dir)==0) &&
+                    (check_double_match(line,pm)==0) /* &&
+                    (check_filter(line,filter)==0) */ )
+                  {
+                     if(wildOnly)
+                        addToNamesetArray(textNew(line),wm);
+                     else
+                        addToNamesetArray(textNew(line),pm);
+                  }
          }
       }   /* while (!feof(infile) && !ferror(infile)) */
       if (ferror(infile)) {
@@ -2135,6 +2132,47 @@ void scanaliasfile(char *org_dir, char *filename,
       }
 
    wcd_fclose(infile, filename, "r", "scanaliasfile: ");
+   }
+}
+/********************************************************************
+ *
+ *     list_alias_file(char *filename);
+ *
+ *
+ ********************************************************************/
+
+void list_alias_file(char *filename)
+{
+   FILE *infile;
+   char line[DD_MAXPATH];
+   char alias[256];
+   int line_nr=1;
+
+   /* open treedata-file */
+   if  ((infile = wcd_fopen(filename,"r",1)) != NULL) {
+
+      while (!feof(infile) && !ferror(infile)) {
+         int len;
+
+         if(fscanf(infile,"%s",alias)==1) {
+
+            /* skip spaces between alias and path */
+            while ((line[0]=(char)fgetc(infile)) == ' '){};
+
+            /* read a line */
+            len = wcd_getline(line+1,DD_MAXPATH,infile,filename,&line_nr);
+            ++len;
+            ++line_nr;
+
+            if (len > 0 )
+               wcd_printf("%s\t%s\n",alias,line);
+         }
+      }   /* while (!feof(infile) && !ferror(infile)) */
+      if (ferror(infile)) {
+        wcd_read_error(filename);
+      }
+
+   wcd_fclose(infile, filename, "r", "list_alias_file: ");
    }
 }
 /********************************************************************
@@ -2225,6 +2263,7 @@ void print_help(void)
    printf(_("  -k,  --keep-paths       Keep paths\n"));
    printf(_("  -K,  --color            colors\n"));
    printf(_("  -l ALIAS                aLias current directory\n"));
+   printf(_("  -ls                     List the aliases\n"));
    printf(_("  -L,  --license          show software License\n"));
    printf(_("  -m DIR                  Make DIR, add to treefile\n"));
    printf(_("  -M DIR                  Make DIR, add to extra treefile\n"));
@@ -3089,6 +3128,18 @@ int main(int argc,char** argv)
             scan_mk_rm = 1;
             break;
          case 'l':
+            if (argv[i][2] == 's') {
+                print_msg("");
+                wcd_printf(_("aliasfile: %s\n"),aliasfile);
+               list_alias_file(aliasfile);
+#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)       /* empty wcd.go file */
+               empty_wcdgo(go_file,use_GoScript,verbose);
+#endif
+#ifdef WCD_DOSBASH     /* empty wcd.go file */
+               empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
+#endif
+               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+            }
             break;
          case 'v':
             verbose = 1;
@@ -3396,10 +3447,16 @@ int main(int argc,char** argv)
                /* open the treedata file */
                if  ((outfile = wcd_fopen(aliasfile,"a",0)) != NULL)
                {
+#ifdef WCD_UTF16
+                  wcstoutf8(tmp2,wargv[i],sizeof(tmp2));
+#else
+                  strncpy(tmp2,argv[i],sizeof(tmp2));
+#endif
                   wcd_fixpath(tmp,sizeof(tmp)) ;
                   rmDriveLetter(tmp,&use_HOME);
-                  wcd_fprintf(outfile,"%s %s\n",argv[i],tmp);
-                  print_msg(_("%s added to aliasfile %s\n"),tmp,aliasfile);
+                  wcd_fprintf(outfile,"%s %s\n",tmp2,tmp);
+                  print_msg("");
+                  wcd_printf(_("%s added to aliasfile %s\n"),tmp,aliasfile);
                   wcd_fclose(outfile, aliasfile, "w", "main: ");
                }
             }
