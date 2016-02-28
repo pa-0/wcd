@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-25 22:46+0100\n"
+"POT-Creation-Date: 2016-02-28 23:24+0100\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -72,7 +72,7 @@ msgstr "%s no es un directorio.\n"
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "Favor de esperar. Explorando el disco. Construyendo el archivo %s de árbol de rutas para %s\n"
 
-#: wcd.c:1218 wcd.c:2519 wcd.c:2542 wcd.c:2621
+#: wcd.c:1218 wcd.c:2548 wcd.c:2571 wcd.c:2650
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Escribiendo al archivo \"%s\"\n"
@@ -125,7 +125,7 @@ msgstr "archivo: %s, línea: %d,"
 msgid " length: %d\n"
 msgstr " longitud: %d\n"
 
-#: wcd.c:2230
+#: wcd.c:2259
 #, c-format
 msgid ""
 "Usage: wcd [options] [directory]\n"
@@ -134,12 +134,12 @@ msgstr ""
 "Uso: wcd [opciones] [directorio]\n"
 "\n"
 
-#: wcd.c:2231
+#: wcd.c:2260
 #, c-format
 msgid "directory:  Name of directory to change to.\n"
 msgstr "directorio: Nombre del directorio al que desea cambiarse.\n"
 
-#: wcd.c:2232
+#: wcd.c:2261
 #, c-format
 msgid ""
 "            Wildcards *, ? and [SET] are supported.\n"
@@ -148,312 +148,312 @@ msgstr ""
 "            Se pueden emplear los comodines *, ? y [conjunto]\n"
 "\n"
 
-#: wcd.c:2234
+#: wcd.c:2263
 #, c-format
 msgid "options:\n"
 msgstr "opciones:\n"
 
-#: wcd.c:2235
+#: wcd.c:2264
 #, c-format
 msgid "  -a                      Add current path to treefile\n"
 msgstr "  -a                      Añade la ruta actual al archivo de árbol\n"
 
-#: wcd.c:2236
+#: wcd.c:2265
 #, c-format
 msgid "  -aa                     Add current and all parent paths to treefile\n"
 msgstr "  -aa                     Añade la ruta actual y sus padres al archivo de árbol\n"
 
-#: wcd.c:2237
+#: wcd.c:2266
 #, c-format
 msgid "  -A PATH                 Add tree from PATH\n"
 msgstr "  -A RUTA                 Añade árbol desde RUTA\n"
 
-#: wcd.c:2238
+#: wcd.c:2267
 #, c-format
 msgid "  -b                      Ban current path\n"
 msgstr "  -b                      Prohíbe la ruta actual\n"
 
-#: wcd.c:2239
+#: wcd.c:2268
 #, c-format
 msgid "  -c,  --direct-cd        direct CD mode\n"
 msgstr "  -c,  --direct-cd        Usa modo CD directo\n"
 
-#: wcd.c:2240
+#: wcd.c:2269
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
 msgstr "  -d UNIDAD               Establece la UNIDAD para almacenar los archivos de la pila y el script go (DOS)\n"
 
-#: wcd.c:2241
+#: wcd.c:2270
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
 msgstr "  -e                      Añade la ruta actual al archivo extra de árbol\n"
 
-#: wcd.c:2242
+#: wcd.c:2271
 #, c-format
 msgid "  -ee                     add current and all parent paths to Extra treefile\n"
 msgstr "  -ee                     Añade la ruta actual y sus padres al archivo extra de árbol\n"
 
-#: wcd.c:2243
+#: wcd.c:2272
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
 msgstr "  -E RUTA                 Añade árbol desde RUTA al archivo extra del árbol\n"
 
-#: wcd.c:2244
+#: wcd.c:2273
 #, c-format
 msgid "  -f FILE                 use extra treeFile\n"
 msgstr "  -f ARCHIVO              Usa archivo extra de árbol\n"
 
-#: wcd.c:2245
+#: wcd.c:2274
 #, c-format
 msgid "  +f FILE                 add extra treeFile\n"
 msgstr "  +f ARCHIVO              Añade archivo extra de árbol\n"
 
-#: wcd.c:2246
+#: wcd.c:2275
 #, c-format
 msgid "  -g                      Graphics\n"
 msgstr "  -g                      Ambiente gráfico\n"
 
-#: wcd.c:2247
+#: wcd.c:2276
 #, c-format
 msgid "  -gd                     Graphics, dump tree\n"
 msgstr "  -gd                     Ambiente gráfico, impresión del árbol\n"
 
-#: wcd.c:2248
+#: wcd.c:2277
 #, c-format
 msgid "  -G PATH                 set PATH Go-script\n"
 msgstr "  -G RUTA                 Establece la RUTA del script go\n"
 
-#: wcd.c:2249
+#: wcd.c:2278
 #, c-format
 msgid "  -GN, --no-go-script     No Go-script\n"
 msgstr "  -GN, --no-go-script     No emplees el script go\n"
 
-#: wcd.c:2250
+#: wcd.c:2279
 #, c-format
 msgid "  -h,  --help             show this Help\n"
 msgstr "  -h,  --help             Despliega esta ayuda\n"
 
-#: wcd.c:2253
+#: wcd.c:2282
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
 msgstr "  -i,  --ignore-case      Ignora las diferencias entre mayúsculas y minúsculas (por defecto)\n"
 
-#: wcd.c:2254
+#: wcd.c:2283
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case\n"
 msgstr "  +i,  --no-ignore-case   Distingue entre mayúsculas y minúsculas\n"
 
-#: wcd.c:2256
+#: wcd.c:2285
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case\n"
 msgstr "  -i,  --ignore-case      Ignora las diferencias entre mayúsculas y minúsculas\n"
 
-#: wcd.c:2257
+#: wcd.c:2286
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case (default)\n"
 msgstr "  +i,  --no-ignore-case   Distingue entre mayúsculas y minúsculas (por defecto)\n"
 
-#: wcd.c:2260
+#: wcd.c:2289
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
 msgstr "  -I,  --ignore-diacritics     Ignora signos diacríticos\n"
 
-#: wcd.c:2261
+#: wcd.c:2290
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
 msgstr "  +I,  --no-ignore-diacritics  contempla signos diacríticos (por defecto)\n"
 
-#: wcd.c:2262
+#: wcd.c:2291
 #, c-format
 msgid "  -j,  --just-go          Just go mode\n"
 msgstr "  -j,  --just-go          Modo directo\n"
 
-#: wcd.c:2263
+#: wcd.c:2292
 #, c-format
 msgid "  -k,  --keep-paths       Keep paths\n"
 msgstr "  -k,  --keep-paths       Retén las rutas\n"
 
-#: wcd.c:2264
+#: wcd.c:2293
 #, c-format
 msgid "  -K,  --color            colors\n"
 msgstr "  -K,  --color            Colores\n"
 
-#: wcd.c:2265
+#: wcd.c:2294
 #, c-format
 msgid "  -l ALIAS                aLias current directory\n"
 msgstr "  -l ALIAS                Crea un ALIAS para el directorio actual\n"
 
-#: wcd.c:2266
+#: wcd.c:2295
 #, fuzzy, c-format
 msgid "  -ls                     List the aliases\n"
 msgstr "  -g                      Ambiente gráfico\n"
 
-#: wcd.c:2267
+#: wcd.c:2296
 #, c-format
 msgid "  -L,  --license          show software License\n"
 msgstr "  -L,  --license          Imprime la Licencia del Programa\n"
 
-#: wcd.c:2268
+#: wcd.c:2297
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
 msgstr "  -m DIRECTORIO           Crea DIRECTORIO, y añádelo al archivo de árbol\n"
 
-#: wcd.c:2269
+#: wcd.c:2298
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
 msgstr "  -M DIRECTORIO           Crea DIRECTORIO, y añádelo al archivo extra de árbol\n"
 
-#: wcd.c:2270
+#: wcd.c:2299
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
 msgstr "  -n RUTA                 Emplea archivo de árbol relativo en RUTA\n"
 
-#: wcd.c:2271
+#: wcd.c:2300
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
 msgstr "  +n RUTA                 Añade archivo de árbol relativo en RUTA\n"
 
-#: wcd.c:2272
+#: wcd.c:2301
 #, c-format
 msgid "  -N,  --numbers          use Numbers\n"
 msgstr "  -N,  --numbers          Emplea números\n"
 
-#: wcd.c:2273
+#: wcd.c:2302
 #, c-format
 msgid "  -o                      use stdOut\n"
 msgstr "  -o                      Emplea la salida estándar (stdout)\n"
 
-#: wcd.c:2274
+#: wcd.c:2303
 #, c-format
 msgid "  -od, --to-stdout        dump matches\n"
 msgstr "  -od, --to-stdout        Imprime correspondencias\n"
 
-#: wcd.c:2275
+#: wcd.c:2304
 #, c-format
 msgid "  -q,  --quiet            Quieter operation\n"
 msgstr "  -q,  --quiet            Operación silenciosa\n"
 
-#: wcd.c:2276
+#: wcd.c:2305
 #, c-format
 msgid "  -r DIR                  Remove DIR\n"
 msgstr "  -r DIRECTORIO           Remueve DIRECTORIO\n"
 
-#: wcd.c:2277
+#: wcd.c:2306
 #, c-format
 msgid "  -rmtree DIR             Remove DIR recursive\n"
 msgstr "  -rmtree DIR.            Remueve recursivamente desde DIRECTORIO\n"
 
-#: wcd.c:2278
+#: wcd.c:2307
 #, c-format
 msgid "  -s                      Scan disk from $HOME\n"
 msgstr "  -s                      Explora disco desde $HOME\n"
 
-#: wcd.c:2279
+#: wcd.c:2308
 #, c-format
 msgid "  -S PATH                 Scan disk from PATH\n"
 msgstr "  -S RUTA                 Explora disco desde RUTA\n"
 
-#: wcd.c:2280
+#: wcd.c:2309
 #, c-format
 msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
 msgstr "  +S RUTA                 Explora disco desde RUTA, crea archivo de árbol relativo\n"
 
-#: wcd.c:2281
+#: wcd.c:2310
 #, c-format
 msgid "  -t                      don't strip /tmp_mnt from paths\n"
 msgstr "  -t                      No remuevas /tmp_mnt de las rutas\n"
 
-#: wcd.c:2282
+#: wcd.c:2311
 #, c-format
 msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
 msgstr "  -T,  --ascii-tree       Dibuja el árbol con caracteres ASCII\n"
 
-#: wcd.c:2283
+#: wcd.c:2312
 #, c-format
 msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
 msgstr "  -Ta, --alt-tree-nav     Navegación de árbol alternativa\n"
 
-#: wcd.c:2284
+#: wcd.c:2313
 #, c-format
 msgid "  -TC, --center-tree      Centered tree view\n"
 msgstr "  -TC, --center-tree      Vista centrada en árbol\n"
 
-#: wcd.c:2285
+#: wcd.c:2314
 #, c-format
 msgid "  -Tc, --compact-tree     Compact tree\n"
 msgstr "  -Tc, --compact-tree     Árbol compacto\n"
 
-#: wcd.c:2286
+#: wcd.c:2315
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
 msgstr "  -Td, --cjk-width        soporte para fuentes antiguas CJK\n"
 
-#: wcd.c:2287
+#: wcd.c:2316
 #, c-format
 msgid "  -u USER                 use USER's treefile\n"
 msgstr "  -u USUARIO              Emplea archivo de árbol de USUARIO\n"
 
-#: wcd.c:2288
+#: wcd.c:2317
 #, c-format
 msgid "  +u USER                 add USER's treefile\n"
 msgstr "  +u USUARIO              Añade archivo de árbol de USUARIO\n"
 
-#: wcd.c:2289
+#: wcd.c:2318
 #, c-format
 msgid "  -v,  --verbose          Verbose operation\n"
 msgstr "  -v,  --verbose          Imprime mensajes de información\n"
 
-#: wcd.c:2290
+#: wcd.c:2319
 #, c-format
 msgid "  -V,  --version          show Version info\n"
 msgstr "  -V,  --version          Imprime información sobre la versión\n"
 
-#: wcd.c:2291
+#: wcd.c:2320
 #, c-format
 msgid "  -w,  --wild-match-only  Wild matching only\n"
 msgstr "  -w,  --wild-match-only  Emplea sólo concordancias inexactas\n"
 
-#: wcd.c:2292
+#: wcd.c:2321
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
 msgstr "  -x RUTA                 Excluye RUTA durante la exploración del disco\n"
 
-#: wcd.c:2293
+#: wcd.c:2322
 #, c-format
 msgid "  -xf FILE                eXclude paths from FILE\n"
 msgstr "  -xf ARCHIVO             Excluye rutas contenidas en ARCHIVO\n"
 
-#: wcd.c:2294
+#: wcd.c:2323
 #, c-format
 msgid "  -y,  --assume-yes       assume Yes on all queries\n"
 msgstr "  -y,  --assume-yes       suprime las confirmaciones suponiendo 'Sí'\n"
 
-#: wcd.c:2295
+#: wcd.c:2324
 #, c-format
 msgid "  -z NUMBER               set max stack siZe\n"
 msgstr "  -z NÚMERO               Establece el tamaño máximo para la pila\n"
 
-#: wcd.c:2296
+#: wcd.c:2325
 #, c-format
 msgid "  -[NUMBER]               push dir (NUMBER times)\n"
 msgstr "  -[NÚMERO]               Mete directorio a la pila (NÚMERO veces)\n"
 
-#: wcd.c:2297
+#: wcd.c:2326
 #, c-format
 msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
 msgstr "  +[NÚMERO]               Saca directorio de la pila (NÚMERO veces)\n"
 
-#: wcd.c:2298
+#: wcd.c:2327
 #, c-format
 msgid "  =                       show stack\n"
 msgstr "  =                       Muestra la pila\n"
 
-#: wcd.c:2307 wcd.c:2436
+#: wcd.c:2336 wcd.c:2465
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
 
-#: wcd.c:2308
+#: wcd.c:2337
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -462,182 +462,182 @@ msgstr ""
 "Chdir para Dos y Unix.\n"
 "\n"
 
-#: wcd.c:2312
+#: wcd.c:2341
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "Versión DOS de 16 bit (WATCOMC).\n"
 
-#: wcd.c:2314
+#: wcd.c:2343
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "Versión DOS de 16 bit (TURBOC).\n"
 
-#: wcd.c:2316
+#: wcd.c:2345
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "Versión DOS de 32 bit (DJGPP).\n"
 
-#: wcd.c:2318
+#: wcd.c:2347
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "Versión DOS de 32 bit (WATCOMC).\n"
 
-#: wcd.c:2325
+#: wcd.c:2354
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
 msgstr "Versión para Win64 (MSVC %d).\n"
 
-#: wcd.c:2327
+#: wcd.c:2356
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
 msgstr "Versión para Win64 (MinGW-w64).\n"
 
-#: wcd.c:2331
+#: wcd.c:2360
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
 msgstr "Versión para Win32 (WATCOMC).\n"
 
-#: wcd.c:2333
+#: wcd.c:2362
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
 msgstr "Versión para Win32 (MSVC %d).\n"
 
-#: wcd.c:2335
+#: wcd.c:2364
 #, c-format
 msgid "Win32 version (MinGW-w64).\n"
 msgstr "Versión para Win32 (MinGW-w64).\n"
 
-#: wcd.c:2337
+#: wcd.c:2366
 #, c-format
 msgid "Win32 version (MinGW).\n"
 msgstr "Versión para Win32 (MinGW).\n"
 
-#: wcd.c:2344
+#: wcd.c:2373
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr "Esta versión es para la implementación MSYS y WinZsh.\n"
 
-#: wcd.c:2346
+#: wcd.c:2375
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr "Esta versión es para Windows PowerShell.\n"
 
-#: wcd.c:2348
+#: wcd.c:2377
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
 msgstr "Esta versión es para el Símbolo del sistema de Windows (cmd.exe).\n"
 
-#: wcd.c:2353
+#: wcd.c:2382
 #, c-format
 msgid "OS/2 version"
 msgstr "Versión para OS/2"
 
-#: wcd.c:2364
+#: wcd.c:2393
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr "Esta versión es para MSYS nativos.\n"
 
-#: wcd.c:2367
+#: wcd.c:2396
 #, c-format
 msgid "Cygwin version.\n"
 msgstr "Versión para Cygwin.\n"
 
-#: wcd.c:2370
+#: wcd.c:2399
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Esta versión es para DJGPP DOS bash.\n"
 
-#: wcd.c:2373
+#: wcd.c:2402
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Esta versión es para OS/2 bash.\n"
 
-#: wcd.c:2376
+#: wcd.c:2405
 #, c-format
 msgid "Interface: "
 msgstr "Interfase: "
 
-#: wcd.c:2382
+#: wcd.c:2411
 #, c-format
 msgid "ncurses version %s.%d\n"
 msgstr "versión ncurses %s.%d\n"
 
-#: wcd.c:2385
+#: wcd.c:2414
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr "PDCurses versión %d\n"
 
-#: wcd.c:2387
+#: wcd.c:2416
 #, c-format
 msgid "curses\n"
 msgstr "curses\n"
 
-#: wcd.c:2396
+#: wcd.c:2425
 #, c-format
 msgid "stdout\n"
 msgstr "stdout\n"
 
-#: wcd.c:2400
+#: wcd.c:2429
 #, c-format
 msgid "Native language support included.\n"
 msgstr "Soporte de lenguaje nativo incluido.\n"
 
-#: wcd.c:2401
+#: wcd.c:2430
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr "LOCALEDIR=%s\n"
 
-#: wcd.c:2403
+#: wcd.c:2432
 #, c-format
 msgid "No native language support included.\n"
 msgstr "No incluye soporte de lenguaje nativo.\n"
 
-#: wcd.c:2406
+#: wcd.c:2435
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
 msgstr "Localización actual emplea codificación CP%u.\n"
 
-#: wcd.c:2408
+#: wcd.c:2437
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr "Localización actual emplea codificación %s.\n"
 
-#: wcd.c:2411
+#: wcd.c:2440
 #, c-format
 msgid "With Unicode support.\n"
 msgstr "Con soporte para Unicode.\n"
 
-#: wcd.c:2416
+#: wcd.c:2445
 #, c-format
 msgid "  Euro symbol: "
 msgstr "  Símbolo de Euro: "
 
-#: wcd.c:2418
+#: wcd.c:2447
 #, c-format
 msgid "  Chinese characters: "
 msgstr "  Caracteres chinos: "
 
-#: wcd.c:2422
+#: wcd.c:2451
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr "Sin soporte para Unicode.\n"
 
-#: wcd.c:2425
+#: wcd.c:2454
 #, c-format
 msgid "With Unicode normalization.\n"
 msgstr "Con normalización Unicode.\n"
 
-#: wcd.c:2427
+#: wcd.c:2456
 #, c-format
 msgid "Without Unicode normalization.\n"
 msgstr "Sin normalización Unicode.\n"
 
-#: wcd.c:2430
+#: wcd.c:2459
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Descarga los últimos ejecutables y archivos fuente de:\n"
 
-#: wcd.c:2437
+#: wcd.c:2466
 #, c-format
 msgid ""
 "Copyright (C) 1997-%d Erwin Waterlander\n"
@@ -649,7 +649,7 @@ msgid ""
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
 
-#: wcd.c:2445
+#: wcd.c:2474
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -659,7 +659,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: wcd.c:2451
+#: wcd.c:2480
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -669,7 +669,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: wcd.c:2457
+#: wcd.c:2486
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -679,7 +679,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: wcd.c:2463
+#: wcd.c:2492
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -687,86 +687,86 @@ msgid ""
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 msgstr ""
 
-#: wcd.c:2499
+#: wcd.c:2528
 #, c-format
 msgid "creating directory %s\n"
 msgstr "Creando directorio %s\n"
 
-#: wcd.c:2834 wcd.c:2874 wcd.c:2889 wcd.c:2957 wcd.c:3026 wcd.c:3526 wcd.c:3545
+#: wcd.c:2863 wcd.c:2903 wcd.c:2918 wcd.c:2986 wcd.c:3055 wcd.c:3555 wcd.c:3574
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "El valor de la variable de ambiente %s es demasiado largo.\n"
 
-#: wcd.c:2863
+#: wcd.c:2892
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Error al suprimir la variable de entorno TERM: %s\n"
 
-#: wcd.c:2921 wcd.c:2950
+#: wcd.c:2950 wcd.c:2979
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "La variable de ambiente HOME o WCDHOME no tiene valor.\n"
 
-#: wcd.c:3133
+#: wcd.c:3162
 #, fuzzy, c-format
 msgid "aliasfile: %s\n"
 msgstr "%s se añadió al archivo de alias %s\n"
 
-#: wcd.c:3147
+#: wcd.c:3176
 msgid "HOME is not defined\n"
 msgstr "La variable de entorno HOME no está definida\n"
 
-#: wcd.c:3151
+#: wcd.c:3180
 msgid "WCDHOME is not defined\n"
 msgstr "La variable de entorno WCDHOME no está definida\n"
 
-#: wcd.c:3155
+#: wcd.c:3184
 msgid "WCDSCAN is not defined\n"
 msgstr "La variable de entorno WCDSCAN no está definida\n"
 
-#: wcd.c:3180
+#: wcd.c:3209
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Modo gráfico sólo soportado en wcd con interfase basada en curses.\n"
 
-#: wcd.c:3459
+#: wcd.c:3488
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s se añadió al archivo de alias %s\n"
 
-#: wcd.c:3558
+#: wcd.c:3587
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Imposible leer el archivo %s: %s\n"
 
-#: wcd.c:3708
+#: wcd.c:3737
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "Directorio de WCDSCAN {%s}\n"
 
-#: wcd.c:3710
+#: wcd.c:3739
 #, c-format
 msgid "banning {%s}\n"
 msgstr "prohibiendo {%s}\n"
 
-#: wcd.c:3712
+#: wcd.c:3741
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "excluyendo {%s}\n"
 
-#: wcd.c:3714
+#: wcd.c:3743
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "filtrando {%s}\n"
 
-#: wcd.c:3982
+#: wcd.c:4007
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "No se encontró algún directorio que concordara con %s\n"
 
-#: wcd.c:3983
+#: wcd.c:4008
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Quizá necesite reexplorar el disco o la ruta.\n"
 
-#: wcd.c:4150
+#: wcd.c:4175
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "No puedo cambiar el directorio a %s\n"

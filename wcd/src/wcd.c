@@ -127,7 +127,7 @@ int print_msg(const char *format, ...)
 {
    va_list args;
    int rc;
-   
+
    printf("Wcd: ");
    va_start(args, format);
    rc = vprintf(format, args);
@@ -140,7 +140,7 @@ int print_error(const char *format, ...)
 {
    va_list args;
    int rc;
-   
+
    fprintf(stderr,_("Wcd: error: "));
    va_start(args, format);
    rc = vfprintf(stderr, format, args);
@@ -167,14 +167,14 @@ void wcd_read_error(const char *filename)
  the meantime, before closing the file and you get the disk-full error during
  fprintf(). You may not get the error message during fclose() then. Therefore
  we have to check for errors during writing to file AND when the file is
- closed. 
- */ 
+ closed.
+ */
 int wcd_fprintf(FILE *stream, const char *format, ...)
 {
    va_list args;
    int rc;
    char *errstr;
-   
+
    va_start(args, format);
    rc = vfprintf(stream, format, args);
    va_end(args);
@@ -1090,7 +1090,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 #ifdef _WIN32
          {
             /* On Windows a symbolic directory link is seen as a normal directory
-             * by DD_ISDIREC(). 
+             * by DD_ISDIREC().
              */
             if(wcd_islink(fb.dd_name,quiet))
                wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
@@ -2084,10 +2084,11 @@ void scanaliasfile(char *org_dir, char *filename,
               nameset pm, nameset wm, int wildOnly)
 {
    FILE *infile;
-   char *dir;
+   char *dir, *ptr;
    char line[DD_MAXPATH];
    char alias[256];
    int line_nr=1;
+   size_t j;
 
    dir = org_dir;
 
@@ -2104,28 +2105,37 @@ void scanaliasfile(char *org_dir, char *filename,
       while (!feof(infile) && !ferror(infile)) {
          int len;
 
-         if(fscanf(infile,"%s",alias)==1) {
+         /* skip spaces at the beginning of the line */
+         while ((line[0]=(char)fgetc(infile)) == ' '){};
+         ungetc(line[0], infile);
 
-            /* skip spaces between alias and path */
-            while ((line[0]=(char)fgetc(infile)) == ' '){};
+         /* read a line */
+         len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
+         ++line_nr;
 
-            /* read a line */
-            len = wcd_getline(line+1,DD_MAXPATH,infile,filename,&line_nr);
-            ++len;
-            ++line_nr;
-
-            if (len > 0 )
-            /* Only a perfect match counts, case sensitive */
-               if  ((strcmp(alias,dir)==0) &&
-                    (check_double_match(line,pm)==0) /* &&
-                    (check_filter(line,filter)==0) */ )
-                  {
-                     if(wildOnly)
-                        addToNamesetArray(textNew(line),wm);
-                     else
-                        addToNamesetArray(textNew(line),pm);
-                  }
+         if (len == 0 ) continue;
+         ptr = line;
+         j=0;
+         while ((*ptr != ' ') && (*ptr != '\0') && (j<(sizeof(alias)-1))) {
+            alias[j] = *ptr;
+            ++j;
+            ++ptr;
          }
+         alias[j]='\0';
+         while (*ptr!=' '){++ptr;}; /* alias longer than 256 chars */
+         while (*ptr==' '){++ptr;}; /* skip spaces between alias and dir */
+
+         if (strlen(ptr) > 0 )
+         /* Only a perfect match counts, case sensitive */
+            if  ((strcmp(alias,dir)==0) &&
+                 (check_double_match(line,pm)==0) /* &&
+                 (check_filter(line,filter)==0) */ )
+               {
+                  if(wildOnly)
+                     addToNamesetArray(textNew(ptr),wm);
+                  else
+                     addToNamesetArray(textNew(ptr),pm);
+               }
       }   /* while (!feof(infile) && !ferror(infile)) */
       if (ferror(infile)) {
         wcd_read_error(filename);
@@ -2137,7 +2147,7 @@ void scanaliasfile(char *org_dir, char *filename,
 /********************************************************************
  *
  *     list_alias_file(char *filename);
- *
+ *     List the aliases in alphabetical order.
  *
  ********************************************************************/
 
@@ -2147,32 +2157,51 @@ void list_alias_file(char *filename)
    char line[DD_MAXPATH];
    char alias[256];
    int line_nr=1;
+   size_t i,j;
+   nameset aliaslines;
+   char *ptr;
 
+   aliaslines = namesetNew();
+
+   /* First read all the lines in a nameset so that we can sort it later */
    /* open treedata-file */
    if  ((infile = wcd_fopen(filename,"r",1)) != NULL) {
 
       while (!feof(infile) && !ferror(infile)) {
          int len;
 
-         if(fscanf(infile,"%s",alias)==1) {
+         /* skip spaces at the beginning of the line */
+         while ((line[0]=(char)fgetc(infile)) == ' '){};
+         ungetc(line[0], infile);
 
-            /* skip spaces between alias and path */
-            while ((line[0]=(char)fgetc(infile)) == ' '){};
-
-            /* read a line */
-            len = wcd_getline(line+1,DD_MAXPATH,infile,filename,&line_nr);
-            ++len;
-            ++line_nr;
-
-            if (len > 0 )
-               wcd_printf("%s\t%s\n",alias,line);
-         }
+         /* read a line */
+         len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
+          ++line_nr;
+          if (len > 0 )
+             addToNamesetArray(textNew(line),aliaslines);
       }   /* while (!feof(infile) && !ferror(infile)) */
       if (ferror(infile)) {
         wcd_read_error(filename);
       }
+      wcd_fclose(infile, filename, "r", "list_alias_file: ");
+   }
 
-   wcd_fclose(infile, filename, "r", "list_alias_file: ");
+   sort_list(aliaslines);
+
+   for (i=0;i<aliaslines->size;i++) {
+      ptr = aliaslines->array[i];
+      j=0;
+      while ((*ptr != ' ') && (*ptr != '\0') && (j<(sizeof(alias)-1))) {
+         alias[j] = *ptr;
+         ++j;
+         ++ptr;
+      }
+      alias[j]='\0';
+      while (*ptr!=' '){++ptr;}; /* alias longer than 256 chars */
+      while (*ptr==' '){++ptr;}; /* skip spaces between alias and dir */
+
+      if (strlen(ptr) > 0 )
+         wcd_printf("%s\t%s\n",alias,ptr);
    }
 }
 /********************************************************************
@@ -2854,7 +2883,7 @@ int main(int argc,char** argv)
    /* On Windows TERM is not standardized and may be set to any value.
     * When ncurses does not understand the value of TERM it will exit
     * right away. On Windows (not Cygwin) it is best to not set TERM at all.
-    */ 
+    */
     if (getenv("TERM") != NULL)
     {
         if (putenv("TERM=") != 0)
@@ -3910,11 +3939,8 @@ int main(int argc,char** argv)
       /* graphics? */
       if (graphics & WCD_GRAPH_NORMAL)
       {
-         nameset dirs;
-
-         dirs = namesetNew();
          rootNode = createRootNode();
-         if(dirs != NULL)
+         if(rootNode != NULL)
          {
             if (use_default_treedata)
                buildTreeFromFile(treefile,rootNode,0);
@@ -3932,7 +3958,6 @@ int main(int argc,char** argv)
             setXYTree(rootNode, &graphics);
          }
 
-         freeNameset(dirs, 1);
          if (graphics & WCD_GRAPH_DUMP)
          {
             dumpTree(rootNode, &graphics);

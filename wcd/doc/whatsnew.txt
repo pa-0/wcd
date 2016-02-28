@@ -1,6 +1,6 @@
-5.3.3-beta1 2016-02-25
+5.3.3-beta1 2016-02-28
   - Support Unicode aliases on Windows.
-  - New option -ls: List the aliases. Thanks to Erik.
+  - New option -ls: List the aliases. Thanks to Erik Rijshouwer.
 
 5.3.2 2016-02-18
   - Fixed printing of East-Asian text on Windows with an East-Asian regional
