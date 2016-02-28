@@ -2122,7 +2122,7 @@ void scanaliasfile(char *org_dir, char *filename,
             ++ptr;
          }
          alias[j]='\0';
-         while (*ptr!=' '){++ptr;}; /* alias longer than 256 chars */
+         while ((*ptr!=' ')&&(*ptr!='\0')){++ptr;}; /* alias longer than 256 chars */
          while (*ptr==' '){++ptr;}; /* skip spaces between alias and dir */
 
          if (strlen(ptr) > 0 )
@@ -2197,7 +2197,7 @@ void list_alias_file(char *filename)
          ++ptr;
       }
       alias[j]='\0';
-      while (*ptr!=' '){++ptr;}; /* alias longer than 256 chars */
+      while ((*ptr!=' ')&&(*ptr!='\0')){++ptr;}; /* alias longer than 256 chars */
       while (*ptr==' '){++ptr;}; /* skip spaces between alias and dir */
 
       if (strlen(ptr) > 0 )
