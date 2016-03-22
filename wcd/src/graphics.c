@@ -232,7 +232,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
    static text line = NULL;
    static text tline = NULL;
    dirnode n;
-   size_t i,len,clen;
+   size_t len,clen;
 
    if (d == NULL)
       return(NULL);
@@ -303,7 +303,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
          }
          else
          {
-            for (i=0;i<clen;i++)
+            for (size_t i=0;i<clen;i++)
                tline[i] = ' ';
             tline[clen] = '\0';
             strcat(tline,WCD_OVERDIR);
@@ -334,7 +334,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
             }
             else
             {
-               for (i=0;i<clen;i++)
+               for (size_t i=0;i<clen;i++)
                   tline[i] = ' ';
                tline[clen] = '\0';
                strcat(tline,WCD_MOREDIR);
@@ -342,7 +342,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
          }
          else
          {
-            for (i=0;i<clen;i++)
+            for (size_t i=0;i<clen;i++)
                tline[i] = ' ';
             tline[clen] = '\0';
 
@@ -494,14 +494,14 @@ void dumpTree(dirnode d, const int *graphics_mode)
 
 void setXYTree(dirnode d, const int *graphics_mode)
 {
-   size_t index, len, size;
-   int x;
    static int y;
    dirnode n;
 
 
    if(dirHasSubdirs(d) eq true)
    {
+      int x;
+      size_t index, len, size;
       if (*graphics_mode & WCD_GRAPH_COMPACT) /* compact tree */
       {
          len = str_columns(dirnodeGetName(d));
@@ -581,7 +581,6 @@ void addPath(text path, dirnode d)
    char *s;
    dirnode n,n_up;
    text t;
-   size_t index;
 #if (defined(_WIN32) || defined(__CYGWIN__))
    static char buf[DD_MAXPATH] = "//" ;
 
@@ -603,7 +602,7 @@ void addPath(text path, dirnode d)
 
    if (s != NULL)
    {
-      index = inDirnode(s,d);
+      size_t index = inDirnode(s,d);
       if (index == (size_t) -1)
       {
          n = dirnodeNew(d,NULL,NULL);
@@ -676,7 +675,6 @@ void ssort_dirnode (dirnode* subdirs, int left, int right)
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
  static wchar_t wstr_left[DD_MAXPATH];
  static wchar_t wstr_right[DD_MAXPATH];
- size_t len1,len2;
 #endif
  text t_left, t_right;
 
@@ -690,8 +688,8 @@ void ssort_dirnode (dirnode* subdirs, int left, int right)
    t_left  = (subdirs[left])->name;
    t_right = (subdirs[i])->name;
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-   len1 = MBSTOWCS(wstr_left, t_left, (size_t)DD_MAXPATH);
-   len2 = MBSTOWCS(wstr_right, t_right, (size_t)DD_MAXPATH);
+   size_t len1 = MBSTOWCS(wstr_left, t_left, (size_t)DD_MAXPATH);
+   size_t len2 = MBSTOWCS(wstr_right, t_right, (size_t)DD_MAXPATH);
    if ((len1 == (size_t)(-1)) || (len2 == (size_t)(-1)))
    {
       /* Erroneous multi-byte sequence */
@@ -806,7 +804,6 @@ void buildTreeFromFile(char* filename, dirnode d, int quiet)
 {
    FILE *infile;
    int bomtype, line_nr=1;
-   char line[DD_MAXPATH];
 
    if ((filename == NULL)||(d == NULL))
       return;
@@ -817,6 +814,7 @@ void buildTreeFromFile(char* filename, dirnode d, int quiet)
        while (!feof(infile) && !ferror(infile))  /* parse the file */
        {
           int len;
+          char line[DD_MAXPATH];
 
           len = read_treefile_line(line,DD_MAXPATH,infile,filename,&line_nr, bomtype);
           if (ferror(infile)) return;
@@ -865,7 +863,6 @@ dirnode searchNodeForDir(text path, dirnode d, dirnode rNode)
 {
    char *s;
    dirnode n;
-   size_t index;
    dirnode rootnode;
 #if (defined(_WIN32) || defined(__CYGWIN__))
    static char buf[DD_MAXPATH] = "//" ;
@@ -899,7 +896,7 @@ dirnode searchNodeForDir(text path, dirnode d, dirnode rNode)
 
    if (s != NULL)
    {
-      index = inDirnode(s,d);
+      size_t index = inDirnode(s,d);
       if (index == (size_t) -1)
       {
          return(d);
@@ -1539,8 +1536,6 @@ int wcd_wcswidth(const wchar_t *pwcs, size_t n)
 void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffset)
 {
    wcd_uchar *s;
-   size_t len;
-   int j;
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
@@ -1550,10 +1545,11 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
 
    if (s != NULL)
    {
+      int j;
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-      len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
+      size_t len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
 #else
-      len = strlen((char *)s);
+      size_t len = strlen((char *)s);
 #endif
       wmove(win,y,0);
     /*  if (len == (size_t) -1 )
@@ -1808,7 +1804,7 @@ char *getZoomStackPath(dirnode stack)
 /************************************************************/
 void dataRefresh(int ydiff, int init)
 {
-  int i, yoffset, xo, len;
+  int i, yoffset, len;
   static int xoffset = 0;  /* Horizontal offset in number of columns */
   static int yposition = -1;  /* -1 : not initialized */
   wcd_uchar *s;
@@ -1853,7 +1849,7 @@ void dataRefresh(int ydiff, int init)
   /* len is total nr of colums of current node plus 3 */
   if (len > COLS)
   {
-    xo = len - COLS;
+    int xo = len - COLS;
     if ((xo > xoffset) || (xoffset > (dirnodeGetX(wcd_cwin.curNode)-1)))
     {
        xoffset = xo;
@@ -2128,14 +2124,13 @@ void setFold(dirnode n, c3po_bool f, int *ymax)
  ****************************************************************/
 void setFold_tree(dirnode d, c3po_bool *f)
 {
-   size_t index,size;
    dirnode n;
 
    if(dirnodeHasSubdirs(d) eq true) /* only (un)fold directories that have subdirs */
    {
       d->fold = *f;
-      index = 0;
-      size = getSizeOfDirnode(d);
+      size_t index = 0;
+      size_t size = getSizeOfDirnode(d);
       while(index < size)
       {
          n = elementAtDirnode(index,d);

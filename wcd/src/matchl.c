@@ -259,7 +259,6 @@ int dd_matchl(const char *string,const char *pattern,int ignore_case, int ignore
     char *dospattern;
     int j = strlen(pattern);
 #endif
-    int code_page;
     uch *CPTable;
 
 
@@ -269,7 +268,7 @@ int dd_matchl(const char *string,const char *pattern,int ignore_case, int ignore
     }
     else
     {
-        code_page = (int)query_con_codepage();
+        int code_page = (int)query_con_codepage();
         switch (code_page)
         {
           case 437: /* DOS Latin-US (United States) */

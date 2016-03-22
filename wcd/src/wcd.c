@@ -173,7 +173,6 @@ int wcd_fprintf(FILE *stream, const char *format, ...)
 {
    va_list args;
    int rc;
-   char *errstr;
 
    va_start(args, format);
    rc = vfprintf(stream, format, args);
@@ -181,7 +180,7 @@ int wcd_fprintf(FILE *stream, const char *format, ...)
 
    if (rc < 0)
    {
-      errstr = strerror(errno);
+      char *errstr = strerror(errno);
       print_error("%s\n", errstr);
    }
 
@@ -246,7 +245,6 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet)
 FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype)
 {
   FILE *f;
-  int bom[3];
   /* BOMs
    * UTF16-LE  ff fe
    * UTF16-BE  fe ff
@@ -260,6 +258,7 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
    /* Check for BOM */
    if ((m[0] == 'r') && (f != NULL))
    {
+      int bom[3];
       if ((bom[0] = fgetc(f)) == EOF) {
          if (ferror(f)) {
            return NULL;
@@ -315,10 +314,9 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
 
 void wcd_fclose(FILE *fp, const char *filename, const char *m, const char *functionname)
 {
-   char *errstr;
    if (fclose(fp) != 0)
    {
-     errstr = strerror(errno);
+     char *errstr = strerror(errno);
      if (m[0] == 'w')
        print_error(_("Unable to write file %s: %s\n"), filename, errstr);
      else
@@ -347,14 +345,14 @@ void cleanPath(char path[], int len, int minlength)
 }
 void rmDriveLetter(char path[], int *use_HOME)
 {
-   char *ptr;
-
    if (path == NULL) return;
 
    /* remove drive letter */
-   if (*use_HOME == 0 )
+   if (*use_HOME == 0 ) {
+      char *ptr;
       if ( (ptr=strstr(path,"/")) != NULL)
          strcpy(path,ptr);
+   }
 }
 
 void rmDirFromList(char *string, nameset n)
@@ -387,13 +385,7 @@ void rmDirFromList(char *string, nameset n)
 /********************************/
 void writeList(char * filename, nameset n, int bomtype)
 {
-   size_t i;
    FILE *outfile;
-   int rc = 0;
-#ifdef WCD_ANSI
-   char    path[DD_MAXPATH];
-   wchar_t pathw[DD_MAXPATH];
-#endif
 
    if ( (outfile = wcd_fopen(filename,"w",0)) != NULL)
    {
@@ -406,6 +398,12 @@ void writeList(char * filename, nameset n, int bomtype)
          translated the Unicode directory names to the system default ANSI code page. */
       if (bomtype > 0) /* Unicode, write back in UTF-8 */
         wcd_fprintf(outfile, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+#endif
+      size_t i;
+      int rc = 0;
+#ifdef WCD_ANSI
+      char    path[DD_MAXPATH];
+      wchar_t pathw[DD_MAXPATH];
 #endif
       for(i=0;((i<n->size)&&(rc>=0));i++)
       {
@@ -585,8 +583,7 @@ void quoteString(char *string)
 #ifdef _WCD_DOSFS
 int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
 {
-   int i = -1, destDisk;
-   char *ptr;
+   int i = -1;
    char drive[DD_MAXDRIVE];
 
 
@@ -600,7 +597,7 @@ int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
 
       if (dd_match(drive,"[a-z]:",1))
       {
-         destDisk = islower(*drive) ? *drive-'a' : *drive-'A';
+         int destDisk = islower(*drive) ? *drive-'a' : *drive-'A';
 
          if (destDisk >= 0)
          {
@@ -615,7 +612,7 @@ int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
 
            if((use_HOME == NULL)||(*use_HOME == 0))
            {
-            ptr = path + 2;
+            char *ptr = path + 2;
             if (strcmp(ptr,"") == 0)
             {
                strcpy(path,"/");
@@ -636,11 +633,9 @@ int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
 /*****************************************************************/
 void getCurPath(char *buffer, size_t size, int *use_HOME)
 {
- size_t len;
-
  if(wcd_getcwd(buffer, size) != NULL)
  {
-   len = strlen(buffer);
+   size_t len = strlen(buffer);
    if (len==0)
       buffer[len] = '\0';
    wcd_fixpath(buffer,size);
@@ -655,13 +650,13 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
 {
 
  char tmp[DD_MAXPATH];      /* tmp string buffer */
- FILE *outfile;
 
  getCurPath(tmp,(size_t)DD_MAXPATH,use_HOME);
 
  if(tmp != NULL)
  {
    /* open the treedata file */
+   FILE *outfile;
    if  ((outfile = wcd_fopen(filename,"a",0)) != NULL)
    {
      wcd_fprintf(outfile,"%s\n",tmp);
@@ -1134,7 +1129,6 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *use_HOME, nameset exclude)
 {
    size_t  offset = 0 ;     /* offset to remove scanned from path */
-   char tmp[DD_MAXPATH];    /* tmp string buffer */
    char tmp2[DD_MAXPATH];   /* tmp string buffer */
    FILE *outfile;
 #ifdef _WCD_DOSFS
@@ -1163,6 +1157,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
    {
      if ( !wcd_chdir(path,0) )
      {
+      char tmp[DD_MAXPATH];    /* tmp string buffer */
       wcd_getcwd(tmp, sizeof(tmp)); /* get full path */
 #ifdef _WCD_DOSFS
           wcd_fixpath(tmp,sizeof(tmp));
@@ -1274,7 +1269,6 @@ void scanServer(char *path, char *treefile, size_t append, int *use_HOME, namese
  ********************************************************************/
 void makeDir(char *path, char *treefile, int *use_HOME)
 {
-   char tmp2[DD_MAXPATH];
 #if (defined(UNIX) || defined(__DJGPP__) || defined(__EMX__))
    mode_t m;
 #endif
@@ -1299,6 +1293,7 @@ void makeDir(char *path, char *treefile, int *use_HOME)
    if (wcd_mkdir(path,0)==0)
 #endif
    {
+      char tmp2[DD_MAXPATH];
       wcd_getcwd(tmp2, (size_t)DD_MAXPATH);  /* remember current dir */
       if(wcd_chdir(path,0)==0)        /* goto dir and add */
        addCurPathToFile(treefile,use_HOME,0);
@@ -1387,7 +1382,6 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
    char drive[DD_MAXDRIVE];
    int  changedrive = 0;
 #endif
-   char tmp2[DD_MAXPATH];
 
    wcd_fixpath(path,(size_t)DD_MAXPATH);
 
@@ -1418,6 +1412,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
 
    if (wcd_isdir(path,0) == 0) /* is it a dir */
    {
+      char tmp2[DD_MAXPATH];
       wcd_getcwd(tmp2, (size_t)DD_MAXPATH);  /* remember current path */
 
       if(wcd_chdir(path,0)==0)
@@ -1494,7 +1489,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
 
 int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const int* line_nr)
 {
-   int c, i, j;
+   int c, i;
 
    for (i=0; i<lim-1 && ((c=fgetc(infile)) != '\n') && (c != EOF) ; ++i)
       {
@@ -1509,7 +1504,7 @@ int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const in
       print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),"wcd_getline()",(lim-1));
       print_error(_("file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
-      j = i+1;
+      int j = i+1;
       while (((c=getc(infile)) != '\n') && (c != EOF))
       {
          ++j;
@@ -1530,7 +1525,7 @@ int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const in
 /* UTF16 little endian */
 int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, const int* line_nr)
 {
-   int i, j ;
+   int i;
    int c_high, c_low;
 #if !defined(_WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
@@ -1575,7 +1570,7 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, cons
       print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),"wcd_wgetline()",(lim-1));
       print_error(_("file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
-      j = i+1;
+      int j = i+1;
       while (((c_low=fgetc(infile)) != EOF)  && ((c_high=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')))
       {
          ++j;
@@ -1595,7 +1590,7 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, cons
 /* UTF16 big endian */
 int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, const int* line_nr)
 {
-   int i, j;
+   int i;
    int c_high, c_low;
 #if !defined(_WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
@@ -1640,7 +1635,7 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, c
       print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),"wcd_wgetline_be()",(lim-1));
       print_error(_("file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
-      j = i+1;
+      int j = i+1;
       while (((c_high=fgetc(infile)) != EOF)  && ((c_low=fgetc(infile)) != EOF) && !((c_high == '\0') && (c_low == '\n')))
       {
          ++j;
@@ -1665,13 +1660,13 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, c
  ********************************************************************/
 void read_treefileA(FILE *f, nameset bd, const char* file_name)
 {
-    int len, line_nr=1;
+    int line_nr=1;
     char path[DD_MAXPATH];
 
     while (!feof(f) && !ferror(f))
     {
        /* read a line */
-       len = wcd_getline(path,DD_MAXPATH,f,file_name,&line_nr);
+       int len = wcd_getline(path,DD_MAXPATH,f,file_name,&line_nr);
        ++line_nr;
 
        if (len > 0 )
@@ -1684,14 +1679,14 @@ void read_treefileA(FILE *f, nameset bd, const char* file_name)
 #if defined(_WIN32) || defined(WCD_UNICODE)
 void read_treefileUTF16LE(FILE *f, nameset bd, const char* file_name)
 {
-    int len, line_nr=1;
+    int line_nr=1;
     char path[DD_MAXPATH];
     wchar_t pathw[DD_MAXPATH];
 
     while (!feof(f) && !ferror(f))
     {
        /* read a line */
-       len = wcd_wgetline(pathw,DD_MAXPATH,f,file_name,&line_nr);
+       int len = wcd_wgetline(pathw,DD_MAXPATH,f,file_name,&line_nr);
        ++line_nr;
 
        if (len > 0 )
@@ -1705,14 +1700,14 @@ void read_treefileUTF16LE(FILE *f, nameset bd, const char* file_name)
 }
 void read_treefileUTF16BE(FILE *f, nameset bd, const char* file_name)
 {
-    int len, line_nr=1;
+    int line_nr=1;
     char path[DD_MAXPATH];
     wchar_t pathw[DD_MAXPATH];
 
     while (!feof(f) && !ferror(f))
     {
        /* read a line */
-       len = wcd_wgetline_be(pathw,DD_MAXPATH,f,file_name,&line_nr);
+       int len = wcd_wgetline_be(pathw,DD_MAXPATH,f,file_name,&line_nr);
        ++line_nr;
 
        if (len > 0 )
@@ -1733,7 +1728,7 @@ void read_treefileUTF16BE(FILE *f, nameset bd, const char* file_name)
    */
 void read_treefileUTF8(FILE *f, nameset bd, const char *file_name)
 {
-    int len, line_nr=1;
+    int line_nr=1;
     char path[DD_MAXPATH];
 #ifdef WCD_ANSI
     wchar_t pathw[DD_MAXPATH];
@@ -1742,7 +1737,7 @@ void read_treefileUTF8(FILE *f, nameset bd, const char *file_name)
     while (!feof(f) && !ferror(f))
     {
        /* read a line */
-       len = wcd_getline(path,DD_MAXPATH,f,file_name,&line_nr);
+       int len = wcd_getline(path,DD_MAXPATH,f,file_name,&line_nr);
        ++line_nr;
 
        if (len > 0 )
@@ -2084,11 +2079,9 @@ void scanaliasfile(char *org_dir, char *filename,
               nameset pm, nameset wm, int wildOnly)
 {
    FILE *infile;
-   char *dir, *ptr;
+   char *dir;
    char line[DD_MAXPATH];
-   char alias[256];
    int line_nr=1;
-   size_t j;
 
    dir = org_dir;
 
@@ -2102,6 +2095,7 @@ void scanaliasfile(char *org_dir, char *filename,
    /* open treedata-file */
    if  ((infile = wcd_fopen(filename,"r",1)) != NULL) {
 
+      char alias[256];
       while (!feof(infile) && !ferror(infile)) {
          int len;
 
@@ -2114,8 +2108,8 @@ void scanaliasfile(char *org_dir, char *filename,
          ++line_nr;
 
          if (len == 0 ) continue;
-         ptr = line;
-         j=0;
+         char *ptr = line;
+         size_t j=0;
          while ((*ptr != ' ') && (*ptr != '\0') && (j<(sizeof(alias)-1))) {
             alias[j] = *ptr;
             ++j;
@@ -2154,12 +2148,10 @@ void scanaliasfile(char *org_dir, char *filename,
 void list_alias_file(char *filename)
 {
    FILE *infile;
-   char line[DD_MAXPATH];
    char alias[256];
    int line_nr=1;
-   size_t i,j;
+   size_t i;
    nameset aliaslines;
-   char *ptr;
 
    aliaslines = namesetNew();
 
@@ -2167,6 +2159,7 @@ void list_alias_file(char *filename)
    /* open treedata-file */
    if  ((infile = wcd_fopen(filename,"r",1)) != NULL) {
 
+      char line[DD_MAXPATH];
       while (!feof(infile) && !ferror(infile)) {
          int len;
 
@@ -2189,8 +2182,8 @@ void list_alias_file(char *filename)
    sort_list(aliaslines);
 
    for (i=0;i<aliaslines->size;i++) {
-      ptr = aliaslines->array[i];
-      j=0;
+      char *ptr = aliaslines->array[i];
+      size_t j=0;
       while ((*ptr != ' ') && (*ptr != '\0') && (j<(sizeof(alias)-1))) {
          alias[j] = *ptr;
          ++j;
@@ -2501,9 +2494,6 @@ void create_dir_for_file(const char *f)
 {
    char path[DD_MAXPATH];
    char *ptr ;
-#if (defined(UNIX) || defined(__DJGPP__) || defined(__EMX__))
-   mode_t m;
-#endif
 
    strncpy(path, f, (size_t)(DD_MAXPATH - 1));
    path[DD_MAXPATH - 1] = '\0';
@@ -2520,6 +2510,7 @@ void create_dir_for_file(const char *f)
        {
           create_dir_for_file(path);
 #if (defined(UNIX) || defined(__DJGPP__) || defined(__EMX__))
+          mode_t m;
           m = S_IRWXU | S_IRWXG | S_IRWXO;
           if (wcd_mkdir(path,m,0)==0)
 #else
@@ -2720,11 +2711,10 @@ void writeGoFile(char *go_file, int *changedrive, char *drive, char *best_match,
 
 void addListToNameset(nameset set, char *list)
 {
-   char tmp[DD_MAXPATH];      /* tmp string buffer */
-
    if (list != NULL)
    {
       list = strtok(list, LIST_SEPARATOR);
+      char tmp[DD_MAXPATH];      /* tmp string buffer */
       while (list != NULL)
       {
          if (strlen(list) < (DD_MAXPATH-2)) /* prevent buffer overflow */
@@ -2740,11 +2730,10 @@ void addListToNameset(nameset set, char *list)
 
 void addListToNamesetFilter(nameset set, char *list)
 {
-   char tmp[DD_MAXPATH];      /* tmp string buffer */
-
    if (list != NULL)
    {
       list = strtok(list, LIST_SEPARATOR);
+      char tmp[DD_MAXPATH];      /* tmp string buffer */
       while (list != NULL)
       {
          if (strlen(list) < (DD_MAXPATH-2)) /* prevent buffer overflow */

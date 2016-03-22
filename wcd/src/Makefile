@@ -340,7 +340,7 @@ ifeq ($(MSYS_VERSION),1)
 ifdef UCS
 	CURSES = pdcursesw
 else
-	CURSES = pdcurses
+	CURSES = ncurses
 endif
 endif
 endif

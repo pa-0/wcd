@@ -486,6 +486,7 @@ expfun void printDirnode(text Offset,
 
       fprintf(fp, "%s}\n", Offset);
    }
+   free(new_Offset);
 }
 expfun void freeDirnode(dirnode d,
                         c3po_bool Deep)

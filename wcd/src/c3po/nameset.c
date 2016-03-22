@@ -288,6 +288,7 @@ expfun void printNameset(text Offset,
 
       fprintf(fp, "%s}\n", Offset);
    }
+   free(new_Offset);
 }
 expfun void freeNameset(nameset n,
                         c3po_bool Deep)

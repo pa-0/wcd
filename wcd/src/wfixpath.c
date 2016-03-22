@@ -173,10 +173,11 @@ void wcd_fixpath(char *in, size_t lim)
 
 int main (int argc, char *argv[])
 {
-  char fixed[FILENAME_MAX];
   if (argc > 1)
     {
-	  strcpy(fixed,argv[1]);
+          char fixed[FILENAME_MAX];
+	  strncpy(fixed,argv[1],FILENAME_MAX -1);
+          fixed[FILENAME_MAX -1] = '\0';
 	  wcd_fixpath (fixed,FILENAME_MAX);
       printf ("You mean %s?\n", fixed);
     }

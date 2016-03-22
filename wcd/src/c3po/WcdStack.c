@@ -353,6 +353,7 @@ expfun void printWcdStack(text Offset,
 
       fprintf(fp, "%s}\n", Offset);
    }
+   free(new_Offset);
 }
 expfun void freeWcdStack(WcdStack w,
                          c3po_bool Deep)

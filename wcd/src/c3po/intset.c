@@ -260,6 +260,7 @@ expfun void printIntset(text Offset,
 
       fprintf(fp, "%s}\n", Offset);
    }
+   free(new_Offset);
 }
 expfun void freeIntset(intset i)
 {

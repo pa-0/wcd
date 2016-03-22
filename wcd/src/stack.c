@@ -69,7 +69,6 @@ int stack_read(WcdStack ws,const char *stackfilename)
 {
 
 	FILE *infile;
-	char tmp[DD_MAXPATH];
 	int line_nr=1;
 
 
@@ -85,6 +84,7 @@ int stack_read(WcdStack ws,const char *stackfilename)
 		if(fscanf(infile,"%d %d",&ws->lastadded,&ws->current)==2)
 		{
 
+	                char tmp[DD_MAXPATH];
 			while( !feof(infile) && !ferror(infile) && (ws->size < (size_t)ws->maxsize) )
 			{
 			int len ;
@@ -210,9 +210,6 @@ char* stack_pop(WcdStack ws, int pop_ntimes)
 
 int stack_write(WcdStack ws,const char *stackfilename)
 {
-	FILE *outfile;
-	int  i;
-
 	if (ws->maxsize <= 0)
 		return(0);
 	else
@@ -220,6 +217,7 @@ int stack_write(WcdStack ws,const char *stackfilename)
 		/* create directory for stack file if it doesn't exist */
 		create_dir_for_file(stackfilename);
 
+	        FILE *outfile;
 		if ( (outfile = wcd_fopen(stackfilename,"w",0)) == NULL)
 		{
 			return(0);
@@ -227,7 +225,7 @@ int stack_write(WcdStack ws,const char *stackfilename)
 		else
 		{
 			wcd_fprintf(outfile,"%d %d\n",ws->lastadded,ws->current);
-			for(i=0;((i<(int)ws->size)&&(i<ws->maxsize));i++)
+			for(int i=0;((i<(int)ws->size)&&(i<ws->maxsize));i++)
 			{
 			/* printf("writing line %d\n",i);  */
 				wcd_fprintf(outfile,"%s\n",ws->dir[i]);

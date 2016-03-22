@@ -68,13 +68,12 @@ expfun FILE * openW(text filename)
 expfun FILE * openWBackup(text filename,
                           c3po_bool Backup)
 {
-   int index;
-   char moveName[STRING_SIZE];
    if ((existsFile(filename) == true) &&
        (Backup == true))
    {
+      char moveName[STRING_SIZE];
       sprintf(moveName, "%s.tmp", filename);
-      index = 1;
+      int index = 1;
       while(existsFile(moveName) == true)
       {
          sprintf(moveName, "%s.tmp%d", filename, index);

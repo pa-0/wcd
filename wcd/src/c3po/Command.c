@@ -59,11 +59,11 @@ expfun c3po_bool inArgList(text name,
                       int argc,
                       char** argv)
 {
-   text arg;
    c3po_bool found = false;
    int index = 1;
    while(index < argc)
    {
+      text arg;
       arg = *(argv + index);
       if (strcmp(name, arg) eq 0)
       {
@@ -112,11 +112,11 @@ expfun nameset getArgs(text name,
                        char** argv)
 {
    int index = 0;
-   text arg;
    nameset args = NULL;
    c3po_bool found = false;
    while(index < argc)
    {
+      text arg;
       arg = *(argv + index);
       if (strcmp(name, arg) eq 0)
       {
@@ -208,12 +208,12 @@ expfun void dumpCommandline(text file,
                             char** argv)
 {
    FILE *fp;
-   int index = 0;
 
    fp = fopen(file, "a");
    if (fp ne NULL)
    {
       fprintf(stderr, "\n- appending commandline to '%s'\n", file);
+      int index = 0;
       while(index < argc)
       {
          fprintf(fp, "%s ", argv[index]);

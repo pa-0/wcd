@@ -68,10 +68,9 @@ expfun c3po_bool eqText(text a,
 expfun size_t inNameset(text name,
                      nameset set)
 {
-   size_t index;
    if (isEmptyNamesetArray(set) eq false)
    {
-      index = 0;
+      size_t index = 0;
       while(index < getSizeOfNamesetArray(set))
       {
          if (eqText(name, elementAtNamesetArray(index, set)) eq true)
@@ -85,8 +84,6 @@ expfun size_t inNameset(text name,
 expfun intset matchNameset(text name,
                            nameset set)
 {
-   size_t index;
-
    static intset i_set = NULL;
 
    if (i_set eq NULL)
@@ -96,7 +93,7 @@ expfun intset matchNameset(text name,
 
    if (isEmptyNamesetArray(set) eq false)
    {
-      index = 0;
+      size_t index = 0;
       while(index < getSizeOfNamesetArray(set))
       {
          if (eqText(name, elementAtNamesetArray(index, set)) eq true)
@@ -111,10 +108,9 @@ expfun size_t matchCountNameset(text name,
                              nameset set)
 {
    size_t count = 0;
-   size_t index;
    if (isEmptyNamesetArray(set) eq false)
    {
-      index = 0;
+      size_t index = 0;
       while(index < getSizeOfNamesetArray(set))
       {
          if (eqText(name, elementAtNamesetArray(index, set)) eq true)
@@ -191,8 +187,17 @@ expfun text repeatOnBuffer(text pattern,
 
    if (buffer eq NULL)
       buffer = textNewSize(strlen(pattern) * amount + 1);
-   else
-      buffer = (text) realloc((void *) buffer, sizeof(char) * (strlen(pattern) * amount + 1));
+   else {
+      text new_buffer = (text) realloc((void *) buffer, sizeof(char) * (strlen(pattern) * amount + 1));
+      if (new_buffer != NULL)
+         buffer = new_buffer;
+      else {
+         malloc_error("repeatOnBuffer()");
+         buffer = NULL;
+      }
+   }
+   if (buffer == NULL)
+      return NULL;
 
    putElementAtNamesetArray(buffer, bufferNr, buffers);
 

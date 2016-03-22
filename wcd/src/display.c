@@ -195,7 +195,6 @@ void ssort (nameset list, int left, int right)
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
  static wchar_t wstr_left[DD_MAXPATH];
  static wchar_t wstr_right[DD_MAXPATH];
- size_t len1,len2;
 #endif
 
   if (left >= right) return; /* fewer than 2 elements */
@@ -206,8 +205,8 @@ void ssort (nameset list, int left, int right)
   for (i = left+1; i <=right; i++)
   {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-   len1 = MBSTOWCS(wstr_left, list->array[left],(size_t)DD_MAXPATH);
-   len2 = MBSTOWCS(wstr_right,list->array[i],(size_t)DD_MAXPATH);
+   size_t len1 = MBSTOWCS(wstr_left, list->array[left],(size_t)DD_MAXPATH);
+   size_t len2 = MBSTOWCS(wstr_right,list->array[i],(size_t)DD_MAXPATH);
    if ((len1 == (size_t)(-1)) || (len2 == (size_t)(-1)))
    {
       /* Erroneous multi-byte sequence */
@@ -252,7 +251,7 @@ void sort_list(nameset list)
 #if (defined(WCD_USECONIO) || defined(WCD_USECURSES))
 size_t maxLength(nameset list)
 {
-   size_t i, len, maxlen = 0;
+   size_t i, maxlen = 0;
 
    if (list == NULL)
    {
@@ -262,6 +261,7 @@ size_t maxLength(nameset list)
 
    for (i=0;i<list->size;i++)
    {
+    size_t len;
     if( (len=str_columns(list->array[i])) > maxlen)
        maxlen=len;
    }
@@ -272,7 +272,7 @@ size_t maxLength(nameset list)
 }
 size_t maxLengthStack(WcdStack s)
 {
-   size_t i, len,maxlen = 0;
+   size_t i, maxlen = 0;
 
    if (s == NULL)
    {
@@ -282,6 +282,7 @@ size_t maxLengthStack(WcdStack s)
 
    for (i=0;i<s->size;i++)
    {
+    size_t len;
     if( (len=str_columns(s->dir[i])) > maxlen)
        maxlen=len;
    }
@@ -319,19 +320,19 @@ size_t maxLengthStack(WcdStack s)
 void printLine(nameset n, int i, int y, int xoffset, int *use_numbers, int screenWidth)
 {
    wcd_uchar *s;
-   int len, j, nr_offset;
 
    s = n->array[i];
 
    if (s != NULL)
    {
-      len = strlen(s);
+      int len = strlen(s);
+      int nr_offset;
       if (*use_numbers == 0)
          nr_offset = 2;
       else
          nr_offset = 3;
 
-      for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(screenWidth-1));j++)
+      for(int j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(screenWidth-1));j++)
       {
          cprintf("%c",s[j]);
       }
@@ -341,18 +342,19 @@ void printLine(nameset n, int i, int y, int xoffset, int *use_numbers, int scree
 void printStackLine(WcdStack ws, int i, int y, int xoffset, int *use_numbers, int screenWidth)
 {
    wcd_uchar *s;
-   int len, j, nr_offset;
 
    s = ws->dir[i];
 
    if (s != NULL)
    {
-      len = strlen(s);
+      int len = strlen(s);
+      int nr_offset;
       if (*use_numbers == 0)
          nr_offset = 2;
       else
          nr_offset = 3;
 
+      int j;
       for(j=xoffset;(j<len)&&((nr_offset+j-xoffset)<(screenWidth-1));j++)
       {
          cprintf("%c",s[j]);
@@ -447,7 +449,7 @@ char buf[WCD_MAX_INPSTR];
    else
       if (ws != NULL)   /* stack */
       {
-         if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) || ((ws->size) > ws->maxsize) )
+         if( ((ws->size) <= 0) || ((ws->size) > ws->maxsize) )
             return(WCD_ERR_LIST); /* in case stack file was corrupt */
          else
          {
@@ -906,8 +908,6 @@ void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
 void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbers)
 {
    wcd_uchar *s;
-   size_t len;
-   int j, nr_offset;
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
@@ -918,10 +918,11 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
    if (s != NULL)
    {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-      len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
+      size_t len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
 #else
-      len = strlen((char *)s);
+      size_t len = strlen((char *)s);
 #endif
+      int nr_offset;
       if (*use_numbers == 0)
          nr_offset = 2;
       else
@@ -935,13 +936,13 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
          /* Erroneous multi-byte sequence */
          /* Try 8 bit characters */
          len = strlen((char *)s);
-         for(j=xoffset;(j<(int)len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
+         for(int j=xoffset;(j<(int)len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
          {
             waddch(win,(chtype)s[j]);
          }
       } else {
          c = 0; /* count characters with width > 0 from beginning of string. */
-         j = 0;
+         int j = 0;
          while ((j<(int)len)&&(c<xoffset))
          {
             if (wcd_wcwidth(wstr[j]) != 0 )
@@ -975,8 +976,6 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *use_numbers)
 {
    wcd_uchar *s;
-   size_t len;
-   int j, nr_offset;
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    static wchar_t wstr[DD_MAXPATH];
    int width, c;
@@ -987,10 +986,11 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
    if (s != NULL)
    {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-      len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
+      size_t len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
 #else
-      len = strlen((char *)s);
+      size_t len = strlen((char *)s);
 #endif
+      int nr_offset;
       if (*use_numbers == 0)
          nr_offset = 2;
       else
@@ -1004,6 +1004,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
          /* Erroneous multi-byte sequence */
          /* Try 8 bit characters */
          len = strlen((char *)s);
+         int j;
          for(j=xoffset;(j<(int)len)&&((nr_offset+j-xoffset)<(COLS-1));j++)
          {
             waddch(win,(chtype)s[j]);
@@ -1012,7 +1013,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
             wprintw(win," *");
       } else {
          c = 0; /* count characters with width > 0 from beginning of string. */
-         j = 0;
+         int j = 0;
          while ((j<(int)len)&&(c<xoffset))
          {
             if (wcd_wcwidth(wstr[j]) != 0 )
@@ -1486,7 +1487,6 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
 {
    int i;
-   size_t ii;
    int k, start, j;
 
    if (list != NULL) /* normal list */
@@ -1495,12 +1495,12 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
 
       if ( use_stdout & WCD_STDOUT_DUMP )
       {
-         for (ii=0;ii<list->size;ii++)
+         for (size_t ii=0;ii<list->size;ii++)
             wcd_printf("%s\n", list->array[ii]);
       }
       else
       {
-         for (ii=0;ii<list->size;ii++)
+         for (size_t ii=0;ii<list->size;ii++)
             wcd_printf("%lu  %s\n",(unsigned long)(ii+1),list->array[ii]);
       }
 

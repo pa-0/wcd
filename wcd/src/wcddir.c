@@ -263,12 +263,10 @@ void wcd_PrintError(DWORD dw)
  */
 int wcd_isSharePath (char* path)
 {
-   char *ptr;
-
    /* Assume the path has been fixed by wcd_fixpath(). Only forward slashes. */
    if ((strlen(path) > 2) && (wcd_is_slash(*path)) && (wcd_is_slash(*(path+1))))
    {
-      ptr = strchr(path+2,'/');
+      char *ptr = strchr(path+2,'/');
       if (ptr == NULL)
         return(0);
       else
@@ -469,18 +467,16 @@ int wcd_isdir(char *dir, int quiet)
 {
 
 #ifdef WCD_UTF16
-   static wchar_t wstr[DD_MAXPATH];
    BOOL err;
    DWORD dw;
    struct _stat buf;
 #else
    struct stat buf;
 #endif
-   char *errstr;
-   char tmp[DD_MAXDIR];
 
    if (wcd_isSharePath(dir))
    {
+      char tmp[DD_MAXDIR];
       wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
 
       if (wcd_chdir(dir, quiet) == 0) /* just try to change to dir */
@@ -492,6 +488,7 @@ int wcd_isdir(char *dir, int quiet)
          return(-1);
    } else {
 #ifdef WCD_UTF16
+      static wchar_t wstr[DD_MAXPATH];
       if (utf8towcs(wstr, dir, DD_MAXPATH) == (size_t)(-1))
          err = FALSE;
       else
@@ -510,7 +507,7 @@ int wcd_isdir(char *dir, int quiet)
          {
             if (!quiet)
             {
-              errstr = strerror(errno);
+              char *errstr = strerror(errno);
               wcd_printf("Wcd: %s: %s\n", dir, errstr);
             }
             return(-1);
@@ -538,7 +535,7 @@ int wcd_isdir(char *dir, int quiet)
       {
          if (!quiet)
          {
-           errstr = strerror(errno);
+           char *errstr = strerror(errno);
            print_error("%s: %s\n", dir, errstr);
          }
          return(-1);
@@ -556,14 +553,11 @@ int wcd_isdir(char *dir, int quiet)
 
 int wcd_mkdir(char *buf, mode_t m, int quiet)
 {
-  char *errstr;
-  int err;
-
-  err = mkdir(buf, m);
+  int err = mkdir(buf, m);
 
   if ( !quiet && err)
   {
-    errstr = strerror(errno);
+    char *errstr = strerror(errno);
     print_error(_("Unable to create directory %s: %s\n"), buf, errstr);
   }
   return(err);
@@ -573,14 +567,11 @@ int wcd_mkdir(char *buf, mode_t m, int quiet)
 
 int wcd_mkdir(char *buf, int quiet)
 {
-  char *errstr;
-  int err;
-
-  err = mkdir(buf);
+  int err = mkdir(buf);
 
   if ( !quiet && err)
   {
-    errstr = strerror(errno);
+    char *errstr = strerror(errno);
     print_error(_("Unable to create directory %s: %s\n"), buf, errstr);
   }
   return(err);
@@ -699,13 +690,10 @@ char *replace_volume_path_HOME(char *buf, size_t size)
 
 char *wcd_getcwd(char *buf, size_t size)
 {
-   char *err;
-   char *errstr;
-
-   err = getcwd(buf, size);
+   char *err = getcwd(buf, size);
    if ( err == NULL)
    {
-     errstr = strerror(errno);
+     char *errstr = strerror(errno);
      print_error(_("Unable to get current working directory: %s\n"), errstr);
    }
 #ifdef UNIX
@@ -717,14 +705,11 @@ char *wcd_getcwd(char *buf, size_t size)
 
 int wcd_chdir(char *buf, int quiet)
 {
-  char *errstr;
-  int err;
-
-  err = chdir(buf);
+  int err = chdir(buf);
 
   if ( !quiet && err)
   {
-    errstr = strerror(errno);
+    char *errstr = strerror(errno);
     print_error(_("Unable to change to directory %s: %s\n"), buf, errstr);
   }
   return(err);
@@ -732,14 +717,11 @@ int wcd_chdir(char *buf, int quiet)
 
 int wcd_rmdir(char *buf, int quiet)
 {
-  char *errstr;
-  int err;
-
-  err = rmdir(buf);
+  int err = rmdir(buf);
 
   if ( !quiet && err)
   {
-    errstr = strerror(errno);
+    char *errstr = strerror(errno);
     print_error(_("Unable to remove directory %s: %s\n"), buf, errstr);
   }
   return(err);
@@ -757,7 +739,6 @@ int wcd_rmdir(char *buf, int quiet)
 int wcd_isdir(char *dir, int quiet)
 {
    struct stat buf;
-   char *errstr;
 
    if (stat(dir, &buf) == 0)
    {
@@ -770,7 +751,7 @@ int wcd_isdir(char *dir, int quiet)
    {
       if (!quiet)
       {
-        errstr = strerror(errno);
+        char *errstr = strerror(errno);
         print_error("%s: %s\n", dir, errstr);
       }
       return(-1);

@@ -261,6 +261,7 @@ Table of Contents
         David Binderman     Fixed a dangerous string usage.
         Benno Schulenberg   Cleanup user interface messages.
         Andreas Schwab      Fix: etc/profile.d/wcd.sh: wcd function was overwriting shell's $go variable.
+        Erik Rijshouwer     Idea for option -ls, list the aliases.
 
 
     3.1 Translators
