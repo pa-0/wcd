@@ -44,12 +44,12 @@ expfun nameset namesetNew(void)
 expfun nameset copyNameset(nameset src,
                            c3po_bool Deep)
 {
-   nameset n;
-
    if (src == NULL)
       return NULL;
    else
    {
+      nameset n;
+
       n = (nameset) malloc (sizeof(nameset_struct));
       if (n != NULL)
       {
@@ -91,7 +91,6 @@ expfun size_t getSizeOfNamesetArray(nameset n)
 expfun void setSizeOfNamesetArray(nameset n,
                                   size_t size)
 {
-   size_t index;
    if (n != NULL)
    {
       if (size == 0)
@@ -112,7 +111,7 @@ expfun void setSizeOfNamesetArray(nameset n,
 
          if (n->array ne NULL)
          {
-            index = n->size;
+            size_t index = n->size;
             while(index < size)
             {
                n->array[index] = NULL;
@@ -165,10 +164,9 @@ expfun void insertElementAtNamesetArray(text t,
                                         size_t position,
                                         nameset set)
 {
-   size_t index;
    if (set != NULL)
    {
-      index = set->size;
+      size_t index = set->size;
       while(index > position)
       {
          putElementAtNamesetArray(set->array[index-1], index, set);
@@ -181,7 +179,6 @@ expfun void removeElementAtNamesetArray(size_t position,
                                         nameset set,
                                         c3po_bool FreeAtPos)
 {
-   size_t index;
    if (set != NULL)
    {
       if (position < set->size)
@@ -192,7 +189,7 @@ expfun void removeElementAtNamesetArray(size_t position,
                free((void *) set->array[position]);
          }
 
-         index = position + 1;
+         size_t index = position + 1;
          while(index < set->size)
          {
             putElementAtNamesetArray(set->array[index], index - 1, set);
@@ -244,8 +241,6 @@ expfun void printNameset(text Offset,
                          FILE* fp,
                          c3po_bool showEmpty)
 {
-   size_t index;
-
    text increment = " ";
    text new_Offset = (text) malloc(sizeof(char) * (strlen(Offset) + strlen(increment) + 1));
    sprintf(new_Offset, "%s%s", Offset, increment);
@@ -274,7 +269,7 @@ expfun void printNameset(text Offset,
          {
             fprintf(fp, "%sint size : %lu\n", new_Offset, (unsigned long)n->size);
 
-            index = 0;
+            size_t index = 0;
             while(index < n->size)
             {
                if (n->array[index] ne NULL)
@@ -293,14 +288,12 @@ expfun void printNameset(text Offset,
 expfun void freeNameset(nameset n,
                         c3po_bool Deep)
 {
-   size_t index;
-
    if (n ne NULL)
    {
       if (Deep eq true)
       {
 
-         index = 0;
+         size_t index = 0;
          while(index < n->size)
          {
             if (n->array[index] ne NULL)

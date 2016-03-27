@@ -167,10 +167,10 @@ int getdisk()
 {
 	ULONG ulDrive;
 	ULONG ulLogical;
-	APIRET rc;
+	/* APIRET rc; */
 	int d;
 
-	rc=DosQueryCurrentDisk(&ulDrive, &ulLogical); /* Get current drive */
+	/* rc= */ DosQueryCurrentDisk(&ulDrive, &ulLogical); /* Get current drive */
 	d = (int)ulDrive;
 	return(d-1);
 }

@@ -48,12 +48,12 @@ expfun WcdStack WcdStackNew(int maxsize)
 expfun WcdStack copyWcdStack(WcdStack src,
                              c3po_bool Deep)
 {
-   WcdStack w;
-
    if (src == NULL)
       return NULL;
    else
    {
+      WcdStack w;
+
       w = (WcdStack) malloc (sizeof(WcdStack_struct));
       if (w != NULL)
       {
@@ -150,7 +150,6 @@ expfun size_t getSizeOfWcdStackDir(WcdStack w)
 expfun void setSizeOfWcdStackDir(WcdStack w,
                                  size_t size)
 {
-   size_t index;
    if (w != NULL)
    {
       if (size == 0)
@@ -171,7 +170,7 @@ expfun void setSizeOfWcdStackDir(WcdStack w,
 
          if (w->dir ne NULL)
          {
-            index = w->size;
+            size_t index = w->size;
             while(index < size)
             {
                w->dir[index] = NULL;
@@ -224,10 +223,9 @@ expfun void insertElementAtWcdStackDir(text t,
                                        size_t position,
                                        WcdStack set)
 {
-   size_t index;
    if (set != NULL)
    {
-      index = set->size;
+      size_t index = set->size;
       while(index > position)
       {
          putElementAtWcdStackDir(set->dir[index-1], index, set);
@@ -240,7 +238,6 @@ expfun void removeElementAtWcdStackDir(size_t position,
                                        WcdStack set,
                                        c3po_bool FreeAtPos)
 {
-   size_t index;
    if (set != NULL)
    {
       if (position < set->size)
@@ -251,7 +248,7 @@ expfun void removeElementAtWcdStackDir(size_t position,
                free((void *) set->dir[position]);
          }
 
-         index = position + 1;
+         size_t index = position + 1;
          while(index < set->size)
          {
             putElementAtWcdStackDir(set->dir[index], index - 1, set);
@@ -303,8 +300,6 @@ expfun void printWcdStack(text Offset,
                           FILE* fp,
                           c3po_bool showEmpty)
 {
-   size_t index;
-
    text increment = " ";
    text new_Offset = (text) malloc(sizeof(char) * (strlen(Offset) + strlen(increment) + 1));
    sprintf(new_Offset, "%s%s", Offset, increment);
@@ -339,7 +334,7 @@ expfun void printWcdStack(text Offset,
          {
             fprintf(fp, "%sint size : %lu\n", new_Offset, (unsigned long)w->size);
 
-            index = 0;
+            size_t index = 0;
             while(index < w->size)
             {
                if (w->dir[index] ne NULL)
@@ -358,14 +353,12 @@ expfun void printWcdStack(text Offset,
 expfun void freeWcdStack(WcdStack w,
                          c3po_bool Deep)
 {
-   size_t index;
-
    if (w ne NULL)
    {
       if (Deep eq true)
       {
 
-         index = 0;
+         size_t index = 0;
          while(index < w->size)
          {
             if (w->dir[index] ne NULL)

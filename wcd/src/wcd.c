@@ -253,7 +253,7 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
 
    *bomtype = FILE_MBS;
 
-   if ((f = wcd_fopen(filename, m, 1)) == NULL) return NULL;
+   if ((f = wcd_fopen(filename, m, quiet)) == NULL) return NULL;
 
    /* Check for BOM */
    if ((m[0] == 'r') && (f != NULL))
@@ -583,11 +583,10 @@ void quoteString(char *string)
 #ifdef _WCD_DOSFS
 int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
 {
-   int i = -1;
    char drive[DD_MAXDRIVE];
 
 
-   i = getdisk();  /* current disk */
+   int i = getdisk();  /* current disk */
 
    if (strlen(path)>1)
    {
@@ -1875,7 +1874,7 @@ int check_filter(char *dir, nameset filter)
  *  Returns the number of characters read.
  *
  ********************************************************************/
-int read_treefile_line (char line[], int lim, FILE* infile, const char* filename, const int* line_nr, int bomtype)
+int read_treefile_line (char line[], FILE* infile, const char* filename, const int* line_nr, int bomtype)
 {
    int len;
 #if defined(_WIN32) || defined(WCD_UNICODE)
@@ -1999,7 +1998,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    {
       int len;
 
-      len = read_treefile_line(line,DD_MAXPATH,infile,filename,&line_nr, bomtype);
+      len = read_treefile_line(line,infile,filename,&line_nr, bomtype);
       if (ferror(infile)) return;
       ++line_nr;
 
@@ -2808,12 +2807,10 @@ int main(int argc,char** argv)
    int ignore_diacritics = 0;
 #ifdef _WCD_DOSFS
    int ignore_case = 1;
-# if (defined(_WIN32) || defined(WCD_DOSBASH) || defined(__OS2__))
-   char go_file[DD_MAXPATH];
-   int use_GoScript = 1;
-# endif
 #else
    int ignore_case = 0;
+#endif
+#ifdef WCD_SHELL
    char go_file[DD_MAXPATH];
    int use_GoScript = 1;
 #endif
@@ -3737,7 +3734,6 @@ int main(int argc,char** argv)
    if (stack_is_read == 0)
    {
       stack_read(DirStack,stackfile);
-      stack_is_read = 1;
    }
 
    if ((strcmp(dir,"") == 0 )&& !(graphics & WCD_GRAPH_NORMAL)) /* no directory given, no graphics, so we go HOME */

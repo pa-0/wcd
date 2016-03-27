@@ -42,12 +42,12 @@ expfun intset intsetNew(void)
 }
 expfun intset copyIntset(intset src)
 {
-   intset i;
-
    if (src == NULL)
       return NULL;
    else
    {
+      intset i;
+
       i = (intset) malloc (sizeof(intset_struct));
       if (i != NULL)
       {
@@ -86,7 +86,6 @@ expfun size_t getSizeOfIntset(intset i)
 expfun void setSizeOfIntset(intset i,
                             size_t size)
 {
-   size_t index;
    if (i != NULL)
    {
       if (size == 0)
@@ -107,7 +106,7 @@ expfun void setSizeOfIntset(intset i,
 
          if (i->array ne NULL)
          {
-            index = i->size;
+            size_t index = i->size;
             while(index < size)
             {
                i->array[index] = 0;
@@ -160,10 +159,9 @@ expfun void insertElementAtIntset(size_t i,
                                   size_t position,
                                   intset set)
 {
-   size_t index;
    if (set != NULL)
    {
-      index = set->size;
+      size_t index = set->size;
       while(index > position)
       {
          putElementAtIntset(set->array[index-1], index, set);
@@ -175,12 +173,11 @@ expfun void insertElementAtIntset(size_t i,
 expfun void removeElementAtIntset(size_t position,
                                   intset set)
 {
-   size_t index;
    if (set != NULL)
    {
       if (position < set->size)
       {
-         index = position + 1;
+         size_t index = position + 1;
          while(index < set->size)
          {
             putElementAtIntset(set->array[index], index - 1, set);
@@ -219,8 +216,6 @@ expfun void printIntset(text Offset,
                         FILE* fp,
                         c3po_bool showEmpty)
 {
-   size_t index;
-
    text increment = " ";
    text new_Offset = (text) malloc(sizeof(char) * (strlen(Offset) + strlen(increment) + 1));
    sprintf(new_Offset, "%s%s", Offset, increment);
@@ -249,7 +244,7 @@ expfun void printIntset(text Offset,
          {
             fprintf(fp, "%sint size : %lu\n", new_Offset, (unsigned long)i->size);
 
-            index = 0;
+            size_t index = 0;
             while(index < i->size)
             {
                fprintf(fp, "%sint array[%lu] : %lu\n", new_Offset, (unsigned long)index, (unsigned long)i->array[index]);

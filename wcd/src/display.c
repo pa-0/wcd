@@ -492,8 +492,6 @@ char buf[WCD_MAX_INPSTR];
       else
          return(WCD_ERR_LIST);
 
-   top = 0;
-
    bottom = size -1;
    top = size - lines_per_page;
    if (top < 0)

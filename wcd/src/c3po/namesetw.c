@@ -44,12 +44,12 @@ expfun namesetw namesetwNew(void)
 expfun namesetw copyNamesetw(namesetw src,
                            c3po_bool Deep)
 {
-   namesetw n;
-
    if (src == NULL)
       return NULL;
    else
    {
+      namesetw n;
+
       n = (namesetw) malloc (sizeof(namesetw_struct));
       if (n != NULL)
       {
@@ -91,7 +91,6 @@ expfun size_t getSizeOfNamesetwArray(namesetw n)
 expfun void setSizeOfNamesetwArray(namesetw n,
                                   size_t size)
 {
-   size_t index;
    if (n != NULL)
    {
       if (size == 0)
@@ -112,7 +111,7 @@ expfun void setSizeOfNamesetwArray(namesetw n,
 
          if (n->array ne NULL)
          {
-            index = n->size;
+            size_t index = n->size;
             while(index < size)
             {
                n->array[index] = NULL;
@@ -165,10 +164,9 @@ expfun void insertElementAtNamesetwArray(textw t,
                                         size_t position,
                                         namesetw set)
 {
-   size_t index;
    if (set != NULL)
    {
-      index = set->size;
+      size_t index = set->size;
       while(index > position)
       {
          putElementAtNamesetwArray(set->array[index-1], index, set);
@@ -181,7 +179,6 @@ expfun void removeElementAtNamesetwArray(size_t position,
                                         namesetw set,
                                         c3po_bool FreeAtPos)
 {
-   size_t index;
    if (set != NULL)
    {
       if (position < set->size)
@@ -192,7 +189,7 @@ expfun void removeElementAtNamesetwArray(size_t position,
                free((void *) set->array[position]);
          }
 
-         index = position + 1;
+         size_t index = position + 1;
          while(index < set->size)
          {
             putElementAtNamesetwArray(set->array[index], index - 1, set);
@@ -244,8 +241,6 @@ expfun void printNamesetw(textw Offset,
                          FILE* fp,
                          c3po_bool showEmpty)
 {
-   size_t index;
-
    textw increment = L" ";
    textw new_Offset = (textw) malloc(sizeof(char) * (wcslen(Offset) + wcslen(increment) + 1));
    swprintf(new_Offset, L"%s%s", Offset, increment);
@@ -274,7 +269,7 @@ expfun void printNamesetw(textw Offset,
          {
             fwprintf(fp, L"%sint size : %zu\n", new_Offset, n->size);
 
-            index = 0;
+            size_t index = 0;
             while(index < n->size)
             {
                if (n->array[index] ne NULL)
@@ -293,14 +288,12 @@ expfun void printNamesetw(textw Offset,
 expfun void freeNamesetw(namesetw n,
                         c3po_bool Deep)
 {
-   size_t index;
-
    if (n ne NULL)
    {
       if (Deep eq true)
       {
 
-         index = 0;
+         size_t index = 0;
          while(index < n->size)
          {
             if (n->array[index] ne NULL)

@@ -494,14 +494,13 @@ void dumpTree(dirnode d, const int *graphics_mode)
 
 void setXYTree(dirnode d, const int *graphics_mode)
 {
-   static int y;
-   dirnode n;
-
 
    if(dirHasSubdirs(d) eq true)
    {
       int x;
+      static int y;
       size_t index, len, size;
+      dirnode n;
       if (*graphics_mode & WCD_GRAPH_COMPACT) /* compact tree */
       {
          len = str_columns(dirnodeGetName(d));
@@ -816,7 +815,7 @@ void buildTreeFromFile(char* filename, dirnode d, int quiet)
           int len;
           char line[DD_MAXPATH];
 
-          len = read_treefile_line(line,DD_MAXPATH,infile,filename,&line_nr, bomtype);
+          len = read_treefile_line(line,infile,filename,&line_nr, bomtype);
           if (ferror(infile)) return;
           ++line_nr;
           if (len > 0 )

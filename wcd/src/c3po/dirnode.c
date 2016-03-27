@@ -54,12 +54,12 @@ expfun dirnode dirnodeNew(dirnode parent,
 expfun dirnode copyDirnode(dirnode src,
                            c3po_bool Deep)
 {
-   dirnode d;
-
    if (src == NULL)
       return NULL;
    else
    {
+      dirnode d;
+
       d = (dirnode) malloc (sizeof(dirnode_struct));
       if (d != NULL)
       {
@@ -269,7 +269,6 @@ expfun size_t getSizeOfDirnode(dirnode d)
 expfun void setSizeOfDirnode(dirnode d,
                              size_t size)
 {
-   size_t index;
    if (d != NULL)
    {
       if (size == 0)
@@ -290,7 +289,7 @@ expfun void setSizeOfDirnode(dirnode d,
 
          if (d->subdirs ne NULL)
          {
-            index = d->size;
+            size_t index = d->size;
             while(index < size)
             {
                d->subdirs[index] = NULL;
@@ -343,10 +342,9 @@ expfun void insertElementAtDirnode(dirnode d,
                                    size_t position,
                                    dirnode set)
 {
-   size_t index;
    if (set != NULL)
    {
-      index = set->size;
+      size_t index = set->size;
       while(index > position)
       {
          putElementAtDirnode(set->subdirs[index-1], index, set);
@@ -360,7 +358,6 @@ expfun void removeElementAtDirnode(size_t position,
                                    c3po_bool FreeAtPos,
                                    c3po_bool Deep)
 {
-   size_t index;
    if (set != NULL)
    {
       if (position < set->size)
@@ -368,7 +365,7 @@ expfun void removeElementAtDirnode(size_t position,
          if (FreeAtPos eq true)
             freeDirnode(set->subdirs[position], Deep);
 
-         index = position + 1;
+         size_t index = position + 1;
          while(index < set->size)
          {
             putElementAtDirnode(set->subdirs[index], index - 1, set);
@@ -420,8 +417,6 @@ expfun void printDirnode(text Offset,
                          FILE* fp,
                          c3po_bool showEmpty)
 {
-   size_t index;
-
    text increment = " ";
    text new_Offset = (text) malloc(sizeof(char) * (strlen(Offset) + strlen(increment) + 1));
    sprintf(new_Offset, "%s%s", Offset, increment);
@@ -473,7 +468,7 @@ expfun void printDirnode(text Offset,
          {
             fprintf(fp, "%sint size : %lu\n", new_Offset, (unsigned long)d->size);
 
-            index = 0;
+            size_t index = 0;
             while(index < d->size)
             {
                fprintf(fp, "%sdirnode subdirs[%lu],\n", new_Offset, (unsigned long)index);
@@ -491,8 +486,6 @@ expfun void printDirnode(text Offset,
 expfun void freeDirnode(dirnode d,
                         c3po_bool Deep)
 {
-   size_t index;
-
    if (d ne NULL)
    {
       if (Deep eq true)
@@ -504,7 +497,7 @@ expfun void freeDirnode(dirnode d,
             d->name = NULL;
          }
 
-         index = 0;
+         size_t index = 0;
          while(index < d->size)
          {
             freeDirnode(d->subdirs[index], Deep);

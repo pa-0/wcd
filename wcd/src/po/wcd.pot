@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-22 23:01+0100\n"
+"POT-Creation-Date: 2016-03-28 00:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,595 +42,595 @@ msgstr ""
 msgid "Unable to close file %s: %s\n"
 msgstr ""
 
-#: wcd.c:664 wcd.c:678
+#: wcd.c:663 wcd.c:677
 #, c-format
 msgid "%s added to file %s\n"
 msgstr ""
 
-#: wcd.c:812 wcd.c:877
+#: wcd.c:811 wcd.c:876
 #, c-format
 msgid "Unable to remove file %s: %s\n"
 msgstr ""
 
-#: wcd.c:965 wcd.c:1034
+#: wcd.c:964 wcd.c:1033
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
 msgstr ""
 
-#: wcd.c:966 wcd.c:1035
+#: wcd.c:965 wcd.c:1034
 msgid "path probably too long.\n"
 msgstr ""
 
-#: wcd.c:1146 wcd.c:1480
+#: wcd.c:1145 wcd.c:1479
 #, c-format
 msgid "%s is not a directory.\n"
 msgstr ""
 
-#: wcd.c:1151
+#: wcd.c:1150
 #, c-format
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr ""
 
-#: wcd.c:1213 wcd.c:2539 wcd.c:2562 wcd.c:2641
+#: wcd.c:1212 wcd.c:2538 wcd.c:2561 wcd.c:2640
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr ""
 
-#: wcd.c:1218
+#: wcd.c:1217
 msgid "Write access to tree-file denied.\n"
 msgstr ""
 
-#: wcd.c:1219
+#: wcd.c:1218
 msgid "Set TEMP environment variable if this is a read-only disk.\n"
 msgstr ""
 
-#: wcd.c:1348
+#: wcd.c:1347
 #, c-format
 msgid "Removed symbolic link %s\n"
 msgstr ""
 
-#: wcd.c:1354
+#: wcd.c:1353
 #, c-format
 msgid "Unable to remove symbolic link %s: %s\n"
 msgstr ""
 
-#: wcd.c:1359
+#: wcd.c:1358
 #, c-format
 msgid "%s is a symbolic link to a file.\n"
 msgstr ""
 
-#: wcd.c:1441
+#: wcd.c:1440
 #, c-format
 msgid "Recursively remove %s? Are you sure? y/n :"
 msgstr ""
 
-#: wcd.c:1463 wcd.c:1473
+#: wcd.c:1462 wcd.c:1472
 #, c-format
 msgid "Removed directory %s\n"
 msgstr ""
 
-#: wcd.c:1504 wcd.c:1570 wcd.c:1635
+#: wcd.c:1503 wcd.c:1569 wcd.c:1634
 #, c-format
 msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
 msgstr ""
 
-#: wcd.c:1505 wcd.c:1571 wcd.c:1636
+#: wcd.c:1504 wcd.c:1570 wcd.c:1635
 #, c-format
 msgid "file: %s, line: %d,"
 msgstr ""
 
-#: wcd.c:1512 wcd.c:1578 wcd.c:1643
+#: wcd.c:1511 wcd.c:1577 wcd.c:1642
 #, c-format
 msgid " length: %d\n"
 msgstr ""
 
-#: wcd.c:2252
+#: wcd.c:2251
 #, c-format
 msgid ""
 "Usage: wcd [options] [directory]\n"
 "\n"
 msgstr ""
 
-#: wcd.c:2253
+#: wcd.c:2252
 #, c-format
 msgid "directory:  Name of directory to change to.\n"
 msgstr ""
 
-#: wcd.c:2254
+#: wcd.c:2253
 #, c-format
 msgid ""
 "            Wildcards *, ? and [SET] are supported.\n"
 "\n"
 msgstr ""
 
-#: wcd.c:2256
+#: wcd.c:2255
 #, c-format
 msgid "options:\n"
 msgstr ""
 
-#: wcd.c:2257
+#: wcd.c:2256
 #, c-format
 msgid "  -a                      Add current path to treefile\n"
 msgstr ""
 
-#: wcd.c:2258
+#: wcd.c:2257
 #, c-format
 msgid "  -aa                     Add current and all parent paths to treefile\n"
 msgstr ""
 
-#: wcd.c:2259
+#: wcd.c:2258
 #, c-format
 msgid "  -A PATH                 Add tree from PATH\n"
 msgstr ""
 
-#: wcd.c:2260
+#: wcd.c:2259
 #, c-format
 msgid "  -b                      Ban current path\n"
 msgstr ""
 
-#: wcd.c:2261
+#: wcd.c:2260
 #, c-format
 msgid "  -c,  --direct-cd        direct CD mode\n"
 msgstr ""
 
-#: wcd.c:2262
+#: wcd.c:2261
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
 msgstr ""
 
-#: wcd.c:2263
+#: wcd.c:2262
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
 msgstr ""
 
-#: wcd.c:2264
+#: wcd.c:2263
 #, c-format
 msgid "  -ee                     add current and all parent paths to Extra treefile\n"
 msgstr ""
 
-#: wcd.c:2265
+#: wcd.c:2264
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
 msgstr ""
 
-#: wcd.c:2266
+#: wcd.c:2265
 #, c-format
 msgid "  -f FILE                 use extra treeFile\n"
 msgstr ""
 
-#: wcd.c:2267
+#: wcd.c:2266
 #, c-format
 msgid "  +f FILE                 add extra treeFile\n"
 msgstr ""
 
-#: wcd.c:2268
+#: wcd.c:2267
 #, c-format
 msgid "  -g                      Graphics\n"
 msgstr ""
 
-#: wcd.c:2269
+#: wcd.c:2268
 #, c-format
 msgid "  -gd                     Graphics, dump tree\n"
 msgstr ""
 
-#: wcd.c:2270
+#: wcd.c:2269
 #, c-format
 msgid "  -G PATH                 set PATH Go-script\n"
 msgstr ""
 
-#: wcd.c:2271
+#: wcd.c:2270
 #, c-format
 msgid "  -GN, --no-go-script     No Go-script\n"
 msgstr ""
 
-#: wcd.c:2272
+#: wcd.c:2271
 #, c-format
 msgid "  -h,  --help             show this Help\n"
 msgstr ""
 
-#: wcd.c:2275
+#: wcd.c:2274
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
 msgstr ""
 
-#: wcd.c:2276
+#: wcd.c:2275
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case\n"
 msgstr ""
 
-#: wcd.c:2278
+#: wcd.c:2277
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case\n"
 msgstr ""
 
-#: wcd.c:2279
+#: wcd.c:2278
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case (default)\n"
 msgstr ""
 
-#: wcd.c:2282
+#: wcd.c:2281
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
 msgstr ""
 
-#: wcd.c:2283
+#: wcd.c:2282
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
 msgstr ""
 
-#: wcd.c:2284
+#: wcd.c:2283
 #, c-format
 msgid "  -j,  --just-go          Just go mode\n"
 msgstr ""
 
-#: wcd.c:2285
+#: wcd.c:2284
 #, c-format
 msgid "  -k,  --keep-paths       Keep paths\n"
 msgstr ""
 
-#: wcd.c:2286
+#: wcd.c:2285
 #, c-format
 msgid "  -K,  --color            colors\n"
 msgstr ""
 
-#: wcd.c:2287
+#: wcd.c:2286
 #, c-format
 msgid "  -l ALIAS                aLias current directory\n"
 msgstr ""
 
-#: wcd.c:2288
+#: wcd.c:2287
 #, c-format
 msgid "  -ls                     List the aliases\n"
 msgstr ""
 
-#: wcd.c:2289
+#: wcd.c:2288
 #, c-format
 msgid "  -L,  --license          show software License\n"
 msgstr ""
 
-#: wcd.c:2290
+#: wcd.c:2289
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
 msgstr ""
 
-#: wcd.c:2291
+#: wcd.c:2290
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
 msgstr ""
 
-#: wcd.c:2292
+#: wcd.c:2291
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
 msgstr ""
 
-#: wcd.c:2293
+#: wcd.c:2292
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
 msgstr ""
 
-#: wcd.c:2294
+#: wcd.c:2293
 #, c-format
 msgid "  -N,  --numbers          use Numbers\n"
 msgstr ""
 
-#: wcd.c:2295
+#: wcd.c:2294
 #, c-format
 msgid "  -o                      use stdOut\n"
 msgstr ""
 
-#: wcd.c:2296
+#: wcd.c:2295
 #, c-format
 msgid "  -od, --to-stdout        dump matches\n"
 msgstr ""
 
-#: wcd.c:2297
+#: wcd.c:2296
 #, c-format
 msgid "  -q,  --quiet            Quieter operation\n"
 msgstr ""
 
-#: wcd.c:2298
+#: wcd.c:2297
 #, c-format
 msgid "  -r DIR                  Remove DIR\n"
 msgstr ""
 
-#: wcd.c:2299
+#: wcd.c:2298
 #, c-format
 msgid "  -rmtree DIR             Remove DIR recursive\n"
 msgstr ""
 
-#: wcd.c:2300
+#: wcd.c:2299
 #, c-format
 msgid "  -s                      Scan disk from $HOME\n"
 msgstr ""
 
-#: wcd.c:2301
+#: wcd.c:2300
 #, c-format
 msgid "  -S PATH                 Scan disk from PATH\n"
 msgstr ""
 
-#: wcd.c:2302
+#: wcd.c:2301
 #, c-format
 msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
 msgstr ""
 
-#: wcd.c:2303
+#: wcd.c:2302
 #, c-format
 msgid "  -t                      don't strip /tmp_mnt from paths\n"
 msgstr ""
 
-#: wcd.c:2304
+#: wcd.c:2303
 #, c-format
 msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
 msgstr ""
 
-#: wcd.c:2305
+#: wcd.c:2304
 #, c-format
 msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
 msgstr ""
 
-#: wcd.c:2306
+#: wcd.c:2305
 #, c-format
 msgid "  -TC, --center-tree      Centered tree view\n"
 msgstr ""
 
-#: wcd.c:2307
+#: wcd.c:2306
 #, c-format
 msgid "  -Tc, --compact-tree     Compact tree\n"
 msgstr ""
 
-#: wcd.c:2308
+#: wcd.c:2307
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
 msgstr ""
 
-#: wcd.c:2309
+#: wcd.c:2308
 #, c-format
 msgid "  -u USER                 use USER's treefile\n"
 msgstr ""
 
-#: wcd.c:2310
+#: wcd.c:2309
 #, c-format
 msgid "  +u USER                 add USER's treefile\n"
 msgstr ""
 
-#: wcd.c:2311
+#: wcd.c:2310
 #, c-format
 msgid "  -v,  --verbose          Verbose operation\n"
 msgstr ""
 
-#: wcd.c:2312
+#: wcd.c:2311
 #, c-format
 msgid "  -V,  --version          show Version info\n"
 msgstr ""
 
-#: wcd.c:2313
+#: wcd.c:2312
 #, c-format
 msgid "  -w,  --wild-match-only  Wild matching only\n"
 msgstr ""
 
-#: wcd.c:2314
+#: wcd.c:2313
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
 msgstr ""
 
-#: wcd.c:2315
+#: wcd.c:2314
 #, c-format
 msgid "  -xf FILE                eXclude paths from FILE\n"
 msgstr ""
 
-#: wcd.c:2316
+#: wcd.c:2315
 #, c-format
 msgid "  -y,  --assume-yes       assume Yes on all queries\n"
 msgstr ""
 
-#: wcd.c:2317
+#: wcd.c:2316
 #, c-format
 msgid "  -z NUMBER               set max stack siZe\n"
 msgstr ""
 
-#: wcd.c:2318
+#: wcd.c:2317
 #, c-format
 msgid "  -[NUMBER]               push dir (NUMBER times)\n"
 msgstr ""
 
-#: wcd.c:2319
+#: wcd.c:2318
 #, c-format
 msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
 msgstr ""
 
-#: wcd.c:2320
+#: wcd.c:2319
 #, c-format
 msgid "  =                       show stack\n"
 msgstr ""
 
-#: wcd.c:2329 wcd.c:2458
+#: wcd.c:2328 wcd.c:2457
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr ""
 
-#: wcd.c:2330
+#: wcd.c:2329
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
 "\n"
 msgstr ""
 
-#: wcd.c:2334
+#: wcd.c:2333
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr ""
 
-#: wcd.c:2336
+#: wcd.c:2335
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr ""
 
-#: wcd.c:2338
+#: wcd.c:2337
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr ""
 
-#: wcd.c:2340
+#: wcd.c:2339
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr ""
 
-#: wcd.c:2347
+#: wcd.c:2346
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
 msgstr ""
 
-#: wcd.c:2349
+#: wcd.c:2348
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
 msgstr ""
 
-#: wcd.c:2353
+#: wcd.c:2352
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
 msgstr ""
 
-#: wcd.c:2355
+#: wcd.c:2354
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
 msgstr ""
 
-#: wcd.c:2357
+#: wcd.c:2356
 #, c-format
 msgid "Win32 version (MinGW-w64).\n"
 msgstr ""
 
-#: wcd.c:2359
+#: wcd.c:2358
 #, c-format
 msgid "Win32 version (MinGW).\n"
 msgstr ""
 
-#: wcd.c:2366
+#: wcd.c:2365
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr ""
 
-#: wcd.c:2368
+#: wcd.c:2367
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr ""
 
-#: wcd.c:2370
+#: wcd.c:2369
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
 msgstr ""
 
-#: wcd.c:2375
+#: wcd.c:2374
 #, c-format
 msgid "OS/2 version"
 msgstr ""
 
-#: wcd.c:2386
+#: wcd.c:2385
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr ""
 
-#: wcd.c:2389
+#: wcd.c:2388
 #, c-format
 msgid "Cygwin version.\n"
 msgstr ""
 
-#: wcd.c:2392
+#: wcd.c:2391
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr ""
 
-#: wcd.c:2395
+#: wcd.c:2394
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr ""
 
-#: wcd.c:2398
+#: wcd.c:2397
 #, c-format
 msgid "Interface: "
 msgstr ""
 
-#: wcd.c:2404
+#: wcd.c:2403
 #, c-format
 msgid "ncurses version %s.%d\n"
 msgstr ""
 
-#: wcd.c:2407
+#: wcd.c:2406
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr ""
 
-#: wcd.c:2409
+#: wcd.c:2408
 #, c-format
 msgid "curses\n"
 msgstr ""
 
-#: wcd.c:2418
+#: wcd.c:2417
 #, c-format
 msgid "stdout\n"
 msgstr ""
 
-#: wcd.c:2422
+#: wcd.c:2421
 #, c-format
 msgid "Native language support included.\n"
 msgstr ""
 
-#: wcd.c:2423
+#: wcd.c:2422
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr ""
 
-#: wcd.c:2425
+#: wcd.c:2424
 #, c-format
 msgid "No native language support included.\n"
 msgstr ""
 
-#: wcd.c:2428
+#: wcd.c:2427
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
 msgstr ""
 
-#: wcd.c:2430
+#: wcd.c:2429
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr ""
 
-#: wcd.c:2433
+#: wcd.c:2432
 #, c-format
 msgid "With Unicode support.\n"
 msgstr ""
 
-#: wcd.c:2438
+#: wcd.c:2437
 #, c-format
 msgid "  Euro symbol: "
 msgstr ""
 
-#: wcd.c:2440
+#: wcd.c:2439
 #, c-format
 msgid "  Chinese characters: "
 msgstr ""
 
-#: wcd.c:2444
+#: wcd.c:2443
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr ""
 
-#: wcd.c:2447
+#: wcd.c:2446
 #, c-format
 msgid "With Unicode normalization.\n"
 msgstr ""
 
-#: wcd.c:2449
+#: wcd.c:2448
 #, c-format
 msgid "Without Unicode normalization.\n"
 msgstr ""
 
-#: wcd.c:2452
+#: wcd.c:2451
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr ""
 
-#: wcd.c:2459
+#: wcd.c:2458
 #, c-format
 msgid ""
 "Copyright (C) 1997-%d Erwin Waterlander\n"
@@ -642,7 +642,7 @@ msgid ""
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
 
-#: wcd.c:2467
+#: wcd.c:2466
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -652,7 +652,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: wcd.c:2473
+#: wcd.c:2472
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -662,7 +662,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: wcd.c:2479
+#: wcd.c:2478
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -672,7 +672,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: wcd.c:2485
+#: wcd.c:2484
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -680,86 +680,86 @@ msgid ""
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 msgstr ""
 
-#: wcd.c:2519
+#: wcd.c:2518
 #, c-format
 msgid "creating directory %s\n"
 msgstr ""
 
-#: wcd.c:2852 wcd.c:2892 wcd.c:2907 wcd.c:2975 wcd.c:3044 wcd.c:3544 wcd.c:3563
+#: wcd.c:2849 wcd.c:2889 wcd.c:2904 wcd.c:2972 wcd.c:3041 wcd.c:3541 wcd.c:3560
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr ""
 
-#: wcd.c:2881
+#: wcd.c:2878
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr ""
 
-#: wcd.c:2939 wcd.c:2968
+#: wcd.c:2936 wcd.c:2965
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr ""
 
-#: wcd.c:3151
+#: wcd.c:3148
 #, c-format
 msgid "aliasfile: %s\n"
 msgstr ""
 
-#: wcd.c:3165
+#: wcd.c:3162
 msgid "HOME is not defined\n"
 msgstr ""
 
-#: wcd.c:3169
+#: wcd.c:3166
 msgid "WCDHOME is not defined\n"
 msgstr ""
 
-#: wcd.c:3173
+#: wcd.c:3170
 msgid "WCDSCAN is not defined\n"
 msgstr ""
 
-#: wcd.c:3198
+#: wcd.c:3195
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr ""
 
-#: wcd.c:3477
+#: wcd.c:3474
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr ""
 
-#: wcd.c:3576
+#: wcd.c:3573
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr ""
 
-#: wcd.c:3726
+#: wcd.c:3723
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr ""
 
-#: wcd.c:3728
+#: wcd.c:3725
 #, c-format
 msgid "banning {%s}\n"
 msgstr ""
 
-#: wcd.c:3730
+#: wcd.c:3727
 #, c-format
 msgid "excluding {%s}\n"
 msgstr ""
 
-#: wcd.c:3732
+#: wcd.c:3729
 #, c-format
 msgid "filtering {%s}\n"
 msgstr ""
 
-#: wcd.c:3996
+#: wcd.c:3992
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr ""
 
-#: wcd.c:3997
+#: wcd.c:3993
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr ""
 
-#: wcd.c:4164
+#: wcd.c:4160
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr ""
@@ -834,96 +834,96 @@ msgstr ""
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr ""
 
-#: display.c:521 display.c:1139 display.c:1513
+#: display.c:519 display.c:1137 display.c:1511
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr ""
 
-#: display.c:523 display.c:1141 display.c:1515
+#: display.c:521 display.c:1139 display.c:1513
 #, c-format
 msgid "Wild match for %d directories."
 msgstr ""
 
-#: display.c:527 display.c:1153 display.c:1517 display.c:1560
+#: display.c:525 display.c:1151 display.c:1515 display.c:1558
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr ""
 
-#: display.c:529 display.c:605 display.c:637 display.c:1146
+#: display.c:527 display.c:603 display.c:635 display.c:1144
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr ""
 
-#: display.c:681 display.c:1169
+#: display.c:679 display.c:1167
 msgid "Screenheight must be > 20 for help."
 msgstr ""
 
-#: display.c:686 display.c:1172
+#: display.c:684 display.c:1170
 msgid "w or <Up>         page up"
 msgstr ""
 
-#: display.c:687 display.c:1173
+#: display.c:685 display.c:1171
 msgid "x or z or <Down>  page down"
 msgstr ""
 
-#: display.c:688 display.c:1174
+#: display.c:686 display.c:1172
 msgid ", or <Left>       scroll 1 left"
 msgstr ""
 
-#: display.c:689 display.c:1175
+#: display.c:687 display.c:1173
 msgid ". or <Right>      scroll 1 right"
 msgstr ""
 
-#: display.c:690 display.c:1176
+#: display.c:688 display.c:1174
 msgid "< or [            scroll 10 left"
 msgstr ""
 
-#: display.c:691 display.c:1177
+#: display.c:689 display.c:1175
 msgid "> or ]            scroll 10 right"
 msgstr ""
 
-#: display.c:692 display.c:1178
+#: display.c:690 display.c:1176
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr ""
 
-#: display.c:693 display.c:1179
+#: display.c:691 display.c:1177
 msgid "CTRL-e or <END>   scroll to end"
 msgstr ""
 
-#: display.c:694 display.c:1181
+#: display.c:692 display.c:1179
 msgid "CTRL-c or <Esc>   abort"
 msgstr ""
 
-#: display.c:695 display.c:1182
+#: display.c:693 display.c:1180
 msgid "<Enter>           abort"
 msgstr ""
 
-#: display.c:696
+#: display.c:694
 msgid "Type w or x to quit help."
 msgstr ""
 
-#: display.c:1180 graphics.c:1973
+#: display.c:1178 graphics.c:1972
 msgid "CTRL-l or F5      redraw screen"
 msgstr ""
 
-#: display.c:1183 graphics.c:1958 graphics.c:1975 graphics.c:1998
-#: graphics.c:2015
+#: display.c:1181 graphics.c:1957 graphics.c:1974 graphics.c:1997
+#: graphics.c:2014
 msgid "Press any key."
 msgstr ""
 
-#: display.c:1248 graphics.c:2264
+#: display.c:1246 graphics.c:2263
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr ""
 
-#: display.c:1269
+#: display.c:1267
 msgid "screen height must be larger than 3 lines.\n"
 msgstr ""
 
-#: display.c:1303 graphics.c:2295
+#: display.c:1301 graphics.c:2294
 msgid "error creating scroll window.\n"
 msgstr ""
 
-#: display.c:1317
+#: display.c:1315
 msgid "error creating input window.\n"
 msgstr ""
 
@@ -932,227 +932,227 @@ msgstr ""
 msgid "Wcd: error: path too long"
 msgstr ""
 
-#: graphics.c:1919
+#: graphics.c:1918
 msgid "/ = search forward,  ? = search backward,  : = help"
 msgstr ""
 
-#: graphics.c:1924
+#: graphics.c:1923
 msgid "SEARCH: "
 msgstr ""
 
-#: graphics.c:1927
+#: graphics.c:1926
 msgid "Search: "
 msgstr ""
 
-#: graphics.c:1943
+#: graphics.c:1942
 msgid "NAVIGATION MODE (1/2):"
 msgstr ""
 
-#: graphics.c:1944
+#: graphics.c:1943
 msgid "h or <Left>       go left"
 msgstr ""
 
-#: graphics.c:1945
+#: graphics.c:1944
 msgid "j or <Down>       go down"
 msgstr ""
 
-#: graphics.c:1946
+#: graphics.c:1945
 msgid "k or <Up>         go up"
 msgstr ""
 
-#: graphics.c:1947
+#: graphics.c:1946
 msgid "l or <Right>      go right"
 msgstr ""
 
-#: graphics.c:1948
+#: graphics.c:1947
 msgid "* or v or <Space> go forward to dir with same name"
 msgstr ""
 
-#: graphics.c:1949
+#: graphics.c:1948
 msgid "# or p or <BS>    go backward to dir with same name"
 msgstr ""
 
-#: graphics.c:1950
+#: graphics.c:1949
 msgid "^ or a            go to beginning of line"
 msgstr ""
 
-#: graphics.c:1951
+#: graphics.c:1950
 msgid "$ or e            go to end of line"
 msgstr ""
 
-#: graphics.c:1952
+#: graphics.c:1951
 msgid "1                 go to root dir"
 msgstr ""
 
-#: graphics.c:1953
+#: graphics.c:1952
 msgid "g or G            go to last dir"
 msgstr ""
 
-#: graphics.c:1954
+#: graphics.c:1953
 msgid "f                 go page forward"
 msgstr ""
 
-#: graphics.c:1955
+#: graphics.c:1954
 msgid "b                 go page backward"
 msgstr ""
 
-#: graphics.c:1956
+#: graphics.c:1955
 msgid "u                 go half page up"
 msgstr ""
 
-#: graphics.c:1957
+#: graphics.c:1956
 msgid "d                 go half page down"
 msgstr ""
 
-#: graphics.c:1964
+#: graphics.c:1963
 msgid "NAVIGATION MODE (2/2):"
 msgstr ""
 
-#: graphics.c:1965
+#: graphics.c:1964
 msgid "A                 switch alternative tree navigation on/off"
 msgstr ""
 
-#: graphics.c:1966
+#: graphics.c:1965
 msgid "t                 switch centered mode on/off"
 msgstr ""
 
-#: graphics.c:1967
+#: graphics.c:1966
 msgid "T                 toggle between line drawing and ASCII characters"
 msgstr ""
 
-#: graphics.c:1968
+#: graphics.c:1967
 msgid "m                 toggle between compact and wide tree"
 msgstr ""
 
-#: graphics.c:1969
+#: graphics.c:1968
 msgid "<Esc> or q        abort"
 msgstr ""
 
-#: graphics.c:1970
+#: graphics.c:1969
 msgid "/                 search forward"
 msgstr ""
 
-#: graphics.c:1971
+#: graphics.c:1970
 msgid "?                 search backward"
 msgstr ""
 
-#: graphics.c:1972
+#: graphics.c:1971
 msgid "n                 repeat last / or ? search"
 msgstr ""
 
-#: graphics.c:1974 graphics.c:1997
+#: graphics.c:1973 graphics.c:1996
 msgid "<Enter>           select directory"
 msgstr ""
 
-#: graphics.c:1981
+#: graphics.c:1980
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr ""
 
-#: graphics.c:1982
+#: graphics.c:1981
 msgid "<Left>            go left"
 msgstr ""
 
-#: graphics.c:1983
+#: graphics.c:1982
 msgid "<Down>            go down"
 msgstr ""
 
-#: graphics.c:1984
+#: graphics.c:1983
 msgid "<Up>              go up"
 msgstr ""
 
-#: graphics.c:1985
+#: graphics.c:1984
 msgid "<Right>           go right"
 msgstr ""
 
-#: graphics.c:1986
+#: graphics.c:1985
 msgid "CTRL-v            go forward to dir with same name"
 msgstr ""
 
-#: graphics.c:1987
+#: graphics.c:1986
 msgid "CTRL-p            go backward to dir with same name"
 msgstr ""
 
-#: graphics.c:1988
+#: graphics.c:1987
 msgid "CTRL-a            go to beginning of line"
 msgstr ""
 
-#: graphics.c:1989
+#: graphics.c:1988
 msgid "CTRL-e            go to end of line"
 msgstr ""
 
-#: graphics.c:1990
+#: graphics.c:1989
 msgid "CTRL-g            go to last dir"
 msgstr ""
 
-#: graphics.c:1991
+#: graphics.c:1990
 msgid "CTRL-f            go page forward"
 msgstr ""
 
-#: graphics.c:1992
+#: graphics.c:1991
 msgid "CTRL-b            go page backward"
 msgstr ""
 
-#: graphics.c:1993
+#: graphics.c:1992
 msgid "CTRL-u            go half page up"
 msgstr ""
 
-#: graphics.c:1994
+#: graphics.c:1993
 msgid "CTRL-d            go half page down"
 msgstr ""
 
-#: graphics.c:1995
+#: graphics.c:1994
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
 msgstr ""
 
-#: graphics.c:1996
+#: graphics.c:1995
 msgid "CTRL-n            repeat last / or ? search"
 msgstr ""
 
-#: graphics.c:2004
+#: graphics.c:2003
 msgid "ZOOMING:"
 msgstr ""
 
-#: graphics.c:2005
+#: graphics.c:2004
 msgid "z or i or CTRL-i  zoom in"
 msgstr ""
 
-#: graphics.c:2006
+#: graphics.c:2005
 msgid "Z or o or CTRL-o  zoom out"
 msgstr ""
 
-#: graphics.c:2007
+#: graphics.c:2006
 msgid "c                 condense: fold current level"
 msgstr ""
 
-#: graphics.c:2008
+#: graphics.c:2007
 msgid "C                 condense: fold subdir level"
 msgstr ""
 
-#: graphics.c:2009
+#: graphics.c:2008
 msgid "w                 condense: fold current and subdir levels"
 msgstr ""
 
-#: graphics.c:2010
+#: graphics.c:2009
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
 msgstr ""
 
-#: graphics.c:2011
+#: graphics.c:2010
 msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr ""
 
-#: graphics.c:2012
+#: graphics.c:2011
 msgid "-                 fold directory"
 msgstr ""
 
-#: graphics.c:2013
+#: graphics.c:2012
 msgid "+ or =            unfold directory"
 msgstr ""
 
-#: graphics.c:2014
+#: graphics.c:2013
 msgid "l or <Right>      unfold and go right"
 msgstr ""
 
-#: graphics.c:2018
+#: graphics.c:2017
 msgid "Screenheight must be > 21 for help."
 msgstr ""
 
