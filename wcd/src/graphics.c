@@ -2243,7 +2243,8 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
    ptr=NULL;
 
-   getCurPath(curPath, (size_t)DD_MAXPATH, use_HOME);
+   if (getCurPath(curPath, (size_t)DD_MAXPATH, use_HOME) == NULL)
+      return NULL;
    wcd_cwin.curNode = locatePathOrSo(curPath,tree);
 
    wcd_cwin.zoomStack = dirnodeNew(NULL,NULL,NULL);

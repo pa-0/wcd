@@ -630,9 +630,10 @@ int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
 }
 #endif
 /*****************************************************************/
-void getCurPath(char *buffer, size_t size, int *use_HOME)
+char *getCurPath(char *buffer, size_t size, int *use_HOME)
 {
- if(wcd_getcwd(buffer, size) != NULL)
+ char *path = wcd_getcwd(buffer, size);
+ if(path != NULL)
  {
    size_t len = strlen(buffer);
    if (len==0)
@@ -640,6 +641,7 @@ void getCurPath(char *buffer, size_t size, int *use_HOME)
    wcd_fixpath(buffer,size);
    rmDriveLetter(buffer,use_HOME);
  }
+ return path;
 }
 /*****************************************************************
  *  add current path to file.
@@ -650,9 +652,9 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
 
  char tmp[DD_MAXPATH];      /* tmp string buffer */
 
- getCurPath(tmp,(size_t)DD_MAXPATH,use_HOME);
+ char *path = getCurPath(tmp,(size_t)DD_MAXPATH,use_HOME);
 
- if(tmp != NULL)
+ if(path != NULL)
  {
    /* open the treedata file */
    FILE *outfile;
@@ -1525,7 +1527,7 @@ int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const in
 int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, const int* line_nr)
 {
    int i;
-   int c_high, c_low;
+   int c_high=EOF, c_low=EOF;
 #if !defined(_WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
 #endif
@@ -1590,7 +1592,7 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, cons
 int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, const int* line_nr)
 {
    int i;
-   int c_high, c_low;
+   int c_high=EOF, c_low=EOF;
 #if !defined(_WIN32) && !defined(__CYGWIN__)
    wchar_t lead, trail;
 #endif
@@ -2599,9 +2601,9 @@ size_t pickDir(nameset list, int *use_HOME)
 
    sort_list(list);
 
-   getCurPath(curDir,(size_t)DD_MAXPATH,use_HOME); /* get previous dirname from file */
+   char *path = getCurPath(curDir,(size_t)DD_MAXPATH,use_HOME); /* get previous dirname from file */
 
-   if (curDir == NULL)  /* no dirname found */
+   if (path == NULL)  /* no dirname found */
       return(1);            /* return first of list */
 
    if ((i = inNameset(curDir,list)) == (size_t)-1)  /* not in list */

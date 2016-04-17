@@ -171,7 +171,7 @@ int  wcd_get_int(void);
 int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const int* line_nr);
 int read_treefile_line (char line[], FILE* infile, const char* file_name, const int* line_nr, int bomtype);
 int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdStack ws, nameset excl);
-void getCurPath(char *buffer, size_t size, int *use_HOME);
+char *getCurPath(char *buffer, size_t size, int *use_HOME);
 
 #ifdef WCD_DOSBASH
 	void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript, int verbose);
