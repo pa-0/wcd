@@ -212,8 +212,8 @@ expfun void dumpCommandline(text file,
    fp = fopen(file, "a");
    if (fp ne NULL)
    {
-      fprintf(stderr, "\n- appending commandline to '%s'\n", file);
       int index = 0;
+      fprintf(stderr, "\n- appending commandline to '%s'\n", file);
       while(index < argc)
       {
          fprintf(fp, "%s ", argv[index]);

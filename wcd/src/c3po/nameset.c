@@ -183,13 +183,14 @@ expfun void removeElementAtNamesetArray(size_t position,
    {
       if (position < set->size)
       {
+         size_t index;
          if (FreeAtPos eq true)
          {
             if (set->array[position] ne NULL)
                free((void *) set->array[position]);
          }
 
-         size_t index = position + 1;
+         index = position + 1;
          while(index < set->size)
          {
             putElementAtNamesetArray(set->array[index], index - 1, set);
@@ -267,9 +268,10 @@ expfun void printNameset(text Offset,
       {
          if ((isEmptyNamesetArray(n) == false) || (showEmpty == true))
          {
+            size_t index;
             fprintf(fp, "%sint size : %lu\n", new_Offset, (unsigned long)n->size);
 
-            size_t index = 0;
+            index = 0;
             while(index < n->size)
             {
                if (n->array[index] ne NULL)

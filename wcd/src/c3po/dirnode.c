@@ -362,10 +362,10 @@ expfun void removeElementAtDirnode(size_t position,
    {
       if (position < set->size)
       {
+         size_t index = position + 1;
          if (FreeAtPos eq true)
             freeDirnode(set->subdirs[position], Deep);
 
-         size_t index = position + 1;
          while(index < set->size)
          {
             putElementAtDirnode(set->subdirs[index], index - 1, set);
@@ -466,9 +466,9 @@ expfun void printDirnode(text Offset,
       {
          if ((isEmptyDirnode(d) == false) || (showEmpty == true))
          {
+            size_t index = 0;
             fprintf(fp, "%sint size : %lu\n", new_Offset, (unsigned long)d->size);
 
-            size_t index = 0;
             while(index < d->size)
             {
                fprintf(fp, "%sdirnode subdirs[%lu],\n", new_Offset, (unsigned long)index);
@@ -490,6 +490,7 @@ expfun void freeDirnode(dirnode d,
    {
       if (Deep eq true)
       {
+         size_t index = 0;
 
          if (d->name ne NULL)
          {
@@ -497,7 +498,6 @@ expfun void freeDirnode(dirnode d,
             d->name = NULL;
          }
 
-         size_t index = 0;
          while(index < d->size)
          {
             freeDirnode(d->subdirs[index], Deep);

@@ -214,18 +214,19 @@ int stack_write(WcdStack ws,const char *stackfilename)
 		return(0);
 	else
 	{
+	        FILE *outfile;
 		/* create directory for stack file if it doesn't exist */
 		create_dir_for_file(stackfilename);
 
-	        FILE *outfile;
 		if ( (outfile = wcd_fopen(stackfilename,"w",0)) == NULL)
 		{
 			return(0);
 		}
 		else
 		{
+			int i;
 			wcd_fprintf(outfile,"%d %d\n",ws->lastadded,ws->current);
-			for(int i=0;((i<(int)ws->size)&&(i<ws->maxsize));i++)
+			for(i=0;((i<(int)ws->size)&&(i<ws->maxsize));i++)
 			{
 			/* printf("writing line %d\n",i);  */
 				wcd_fprintf(outfile,"%s\n",ws->dir[i]);

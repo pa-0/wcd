@@ -242,13 +242,14 @@ expfun void removeElementAtWcdStackDir(size_t position,
    {
       if (position < set->size)
       {
+         size_t index;
          if (FreeAtPos eq true)
          {
             if (set->dir[position] ne NULL)
                free((void *) set->dir[position]);
          }
 
-         size_t index = position + 1;
+         index = position + 1;
          while(index < set->size)
          {
             putElementAtWcdStackDir(set->dir[index], index - 1, set);
@@ -332,9 +333,10 @@ expfun void printWcdStack(text Offset,
       {
          if ((isEmptyWcdStackDir(w) == false) || (showEmpty == true))
          {
+            size_t index;
             fprintf(fp, "%sint size : %lu\n", new_Offset, (unsigned long)w->size);
 
-            size_t index = 0;
+            index = 0;
             while(index < w->size)
             {
                if (w->dir[index] ne NULL)

@@ -1502,10 +1502,11 @@ int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const in
 
    if (i >= lim-1)
    {
+      int j;
       print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),"wcd_getline()",(lim-1));
       print_error(_("file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
-      int j = i+1;
+      j = i+1;
       while (((c=getc(infile)) != '\n') && (c != EOF))
       {
          ++j;
@@ -2099,6 +2100,8 @@ void scanaliasfile(char *org_dir, char *filename,
       char alias[256];
       while (!feof(infile) && !ferror(infile)) {
          int len;
+         char *ptr;
+         size_t j;
 
          /* skip spaces at the beginning of the line */
          while ((line[0]=(char)fgetc(infile)) == ' '){};
@@ -2109,8 +2112,8 @@ void scanaliasfile(char *org_dir, char *filename,
          ++line_nr;
 
          if (len == 0 ) continue;
-         char *ptr = line;
-         size_t j=0;
+         ptr = line;
+         j=0;
          while ((*ptr != ' ') && (*ptr != '\0') && (j<(sizeof(alias)-1))) {
             alias[j] = *ptr;
             ++j;
@@ -2595,13 +2598,14 @@ size_t pickDir(nameset list, int *use_HOME)
 {
    char curDir[DD_MAXPATH];
    size_t i;
+   char *path;
 
    if (list == NULL) /* there is no list */
       return(0);
 
    sort_list(list);
 
-   char *path = getCurPath(curDir,(size_t)DD_MAXPATH,use_HOME); /* get previous dirname from file */
+   path = getCurPath(curDir,(size_t)DD_MAXPATH,use_HOME); /* get previous dirname from file */
 
    if (path == NULL)  /* no dirname found */
       return(1);            /* return first of list */
@@ -2714,8 +2718,8 @@ void addListToNameset(nameset set, char *list)
 {
    if (list != NULL)
    {
-      list = strtok(list, LIST_SEPARATOR);
       char tmp[DD_MAXPATH];      /* tmp string buffer */
+      list = strtok(list, LIST_SEPARATOR);
       while (list != NULL)
       {
          if (strlen(list) < (DD_MAXPATH-2)) /* prevent buffer overflow */
@@ -2733,8 +2737,8 @@ void addListToNamesetFilter(nameset set, char *list)
 {
    if (list != NULL)
    {
-      list = strtok(list, LIST_SEPARATOR);
       char tmp[DD_MAXPATH];      /* tmp string buffer */
+      list = strtok(list, LIST_SEPARATOR);
       while (list != NULL)
       {
          if (strlen(list) < (DD_MAXPATH-2)) /* prevent buffer overflow */

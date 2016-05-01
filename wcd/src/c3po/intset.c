@@ -242,9 +242,9 @@ expfun void printIntset(text Offset,
       {
          if ((isEmptyIntset(i) == false) || (showEmpty == true))
          {
+            size_t index = 0;
             fprintf(fp, "%sint size : %lu\n", new_Offset, (unsigned long)i->size);
 
-            size_t index = 0;
             while(index < i->size)
             {
                fprintf(fp, "%sint array[%lu] : %lu\n", new_Offset, (unsigned long)index, (unsigned long)i->array[index]);

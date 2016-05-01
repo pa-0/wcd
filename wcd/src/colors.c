@@ -57,11 +57,12 @@ void colorbox(WINDOW *win, chtype color, int hasbox)
 #ifndef PDCURSES
     int maxx;
 #endif
+    chtype attr;
 
     setcolor(win, color);
 
 #ifdef A_COLOR
-    chtype attr = color & A_ATTR;  /* extract Bold, Reverse, Blink bits */
+    attr = color & A_ATTR;  /* extract Bold, Reverse, Blink bits */
     if (has_colors())
         wbkgd(win,
             COLOR_PAIR(color & A_CHARTEXT) | (attr & ~A_REVERSE));

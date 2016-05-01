@@ -303,7 +303,8 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
          }
          else
          {
-            for (size_t i=0;i<clen;i++)
+            size_t i;
+            for (i=0;i<clen;i++)
                tline[i] = ' ';
             tline[clen] = '\0';
             strcat(tline,WCD_OVERDIR);
@@ -334,7 +335,8 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
             }
             else
             {
-               for (size_t i=0;i<clen;i++)
+               size_t i;
+               for (i=0;i<clen;i++)
                   tline[i] = ' ';
                tline[clen] = '\0';
                strcat(tline,WCD_MOREDIR);
@@ -342,7 +344,8 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
          }
          else
          {
-            for (size_t i=0;i<clen;i++)
+            size_t i;
+            for (i=0;i<clen;i++)
                tline[i] = ' ';
             tline[clen] = '\0';
 
@@ -2127,9 +2130,9 @@ void setFold_tree(dirnode d, c3po_bool *f)
 
    if(dirnodeHasSubdirs(d) eq true) /* only (un)fold directories that have subdirs */
    {
-      d->fold = *f;
       size_t index = 0;
       size_t size = getSizeOfDirnode(d);
+      d->fold = *f;
       while(index < size)
       {
          n = elementAtDirnode(index,d);
