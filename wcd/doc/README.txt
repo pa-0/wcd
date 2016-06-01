@@ -283,8 +283,8 @@ Table of Contents
         German                Lars Wendler                 Version 5.2.4
         German                Mario Blättermann            Version 5.2.5 - 5.2.6
         Spanish               Julio A. Freyre-Gonzalez     Version 5.0.4 - 5.2.4
-        Ukrainian             Yuri Chornoivan              Version 5.2.5 - 5.2.6
-	Vietnamese            Trần Ngọc Quân               Version 5.2.5 - 5.2.6
+        Ukrainian             Yuri Chornoivan              Version 5.2.5 - 5.3.3
+	Vietnamese            Trần Ngọc Quân               Version 5.2.5 - 5.3.3
 
 
         Translations of the manual:
@@ -292,7 +292,7 @@ Table of Contents
 
         Dutch                 Erwin Waterlander            Version 5.2.5
         German                Mario Blättermann            Version 5.2.5
-        Ukrainian             Yuri Chornoivan              Version 5.2.5
+        Ukrainian             Yuri Chornoivan              Version 5.3.3
 
 
     3.2 Works of others used in the program

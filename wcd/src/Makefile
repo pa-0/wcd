@@ -709,7 +709,7 @@ install-man: $(INSTALL_OBJS_MAN1) $(MANFILES) $(MANPOTFILE)
 	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(DESTDIR)$(man1dir)
 ifdef ENABLE_NLS
 	$(foreach manfile, $(MANFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
-	$(foreach manfile, $(MANFILES), $(INSTALL_DATA) -m 644 $(manfile) $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
+	$(foreach manfile, $(MANFILES), $(INSTALL_DATA) $(manfile) $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
 endif
 
 install-bin: $(BIN)

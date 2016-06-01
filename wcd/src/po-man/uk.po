@@ -2,12 +2,12 @@
 # Copyright 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2014.
+# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd-man-5.2.5-beta12\n"
-"POT-Creation-Date: 2016-02-25 22:46+0100\n"
-"PO-Revision-Date: 2014-06-08 10:20+0300\n"
+"Project-Id-Version: wcd-man-5.3.3-beta4\n"
+"POT-Creation-Date: 2016-05-02 23:08+0200\n"
+"PO-Revision-Date: 2016-05-31 13:30+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -771,12 +771,12 @@ msgstr "Надати поточному шляху альтернативну н
 #. type: =item
 #: wcd.pod:421
 msgid "B<-ls>"
-msgstr ""
+msgstr "B<-ls>"
 
 #. type: textblock
 #: wcd.pod:423
 msgid "Show the name of the alias file, and list all the aliases."
-msgstr ""
+msgstr "Показати назву файла псевдонімів і вивести список усіх альтернативних назв (псевдонімів)."
 
 #. type: =item
 #: wcd.pod:425
@@ -866,7 +866,7 @@ msgstr "Використовувати числа замість літер."
 #. type: textblock
 #: wcd.pod:462
 msgid "Wcd with a conio or curses based interface (see section Interfaces) presents a match list by default numbered with letters. When the B<-N> option is used the match list is numbered with numbers. Regardless of the B<-N> option one can type a letter or numbers to make a selection from the list of matches."
-msgstr "Wcd з інтерфейсом на основі conio або curses (див. розділ «Інтерфейси») типово показує список варіантів з пунктами, позначеними літерами. Якщо використано параметр B<-N>, пункти у списку буде пронумеровано. Незалежно дві параметра B<-N>, користувач може натиснути клавішу з літерою або номером для вибору пункту зі списку відповідників."
+msgstr "Wcd з інтерфейсом на основі conio або curses (див. розділ щодо інтерфейсів) типово показує список варіантів з пунктами, позначеними літерами. Якщо використано параметр B<-N>, пункти у списку буде пронумеровано. Незалежно дві параметра B<-N>, користувач може натиснути клавішу з літерою або номером для вибору пункту зі списку відповідників."
 
 #. type: =item
 #: wcd.pod:467
