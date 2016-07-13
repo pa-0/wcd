@@ -1,7 +1,7 @@
 # Dutch translation of the wcd man page.
 # Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
-# Erwin Waterlander <waterlan@xs4all.nl>, 2014.
+# Erwin Waterlander <waterlan@xs4all.nl>, 2014 - 2016.
 #
 msgid ""
 msgstr ""
@@ -771,12 +771,12 @@ msgstr "Noem het huidige pad I<ALIAS>. Wcd plaatst het huidige pad met alias I<A
 #. type: =item
 #: wcd.pod:421
 msgid "B<-ls>"
-msgstr ""
+msgstr "B<-ls>"
 
 #. type: textblock
 #: wcd.pod:423
 msgid "Show the name of the alias file, and list all the aliases."
-msgstr ""
+msgstr "Toon de naam van het alias bestand, en laat de lijst van aliassen zien."
 
 #. type: =item
 #: wcd.pod:425
