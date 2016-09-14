@@ -25,8 +25,8 @@ interactive directory tree browser with speed search.
   * Windows Command Prompt, Windows PowerShell, Windows ZSH, MSYS, Cygwin
   * Unix/Linux: all Bourne and C type shells
   * OS/2 Warp
-* Native language support: Dutch, English, Esperanto, Finnish, German, Spanish,
-  Ukrainian, Vietnamese.
+* Native language support: Chinese simplified, Dutch, English, Esperanto,
+    Finnish, German, Spanish, Ukrainian, Vietnamese.
 * Unicode Level 3 support (all UCS characters including double width and combining characters).
   * Unix/Linux
   * Cygwin-1.7.

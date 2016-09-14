@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2000-2015 Erwin Waterlander
+Copyright (C) 2000-2016 Erwin Waterlander
 
 Ideas and source code of NCD (Ninux Czo Directory) have been
 used in the WCD graphical interface.
@@ -2249,6 +2249,11 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
    if (getCurPath(curPath, (size_t)DD_MAXPATH, use_HOME) == NULL)
       return NULL;
    wcd_cwin.curNode = locatePathOrSo(curPath,tree);
+   if (wcd_cwin.curNode == NULL)
+   {
+      print_error(_("Cannot find current path %s in the directory tree.\n"), curPath);
+      return NULL;
+   }
 
    wcd_cwin.zoomStack = dirnodeNew(NULL,NULL,NULL);
 
@@ -2684,7 +2689,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #endif
      break;
      default:
-      if ((wcd_cwin.mode == WCD_SEARCH) && (n < WCD_MAX_INPSTR))
+      if ((wcd_cwin.mode == WCD_SEARCH) && (n < (WCD_MAX_INPSTR -1)))
       {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
          wcd_cwin.wstr[n] = (wchar_t)ch;

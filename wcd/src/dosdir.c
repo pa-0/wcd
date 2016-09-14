@@ -65,6 +65,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 #include <string.h>
 #include "dosdir.h"
+#include "config.h"
 #ifdef WCD_UTF16
 #  include "display.h"
 struct _stat dd_sstat;
@@ -460,8 +461,10 @@ int dd_findnext(dd_ffblk* fb)
   if (!fb->dd_dirp) goto findnext_err;
   while ((fb->dd_dp = readdir(fb->dd_dirp)) != NULL)
   {
-    if (STAT(fb->dd_dp->d_name, &dd_sstat))
+    if (STAT(fb->dd_dp->d_name, &dd_sstat)) {
+        print_error("%s: %s\n",fb->dd_dp->d_name,strerror(errno));
 	continue;
+    }
     if (dd_sstat.st_mode & S_IFDIR && !(fb->dd_attribs & DD_DIREC))
 	continue;
     if (dd_match(fb->dd_dp->d_name, fb->dd_filespec, 0))
@@ -474,8 +477,12 @@ int dd_findnext(dd_ffblk* fb)
 	return 0;       /* successful match */
       }
   }  /* while */
+  /* Ignore readdir() errors. e.g. No such file or directory,
+     or Permission denied. */
 
-  closedir(fb->dd_dirp);
+  if (closedir(fb->dd_dirp) != 0) {
+    print_error(_("Unable to close directory: %s\n"), strerror(errno));
+  }
 
  findnext_err:
 
@@ -488,18 +495,21 @@ int dd_findfirst( const char *path,dd_ffblk* fb,int attrib)
 {
   char *s = strrchr(path, DIR_END);
   char dir[DD_MAXDIR];		/* directory path */
-  if (s)
-	{
-	strcpy(fb->dd_filespec, s+1);
-	strncpy(dir, path, (size_t)(s-path));
-	}
-  else
-	{
-	strcpy(dir, ".");		/* use current directory */
-	strcpy(fb->dd_filespec, path);
-	}
+  if (s) {
+    size_t len = (size_t)(s - path);
+    strncpy(fb->dd_filespec, s+1,sizeof(fb->dd_filespec)-1);
+    strncpy(dir, path, len);
+    dir[(int)len] = '\0';
+  } else {
+    strncpy(fb->dd_filespec, path,sizeof(fb->dd_filespec)-1);
+    strcpy(dir, ".");		/* use current directory */
+  }
+  fb->dd_filespec[sizeof(fb->dd_filespec)-1] = '\0';
   fb->dd_attribs = (char)attrib;
   fb->dd_dirp    = opendir(dir);
+  if (fb->dd_dirp == NULL) {
+    print_error(_("Unable to open directory %s: %s\n"), dir, strerror(errno));
+  }
   return dd_findnext(fb);
 }  /** dd_findfirst **/
 

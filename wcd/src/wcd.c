@@ -1537,7 +1537,10 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, cons
    {
       c_high <<=8;
       s[i] = (wchar_t)(c_high + c_low) ;
-      if (s[i] == L'\r') i--;
+      if (s[i] == L'\r') {
+         i--;
+         continue;
+      }
 #if !defined(_WIN32) && !defined(__CYGWIN__)
       /* wcstombs() on Unix ignores UTF-16 surrogate pairs. Therefore we have to decode the UTF-16 surrogate pair ourselves.
        * If we don't do it wcstombs() will convert the lead and trail halves individually to surrogate halves in UTF-8,
@@ -1602,7 +1605,10 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, c
    {
       c_high <<=8;
       s[i] = (wchar_t)(c_high + c_low) ;
-      if (s[i] == L'\r') i--;
+      if (s[i] == L'\r') {
+         i--;
+         continue;
+      }
 #if !defined(_WIN32) && !defined(__CYGWIN__)
       /* wcstombs() on Unix ignores UTF-16 surrogate pairs. Therefore we have to decode the UTF-16 surrogate pair ourselves.
        * If we don't do it wcstombs() will convert the lead and trail halves individually to surrogate halves in UTF-8,
@@ -1969,7 +1975,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 #endif
    {
      strcpy(path_str,"*");
-     strcat(path_str,org_dir);
+     strncat(path_str,org_dir,sizeof(path_str)-2);
    }
 
    if (!dd_iswild(dir_str))
@@ -2002,7 +2008,11 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
       int len;
 
       len = read_treefile_line(line,infile,filename,&line_nr, bomtype);
-      if (ferror(infile)) return;
+      if (ferror(infile)) {
+         wcd_read_error(filename);
+         wcd_fclose(infile, filename, "r", "scanfile: ");
+         return;
+      }
       ++line_nr;
 
       cleanPath(line,len,1) ;
@@ -2744,7 +2754,7 @@ void addListToNamesetFilter(nameset set, char *list)
          if (strlen(list) < (DD_MAXPATH-2)) /* prevent buffer overflow */
          {
             strcpy(tmp,"*");
-            strcat(tmp,list);
+            strncat(tmp,list,sizeof(tmp)-3);
             strcat(tmp,"*");
             wcd_fixpath(tmp,sizeof(tmp));
             addToNamesetArray(textNew(tmp),set);
@@ -3547,9 +3557,9 @@ int main(int argc,char** argv)
                   print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
                   return(1);
                }
-               strcat(tmp,"/");
-               strcat(tmp,argv[i]);
-               strcat(tmp,TREEFILE);
+               strncat(tmp,"/",     sizeof(tmp)-strlen(tmp)-2);
+               strncat(tmp,argv[i], sizeof(tmp)-strlen(tmp)-strlen(argv[i])-1);
+               strncat(tmp,TREEFILE,sizeof(tmp)-strlen(tmp)-strlen(TREEFILE)-1);
                if ((infile = wcd_fopen(tmp,"r",1)) != NULL)
                {
                   wcd_fclose(infile, tmp, "r", "main: ");
@@ -3566,10 +3576,10 @@ int main(int argc,char** argv)
                      print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
                      return(1);
                   }
-                  strcat(tmp2,"/");
-                  strcat(tmp2,argv[i]);
-                  strcat(tmp2,"/.wcd");
-                  strcat(tmp2,TREEFILE);
+                  strncat(tmp2,"/",     sizeof(tmp2)-strlen(tmp2)-2);
+                  strncat(tmp2,argv[i], sizeof(tmp2)-strlen(tmp2)-strlen(argv[i])-1);
+                  strncat(tmp2,"/.wcd", sizeof(tmp2)-strlen(tmp2)-strlen("/.wcd")-1);
+                  strncat(tmp2,TREEFILE,sizeof(tmp2)-strlen(tmp2)-strlen(TREEFILE)-1);
                   if ((infile = wcd_fopen(tmp2,"r",1)) != NULL)
                   {
                      wcd_fclose(infile, tmp2, "r", "main: ");
