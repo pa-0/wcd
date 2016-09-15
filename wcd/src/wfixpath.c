@@ -13,9 +13,10 @@
  *              Erwin Waterlander
  */
 
-#include <stdio.h>		/* For FILENAME_MAX */
+#include <stdio.h>    /* For FILENAME_MAX */
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include "tailor.h"
 #include "config.h"
 #include "wcd.h"
@@ -52,18 +53,17 @@ static int is_term(int c)
 void wcd_fixpath(char *in, size_t lim)
 {
   size_t i=0;
-  int	drive_number= -1;
-  const char	*ip = in;
+  int   drive_number= -1;
+  const char *ip = in;
   char  *out;
-  char	*op;
+  char  *op;
 
   if ((in == NULL) || (lim == 0))
-   	return ;
+    return ;
 
-  if ((out = (char *) malloc(lim)) == NULL)
-  {
-  	print_error("%s", _("malloc error in wcd_fixpath()\n"));
-	return;
+  if ((out = (char *) malloc(lim)) == NULL) {
+    print_error(_("Memory allocation error in %s: %s\n"),"wcd_fixpath()",strerror(errno));
+    return;
   }
 
   op = out;
@@ -72,89 +72,76 @@ void wcd_fixpath(char *in, size_t lim)
   /* Add drive specification to output string (if present) */
   if (((*ip >= 'a' && *ip <= 'z') ||
        (*ip >= 'A' && *ip <= 'Z'))
-      && (*(ip + 1) == ':'))
-  {
-    if (*ip >= 'a' && *ip <= 'z')
-    {
+      && (*(ip + 1) == ':')) {
+    if (*ip >= 'a' && *ip <= 'z') {
       drive_number = *ip - 'a';
       *op++ = *ip++;
-    }
-    else
-    {
+    } else {
       drive_number = *ip - 'A';
       if (*ip <= 'Z')
-	*op++ = (char)(drive_number + 'a');
+        *op++ = (char)(drive_number + 'a');
       else
-	*op++ = *ip;
+        *op++ = *ip;
       ++ip;
     }
     *op++ = *ip++;
-	i+=2;
+    i+=2;
   }
 #endif
 
 #if (defined(_WIN32) || defined(__CYGWIN__))
    /* Keep first "//" if present (UNC path) */
-	 if (wcd_is_slash(*ip) && wcd_is_slash(*(ip + 1)))
-	 {
-	   ip+=2 ;
-	   *op++ = '/';
-	   *op++ = '/';
-	   i+=2 ;
-	 }
-	 else
+  if (wcd_is_slash(*ip) && wcd_is_slash(*(ip + 1))) {
+    ip+=2 ;
+    *op++ = '/';
+    *op++ = '/';
+    i+=2 ;
+  } else {
 #endif
     /* Keep first slash if present */
-    if (wcd_is_slash(*ip))
-    {
+    if (wcd_is_slash(*ip)) {
       ip++;
-	  *op++ = '/';
-	  i++ ;
+      *op++ = '/';
+      i++ ;
+    } else { /* return if ip == "." */
+      if ((*ip == '.') && (*(ip + 1) == '\0')) {
+        free(out);
+        return ;
+      } else { /* Keep first "./" if present */
+        if (*ip == '.' && wcd_is_slash(*(ip + 1))) {
+          ip+=2 ;
+          *op++ = '.';
+          *op++ = '/';
+          i+=2 ;
+        }
+      }
     }
-	else  /* return if ip == "." */
-	if ((*ip == '.') && (*(ip + 1) == '\0'))
-	  {
-		free(out);
-	    return ;
-	  }
-	else  /* Keep first "./" if present */
-	if (*ip == '.' && wcd_is_slash(*(ip + 1)))
-	{
-	  ip+=2 ;
-	  *op++ = '.';
-	  *op++ = '/';
-	  i+=2 ;
-	}
+  }
 
 
   /* Step through the input path */
-  while ((*ip) && (i<(lim-1)))
-  {
+  while ((*ip) && (i<(lim-1))) {
     /* Skip input slashes */
-    if (wcd_is_slash(*ip))
-    {
+    if (wcd_is_slash(*ip)) {
       ip++;
       continue;
     }
 
     /* Skip "." and output nothing */
-    if (*ip == '.' && is_term(*(ip + 1)))
-    {
+    if (*ip == '.' && is_term(*(ip + 1))) {
       ip++;
       continue;
     }
 
     /* Copy path component from in to out */
-	if ((op > out) && (*(op-1) != '/'))
-	{
-		*op++ = '/';
-		i++ ;
-	}
-    while (!is_term(*ip))
-	{
-		*op++ = *ip++;
-		i++;
-	}
+    if ((op > out) && (*(op-1) != '/')) {
+      *op++ = '/';
+      i++ ;
+    }
+    while (!is_term(*ip)) {
+      *op++ = *ip++;
+       i++;
+    }
   }
 
   /* If root directory, insert trailing slash */
@@ -175,10 +162,10 @@ int main (int argc, char *argv[])
 {
   if (argc > 1)
     {
-          char fixed[FILENAME_MAX];
-	  strncpy(fixed,argv[1],FILENAME_MAX -1);
-          fixed[FILENAME_MAX -1] = '\0';
-	  wcd_fixpath (fixed,FILENAME_MAX);
+      char fixed[FILENAME_MAX];
+      strncpy(fixed,argv[1],FILENAME_MAX -1);
+      fixed[FILENAME_MAX -1] = '\0';
+      wcd_fixpath (fixed,FILENAME_MAX);
       printf ("You mean %s?\n", fixed);
     }
   return 0;

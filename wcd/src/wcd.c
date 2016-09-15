@@ -261,6 +261,8 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
       int bom[3];
       if ((bom[0] = fgetc(f)) == EOF) {
          if (ferror(f)) {
+           wcd_read_error(filename);
+           wcd_fclose(f, filename, "r", "wcd_fopen_bom: ");
            return NULL;
          }
          *bomtype = FILE_MBS;
@@ -273,6 +275,8 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
       }
       if ((bom[1] = fgetc(f)) == EOF) {
          if (ferror(f)) {
+           wcd_read_error(filename);
+           wcd_fclose(f, filename, "r", "wcd_fopen_bom: ");
            return NULL;
          }
          if (ungetc(bom[1], f) == EOF) return NULL;
@@ -290,6 +294,8 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
       }
       if ((bom[2] = fgetc(f)) == EOF) {
          if (ferror(f)) {
+           wcd_read_error(filename);
+           wcd_fclose(f, filename, "r", "wcd_fopen_bom: ");
            return NULL;
          }
          if (ungetc(bom[2], f) == EOF) return NULL;
@@ -357,15 +363,18 @@ void rmDriveLetter(char path[], int *use_HOME)
 
 void rmDirFromList(char *string, nameset n)
 {
-   char dir[DD_MAXPATH];
-   char subdir[DD_MAXPATH];
+   char *dir = (char *)malloc(strlen(string)+1);
+   char *subdir = (char *)malloc(strlen(string)+3);
    size_t i;
 
-   strcpy(dir,string);
+   if ((dir==NULL)||(subdir==NULL)) {
+      print_error(_("Memory allocation error in %s: %s\n"),"rmDirFromList()",strerror(errno));
+   }
+   strncpy(dir,string,strlen(string)+1);
 
    wcd_fixpath(dir,sizeof(dir));
 
-   strcpy(subdir,dir);
+   strncpy(subdir,dir,strlen(string)+1);
    strcat(subdir,"/*");
 
    i = 0;
@@ -380,6 +389,8 @@ void rmDirFromList(char *string, nameset n)
       else
       ++i;
    }
+   free(subdir);
+   free(dir);
 }
 
 /********************************/
@@ -919,7 +930,8 @@ size_t pathInNameset (text path, nameset set)
 
    while (index < size)
    {
-      strcpy(tmp,set->array[index]);
+      strncpy(tmp,set->array[index],DD_MAXPATH -1);
+      tmp[DD_MAXPATH -1] = '\0';
       strcat(tmp,"/*");
 
 #ifdef _WCD_DOSFS
@@ -1332,10 +1344,11 @@ void deleteLink(char *path, char *treefile)
         else
           line_end = path;  /* we were are already there */
 
-        strcpy(tmp2,line_end);
+        strncpy(tmp2,line_end,sizeof(tmp2)-1);
+        tmp2[sizeof(tmp2)-1] = '\0';
         wcd_getcwd(path, (size_t)DD_MAXPATH);  /* get the full path of parent dir*/
-        strcat(path,"/");
-        strcat(path,tmp2);
+        strncat(path,"/",2);
+        strncat(path,tmp2,DD_MAXPATH -strlen(path)-1);
         wcd_fixpath(path,(size_t)DD_MAXPATH);
 #ifdef _WIN32
         /* When we use unlink() on a Windows symbolic directory link
@@ -1344,13 +1357,11 @@ void deleteLink(char *path, char *treefile)
 #else
         if (unlink(tmp2)==0)    /* delete the link */
 #endif
-          {
+        {
             print_msg("");
             wcd_printf(_("Removed symbolic link %s\n"),path);
             cleanTreeFile(treefile,path);
-          }
-        else
-        {
+        } else {
           errstr = strerror(errno);
           print_error(_("Unable to remove symbolic link %s: %s\n"),path, errstr);
         }
@@ -1790,9 +1801,6 @@ int read_treefile(char* filename, nameset bd, int quiet)
       }
       wcd_fclose(infile, filename, "r", "read_treefile: ");
    } else {
-      if (!quiet) {
-         wcd_read_error(filename);
-      }
       return -1;
    }
    return bomtype;
@@ -1943,15 +1951,14 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    char *line_end;                  /* database directory */
    char path_str[DD_MAXPATH];        /* path name to match */
    char dirwild_str[DD_MAXPATH];     /* directory name to wild match */
-   char *dir_str ;                  /* directory name to perfect match */
-   char relative_prefix[DD_MAXPATH];      /* relative prefix */
+   char *dir_str ;                   /* directory name to perfect match */
+   char relative_prefix[DD_MAXPATH]; /* relative prefix */
    char tmp[DD_MAXPATH];
    int wild = 0;
    int line_nr =1;
 
    /* open treedata-file */
    if  ((infile = wcd_fopen_bom(filename,"rb",0,&bomtype)) == NULL) {
-      wcd_read_error(filename);
       return;
    }
 
@@ -1959,7 +1966,8 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
       dir_str++;
    else dir_str = org_dir;
 
-   strcpy(dirwild_str,dir_str);
+   strncpy(dirwild_str,dir_str,sizeof(dirwild_str)-1);
+   dirwild_str[sizeof(dirwild_str)-1] = '\0';
 
 #ifdef _WCD_DOSFS
    if ((strlen(org_dir)>1) && (dd_match(org_dir,"[a-z]:*",1)))
@@ -1969,7 +1977,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
      path_str[DD_MAXDRIVE-1] = '\0';
      line_end = org_dir + DD_MAXDRIVE ;
      strcat(path_str,"*");
-     strcat(path_str,line_end);
+     strncat(path_str,line_end,sizeof(path_str)-strlen(path_str)-1);
    }
    else
 #endif
@@ -1992,7 +2000,8 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 
    if (relative)
    {
-      strcpy(relative_prefix,filename);
+      strncpy(relative_prefix,filename,sizeof(relative_prefix)-1);
+      relative_prefix[sizeof(relative_prefix)-1] = '\0';
       if( (line_end = strrchr(relative_prefix,DIR_SEPARATOR)) != NULL)
       {
          line_end++ ;
@@ -2035,9 +2044,12 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 
                if (relative)
                {
-                  strcpy(tmp,relative_prefix);
-                  strcat(tmp,line);
-                  strcpy(line,tmp);
+                  strncpy(tmp,relative_prefix,sizeof(tmp)-1);
+                  tmp[sizeof(tmp)-1] = '\0';
+                  strncat(tmp,line,sizeof(tmp)-strlen(tmp)-1);
+                  tmp[sizeof(tmp)-1] = '\0';
+                  strncpy(line,tmp,sizeof(line)-1);
+                  line[sizeof(line)-1] = '\0';
                }
 
                if ((pathInNameset(line,bd) == (size_t)-1) &&
@@ -2063,9 +2075,12 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 
                    if (relative)
                    {
-                      strcpy(tmp,relative_prefix);
-                      strcat(tmp,line);
-                      strcpy(line,tmp);
+                      strncpy(tmp,relative_prefix,sizeof(tmp)-1);
+                      tmp[sizeof(tmp)-1] = '\0';
+                      strncat(tmp,line,sizeof(tmp)-strlen(tmp)-1);
+                      tmp[sizeof(tmp)-1] = '\0';
+                      strncpy(line,tmp,sizeof(line)-1);
+                      line[sizeof(line)-1] = '\0';
                    }
 
                   if((pathInNameset(line,bd) == (size_t)-1) &&
@@ -2734,7 +2749,8 @@ void addListToNameset(nameset set, char *list)
       {
          if (strlen(list) < (DD_MAXPATH-2)) /* prevent buffer overflow */
          {
-            strcpy(tmp,list);
+            strncpy(tmp,list,sizeof(tmp)-1);
+            tmp[sizeof(tmp)-1] = '\0';
             wcd_fixpath(tmp,sizeof(tmp));
             addToNamesetArray(textNew(tmp),set);
          }
@@ -2988,7 +3004,8 @@ int main(int argc,char** argv)
          print_error(_("Value of environment variable %s is too long.\n"),"HOME or WCDHOME");
          return(1);
       }
-      strcpy(rootdir,ptr);
+      strncpy(rootdir,ptr,sizeof(rootdir)-1);
+      rootdir[sizeof(rootdir)-1] = '\0';
    }
    wcd_fixpath(rootdir,sizeof(rootdir));
    strcpy(treefile,rootdir);
@@ -3057,7 +3074,8 @@ int main(int argc,char** argv)
          print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
          return(1);
       }
-      strcpy(homedir,ptr);
+      strncpy(homedir,ptr,sizeof(homedir)-1);
+      homedir[sizeof(homedir)-1] = '\0';
       wcd_fixpath(homedir,sizeof(homedir));
    }
 
@@ -3557,9 +3575,9 @@ int main(int argc,char** argv)
                   print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
                   return(1);
                }
-               strncat(tmp,"/",     sizeof(tmp)-strlen(tmp)-2);
-               strncat(tmp,argv[i], sizeof(tmp)-strlen(tmp)-strlen(argv[i])-1);
-               strncat(tmp,TREEFILE,sizeof(tmp)-strlen(tmp)-strlen(TREEFILE)-1);
+               strncat(tmp,"/",     sizeof(tmp)-strlen(tmp)-1);
+               strncat(tmp,argv[i], sizeof(tmp)-strlen(tmp)-1);
+               strncat(tmp,TREEFILE,sizeof(tmp)-strlen(tmp)-1);
                if ((infile = wcd_fopen(tmp,"r",1)) != NULL)
                {
                   wcd_fclose(infile, tmp, "r", "main: ");
@@ -3576,10 +3594,10 @@ int main(int argc,char** argv)
                      print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
                      return(1);
                   }
-                  strncat(tmp2,"/",     sizeof(tmp2)-strlen(tmp2)-2);
-                  strncat(tmp2,argv[i], sizeof(tmp2)-strlen(tmp2)-strlen(argv[i])-1);
-                  strncat(tmp2,"/.wcd", sizeof(tmp2)-strlen(tmp2)-strlen("/.wcd")-1);
-                  strncat(tmp2,TREEFILE,sizeof(tmp2)-strlen(tmp2)-strlen(TREEFILE)-1);
+                  strncat(tmp2,"/",     sizeof(tmp2)-strlen(tmp2)-1);
+                  strncat(tmp2,argv[i], sizeof(tmp2)-strlen(tmp2)-1);
+                  strncat(tmp2,"/.wcd", sizeof(tmp2)-strlen(tmp2)-1);
+                  strncat(tmp2,TREEFILE,sizeof(tmp2)-strlen(tmp2)-1);
                   if ((infile = wcd_fopen(tmp2,"r",1)) != NULL)
                   {
                      wcd_fclose(infile, tmp2, "r", "main: ");
@@ -3760,7 +3778,8 @@ int main(int argc,char** argv)
 
    if (stack_hit==1)
    {
-      strcpy(best_match,stackptr);
+      strncpy(best_match,stackptr,sizeof(best_match)-1);
+      best_match[sizeof(best_match)-1] = '\0';
 #ifdef UNIX
         /* strip the /tmp_mnt string */
       if (strip_mount_string)
@@ -4030,9 +4049,10 @@ int main(int argc,char** argv)
          }
          else
             ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
-         if (ptr != NULL)
-            strcpy(best_match,ptr);
-         else
+         if (ptr != NULL) {
+            strncpy(best_match,ptr,sizeof(best_match)-1);
+            best_match[sizeof(best_match)-1] = '\0';
+         } else
             exit_wcd = 1;
       }
       else
@@ -4046,7 +4066,8 @@ int main(int argc,char** argv)
          if ( (i>0) && (i <= (int)perfect_list->size))
          {
             i--;
-            strcpy(best_match,perfect_list->array[i]);
+            strncpy(best_match,perfect_list->array[i],sizeof(best_match)-1);
+            best_match[sizeof(best_match)-1] = '\0';
          }
          else
             exit_wcd = 1;
@@ -4064,7 +4085,8 @@ int main(int argc,char** argv)
    }
    else if (perfect_list->size==1)   /* one perfect match */
    {
-      strcpy(best_match,perfect_list->array[0]);
+      strncpy(best_match,perfect_list->array[0],sizeof(best_match)-1);
+      best_match[sizeof(best_match)-1] = '\0';
    }
    else if ((perfect_list->size==0)&&(wild_list->size > 1))  /* more than one wild match, zero perfect matches */
    {                                   /* choose from wild list */
@@ -4081,9 +4103,10 @@ int main(int argc,char** argv)
          }
          else
             ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
-         if (ptr != NULL)
-            strcpy(best_match,ptr);
-         else
+         if (ptr != NULL) {
+            strncpy(best_match,ptr,sizeof(best_match)-1);
+            best_match[sizeof(best_match)-1] = '\0';
+         } else
             exit_wcd = 1;
       }
       else
@@ -4097,7 +4120,8 @@ int main(int argc,char** argv)
          if ( (i>0) && (i <= (int)wild_list->size))
          {
             i--;
-            strcpy(best_match,wild_list->array[i]);
+            strncpy(best_match,wild_list->array[i],sizeof(best_match)-1);
+            best_match[sizeof(best_match)-1] = '\0';
          }
          else
             exit_wcd = 1;
@@ -4115,7 +4139,8 @@ int main(int argc,char** argv)
    }
    else  /* (perfect_list->size==0) && (wild_list->size==1) */   /* one wild match, zero perfect matches */
    {
-      strcpy(best_match,wild_list->array[0]);
+      strncpy(best_match,wild_list->array[0],sizeof(best_match)-1);
+      best_match[sizeof(best_match)-1] = '\0';
    }
 
 

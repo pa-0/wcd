@@ -819,7 +819,11 @@ void buildTreeFromFile(char* filename, dirnode d, int quiet)
           char line[DD_MAXPATH];
 
           len = read_treefile_line(line,infile,filename,&line_nr, bomtype);
-          if (ferror(infile)) return;
+          if (ferror(infile)) {
+             wcd_read_error(filename);
+             wcd_fclose(infile, filename, "r", "buildTreeFromFile: ");
+             return;
+          }
           ++line_nr;
           if (len > 0 )
           {

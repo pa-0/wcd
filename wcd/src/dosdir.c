@@ -461,10 +461,8 @@ int dd_findnext(dd_ffblk* fb)
   if (!fb->dd_dirp) goto findnext_err;
   while ((fb->dd_dp = readdir(fb->dd_dirp)) != NULL)
   {
-    if (STAT(fb->dd_dp->d_name, &dd_sstat)) {
-        print_error("%s: %s\n",fb->dd_dp->d_name,strerror(errno));
+    if (STAT(fb->dd_dp->d_name, &dd_sstat))
 	continue;
-    }
     if (dd_sstat.st_mode & S_IFDIR && !(fb->dd_attribs & DD_DIREC))
 	continue;
     if (dd_match(fb->dd_dp->d_name, fb->dd_filespec, 0))
