@@ -495,11 +495,11 @@ int dd_findfirst( const char *path,dd_ffblk* fb,int attrib)
   char dir[DD_MAXDIR];		/* directory path */
   if (s) {
     size_t len = (size_t)(s - path);
-    strncpy(fb->dd_filespec, s+1,sizeof(fb->dd_filespec)-1);
+    wcd_strncpy(fb->dd_filespec, s+1,sizeof(fb->dd_filespec));
     strncpy(dir, path, len);
     dir[(int)len] = '\0';
   } else {
-    strncpy(fb->dd_filespec, path,sizeof(fb->dd_filespec)-1);
+    wcd_strncpy(fb->dd_filespec, path,sizeof(fb->dd_filespec));
     strcpy(dir, ".");		/* use current directory */
   }
   fb->dd_filespec[sizeof(fb->dd_filespec)-1] = '\0';

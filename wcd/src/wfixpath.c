@@ -116,7 +116,9 @@ void wcd_fixpath(char *in, size_t lim)
         }
       }
     }
+#if (defined(_WIN32) || defined(__CYGWIN__))
   }
+#endif
 
 
   /* Step through the input path */

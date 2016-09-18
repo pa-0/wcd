@@ -1,12 +1,12 @@
 # Dutch translation of the wcd man page.
 # Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
-# Erwin Waterlander <waterlan@xs4all.nl>, 2014 - 2016.
+# Erwin Waterlander <waterlan@xs4all.nl>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man\n"
-"POT-Creation-Date: 2016-02-25 22:45+0100\n"
+"POT-Creation-Date: 2016-09-06 21:37+0200\n"
 "PO-Revision-Date: 2014-05-27 22:29+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -14,6 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Poedit 1.6.4\n"
 
 #. type: =head1
@@ -331,7 +332,7 @@ msgstr "De tweede interface is gebouwd met de conio bibliotheek. Het biedt een i
 #. type: textblock
 #: wcd.pod:199
 msgid "The third interface is built with the curses library. It is similar to the conio interface. The curses version of wcd has also an additional 'graphical' interface. It lets the user select a directory via a full screen interactive directory tree browser. It has a vim(1) like navigation and search method. It can be activated with option B<-g>."
-msgstr "De derde interface is gebouwd met de curses bibliotheek. Het is gelijk aan de conio interface. De curses versie van wcd heeft een extra 'grafische' interface. Het laat de gebruiker een map kiezen via een vol-scherm interactieve mappenboom verkenner. Het heeft vim(1) gelijke navigatie en zoek methodes. Het kan geactiveerd worden met de optie B<-g>."
+msgstr "De derde bibliotheek is gebouwd met de curses bibliotheek. Het is gelijk aan de conio interface. De curses versie van wcd heeft een extra 'grafische' interface. Het laat de gebruiker een map kiezen via een vol-scherm interactieve mappenboom verkenner. Het heeft vim(1) gelijke navigatie en zoek methodes. Het kan geactiveerd worden met de optie B<-g>."
 
 #. type: textblock
 #: wcd.pod:205
@@ -771,12 +772,12 @@ msgstr "Noem het huidige pad I<ALIAS>. Wcd plaatst het huidige pad met alias I<A
 #. type: =item
 #: wcd.pod:421
 msgid "B<-ls>"
-msgstr "B<-ls>"
+msgstr ""
 
 #. type: textblock
 #: wcd.pod:423
 msgid "Show the name of the alias file, and list all the aliases."
-msgstr "Toon de naam van het alias bestand, en laat de lijst van aliassen zien."
+msgstr ""
 
 #. type: =item
 #: wcd.pod:425
@@ -865,8 +866,10 @@ msgstr "Gebruik nummers in plaats van letters."
 
 #. type: textblock
 #: wcd.pod:462
+#, fuzzy
+#| msgid "Wcd with a conio or curses based interface (see section INTERFACE) presents a match list by default numbered with letters. When the B<-N> option is used the match list is numbered with numbers. Regardless of the B<-N> option one can type a letter or numbers to make a selection from the list of matches."
 msgid "Wcd with a conio or curses based interface (see section Interfaces) presents a match list by default numbered with letters. When the B<-N> option is used the match list is numbered with numbers. Regardless of the B<-N> option one can type a letter or numbers to make a selection from the list of matches."
-msgstr "Wcd met een conio of curses gebaseerde interface (zie paragraaf Interfaces) presenteert een trefferlijst standaard genummerd met letters. Wanneer de optie B<-N> is gebruikt wordt de trefferlijst genummerd met nummers. Onafhankelijk van de optie B<-N> kan men een letter of een nummer typen om een selectie uit de lijst te maken."
+msgstr "Wcd met een conio of curses gebaseerde interface (zie paragraaf INTERFACE) presenteert een trefferlijst standaard genummerd met letters. Wanneer de optie B<-N> is gebruikt wordt de trefferlijst genummerd met nummers. Onafhankelijk van de optie B<-N> kan men een letter of een nummer typen om een selectie uit de lijst te maken."
 
 #. type: =item
 #: wcd.pod:467
@@ -1633,7 +1636,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:859
 msgid "For a complete list of language and country codes see the gettext(1)  manual: L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes> On Unix systems you can use to command locale(1) to get locale specific information."
-msgstr "Voor een complete lijst van taal- en landcodes zie de gettext(1) handleiding: L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes> Op Unix-systemen kunt u de opdracht locale(1) gebruiken om specifieke taalregio-informatie te verkrijgen."
+msgstr " Voor een complete lijst van taal- en landcodes zie de gettext(1) handleiding: L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes> Op Unix-systemen kunt u de opdracht locale(1) gebruiken om specifieke taalregio-informatie te verkrijgen."
 
 #. type: =item
 #: wcd.pod:865

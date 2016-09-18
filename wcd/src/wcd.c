@@ -123,6 +123,34 @@ const wcd_char *default_mask = ALL_FILES_MASK;
  }
 #endif
 
+/* Copy string src to dest, and null terminate dest.
+   dest_size must be the buffer size of dest. */
+char *wcd_strncpy(char *dest, const char *src, size_t dest_size)
+{
+   strncpy(dest,src,dest_size);
+   dest[dest_size-1] = '\0';
+#ifdef DEBUG
+   if(strlen(src) >= (dest_size-1)) {
+     print_error("Text %s has been truncated from %d to %d characters in %s to prevent a buffer overflow.\n", src, (int)strlen(src), (int)dest_size, "wcd_strncpy()");
+   }
+#endif
+   return dest;
+}
+
+/* Append string src to dest, and null terminate dest.
+   dest_size must be the buffer size of dest. */
+char *wcd_strncat(char *dest, const char *src, size_t dest_size)
+{
+   strncat(dest,src,dest_size-strlen(dest));
+   dest[dest_size-1] = '\0';
+#ifdef DEBUG
+   if((strlen(dest) + strlen(src)) >= (dest_size-1)) {
+     print_error("Text %s has been truncated to %d characters in %s to prevent a buffer overflow.\n",  src, (int)dest_size,"wcd_strncat()");
+   }
+#endif
+   return dest;
+}
+
 int print_msg(const char *format, ...)
 {
    va_list args;
@@ -423,7 +451,7 @@ void writeList(char * filename, nameset n, int bomtype)
          {
            /* Unicode, write back in UTF-8.
               Characters that are not supported by the ANSI code page get broken. */
-           strncpy(path, n->array[i], sizeof(path));
+           wcd_strncpy(path, n->array[i], sizeof(path));
            MultiByteToWideChar(CP_ACP, 0, path, -1, pathw, sizeof(pathw));
            WideCharToMultiByte(CP_UTF8, 0, pathw, -1, path, sizeof(path), NULL, NULL);
            rc = wcd_fprintf(outfile,"%s\n",path);
@@ -447,14 +475,13 @@ void writeList(char * filename, nameset n, int bomtype)
  *************************************************************/
 void stripTmpMnt(char* path)
 {
-  char* ptr;
 
   if (path != NULL)
   {
      if (strncmp(path,TMP_MNT_STR,strlen(TMP_MNT_STR)) == 0)
     {
-       ptr = path + strlen(TMP_MNT_STR) - 1 ;
-      strcpy(path,ptr);
+       char* ptr = path + strlen(TMP_MNT_STR) - 1 ;
+       wcd_strncpy(path,ptr,(size_t)DD_MAXPATH);
     }
   }
 
@@ -525,7 +552,7 @@ void quoteString(char *string)
  }
  help1_str[k] = '\0' ;
 
- strcpy(string,help1_str);
+ wcd_strncpy(string,help1_str,(size_t)DD_MAXPATH);
 }
 #endif
 
@@ -575,7 +602,7 @@ void quoteString(char *string)
  k++;
  help1_str[k] = '\0' ;
 
- strcpy(string,help1_str);
+ wcd_strncpy(string,help1_str,(size_t)DD_MAXPATH);
 
 }
 #endif
@@ -602,8 +629,7 @@ int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
    if (strlen(path)>1)
    {
 
-      strncpy(drive,path,2);
-      drive[DD_MAXDRIVE-1] = '\0';
+      wcd_strncpy(drive,path,sizeof(drive));
 
       if (dd_match(drive,"[a-z]:",1))
       {
@@ -618,18 +644,18 @@ int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
          if ((i==destDisk) && (i>=0))  /* succes ? */
          {
             *changed = 1 ;
-            strcpy(newdrive,drive) ;
+            wcd_strncpy(newdrive,drive,(size_t)DD_MAXDRIVE) ;
 
            if((use_HOME == NULL)||(*use_HOME == 0))
            {
             char *ptr = path + 2;
             if (strcmp(ptr,"") == 0)
             {
-               strcpy(path,"/");
+               wcd_strncpy(path,"/",(size_t)DD_MAXPATH);
             }
             else
             {
-               strcpy(path,ptr);
+               wcd_strncpy(path,ptr,(size_t)DD_MAXPATH);
             }
            }
          }
@@ -920,7 +946,7 @@ void rmTree(char *dir)
  ********************************************************************/
 size_t pathInNameset (text path, nameset set)
 {
-   char tmp[DD_MAXPATH+2];
+   char tmp[DD_MAXPATH];
    size_t size, index = 0;
 
    if ((path == NULL)||(set == NULL))
@@ -930,9 +956,8 @@ size_t pathInNameset (text path, nameset set)
 
    while (index < size)
    {
-      strncpy(tmp,set->array[index],DD_MAXPATH -1);
-      tmp[DD_MAXPATH -1] = '\0';
-      strcat(tmp,"/*");
+      wcd_strncpy(tmp,set->array[index],sizeof(tmp));
+      wcd_strncat(tmp,"/*",sizeof(tmp));
 
 #ifdef _WCD_DOSFS
       if ((dd_match(path,set->array[index],1)) || (dd_match(path, tmp,1)))
@@ -1199,8 +1224,8 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
 
       if  ( (ptr = getenv("TEMP")) != NULL )
       {
-      strcpy(treefile,ptr);
-      strcat(treefile,TREEFILE);
+      wcd_strncpy(treefile,ptr,(size_t)DD_MAXPATH);
+      wcd_strncat(treefile,TREEFILE,(size_t)DD_MAXPATH);
       outfile = wcd_fopen(treefile,"w",1);
       }
 
@@ -1208,8 +1233,8 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
       {
          if  ( (ptr = getenv("TMP")) != NULL )
             {
-            strcpy(treefile,ptr);
-            strcat(treefile,TREEFILE);
+            wcd_strncpy(treefile,ptr,(size_t)DD_MAXPATH);
+            wcd_strncat(treefile,TREEFILE,(size_t)DD_MAXPATH);
             outfile = wcd_fopen(treefile,"w",1);
             }
 
@@ -1217,8 +1242,8 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
          {
             if  ( (ptr = getenv("TMPDIR")) != NULL )
                {
-               strcpy(treefile,ptr);
-               strcat(treefile,TREEFILE);
+               wcd_strncpy(treefile,ptr,(size_t)DD_MAXPATH);
+               wcd_strncat(treefile,TREEFILE,(size_t)DD_MAXPATH);
                outfile = wcd_fopen(treefile,"w",1);
                }
          }
@@ -1324,7 +1349,6 @@ void makeDir(char *path, char *treefile, int *use_HOME)
 void deleteLink(char *path, char *treefile)
 {
    static struct stat buf ;
-   char tmp2[DD_MAXPATH];
    char *errstr;
 
  if (stat(path, &buf) == 0)
@@ -1332,6 +1356,7 @@ void deleteLink(char *path, char *treefile)
    if (S_ISDIR(buf.st_mode)) /* does the link point to a dir */
    {
         char *line_end ;
+        char tmp2[DD_MAXPATH];
 
         /* get the parent path of the link */
 
@@ -1344,11 +1369,10 @@ void deleteLink(char *path, char *treefile)
         else
           line_end = path;  /* we were are already there */
 
-        strncpy(tmp2,line_end,sizeof(tmp2)-1);
-        tmp2[sizeof(tmp2)-1] = '\0';
+        wcd_strncpy(tmp2,line_end,sizeof(tmp2));
         wcd_getcwd(path, (size_t)DD_MAXPATH);  /* get the full path of parent dir*/
-        strncat(path,"/",2);
-        strncat(path,tmp2,DD_MAXPATH -strlen(path)-1);
+        wcd_strncat(path,"/",DD_MAXPATH);
+        wcd_strncat(path,tmp2,DD_MAXPATH);
         wcd_fixpath(path,(size_t)DD_MAXPATH);
 #ifdef _WIN32
         /* When we use unlink() on a Windows symbolic directory link
@@ -1388,7 +1412,6 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
 {
 #ifdef UNIX
    static struct stat buf ;
-   char *errstr;
 #endif
 #ifdef _WCD_DOSFS
    char drive[DD_MAXDRIVE];
@@ -1400,7 +1423,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
 #ifdef UNIX
    if (lstat(path, &buf) != 0)
    {
-     errstr = strerror(errno);
+     char *errstr = strerror(errno);
      print_error("%s: %s\n",path,errstr);
      return;
    }
@@ -1966,30 +1989,28 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
       dir_str++;
    else dir_str = org_dir;
 
-   strncpy(dirwild_str,dir_str,sizeof(dirwild_str)-1);
-   dirwild_str[sizeof(dirwild_str)-1] = '\0';
+   wcd_strncpy(dirwild_str,dir_str,sizeof(dirwild_str));
 
 #ifdef _WCD_DOSFS
    if ((strlen(org_dir)>1) && (dd_match(org_dir,"[a-z]:*",1)))
    {
      /* If user searches "c:bin" (a directory "bin" on drive c:) set path_str to "c:*bin" */
-     strncpy(path_str,org_dir,2);
-     path_str[DD_MAXDRIVE-1] = '\0';
+     wcd_strncpy(path_str,org_dir,sizeof(path_str));
      line_end = org_dir + DD_MAXDRIVE ;
-     strcat(path_str,"*");
-     strncat(path_str,line_end,sizeof(path_str)-strlen(path_str)-1);
+     wcd_strncat(path_str,"*",sizeof(path_str));
+     wcd_strncat(path_str,line_end,sizeof(path_str));
    }
    else
 #endif
    {
-     strcpy(path_str,"*");
-     strncat(path_str,org_dir,sizeof(path_str)-2);
+     wcd_strncpy(path_str,"*",sizeof(path_str));
+     wcd_strncat(path_str,org_dir,sizeof(path_str));
    }
 
    if (!dd_iswild(dir_str))
    {
-      strcat(dirwild_str,"*");
-      strcat(path_str,"*");
+      wcd_strncat(dirwild_str,"*",sizeof(dirwild_str));
+      wcd_strncat(path_str,"*",sizeof(path_str));
       wild = 0;
    }
    else
@@ -2000,8 +2021,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 
    if (relative)
    {
-      strncpy(relative_prefix,filename,sizeof(relative_prefix)-1);
-      relative_prefix[sizeof(relative_prefix)-1] = '\0';
+      wcd_strncpy(relative_prefix,filename,sizeof(relative_prefix));
       if( (line_end = strrchr(relative_prefix,DIR_SEPARATOR)) != NULL)
       {
          line_end++ ;
@@ -2044,12 +2064,9 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 
                if (relative)
                {
-                  strncpy(tmp,relative_prefix,sizeof(tmp)-1);
-                  tmp[sizeof(tmp)-1] = '\0';
-                  strncat(tmp,line,sizeof(tmp)-strlen(tmp)-1);
-                  tmp[sizeof(tmp)-1] = '\0';
-                  strncpy(line,tmp,sizeof(line)-1);
-                  line[sizeof(line)-1] = '\0';
+                  wcd_strncpy(tmp,relative_prefix,sizeof(tmp));
+                  wcd_strncat(tmp,line,sizeof(tmp));
+                  wcd_strncpy(line,tmp,sizeof(line));
                }
 
                if ((pathInNameset(line,bd) == (size_t)-1) &&
@@ -2075,12 +2092,9 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
 
                    if (relative)
                    {
-                      strncpy(tmp,relative_prefix,sizeof(tmp)-1);
-                      tmp[sizeof(tmp)-1] = '\0';
-                      strncat(tmp,line,sizeof(tmp)-strlen(tmp)-1);
-                      tmp[sizeof(tmp)-1] = '\0';
-                      strncpy(line,tmp,sizeof(line)-1);
-                      line[sizeof(line)-1] = '\0';
+                      wcd_strncpy(tmp,relative_prefix,sizeof(tmp));
+                      wcd_strncat(tmp,line,sizeof(tmp));
+                      wcd_strncpy(line,tmp,sizeof(line));
                    }
 
                   if((pathInNameset(line,bd) == (size_t)-1) &&
@@ -2225,6 +2239,7 @@ void list_alias_file(char *filename)
       if (strlen(ptr) > 0 )
          wcd_printf("%s\t%s\n",alias,ptr);
    }
+   freeNameset(aliaslines, 1);
 }
 /********************************************************************
  *
@@ -2524,8 +2539,7 @@ void create_dir_for_file(const char *f)
    char path[DD_MAXPATH];
    char *ptr ;
 
-   strncpy(path, f, (size_t)(DD_MAXPATH - 1));
-   path[DD_MAXPATH - 1] = '\0';
+   wcd_strncpy(path, f, sizeof(path));
    if ( (ptr = strrchr(path,DIR_SEPARATOR)) != NULL)
    {
       *ptr = '\0' ;
@@ -2749,8 +2763,7 @@ void addListToNameset(nameset set, char *list)
       {
          if (strlen(list) < (DD_MAXPATH-2)) /* prevent buffer overflow */
          {
-            strncpy(tmp,list,sizeof(tmp)-1);
-            tmp[sizeof(tmp)-1] = '\0';
+            wcd_strncpy(tmp,list,sizeof(tmp));
             wcd_fixpath(tmp,sizeof(tmp));
             addToNamesetArray(textNew(tmp),set);
          }
@@ -2769,9 +2782,9 @@ void addListToNamesetFilter(nameset set, char *list)
       {
          if (strlen(list) < (DD_MAXPATH-2)) /* prevent buffer overflow */
          {
-            strcpy(tmp,"*");
-            strncat(tmp,list,sizeof(tmp)-3);
-            strcat(tmp,"*");
+            wcd_strncpy(tmp,"*",sizeof(tmp));
+            wcd_strncat(tmp,list,sizeof(tmp));
+            wcd_strncat(tmp,"*",sizeof(tmp));
             wcd_fixpath(tmp,sizeof(tmp));
             addToNamesetArray(textNew(tmp),set);
          }
@@ -2868,18 +2881,18 @@ int main(int argc,char** argv)
    char localedir[DD_MAXPATH];
    ptr = getenv("WCDLOCALEDIR");
    if (ptr == NULL)
-      strcpy(localedir,LOCALEDIR);
+      wcd_strncpy(localedir,LOCALEDIR,sizeof(localedir));
    else
    {
       if (strlen(ptr) < sizeof(localedir))
       {
-         strcpy(localedir,ptr);
+         wcd_strncpy(localedir,ptr,sizeof(localedir));
          wcd_fixpath(localedir,sizeof(localedir));
       }
       else
       {
          print_error(_("Value of environment variable %s is too long.\n"),"WCDLOCALEDIR");
-         strcpy(localedir,LOCALEDIR);
+         wcd_strncpy(localedir,LOCALEDIR,sizeof(localedir));
       }
    }
    bindtextdomain (PACKAGE, localedir);
@@ -2914,14 +2927,14 @@ int main(int argc,char** argv)
 
     if ((ptr = getenv("HOME")) == NULL)
     {
-       strcpy(rootscandir,ROOTDIR);
+       wcd_strncpy(rootscandir,ROOTDIR,sizeof(rootscandir));
     } else {
        if (strlen(ptr) > (DD_MAXPATH -20))
        {
          print_error(_("Value of environment variable %s is too long.\n"),"HOME");
          return(1);
        }
-       strncpy(rootscandir,ptr,sizeof(rootscandir));
+       wcd_strncpy(rootscandir,ptr,sizeof(rootscandir));
     }
 
 #ifdef _WCD_DOSFS
@@ -2938,28 +2951,28 @@ int main(int argc,char** argv)
       }
 
       use_HOME = 1 ;
-      strcpy(rootdir,ptr);
+      wcd_strncpy(rootdir,ptr,sizeof(rootdir));
       wcd_fixpath(rootdir,sizeof(rootdir));
-      strcpy(treefile,rootdir);
-      strcat(treefile,TREEFILE);
-      strcpy(extratreefile,rootdir);
-      strcat(extratreefile,EXTRA_TREEFILE);
+      wcd_strncpy(treefile,rootdir,sizeof(treefile));
+      wcd_strncat(treefile,TREEFILE,sizeof(treefile));
+      wcd_strncpy(extratreefile,rootdir,sizeof(extratreefile));
+      wcd_strncat(extratreefile,EXTRA_TREEFILE,sizeof(extratreefile));
 # if (defined(_WIN32) || defined(WCD_DOSBASH) || defined(__OS2__))
-      strcpy(go_file,rootdir);
-      strcat(go_file,GO_FILE);
+      wcd_strncpy(go_file,rootdir,sizeof(go_file));
+      wcd_strncat(go_file,GO_FILE,sizeof(go_file));
 # endif
-      strcpy(banfile,rootdir);
-      strcat(banfile,BANFILE);
-      strcpy(aliasfile,rootdir);
-      strcat(aliasfile,ALIASFILE);
+      wcd_strncpy(banfile,rootdir,sizeof(banfile));
+      wcd_strncat(banfile,BANFILE,sizeof(banfile));
+      wcd_strncpy(aliasfile,rootdir,sizeof(aliasfile));
+      wcd_strncat(aliasfile,ALIASFILE,sizeof(aliasfile));
       if ((ptr = getenv("WCDSTACKFILE")) == NULL)
       {
-         strcpy(stackfile,rootdir);
-         strcat(stackfile,STACKFILE);
+         wcd_strncpy(stackfile,rootdir,sizeof(stackfile));
+         wcd_strncat(stackfile,STACKFILE,sizeof(stackfile));
       }
       else
       {
-         strncpy(stackfile,ptr,sizeof(stackfile));
+         wcd_strncpy(stackfile,ptr,sizeof(stackfile));
       }
    }
    else
@@ -2969,22 +2982,22 @@ int main(int argc,char** argv)
       return(1);
 # endif
 # if (defined(_WIN32) || defined(WCD_DOSBASH) || defined(__OS2__))
-      strcpy(go_file,STACK_GO_DRIVE);
-      strcat(go_file,GO_FILE);
+      wcd_strncpy(go_file,STACK_GO_DRIVE,sizeof(go_file));
+      wcd_strncat(go_file,GO_FILE,sizeof(go_file));
 # endif
-      strcpy(rootdir,ROOTDIR);
-      strcpy(treefile,TREEFILE);
-      strcpy(extratreefile,EXTRA_TREEFILE);
-      strcpy(banfile,BANFILE);
-      strcpy(aliasfile,ALIASFILE);
+      wcd_strncpy(rootdir,ROOTDIR,sizeof(rootdir));
+      wcd_strncpy(treefile,TREEFILE,sizeof(treefile));
+      wcd_strncpy(extratreefile,EXTRA_TREEFILE,sizeof(extratreefile));
+      wcd_strncpy(banfile,BANFILE,sizeof(banfile));
+      wcd_strncpy(aliasfile,ALIASFILE,sizeof(aliasfile));
       if ((ptr = getenv("WCDSTACKFILE")) == NULL)
       {
-         strcpy(stackfile,STACK_GO_DRIVE);
-         strcat(stackfile,STACKFILE);
+         wcd_strncpy(stackfile,STACK_GO_DRIVE,sizeof(stackfile));
+         wcd_strncat(stackfile,STACKFILE,sizeof(stackfile));
       }
       else
       {
-         strncpy(stackfile,ptr,sizeof(stackfile));
+         wcd_strncpy(stackfile,ptr,sizeof(stackfile));
       }
    }
 #else
@@ -3004,33 +3017,32 @@ int main(int argc,char** argv)
          print_error(_("Value of environment variable %s is too long.\n"),"HOME or WCDHOME");
          return(1);
       }
-      strncpy(rootdir,ptr,sizeof(rootdir)-1);
-      rootdir[sizeof(rootdir)-1] = '\0';
+      wcd_strncpy(rootdir,ptr,sizeof(rootdir));
    }
    wcd_fixpath(rootdir,sizeof(rootdir));
-   strcpy(treefile,rootdir);
-   strcat(treefile,TREEFILE);
-   strcpy(extratreefile,rootdir);
-   strcat(extratreefile,EXTRA_TREEFILE);
-   strcpy(go_file,rootdir);
-   strcat(go_file,GO_FILE);
-   strcpy(banfile,rootdir);
-   strcat(banfile,BANFILE);
-   strcpy(aliasfile,rootdir);
-   strcat(aliasfile,ALIASFILE);
+   wcd_strncpy(treefile,rootdir,sizeof(treefile));
+   wcd_strncat(treefile,TREEFILE,sizeof(treefile));
+   wcd_strncpy(extratreefile,rootdir,sizeof(extratreefile));
+   wcd_strncat(extratreefile,EXTRA_TREEFILE,sizeof(extratreefile));
+   wcd_strncpy(go_file,rootdir,sizeof(go_file));
+   wcd_strncat(go_file,GO_FILE,sizeof(go_file));
+   wcd_strncpy(banfile,rootdir,sizeof(banfile));
+   wcd_strncat(banfile,BANFILE,sizeof(banfile));
+   wcd_strncpy(aliasfile,rootdir,sizeof(aliasfile));
+   wcd_strncat(aliasfile,ALIASFILE,sizeof(aliasfile));
    if ((ptr = getenv("WCDSTACKFILE")) == NULL)
    {
-      strcpy(stackfile,rootdir);
-      strcat(stackfile,STACKFILE);
+      wcd_strncpy(stackfile,rootdir,sizeof(stackfile));
+      wcd_strncat(stackfile,STACKFILE,sizeof(stackfile));
    }
    else
    {
-      strncpy(stackfile,ptr,sizeof(stackfile));
+      wcd_strncpy(stackfile,ptr,sizeof(stackfile));
    }
 #endif
 
    create_dir_for_file(treefile);
-   strncpy(scandir,rootdir,(size_t)DD_MAXPATH);
+   wcd_strncpy(scandir,rootdir,sizeof(scandir));
 
    strcpy(dir,"");
 
@@ -3066,7 +3078,7 @@ int main(int argc,char** argv)
 
    ptr = getenv("WCDUSERSHOME");
    if (ptr == NULL)
-      strcpy(homedir,HOMESTRING);
+      wcd_strncpy(homedir,HOMESTRING,sizeof(homedir));
    else
    {
       if (strlen(ptr) > DD_MAXPATH)
@@ -3074,8 +3086,7 @@ int main(int argc,char** argv)
          print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
          return(1);
       }
-      strncpy(homedir,ptr,sizeof(homedir)-1);
-      homedir[sizeof(homedir)-1] = '\0';
+      wcd_strncpy(homedir,ptr,sizeof(homedir));
       wcd_fixpath(homedir,sizeof(homedir));
    }
 
@@ -3499,7 +3510,7 @@ int main(int argc,char** argv)
 #ifdef WCD_UTF16
                   wcstoutf8(tmp2,wargv[i],sizeof(tmp2));
 #else
-                  strncpy(tmp2,argv[i],sizeof(tmp2));
+                  wcd_strncpy(tmp2,argv[i],sizeof(tmp2));
 #endif
                   wcd_fixpath(tmp,sizeof(tmp)) ;
                   rmDriveLetter(tmp,&use_HOME);
@@ -3527,7 +3538,7 @@ int main(int argc,char** argv)
          else
          if (strncmp(argv[i-1],"-x",(size_t)2) == 0 )  /* exclude paths from scanning */
          {
-            strncpy(tmp,argv[i],sizeof(tmp));
+            wcd_strncpy(tmp,argv[i],sizeof(tmp));
             wcd_fixpath(tmp,sizeof(tmp));
 
             if (argv[i-1][2] == 'f')
@@ -3543,7 +3554,7 @@ int main(int argc,char** argv)
                if (argv[i-1][0] == '-')
                   use_default_treedata = 0;
 
-               strncpy(tmp,argv[i],sizeof(tmp));
+               wcd_strncpy(tmp,argv[i],sizeof(tmp));
                wcd_fixpath(tmp,sizeof(tmp));
 #ifdef _WCD_DOSFS
                /* is there a drive to go to ? */
@@ -3551,7 +3562,7 @@ int main(int argc,char** argv)
 #endif
                if (wcd_isdir(tmp,1) == 0) /* is it a dir */
                {
-                  strcat(tmp,RELTREEFILE);
+                  wcd_strncat(tmp,RELTREEFILE,sizeof(tmp));
                   wcd_fixpath(tmp,sizeof(tmp));
                   addToNamesetArray(textNew(tmp),relative_files);
                }
@@ -3569,15 +3580,15 @@ int main(int argc,char** argv)
                if (strcmp(argv[i],"root") == 0)
                   strcpy(tmp,"/");
                else
-                  strcpy(tmp,homedir);
+                  wcd_strncpy(tmp,homedir,sizeof(tmp));
                if ((strlen(tmp)+strlen(argv[i])+strlen(TREEFILE)+1) > DD_MAXPATH )
                {
                   print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
                   return(1);
                }
-               strncat(tmp,"/",     sizeof(tmp)-strlen(tmp)-1);
-               strncat(tmp,argv[i], sizeof(tmp)-strlen(tmp)-1);
-               strncat(tmp,TREEFILE,sizeof(tmp)-strlen(tmp)-1);
+               wcd_strncat(tmp,"/",     sizeof(tmp));
+               wcd_strncat(tmp,argv[i], sizeof(tmp));
+               wcd_strncat(tmp,TREEFILE,sizeof(tmp));
                if ((infile = wcd_fopen(tmp,"r",1)) != NULL)
                {
                   wcd_fclose(infile, tmp, "r", "main: ");
@@ -3588,16 +3599,16 @@ int main(int argc,char** argv)
                   if (strcmp(argv[i],"root") == 0)
                      strcpy(tmp2,"/");
                   else
-                     strcpy(tmp2,homedir);
+                     wcd_strncpy(tmp2,homedir,sizeof(tmp2));
                   if ((strlen(tmp2)+strlen(argv[i])+strlen(TREEFILE)+1+5) > DD_MAXPATH )
                   {
                      print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
                      return(1);
                   }
-                  strncat(tmp2,"/",     sizeof(tmp2)-strlen(tmp2)-1);
-                  strncat(tmp2,argv[i], sizeof(tmp2)-strlen(tmp2)-1);
-                  strncat(tmp2,"/.wcd", sizeof(tmp2)-strlen(tmp2)-1);
-                  strncat(tmp2,TREEFILE,sizeof(tmp2)-strlen(tmp2)-1);
+                  wcd_strncat(tmp2,"/",     sizeof(tmp2));
+                  wcd_strncat(tmp2,argv[i], sizeof(tmp2));
+                  wcd_strncat(tmp2,"/.wcd", sizeof(tmp2));
+                  wcd_strncat(tmp2,TREEFILE,sizeof(tmp2));
                   if ((infile = wcd_fopen(tmp2,"r",1)) != NULL)
                   {
                      wcd_fclose(infile, tmp2, "r", "main: ");
@@ -3627,7 +3638,7 @@ int main(int argc,char** argv)
 #ifdef WCD_UTF16
                wcstoutf8(scandir,wargv[i],sizeof(scandir));
 #else
-               strncpy(scandir,argv[i],sizeof(scandir));
+               wcd_strncpy(scandir,argv[i],sizeof(scandir));
 #endif
 #if (defined(_WIN32) || defined(__CYGWIN__))
                if (wcd_isServerPath(scandir))
@@ -3644,10 +3655,10 @@ int main(int argc,char** argv)
 #ifdef WCD_UTF16
                wcstoutf8(scandir,wargv[i],sizeof(scandir));
 #else
-               strncpy(scandir,argv[i],sizeof(scandir));
+               wcd_strncpy(scandir,argv[i],sizeof(scandir));
 #endif
-               strncpy(treefile,scandir,sizeof(treefile) - strlen(RELTREEFILE));
-               strcat(treefile,RELTREEFILE);
+               wcd_strncpy(treefile,scandir,sizeof(treefile));
+               wcd_strncat(treefile,RELTREEFILE,sizeof(treefile));
 
                scanDisk(scandir,treefile,1,(size_t)0,&use_HOME,exclude);
             }
@@ -3663,7 +3674,7 @@ int main(int argc,char** argv)
 #ifdef WCD_UTF16
                wcstoutf8(scandir,wargv[i],sizeof(scandir));
 #else
-               strncpy(scandir,argv[i],sizeof(scandir));
+               wcd_strncpy(scandir,argv[i],sizeof(scandir));
 #endif
 #if (defined(_WIN32) || defined(__CYGWIN__))
                if (wcd_isServerPath(scandir))
@@ -3680,7 +3691,7 @@ int main(int argc,char** argv)
 #ifdef WCD_UTF16
                wcstoutf8(scandir,wargv[i],sizeof(scandir));
 #else
-               strncpy(scandir,argv[i],sizeof(scandir));
+               wcd_strncpy(scandir,argv[i],sizeof(scandir));
 #endif
 #if (defined(_WIN32) || defined(__CYGWIN__))
                if (wcd_isServerPath(scandir))
@@ -3697,14 +3708,14 @@ int main(int argc,char** argv)
 #ifdef WCD_UTF16
                wcstoutf8(tmp,wargv[i],sizeof(tmp));
 #else
-               strncpy(tmp,argv[i],sizeof(tmp));
+               wcd_strncpy(tmp,argv[i],sizeof(tmp));
 #endif
                makeDir(tmp,treefile,&use_HOME) ;
             }
             else
             if (strcmp(argv[i-1],"-M") == 0 )
             {
-               strncpy(tmp,argv[i],sizeof(tmp));
+               wcd_strncpy(tmp,argv[i],sizeof(tmp));
                makeDir(tmp,extratreefile,&use_HOME) ;
             }
             else
@@ -3713,26 +3724,26 @@ int main(int argc,char** argv)
 #ifdef WCD_UTF16
                wcstoutf8(tmp,wargv[i],sizeof(tmp));
 #else
-               strncpy(tmp,argv[i],sizeof(tmp));
+               wcd_strncpy(tmp,argv[i],sizeof(tmp));
 #endif
                deleteDir(tmp,treefile,0,&use_HOME, assumeYes) ;
             }
             else
             if (strcmp(argv[i-1],"-rmtree") == 0 )  /* remove dir recursive */
             {
-               strncpy(tmp,argv[i],sizeof(tmp));
+               wcd_strncpy(tmp,argv[i],sizeof(tmp));
                deleteDir(tmp,treefile,1,&use_HOME, assumeYes) ;
             }
 #ifdef WCD_SHELL
             else
             if (strcmp(argv[i-1],"-G") == 0)
             {
-               strncpy(go_file,argv[i],sizeof(go_file));
+               wcd_strncpy(go_file,argv[i],sizeof(go_file));
                wcd_fixpath(go_file,sizeof(go_file)) ;
 # ifdef UNIX
-               strcat(go_file,GO_FILE2);
+               wcd_strncat(go_file,GO_FILE2,sizeof(go_file));
 # else
-               strcat(go_file,GO_FILE);
+               wcd_strncat(go_file,GO_FILE,sizeof(go_file));
 # endif
             }
 #endif
@@ -3741,7 +3752,7 @@ int main(int argc,char** argv)
 #ifdef WCD_UTF16
                   wcstoutf8(dir,wargv[i],sizeof(dir));
 #else
-                  strncpy(dir,argv[i],sizeof(dir));
+                  wcd_strncpy(dir,argv[i],sizeof(dir));
 #endif
                   wcd_fixpath(dir,sizeof(dir));
                }
@@ -3778,8 +3789,7 @@ int main(int argc,char** argv)
 
    if (stack_hit==1)
    {
-      strncpy(best_match,stackptr,sizeof(best_match)-1);
-      best_match[sizeof(best_match)-1] = '\0';
+      wcd_strncpy(best_match,stackptr,sizeof(best_match));
 #ifdef UNIX
         /* strip the /tmp_mnt string */
       if (strip_mount_string)
@@ -3824,7 +3834,7 @@ int main(int argc,char** argv)
 #endif
             return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
          }
-         strcpy(best_match,dir);
+         wcd_strncpy(best_match,dir,sizeof(best_match));
          if ((!quieter)&&(!justGo))
             wcd_printf("-> %s\n",best_match);
 
@@ -3843,7 +3853,7 @@ int main(int argc,char** argv)
 
             if ( (ptr=strstr(tmp,"/")) != NULL)
             {
-                 strcpy(best_match,tmp);
+                 wcd_strncpy(best_match,tmp,sizeof(best_match));
 #ifdef UNIX
                    /* strip the /tmp_mnt string */
                   if (strip_mount_string)
@@ -4050,8 +4060,7 @@ int main(int argc,char** argv)
          else
             ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
          if (ptr != NULL) {
-            strncpy(best_match,ptr,sizeof(best_match)-1);
-            best_match[sizeof(best_match)-1] = '\0';
+            wcd_strncpy(best_match,ptr,sizeof(best_match));
          } else
             exit_wcd = 1;
       }
@@ -4066,8 +4075,7 @@ int main(int argc,char** argv)
          if ( (i>0) && (i <= (int)perfect_list->size))
          {
             i--;
-            strncpy(best_match,perfect_list->array[i],sizeof(best_match)-1);
-            best_match[sizeof(best_match)-1] = '\0';
+            wcd_strncpy(best_match,perfect_list->array[i],sizeof(best_match));
          }
          else
             exit_wcd = 1;
@@ -4085,8 +4093,7 @@ int main(int argc,char** argv)
    }
    else if (perfect_list->size==1)   /* one perfect match */
    {
-      strncpy(best_match,perfect_list->array[0],sizeof(best_match)-1);
-      best_match[sizeof(best_match)-1] = '\0';
+      wcd_strncpy(best_match,perfect_list->array[0],sizeof(best_match));
    }
    else if ((perfect_list->size==0)&&(wild_list->size > 1))  /* more than one wild match, zero perfect matches */
    {                                   /* choose from wild list */
@@ -4104,8 +4111,7 @@ int main(int argc,char** argv)
          else
             ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
          if (ptr != NULL) {
-            strncpy(best_match,ptr,sizeof(best_match)-1);
-            best_match[sizeof(best_match)-1] = '\0';
+            wcd_strncpy(best_match,ptr,sizeof(best_match));
          } else
             exit_wcd = 1;
       }
@@ -4120,8 +4126,7 @@ int main(int argc,char** argv)
          if ( (i>0) && (i <= (int)wild_list->size))
          {
             i--;
-            strncpy(best_match,wild_list->array[i],sizeof(best_match)-1);
-            best_match[sizeof(best_match)-1] = '\0';
+            wcd_strncpy(best_match,wild_list->array[i],sizeof(best_match));
          }
          else
             exit_wcd = 1;
@@ -4139,8 +4144,7 @@ int main(int argc,char** argv)
    }
    else  /* (perfect_list->size==0) && (wild_list->size==1) */   /* one wild match, zero perfect matches */
    {
-      strncpy(best_match,wild_list->array[0],sizeof(best_match)-1);
-      best_match[sizeof(best_match)-1] = '\0';
+      wcd_strncpy(best_match,wild_list->array[0],sizeof(best_match));
    }
 
 
@@ -4159,7 +4163,7 @@ int main(int argc,char** argv)
          return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
       }
 
-          strcpy(tmp,best_match); /* remember path (with /tmp_mnt) */
+          wcd_strncpy(tmp,best_match,sizeof(tmp)); /* remember path (with /tmp_mnt) */
 #ifdef UNIX
            /* strip the /tmp_mnt string */
           if (strip_mount_string)
@@ -4183,7 +4187,7 @@ int main(int argc,char** argv)
 
                if ( (ptr=strstr(tmp,"/")) != NULL)
                {
-                       strcpy(best_match,tmp);
+                       wcd_strncpy(best_match,tmp,sizeof(best_match));
 #ifdef UNIX
                   /* strip the /tmp_mnt string */
                       if (strip_mount_string)

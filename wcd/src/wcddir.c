@@ -8,7 +8,7 @@ Author: Erwin Waterlander
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 2002-2014 Erwin Waterlander
+Copyright (C) 2002-2016 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -157,7 +157,7 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
             case RESOURCEDISPLAYTYPE_SHARE:
                /* type = "share"; */
                print_msg( "%s\n", buf[ui].lpRemoteName );
-               strncpy(path, buf[ui].lpRemoteName, DD_MAXPATH);
+               wcd_strncpy(path, buf[ui].lpRemoteName, DD_MAXPATH);
                wcd_fixpath(path, DD_MAXPATH);
                addToNamesetArray(textNew(path), n);
                break;
@@ -631,8 +631,8 @@ char *replace_volume_path_HOME(char *buf, size_t size)
                          *ptr2 = '\0';
                      }
                   }
-                  strncpy(pattern, home_abs, sizeof(pattern)-1);
-                  strcat(pattern,"*");
+                  wcd_strncpy(pattern, home_abs, sizeof(pattern));
+                  wcd_strncat(pattern,"*", sizeof(pattern));
                   len_home = strlen(home);
                   len_home_abs = strlen(home_abs);
                   if (len_home <= len_home_abs) {

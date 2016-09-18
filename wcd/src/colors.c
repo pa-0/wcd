@@ -57,7 +57,9 @@ void colorbox(WINDOW *win, chtype color, int hasbox)
 #ifndef PDCURSES
     int maxx;
 #endif
+#ifdef A_COLOR
     chtype attr;
+#endif
 
     setcolor(win, color);
 

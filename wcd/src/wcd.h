@@ -140,6 +140,8 @@ typedef char wcd_char;
 #define FILE_UTF16BE 2  /* UTF-16 Big Endian */
 #define FILE_UTF8    3  /* UTF-8 */
 
+char *wcd_strncpy(char *dest, const char *src, size_t dest_size);
+char *wcd_strncat(char *dest, const char *src, size_t dest_size);
 FILE *wcd_fopen(const char *filename, const char *m, int quiet);
 FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype);
 int wcd_fprintf(FILE *stream, const char *format, ...);

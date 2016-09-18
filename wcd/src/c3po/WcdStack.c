@@ -303,6 +303,10 @@ expfun void printWcdStack(text Offset,
 {
    text increment = " ";
    text new_Offset = (text) malloc(sizeof(char) * (strlen(Offset) + strlen(increment) + 1));
+   if (new_Offset == NULL) {
+      fprintf(fp, "NULL\n");
+      return;
+   }
    sprintf(new_Offset, "%s%s", Offset, increment);
 
    if (w == NULL)

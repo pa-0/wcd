@@ -21,6 +21,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include <string.h>
 #include <stdlib.h>
 #include <signal.h>
+#include <assert.h>
 #include "wcd.h"
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
 #ifndef __USE_XOPEN
@@ -149,10 +150,10 @@ void wcd_printf( const char* format, ... ) {
 #if (defined(WCD_USECONIO) || defined(WCD_USECURSES))
 size_t str_columns (char *s)
 {
+   assert(s);
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    static wchar_t wstr[DD_MAXPATH];
    size_t i;
-   int j;
 
    /* convert to wide characters. i = nr. of characters */
    i= MBSTOWCS(wstr,s,(size_t)DD_MAXPATH);
@@ -160,7 +161,7 @@ size_t str_columns (char *s)
       return(strlen(s));
    else
    {
-      j = wcd_wcswidth(wstr,(size_t)DD_MAXPATH);
+      int j = wcd_wcswidth(wstr,(size_t)DD_MAXPATH);
       /* j =  nr. of columns */
       if ( j < 0)
          return(strlen(s));
@@ -906,16 +907,13 @@ void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
 void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbers)
 {
    wcd_uchar *s;
-#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-   static wchar_t wstr[DD_MAXPATH];
-   int width, c;
-#endif
 
    s = (wcd_uchar *)n->array[i];
 
    if (s != NULL)
    {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
+      static wchar_t wstr[DD_MAXPATH];
       size_t len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
 #else
       size_t len = strlen((char *)s);
@@ -941,7 +939,7 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
             waddch(win,(chtype)s[j]);
          }
       } else {
-         int j = 0;
+         int width, c, j = 0;
          c = 0; /* count characters with width > 0 from beginning of string. */
          while ((j<(int)len)&&(c<xoffset))
          {
@@ -976,16 +974,13 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
 void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *use_numbers)
 {
    wcd_uchar *s;
-#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-   static wchar_t wstr[DD_MAXPATH];
-   int width, c;
-#endif
 
    s = (wcd_uchar *)ws->dir[i];
 
    if (s != NULL)
    {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
+      static wchar_t wstr[DD_MAXPATH];
       size_t len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
 #else
       size_t len = strlen((char *)s);
@@ -1013,7 +1008,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
          if ((i == ws->current) && ((nr_offset+j-xoffset+2)<(COLS-1)))
             wprintw(win," *");
       } else {
-         int j = 0;
+         int width, c, j = 0;
          c = 0; /* count characters with width > 0 from beginning of string. */
          while ((j<(int)len)&&(c<xoffset))
          {
@@ -1427,7 +1422,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
             wcd_display.number_str[n] = '\0';
      break;
      default:
-         if (( c >= '0') && ( c <= '9') && (n < WCD_MAX_INPSTR)) /* numbers */
+         if (( c >= '0') && ( c <= '9') && (n < (WCD_MAX_INPSTR -1))) /* numbers */
          {
             wcd_display.number_str[n] = (char)c;
             n++;

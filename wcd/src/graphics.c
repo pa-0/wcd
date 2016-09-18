@@ -419,6 +419,8 @@ void dumpTreeLine(dirnode d, const int *graphics_mode)
 
       y = dirnodeGetY(d);
       l = getTreeLine(d,y,&y,NULL,false, graphics_mode);
+      if (l == NULL)
+         return;
       while ( *l != '\0')
          {
             switch(*l)
@@ -1431,7 +1433,7 @@ int validSearchDir(char *dir, dirnode curNode, int exact, int ignore_case, int i
     * */
 
    strcpy(path,"*");
-   strcat(path,dir);
+   wcd_strncat(path,dir,sizeof(path));
    if (exact == 0)
       strcat(path,"*");
 
@@ -1463,6 +1465,8 @@ dirnode findDirInCiclePrev(char *dir, dirnode curNode, int exact, int ignore_cas
    dirnode node;
    int valid;
 
+   if (curNode == NULL)
+      return NULL;
    node = curNode;
 
    do{
@@ -1480,6 +1484,8 @@ dirnode findDirInCicle(char *dir, dirnode curNode, int exact, int ignore_case, i
    dirnode node;
    int valid;
 
+   if (curNode == NULL)
+      return NULL;
    node = curNode;
 
    do{
@@ -1542,10 +1548,6 @@ int wcd_wcswidth(const wchar_t *pwcs, size_t n)
 void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffset)
 {
    wcd_uchar *s;
-#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-   static wchar_t wstr[DD_MAXPATH];
-   int width, c;
-#endif
 
    s = (wcd_uchar *)getTreeLine(getLastNodeInLevel(n,i),i,&i,curNode,false, &wcd_cwin.graphics_mode);
 
@@ -1553,6 +1555,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
    {
       int j;
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
+      static wchar_t wstr[DD_MAXPATH];
       size_t len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
 #else
       size_t len = strlen((char *)s);
@@ -1627,6 +1630,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
       }
       else
       {
+         int width, c;
          c = 0; /* count width from beginning of string. */
          j = 0;
          while ((j<(int)len)&&(c<xoffset))
@@ -1636,7 +1640,7 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
          }
          /* xoffset is horizontal offset measured in nr. of columns.
           * This may be at the middle of a double width character. */
-         if (( c > xoffset ) && ( wcd_wcwidth(wstr[j-1]) == 2))
+         if (( c > xoffset ) && (j>0) && ( wcd_wcwidth(wstr[j-1]) == 2))
          {
             /* Last character skipped was a double width character.
              * Insert a space. */
@@ -1814,10 +1818,6 @@ void dataRefresh(int ydiff, int init)
   static int xoffset = 0;  /* Horizontal offset in number of columns */
   static int yposition = -1;  /* -1 : not initialized */
   wcd_uchar *s;
-#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-  static wchar_t wstr[DD_MAXPATH];
-  int width;
-#endif
 
   /*
      yoffset is the y-offset in the whole tree of the current node.
@@ -1881,6 +1881,10 @@ void dataRefresh(int ydiff, int init)
 
   if (s != NULL)
   {
+#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
+   static wchar_t wstr[DD_MAXPATH];  /* Declarations at beginning of scope for Watcom C */
+   int width;
+#endif
     wmove(wcd_cwin.inputWin, 1, 0);
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
    len = (int)MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
@@ -2255,7 +2259,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
    wcd_cwin.curNode = locatePathOrSo(curPath,tree);
    if (wcd_cwin.curNode == NULL)
    {
-      print_error(_("Cannot find current path %s in the directory tree.\n"), curPath);
+      print_error(_("Cannot find the current path %s in the directory tree.\n"), curPath);
       return NULL;
    }
 
@@ -2722,6 +2726,11 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
      break;
     }
 
+    if (wcd_cwin.curNode == NULL)
+    {
+       print_error(_("Cannot find the current path %s in the directory tree.\n"), curPath);
+       return NULL;
+    }
     ydiff -= (wcd_cwin.curNode->y);
 
     if (wcd_cwin.graphics_mode & WCD_GRAPH_CENTER)
