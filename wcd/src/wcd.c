@@ -130,7 +130,7 @@ char *wcd_strncpy(char *dest, const char *src, size_t dest_size)
    strncpy(dest,src,dest_size);
    dest[dest_size-1] = '\0';
 #ifdef DEBUG
-   if(strlen(src) >= (dest_size-1)) {
+   if(strlen(src) > (dest_size-1)) {
      print_error("Text %s has been truncated from %d to %d characters in %s to prevent a buffer overflow.\n", src, (int)strlen(src), (int)dest_size, "wcd_strncpy()");
    }
 #endif
@@ -391,19 +391,20 @@ void rmDriveLetter(char path[], int *use_HOME)
 
 void rmDirFromList(char *string, nameset n)
 {
-   char *dir = (char *)malloc(strlen(string)+1);
-   char *subdir = (char *)malloc(strlen(string)+3);
+   size_t len = strlen(string) + 1;
+   char *dir = (char *)malloc(len);
+   char *subdir = (char *)malloc(len+2);
    size_t i;
 
    if ((dir==NULL)||(subdir==NULL)) {
       print_error(_("Memory allocation error in %s: %s\n"),"rmDirFromList()",strerror(errno));
    }
-   strncpy(dir,string,strlen(string)+1);
+   wcd_strncpy(dir,string,len);
 
-   wcd_fixpath(dir,sizeof(dir));
+   wcd_fixpath(dir,len);
 
-   strncpy(subdir,dir,strlen(string)+1);
-   strcat(subdir,"/*");
+   wcd_strncpy(subdir,dir,len+2);
+   wcd_strncat(subdir,"/*",len+2);
 
    i = 0;
    while (i < n->size )
@@ -1371,8 +1372,8 @@ void deleteLink(char *path, char *treefile)
 
         wcd_strncpy(tmp2,line_end,sizeof(tmp2));
         wcd_getcwd(path, (size_t)DD_MAXPATH);  /* get the full path of parent dir*/
-        wcd_strncat(path,"/",DD_MAXPATH);
-        wcd_strncat(path,tmp2,DD_MAXPATH);
+        wcd_strncat(path,"/",(size_t)DD_MAXPATH);
+        wcd_strncat(path,tmp2,(size_t)DD_MAXPATH);
         wcd_fixpath(path,(size_t)DD_MAXPATH);
 #ifdef _WIN32
         /* When we use unlink() on a Windows symbolic directory link
