@@ -1,10 +1,10 @@
-5.3.3-beta5 2016-09-18
+5.3.3-beta7 2016-09-20
   - Support Unicode aliases on Windows.
     Wcd for Windows with Unicode support stores the aliases now in UTF-8
     format (like the paths). Old aliases with non-ASCII characters are
     not compatible anymore. You need to create new aliases.
   - New option -ls: List the aliases. Thanks to Erik Rijshouwer.
-  - Code cleanup. Fixed cppcheck warnings.
+  - Code cleanup.
 
 5.3.2 2016-02-18
   - Fixed printing of East-Asian text on Windows with an East-Asian regional

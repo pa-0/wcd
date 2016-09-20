@@ -1139,7 +1139,8 @@ void displayRefresh(int init)
 
    page = wcd_display.bottom / wcd_display.lines_per_page + 1 ;
 
-   sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(wcd_display.size -1)/wcd_display.lines_per_page +1);
+   snprintf(buf,sizeof(buf),_(" w=up x=down ?=help  Page %d/%d "),page,(wcd_display.size -1)/wcd_display.lines_per_page +1);
+   buf[sizeof(buf)-1] = '\0';
    pageoffset = COLS - (int)str_columns(buf);
    if (pageoffset < 0)
       pageoffset = 0;

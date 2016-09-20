@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-19 23:16+0200\n"
+"POT-Creation-Date: 2016-09-20 23:00+0200\n"
 "PO-Revision-Date: 2015-11-13 20:29-0500\n"
 "Last-Translator: Mingye Wang (Arthur2e5) <arthur200126@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -35,17 +35,17 @@ msgstr "无法读取文件 %s：%s\n"
 msgid "Unable to read file %s: Not a regular file.\n"
 msgstr "无法读取文件 %s：不是普通文件。\n"
 
-#: wcd.c:261 wcd.c:355
+#: wcd.c:261 wcd.c:348
 #, c-format
 msgid "Unable to write file %s: %s\n"
 msgstr "无法写入文件 %s：%s\n"
 
-#: wcd.c:357
+#: wcd.c:350
 #, c-format
 msgid "Unable to close file %s: %s\n"
 msgstr "无法关闭文件 %s：%s\n"
 
-#: wcd.c:400 wfixpath.c:65
+#: wcd.c:393 wcd.c:398 wfixpath.c:65
 #, c-format
 msgid "Memory allocation error in %s: %s\n"
 msgstr ""
@@ -871,17 +871,17 @@ msgstr "maxLength(), list == NULL 处发生内部错误\n"
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr "maxLengthStack(), s == NULL 处发生内部错误\n"
 
-#: display.c:520 display.c:1135 display.c:1511
+#: display.c:520 display.c:1135 display.c:1512
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr "%d 个完全匹配的目录。"
 
-#: display.c:522 display.c:1137 display.c:1513
+#: display.c:522 display.c:1137 display.c:1514
 #, c-format
 msgid "Wild match for %d directories."
 msgstr "%d 个通配符匹配的目录。"
 
-#: display.c:526 display.c:1149 display.c:1515 display.c:1558
+#: display.c:526 display.c:1150 display.c:1516 display.c:1559
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "请选择其中一个（按回车键中止）："
@@ -891,47 +891,47 @@ msgstr "请选择其中一个（按回车键中止）："
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=上移 x=下移 ?=帮助  第 %d/%d 页 "
 
-#: display.c:680 display.c:1165
+#: display.c:680 display.c:1166
 msgid "Screenheight must be > 20 for help."
 msgstr "屏幕高度必须大于 20 字符才能显示帮助信息"
 
-#: display.c:685 display.c:1168
+#: display.c:685 display.c:1169
 msgid "w or <Up>         page up"
 msgstr "w 或 <Up>         向上翻页"
 
-#: display.c:686 display.c:1169
+#: display.c:686 display.c:1170
 msgid "x or z or <Down>  page down"
 msgstr "x 或 z 或 <Down>  向下翻页"
 
-#: display.c:687 display.c:1170
+#: display.c:687 display.c:1171
 msgid ", or <Left>       scroll 1 left"
 msgstr ", 或 <Left>      向左滚动一个字符"
 
-#: display.c:688 display.c:1171
+#: display.c:688 display.c:1172
 msgid ". or <Right>      scroll 1 right"
 msgstr ", 或 <Right>     向右滚动一个字符"
 
-#: display.c:689 display.c:1172
+#: display.c:689 display.c:1173
 msgid "< or [            scroll 10 left"
 msgstr "< 或 [            向左滚动 10 个字符"
 
-#: display.c:690 display.c:1173
+#: display.c:690 display.c:1174
 msgid "> or ]            scroll 10 right"
 msgstr "> 或 ]            向右滚动 10 个字符"
 
-#: display.c:691 display.c:1174
+#: display.c:691 display.c:1175
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr "CTRL-a 或 <HOME>  滚动到开头"
 
-#: display.c:692 display.c:1175
+#: display.c:692 display.c:1176
 msgid "CTRL-e or <END>   scroll to end"
 msgstr "CTRL-e 或 <END>   滚动到结尾"
 
-#: display.c:693 display.c:1177
+#: display.c:693 display.c:1178
 msgid "CTRL-c or <Esc>   abort"
 msgstr "CTRL-c 或 <Esc>   中止操作"
 
-#: display.c:694 display.c:1178
+#: display.c:694 display.c:1179
 msgid "<Enter>           abort"
 msgstr "<Enter>           中止操作"
 
@@ -939,28 +939,28 @@ msgstr "<Enter>           中止操作"
 msgid "Type w or x to quit help."
 msgstr "按 w 或 x to 以退出帮助。"
 
-#: display.c:1176 graphics.c:1983
+#: display.c:1177 graphics.c:1984
 msgid "CTRL-l or F5      redraw screen"
 msgstr "CTRL-l 或 F5      重绘屏幕"
 
-#: display.c:1179 graphics.c:1968 graphics.c:1985 graphics.c:2008
-#: graphics.c:2025
+#: display.c:1180 graphics.c:1969 graphics.c:1986 graphics.c:2009
+#: graphics.c:2026
 msgid "Press any key."
 msgstr "请按任意键。"
 
-#: display.c:1244 graphics.c:2280
+#: display.c:1245 graphics.c:2281
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr "开启终端失败，回退到 stdout 界面。\n"
 
-#: display.c:1265
+#: display.c:1266
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "屏幕高度必须高于 3 个字符。\n"
 
-#: display.c:1299 graphics.c:2311
+#: display.c:1300 graphics.c:2312
 msgid "error creating scroll window.\n"
 msgstr "创建滚动窗口失败。\n"
 
-#: display.c:1313
+#: display.c:1314
 msgid "error creating input window.\n"
 msgstr "创建输入窗口失败。\n"
 
@@ -969,231 +969,231 @@ msgstr "创建输入窗口失败。\n"
 msgid "Wcd: error: path too long"
 msgstr "Wcd：错误：路径太长"
 
-#: graphics.c:1929
+#: graphics.c:1930
 msgid "/ = search forward,  ? = search backward,  : = help"
 msgstr "/ = 向前搜索,  ? = 向后搜索,  : = 帮助"
 
-#: graphics.c:1934
+#: graphics.c:1935
 msgid "SEARCH: "
 msgstr "搜索："
 
-#: graphics.c:1937
+#: graphics.c:1938
 msgid "Search: "
 msgstr "搜索："
 
-#: graphics.c:1953
+#: graphics.c:1954
 msgid "NAVIGATION MODE (1/2):"
 msgstr "浏览模式 (1/2)："
 
-#: graphics.c:1954
+#: graphics.c:1955
 msgid "h or <Left>       go left"
 msgstr "h 或 <Left>       向左"
 
-#: graphics.c:1955
+#: graphics.c:1956
 msgid "j or <Down>       go down"
 msgstr "j 或 <Down>       向下"
 
-#: graphics.c:1956
+#: graphics.c:1957
 msgid "k or <Up>         go up"
 msgstr "k 或 <Up>         向上"
 
-#: graphics.c:1957
+#: graphics.c:1958
 msgid "l or <Right>      go right"
 msgstr "l 或 <Right>      向右"
 
-#: graphics.c:1958
+#: graphics.c:1959
 msgid "* or v or <Space> go forward to dir with same name"
 msgstr "* 或 v 或 <Space> 前进到同名目录"
 
-#: graphics.c:1959
+#: graphics.c:1960
 msgid "# or p or <BS>    go backward to dir with same name"
 msgstr "# 或 p 或 <BS>    后退到同名目录"
 
-#: graphics.c:1960
+#: graphics.c:1961
 msgid "^ or a            go to beginning of line"
 msgstr "^ 或 a            前往行首"
 
-#: graphics.c:1961
+#: graphics.c:1962
 msgid "$ or e            go to end of line"
 msgstr "$ 或 e            前往行尾"
 
-#: graphics.c:1962
+#: graphics.c:1963
 msgid "1                 go to root dir"
 msgstr "1                 前往根目录"
 
-#: graphics.c:1963
+#: graphics.c:1964
 msgid "g or G            go to last dir"
 msgstr "g 或 G            前往最后访问的目录"
 
-#: graphics.c:1964
+#: graphics.c:1965
 msgid "f                 go page forward"
 msgstr "f                 向前一个页面"
 
-#: graphics.c:1965
+#: graphics.c:1966
 msgid "b                 go page backward"
 msgstr "b                 向后一个页面"
 
-#: graphics.c:1966
+#: graphics.c:1967
 msgid "u                 go half page up"
 msgstr "u                 向上翻半页"
 
-#: graphics.c:1967
+#: graphics.c:1968
 msgid "d                 go half page down"
 msgstr "d                 向下翻半页"
 
-#: graphics.c:1974
+#: graphics.c:1975
 msgid "NAVIGATION MODE (2/2):"
 msgstr "浏览模式 (2/2)："
 
-#: graphics.c:1975
+#: graphics.c:1976
 msgid "A                 switch alternative tree navigation on/off"
 msgstr "A                 开启/关闭备选目录树浏览方式"
 
-#: graphics.c:1976
+#: graphics.c:1977
 msgid "t                 switch centered mode on/off"
 msgstr "t                 开启/关闭居中模式"
 
-#: graphics.c:1977
+#: graphics.c:1978
 msgid "T                 toggle between line drawing and ASCII characters"
 msgstr "T                 切换制表符或 ASCII 字符绘图"
 
-#: graphics.c:1978
+#: graphics.c:1979
 msgid "m                 toggle between compact and wide tree"
 msgstr "m                 切换紧凑或宽目录树"
 
-#: graphics.c:1979
+#: graphics.c:1980
 msgid "<Esc> or q        abort"
 msgstr "<Esc> 或 q        中止"
 
-#: graphics.c:1980
+#: graphics.c:1981
 msgid "/                 search forward"
 msgstr "/                 向前搜索"
 
-#: graphics.c:1981
+#: graphics.c:1982
 msgid "?                 search backward"
 msgstr "?                 向后搜索"
 
-#: graphics.c:1982
+#: graphics.c:1983
 msgid "n                 repeat last / or ? search"
 msgstr "n                 重复上一个 / 或 ? 搜索操作"
 
-#: graphics.c:1984 graphics.c:2007
+#: graphics.c:1985 graphics.c:2008
 msgid "<Enter>           select directory"
 msgstr "<Enter>           选择目录"
 
-#: graphics.c:1991
+#: graphics.c:1992
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "带有通配符及子目录支持的搜索模式："
 
-#: graphics.c:1992
+#: graphics.c:1993
 msgid "<Left>            go left"
 msgstr "<Left>            向左"
 
-#: graphics.c:1993
+#: graphics.c:1994
 msgid "<Down>            go down"
 msgstr "<Down>            向下"
 
-#: graphics.c:1994
+#: graphics.c:1995
 msgid "<Up>              go up"
 msgstr "<Up>              向上"
 
-#: graphics.c:1995
+#: graphics.c:1996
 msgid "<Right>           go right"
 msgstr "<Right>           向右"
 
-#: graphics.c:1996
+#: graphics.c:1997
 msgid "CTRL-v            go forward to dir with same name"
 msgstr "CTRL-v            前进到同名目录"
 
-#: graphics.c:1997
+#: graphics.c:1998
 msgid "CTRL-p            go backward to dir with same name"
 msgstr "CTRL-p            后退到同名目录"
 
-#: graphics.c:1998
+#: graphics.c:1999
 msgid "CTRL-a            go to beginning of line"
 msgstr "CTRL-a            前往行首"
 
-#: graphics.c:1999
+#: graphics.c:2000
 msgid "CTRL-e            go to end of line"
 msgstr "CTRL-e            前往行尾"
 
-#: graphics.c:2000
+#: graphics.c:2001
 msgid "CTRL-g            go to last dir"
 msgstr "CTRL-g            前往最后访问的目录"
 
-#: graphics.c:2001
+#: graphics.c:2002
 msgid "CTRL-f            go page forward"
 msgstr "CTRL-f                 向前一个页面"
 
-#: graphics.c:2002
+#: graphics.c:2003
 msgid "CTRL-b            go page backward"
 msgstr "CTRL-b                 向后一个页面"
 
-#: graphics.c:2003
+#: graphics.c:2004
 msgid "CTRL-u            go half page up"
 msgstr "CTRL-u                 向上翻半页"
 
-#: graphics.c:2004
+#: graphics.c:2005
 msgid "CTRL-d            go half page down"
 msgstr "CTRL-d                 向下翻半页"
 
-#: graphics.c:2005
+#: graphics.c:2006
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
 msgstr "<Esc> 或 CTRL-x   中止搜索模式"
 
-#: graphics.c:2006
+#: graphics.c:2007
 msgid "CTRL-n            repeat last / or ? search"
 msgstr "CTRL-n            重复上一个 / 或 ? 搜索操作"
 
-#: graphics.c:2014
+#: graphics.c:2015
 msgid "ZOOMING:"
 msgstr "缩放："
 
-#: graphics.c:2015
+#: graphics.c:2016
 msgid "z or i or CTRL-i  zoom in"
 msgstr "z 或 i 或 CTRL-i  放大"
 
-#: graphics.c:2016
+#: graphics.c:2017
 msgid "Z or o or CTRL-o  zoom out"
 msgstr "Z 或 o 或 CTRL-o  缩小"
 
-#: graphics.c:2017
+#: graphics.c:2018
 msgid "c                 condense: fold current level"
 msgstr "c                 压缩：折叠当前级别"
 
-#: graphics.c:2018
+#: graphics.c:2019
 msgid "C                 condense: fold subdir level"
 msgstr "C                 压缩：折叠子目录级别"
 
-#: graphics.c:2019
+#: graphics.c:2020
 msgid "w                 condense: fold current and subdir levels"
 msgstr "w                 压缩：折叠当前及子目录级别"
 
-#: graphics.c:2020
+#: graphics.c:2021
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
 msgstr "y 或 CTRL-y       展开：展开当前及子目录级别"
 
-#: graphics.c:2021
+#: graphics.c:2022
 msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r 或 CTRL-r       展开：展开所有目录"
 
-#: graphics.c:2022
+#: graphics.c:2023
 msgid "-                 fold directory"
 msgstr "-                 折叠目录"
 
-#: graphics.c:2023
+#: graphics.c:2024
 msgid "+ or =            unfold directory"
 msgstr "+ 或 =            展开目录"
 
-#: graphics.c:2024
+#: graphics.c:2025
 msgid "l or <Right>      unfold and go right"
 msgstr "l 或 <Right>      展开并向右前进"
 
-#: graphics.c:2028
+#: graphics.c:2029
 msgid "Screenheight must be > 21 for help."
 msgstr "屏幕高度必须大于 21 字符才能显示帮助信息。"
 
-#: graphics.c:2262 graphics.c:2731
+#: graphics.c:2263 graphics.c:2732
 #, c-format
 msgid "Cannot find the current path %s in the directory tree.\n"
 msgstr ""

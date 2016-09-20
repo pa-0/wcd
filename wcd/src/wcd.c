@@ -144,7 +144,7 @@ char *wcd_strncat(char *dest, const char *src, size_t dest_size)
    strncat(dest,src,dest_size-strlen(dest));
    dest[dest_size-1] = '\0';
 #ifdef DEBUG
-   if((strlen(dest) + strlen(src)) >= (dest_size-1)) {
+   if((strlen(dest) + strlen(src)) > (dest_size-1)) {
      print_error("Text %s has been truncated to %d characters in %s to prevent a buffer overflow.\n",  src, (int)dest_size,"wcd_strncat()");
    }
 #endif
@@ -284,31 +284,23 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
    if ((f = wcd_fopen(filename, m, quiet)) == NULL) return NULL;
 
    /* Check for BOM */
-   if ((m[0] == 'r') && (f != NULL))
+   if (m[0] == 'r')
    {
       int bom[3];
       if ((bom[0] = fgetc(f)) == EOF) {
-         if (ferror(f)) {
-           wcd_read_error(filename);
-           wcd_fclose(f, filename, "r", "wcd_fopen_bom: ");
-           return NULL;
-         }
+         if (ferror(f)) goto read_failed;
          *bomtype = FILE_MBS;
          return(f);
       }
       if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef)) {
-         if (ungetc(bom[0], f) == EOF) return NULL;
+         if (ungetc(bom[0], f) == EOF) goto read_failed;
          *bomtype = FILE_MBS;
          return(f);
       }
       if ((bom[1] = fgetc(f)) == EOF) {
-         if (ferror(f)) {
-           wcd_read_error(filename);
-           wcd_fclose(f, filename, "r", "wcd_fopen_bom: ");
-           return NULL;
-         }
-         if (ungetc(bom[1], f) == EOF) return NULL;
-         if (ungetc(bom[0], f) == EOF) return NULL;
+         if (ferror(f)) goto read_failed;
+         if (ungetc(bom[1], f) == EOF) goto read_failed;
+         if (ungetc(bom[0], f) == EOF) goto read_failed;
          *bomtype = FILE_MBS;
          return(f);
       }
@@ -321,14 +313,10 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
          return(f);
       }
       if ((bom[2] = fgetc(f)) == EOF) {
-         if (ferror(f)) {
-           wcd_read_error(filename);
-           wcd_fclose(f, filename, "r", "wcd_fopen_bom: ");
-           return NULL;
-         }
-         if (ungetc(bom[2], f) == EOF) return NULL;
-         if (ungetc(bom[1], f) == EOF) return NULL;
-         if (ungetc(bom[0], f) == EOF) return NULL;
+         if (ferror(f)) goto read_failed;
+         if (ungetc(bom[2], f) == EOF) goto read_failed;
+         if (ungetc(bom[1], f) == EOF) goto read_failed;
+         if (ungetc(bom[0], f) == EOF) goto read_failed;
          *bomtype = FILE_MBS;
          return(f);
       }
@@ -336,13 +324,18 @@ FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype
          *bomtype = FILE_UTF8;
          return(f);
       }
-      if (ungetc(bom[2], f) == EOF) return NULL;
-      if (ungetc(bom[1], f) == EOF) return NULL;
-      if (ungetc(bom[0], f) == EOF) return NULL;
+      if (ungetc(bom[2], f) == EOF) goto read_failed;
+      if (ungetc(bom[1], f) == EOF) goto read_failed;
+      if (ungetc(bom[0], f) == EOF) goto read_failed;
       *bomtype = FILE_MBS;
       return(f);
    }
   return(f);
+
+  read_failed:
+    wcd_read_error(filename);
+    wcd_fclose(f, filename, "r", "wcd_fopen_bom: ");
+    return NULL;
 }
 
 
@@ -393,11 +386,18 @@ void rmDirFromList(char *string, nameset n)
 {
    size_t len = strlen(string) + 1;
    char *dir = (char *)malloc(len);
-   char *subdir = (char *)malloc(len+2);
+   char *subdir;
    size_t i;
 
-   if ((dir==NULL)||(subdir==NULL)) {
+   if (dir==NULL) {
       print_error(_("Memory allocation error in %s: %s\n"),"rmDirFromList()",strerror(errno));
+      return;
+   }
+   subdir = (char *)malloc(len+2);
+   if (subdir==NULL) {
+      print_error(_("Memory allocation error in %s: %s\n"),"rmDirFromList()",strerror(errno));
+      free(dir);
+      return;
    }
    wcd_strncpy(dir,string,len);
 
