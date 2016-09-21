@@ -801,7 +801,6 @@ int q_remove(TDirList *list,char *s)
  * Recursively delete directory: *dir
  *
  ********************************************************************/
-#ifdef __DJGPP__
 /*
 The 32 bit dos versions are compiled with DJGPP and do not use DOSDIR. DJGPP is
 a mix of DOS/Unix (both 'MSDOS' and 'unix' are defined).  DOSDIR's
@@ -815,62 +814,14 @@ Using DOSDIR in combination with DJGPP would make scanning the disk very slow.
 */
 void rmTree(char *dir)
 {
-   static struct ffblk fb;       /* file block structure */
-   char tmp[DD_MAXPATH];         /* tmp string */
-   int rc;                       /* error code */
-   TDirList list;                /* directory queue */
-   char *errstr;
-
-   if (dir)
-   {
-      if (wcd_chdir(dir,0)) return; /* Go to the dir, else return */
-   }
-   else
-       return ;  /* dir == NULL */
-
-   rc = findfirst( default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL);
-   list.head = list.tail = 0;
-
-   while (rc==0)   /* go through all the files in the current dir */
-   {
-      if (DD_ISDIREC(fb.ff_attrib))
-      {
-
-#ifndef VMS
-         /*  Ignore directory entries starting with '.'
-      *  which includes the current and parent directories.
-      */
-         if (!SpecialDir(fb.ff_name))
-#endif /* ?!VMS */
-            q_insert(&list, fb.ff_name);   /* add all directories in current dir to list */
-      }
-      else
-      if ( unlink(fb.ff_name) != 0)  /* not a directory */
-      {
-         errstr = strerror(errno);
-         print_error(_("Unable to remove file %s: %s\n"), fb.ff_name, errstr);
-      }
-
-      rc = findnext(&fb);
-   } /* while !rc */
-
-   /* recursively parse subdirectories (if any) */
-   while (q_remove(&list, tmp))
-      {
-        rmTree(tmp);
-        wcd_rmdir(tmp,0);
-      }
-
-   wcd_chdir(DIR_PARENT,0); /* go to parent directory */
-}
-
-#else /* not DJGPP */
-
-void rmTree(char *dir)
-{
+#ifdef __DJGPP__
+   static struct ffblk fb;   /* file block structure */
+   int rc;                   /* error code */
+#else
    static dd_ffblk fb;       /* file block structure */
-   char tmp[DD_MAXPATH];     /* tmp string */
    wcd_intptr_t rc;          /* error code */
+#endif
+   char tmp[DD_MAXPATH];     /* tmp string */
    char *errstr;
    TDirList list;            /* directory queue */
 
@@ -887,7 +838,11 @@ void rmTree(char *dir)
    This was seen with Borland CPP 5.02 and 5.5.1.
    Apr 29 2005   Erwin Waterlander
 */
+#ifdef __DJGPP__
+   rc = findfirst( default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL);
+#else
    rc = dd_findfirst( default_mask, &fb, DD_DIREC|DD_RDONLY|DD_HIDDEN|DD_SYSTEM|DD_ARCH|DD_DEVICE );
+#endif
    /* Unix: dd_findfirst is a wrapper around 'opendir'. The directory opened in dd_findfirst
     * has to be closed by 'closedir' in dd_findnext. So do not exit this function until
     * the dd_findnext loop is complete. Otherwise directories will be left open and you
@@ -898,7 +853,11 @@ void rmTree(char *dir)
 
    while (rc==0)   /* go through all the files in the current dir */
    {
+#ifdef __DJGPP__
+      if (DD_ISDIREC(fb.ff_attrib))
+#else
       if (DD_ISDIREC(fb.dd_mode))
+#endif
       {
 
 #ifndef VMS
@@ -910,13 +869,21 @@ void rmTree(char *dir)
             q_insert(&list, fb.dd_name);   /* add all directories in current dir to list */
       }
       else
+#ifdef __DJGPP__
+      if ( unlink(fb.ff_name) != 0)  /* not a directory */
+#else
       if ( unlink(fb.dd_name) != 0)  /* not a directory */
+#endif
       {
          errstr = strerror(errno);
          print_error(_("Unable to remove file %s: %s\n"), fb.dd_name, errstr);
       }
 
+#ifdef __DJGPP__
+      rc = findnext(&fb);
+#else
       rc = dd_findnext(&fb);
+#endif
    } /* while !rc */
 
    /* recursively parse subdirectories (if any) */
@@ -928,7 +895,6 @@ void rmTree(char *dir)
 
    wcd_chdir(DIR_PARENT,0); /* go to parent directory */
 }
-#endif
 
 /********************************************************************
  *
@@ -978,84 +944,19 @@ size_t pathInNameset (text path, nameset set)
  *  finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, int quiet)
  *
  ********************************************************************/
-#ifdef __DJGPP__
 /*
  * See comment above function rmTree().
  */
-void finddirs(char* dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
-{
-   static struct ffblk fb;       /* file block structure */
-   static char tmp[DD_MAXPATH];  /* tmp string buffer */
-   int rc;                       /* error code */
-   size_t len ;
-   TDirList list;                /* directory queue */
-   char *tmp_ptr ;
-
-
-   if (dir)
-   {
-      if (wcd_chdir(dir,quiet)) return; /* ?err */
-   }
-   else
-     return ;  /* dir == NULL */
-
-   if (wcd_getcwd(tmp, sizeof(tmp)) == NULL)
-   {
-      print_error(_("finddirs(): can't determine path in directory %s\n"),dir);
-      print_error(_("path probably too long.\n"));
-      wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
-      return;
-   };
-
-   wcd_fixpath(tmp,sizeof(tmp));
-   rmDriveLetter(tmp,use_HOME);
-
-   if (pathInNameset(tmp,exclude) != (size_t)-1)
-   {
-      wcd_chdir(DIR_PARENT,quiet); /* go to parent directory */
-      return;
-   }
-
-   len = strlen(tmp);
-
-   if(*offset < len)
-     tmp_ptr = tmp + *offset ;
-   else
-     tmp_ptr = tmp + len;   /* tmp_ptr points to ending '\0' of tmp */
-
-   if (wcd_fprintf(outfile,"%s\n", tmp_ptr) < 0)
-      return;  /* Quit when we can't write path to disk */
-
-   rc = findfirst( default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL );
-   list.head = list.tail = 0;
-
-   while (rc==0)   /* go through all the files in the current dir */
-   {
-      if (DD_ISDIREC(fb.ff_attrib))
-      {
-         /*  Ignore directory entries starting with '.'
-            *  which includes the current and parent directories.
-            */
-         if (!SpecialDir(fb.ff_name))
-            q_insert(&list, fb.ff_name);
-      }
-      rc = findnext(&fb);
-   } /* while !rc */
-
-   /* recursively parse subdirectories (if any) (quiet) */
-   while (q_remove(&list, tmp))
-      finddirs(tmp,offset, outfile, use_HOME, exclude, 1);
-
-   wcd_chdir(DIR_PARENT,1); /* go to parent directory */
-}
-
-#else /* not DJGPP */
-
 void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
 {
-   static dd_ffblk fb;       /* file block structure */
-   static char tmp[DD_MAXPATH];  /* tmp string buffer */
+#ifdef __DJGPP__
+   static struct ffblk fb;       /* file block structure */
+   int rc;                       /* error code */
+#else
+   static dd_ffblk fb;           /* file block structure */
    wcd_intptr_t rc;              /* error code */
+#endif
+   static char tmp[DD_MAXPATH];  /* tmp string buffer */
    size_t len ;
    TDirList list;                /* directory queue */
    char *tmp_ptr ;
@@ -1103,7 +1004,11 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    This was seen with Borland CPP 5.02 and 5.5.1.
    Apr 29 2005   Erwin Waterlander
 */
+#ifdef __DJGPP__
+   rc = findfirst( default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL );
+#else
    rc = dd_findfirst( default_mask, &fb, DD_DIREC|DD_RDONLY|DD_HIDDEN|DD_SYSTEM|DD_ARCH|DD_DEVICE );
+#endif
    list.head = list.tail = 0;
 
    /* Unix: dd_findfirst is a wrapper around 'opendir'. The directory opened in dd_findfirst
@@ -1114,7 +1019,11 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 
    while (rc==0)   /* go through all the files in the current dir */
    {
+#ifdef __DJGPP__
+      if (DD_ISDIREC(fb.ff_attrib))
+#else
       if (DD_ISDIREC(fb.dd_mode))
+#endif
       {
 #ifndef VMS
          /*  Ignore directory entries starting with '.'
@@ -1145,7 +1054,11 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
            wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
       }
 #endif
+#ifdef __DJGPP__
+      rc = findnext(&fb);
+#else
       rc = dd_findnext(&fb);
+#endif
    } /* while !rc */
 
    /* recursively parse subdirectories (if any) (quiet) */
@@ -1155,7 +1068,6 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    /* Quiet, because on OS/2 changing to .. from a disk root dir gives an error. */
    wcd_chdir(DIR_PARENT,1); /* go to parent directory */
 }
-#endif
 
 /********************************************************************
  *
