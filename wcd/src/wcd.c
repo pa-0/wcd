@@ -129,7 +129,7 @@ char *wcd_strncpy(char *dest, const char *src, size_t dest_size)
 {
    strncpy(dest,src,dest_size);
    dest[dest_size-1] = '\0';
-#ifdef DEBUG
+#if DEBUG
    if(strlen(src) > (dest_size-1)) {
      print_error("Text %s has been truncated from %d to %d characters in %s to prevent a buffer overflow.\n", src, (int)strlen(src), (int)dest_size, "wcd_strncpy()");
    }
@@ -141,13 +141,13 @@ char *wcd_strncpy(char *dest, const char *src, size_t dest_size)
    dest_size must be the buffer size of dest. */
 char *wcd_strncat(char *dest, const char *src, size_t dest_size)
 {
-   strncat(dest,src,dest_size-strlen(dest));
-   dest[dest_size-1] = '\0';
-#ifdef DEBUG
+#if DEBUG
    if((strlen(dest) + strlen(src)) > (dest_size-1)) {
-     print_error("Text %s has been truncated to %d characters in %s to prevent a buffer overflow.\n",  src, (int)dest_size,"wcd_strncat()");
+     print_error("Text %s + %s has been truncated to %d characters in %s to prevent a buffer overflow.\n", dest,  src, (int)dest_size,"wcd_strncat()");
    }
 #endif
+   strncat(dest,src,dest_size-strlen(dest));
+   dest[dest_size-1] = '\0';
    return dest;
 }
 
