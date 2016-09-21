@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.3.3-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-20 23:00+0200\n"
+"POT-Creation-Date: 2016-09-21 22:56+0200\n"
 "PO-Revision-Date: 2016-05-31 13:27+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -644,9 +644,9 @@ msgid "Download the latest executables and sources from:\n"
 msgstr "Найсвіжіші версії виконуваних файлів та початкового коду можна знайти тут:\n"
 
 #: wcd.c:2504
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Copyright (C) 1997-%d Erwin Waterlander\n"
+"Copyright (C) 1996-%d Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
 "Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"

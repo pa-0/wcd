@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.3.3-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-20 23:00+0200\n"
+"POT-Creation-Date: 2016-09-21 22:56+0200\n"
 "PO-Revision-Date: 2016-09-05 15:32+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -653,9 +653,9 @@ msgid "Download the latest executables and sources from:\n"
 msgstr "Download de nieuwste versie en/of de broncode van:\n"
 
 #: wcd.c:2504
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Copyright (C) 1997-%d Erwin Waterlander\n"
+"Copyright (C) 1996-%d Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
 "Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
 "Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"
