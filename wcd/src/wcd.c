@@ -812,6 +812,15 @@ compiled with DJGPP.  It is about a factor 35 slower than using DJGPP's
 findfirst/findnext.  Probably due to a slow stat() function in dd_initstruct().
 Using DOSDIR in combination with DJGPP would make scanning the disk very slow.
 */
+#ifdef __DJGPP__
+#  define WCD_FB_NAME  fb.ff_name
+#  define WCD_FB_MODE  fb.ff_attrib
+#  define WCD_FINDNEXT findnext
+#else
+#  define WCD_FB_NAME  fb.dd_name
+#  define WCD_FB_MODE  fb.dd_mode
+#  define WCD_FINDNEXT dd_findnext
+#endif
 void rmTree(char *dir)
 {
 #ifdef __DJGPP__
@@ -853,37 +862,25 @@ void rmTree(char *dir)
 
    while (rc==0)   /* go through all the files in the current dir */
    {
-#ifdef __DJGPP__
-      if (DD_ISDIREC(fb.ff_attrib))
-#else
-      if (DD_ISDIREC(fb.dd_mode))
-#endif
+      if (DD_ISDIREC(WCD_FB_MODE))
       {
 
 #ifndef VMS
      /*  Ignore directory entries starting with '.'
       *  which includes the current and parent directories.
       */
-         if (!SpecialDir(fb.dd_name))
+         if (!SpecialDir(WCD_FB_NAME))
 #endif /* ?!VMS */
-            q_insert(&list, fb.dd_name);   /* add all directories in current dir to list */
+            q_insert(&list, WCD_FB_NAME);   /* add all directories in current dir to list */
       }
       else
-#ifdef __DJGPP__
-      if ( unlink(fb.ff_name) != 0)  /* not a directory */
-#else
-      if ( unlink(fb.dd_name) != 0)  /* not a directory */
-#endif
+      if ( unlink(WCD_FB_NAME) != 0)  /* not a directory */
       {
          errstr = strerror(errno);
-         print_error(_("Unable to remove file %s: %s\n"), fb.dd_name, errstr);
+         print_error(_("Unable to remove file %s: %s\n"), WCD_FB_NAME, errstr);
       }
 
-#ifdef __DJGPP__
-      rc = findnext(&fb);
-#else
-      rc = dd_findnext(&fb);
-#endif
+      rc = WCD_FINDNEXT(&fb);
    } /* while !rc */
 
    /* recursively parse subdirectories (if any) */
@@ -1019,16 +1016,12 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 
    while (rc==0)   /* go through all the files in the current dir */
    {
-#ifdef __DJGPP__
-      if (DD_ISDIREC(fb.ff_attrib))
-#else
-      if (DD_ISDIREC(fb.dd_mode))
-#endif
+      if (DD_ISDIREC(WCD_FB_MODE))
       {
 #ifndef VMS
          /*  Ignore directory entries starting with '.'
           *  which includes the current and parent directories. */
-         if (!SpecialDir(fb.dd_name))
+         if (!SpecialDir(WCD_FB_NAME))
 #endif /* ?!VMS */
 #ifdef _WIN32
          {
@@ -1041,7 +1034,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
                q_insert(&list, fb.dd_name);   /* add all directories in current dir to list */
          }
 #else
-            q_insert(&list, fb.dd_name);   /* add all directories in current dir to list */
+            q_insert(&list, WCD_FB_NAME);   /* add all directories in current dir to list */
 #endif
       }
 
@@ -1054,11 +1047,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
            wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
       }
 #endif
-#ifdef __DJGPP__
-      rc = findnext(&fb);
-#else
-      rc = dd_findnext(&fb);
-#endif
+      rc = WCD_FINDNEXT(&fb);
    } /* while !rc */
 
    /* recursively parse subdirectories (if any) (quiet) */
@@ -2310,7 +2299,7 @@ void print_version(void)
     printf(_("Win32 version (WATCOMC).\n"));
 #   elif defined(_MSC_VER)
     printf(_("Win32 version (MSVC %d).\n"),_MSC_VER);
-#   elif defined(__MINGW32__) && (WCD_COMPILER == MINGW32_W64)
+#   elif defined(__MINGW32__) && defined(WCD_MINGW32_W64)
     printf(_("Win32 version (MinGW-w64).\n"));
 #   else
     printf(_("Win32 version (MinGW).\n"));

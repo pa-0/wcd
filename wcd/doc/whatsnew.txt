@@ -1,10 +1,12 @@
-5.3.3-beta8 2016-09-21
+5.3.3-beta9 2016-09-22
   - Support Unicode aliases on Windows.
     Wcd for Windows with Unicode support stores the aliases now in UTF-8
     format (like the paths). Old aliases with non-ASCII characters are
     not compatible anymore. You need to create new aliases.
   - New option -ls: List the aliases. Thanks to Erik Rijshouwer.
   - Code cleanup.
+  - Wcd does not compile with DJGPP 2.03 anymore, because DJGPP 2.03 is
+    lacking an snprintf() function. Use DJGPP 2.05.
 
 5.3.2 2016-02-18
   - Fixed printing of East-Asian text on Windows with an East-Asian regional

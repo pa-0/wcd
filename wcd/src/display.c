@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2014 Erwin Waterlander
+Copyright (C) 1997-2016 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -117,11 +117,13 @@ void wcd_printf( const char* format, ... ) {
     * in Windows Unicode mode all treedata files are written in UTF-8 format.
     * Print to buffer (UTF-8) */
    vsnprintf( buf, sizeof(buf), formatmbs, args);
+   buf[sizeof(buf)-1] = '\0';
     /* Convert UTF-8 buffer to wide characters, and print to console. */
    if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, DD_MAXPATH) > 0  )
 #  else
    /* Everything is in ANSI code page */
    vsnprintf( buf, sizeof(buf), format, args);
+   buf[sizeof(buf)-1] = '\0';
    if (MultiByteToWideChar(CP_ACP,0, buf, -1, wstr, DD_MAXPATH) > 0  )
 #  endif
       WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
@@ -525,7 +527,8 @@ char buf[WCD_MAX_INPSTR];
 
    cprintf(_("Please choose one (<Enter> to abort): "));
    fflush(stdout);
-   sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+   snprintf(buf,sizeof(buf),_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+   buf[sizeof(buf)-1] = '\0';
    pageoffset = ti.screenwidth - (int)strlen(buf);
    if (pageoffset < 0)
       pageoffset = 0;
@@ -601,7 +604,8 @@ char buf[WCD_MAX_INPSTR];
          page = bottom / lines_per_page + 1 ;
 
          window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
-         sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+         snprintf(buf,sizeof(buf),_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+         buf[sizeof(buf)-1] = '\0';
          pageoffset = ti.screenwidth - (int)strlen(buf);
          if (pageoffset < 0)
             pageoffset = 0;
@@ -633,7 +637,8 @@ char buf[WCD_MAX_INPSTR];
          page = bottom / lines_per_page + 1 ;
 
          window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
-         sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+         snprintf(buf,sizeof(buf),_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
+         buf[sizeof(buf)-1] = '\0';
          pageoffset = ti.screenwidth - (int)strlen(buf);
          if (pageoffset < 0)
             pageoffset = 0;
@@ -949,7 +954,7 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
          }
 #if defined(_WIN32) || defined(__CYGWIN__)
          /* Line starts with a trailing surrogate character, insert a space */
-	 if ((wstr[j] >= 0xdc00) && (wstr[j] < 0xe000))
+         if ((wstr[j] >= 0xdc00) && (wstr[j] < 0xe000))
            wstr[j] = ' ';
 #endif
          while ((j<(int)len)&&(wcd_wcwidth(wstr[j]) == 0 ))   /* Skip combining characters */
@@ -1018,7 +1023,7 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
          }
 #if defined(_WIN32) || defined(__CYGWIN__)
          /* Line starts with a trailing surrogate character, insert a space */
-	 if ((wstr[j] >= 0xdc00) && (wstr[j] < 0xe000))
+         if ((wstr[j] >= 0xdc00) && (wstr[j] < 0xe000))
            wstr[j] = ' ';
 #endif
          while ((j<(int)len)&&(wcd_wcwidth(wstr[j]) == 0 ))   /* Skip combining characters */
@@ -1147,7 +1152,8 @@ void displayRefresh(int init)
    wmove (wcd_display.inputWin, 0, pageoffset);
    wprintw(wcd_display.inputWin,"%s",buf);
 
-   sprintf(buf,_("Please choose one (<Enter> to abort): "));
+   snprintf(buf,sizeof(buf),_("Please choose one (<Enter> to abort): "));
+   buf[sizeof(buf)-1] = '\0';
    wcd_mvwaddstr(wcd_display.inputWin,2,0,buf);
    offset = (int)str_columns(buf) ;
    wmove (wcd_display.inputWin, 2, offset);
@@ -1555,7 +1561,7 @@ int display_list_stdout(nameset list,WcdStack ws, int perfect, int use_stdout)
             if ( use_stdout & WCD_STDOUT_DUMP )
               return(WCD_ERR_LIST);
 
-	    printf("\n");
+            printf("\n");
             printf(_("Please choose one (<Enter> to abort): "));
             i = wcd_get_int();
 

@@ -369,7 +369,7 @@ INCPREFIX=/usr
 ifeq ($(findstring MINGW,$(wcd_os)),MINGW)
 ifeq ($(shell gcc -dumpmachine),i686-w64-mingw32)
 INCPREFIX=/mingw32
-CFLAGS_COMPILER = -DWCD_COMPILER=MINGW32_W64
+CFLAGS_COMPILER = -DWCD_MINGW32_W64=1
 else
 ifeq ($(shell gcc -dumpmachine),x86_64-w64-mingw32)
 INCPREFIX=/mingw64

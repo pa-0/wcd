@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.2.5-b4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-21 23:43+0200\n"
+"POT-Creation-Date: 2016-09-22 21:39+0200\n"
 "PO-Revision-Date: 2014-02-12 15:01+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -54,86 +54,86 @@ msgstr ""
 msgid "%s added to file %s\n"
 msgstr "Aldoniĝis %s al dosiero %s\n"
 
-#: wcd.c:879
+#: wcd.c:880
 #, c-format
 msgid "Unable to remove file %s: %s\n"
 msgstr "Ne eblas forigi dosieron %s: %s\n"
 
-#: wcd.c:974
+#: wcd.c:971
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
 msgstr "finddirs(): malsukcesis eltrovi padon en dosierujo %s\n"
 
-#: wcd.c:975
+#: wcd.c:972
 msgid "path probably too long.\n"
 msgstr "probable la pado tro longas.\n"
 
-#: wcd.c:1097 wcd.c:1428
+#: wcd.c:1086 wcd.c:1417
 #, c-format
 msgid "%s is not a directory.\n"
 msgstr "%s ne estas dosierujo.\n"
 
-#: wcd.c:1102
+#: wcd.c:1091
 #, c-format
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "Bonvolu atendi, skaniĝas disko... Konstruiĝas arbodosiero %s el %s...\n"
 
-#: wcd.c:1164 wcd.c:2495 wcd.c:2518 wcd.c:2598
+#: wcd.c:1153 wcd.c:2484 wcd.c:2507 wcd.c:2587
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Skribiĝas dosiero '%s'\n"
 
-#: wcd.c:1169
+#: wcd.c:1158
 msgid "Write access to tree-file denied.\n"
 msgstr "Skribi al arbodosiero malpermesatas.\n"
 
-#: wcd.c:1170
+#: wcd.c:1159
 msgid "Set TEMP environment variable if this is a read-only disk.\n"
 msgstr "Argordu la ĉirkaŭaĵan variablon TEMP se ĉi tiu estas nurlega disko.\n"
 
-#: wcd.c:1299
+#: wcd.c:1288
 #, c-format
 msgid "Removed symbolic link %s\n"
 msgstr "Forigiĝis simbola ligo %s\n"
 
-#: wcd.c:1303
+#: wcd.c:1292
 #, c-format
 msgid "Unable to remove symbolic link %s: %s\n"
 msgstr "Ne eblas forigi simbolan ligon %s: %s\n"
 
-#: wcd.c:1308
+#: wcd.c:1297
 #, c-format
 msgid "%s is a symbolic link to a file.\n"
 msgstr "%s estas simbola ligo al dosiero.\n"
 
-#: wcd.c:1389
+#: wcd.c:1378
 #, c-format
 msgid "Recursively remove %s? Are you sure? y/n :"
 msgstr "Ĉu rikure forigi %s?  Ĉu vi certas?  y(jes)/n(ne):"
 
-#: wcd.c:1411 wcd.c:1421
+#: wcd.c:1400 wcd.c:1410
 #, c-format
 msgid "Removed directory %s\n"
 msgstr "Forigiĝis dosierujo %s\n"
 
-#: wcd.c:1453 wcd.c:1522 wcd.c:1590
+#: wcd.c:1442 wcd.c:1511 wcd.c:1579
 #, c-format
 msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
 msgstr ""
 "Linio en %s tro longas (> %d).  Eble la arbodosiero difektiĝis,\n"
 "aŭ alie evitu ĉi tiun per pligrandigi DD_MAXPATH en la programo.\n"
 
-#: wcd.c:1454 wcd.c:1523 wcd.c:1591
+#: wcd.c:1443 wcd.c:1512 wcd.c:1580
 #, c-format
 msgid "file: %s, line: %d,"
 msgstr "dosiero: %s, linio: %d,"
 
-#: wcd.c:1461 wcd.c:1530 wcd.c:1598
+#: wcd.c:1450 wcd.c:1519 wcd.c:1587
 #, c-format
 msgid " length: %d\n"
 msgstr " longo: %d\n"
 
-#: wcd.c:2209
+#: wcd.c:2198
 #, c-format
 msgid ""
 "Usage: wcd [options] [directory]\n"
@@ -142,12 +142,12 @@ msgstr ""
 "Uzmaniero:  wcd [OPCIO...] [DOSIERUJO]\n"
 "\n"
 
-#: wcd.c:2210
+#: wcd.c:2199
 #, c-format
 msgid "directory:  Name of directory to change to.\n"
 msgstr "DOSIERUJO estas la nomo de la dosierujo al kiu ŝanĝi.\n"
 
-#: wcd.c:2211
+#: wcd.c:2200
 #, c-format
 msgid ""
 "            Wildcards *, ? and [SET] are supported.\n"
@@ -156,313 +156,313 @@ msgstr ""
 "Ĵokeraj signoj * kaj ? subtenatas, kaj ankaŭ [ARO].\n"
 "\n"
 
-#: wcd.c:2213
+#: wcd.c:2202
 #, c-format
 msgid "options:\n"
 msgstr "Opcioj:\n"
 
-#: wcd.c:2214
+#: wcd.c:2203
 #, c-format
 msgid "  -a                      Add current path to treefile\n"
 msgstr "  -a                      aldoni nunan padon al arbodosiero\n"
 
-#: wcd.c:2215
+#: wcd.c:2204
 #, c-format
 msgid "  -aa                     Add current and all parent paths to treefile\n"
 msgstr "  -aa                     aldoni nunan kaj suprajn padojn al arbodosiero\n"
 
-#: wcd.c:2216
+#: wcd.c:2205
 #, c-format
 msgid "  -A PATH                 Add tree from PATH\n"
 msgstr "  -A PADO                 aldoni arbon el ĉi tiu pado\n"
 
-#: wcd.c:2217
+#: wcd.c:2206
 #, c-format
 msgid "  -b                      Ban current path\n"
 msgstr "  -b                      escepti nunan padon\n"
 
-#: wcd.c:2218
+#: wcd.c:2207
 #, c-format
 msgid "  -c,  --direct-cd        direct CD mode\n"
 msgstr "  -c,  --direct-cd        rekta CD-moduso\n"
 
-#: wcd.c:2219
+#: wcd.c:2208
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
 msgstr "  -d DISKO                uzenda disko por stakaj kaj 'go'-dosieroj (DOS)\n"
 
-#: wcd.c:2220
+#: wcd.c:2209
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
 msgstr "  -e                      aldoni nunan padon al aldona arbodosiero\n"
 
-#: wcd.c:2221
+#: wcd.c:2210
 #, c-format
 msgid "  -ee                     add current and all parent paths to Extra treefile\n"
 msgstr "  -ee                     aldoni nunan kaj suprajn padojn al aldona arbodosiero\n"
 
-#: wcd.c:2222
+#: wcd.c:2211
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
 msgstr "  -E PADO                 aldoni arbon de ĉi tiu pado al aldona arbodosiero\n"
 
-#: wcd.c:2223
+#: wcd.c:2212
 #, c-format
 msgid "  -f FILE                 use extra treeFile\n"
 msgstr "  -f DOSIERO              uzenda arbodosiero\n"
 
-#: wcd.c:2224
+#: wcd.c:2213
 #, c-format
 msgid "  +f FILE                 add extra treeFile\n"
 msgstr "  +f DOSIERO              aldona arbodosiero\n"
 
-#: wcd.c:2225
+#: wcd.c:2214
 #, c-format
 msgid "  -g                      Graphics\n"
 msgstr "  -g                      grafika moduso\n"
 
-#: wcd.c:2226
+#: wcd.c:2215
 #, c-format
 msgid "  -gd                     Graphics, dump tree\n"
 msgstr "  -gd                     grafika moduso, deponi arbon\n"
 
-#: wcd.c:2227
+#: wcd.c:2216
 #, c-format
 msgid "  -G PATH                 set PATH Go-script\n"
 msgstr "  -G PADO                 uzenda pado por trovi Go-skripton\n"
 
-#: wcd.c:2228
+#: wcd.c:2217
 #, c-format
 msgid "  -GN, --no-go-script     No Go-script\n"
 msgstr "  -GN, --no-go-script     ne uzi Go-skripton\n"
 
-#: wcd.c:2229
+#: wcd.c:2218
 #, c-format
 msgid "  -h,  --help             show this Help\n"
 msgstr "  -h,  --help             montri ĉi tiun helptekston\n"
 
-#: wcd.c:2232
+#: wcd.c:2221
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
 msgstr "  -i,  --ignore-case      ignori usklecon  (defaŭlto)\n"
 
-#: wcd.c:2233
+#: wcd.c:2222
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case\n"
 msgstr "  +i,  --no-ignore-case   atenti usklecon\n"
 
-#: wcd.c:2235
+#: wcd.c:2224
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case\n"
 msgstr "  -i,  --ignore-case      ignori usklecon\n"
 
-#: wcd.c:2236
+#: wcd.c:2225
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case (default)\n"
 msgstr "  +i,  --no-ignore-case   atenti usklecon  (defaŭlto)\n"
 
-#: wcd.c:2239
+#: wcd.c:2228
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
 msgstr "  -I,  --ignore-diacritics     ignori diakritajn signojn\n"
 
-#: wcd.c:2240
+#: wcd.c:2229
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
 msgstr "  +I,  --no-ignore-diacritics  atenti diakritajn signojn  (defaŭlto)\n"
 
-#: wcd.c:2241
+#: wcd.c:2230
 #, c-format
 msgid "  -j,  --just-go          Just go mode\n"
 msgstr "  -j,  --just-go          «simple iru»-moduso\n"
 
-#: wcd.c:2242
+#: wcd.c:2231
 #, c-format
 msgid "  -k,  --keep-paths       Keep paths\n"
 msgstr "  -k,  --keep-paths       reteni padojn\n"
 
-#: wcd.c:2243
+#: wcd.c:2232
 #, c-format
 msgid "  -K,  --color            colors\n"
 msgstr "  -K,  --color            uzi kolorojn\n"
 
-#: wcd.c:2244
+#: wcd.c:2233
 #, c-format
 msgid "  -l ALIAS                aLias current directory\n"
 msgstr "  -l ALINOMO              uzenda alinomo por nuna dosierujo\n"
 
-#: wcd.c:2245
+#: wcd.c:2234
 #, fuzzy, c-format
 msgid "  -ls                     List the aliases\n"
 msgstr "  -g                      grafika moduso\n"
 
-#: wcd.c:2246
+#: wcd.c:2235
 #, c-format
 msgid "  -L,  --license          show software License\n"
 msgstr "  -L,  --license          montri la permesilon de la programo\n"
 
-#: wcd.c:2247
+#: wcd.c:2236
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
 msgstr "  -m UJO                  krei ĉi tiun dosierujon kaj aldoni ĝin al arbodosiero\n"
 
-#: wcd.c:2248
+#: wcd.c:2237
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
 msgstr "  -M UJO                  krei dosierujon kaj aldoni ĝin al aldona arbodosiero\n"
 
-#: wcd.c:2249
+#: wcd.c:2238
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
 msgstr "  -n PADO                 uzi relativan arbodosieron en ĉi tiu pado\n"
 
-#: wcd.c:2250
+#: wcd.c:2239
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
 msgstr "  +n PADO                 aldoni relativan arbodosieron en ĉi tiu pado\n"
 
-#: wcd.c:2251
+#: wcd.c:2240
 #, c-format
 msgid "  -N,  --numbers          use Numbers\n"
 msgstr "  -N,  --numbers          uzi numerojn\n"
 
-#: wcd.c:2252
+#: wcd.c:2241
 #, c-format
 msgid "  -o                      use stdOut\n"
 msgstr "  -o                      uzi ĉefeligujon\n"
 
-#: wcd.c:2253
+#: wcd.c:2242
 #, c-format
 msgid "  -od, --to-stdout        dump matches\n"
 msgstr "  -od, --to-stdout        deponi kongruojn\n"
 
-#: wcd.c:2254
+#: wcd.c:2243
 #, c-format
 msgid "  -q,  --quiet            Quieter operation\n"
 msgstr "  -q,  --quiet            silentema funkciado\n"
 
-#: wcd.c:2255
+#: wcd.c:2244
 #, c-format
 msgid "  -r DIR                  Remove DIR\n"
 msgstr "  -r UJO                  forigi ĉi tiun dosierujon\n"
 
-#: wcd.c:2256
+#: wcd.c:2245
 #, c-format
 msgid "  -rmtree DIR             Remove DIR recursive\n"
 msgstr "  -rmtree UJO             rikure forigi ĉi tiun dosierujon\n"
 
-#: wcd.c:2257
+#: wcd.c:2246
 #, c-format
 msgid "  -s                      Scan disk from $HOME\n"
 msgstr "  -s                      skani diskon ekde $HOME\n"
 
-#: wcd.c:2258
+#: wcd.c:2247
 #, c-format
 msgid "  -S PATH                 Scan disk from PATH\n"
 msgstr "  -S PADO                 skani diskon ekde ĉi tiu pado\n"
 
-#: wcd.c:2259
+#: wcd.c:2248
 #, c-format
 msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
 msgstr "  +S PADO                 skani diskon ekde pado, krei relativan arbodosieron\n"
 
-#: wcd.c:2260
+#: wcd.c:2249
 #, c-format
 msgid "  -t                      don't strip /tmp_mnt from paths\n"
 msgstr "  -t                      ne forpreni '/tmp_mnt' de la padojn\n"
 
-#: wcd.c:2261
+#: wcd.c:2250
 #, c-format
 msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
 msgstr "  -T,  --ascii-tree       montri arbon per ASCII-signoj\n"
 
-#: wcd.c:2262
+#: wcd.c:2251
 #, c-format
 msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
 msgstr "  -Ta, --alt-tree-nav     alternativa navigado de la arbo\n"
 
-#: wcd.c:2263
+#: wcd.c:2252
 #, c-format
 msgid "  -TC, --center-tree      Centered tree view\n"
 msgstr "  -TC, --center-tree      centrigita arbomontro\n"
 
-#: wcd.c:2264
+#: wcd.c:2253
 #, c-format
 msgid "  -Tc, --compact-tree     Compact tree\n"
 msgstr "  -Tc, --compact-tree     densa arbomontro\n"
 
-#: wcd.c:2265
+#: wcd.c:2254
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
 msgstr "  -Td, --cjk-width        subteni antikvajn CJK-tiparojn\n"
 
-#: wcd.c:2266
+#: wcd.c:2255
 #, c-format
 msgid "  -u USER                 use USER's treefile\n"
 msgstr "  -u USANTO               uzi arbodosieron de ĉi tiu uzanto\n"
 
-#: wcd.c:2267
+#: wcd.c:2256
 #, c-format
 msgid "  +u USER                 add USER's treefile\n"
 msgstr "  +u USANTO               aldone uzi arbodosieron de ĉi tiu uzanto\n"
 
-#: wcd.c:2268
+#: wcd.c:2257
 #, c-format
 msgid "  -v,  --verbose          Verbose operation\n"
 msgstr "  -v,  --verbose          parolema funkciado\n"
 
-#: wcd.c:2269
+#: wcd.c:2258
 #, c-format
 msgid "  -V,  --version          show Version info\n"
 msgstr "  -V,  --version          montri programversion\n"
 
-#: wcd.c:2270
+#: wcd.c:2259
 #, c-format
 msgid "  -w,  --wild-match-only  Wild matching only\n"
 msgstr "  -w,  --wild-match-only  nur ĵokeraj kongruoj\n"
 
-#: wcd.c:2271
+#: wcd.c:2260
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
 msgstr "  -x PADO                 ekskludenda pado dum skanado de disko\n"
 
-#: wcd.c:2272
+#: wcd.c:2261
 #, c-format
 msgid "  -xf FILE                eXclude paths from FILE\n"
 msgstr "  -xf DOSIERO             ekskludi la padojn listigitaj en ĉi tiu dosiero\n"
 
 # FIXME:  s/query/question/
-#: wcd.c:2273
+#: wcd.c:2262
 #, c-format
 msgid "  -y,  --assume-yes       assume Yes on all queries\n"
 msgstr "  -y,  --assume-yes       alpreni 'jes' je ĉiuj demandoj\n"
 
-#: wcd.c:2274
+#: wcd.c:2263
 #, c-format
 msgid "  -z NUMBER               set max stack siZe\n"
 msgstr "  -z NOMBRO               agordi maksimuman grandon de stako\n"
 
-#: wcd.c:2275
+#: wcd.c:2264
 #, c-format
 msgid "  -[NUMBER]               push dir (NUMBER times)\n"
 msgstr "  -[NOMBRO]               surstakigi nunan dosierujon (NOMBRO fojojn)\n"
 
-#: wcd.c:2276
+#: wcd.c:2265
 #, c-format
 msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
 msgstr "  +[NOMBRO]               elstakigi dosierujon (NOMBRO fojojn)\n"
 
-#: wcd.c:2277
+#: wcd.c:2266
 #, c-format
 msgid "  =                       show stack\n"
 msgstr "  =                       montri stakon\n"
 
-#: wcd.c:2286 wcd.c:2415
+#: wcd.c:2275 wcd.c:2404
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) -- «ien ajn ŝanĝi dosierujon»\n"
 
-#: wcd.c:2287
+#: wcd.c:2276
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -471,182 +471,182 @@ msgstr ""
 "Lerta 'chdir' por DOS kaj Unix.\n"
 "\n"
 
-#: wcd.c:2291
+#: wcd.c:2280
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS 16-bita versio (WATCOMC).\n"
 
-#: wcd.c:2293
+#: wcd.c:2282
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS 16-bita versio (TURBOC).\n"
 
-#: wcd.c:2295
+#: wcd.c:2284
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS 32-bita versio (DJGPP).\n"
 
-#: wcd.c:2297
+#: wcd.c:2286
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS 32-bita versio (WATCOMC).\n"
 
-#: wcd.c:2304
+#: wcd.c:2293
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
 msgstr "Windows 64-bita versio (MSVC %d).\n"
 
-#: wcd.c:2306
+#: wcd.c:2295
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
 msgstr "Windows 64-bita versio (MinGW-w64).\n"
 
-#: wcd.c:2310
+#: wcd.c:2299
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
 msgstr "Windows 32-bita versio (WATCOMC).\n"
 
-#: wcd.c:2312
+#: wcd.c:2301
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
 msgstr "Windows 32-bita versio (MSVC %d).\n"
 
-#: wcd.c:2314
+#: wcd.c:2303
 #, c-format
 msgid "Win32 version (MinGW-w64).\n"
 msgstr "Windows 32-bita versio (MinGW-w64).\n"
 
-#: wcd.c:2316
+#: wcd.c:2305
 #, c-format
 msgid "Win32 version (MinGW).\n"
 msgstr "Windows 32-bita versio (MinGW)\n"
 
-#: wcd.c:2323
+#: wcd.c:2312
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr "Ĉi tiu versio estas por MSYS kaj WinZsh.\n"
 
-#: wcd.c:2325
+#: wcd.c:2314
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr "Ĉi tiu versio estas por Windows PowerShell.\n"
 
-#: wcd.c:2327
+#: wcd.c:2316
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
 msgstr "Ĉi tiu versio estas por Windows Command Prompt (cmd.exe).\n"
 
-#: wcd.c:2332
+#: wcd.c:2321
 #, c-format
 msgid "OS/2 version"
 msgstr "OS/2-versio"
 
-#: wcd.c:2343
+#: wcd.c:2332
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr "Ĉi tiu versio estas por MSYS.\n"
 
-#: wcd.c:2346
+#: wcd.c:2335
 #, c-format
 msgid "Cygwin version.\n"
 msgstr "Cygwin-versio.\n"
 
-#: wcd.c:2349
+#: wcd.c:2338
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Ĉi tiu versio estas por DJGPP DOS bash.\n"
 
-#: wcd.c:2352
+#: wcd.c:2341
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Ĉi tiu versio estas por OS/2 bash.\n"
 
-#: wcd.c:2355
+#: wcd.c:2344
 #, c-format
 msgid "Interface: "
 msgstr "Interfaco: "
 
-#: wcd.c:2361
+#: wcd.c:2350
 #, c-format
 msgid "ncurses version %s.%d\n"
 msgstr "ncurses, versio %s.%d\n"
 
-#: wcd.c:2364
+#: wcd.c:2353
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr "PDCurses, versio %d\n"
 
-#: wcd.c:2366
+#: wcd.c:2355
 #, c-format
 msgid "curses\n"
 msgstr "curses\n"
 
-#: wcd.c:2375
+#: wcd.c:2364
 #, c-format
 msgid "stdout\n"
 msgstr "ĉefeligujo\n"
 
-#: wcd.c:2379
+#: wcd.c:2368
 #, c-format
 msgid "Native language support included.\n"
 msgstr "Kun subteno por lokaĵoj.\n"
 
-#: wcd.c:2380
+#: wcd.c:2369
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr "LOCALEDIR=%s\n"
 
-#: wcd.c:2382
+#: wcd.c:2371
 #, c-format
 msgid "No native language support included.\n"
 msgstr "Sen subteno por lokaĵoj.\n"
 
-#: wcd.c:2385
+#: wcd.c:2374
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
 msgstr "La nuna lokaĵo uzas kodon CP%u.\n"
 
-#: wcd.c:2387
+#: wcd.c:2376
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr "La nuna lokaĵo uzas kodon %s.\n"
 
-#: wcd.c:2390
+#: wcd.c:2379
 #, c-format
 msgid "With Unicode support.\n"
 msgstr "Kun subteno por Unikodo.\n"
 
-#: wcd.c:2395
+#: wcd.c:2384
 #, c-format
 msgid "  Euro symbol: "
 msgstr "  Eŭro-simbolo: "
 
-#: wcd.c:2397
+#: wcd.c:2386
 #, c-format
 msgid "  Chinese characters: "
 msgstr "  Ĉinaj signoj: "
 
-#: wcd.c:2401
+#: wcd.c:2390
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr "Sen subteno por Unikodo.\n"
 
-#: wcd.c:2404
+#: wcd.c:2393
 #, c-format
 msgid "With Unicode normalization.\n"
 msgstr "Kun Unikoda normigo.\n"
 
-#: wcd.c:2406
+#: wcd.c:2395
 #, c-format
 msgid "Without Unicode normalization.\n"
 msgstr "Sen Unikoda normigo.\n"
 
-#: wcd.c:2409
+#: wcd.c:2398
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Elŝutu la lastan version el:\n"
 
-#: wcd.c:2416
+#: wcd.c:2405
 #, fuzzy, c-format
 msgid ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
@@ -665,7 +665,7 @@ msgstr ""
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel kaj Igor Mandrichenko  [je recmatch()]\n"
 
-#: wcd.c:2424
+#: wcd.c:2413
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -679,7 +679,7 @@ msgstr ""
 "La origina aŭtoro de la ĉiesaĵa 'query_con_codepage()' estas Rugxulo.\n"
 "\n"
 
-#: wcd.c:2430
+#: wcd.c:2419
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -693,7 +693,7 @@ msgstr ""
 "de la 'Free Software Foundation'; aŭ laŭ versio 2 de tiu permesilo, aŭ\n"
 "(je via elekto) laŭ iu ajn posta versio.\n"
 
-#: wcd.c:2436
+#: wcd.c:2425
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -708,7 +708,7 @@ msgstr ""
 "GNU-an Ĝeneralan Publikan Liberpermeson por pli da detaloj.\n"
 "\n"
 
-#: wcd.c:2442
+#: wcd.c:2431
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -718,86 +718,86 @@ msgstr ""
 "Vi devus esti ricevinte kopion de la GNU-a Ĝenerala Publika Liberpermeso\n"
 "kune kun tiu ĉi programo; se ne, vidu <http://www.gnu.org/licenses/>.\n"
 
-#: wcd.c:2475
+#: wcd.c:2464
 #, c-format
 msgid "creating directory %s\n"
 msgstr "kreiĝas dosierujo %s\n"
 
-#: wcd.c:2807 wcd.c:2847 wcd.c:2862 wcd.c:2930 wcd.c:2999 wcd.c:3499 wcd.c:3518
+#: wcd.c:2796 wcd.c:2836 wcd.c:2851 wcd.c:2919 wcd.c:2988 wcd.c:3488 wcd.c:3507
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Valoro de ĉirkaŭaĵa variablo %s tro longas.\n"
 
-#: wcd.c:2836
+#: wcd.c:2825
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Malsukcesis agordi ĉirkaŭaĵan variablon TERM: %s\n"
 
-#: wcd.c:2894 wcd.c:2923
+#: wcd.c:2883 wcd.c:2912
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Cirkaŭaĵaj variabloj HOME kaj WCDHOME ne agordiĝis.\n"
 
-#: wcd.c:3106
+#: wcd.c:3095
 #, fuzzy, c-format
 msgid "aliasfile: %s\n"
 msgstr "Aldoniĝis alinomo %s al dosiero %s\n"
 
-#: wcd.c:3120
+#: wcd.c:3109
 msgid "HOME is not defined\n"
 msgstr "HOME ne havas valoron\n"
 
-#: wcd.c:3124
+#: wcd.c:3113
 msgid "WCDHOME is not defined\n"
 msgstr "WCDHOME ne havas valoron\n"
 
-#: wcd.c:3128
+#: wcd.c:3117
 msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN ne havas valoron\n"
 
-#: wcd.c:3153
+#: wcd.c:3142
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Grafika moduso nur subtenatas en interfaco kiu baziĝas sur 'curses'.\n"
 
-#: wcd.c:3432
+#: wcd.c:3421
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "Aldoniĝis alinomo %s al dosiero %s\n"
 
-#: wcd.c:3531
+#: wcd.c:3520
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Ne eblas legi dosieron %s aŭ %s\n"
 
-#: wcd.c:3681
+#: wcd.c:3670
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "WCDSCAN-dosierujo {%s}\n"
 
-#: wcd.c:3683
+#: wcd.c:3672
 #, c-format
 msgid "banning {%s}\n"
 msgstr "esceptiĝas {%s}\n"
 
-#: wcd.c:3685
+#: wcd.c:3674
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "ekskludiĝas {%s}\n"
 
-#: wcd.c:3687
+#: wcd.c:3676
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "filtriĝas {%s}\n"
 
-#: wcd.c:3950
+#: wcd.c:3939
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Ne troviĝas dosierujo kiu kongruas kun %s\n"
 
-#: wcd.c:3951
+#: wcd.c:3940
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Eble necesas reskani la diskon, aŭ la pado esceptiĝis.\n"
 
-#: wcd.c:4118
+#: wcd.c:4107
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Ne eblas ŝanĝi al %s\n"
@@ -864,104 +864,104 @@ msgstr "Ne eblas forigi dosierujon %s: %s\n"
 msgid "Error parsing stack\n"
 msgstr "Eraro dum analizo de stako\n"
 
-#: display.c:259
+#: display.c:261
 msgid "internal error in maxLength(), list == NULL\n"
 msgstr "**interna programmiso** en maxLength(): list == NULL\n"
 
-#: display.c:280
+#: display.c:282
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr "**interna programmiso** en maxLengthStack(): s == NULL\n"
 
-#: display.c:520 display.c:1135 display.c:1512
+#: display.c:522 display.c:1140 display.c:1518
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr "Perfekta kongruo por %d dosierujoj."
 
-#: display.c:522 display.c:1137 display.c:1514
+#: display.c:524 display.c:1142 display.c:1520
 #, c-format
 msgid "Wild match for %d directories."
 msgstr "Ĵokera kongruo por %d dosierujoj."
 
-#: display.c:526 display.c:1150 display.c:1516 display.c:1559
+#: display.c:528 display.c:1155 display.c:1522 display.c:1565
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Bonvolu elekti unu (<Enter> por ĉesigi): "
 
-#: display.c:528 display.c:604 display.c:636 display.c:1142
+#: display.c:530 display.c:607 display.c:640 display.c:1147
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=supren x=suben ?=helpo  Paĝo %d/%d "
 
-#: display.c:680 display.c:1166
+#: display.c:685 display.c:1172
 msgid "Screenheight must be > 20 for help."
 msgstr "Ekranalto devas esti pli ol 20 por helpo."
 
-#: display.c:685 display.c:1169
+#: display.c:690 display.c:1175
 msgid "w or <Up>         page up"
 msgstr "w aŭ <Supren>       paĝon supren"
 
-#: display.c:686 display.c:1170
+#: display.c:691 display.c:1176
 msgid "x or z or <Down>  page down"
 msgstr "x aŭ z aŭ <Suben>   paĝon malsupren"
 
-#: display.c:687 display.c:1171
+#: display.c:692 display.c:1177
 msgid ", or <Left>       scroll 1 left"
 msgstr ", aŭ <Liven>        rulumi 1 pozicion maldekstren"
 
-#: display.c:688 display.c:1172
+#: display.c:693 display.c:1178
 msgid ". or <Right>      scroll 1 right"
 msgstr ". or <Dekstren>     rulumi 1 pozicion dekstren"
 
-#: display.c:689 display.c:1173
+#: display.c:694 display.c:1179
 msgid "< or [            scroll 10 left"
 msgstr "< aŭ [              rulumi 10 poziciojn maldekstren"
 
-#: display.c:690 display.c:1174
+#: display.c:695 display.c:1180
 msgid "> or ]            scroll 10 right"
 msgstr "> aŭ ]              rulumi 10 poziciojn dekstren"
 
-#: display.c:691 display.c:1175
+#: display.c:696 display.c:1181
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr "Ctrl-a aŭ <Home>    rulumi al komenco"
 
-#: display.c:692 display.c:1176
+#: display.c:697 display.c:1182
 msgid "CTRL-e or <END>   scroll to end"
 msgstr "Ctrl-e aŭ <End>     rulumi al fino"
 
-#: display.c:693 display.c:1178
+#: display.c:698 display.c:1184
 msgid "CTRL-c or <Esc>   abort"
 msgstr "Ctrl-c aŭ <Esc>     ĉesigi"
 
-#: display.c:694 display.c:1179
+#: display.c:699 display.c:1185
 msgid "<Enter>           abort"
 msgstr "<Enter>             ĉesigi"
 
-#: display.c:695
+#: display.c:700
 msgid "Type w or x to quit help."
 msgstr "Tajpu w aŭ x por eliri de helpo."
 
-#: display.c:1177 graphics.c:1984
+#: display.c:1183 graphics.c:1984
 msgid "CTRL-l or F5      redraw screen"
 msgstr ""
 
-#: display.c:1180 graphics.c:1969 graphics.c:1986 graphics.c:2009
+#: display.c:1186 graphics.c:1969 graphics.c:1986 graphics.c:2009
 #: graphics.c:2026
 msgid "Press any key."
 msgstr "Premu iu ajn klavon."
 
-#: display.c:1245 graphics.c:2281
+#: display.c:1251 graphics.c:2281
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr "Eraro dum malfermo de terminalo; anstataŭe uziĝas ĉefeliguja interfaco.\n"
 
-#: display.c:1266
+#: display.c:1272
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "ekranalto devas esti pli ol 3 linioj.\n"
 
-#: display.c:1300 graphics.c:2312
+#: display.c:1306 graphics.c:2312
 msgid "error creating scroll window.\n"
 msgstr "eraro dum kreado de ruluma fenestro.\n"
 
-#: display.c:1314
+#: display.c:1320
 msgid "error creating input window.\n"
 msgstr "eraro dum kreado de eniga fenestro.\n"
 
