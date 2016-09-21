@@ -3,8 +3,9 @@ include wcd/src/version.mk
 GITREPO = git://git.code.sf.net/p/wcd/wcd
 
 help:
-	@echo "${MAKE} dist    : Create source code distribution packages."
-	@echo "${MAKE} tag     : Create a tag."
+	@echo "${MAKE} dist      : Create source code distribution packages."
+	@echo "${MAKE} distlocal : Create source code distribution packages from local git repo."
+	@echo "${MAKE} tag       : Create a tag."
 
 
 RELEASE_DIR = ../wcd-${VERSION}
@@ -39,6 +40,10 @@ dist:
 	cd .. ; tar cvzf wcd-${VERSION}.tar.gz wcd-${VERSION}
 	cd .. ; rm -f wcd${VERSION_SHORT}.zip
 	cd .. ; zip -r wcd${VERSION_SHORT}.zip wcd${VERSION_SHORT}
+
+# Create package from local git repo.
+distlocal:
+	$(MAKE) dist GITREPO=${PWD}
 
 # Create pgp signature. Required for Debian Linux.
 # See http://narfation.org/2013/06/23/signed-upstream-tarballs-in-debian
