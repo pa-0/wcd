@@ -40,9 +40,10 @@ Windows : MinGW     : http://www.mingw.org/
 Windows : MSYS2     : http://sourceforge.net/projects/msys2/
 OS/2    : EMX       :
 
+DJGPP 2.03 gcc >= 4.6 seems to cause problems. Crashes of gcc itself, or crashing
+wcd binaries. Use DJGPP 2.03 gcc <= 4.5.3.
 Wcd requires DJGPP 2.05 or higher.
-DJGPP 2.03 is no longer supported since wcd version 5.3.3, due to
-missing snprintf() function in DJGPP 2.03.
+DJGPP 2.05 gcc 5.3.0 runs out of memory for me.
 
 Wcd compiles with mingw.org and mingw-w64. I recommend using the MSYS2 project.
 

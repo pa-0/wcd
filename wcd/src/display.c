@@ -527,8 +527,7 @@ char buf[WCD_MAX_INPSTR];
 
    cprintf(_("Please choose one (<Enter> to abort): "));
    fflush(stdout);
-   snprintf(buf,sizeof(buf),_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
-   buf[sizeof(buf)-1] = '\0';
+   sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
    pageoffset = ti.screenwidth - (int)strlen(buf);
    if (pageoffset < 0)
       pageoffset = 0;
@@ -604,8 +603,7 @@ char buf[WCD_MAX_INPSTR];
          page = bottom / lines_per_page + 1 ;
 
          window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
-         snprintf(buf,sizeof(buf),_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
-         buf[sizeof(buf)-1] = '\0';
+         sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
          pageoffset = ti.screenwidth - (int)strlen(buf);
          if (pageoffset < 0)
             pageoffset = 0;
@@ -637,8 +635,7 @@ char buf[WCD_MAX_INPSTR];
          page = bottom / lines_per_page + 1 ;
 
          window (1,scrollWinHeight+1,ti.screenwidth,ti.screenheight);
-         snprintf(buf,sizeof(buf),_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
-         buf[sizeof(buf)-1] = '\0';
+         sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(size -1)/lines_per_page +1);
          pageoffset = ti.screenwidth - (int)strlen(buf);
          if (pageoffset < 0)
             pageoffset = 0;
@@ -1144,16 +1141,14 @@ void displayRefresh(int init)
 
    page = wcd_display.bottom / wcd_display.lines_per_page + 1 ;
 
-   snprintf(buf,sizeof(buf),_(" w=up x=down ?=help  Page %d/%d "),page,(wcd_display.size -1)/wcd_display.lines_per_page +1);
-   buf[sizeof(buf)-1] = '\0';
+   sprintf(buf,_(" w=up x=down ?=help  Page %d/%d "),page,(wcd_display.size -1)/wcd_display.lines_per_page +1);
    pageoffset = COLS - (int)str_columns(buf);
    if (pageoffset < 0)
       pageoffset = 0;
    wmove (wcd_display.inputWin, 0, pageoffset);
    wprintw(wcd_display.inputWin,"%s",buf);
 
-   snprintf(buf,sizeof(buf),_("Please choose one (<Enter> to abort): "));
-   buf[sizeof(buf)-1] = '\0';
+   sprintf(buf,_("Please choose one (<Enter> to abort): "));
    wcd_mvwaddstr(wcd_display.inputWin,2,0,buf);
    offset = (int)str_columns(buf) ;
    wmove (wcd_display.inputWin, 2, offset);

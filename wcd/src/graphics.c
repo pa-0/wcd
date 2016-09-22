@@ -274,8 +274,7 @@ char* getTreeLine(dirnode d, int y, int *y_orig, dirnode curNode, c3po_bool fold
     */
    if ((strlen(line) + len + 8) > WCD_GRAPH_MAX_LINE_LENGTH)
    {
-      snprintf(line,(size_t)WCD_GRAPH_MAX_LINE_LENGTH,_("Wcd: error: path too long"));
-      line[WCD_GRAPH_MAX_LINE_LENGTH-1] = '\0';
+      sprintf(line,_("Wcd: error: path too long"));
       return(line);
    }
 

@@ -5,8 +5,6 @@
     not compatible anymore. You need to create new aliases.
   - New option -ls: List the aliases. Thanks to Erik Rijshouwer.
   - Code cleanup.
-  - Wcd does not compile with DJGPP 2.03 anymore, because DJGPP 2.03 is
-    lacking an snprintf() function. Use DJGPP 2.05.
   - Fixed makefiles for DJGPP, targets install and dist.
 
 5.3.2 2016-02-18
