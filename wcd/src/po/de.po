@@ -2,22 +2,22 @@
 # Copyright 2010-2013 Erwin Waterlander (msgids).
 # This file is distributed under the same license as the wcd package.
 #
-# Philipp Thomas <pth@suse.de>, 2010, 2011, 2012, 2014.
 # Lars Wendler <polynomial-c@gentoo.org> 2013.
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2014.
+# Philipp Thomas <pth@suse.de>, 2010, 2011, 2012, 2014, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.2.6-beta4\n"
+"Project-Id-Version: wcd 5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 22:56+0200\n"
-"PO-Revision-Date: 2014-11-03 14:15+0100\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"POT-Creation-Date: 2016-09-22 23:45+0200\n"
+"PO-Revision-Date: 2016-09-29 15:59+0200\n"
+"Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Poedit 1.5.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -49,7 +49,7 @@ msgstr "Die Datei %s konnte nicht geschlossen werden: %s\n"
 #: wcd.c:393 wcd.c:398 wfixpath.c:65
 #, c-format
 msgid "Memory allocation error in %s: %s\n"
-msgstr ""
+msgstr "Fehler beim Anfordern von Hauptspeicher un %s: %s\n"
 
 #: wcd.c:703 wcd.c:717
 #, c-format
@@ -298,9 +298,11 @@ msgid "  -l ALIAS                aLias current directory\n"
 msgstr "  -l ALIAS                ALIAS für aktuelles Verzeichnis anlegen\n"
 
 #: wcd.c:2234
-#, fuzzy, c-format
+#, c-format
 msgid "  -ls                     List the aliases\n"
-msgstr "  -g                      Grafik\n"
+msgstr ""
+"  -ls                      Aliase auflisten\n"
+"\n"
 
 #: wcd.c:2235
 #, c-format
@@ -652,7 +654,7 @@ msgid "Download the latest executables and sources from:\n"
 msgstr "Die neuesten Programme und Quellen können heruntergeladen werden von:\n"
 
 #: wcd.c:2405
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
@@ -662,8 +664,7 @@ msgid ""
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
-"Chdir für Dos und Unix.\n"
-"Copyright © 1997-2014 Erwin Waterlander\n"
+"Copyright © 1996-%d Erwin Waterlander\n"
 "Copyright © 1994-2002 Ondrej Popp auf C3PO\n"
 "Copyright © 1995-1996 DJ Delorie auf _fixpath()\n"
 "Copyright © 1995-1996 Borja Etxebarria & Olivier Sirol auf Ninux Czo Verzeichnis\n"
@@ -733,7 +734,8 @@ msgstr ""
 msgid "creating directory %s\n"
 msgstr "Verzeichnis %s wird erzeugt\n"
 
-#: wcd.c:2796 wcd.c:2836 wcd.c:2851 wcd.c:2919 wcd.c:2988 wcd.c:3488 wcd.c:3507
+#: wcd.c:2796 wcd.c:2836 wcd.c:2851 wcd.c:2919 wcd.c:2988 wcd.c:3488
+#: wcd.c:3507
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Der Inhalt der Umgebungsvariable %s ist zu lang.\n"
@@ -748,9 +750,9 @@ msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Die Umgebungsvariablen HOME oder WCDHOME sind nicht gesetzt.\n"
 
 #: wcd.c:3095
-#, fuzzy, c-format
+#, c-format
 msgid "aliasfile: %s\n"
-msgstr "%s wurde zur Aliasdatei %s hinzugefügt\n"
+msgstr "Alias-Datei: %s\n"
 
 #: wcd.c:3109
 msgid "HOME is not defined\n"
@@ -1211,7 +1213,7 @@ msgstr "Bildschirmhöhe muss für die Hilfe > 21 sein."
 #: graphics.c:2262 graphics.c:2731
 #, c-format
 msgid "Cannot find the current path %s in the directory tree.\n"
-msgstr ""
+msgstr "Der aktuelle Pfad %s kann im Verzeichnisbaum nicht gefunden werden.\n"
 
 #: c3po/Error.c:41
 #, c-format
