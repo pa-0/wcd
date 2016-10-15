@@ -1,12 +1,12 @@
 open sftp://waterlan,wcd@frs.sourceforge.net
 cd /home/frs/project/w/wc/wcd/wcd
-mkdir 5.3.2
-cd 5.3.2
-mput wcd-5.3.2.tar.gz wcd532.zip wcd532b.zip wcd532pm.zip wcd532bh.zip
-mput wcd-5.3.2-win32.zip wcd-5.3.2-win32psh.zip
-mput wcd-5.3.2-win32-nls-ucs.zip wcd-5.3.2-win32psh-nls-ucs.zip
-mput wcd-5.3.2-win64.zip wcd-5.3.2-win64psh.zip
-mput wcd-5.3.2-win64-nls-ucs.zip wcd-5.3.2-win64psh-nls-ucs.zip
+mkdir 5.3.3
+cd 5.3.3
+mput wcd-5.3.3.tar.gz wcd533.zip wcd533b.zip wcd533pm.zip wcd533bh.zip
+mput wcd-5.3.3-win32.zip wcd-5.3.3-win32psh.zip
+mput wcd-5.3.3-win32-nls-ucs.zip wcd-5.3.3-win32psh-nls-ucs.zip
+mput wcd-5.3.3-win64.zip wcd-5.3.3-win64psh.zip
+mput wcd-5.3.3-win64-nls-ucs.zip wcd-5.3.3-win64psh-nls-ucs.zip
 mput README.txt
-mput wcd-5.3.2.tar.gz.asc
+mput wcd-5.3.3.tar.gz.asc
 exit

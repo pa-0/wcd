@@ -261,7 +261,7 @@ ifeq (msys,$(OS))
 ifeq ($(MSYS_VERSION),1)
 	UCS =
 	UNINORM =
-	VERSIONSUFFIX = -msys1-$(MACHINE)
+	VERSIONSUFFIX = -msys1-$(MACHINE)-$(CURSES)
 else
 	UCS = 1
 	UNINORM = 1
@@ -337,11 +337,7 @@ endif
 # mintty. For msys2 we use ncurses.
 ifeq (msys,$(OS))
 ifeq ($(MSYS_VERSION),1)
-ifdef UCS
-	CURSES = pdcursesw
-else
-	CURSES = ncurses
-endif
+	CURSES = pdcurses
 endif
 endif
 

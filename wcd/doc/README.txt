@@ -290,9 +290,9 @@ Table of Contents
         Translations of the manual:
         See http://translationproject.org/domain/wcd-man.html
 
-        Dutch                 Erwin Waterlander            Version 5.3.3
-        German                Mario Blättermann            Version 5.3.3
-        Ukrainian             Yuri Chornoivan              Version 5.3.3
+        Dutch                 Erwin Waterlander            Version 5.2.5 - 5.3.3
+        German                Mario Blättermann            Version 5.2.5 - 5.3.3
+        Ukrainian             Yuri Chornoivan              Version 5.2.5 - 5.3.3
 
 
     3.2 Works of others used in the program

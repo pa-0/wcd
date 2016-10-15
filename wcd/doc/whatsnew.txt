@@ -1,4 +1,4 @@
-5.3.3-beta9 2016-09-22
+5.3.3 2016-10-15
   - Support Unicode aliases on Windows.
     Wcd for Windows with Unicode support stores the aliases now in UTF-8
     format (like the paths). Old aliases with non-ASCII characters are
