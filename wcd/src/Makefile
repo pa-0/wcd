@@ -388,9 +388,13 @@ else
 	INCFLAGS = -I$(INCPREFIX)/include
 endif
 
-ifeq ($(CURSES),ncursesw)
-	EXTRA_DEFS += -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED
-endif
+# I don't remember why I defined _XOPEN_SOURCE and _XOPEN_SOURCE_EXTENDED
+# in the past. Now (Oct 19 2016) defining _XOPEN_SOURCE causes a compile error:
+# /usr/include/libintl.h:440:8: error: unknown type name ‘locale_t’
+# on Cygwin. Removing the definiations doesn't seem to cause trouble.
+#ifeq ($(CURSES),ncursesw)
+#	EXTRA_DEFS += -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED
+#endif
 
 ifeq ($(CURSES),pdcursesw)
 	EXTRA_DEFS += -DPDC_STATIC_BUILD -DPDC_WIDE

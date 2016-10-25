@@ -1,3 +1,6 @@
+5.3.4-beta1 2016-10-25
+  - src/Makefile: Fix compilation for latest Cygwin.
+
 5.3.3 2016-10-15
   - Support Unicode aliases on Windows.
     Wcd for Windows with Unicode support stores the aliases now in UTF-8
