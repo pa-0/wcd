@@ -1583,46 +1583,46 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
                   waddch(win, (chtype)'-');
                 else
                   waddch(win,ACS_HLINE);
-                  break;
+               break;
                case WCD_ACS_VL:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
                   waddch(win, (chtype)'|');
                 else
                   waddch (win,ACS_VLINE);
-                  break;
+               break;
                case WCD_ACS_LT:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
                   waddch(win, (chtype)'|');
                 else
                   waddch (win,ACS_LTEE);
-                  break;
+               break;
                case WCD_ACS_LLC:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
                   waddch(win, (chtype)'`');
                 else
                   waddch (win,ACS_LLCORNER);
-                  break;
+               break;
                case WCD_ACS_TT:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
                   waddch(win, (chtype)'+');
                 else
                   waddch (win,ACS_TTEE);
-                  break;
+               break;
                case WCD_SPACE:
                 waddch(win, (chtype)' ');
 #ifndef ASCII_TREE
                 if ((wcd_cwin.graphics_mode & WCD_GRAPH_CJK) && !(wcd_cwin.graphics_mode & WCD_GRAPH_ASCII))
                   waddch(win, (chtype)' ');
 #endif
-                  break;
+               break;
                case WCD_SEL_ON:
                 wattron(win,A_REVERSE);
                 waddch(win,(chtype)'['); /* square brackets indicate there was an error. */
-                  break;
+               break;
                case WCD_SEL_OFF:
                 waddch(win,(chtype)']');
                 wattroff(win,A_REVERSE);
-                  break;
+               break;
                default:
                 waddch(win,(chtype)s[j]);
             }
@@ -1672,46 +1672,46 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
                   waddch(win, (chtype)'-');
                 else
                   waddch(win,ACS_HLINE);
-                  break;
+               break;
                case WCD_ACS_VL:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
                   waddch(win, (chtype)'|');
                 else
                   waddch (win,ACS_VLINE);
-                  break;
+               break;
                case WCD_ACS_LT:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
                   waddch(win, (chtype)'|');
                 else
                   waddch (win,ACS_LTEE);
-                  break;
+               break;
                case WCD_ACS_LLC:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
                   waddch(win, (chtype)'`');
                 else
                   waddch (win,ACS_LLCORNER);
-                  break;
+               break;
                case WCD_ACS_TT:
                 if (wcd_cwin.graphics_mode & WCD_GRAPH_ASCII)
                   waddch(win, (chtype)'+');
                 else
                   waddch (win,ACS_TTEE);
-                  break;
+               break;
                case WCD_SPACE:
                 waddch(win, (chtype)' ');
 #ifndef ASCII_TREE
                 if ((wcd_cwin.graphics_mode & WCD_GRAPH_CJK) && !(wcd_cwin.graphics_mode & WCD_GRAPH_ASCII))
                   waddch(win, (chtype)' ');
 #endif
-                  break;
+               break;
                case WCD_SEL_ON:
                 wattron(win,A_REVERSE);
                 waddch(win,(chtype)'<');
-                  break;
+               break;
                case WCD_SEL_OFF:
                 waddch(win,(chtype)'>');
                 wattroff(win,A_REVERSE);
-                  break;
+               break;
                default:
                 waddnwstr(win,wstr+j,1);
             }

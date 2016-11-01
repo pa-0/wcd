@@ -1291,10 +1291,10 @@ void deleteLink(char *path, char *treefile)
           errstr = strerror(errno);
           print_error(_("Unable to remove symbolic link %s: %s\n"),path, errstr);
         }
-   }
-   else
+   } else {
       print_msg("");
       wcd_printf(_("%s is a symbolic link to a file.\n"),path);
+   }
  }
  else
  {
@@ -3934,10 +3934,11 @@ int main(int argc,char** argv)
 
    if ((perfect_list->size==0)&&(wild_list->size == 0))  /* No match at all */
    {
-      if ( !(use_stdout & WCD_STDOUT_DUMP) ) /* don't print message if option -od is used */
+      if ( !(use_stdout & WCD_STDOUT_DUMP) ) { /* don't print message if option -od is used */
          print_msg("");
          wcd_printf(_("No directory found matching %s\n"),dir);
          print_msg(_("Perhaps you need to rescan the disk or path is banned.\n"));
+      }
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
       empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
