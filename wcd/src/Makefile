@@ -553,7 +553,7 @@ man/%/man1/wcd.pod : po-man/%.po
 man/man1/wcd.pod : ;
 
 %.1 : %.pod
-	$(MAKE) -C man/man1 $(subst man/,../,$@)
+	$(MAKE) -C man/man1 PODCENTER=$(VERSION_DATE) $(subst man/,../,$@)
 
 %.txt : %.pod
 	pod2text $< > $@

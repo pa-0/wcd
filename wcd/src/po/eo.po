@@ -1,21 +1,23 @@
 # Esperanto translations for wcd.
-# Copyright (C) 2014 Erwin Waterlander (msgids)
+# Copyright (C) 2016 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
 #
-# Benno Schulenberg <benno@vertaalt.nl>, 2014.
+# « Ĉiu vulpo sian voston laŭdas. »
+#
+# Benno Schulenberg <benno@vertaalt.nl>, 2014, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd-5.2.5-b4\n"
+"Project-Id-Version: wcd-5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 22:56+0200\n"
-"PO-Revision-Date: 2014-02-12 15:01+0100\n"
+"POT-Creation-Date: 2016-09-22 23:45+0200\n"
+"PO-Revision-Date: 2016-10-30 17:24+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
 "Language: eo\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -47,7 +49,7 @@ msgstr "Ne eblas fermi dosieron %s: %s\n"
 #: wcd.c:393 wcd.c:398 wfixpath.c:65
 #, c-format
 msgid "Memory allocation error in %s: %s\n"
-msgstr ""
+msgstr "Mankas sufiĉa memoro en %s: %s\n"
 
 #: wcd.c:703 wcd.c:717
 #, c-format
@@ -292,9 +294,9 @@ msgid "  -l ALIAS                aLias current directory\n"
 msgstr "  -l ALINOMO              uzenda alinomo por nuna dosierujo\n"
 
 #: wcd.c:2234
-#, fuzzy, c-format
+#, c-format
 msgid "  -ls                     List the aliases\n"
-msgstr "  -g                      grafika moduso\n"
+msgstr "  -ls                     listigi la alinomojn\n"
 
 #: wcd.c:2235
 #, c-format
@@ -647,7 +649,7 @@ msgid "Download the latest executables and sources from:\n"
 msgstr "Elŝutu la lastan version el:\n"
 
 #: wcd.c:2405
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
@@ -657,7 +659,7 @@ msgid ""
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
-"Copyright (C) 1997-2014 Erwin Waterlander\n"
+"Copyright (C) 1996-%d Erwin Waterlander\n"
 "Copyright (C) 1994-2002 Ondrej Popp  [je C3PO]\n"
 "Copyright (C) 1995-1996 DJ Delorie  [je_fixpath()]\n"
 "Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol  [je Ninux Czo Directory]\n"
@@ -723,7 +725,8 @@ msgstr ""
 msgid "creating directory %s\n"
 msgstr "kreiĝas dosierujo %s\n"
 
-#: wcd.c:2796 wcd.c:2836 wcd.c:2851 wcd.c:2919 wcd.c:2988 wcd.c:3488 wcd.c:3507
+#: wcd.c:2796 wcd.c:2836 wcd.c:2851 wcd.c:2919 wcd.c:2988 wcd.c:3488
+#: wcd.c:3507
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Valoro de ĉirkaŭaĵa variablo %s tro longas.\n"
@@ -738,9 +741,9 @@ msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Cirkaŭaĵaj variabloj HOME kaj WCDHOME ne agordiĝis.\n"
 
 #: wcd.c:3095
-#, fuzzy, c-format
+#, c-format
 msgid "aliasfile: %s\n"
-msgstr "Aldoniĝis alinomo %s al dosiero %s\n"
+msgstr "dosiero de alinomoj: %s\n"
 
 #: wcd.c:3109
 msgid "HOME is not defined\n"
@@ -942,7 +945,7 @@ msgstr "Tajpu w aŭ x por eliri de helpo."
 
 #: display.c:1178 graphics.c:1983
 msgid "CTRL-l or F5      redraw screen"
-msgstr ""
+msgstr "Ctrl-l aŭ F5        redesegni la ekranon"
 
 #: display.c:1181 graphics.c:1968 graphics.c:1985 graphics.c:2008
 #: graphics.c:2025
@@ -1197,12 +1200,12 @@ msgstr "Ekranalto devas esti pli ol 21 por helpo."
 #: graphics.c:2262 graphics.c:2731
 #, c-format
 msgid "Cannot find the current path %s in the directory tree.\n"
-msgstr ""
+msgstr "Ne eblas trovi la nunan padon (%s) en la dosieruja arbo.\n"
 
 #: c3po/Error.c:41
 #, c-format
 msgid "in '%s', insufficient memory for allocation\n"
-msgstr "en '%s', mankas sufiĉas memoro\n"
+msgstr "en '%s', mankas sufiĉa memoro\n"
 
 #~ msgid "malloc error in wcd_fixpath()\n"
 #~ msgstr "mankas sufiĉa memoro en wcd_fixpath()\n"
