@@ -231,9 +231,18 @@ endif
 endif
 
 ifeq (os/2,$(OS))
+	prefix = c:/usr
+	PROGRAM = wcdos2.exe
 	DEF_UNIX =
 	UCS =
 	UNINORM =
+	LDFLAGS_EXTRA = -Zhigh-mem -Zomf -Zargs-resp
+	ZIPOBJ_EXTRA=bin/wcd.cmd
+	VERSIONSUFFIX = -os2
+	LIBS_EXTRA = -lcx
+ifdef ENABLE_NLS
+	LIBS_EXTRA += -lintl -liconv
+endif
 endif
 
 ifeq (mingw,$(OS))
@@ -358,6 +367,9 @@ endif
 ifneq (,$(CURSES))
 	DEFS_CURSES = -DWCD_USECURSES
 	LIB_CURSES  = -l$(CURSES)
+ifeq (os/2,$(OS))
+	LIB_CURSES  += -ltinfo
+endif
 endif
 
 
@@ -714,6 +726,9 @@ install-bin: $(BIN)
 	@echo "-- target: install-bin"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
 	$(INSTALL_PROGRAM) $(INSTALL_OBJS_BIN) $(DESTDIR)$(bindir)
+ifeq (os/2,$(OS))
+	$(INSTALL_PROGRAM) ../os2/$(PACKAGE).cmd $(DESTDIR)$(bindir)
+endif
 
 install: $(INSTALL_TARGETS)
 

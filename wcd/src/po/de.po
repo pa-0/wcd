@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-18 23:58+0200\n"
+"POT-Creation-Date: 2016-11-01 22:54+0100\n"
 "PO-Revision-Date: 2016-09-29 15:59+0200\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -103,7 +103,7 @@ msgstr "Die symbolische Verknüpfung %s wurde entfernt.\n"
 msgid "Unable to remove symbolic link %s: %s\n"
 msgstr "Das Löschen der symbolischen Verknüpfung %s wurde verweigert: %s\n"
 
-#: wcd.c:1297
+#: wcd.c:1296
 #, c-format
 msgid "%s is a symbolic link to a file.\n"
 msgstr "%s ist eine symbolische Verknüpfung mit einer Datei.\n"
@@ -810,7 +810,7 @@ msgstr "Es wurde kein auf %s passendes Verzeichnis gefunden\n"
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist verbannt.\n"
 
-#: wcd.c:4107
+#: wcd.c:4108
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Zu %s kann nicht gewechselt werden\n"

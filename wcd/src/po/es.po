@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 22:56+0200\n"
+"POT-Creation-Date: 2016-11-01 22:54+0100\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -101,7 +101,7 @@ msgstr "Se removió el enlace simbólico %s\n"
 msgid "Unable to remove symbolic link %s: %s\n"
 msgstr "imposible remover el enlace simbólico %s: %s\n"
 
-#: wcd.c:1297
+#: wcd.c:1296
 #, c-format
 msgid "%s is a symbolic link to a file.\n"
 msgstr "%s es un enlace simbólico a un archivo.\n"
@@ -772,7 +772,7 @@ msgstr "No se encontró algún directorio que concordara con %s\n"
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Quizá necesite reexplorar el disco o la ruta.\n"
 
-#: wcd.c:4107
+#: wcd.c:4108
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "No puedo cambiar el directorio a %s\n"

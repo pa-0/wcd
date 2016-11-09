@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 23:45+0200\n"
+"POT-Creation-Date: 2016-11-01 22:54+0100\n"
 "PO-Revision-Date: 2016-09-27 21:37+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -101,7 +101,7 @@ msgstr "Вилучено символічне посилання %s\n"
 msgid "Unable to remove symbolic link %s: %s\n"
 msgstr "Не вдалося вилучити символічне посилання %s: %s\n"
 
-#: wcd.c:1297
+#: wcd.c:1296
 #, c-format
 msgid "%s is a symbolic link to a file.\n"
 msgstr "%s є символічним посиланням на файл.\n"
@@ -723,8 +723,7 @@ msgstr ""
 msgid "creating directory %s\n"
 msgstr "створюємо каталог %s\n"
 
-#: wcd.c:2796 wcd.c:2836 wcd.c:2851 wcd.c:2919 wcd.c:2988 wcd.c:3488
-#: wcd.c:3507
+#: wcd.c:2796 wcd.c:2836 wcd.c:2851 wcd.c:2919 wcd.c:2988 wcd.c:3488 wcd.c:3507
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Значення змінної середовища %s є надто довгим.\n"
@@ -798,7 +797,7 @@ msgstr "Каталогу, відповідного до %s, не знайден�
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Ймовірно, вам слід виконати повторне сканування диска або відповідний шлях заблоковано.\n"
 
-#: wcd.c:4107
+#: wcd.c:4108
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Не вдалося перейти до %s\n"

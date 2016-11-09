@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-18 23:58+0200\n"
+"POT-Creation-Date: 2016-11-01 22:54+0100\n"
 "PO-Revision-Date: 2016-09-28 08:11+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -101,7 +101,7 @@ msgstr "Đã gỡ bỏ liên kết mềm %s\n"
 msgid "Unable to remove symbolic link %s: %s\n"
 msgstr "Không thể gỡ bỏ liên kết mềm %s: %s\n"
 
-#: wcd.c:1297
+#: wcd.c:1296
 #, c-format
 msgid "%s is a symbolic link to a file.\n"
 msgstr "%s là một liên kết mềm đến một tập tin.\n"
@@ -797,7 +797,7 @@ msgstr "Không tìm thấy thư mục nào khớp với %s\n"
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Có lẽ bạn cần quét lại đĩa hoặc là đường dẫn đã bị cấm.\n"
 
-#: wcd.c:4107
+#: wcd.c:4108
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Không thể chuyển sang %s\n"
