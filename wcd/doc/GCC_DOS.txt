@@ -51,6 +51,10 @@ for both 32 and 64 bit. Plus it includes a complete building environment. A
 POSIX shell, and many libraries and utilities.
 See also http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
 
+On OS/2 don't add gcc flag -Zargs-wild, because we want wcd to see the literal
+arguments.  Wild argument expansion may lead to unexpected behaviour when an
+argument matches a file in the current directory.
+
 sh
 ==
 

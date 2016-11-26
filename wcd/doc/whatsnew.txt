@@ -1,4 +1,4 @@
-5.3.4-beta1 2016-10-25
+5.3.4-beta2 2016-11-26
   - src/Makefile: Fix compilation for latest Cygwin.
   - src/Makefile: Fixed for compilation on OS/2.
   - Code cleanup.

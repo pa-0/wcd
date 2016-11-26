@@ -241,7 +241,7 @@ ifeq (os/2,$(OS))
 	VERSIONSUFFIX = -os2
 	LIBS_EXTRA = -lcx
 ifdef ENABLE_NLS
-	LIBS_EXTRA += -lintl -liconv
+	LIBS_EXTRA += -lintl
 endif
 endif
 
