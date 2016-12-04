@@ -9,6 +9,8 @@
 | Billy Chen                          12:49  Monday, 4 June, 2007    |
 \*------------------------------------------------------------------*/
 
+#ifndef _WCD_COLORS_H
+#define _WCD_COLORS_H
 
 #ifdef A_COLOR
 # define MENU_COLOR          (2 | A_BOLD)
@@ -32,3 +34,5 @@
 void initcolor (void);
 void setcolor (WINDOW *, chtype color);
 void colorbox (WINDOW *, chtype color, int hasbox);
+
+#endif

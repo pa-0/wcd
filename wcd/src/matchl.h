@@ -9,8 +9,8 @@ terms of the GNU General Public License, see the file COPYING.
 
 */
 
-#ifndef _MATCHL_H
-#define _MATCHL_H
+#ifndef _WCD_MATCHL_H
+#define _WCD_MATCHL_H
 
 #include "match.h"
 

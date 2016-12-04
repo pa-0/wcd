@@ -400,12 +400,6 @@ else
 	INCFLAGS = -I$(INCPREFIX)/include
 endif
 
-ifeq ($(CURSES),ncursesw)
-# _XOPEN_SOURCE_EXTENDED is required for wide character support.
-# See ncurses(3).
-	EXTRA_DEFS += -D_XOPEN_SOURCE_EXTENDED
-endif
-
 ifeq ($(CURSES),pdcursesw)
 	EXTRA_DEFS += -DPDC_STATIC_BUILD -DPDC_WIDE
 endif

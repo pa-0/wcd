@@ -10,8 +10,8 @@ terms of the GNU General Public License, see the file COPYING.
 
 */
 
-#ifndef _MATCH_H
-#define _MATCH_H
+#ifndef _WCD_MATCH_H
+#define _WCD_MATCH_H
 
 /* Set up portability */
 #include "tailor.h"

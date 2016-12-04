@@ -19,9 +19,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 */
 
-
-#ifndef _TAILOR_H
-#define _TAILOR_H
+#ifndef _WCD_TAILOR_H
+#define _WCD_TAILOR_H
 
 /* Define __MSDOS__ for Turbo C and Power C */
 #ifdef __POWERC
@@ -140,13 +139,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  define DYN_ALLOC
 #endif
 
-
 /* Define MSVMS if MSDOS or VMS defined -- ATARI also does, Amiga could */
 #if defined(__MSDOS__) || defined(VMS)
 #  define MSVMS
 #endif
-
-
-
 
 #endif /* end of tailor.h */

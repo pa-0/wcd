@@ -9,8 +9,8 @@ terms of the GNU General Public License, see the file COPYING.
 
 */
 
-#ifndef _MATCHW_H
-#define _MATCHW_H
+#ifndef _WCD_MATCHW_H
+#define _WCD_MATCHW_H
 
 #include <wchar.h>
 int dd_matchmbs(const char *string, const char *pattern, int ignore_case, int ignore_diacritics);

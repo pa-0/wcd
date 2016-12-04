@@ -17,9 +17,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 */
 
-#ifndef _DISPLAY_H
-#define _DISPLAY_H
-
+#ifndef _WCD_DISPLAY_H
+#define _WCD_DISPLAY_H
 
 #ifdef WCD_USECONIO
 #  include <conio.h>

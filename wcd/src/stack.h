@@ -16,9 +16,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifndef _STACK_H
-#define _STACK_H
-
+#ifndef _WCD_STACK_H
+#define _WCD_STACK_H
 
 #define WCD_STACK_SIZE 10
 

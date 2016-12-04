@@ -16,6 +16,9 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
+#ifndef _WCD_CONFIG_H
+#define _WCD_CONFIG_H
+
 #ifdef ENABLE_NLS
 
 #include <libintl.h>
@@ -32,3 +35,4 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #endif
 
+#endif

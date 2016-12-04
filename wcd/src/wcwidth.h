@@ -16,8 +16,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifndef _WCWIDTH_H
-#define _WCWIDTH_H
+#ifndef _WCD_WCWIDTH_H
+#define _WCD_WCWIDTH_H
 
 #include <wchar.h>
 
@@ -31,4 +31,3 @@ int wcswidth(const wchar_t *pwcs, size_t n);
 #endif
 
 #endif
-

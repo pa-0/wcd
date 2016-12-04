@@ -27,7 +27,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 =======================================================================
 */
 
-
+#ifndef _WCD_WCDDIR_H
+#define _WCD_WCDDIR_H
 
 #if (defined(_WIN32) || defined(__CYGWIN__))
 int wcd_isServerPath (char* path);
@@ -55,3 +56,4 @@ int wcd_chdir(char *buf, int quiet);
 int wcd_rmdir(char *buf, int quiet);
 int wcd_isdir(char *dir, int quiet);
 
+#endif
