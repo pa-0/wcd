@@ -400,6 +400,10 @@ else
 	INCFLAGS = -I$(INCPREFIX)/include
 endif
 
+ifeq ($(CURSES),ncursesw)
+	EXTRA_DEFS += -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED
+endif
+
 ifeq ($(CURSES),pdcursesw)
 	EXTRA_DEFS += -DPDC_STATIC_BUILD -DPDC_WIDE
 endif
