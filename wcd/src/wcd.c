@@ -2025,6 +2025,7 @@ void scanaliasfile(char *org_dir, char *filename,
    char *dir;
    char line[DD_MAXPATH];
    int line_nr=1;
+   int bomtype;
 
    dir = org_dir;
 
@@ -2036,52 +2037,57 @@ void scanaliasfile(char *org_dir, char *filename,
 #endif
 
    /* open treedata-file */
-   if  ((infile = wcd_fopen(filename,"r",1)) != NULL) {
+   if  ((infile = wcd_fopen_bom(filename,"r",1,&bomtype)) == NULL)
+      return;
+   if ((bomtype == FILE_UTF16LE)||(bomtype == FILE_UTF16BE)) {
+      wcd_fclose(infile, filename, "r", "scanaliasfile: ");
+      print_error("%s", _("Alias file in UTF-16 format is not supported.\n"));
+      return;
+   }
 
-      char alias[256];
-      while (!feof(infile) && !ferror(infile)) {
-         int len;
-         char *ptr;
-         size_t j;
+   char alias[256];
+   while (!feof(infile) && !ferror(infile)) {
+      int len;
+      char *ptr;
+      size_t j;
 
-         /* skip spaces at the beginning of the line */
-         while ((line[0]=(char)fgetc(infile)) == ' '){};
-         ungetc(line[0], infile);
+      /* skip spaces at the beginning of the line */
+      while ((line[0]=(char)fgetc(infile)) == ' '){};
+      ungetc(line[0], infile);
 
-         /* read a line */
-         len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
-         ++line_nr;
+      /* read a line */
+      len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
+      ++line_nr;
 
-         if (len == 0 ) continue;
-         ptr = line;
-         j=0;
-         while ((*ptr != ' ') && (*ptr != '\0') && (j<(sizeof(alias)-1))) {
-            alias[j] = *ptr;
-            ++j;
-            ++ptr;
-         }
-         alias[j]='\0';
-         while ((*ptr!=' ')&&(*ptr!='\0')){++ptr;}; /* alias longer than 256 chars */
-         while (*ptr==' '){++ptr;}; /* skip spaces between alias and dir */
-
-         if (strlen(ptr) > 0 )
-         /* Only a perfect match counts, case sensitive */
-            if  ((strcmp(alias,dir)==0) &&
-                 (check_double_match(line,pm)==0) /* &&
-                 (check_filter(line,filter)==0) */ )
-               {
-                  if(wildOnly)
-                     addToNamesetArray(textNew(ptr),wm);
-                  else
-                     addToNamesetArray(textNew(ptr),pm);
-               }
-      }   /* while (!feof(infile) && !ferror(infile)) */
-      if (ferror(infile)) {
-        wcd_read_error(filename);
+      if (len == 0 ) continue;
+      ptr = line;
+      j=0;
+      while ((*ptr != ' ') && (*ptr != '\0') && (j<(sizeof(alias)-1))) {
+         alias[j] = *ptr;
+         ++j;
+         ++ptr;
       }
+      alias[j]='\0';
+      while ((*ptr!=' ')&&(*ptr!='\0')){++ptr;}; /* alias longer than 256 chars */
+      while (*ptr==' '){++ptr;}; /* skip spaces between alias and dir */
+
+      if (strlen(ptr) > 0 )
+      /* Only a perfect match counts, case sensitive */
+         if  ((strcmp(alias,dir)==0) &&
+              (check_double_match(line,pm)==0) /* &&
+              (check_filter(line,filter)==0) */ )
+            {
+               if(wildOnly)
+                  addToNamesetArray(textNew(ptr),wm);
+               else
+                  addToNamesetArray(textNew(ptr),pm);
+            }
+   }   /* while (!feof(infile) && !ferror(infile)) */
+   if (ferror(infile)) {
+     wcd_read_error(filename);
+   }
 
    wcd_fclose(infile, filename, "r", "scanaliasfile: ");
-   }
 }
 /********************************************************************
  *
@@ -2097,32 +2103,38 @@ void list_alias_file(char *filename)
    int line_nr=1;
    size_t i;
    nameset aliaslines;
+   int bomtype;
+
+   /* open treedata-file */
+   if  ((infile = wcd_fopen_bom(filename,"r",1,&bomtype)) == NULL)
+      return;
+   if ((bomtype == FILE_UTF16LE)||(bomtype == FILE_UTF16BE)) {
+      wcd_fclose(infile, filename, "r", "list_alias_file: ");
+      print_error("%s", _("Alias file in UTF-16 format is not supported.\n"));
+      return;
+   }
 
    aliaslines = namesetNew();
 
    /* First read all the lines in a nameset so that we can sort it later */
-   /* open treedata-file */
-   if  ((infile = wcd_fopen(filename,"r",1)) != NULL) {
+   char line[DD_MAXPATH];
+   while (!feof(infile) && !ferror(infile)) {
+      int len;
 
-      char line[DD_MAXPATH];
-      while (!feof(infile) && !ferror(infile)) {
-         int len;
+      /* skip spaces at the beginning of the line */
+      while ((line[0]=(char)fgetc(infile)) == ' '){};
+      ungetc(line[0], infile);
 
-         /* skip spaces at the beginning of the line */
-         while ((line[0]=(char)fgetc(infile)) == ' '){};
-         ungetc(line[0], infile);
-
-         /* read a line */
-         len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
-          ++line_nr;
-          if (len > 0 )
-             addToNamesetArray(textNew(line),aliaslines);
-      }   /* while (!feof(infile) && !ferror(infile)) */
-      if (ferror(infile)) {
-        wcd_read_error(filename);
-      }
-      wcd_fclose(infile, filename, "r", "list_alias_file: ");
+      /* read a line */
+      len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
+       ++line_nr;
+       if (len > 0 )
+          addToNamesetArray(textNew(line),aliaslines);
+   }   /* while (!feof(infile) && !ferror(infile)) */
+   if (ferror(infile)) {
+     wcd_read_error(filename);
    }
+   wcd_fclose(infile, filename, "r", "list_alias_file: ");
 
    sort_list(aliaslines);
 

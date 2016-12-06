@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 22:08+0100\n"
+"POT-Creation-Date: 2016-12-06 22:55+0100\n"
 "PO-Revision-Date: 2016-12-06 07:57+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -76,7 +76,7 @@ msgstr "„%s“ није директоријуму.\n"
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "Сачекајте. Прегледам диск. Градим датотеку стабла података „%s“ из „%s“\n"
 
-#: wcd.c:1153 wcd.c:2484 wcd.c:2507 wcd.c:2587
+#: wcd.c:1153 wcd.c:2496 wcd.c:2519 wcd.c:2599
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Записујем датотеку „%s“\n"
@@ -129,7 +129,11 @@ msgstr "датотека: %s, ред: %d,"
 msgid " length: %d\n"
 msgstr " дужина: %d\n"
 
-#: wcd.c:2198
+#: wcd.c:2044 wcd.c:2113
+msgid "Alias file in UTF-16 format is not supported.\n"
+msgstr ""
+
+#: wcd.c:2210
 #, c-format
 msgid ""
 "Usage: wcd [options] [directory]\n"
@@ -138,12 +142,12 @@ msgstr ""
 "Употреба: wcd [опције] [директоријум]\n"
 "\n"
 
-#: wcd.c:2199
+#: wcd.c:2211
 #, c-format
 msgid "directory:  Name of directory to change to.\n"
 msgstr "директоријум:  Назив директоријума у који ће се променити.\n"
 
-#: wcd.c:2200
+#: wcd.c:2212
 #, c-format
 msgid ""
 "            Wildcards *, ? and [SET] are supported.\n"
@@ -152,312 +156,312 @@ msgstr ""
 "            Џокери *, ? и [СКУП] су подржани.\n"
 "\n"
 
-#: wcd.c:2202
+#: wcd.c:2214
 #, c-format
 msgid "options:\n"
 msgstr "опције:\n"
 
-#: wcd.c:2203
+#: wcd.c:2215
 #, c-format
 msgid "  -a                      Add current path to treefile\n"
 msgstr "  -a                           Додаје текућу путању у датотеку стабла\n"
 
-#: wcd.c:2204
+#: wcd.c:2216
 #, c-format
 msgid "  -aa                     Add current and all parent paths to treefile\n"
 msgstr "  -aa                          Додаје текућу и све родитељске путање у датотеку стабла\n"
 
-#: wcd.c:2205
+#: wcd.c:2217
 #, c-format
 msgid "  -A PATH                 Add tree from PATH\n"
 msgstr "  -A ПУТАЊА                    Додаје стабло из ПУТАЊЕ\n"
 
-#: wcd.c:2206
+#: wcd.c:2218
 #, c-format
 msgid "  -b                      Ban current path\n"
 msgstr "  -b                           Забрањује текућу путању\n"
 
-#: wcd.c:2207
+#: wcd.c:2219
 #, c-format
 msgid "  -c,  --direct-cd        direct CD mode\n"
 msgstr "  -c,  --direct-cd             директан ЦД режим\n"
 
-#: wcd.c:2208
+#: wcd.c:2220
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
 msgstr "  -d УРЕЂАЈ                    поставља УРЕЂАЈ за датотеке спремника и отпреме (ДОС)\n"
 
-#: wcd.c:2209
+#: wcd.c:2221
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
 msgstr "  -e                           додаје текућу путању у додатну датотеку стабла\n"
 
-#: wcd.c:2210
+#: wcd.c:2222
 #, c-format
 msgid "  -ee                     add current and all parent paths to Extra treefile\n"
 msgstr "  -ee                          додаје текућу и све родитељске путање у додатну датотеку стабла\n"
 
-#: wcd.c:2211
+#: wcd.c:2223
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
 msgstr "  -E ПУТАЊА                    додаје стабло из ПУТАЊЕ у додатну датотеку стабла\n"
 
-#: wcd.c:2212
+#: wcd.c:2224
 #, c-format
 msgid "  -f FILE                 use extra treeFile\n"
 msgstr "  -f ДАТОТЕКА                  користи додатну датотеку стабла\n"
 
-#: wcd.c:2213
+#: wcd.c:2225
 #, c-format
 msgid "  +f FILE                 add extra treeFile\n"
 msgstr "  +f ДАТОТЕКА                  додаје додатну датотеку стабла\n"
 
-#: wcd.c:2214
+#: wcd.c:2226
 #, c-format
 msgid "  -g                      Graphics\n"
 msgstr "  -g                           Графици\n"
 
-#: wcd.c:2215
+#: wcd.c:2227
 #, c-format
 msgid "  -gd                     Graphics, dump tree\n"
 msgstr "  -gd                          Графици, исписује стабло\n"
 
-#: wcd.c:2216
+#: wcd.c:2228
 #, c-format
 msgid "  -G PATH                 set PATH Go-script\n"
 msgstr "  -G ПУТАЊА                    поставља ПУТАЊУ на Иди-скрипту\n"
 
-#: wcd.c:2217
+#: wcd.c:2229
 #, c-format
 msgid "  -GN, --no-go-script     No Go-script\n"
 msgstr "  -GN, --no-go-script          Без Иди-скрипте\n"
 
-#: wcd.c:2218
+#: wcd.c:2230
 #, c-format
 msgid "  -h,  --help             show this Help\n"
 msgstr "  -h,  --help                  приказује ову помоћ\n"
 
-#: wcd.c:2221
+#: wcd.c:2233
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
 msgstr "  -i,  --ignore-case           Занемарује величину слова (основно)\n"
 
-#: wcd.c:2222
+#: wcd.c:2234
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case\n"
 msgstr "  +i,  --no-ignore-case        разматра величину слова\n"
 
-#: wcd.c:2224
+#: wcd.c:2236
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case\n"
 msgstr "  -i,  --ignore-case           Занемарује величину слова\n"
 
-#: wcd.c:2225
+#: wcd.c:2237
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case (default)\n"
 msgstr "  +i,  --no-ignore-case        разматра величину слова (основно)\n"
 
-#: wcd.c:2228
+#: wcd.c:2240
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
 msgstr "  -I,  --ignore-diacritics     Занемарује дијакритике\n"
 
-#: wcd.c:2229
+#: wcd.c:2241
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
 msgstr "  +I,  --no-ignore-diacritics  разматра дијакритике (основно)\n"
 
-#: wcd.c:2230
+#: wcd.c:2242
 #, c-format
 msgid "  -j,  --just-go          Just go mode\n"
 msgstr "  -j,  --just-go               Само режим иди\n"
 
-#: wcd.c:2231
+#: wcd.c:2243
 #, c-format
 msgid "  -k,  --keep-paths       Keep paths\n"
 msgstr "  -k,  --keep-paths            Чува путање\n"
 
-#: wcd.c:2232
+#: wcd.c:2244
 #, c-format
 msgid "  -K,  --color            colors\n"
 msgstr "  -K,  --color                 боје\n"
 
-#: wcd.c:2233
+#: wcd.c:2245
 #, c-format
 msgid "  -l ALIAS                aLias current directory\n"
 msgstr "  -l АЛИЈАС                    алијализује текући директоријум\n"
 
-#: wcd.c:2234
+#: wcd.c:2246
 #, c-format
 msgid "  -ls                     List the aliases\n"
 msgstr "  -ls                          Исписуе алијасе\n"
 
-#: wcd.c:2235
+#: wcd.c:2247
 #, c-format
 msgid "  -L,  --license          show software License\n"
 msgstr "  -L,  --license               приказује дозволу програма\n"
 
-#: wcd.c:2236
+#: wcd.c:2248
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
 msgstr "  -m ДИР                       Прави ДИР, додаје у датотеку стабла\n"
 
-#: wcd.c:2237
+#: wcd.c:2249
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
 msgstr "  -M ДИР                       Прави ДИР, додаје у додатну датотеку стабла\n"
 
-#: wcd.c:2238
+#: wcd.c:2250
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
 msgstr "  -n ПУТАЊА                    користи релативну датотеку стабла у ПУТАЊИ\n"
 
-#: wcd.c:2239
+#: wcd.c:2251
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
 msgstr "  +n ПУТАЊА                    додаје релативну датотеку стабла у ПУТАЊУ\n"
 
-#: wcd.c:2240
+#: wcd.c:2252
 #, c-format
 msgid "  -N,  --numbers          use Numbers\n"
 msgstr "  -N,  --numbers               користи бројеве\n"
 
-#: wcd.c:2241
+#: wcd.c:2253
 #, c-format
 msgid "  -o                      use stdOut\n"
 msgstr "  -o                           користи стандардни излаз\n"
 
-#: wcd.c:2242
+#: wcd.c:2254
 #, c-format
 msgid "  -od, --to-stdout        dump matches\n"
 msgstr "  -od, --to-stdout             исписује поклапања\n"
 
-#: wcd.c:2243
+#: wcd.c:2255
 #, c-format
 msgid "  -q,  --quiet            Quieter operation\n"
 msgstr "  -q,  --quiet                 Радње без исписивања\n"
 
-#: wcd.c:2244
+#: wcd.c:2256
 #, c-format
 msgid "  -r DIR                  Remove DIR\n"
 msgstr "  -r ДИР                       Уклања ДИР\n"
 
-#: wcd.c:2245
+#: wcd.c:2257
 #, c-format
 msgid "  -rmtree DIR             Remove DIR recursive\n"
 msgstr "  -rmtree ДИР                  Уклања дубински ДИР\n"
 
-#: wcd.c:2246
+#: wcd.c:2258
 #, c-format
 msgid "  -s                      Scan disk from $HOME\n"
 msgstr "  -s                           Прегледа диск из $ЛИЧНЕ_ФАСЦИКЛЕ\n"
 
-#: wcd.c:2247
+#: wcd.c:2259
 #, c-format
 msgid "  -S PATH                 Scan disk from PATH\n"
 msgstr "  -S ПУТАЊА                    Прегледа диск из ПУТАЊЕ\n"
 
-#: wcd.c:2248
+#: wcd.c:2260
 #, c-format
 msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
 msgstr "  +S ПУТАЊА                    Прегледа диск из ПУТАЊЕ, прави релативну датотеку стабла\n"
 
-#: wcd.c:2249
+#: wcd.c:2261
 #, c-format
 msgid "  -t                      don't strip /tmp_mnt from paths\n"
 msgstr "  -t                           не откида „/tmp_mnt“ из путања\n"
 
-#: wcd.c:2250
+#: wcd.c:2262
 #, c-format
 msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
 msgstr "  -T,  --ascii-tree            исцртава стабло АСКРИ знацима\n"
 
-#: wcd.c:2251
+#: wcd.c:2263
 #, c-format
 msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
 msgstr "  -Ta, --alt-tree-nav          Алтернативна навигација стабла\n"
 
-#: wcd.c:2252
+#: wcd.c:2264
 #, c-format
 msgid "  -TC, --center-tree      Centered tree view\n"
 msgstr "  -TC, --center-tree           Усредиштени преглед стабла\n"
 
-#: wcd.c:2253
+#: wcd.c:2265
 #, c-format
 msgid "  -Tc, --compact-tree     Compact tree\n"
 msgstr "  -Tc, --compact-tree          Збијено стабло\n"
 
-#: wcd.c:2254
+#: wcd.c:2266
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
 msgstr "  -Td, --cjk-width             подржава старе КЈК словне ликове\n"
 
-#: wcd.c:2255
+#: wcd.c:2267
 #, c-format
 msgid "  -u USER                 use USER's treefile\n"
 msgstr "  -u КОРИСНИК                  користи КОРИСНИКОВУ датотеку стабла\n"
 
-#: wcd.c:2256
+#: wcd.c:2268
 #, c-format
 msgid "  +u USER                 add USER's treefile\n"
 msgstr "  +u КОРИСНИК                  додаје КОРИСНИКОВУ датотеку стабла\n"
 
-#: wcd.c:2257
+#: wcd.c:2269
 #, c-format
 msgid "  -v,  --verbose          Verbose operation\n"
 msgstr "  -v,  --verbose               Радње са исписивањем\n"
 
-#: wcd.c:2258
+#: wcd.c:2270
 #, c-format
 msgid "  -V,  --version          show Version info\n"
 msgstr "  -V,  --version               приказује податке о верзији\n"
 
-#: wcd.c:2259
+#: wcd.c:2271
 #, c-format
 msgid "  -w,  --wild-match-only  Wild matching only\n"
 msgstr "  -w,  --wild-match-only       Само дивље поклапање\n"
 
-#: wcd.c:2260
+#: wcd.c:2272
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
 msgstr "  -x ПУТАЊА                    искључује ПУТАЊУ за време прегледања диска\n"
 
-#: wcd.c:2261
+#: wcd.c:2273
 #, c-format
 msgid "  -xf FILE                eXclude paths from FILE\n"
 msgstr "  -xf ДАТОТЕКА                 искључује путање из ДАТОТЕКЕ\n"
 
-#: wcd.c:2262
+#: wcd.c:2274
 #, c-format
 msgid "  -y,  --assume-yes       assume Yes on all queries\n"
 msgstr "  -y,  --assume-yes            подразумева „Да“ на свим упитима\n"
 
-#: wcd.c:2263
+#: wcd.c:2275
 #, c-format
 msgid "  -z NUMBER               set max stack siZe\n"
 msgstr "  -z БРОЈ                      поставља највећу величину спремника\n"
 
-#: wcd.c:2264
+#: wcd.c:2276
 #, c-format
 msgid "  -[NUMBER]               push dir (NUMBER times)\n"
 msgstr "  -[БРОЈ]                      гура директоријум (БРОЈ пута)\n"
 
-#: wcd.c:2265
+#: wcd.c:2277
 #, c-format
 msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
 msgstr "  +[БРОЈ]                      потискује директоријум (БРОЈ пута)\n"
 
-#: wcd.c:2266
+#: wcd.c:2278
 #, c-format
 msgid "  =                       show stack\n"
 msgstr "  =                            приказује спремник\n"
 
-#: wcd.c:2275 wcd.c:2404
+#: wcd.c:2287 wcd.c:2416
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) — Промените директоријум било где\n"
 
-#: wcd.c:2276
+#: wcd.c:2288
 #, c-format
 msgid ""
 "Chdir for Dos and Unix.\n"
@@ -466,182 +470,182 @@ msgstr ""
 "Промена директоријума за Дос и Јуникс.\n"
 "\n"
 
-#: wcd.c:2280
+#: wcd.c:2292
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "Верзија за ДОС 16 бита (WATCOMC).\n"
 
-#: wcd.c:2282
+#: wcd.c:2294
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "Верзија за ДОС 16 бита (TURBOC).\n"
 
-#: wcd.c:2284
+#: wcd.c:2296
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "Верзија за ДОС 32 бита (DJGPP).\n"
 
-#: wcd.c:2286
+#: wcd.c:2298
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "Верзија за ДОС 32 бита (WATCOMC).\n"
 
-#: wcd.c:2293
+#: wcd.c:2305
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
 msgstr "Верзија за Вин64 (MSVC %d).\n"
 
-#: wcd.c:2295
+#: wcd.c:2307
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
 msgstr "Верзија за Вин64 (MinGW-w64).\n"
 
-#: wcd.c:2299
+#: wcd.c:2311
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
 msgstr "Верзија за Вин32 (WATCOMC).\n"
 
-#: wcd.c:2301
+#: wcd.c:2313
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
 msgstr "Верзија за Вин32 (MSVC %d).\n"
 
-#: wcd.c:2303
+#: wcd.c:2315
 #, c-format
 msgid "Win32 version (MinGW-w64).\n"
 msgstr "Верзија за Вин32 (MinGW-w64).\n"
 
-#: wcd.c:2305
+#: wcd.c:2317
 #, c-format
 msgid "Win32 version (MinGW).\n"
 msgstr "Верзија за Вин32 (MinGW).\n"
 
-#: wcd.c:2312
+#: wcd.c:2324
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
 msgstr "Ова верзија је за „MSYS“ и „WinZsh“.\n"
 
-#: wcd.c:2314
+#: wcd.c:2326
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
 msgstr "Ова верзија је за Моћну конзолу Виндоуза.\n"
 
-#: wcd.c:2316
+#: wcd.c:2328
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
 msgstr "Ова верзија је за Командни упит Виндоуза (cmd.exe).\n"
 
-#: wcd.c:2321
+#: wcd.c:2333
 #, c-format
 msgid "OS/2 version"
 msgstr "Верзија за ОС/2"
 
-#: wcd.c:2332
+#: wcd.c:2344
 #, c-format
 msgid "This version is for native MSYS.\n"
 msgstr "Ова верзија је за изворни МСИС.\n"
 
-#: wcd.c:2335
+#: wcd.c:2347
 #, c-format
 msgid "Cygwin version.\n"
 msgstr "Верзија за Цигвин.\n"
 
-#: wcd.c:2338
+#: wcd.c:2350
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
 msgstr "Ова верзија је за ДЈГПП ДОС шкољку.\n"
 
-#: wcd.c:2341
+#: wcd.c:2353
 #, c-format
 msgid "This version is for OS/2 bash.\n"
 msgstr "Ова верзија је за ОС/2 шкољку.\n"
 
-#: wcd.c:2344
+#: wcd.c:2356
 #, c-format
 msgid "Interface: "
 msgstr "Сучеље: "
 
-#: wcd.c:2350
+#: wcd.c:2362
 #, c-format
 msgid "ncurses version %s.%d\n"
 msgstr "Верзија за нкјурзис %s.%d\n"
 
-#: wcd.c:2353
+#: wcd.c:2365
 #, c-format
 msgid "PDCurses build %d\n"
 msgstr "ПДКјурзис изградња %d\n"
 
-#: wcd.c:2355
+#: wcd.c:2367
 #, c-format
 msgid "curses\n"
 msgstr "кјурзис\n"
 
-#: wcd.c:2364
+#: wcd.c:2376
 #, c-format
 msgid "stdout\n"
 msgstr "стндизлз\n"
 
-#: wcd.c:2368
+#: wcd.c:2380
 #, c-format
 msgid "Native language support included.\n"
 msgstr "Подршка матерњег језика је укључена.\n"
 
-#: wcd.c:2369
+#: wcd.c:2381
 #, c-format
 msgid "LOCALEDIR=%s\n"
 msgstr "ДИРЈЕЗИКА=%s\n"
 
-#: wcd.c:2371
+#: wcd.c:2383
 #, c-format
 msgid "No native language support included.\n"
 msgstr "Подршка матерњег језика није укључена.\n"
 
-#: wcd.c:2374
+#: wcd.c:2386
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
 msgstr "Текући језик користи „CP%u“ кодирање.\n"
 
-#: wcd.c:2376
+#: wcd.c:2388
 #, c-format
 msgid "Current locale uses %s encoding.\n"
 msgstr "Текући језик користи „%s“ кодирање.\n"
 
-#: wcd.c:2379
+#: wcd.c:2391
 #, c-format
 msgid "With Unicode support.\n"
 msgstr "Са подршком Јуникода.\n"
 
-#: wcd.c:2384
+#: wcd.c:2396
 #, c-format
 msgid "  Euro symbol: "
 msgstr "  Симбол евра: "
 
-#: wcd.c:2386
+#: wcd.c:2398
 #, c-format
 msgid "  Chinese characters: "
 msgstr "  Кинески знаци: "
 
-#: wcd.c:2390
+#: wcd.c:2402
 #, c-format
 msgid "Without Unicode support.\n"
 msgstr "Без подршке Јуникода.\n"
 
-#: wcd.c:2393
+#: wcd.c:2405
 #, c-format
 msgid "With Unicode normalization.\n"
 msgstr "Са нормализацијом Јуникода.\n"
 
-#: wcd.c:2395
+#: wcd.c:2407
 #, c-format
 msgid "Without Unicode normalization.\n"
 msgstr "Без нормализације Јуникода.\n"
 
-#: wcd.c:2398
+#: wcd.c:2410
 #, c-format
 msgid "Download the latest executables and sources from:\n"
 msgstr "Преузмите најновије извршне и датотеке извора са:\n"
 
-#: wcd.c:2405
+#: wcd.c:2417
 #, c-format
 msgid ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
@@ -660,7 +664,7 @@ msgstr ""
 "Ауторска права ©  1990-1992 Марк Адлер, Ричард Б. Велс, Жан-луп Гели,\n"
 "Каи Уве Ромел и Игор Мандриченко за „recmatch()“\n"
 
-#: wcd.c:2413
+#: wcd.c:2425
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -675,7 +679,7 @@ msgstr ""
 "Ругксуло је првобитни аутор функције „query_con_codepage()“ (јавни домен).\n"
 "\n"
 
-#: wcd.c:2419
+#: wcd.c:2431
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -690,7 +694,7 @@ msgstr ""
 "или (по вашем избору) било којег новијег издања.\n"
 "\n"
 
-#: wcd.c:2425
+#: wcd.c:2437
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -705,7 +709,7 @@ msgstr ""
 "Погледајте Гнуову Општу јавну лиценцу за више детаља.\n"
 "\n"
 
-#: wcd.c:2431
+#: wcd.c:2443
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -717,86 +721,86 @@ msgstr ""
 "софтвера на адресу: „Free Software Foundation, Inc., 51\n"
 "Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.“.\n"
 
-#: wcd.c:2464
+#: wcd.c:2476
 #, c-format
 msgid "creating directory %s\n"
 msgstr "правим директоријум „%s“\n"
 
-#: wcd.c:2796 wcd.c:2836 wcd.c:2851 wcd.c:2919 wcd.c:2988 wcd.c:3488 wcd.c:3507
+#: wcd.c:2808 wcd.c:2848 wcd.c:2863 wcd.c:2931 wcd.c:3000 wcd.c:3500 wcd.c:3519
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Вредност променљиве окружења „%s“ је превелика.\n"
 
-#: wcd.c:2825
+#: wcd.c:2837
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Нисам успео да поништим променљиву окружења „TERM“: %s\n"
 
-#: wcd.c:2883 wcd.c:2912
+#: wcd.c:2895 wcd.c:2924
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Променљива окружења „HOME“ или „WCDHOME“ није подешена.\n"
 
-#: wcd.c:3095
+#: wcd.c:3107
 #, c-format
 msgid "aliasfile: %s\n"
 msgstr "датотека алијаса: %s\n"
 
-#: wcd.c:3109
+#: wcd.c:3121
 msgid "HOME is not defined\n"
 msgstr "„HOME“ није одређено\n"
 
-#: wcd.c:3113
+#: wcd.c:3125
 msgid "WCDHOME is not defined\n"
 msgstr "„WCDHOME“ није одређено\n"
 
-#: wcd.c:3117
+#: wcd.c:3129
 msgid "WCDSCAN is not defined\n"
 msgstr "„WCDSCAN“ није одређено\n"
 
-#: wcd.c:3142
+#: wcd.c:3154
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Графички режим је подржан само у вцд-у са сучељем заснованом на кјурзису.\n"
 
-#: wcd.c:3421
+#: wcd.c:3433
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "„%s“ је додато датотеци алијаса „%s“\n"
 
-#: wcd.c:3520
+#: wcd.c:3532
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Не могу да прочитам датотеку „%s“ или „%s“\n"
 
-#: wcd.c:3670
+#: wcd.c:3682
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "„WCDSCAN“ директоријум {%s}\n"
 
-#: wcd.c:3672
+#: wcd.c:3684
 #, c-format
 msgid "banning {%s}\n"
 msgstr "забрањујем {%s}\n"
 
-#: wcd.c:3674
+#: wcd.c:3686
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "искључујем {%s}\n"
 
-#: wcd.c:3676
+#: wcd.c:3688
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "издвајам {%s}\n"
 
-#: wcd.c:3939
+#: wcd.c:3951
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Нисам нашао директоријум који одговара „%s“\n"
 
-#: wcd.c:3940
+#: wcd.c:3952
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Можда би требало поново да прегледате диск или забрањену путању.\n"
 
-#: wcd.c:4108
+#: wcd.c:4120
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Не могу да се пребацим у „%s“\n"
