@@ -1,0 +1,1204 @@
+# Serbian translations for wcd.
+# Copyright © 2008-2016 Erwin Waterlander (msgids).
+# This file is distributed under the same license as the wcd package.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: wcd-5.3.3-beta9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-06 22:08+0100\n"
+"PO-Revision-Date: 2016-12-06 07:57+0200\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Language-Team: Serbian <(nothing)>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: wcd.c:172
+#, c-format
+msgid "Wcd: error: "
+msgstr "Вцд: грешка: "
+
+#: wcd.c:185 wcd.c:239 wcd.c:259
+#, c-format
+msgid "Unable to read file %s: %s\n"
+msgstr "Не могу да прочитам датотеку „%s“: %s\n"
+
+#: wcd.c:248
+#, c-format
+msgid "Unable to read file %s: Not a regular file.\n"
+msgstr "Не могу да прочитам датотеку „%s“: Није обична датотека.\n"
+
+#: wcd.c:261 wcd.c:348
+#, c-format
+msgid "Unable to write file %s: %s\n"
+msgstr "Не могу да запишем датотеку „%s“: %s\n"
+
+#: wcd.c:350
+#, c-format
+msgid "Unable to close file %s: %s\n"
+msgstr "Не могу да затворим датотеку „%s“: %s\n"
+
+#: wcd.c:393 wcd.c:398 wfixpath.c:65
+#, c-format
+msgid "Memory allocation error in %s: %s\n"
+msgstr "Грешка доделе меморије у „%s“: %s\n"
+
+#: wcd.c:703 wcd.c:717
+#, c-format
+msgid "%s added to file %s\n"
+msgstr "„%s“ је додато датотеци „%s“\n"
+
+#: wcd.c:880
+#, c-format
+msgid "Unable to remove file %s: %s\n"
+msgstr "Не могу да уклоним датотеку „%s“: %s\n"
+
+#: wcd.c:971
+#, c-format
+msgid "finddirs(): can't determine path in directory %s\n"
+msgstr "„finddirs()“: не могу да одредим путању у директоријуму „%s“\n"
+
+#: wcd.c:972
+msgid "path probably too long.\n"
+msgstr "пуутања је вероватно предуга.\n"
+
+#: wcd.c:1086 wcd.c:1417
+#, c-format
+msgid "%s is not a directory.\n"
+msgstr "„%s“ није директоријуму.\n"
+
+#: wcd.c:1091
+#, c-format
+msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
+msgstr "Сачекајте. Прегледам диск. Градим датотеку стабла података „%s“ из „%s“\n"
+
+#: wcd.c:1153 wcd.c:2484 wcd.c:2507 wcd.c:2587
+#, c-format
+msgid "Writing file \"%s\"\n"
+msgstr "Записујем датотеку „%s“\n"
+
+#: wcd.c:1158
+msgid "Write access to tree-file denied.\n"
+msgstr "Приступ писања у датотеку стабла је забрањен.\n"
+
+#: wcd.c:1159
+msgid "Set TEMP environment variable if this is a read-only disk.\n"
+msgstr "Подесите променљиву окружења ПРИВРЕМЕНО ако је ово диск само за читање.\n"
+
+#: wcd.c:1288
+#, c-format
+msgid "Removed symbolic link %s\n"
+msgstr "Уклонио сам симболичку везу „%s“\n"
+
+#: wcd.c:1292
+#, c-format
+msgid "Unable to remove symbolic link %s: %s\n"
+msgstr "Не могу да уклоним симболичку везу „%s“: %s\n"
+
+#: wcd.c:1296
+#, c-format
+msgid "%s is a symbolic link to a file.\n"
+msgstr "„%s“ је симболичка веза до датотеке.\n"
+
+#: wcd.c:1378
+#, c-format
+msgid "Recursively remove %s? Are you sure? y/n :"
+msgstr "Да уклоним „%s“ дубински? Да ли сте сигурни? y/n (д/н) :"
+
+#: wcd.c:1400 wcd.c:1410
+#, c-format
+msgid "Removed directory %s\n"
+msgstr "Уклонио сам директоријум „%s“\n"
+
+#: wcd.c:1442 wcd.c:1511 wcd.c:1579
+#, c-format
+msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
+msgstr "ред је предуг у „%s“ ( > %d). Можда је оштећена датотека стабла, исправите ово повећавши „DD_MAXPATH“ у изворном коду.\n"
+
+#: wcd.c:1443 wcd.c:1512 wcd.c:1580
+#, c-format
+msgid "file: %s, line: %d,"
+msgstr "датотека: %s, ред: %d,"
+
+#: wcd.c:1450 wcd.c:1519 wcd.c:1587
+#, c-format
+msgid " length: %d\n"
+msgstr " дужина: %d\n"
+
+#: wcd.c:2198
+#, c-format
+msgid ""
+"Usage: wcd [options] [directory]\n"
+"\n"
+msgstr ""
+"Употреба: wcd [опције] [директоријум]\n"
+"\n"
+
+#: wcd.c:2199
+#, c-format
+msgid "directory:  Name of directory to change to.\n"
+msgstr "директоријум:  Назив директоријума у који ће се променити.\n"
+
+#: wcd.c:2200
+#, c-format
+msgid ""
+"            Wildcards *, ? and [SET] are supported.\n"
+"\n"
+msgstr ""
+"            Џокери *, ? и [СКУП] су подржани.\n"
+"\n"
+
+#: wcd.c:2202
+#, c-format
+msgid "options:\n"
+msgstr "опције:\n"
+
+#: wcd.c:2203
+#, c-format
+msgid "  -a                      Add current path to treefile\n"
+msgstr "  -a                           Додаје текућу путању у датотеку стабла\n"
+
+#: wcd.c:2204
+#, c-format
+msgid "  -aa                     Add current and all parent paths to treefile\n"
+msgstr "  -aa                          Додаје текућу и све родитељске путање у датотеку стабла\n"
+
+#: wcd.c:2205
+#, c-format
+msgid "  -A PATH                 Add tree from PATH\n"
+msgstr "  -A ПУТАЊА                    Додаје стабло из ПУТАЊЕ\n"
+
+#: wcd.c:2206
+#, c-format
+msgid "  -b                      Ban current path\n"
+msgstr "  -b                           Забрањује текућу путању\n"
+
+#: wcd.c:2207
+#, c-format
+msgid "  -c,  --direct-cd        direct CD mode\n"
+msgstr "  -c,  --direct-cd             директан ЦД режим\n"
+
+#: wcd.c:2208
+#, c-format
+msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
+msgstr "  -d УРЕЂАЈ                    поставља УРЕЂАЈ за датотеке спремника и отпреме (ДОС)\n"
+
+#: wcd.c:2209
+#, c-format
+msgid "  -e                      add current path to Extra treefile\n"
+msgstr "  -e                           додаје текућу путању у додатну датотеку стабла\n"
+
+#: wcd.c:2210
+#, c-format
+msgid "  -ee                     add current and all parent paths to Extra treefile\n"
+msgstr "  -ee                          додаје текућу и све родитељске путање у додатну датотеку стабла\n"
+
+#: wcd.c:2211
+#, c-format
+msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
+msgstr "  -E ПУТАЊА                    додаје стабло из ПУТАЊЕ у додатну датотеку стабла\n"
+
+#: wcd.c:2212
+#, c-format
+msgid "  -f FILE                 use extra treeFile\n"
+msgstr "  -f ДАТОТЕКА                  користи додатну датотеку стабла\n"
+
+#: wcd.c:2213
+#, c-format
+msgid "  +f FILE                 add extra treeFile\n"
+msgstr "  +f ДАТОТЕКА                  додаје додатну датотеку стабла\n"
+
+#: wcd.c:2214
+#, c-format
+msgid "  -g                      Graphics\n"
+msgstr "  -g                           Графици\n"
+
+#: wcd.c:2215
+#, c-format
+msgid "  -gd                     Graphics, dump tree\n"
+msgstr "  -gd                          Графици, исписује стабло\n"
+
+#: wcd.c:2216
+#, c-format
+msgid "  -G PATH                 set PATH Go-script\n"
+msgstr "  -G ПУТАЊА                    поставља ПУТАЊУ на Иди-скрипту\n"
+
+#: wcd.c:2217
+#, c-format
+msgid "  -GN, --no-go-script     No Go-script\n"
+msgstr "  -GN, --no-go-script          Без Иди-скрипте\n"
+
+#: wcd.c:2218
+#, c-format
+msgid "  -h,  --help             show this Help\n"
+msgstr "  -h,  --help                  приказује ову помоћ\n"
+
+#: wcd.c:2221
+#, c-format
+msgid "  -i,  --ignore-case      Ignore case (default)\n"
+msgstr "  -i,  --ignore-case           Занемарује величину слова (основно)\n"
+
+#: wcd.c:2222
+#, c-format
+msgid "  +i,  --no-ignore-case   regard case\n"
+msgstr "  +i,  --no-ignore-case        разматра величину слова\n"
+
+#: wcd.c:2224
+#, c-format
+msgid "  -i,  --ignore-case      Ignore case\n"
+msgstr "  -i,  --ignore-case           Занемарује величину слова\n"
+
+#: wcd.c:2225
+#, c-format
+msgid "  +i,  --no-ignore-case   regard case (default)\n"
+msgstr "  +i,  --no-ignore-case        разматра величину слова (основно)\n"
+
+#: wcd.c:2228
+#, c-format
+msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
+msgstr "  -I,  --ignore-diacritics     Занемарује дијакритике\n"
+
+#: wcd.c:2229
+#, c-format
+msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
+msgstr "  +I,  --no-ignore-diacritics  разматра дијакритике (основно)\n"
+
+#: wcd.c:2230
+#, c-format
+msgid "  -j,  --just-go          Just go mode\n"
+msgstr "  -j,  --just-go               Само режим иди\n"
+
+#: wcd.c:2231
+#, c-format
+msgid "  -k,  --keep-paths       Keep paths\n"
+msgstr "  -k,  --keep-paths            Чува путање\n"
+
+#: wcd.c:2232
+#, c-format
+msgid "  -K,  --color            colors\n"
+msgstr "  -K,  --color                 боје\n"
+
+#: wcd.c:2233
+#, c-format
+msgid "  -l ALIAS                aLias current directory\n"
+msgstr "  -l АЛИЈАС                    алијализује текући директоријум\n"
+
+#: wcd.c:2234
+#, c-format
+msgid "  -ls                     List the aliases\n"
+msgstr "  -ls                          Исписуе алијасе\n"
+
+#: wcd.c:2235
+#, c-format
+msgid "  -L,  --license          show software License\n"
+msgstr "  -L,  --license               приказује дозволу програма\n"
+
+#: wcd.c:2236
+#, c-format
+msgid "  -m DIR                  Make DIR, add to treefile\n"
+msgstr "  -m ДИР                       Прави ДИР, додаје у датотеку стабла\n"
+
+#: wcd.c:2237
+#, c-format
+msgid "  -M DIR                  Make DIR, add to extra treefile\n"
+msgstr "  -M ДИР                       Прави ДИР, додаје у додатну датотеку стабла\n"
+
+#: wcd.c:2238
+#, c-format
+msgid "  -n PATH                 use relative treefile in PATH\n"
+msgstr "  -n ПУТАЊА                    користи релативну датотеку стабла у ПУТАЊИ\n"
+
+#: wcd.c:2239
+#, c-format
+msgid "  +n PATH                 add relative treefile in PATH\n"
+msgstr "  +n ПУТАЊА                    додаје релативну датотеку стабла у ПУТАЊУ\n"
+
+#: wcd.c:2240
+#, c-format
+msgid "  -N,  --numbers          use Numbers\n"
+msgstr "  -N,  --numbers               користи бројеве\n"
+
+#: wcd.c:2241
+#, c-format
+msgid "  -o                      use stdOut\n"
+msgstr "  -o                           користи стандардни излаз\n"
+
+#: wcd.c:2242
+#, c-format
+msgid "  -od, --to-stdout        dump matches\n"
+msgstr "  -od, --to-stdout             исписује поклапања\n"
+
+#: wcd.c:2243
+#, c-format
+msgid "  -q,  --quiet            Quieter operation\n"
+msgstr "  -q,  --quiet                 Радње без исписивања\n"
+
+#: wcd.c:2244
+#, c-format
+msgid "  -r DIR                  Remove DIR\n"
+msgstr "  -r ДИР                       Уклања ДИР\n"
+
+#: wcd.c:2245
+#, c-format
+msgid "  -rmtree DIR             Remove DIR recursive\n"
+msgstr "  -rmtree ДИР                  Уклања дубински ДИР\n"
+
+#: wcd.c:2246
+#, c-format
+msgid "  -s                      Scan disk from $HOME\n"
+msgstr "  -s                           Прегледа диск из $ЛИЧНЕ_ФАСЦИКЛЕ\n"
+
+#: wcd.c:2247
+#, c-format
+msgid "  -S PATH                 Scan disk from PATH\n"
+msgstr "  -S ПУТАЊА                    Прегледа диск из ПУТАЊЕ\n"
+
+#: wcd.c:2248
+#, c-format
+msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
+msgstr "  +S ПУТАЊА                    Прегледа диск из ПУТАЊЕ, прави релативну датотеку стабла\n"
+
+#: wcd.c:2249
+#, c-format
+msgid "  -t                      don't strip /tmp_mnt from paths\n"
+msgstr "  -t                           не откида „/tmp_mnt“ из путања\n"
+
+#: wcd.c:2250
+#, c-format
+msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
+msgstr "  -T,  --ascii-tree            исцртава стабло АСКРИ знацима\n"
+
+#: wcd.c:2251
+#, c-format
+msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
+msgstr "  -Ta, --alt-tree-nav          Алтернативна навигација стабла\n"
+
+#: wcd.c:2252
+#, c-format
+msgid "  -TC, --center-tree      Centered tree view\n"
+msgstr "  -TC, --center-tree           Усредиштени преглед стабла\n"
+
+#: wcd.c:2253
+#, c-format
+msgid "  -Tc, --compact-tree     Compact tree\n"
+msgstr "  -Tc, --compact-tree          Збијено стабло\n"
+
+#: wcd.c:2254
+#, c-format
+msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
+msgstr "  -Td, --cjk-width             подржава старе КЈК словне ликове\n"
+
+#: wcd.c:2255
+#, c-format
+msgid "  -u USER                 use USER's treefile\n"
+msgstr "  -u КОРИСНИК                  користи КОРИСНИКОВУ датотеку стабла\n"
+
+#: wcd.c:2256
+#, c-format
+msgid "  +u USER                 add USER's treefile\n"
+msgstr "  +u КОРИСНИК                  додаје КОРИСНИКОВУ датотеку стабла\n"
+
+#: wcd.c:2257
+#, c-format
+msgid "  -v,  --verbose          Verbose operation\n"
+msgstr "  -v,  --verbose               Радње са исписивањем\n"
+
+#: wcd.c:2258
+#, c-format
+msgid "  -V,  --version          show Version info\n"
+msgstr "  -V,  --version               приказује податке о верзији\n"
+
+#: wcd.c:2259
+#, c-format
+msgid "  -w,  --wild-match-only  Wild matching only\n"
+msgstr "  -w,  --wild-match-only       Само дивље поклапање\n"
+
+#: wcd.c:2260
+#, c-format
+msgid "  -x PATH                 eXclude PATH during disk scan\n"
+msgstr "  -x ПУТАЊА                    искључује ПУТАЊУ за време прегледања диска\n"
+
+#: wcd.c:2261
+#, c-format
+msgid "  -xf FILE                eXclude paths from FILE\n"
+msgstr "  -xf ДАТОТЕКА                 искључује путање из ДАТОТЕКЕ\n"
+
+#: wcd.c:2262
+#, c-format
+msgid "  -y,  --assume-yes       assume Yes on all queries\n"
+msgstr "  -y,  --assume-yes            подразумева „Да“ на свим упитима\n"
+
+#: wcd.c:2263
+#, c-format
+msgid "  -z NUMBER               set max stack siZe\n"
+msgstr "  -z БРОЈ                      поставља највећу величину спремника\n"
+
+#: wcd.c:2264
+#, c-format
+msgid "  -[NUMBER]               push dir (NUMBER times)\n"
+msgstr "  -[БРОЈ]                      гура директоријум (БРОЈ пута)\n"
+
+#: wcd.c:2265
+#, c-format
+msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
+msgstr "  +[БРОЈ]                      потискује директоријум (БРОЈ пута)\n"
+
+#: wcd.c:2266
+#, c-format
+msgid "  =                       show stack\n"
+msgstr "  =                            приказује спремник\n"
+
+#: wcd.c:2275 wcd.c:2404
+#, c-format
+msgid "wcd %s (%s) - Wherever Change Directory\n"
+msgstr "wcd %s (%s) — Промените директоријум било где\n"
+
+#: wcd.c:2276
+#, c-format
+msgid ""
+"Chdir for Dos and Unix.\n"
+"\n"
+msgstr ""
+"Промена директоријума за Дос и Јуникс.\n"
+"\n"
+
+#: wcd.c:2280
+#, c-format
+msgid "DOS 16 bit version (WATCOMC).\n"
+msgstr "Верзија за ДОС 16 бита (WATCOMC).\n"
+
+#: wcd.c:2282
+#, c-format
+msgid "DOS 16 bit version (TURBOC).\n"
+msgstr "Верзија за ДОС 16 бита (TURBOC).\n"
+
+#: wcd.c:2284
+#, c-format
+msgid "DOS 32 bit version (DJGPP).\n"
+msgstr "Верзија за ДОС 32 бита (DJGPP).\n"
+
+#: wcd.c:2286
+#, c-format
+msgid "DOS 32 bit version (WATCOMC).\n"
+msgstr "Верзија за ДОС 32 бита (WATCOMC).\n"
+
+#: wcd.c:2293
+#, c-format
+msgid "Win64 version (MSVC %d).\n"
+msgstr "Верзија за Вин64 (MSVC %d).\n"
+
+#: wcd.c:2295
+#, c-format
+msgid "Win64 version (MinGW-w64).\n"
+msgstr "Верзија за Вин64 (MinGW-w64).\n"
+
+#: wcd.c:2299
+#, c-format
+msgid "Win32 version (WATCOMC).\n"
+msgstr "Верзија за Вин32 (WATCOMC).\n"
+
+#: wcd.c:2301
+#, c-format
+msgid "Win32 version (MSVC %d).\n"
+msgstr "Верзија за Вин32 (MSVC %d).\n"
+
+#: wcd.c:2303
+#, c-format
+msgid "Win32 version (MinGW-w64).\n"
+msgstr "Верзија за Вин32 (MinGW-w64).\n"
+
+#: wcd.c:2305
+#, c-format
+msgid "Win32 version (MinGW).\n"
+msgstr "Верзија за Вин32 (MinGW).\n"
+
+#: wcd.c:2312
+#, c-format
+msgid "This version is for MSYS and WinZsh.\n"
+msgstr "Ова верзија је за „MSYS“ и „WinZsh“.\n"
+
+#: wcd.c:2314
+#, c-format
+msgid "This version is for Windows PowerShell.\n"
+msgstr "Ова верзија је за Моћну конзолу Виндоуза.\n"
+
+#: wcd.c:2316
+#, c-format
+msgid "This version is for Windows Command Prompt (cmd.exe).\n"
+msgstr "Ова верзија је за Командни упит Виндоуза (cmd.exe).\n"
+
+#: wcd.c:2321
+#, c-format
+msgid "OS/2 version"
+msgstr "Верзија за ОС/2"
+
+#: wcd.c:2332
+#, c-format
+msgid "This version is for native MSYS.\n"
+msgstr "Ова верзија је за изворни МСИС.\n"
+
+#: wcd.c:2335
+#, c-format
+msgid "Cygwin version.\n"
+msgstr "Верзија за Цигвин.\n"
+
+#: wcd.c:2338
+#, c-format
+msgid "This version is for DJGPP DOS bash.\n"
+msgstr "Ова верзија је за ДЈГПП ДОС шкољку.\n"
+
+#: wcd.c:2341
+#, c-format
+msgid "This version is for OS/2 bash.\n"
+msgstr "Ова верзија је за ОС/2 шкољку.\n"
+
+#: wcd.c:2344
+#, c-format
+msgid "Interface: "
+msgstr "Сучеље: "
+
+#: wcd.c:2350
+#, c-format
+msgid "ncurses version %s.%d\n"
+msgstr "Верзија за нкјурзис %s.%d\n"
+
+#: wcd.c:2353
+#, c-format
+msgid "PDCurses build %d\n"
+msgstr "ПДКјурзис изградња %d\n"
+
+#: wcd.c:2355
+#, c-format
+msgid "curses\n"
+msgstr "кјурзис\n"
+
+#: wcd.c:2364
+#, c-format
+msgid "stdout\n"
+msgstr "стндизлз\n"
+
+#: wcd.c:2368
+#, c-format
+msgid "Native language support included.\n"
+msgstr "Подршка матерњег језика је укључена.\n"
+
+#: wcd.c:2369
+#, c-format
+msgid "LOCALEDIR=%s\n"
+msgstr "ДИРЈЕЗИКА=%s\n"
+
+#: wcd.c:2371
+#, c-format
+msgid "No native language support included.\n"
+msgstr "Подршка матерњег језика није укључена.\n"
+
+#: wcd.c:2374
+#, c-format
+msgid "Current locale uses CP%u encoding.\n"
+msgstr "Текући језик користи „CP%u“ кодирање.\n"
+
+#: wcd.c:2376
+#, c-format
+msgid "Current locale uses %s encoding.\n"
+msgstr "Текући језик користи „%s“ кодирање.\n"
+
+#: wcd.c:2379
+#, c-format
+msgid "With Unicode support.\n"
+msgstr "Са подршком Јуникода.\n"
+
+#: wcd.c:2384
+#, c-format
+msgid "  Euro symbol: "
+msgstr "  Симбол евра: "
+
+#: wcd.c:2386
+#, c-format
+msgid "  Chinese characters: "
+msgstr "  Кинески знаци: "
+
+#: wcd.c:2390
+#, c-format
+msgid "Without Unicode support.\n"
+msgstr "Без подршке Јуникода.\n"
+
+#: wcd.c:2393
+#, c-format
+msgid "With Unicode normalization.\n"
+msgstr "Са нормализацијом Јуникода.\n"
+
+#: wcd.c:2395
+#, c-format
+msgid "Without Unicode normalization.\n"
+msgstr "Без нормализације Јуникода.\n"
+
+#: wcd.c:2398
+#, c-format
+msgid "Download the latest executables and sources from:\n"
+msgstr "Преузмите најновије извршне и датотеке извора са:\n"
+
+#: wcd.c:2405
+#, c-format
+msgid ""
+"Copyright (C) 1996-%d Erwin Waterlander\n"
+"Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
+"Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"
+"Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n"
+"Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
+"Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
+msgstr ""
+"Ауторска права ©  1996-%d Ервин Вотерландер\n"
+"Ауторска права ©  1994-2002 Ондреј Поп на „C3PO“\n"
+"Ауторска права ©  1995-1996 Диџеј Делори за „_fixpath()“\n"
+"Ауторска права ©  1995-1996 Борха Етксебарја & Оливер Сирол за „Ninux Czo Directory“\n"
+"Ауторска права ©  1994-1996 Џејсон Метју за „DOSDIR“\n"
+"Ауторска права ©  1990-1992 Марк Адлер, Ричард Б. Велс, Жан-луп Гели,\n"
+"Каи Уве Ромел и Игор Мандриченко за „recmatch()“\n"
+
+#: wcd.c:2413
+#, c-format
+msgid ""
+"Source code to scan Windows LAN was originally written and placed\n"
+"in the public domain by Felix Kasza.\n"
+"Markus Kuhn's free wcwidth() and wcswidth() implementations are used.\n"
+"Rugxulo is the original author of query_con_codepage() (public domain).\n"
+"\n"
+msgstr ""
+"Изворни код за прегледање Виндоуз ЛАН-а је првобитно написао и ставио\n"
+"у јавни домен, Феликс Каса.\n"
+"Коришћене су слободне имплементације „wcwidth()“ и „wcswidth()“ Маркуса Куна.\n"
+"Ругксуло је првобитни аутор функције „query_con_codepage()“ (јавни домен).\n"
+"\n"
+
+#: wcd.c:2419
+#, c-format
+msgid ""
+"This program is free software; you can redistribute it and/or\n"
+"modify it under the terms of the GNU General Public License\n"
+"as published by the Free Software Foundation; either version 2\n"
+"of the License, or (at your option) any later version.\n"
+"\n"
+msgstr ""
+"Овај програм је слободан софтвер; можете га расподељивати\n"
+"и/или мењати под условима Гнуове опште јавне лиценце коју\n"
+"је објавила Задужбина слободног софтвера; издања 2 лиценце\n"
+"или (по вашем избору) било којег новијег издања.\n"
+"\n"
+
+#: wcd.c:2425
+#, c-format
+msgid ""
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"GNU General Public License for more details.\n"
+"\n"
+msgstr ""
+"Овај програм се расподељује у нади да ће бити користан,\n"
+"али БЕЗ ИКАКВЕ ГАРАНЦИЈЕ; чак и без примењене гаранције\n"
+"ТРЖИШНЕ ВРЕДНОСТИ или ПРИЛАГОЂЕНОСТИ ОДРЕЂЕНОЈ НАМЕНИ.\n"
+"Погледајте Гнуову Општу јавну лиценцу за више детаља.\n"
+"\n"
+
+#: wcd.c:2431
+#, c-format
+msgid ""
+"You should have received a copy of the GNU General Public License\n"
+"along with this program; if not, write to the Free Software\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+msgstr ""
+"Требали сте да примите примерак Гнуове Опште јавне лиценце\n"
+"уз овај програм. Ако нисте, пишите Задужбини слободног\n"
+"софтвера на адресу: „Free Software Foundation, Inc., 51\n"
+"Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.“.\n"
+
+#: wcd.c:2464
+#, c-format
+msgid "creating directory %s\n"
+msgstr "правим директоријум „%s“\n"
+
+#: wcd.c:2796 wcd.c:2836 wcd.c:2851 wcd.c:2919 wcd.c:2988 wcd.c:3488 wcd.c:3507
+#, c-format
+msgid "Value of environment variable %s is too long.\n"
+msgstr "Вредност променљиве окружења „%s“ је превелика.\n"
+
+#: wcd.c:2825
+#, c-format
+msgid "Failed to unset environment variable TERM: %s\n"
+msgstr "Нисам успео да поништим променљиву окружења „TERM“: %s\n"
+
+#: wcd.c:2883 wcd.c:2912
+msgid "Environment variable HOME or WCDHOME is not set.\n"
+msgstr "Променљива окружења „HOME“ или „WCDHOME“ није подешена.\n"
+
+#: wcd.c:3095
+#, c-format
+msgid "aliasfile: %s\n"
+msgstr "датотека алијаса: %s\n"
+
+#: wcd.c:3109
+msgid "HOME is not defined\n"
+msgstr "„HOME“ није одређено\n"
+
+#: wcd.c:3113
+msgid "WCDHOME is not defined\n"
+msgstr "„WCDHOME“ није одређено\n"
+
+#: wcd.c:3117
+msgid "WCDSCAN is not defined\n"
+msgstr "„WCDSCAN“ није одређено\n"
+
+#: wcd.c:3142
+msgid "Graphics mode only supported in wcd with curses-based interface.\n"
+msgstr "Графички режим је подржан само у вцд-у са сучељем заснованом на кјурзису.\n"
+
+#: wcd.c:3421
+#, c-format
+msgid "%s added to aliasfile %s\n"
+msgstr "„%s“ је додато датотеци алијаса „%s“\n"
+
+#: wcd.c:3520
+#, c-format
+msgid "Unable to read file %s or %s\n"
+msgstr "Не могу да прочитам датотеку „%s“ или „%s“\n"
+
+#: wcd.c:3670
+#, c-format
+msgid "WCDSCAN directory {%s}\n"
+msgstr "„WCDSCAN“ директоријум {%s}\n"
+
+#: wcd.c:3672
+#, c-format
+msgid "banning {%s}\n"
+msgstr "забрањујем {%s}\n"
+
+#: wcd.c:3674
+#, c-format
+msgid "excluding {%s}\n"
+msgstr "искључујем {%s}\n"
+
+#: wcd.c:3676
+#, c-format
+msgid "filtering {%s}\n"
+msgstr "издвајам {%s}\n"
+
+#: wcd.c:3939
+#, c-format
+msgid "No directory found matching %s\n"
+msgstr "Нисам нашао директоријум који одговара „%s“\n"
+
+#: wcd.c:3940
+msgid "Perhaps you need to rescan the disk or path is banned.\n"
+msgstr "Можда би требало поново да прегледате диск или забрањену путању.\n"
+
+#: wcd.c:4108
+#, c-format
+msgid "Cannot change to %s\n"
+msgstr "Не могу да се пребацим у „%s“\n"
+
+#: wcddir.c:104
+#, c-format
+msgid "%lu (\"%s\") reported by \"%s\".\n"
+msgstr "О %lu (%s) је известио „%s“.\n"
+
+#: wcddir.c:127
+msgid "access denied.\n"
+msgstr "приступ је забрањен.\n"
+
+#: wcddir.c:208
+#, c-format
+msgid "Searching for shared directories on server %s\n"
+msgstr "Тражим дељене директоријуме на серверу „%s“\n"
+
+#: wcddir.c:220
+#, c-format
+msgid "Found %lu shared directories on server %s\n"
+msgstr "Нађох %lu дељена директоријума на серверу „%s“\n"
+
+#: wcddir.c:344
+msgid "Unable to get current working directory: "
+msgstr "Не могу да добавим текући радни директоријум: "
+
+#: wcddir.c:373
+#, c-format
+msgid "Unable to change to directory %s: "
+msgstr "Не могу да пређем у директоријум „%s“: "
+
+#: wcddir.c:405
+#, c-format
+msgid "Unable to create directory %s: "
+msgstr "Не могу да направим директоријум „%s“: "
+
+#: wcddir.c:435
+#, c-format
+msgid "Unable to remove directory %s: "
+msgstr "Не могу да уклоним директоријум „%s“: "
+
+#: wcddir.c:561 wcddir.c:575
+#, c-format
+msgid "Unable to create directory %s: %s\n"
+msgstr "Не могу да направим директоријум „%s“: %s\n"
+
+#: wcddir.c:697
+#, c-format
+msgid "Unable to get current working directory: %s\n"
+msgstr "Не могу да добавим текући радни директоријум: %s\n"
+
+#: wcddir.c:713
+#, c-format
+msgid "Unable to change to directory %s: %s\n"
+msgstr "Не могу да пређем у директоријум „%s“: %s\n"
+
+#: wcddir.c:725
+#, c-format
+msgid "Unable to remove directory %s: %s\n"
+msgstr "Не могу да уклоним директоријум „%s“: %s\n"
+
+#: stack.c:101
+msgid "Error parsing stack\n"
+msgstr "Грешка обраде спремника\n"
+
+#: display.c:261
+msgid "internal error in maxLength(), list == NULL\n"
+msgstr "унутрашња грешка у функцији „највећаДужина()“, „list“ == НИШТА\n"
+
+#: display.c:282
+msgid "internal error in maxLengthStack(), s == NULL\n"
+msgstr "унутрашња грешка у функцији „СпремникНајвећеДужина()“, „s“ == НИШТА\n"
+
+#: display.c:522 display.c:1137 display.c:1513
+#, c-format
+msgid "Perfect match for %d directories."
+msgstr "Савршено подударање за %d директоријума."
+
+#: display.c:524 display.c:1139 display.c:1515
+#, c-format
+msgid "Wild match for %d directories."
+msgstr "Несавршено подударање за %d директоријума."
+
+#: display.c:528 display.c:1151 display.c:1517 display.c:1560
+#, c-format
+msgid "Please choose one (<Enter> to abort): "
+msgstr "Изаберите један (<Унеси> да откажете): "
+
+#: display.c:530 display.c:606 display.c:638 display.c:1144
+#, c-format
+msgid " w=up x=down ?=help  Page %d/%d "
+msgstr " w=горе x=доле ?=помоћ  Страница %d/%d "
+
+#: display.c:682 display.c:1167
+msgid "Screenheight must be > 20 for help."
+msgstr "Висина екрана мора бити > 20 за помоћ."
+
+#: display.c:687 display.c:1170
+msgid "w or <Up>         page up"
+msgstr "„w“ или <Горе>          страница на горе"
+
+#: display.c:688 display.c:1171
+msgid "x or z or <Down>  page down"
+msgstr "„x“ или „z“ или <Доле>  страница на доле"
+
+#: display.c:689 display.c:1172
+msgid ", or <Left>       scroll 1 left"
+msgstr ", или <Лево>            премиче 1 на лево"
+
+#: display.c:690 display.c:1173
+msgid ". or <Right>      scroll 1 right"
+msgstr ". или <Десно>           премиче 1 на десно"
+
+#: display.c:691 display.c:1174
+msgid "< or [            scroll 10 left"
+msgstr "< или [                 премиче 10 на лево"
+
+#: display.c:692 display.c:1175
+msgid "> or ]            scroll 10 right"
+msgstr "> или ]                 премиче 10 на десно"
+
+#: display.c:693 display.c:1176
+msgid "CTRL-a or <HOME>  scroll to beginning"
+msgstr "Ктрл-a или <ПОЧЕТАК>    премиче на почетак"
+
+#: display.c:694 display.c:1177
+msgid "CTRL-e or <END>   scroll to end"
+msgstr "Ктрл-e или <КРАЈ>       премиче на крај"
+
+#: display.c:695 display.c:1179
+msgid "CTRL-c or <Esc>   abort"
+msgstr "Ктрл-c или <Есц>        прекида"
+
+#: display.c:696 display.c:1180
+msgid "<Enter>           abort"
+msgstr "<Унеси>                 прекида"
+
+#: display.c:697
+msgid "Type w or x to quit help."
+msgstr "Укуцајте „w“ или „x“ да изађете из помоћи."
+
+#: display.c:1178 graphics.c:1983
+msgid "CTRL-l or F5      redraw screen"
+msgstr "Ктрл-л или Ф5           поново исцртава екран"
+
+#: display.c:1181 graphics.c:1968 graphics.c:1985 graphics.c:2008
+#: graphics.c:2025
+msgid "Press any key."
+msgstr "Притисните неки тастер."
+
+#: display.c:1246 graphics.c:2280
+msgid "Error opening terminal, falling back to stdout interface.\n"
+msgstr "Грешка отварања терминала, пребацујем се на сучеље стандардног излаза.\n"
+
+#: display.c:1267
+msgid "screen height must be larger than 3 lines.\n"
+msgstr "висина екрана мора бити већа од 3 реда.\n"
+
+#: display.c:1301 graphics.c:2311
+msgid "error creating scroll window.\n"
+msgstr "грешка прављења прозора премицања.\n"
+
+#: display.c:1315
+msgid "error creating input window.\n"
+msgstr "грешка прављења прозора уноса.\n"
+
+#: graphics.c:277
+#, c-format
+msgid "Wcd: error: path too long"
+msgstr "Вцд: грешка: путања је предуга"
+
+#: graphics.c:1929
+msgid "/ = search forward,  ? = search backward,  : = help"
+msgstr "/ = тражи унапред,  ? = тражи уназад,  : = помоћ"
+
+#: graphics.c:1934
+msgid "SEARCH: "
+msgstr "ТРАЖИ: "
+
+#: graphics.c:1937
+msgid "Search: "
+msgstr "Тражи: "
+
+#: graphics.c:1953
+msgid "NAVIGATION MODE (1/2):"
+msgstr "РЕЖИМ НАВИГАЦИЈЕ (1/2):"
+
+#: graphics.c:1954
+msgid "h or <Left>       go left"
+msgstr "„h“ или <Лево>         иде лево"
+
+#: graphics.c:1955
+msgid "j or <Down>       go down"
+msgstr "„j“ или <Доле>         иде доле"
+
+#: graphics.c:1956
+msgid "k or <Up>         go up"
+msgstr "„k“ или <Горе>         иде горе"
+
+#: graphics.c:1957
+msgid "l or <Right>      go right"
+msgstr "„l“ или <Десно>        иде десно"
+
+#: graphics.c:1958
+msgid "* or v or <Space> go forward to dir with same name"
+msgstr "* или „v“ или <Размак> иде напред до директоријума са истим називом"
+
+#: graphics.c:1959
+msgid "# or p or <BS>    go backward to dir with same name"
+msgstr "# или „p“ или <БС>     иде назад до директоријума саистим називом"
+
+#: graphics.c:1960
+msgid "^ or a            go to beginning of line"
+msgstr "^ или „a“              иде на почетак реда"
+
+#: graphics.c:1961
+msgid "$ or e            go to end of line"
+msgstr "$ или „e“              иде на крај реда"
+
+#: graphics.c:1962
+msgid "1                 go to root dir"
+msgstr "1                      иде до кореног директоријума"
+
+#: graphics.c:1963
+msgid "g or G            go to last dir"
+msgstr "„g“ или „G“            иде до последњег директоријума"
+
+#: graphics.c:1964
+msgid "f                 go page forward"
+msgstr "„f“                    иде страницу напред"
+
+#: graphics.c:1965
+msgid "b                 go page backward"
+msgstr "„b“                    иде страницу назад"
+
+#: graphics.c:1966
+msgid "u                 go half page up"
+msgstr "„u“                    иде пола странице горе"
+
+#: graphics.c:1967
+msgid "d                 go half page down"
+msgstr "„d“                    иде пола странице доле"
+
+#: graphics.c:1974
+msgid "NAVIGATION MODE (2/2):"
+msgstr "РЕЖИМ НАВИГАЦИЈЕ (2/2):"
+
+#: graphics.c:1975
+msgid "A                 switch alternative tree navigation on/off"
+msgstr "„A“                  укључује/искључује алтернативну навигацију стаблом"
+
+#: graphics.c:1976
+msgid "t                 switch centered mode on/off"
+msgstr "„t“                  укључује режим усредиштења"
+
+#: graphics.c:1977
+msgid "T                 toggle between line drawing and ASCII characters"
+msgstr "„T“                  пребацује се између исцртавања реда и АСКРИ знакова"
+
+#: graphics.c:1978
+msgid "m                 toggle between compact and wide tree"
+msgstr "„m“                  пребацује се између скупљеног и раширеног стабла"
+
+#: graphics.c:1979
+msgid "<Esc> or q        abort"
+msgstr "<Есц> или „q“        прекида"
+
+#: graphics.c:1980
+msgid "/                 search forward"
+msgstr "/                    тражи унапред"
+
+#: graphics.c:1981
+msgid "?                 search backward"
+msgstr "?                    тражи уназад"
+
+#: graphics.c:1982
+msgid "n                 repeat last / or ? search"
+msgstr "„n“                  понавља последњу / или ? претрагу"
+
+#: graphics.c:1984 graphics.c:2007
+msgid "<Enter>           select directory"
+msgstr "<Унеси>              бира директоријум"
+
+#: graphics.c:1991
+msgid "SEARCH MODE with wildcard and subdir support:"
+msgstr "РЕЖИМ ПРЕТРАГЕ са подршком џокера и поддиректоријума:"
+
+#: graphics.c:1992
+msgid "<Left>            go left"
+msgstr "<Лево>           иде лево"
+
+#: graphics.c:1993
+msgid "<Down>            go down"
+msgstr "<Доле>           иде доле"
+
+#: graphics.c:1994
+msgid "<Up>              go up"
+msgstr "<Горе>           иде горе"
+
+#: graphics.c:1995
+msgid "<Right>           go right"
+msgstr "<Десно>          иде десно"
+
+#: graphics.c:1996
+msgid "CTRL-v            go forward to dir with same name"
+msgstr "Ктрл-v           иде напред до директоријума са истим називом"
+
+#: graphics.c:1997
+msgid "CTRL-p            go backward to dir with same name"
+msgstr "Ктрл-p           иде назад до директоријума саистим називом"
+
+#: graphics.c:1998
+msgid "CTRL-a            go to beginning of line"
+msgstr "Ктрл-a           иде на почетак реда"
+
+#: graphics.c:1999
+msgid "CTRL-e            go to end of line"
+msgstr "Ктрл-e           иде на крај реда"
+
+#: graphics.c:2000
+msgid "CTRL-g            go to last dir"
+msgstr "Ктрл-g           иде до последњег директоријума"
+
+#: graphics.c:2001
+msgid "CTRL-f            go page forward"
+msgstr "Ктрл-f           иде страницу напред"
+
+#: graphics.c:2002
+msgid "CTRL-b            go page backward"
+msgstr "Ктрл-b           иде страницу назад"
+
+#: graphics.c:2003
+msgid "CTRL-u            go half page up"
+msgstr "Ктрл-u           иде пола странице горе"
+
+#: graphics.c:2004
+msgid "CTRL-d            go half page down"
+msgstr "Ктрл-d           иде пола странице доле"
+
+#: graphics.c:2005
+msgid "<Esc> or CTRL-x   abort SEARCH MODE"
+msgstr "<Есц> или Ктрл-x прекида РЕЖИМ ПРЕТРАГЕ"
+
+#: graphics.c:2006
+msgid "CTRL-n            repeat last / or ? search"
+msgstr "Ктрл-n           понавља последњу / или ? претрагу"
+
+#: graphics.c:2014
+msgid "ZOOMING:"
+msgstr "ЗУМИРАЊЕ:"
+
+#: graphics.c:2015
+msgid "z or i or CTRL-i  zoom in"
+msgstr "„z“ или „i“ или „Ктрл-i“  приближава"
+
+#: graphics.c:2016
+msgid "Z or o or CTRL-o  zoom out"
+msgstr "„Z“ или „o“ или „Ктрл-o“  удаљава"
+
+#: graphics.c:2017
+msgid "c                 condense: fold current level"
+msgstr "„c“               сабија: завија текући ниво"
+
+#: graphics.c:2018
+msgid "C                 condense: fold subdir level"
+msgstr "„C“               сабија: завија ниво поддиректоријума"
+
+#: graphics.c:2019
+msgid "w                 condense: fold current and subdir levels"
+msgstr "„w“               сабија: завија текући и нивое поддиректоријума"
+
+#: graphics.c:2020
+msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
+msgstr "„y“ или „Ктрл-y“    шири: развија текући и нивое поддиректоријума"
+
+#: graphics.c:2021
+msgid "r or CTRL-r       uncondense: unfold all directories"
+msgstr "„r“ или „Ктрл-r“    шири: развија све директоријуме"
+
+#: graphics.c:2022
+msgid "-                 fold directory"
+msgstr "-                         завија директоријум"
+
+#: graphics.c:2023
+msgid "+ or =            unfold directory"
+msgstr "+ или =                   развија директоријум"
+
+#: graphics.c:2024
+msgid "l or <Right>      unfold and go right"
+msgstr "„l“ или <Десно>           развија и иде десно"
+
+#: graphics.c:2028
+msgid "Screenheight must be > 21 for help."
+msgstr "Висина екрана мора бити > 21 за помоћ."
+
+#: graphics.c:2262 graphics.c:2731
+#, c-format
+msgid "Cannot find the current path %s in the directory tree.\n"
+msgstr "Не могу да нађем текућу путању „%s“ у стаблу директоријума.\n"
+
+#: c3po/Error.c:41
+#, c-format
+msgid "in '%s', insufficient memory for allocation\n"
+msgstr "у „%s“, недовољно меморије за додељивање\n"

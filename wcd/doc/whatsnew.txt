@@ -1,4 +1,5 @@
 5.3.4-beta3 2016-12-06
+  - New Serbian translation. Thanks to Мирослав Николић.
   - src/Makefile: Fixed for compilation on OS/2.
   - Code cleanup.
 
