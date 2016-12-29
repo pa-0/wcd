@@ -5,10 +5,10 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2014, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd-5.3.3-beta9\n"
+"Project-Id-Version: wcd-5.3.4-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 22:55+0100\n"
-"PO-Revision-Date: 2016-09-27 21:37+0300\n"
+"POT-Creation-Date: 2016-12-06 23:00+0100\n"
+"PO-Revision-Date: 2016-12-21 17:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -133,7 +133,7 @@ msgstr " довжина: %d\n"
 
 #: wcd.c:2044 wcd.c:2113
 msgid "Alias file in UTF-16 format is not supported.\n"
-msgstr ""
+msgstr "Підтримки файлів псевдонімів у форматі UTF-16 не передбачено.\n"
 
 #: wcd.c:2210
 #, c-format
@@ -296,7 +296,7 @@ msgstr "  -l ПСЕВДОНІМ             створити псевдонім 
 #: wcd.c:2246
 #, c-format
 msgid "  -ls                     List the aliases\n"
-msgstr "  -ls                     вивести список альтернативних назв\n"
+msgstr "  -ls                     вивести список псевдонімів\n"
 
 #: wcd.c:2247
 #, c-format
@@ -727,7 +727,8 @@ msgstr ""
 msgid "creating directory %s\n"
 msgstr "створюємо каталог %s\n"
 
-#: wcd.c:2808 wcd.c:2848 wcd.c:2863 wcd.c:2931 wcd.c:3000 wcd.c:3500 wcd.c:3519
+#: wcd.c:2808 wcd.c:2848 wcd.c:2863 wcd.c:2931 wcd.c:3000 wcd.c:3500
+#: wcd.c:3519
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Значення змінної середовища %s є надто довгим.\n"

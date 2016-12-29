@@ -5,17 +5,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.3.3-beta9\n"
+"Project-Id-Version: wcd 5.3.4-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 22:55+0100\n"
-"PO-Revision-Date: 2016-09-28 08:11+0700\n"
+"POT-Creation-Date: 2016-12-06 23:00+0100\n"
+"PO-Revision-Date: 2016-12-22 07:19+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
 "Language: vi\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Gtranslator 2.91.7\n"
 
@@ -27,7 +27,7 @@ msgstr "Wcd: lỗi: "
 #: wcd.c:185 wcd.c:239 wcd.c:259
 #, c-format
 msgid "Unable to read file %s: %s\n"
-msgstr "Không đọc tập tin %s: %s\n"
+msgstr "Không thể đọc tập tin %s: %s\n"
 
 #: wcd.c:248
 #, c-format
@@ -133,7 +133,7 @@ msgstr " kích cỡ: %d\n"
 
 #: wcd.c:2044 wcd.c:2113
 msgid "Alias file in UTF-16 format is not supported.\n"
-msgstr ""
+msgstr "Không hỗ trợ tập tin bí danh ở định dạng UTF-16.\n"
 
 #: wcd.c:2210
 #, c-format
@@ -727,7 +727,8 @@ msgstr ""
 msgid "creating directory %s\n"
 msgstr "đang tạo thư mục %s\n"
 
-#: wcd.c:2808 wcd.c:2848 wcd.c:2863 wcd.c:2931 wcd.c:3000 wcd.c:3500 wcd.c:3519
+#: wcd.c:2808 wcd.c:2848 wcd.c:2863 wcd.c:2931 wcd.c:3000 wcd.c:3500
+#: wcd.c:3519
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Giá trị của biến môi trường %s là quá dài.\n"

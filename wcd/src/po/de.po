@@ -7,10 +7,10 @@
 # Philipp Thomas <pth@suse.de>, 2010, 2011, 2012, 2014, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.3.3-beta9\n"
+"Project-Id-Version: wcd 5.3.4-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 22:55+0100\n"
-"PO-Revision-Date: 2016-09-29 15:59+0200\n"
+"POT-Creation-Date: 2016-12-06 23:00+0100\n"
+"PO-Revision-Date: 2016-12-21 14:26+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: wcd.c:172
 #, c-format
 msgid "Wcd: error: "
-msgstr "wcd: Fehler: "
+msgstr "Wcd: Fehler: "
 
 #: wcd.c:185 wcd.c:239 wcd.c:259
 #, c-format
@@ -135,7 +135,7 @@ msgstr " Länge: %d\n"
 
 #: wcd.c:2044 wcd.c:2113
 msgid "Alias file in UTF-16 format is not supported.\n"
-msgstr ""
+msgstr "Alias-Dateien in UTF-16 werden nicht unterstützt.\n"
 
 #: wcd.c:2210
 #, c-format
@@ -668,7 +668,7 @@ msgid ""
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
-"Copyright © 1996-%d Erwin Waterlander\n"
+"Copyright © 1997-%d Erwin Waterlander\n"
 "Copyright © 1994-2002 Ondrej Popp auf C3PO\n"
 "Copyright © 1995-1996 DJ Delorie auf _fixpath()\n"
 "Copyright © 1995-1996 Borja Etxebarria & Olivier Sirol auf Ninux Czo Verzeichnis\n"
@@ -738,7 +738,8 @@ msgstr ""
 msgid "creating directory %s\n"
 msgstr "Verzeichnis %s wird erzeugt\n"
 
-#: wcd.c:2808 wcd.c:2848 wcd.c:2863 wcd.c:2931 wcd.c:3000 wcd.c:3500 wcd.c:3519
+#: wcd.c:2808 wcd.c:2848 wcd.c:2863 wcd.c:2931 wcd.c:3000 wcd.c:3500
+#: wcd.c:3519
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Der Inhalt der Umgebungsvariable %s ist zu lang.\n"
