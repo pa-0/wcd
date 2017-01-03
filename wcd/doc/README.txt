@@ -84,7 +84,7 @@ Table of Contents
 2.0 Copyright
 
 
-        Copyright (C) 1996-2016 Erwin Waterlander
+        Copyright (C) 1996-2017 Erwin Waterlander
 
         This program is free software; you can redistribute it and/or
         modify it under the terms of the GNU General Public License

@@ -12,7 +12,7 @@ WWW     : http://waterlan.home.xs4all.nl/
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 1996-2016 Erwin Waterlander
+Copyright (C) 1996-2017 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -2045,8 +2045,8 @@ void scanaliasfile(char *org_dir, char *filename,
       return;
    }
 
-   char alias[256];
    while (!feof(infile) && !ferror(infile)) {
+      char alias[256];
       int len;
       char *ptr;
       size_t j;
@@ -2117,8 +2117,8 @@ void list_alias_file(char *filename)
    aliaslines = namesetNew();
 
    /* First read all the lines in a nameset so that we can sort it later */
-   char line[DD_MAXPATH];
    while (!feof(infile) && !ferror(infile)) {
+      char line[DD_MAXPATH];
       int len;
 
       /* skip spaces at the beginning of the line */
@@ -2127,9 +2127,9 @@ void list_alias_file(char *filename)
 
       /* read a line */
       len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
-       ++line_nr;
-       if (len > 0 )
-          addToNamesetArray(textNew(line),aliaslines);
+      ++line_nr;
+      if (len > 0 )
+         addToNamesetArray(textNew(line),aliaslines);
    }   /* while (!feof(infile) && !ferror(infile)) */
    if (ferror(infile)) {
      wcd_read_error(filename);
@@ -2421,7 +2421,7 @@ Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n\
 Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n\
 Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n\
 Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n\
-Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"),2016);
+Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"),2017);
    printf(_("\
 Source code to scan Windows LAN was originally written and placed\n\
 in the public domain by Felix Kasza.\n\
