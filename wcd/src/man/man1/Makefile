@@ -3,7 +3,7 @@
 #   Copyright information
 #
 #	Copyright (C) 2008-2009 Jari Aalto
-#	Copyright (C) 2010-2016 Erwin Waterlander
+#	Copyright (C) 2010-2017 Erwin Waterlander
 #
 #   License
 #
@@ -26,6 +26,8 @@ ifneq (,)
     This makefile requires GNU Make.
 endif
 
+include ../../version.mk
+
 .PRECIOUS: %.pod
 
 # This variable *must* be set when calling
@@ -33,7 +35,7 @@ PACKAGE		?= wcd
 
 # Optional variables to set
 MANSECT		?= 1
-PODCENTER	?= $$(date "+%Y-%m-%d")
+PODCENTER	?= $(VERSION_DATE)
 
 # Directories
 MANSRC		=
@@ -45,8 +47,8 @@ MANPAGE		= $(MANDEST)$(PACKAGE).$(MANSECT)
 POD2MAN		= pod2man
 POD2MAN_FLAGS	=
 
-POFILES = $(wildcard ../*/man1/wcd.po)
-PODFILES = $(patsubst %.po,%.pod,$(POFILES))
+POFILES = $(wildcard ../../po-man/*.po)
+PODFILES = $(patsubst ../../po-man/%.po,../%/man1/wcd.pod,$(POFILES))
 MAN_OBJECTS = wcd.1 $(patsubst %.pod,%.1,$(PODFILES))
 
 MKDIR = mkdir
