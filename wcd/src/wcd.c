@@ -1038,7 +1038,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 #endif
       }
 
-#ifdef UNIX
+#if defined(UNIX) || ((defined(__OS2__) && defined(__EMX__)))
       if ( S_ISLNK(fb.dd_mode))  /* is it a link ? */
       {
         static struct stat buf ;
@@ -1247,7 +1247,7 @@ void makeDir(char *path, char *treefile, int *use_HOME)
  *
  ********************************************************************/
 
-#if defined(UNIX) || defined(_WIN32)
+#if defined(UNIX) || defined(_WIN32) || ((defined(__OS2__) && defined(__EMX__)))
 void deleteLink(char *path, char *treefile)
 {
    static struct stat buf ;
@@ -1312,7 +1312,7 @@ void deleteLink(char *path, char *treefile)
  ********************************************************************/
 void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int assumeYes)
 {
-#ifdef UNIX
+#if defined(UNIX) || ((defined(__OS2__) && defined(__EMX__)))
    static struct stat buf ;
 #endif
 #ifdef _WCD_DOSFS
@@ -1322,7 +1322,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
 
    wcd_fixpath(path,(size_t)DD_MAXPATH);
 
-#ifdef UNIX
+#if defined(UNIX) || ((defined(__OS2__) && defined(__EMX__)))
    if (lstat(path, &buf) != 0)
    {
      char *errstr = strerror(errno);
@@ -1335,14 +1335,15 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
       deleteLink(path,treefile);
       return;
    }
-#else
-#  if defined(_WIN32) && !defined(__CYGWIN__)
+#elif defined(_WIN32) && !defined(__CYGWIN__)
      if (wcd_islink(path, 0))  /* is it a link? */
      {
         deleteLink(path,treefile);
         return;
      }
-#  endif
+#endif
+
+#ifdef _WCD_DOSFS
    /* is there a drive to go to ? */
    changeDisk(path,&changedrive,drive,use_HOME);
 #endif

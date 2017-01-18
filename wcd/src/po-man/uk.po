@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man-5.3.3-beta4\n"
-"POT-Creation-Date: 2016-09-06 21:37+0200\n"
+"POT-Creation-Date: 2017-01-19 00:10+0100\n"
 "PO-Revision-Date: 2016-05-31 13:30+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -1446,16 +1446,30 @@ msgstr "Розташування скрипту переходу, C<wcd.go>, є 
 
 #. type: textblock
 #: wcd.pod:762
-msgid "Wcd for DJGPP DOS bash requires a different function. The go script is not written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
+#, fuzzy
+#| msgid "Wcd for DJGPP DOS bash requires a different function. The go script is not written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
+msgid "Wcd for DJGPP DOS bash and OS/2 bash require a different function. The go script is not written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
 msgstr "Wcd для bash у DJGPP DOS потрібна інша функція. Скрипт переходу не буде записано до каталогу C<bin> і, якщо одночасно визначено I<WCDHOME> та I<HOME>, скрипт переходу буде записано до c:/."
 
-#. type: verbatim
+#. type: textblock
 #: wcd.pod:766
-#, no-wrap
+msgid "DOS bash:"
+msgstr ""
+
+#. type: verbatim
+#: wcd.pod:768
+#, fuzzy, no-wrap
+#| msgid ""
+#| "    wcd ()\n"
+#| "    {\n"
+#| "        <PATH>/wcd.exe \"$@\"\n"
+#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+#| "    }\n"
+#| "\n"
 msgid ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcd.exe \"$@\"\n"
+"        <PATH>/wcdbash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1468,17 +1482,56 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:772
-msgid "The WinZsh version of wcd is also a bit different. No C<bin> directory."
+#: wcd.pod:774
+msgid "OS/2 bash:"
+msgstr ""
+
+#. type: verbatim
+#: wcd.pod:776
+#, fuzzy, no-wrap
+#| msgid ""
+#| "    wcd ()\n"
+#| "    {\n"
+#| "        <PATH>/wcd.exe \"$@\"\n"
+#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+#| "    }\n"
+#| "\n"
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        <PATH>/wcdos2bash.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        <ШЛЯХ>/wcd.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:782
+#, fuzzy
+#| msgid "The WinZsh version of wcd is also a bit different. No C<bin> directory."
+msgid "The WinZsh version of wcd requires a bit different function. The go-script will never be written in c:/."
 msgstr "Версія wcd для WinZsh теж має свої особливості. Немає каталогу C<bin>."
 
 #. type: verbatim
-#: wcd.pod:774
-#, no-wrap
+#: wcd.pod:785
+#, fuzzy, no-wrap
+#| msgid ""
+#| "    wcd ()\n"
+#| "    {\n"
+#| "        <PATH>/wcd.exe \"$@\"\n"
+#| "        . ${WCDHOME:-${HOME}}/wcd.go\n"
+#| "    }\n"
+#| "\n"
 msgid ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcd.exe \"$@\"\n"
+"        <PATH>/wcdwin32zsh.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1491,22 +1544,22 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:780
+#: wcd.pod:791
 msgid "See section FILES for more information."
 msgstr "Докладніший опис можна знайти у розділі «ФАЙЛИ»."
 
 #. type: =head2
-#: wcd.pod:782
+#: wcd.pod:793
 msgid "Install for C-alike shells (csh, tcsh)"
 msgstr "Встановлення для C-подібних командних оболонок (csh, tcsh)"
 
 #. type: textblock
-#: wcd.pod:784
+#: wcd.pod:795
 msgid "Add the following alias to the shell startup file C<$HOME/.cshrc> or C<$HOME/.tcshrc> :"
 msgstr "Додайте такі альтернативні назви до файла запуску оболонки, C<$HOME/.cshrc> або C<$HOME/.tcshrc> :"
 
 #. type: verbatim
-#: wcd.pod:787
+#: wcd.pod:798
 #, no-wrap
 msgid ""
 "    if ( ${?WCDHOME} ) then\n"
@@ -1524,47 +1577,47 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:793
+#: wcd.pod:804
 msgid "Replace I<PATH> with the location where the wcd executable has been installed.  Reload the shell initialization files or start a new shell."
 msgstr "Замініть I<ШЛЯХ> на адресу каталогу, до якого встановлено виконуваний файл wcd. Перезавантажте файли ініціалізації оболонки або запустіть нову оболонку."
 
 #. type: =head2
-#: wcd.pod:797
+#: wcd.pod:808
 msgid "Windows Command Prompt version"
 msgstr "Версія для командного рядка Windows"
 
 #. type: textblock
-#: wcd.pod:799
+#: wcd.pod:810
 msgid "Unpack the zip file and add directory C<bin> to your environment variable I<PATH>."
 msgstr "Розпакуйте архів zip і додайте каталог C<bin> до вашої змінної середовища I<PATH>."
 
 #. type: textblock
-#: wcd.pod:802
+#: wcd.pod:813
 msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch scrip C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
 msgstr "Програма для Windows, що працює у вікні командної оболонки Windows (Command Prompt) не може змінити поточного каталогу, але це може зробити скрипт .bat. Пакетний скрипт C<wcd.ba>» запускає програму wcd, яка створює новий пакетний скрипт, C<wcdgo.bat>. Після цього C<wcd.bat> запускає скрипт C<wcdgo.bat>, який здійснює зміну каталогу."
 
 #. type: =head2
-#: wcd.pod:807
+#: wcd.pod:818
 msgid "Windows VISTA and higher"
 msgstr "Windows VISTA та новіші версії"
 
 #. type: textblock
-#: wcd.pod:809
+#: wcd.pod:820
 msgid "In a Windows VISTA and higher Command Prompt you may have limited access to directories. To get access to more directories you need administrator rights. You can get a Command Prompt with administrator rights if you right click on the Command Prompt icon and select I<Run as administrator>."
 msgstr "У командній оболонці Windows VISTA та новіших версій користувачі мають обмежений доступ до каталогів. Що отримати доступ до усіх каталогів, вам знадобляться права доступу адміністратора. Запустити командну оболонку з правами адміністратора можна так: наведіть вказівник миші на піктограму командної оболонки, клацніть правою кнопкою миші і виберіть у контекстному меню пункт I<Запуск від імені адміністратора>."
 
 #. type: =head2
-#: wcd.pod:814
+#: wcd.pod:825
 msgid "Windows PowerShell version"
 msgstr "Версія для Windows PowerShell"
 
 #. type: textblock
-#: wcd.pod:816
+#: wcd.pod:827
 msgid "Add the following function to your PowerShell user profile. The location of this profile is stored in the $profile variable. It is required that one of the environment variables I<HOME> or I<WCDHOME> is defined."
 msgstr "Додайте вказану нижче функцію до вашого профілю користувача PowerShell. Дані щодо місця зберігання цього профілю зберігаються у змінній $profile. Слід також визначити змінну середовища I<HOME> або I<WCDHOME>."
 
 #. type: verbatim
-#: wcd.pod:820
+#: wcd.pod:831
 #, no-wrap
 msgid ""
 "    function wcd\n"
@@ -1582,37 +1635,37 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:826
+#: wcd.pod:837
 msgid "Replace I<PATH> with the location where the wcd executable has been installed.  Start a new PowerShell. Wcd for PowerShell supports only the file system provider. No other providers."
 msgstr "Замініть I<ШЛЯХ> на адресу каталогу, до якого встановлено виконуваний файл wcd. Запустіть новий сеанс роботи у PowerShell. У Wcd для PowerShell передбачено роботу лише з файловими системами. Забезпечення роботи з іншими джерелами файлових даних не передбачено."
 
 #. type: =head2
-#: wcd.pod:830
+#: wcd.pod:841
 msgid "OS/2 Command Prompt version"
 msgstr "Версія для командного рядка OS/2"
 
 #. type: textblock
-#: wcd.pod:832
+#: wcd.pod:843
 msgid "In an OS/2 Command Prompt (cmd.exe) an OS/2-program can't change the current work directory. That is why wcd generates a command script C<wcdgo.cmd> which must be executed in the current shell. The script C<wcd.cmd> first executes C<wcdos2.exe>, which creates the C<wcdgo.cmd> script. Then C<wcd.cmd> executes the C<wcdgo.cmd> script."
 msgstr "У командній оболонці OS/2 (cmd.exe) програма OS/2 не може змінювати робочого каталогу. Ось чому wcd створює командний скрипт (C<wcdgo.cmd>), який має бути виконано у поточній оболонці. Скрипт C<wcd.cmd> спочатку запускає програму C<wcdos2.exe>, яка створює скрипт C<wcdgo.cmd>. Після цього C<wcd.cmd> запускає скрипт wcdgo.cmd."
 
 #. type: =head1
-#: wcd.pod:839
+#: wcd.pod:850
 msgid "LOCALIZATION"
 msgstr "ЛОКАЛІЗАЦІЯ"
 
 #. type: =item
-#: wcd.pod:843
+#: wcd.pod:854
 msgid "B<LANG>"
 msgstr "B<LANG>"
 
 #. type: textblock
-#: wcd.pod:845
+#: wcd.pod:856
 msgid "The primary language is selected with the environment variable I<LANG>. The I<LANG> variable consists out of several parts. The first part is in small letters the language code. The second one is optional and is the country code in capital letters, preceded with an underscore. There is also an optional third part: character encoding, preceded with a dot. A few examples for POSIX standard type shells:"
 msgstr "Основна мова визначається за допомогою змінної середовища I<LANG>. Значення змінної I<LANG> складається з декількох частин. Перша частина записується малими літерами і визначає код мови. Друга частина є необов’язковою, визначає код країни і записується прописними літерами, відокремлюється від першої частини символом підкреслювання. Передбачено також необов’язкову третю частину: кодування. Ця частина відокремлюється від другої частини крапкою. Ось декілька прикладів для командних оболонок стандартного типу POSIX:"
 
 #. type: verbatim
-#: wcd.pod:852
+#: wcd.pod:863
 #, no-wrap
 msgid ""
 "    export LANG=nl               Dutch\n"
@@ -1632,47 +1685,47 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:859
+#: wcd.pod:870
 msgid "For a complete list of language and country codes see the gettext(1)  manual: L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes> On Unix systems you can use to command locale(1) to get locale specific information."
 msgstr "Повний список мов та кодів краї наведено у підручнику з gettext(1): L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes>. У системах Unix для отримання даних щодо локалі можна скористатися командою locale(1)."
 
 #. type: =item
-#: wcd.pod:865
+#: wcd.pod:876
 msgid "B<LANGUAGE>"
 msgstr "B<LANGUAGE>"
 
 #. type: textblock
-#: wcd.pod:867
+#: wcd.pod:878
 msgid "With the I<LANGUAGE> environment variable you can specify a priority list of languages, separated by colons. Wcd gives preference to I<LANGUAGE> over I<LANG>. For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first enable localization, by setting I<LANG> or I<LC_ALL> to a value other than I<C>, before you can use a language priority list through the I<LANGUAGE> variable. See also the gettext(1) manual: L<http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>"
 msgstr "За допомогою змінної середовища I<LANGUAGE> ви можете вказати список пріоритетності мов. Записи у списку слід відокремлювати двокрапками. Програма wcd надає перевагу I<LANGUAGE> над I<LANG>. Наприклад, перша голландська, далі німецька: C<LANGUAGE=nl:de>. Спочатку вам слід увімкнути локалізацію, встановивши для змінної I<LANG> (або I<LC_ALL>) значення, відмінне від I<C>. Далі ви зможете використовувати список пріоритетності мов за допомогою змінної I<LANGUAGE>. Додаткові відомості можна знайти у підручнику з gettext: L<http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>"
 
 #. type: textblock
-#: wcd.pod:875
+#: wcd.pod:886
 msgid "If you select a language which is not available you will get the standard English messages."
 msgstr "Якщо вами буде вибрано мову, перекладу якою немає, буде показано стандартні повідомлення англійською мовою."
 
 #. type: =item
-#: wcd.pod:878
+#: wcd.pod:889
 msgid "B<WCDLOCALEDIR>"
 msgstr "B<WCDLOCALEDIR>"
 
 #. type: textblock
-#: wcd.pod:880
+#: wcd.pod:891
 msgid "With the environment variable I<WCDLOCALEDIR> the I<LOCALEDIR> used during compilation and installation of wcd can be overruled. I<LOCALEDIR> is used by wcd with native language support to find the language files. The GNU default value is C</usr/local/share/locale>. By typing C<wcd -V> wcd will print the I<LOCALEDIR> that is used."
 msgstr "За допомогою визначення змінної середовища I<WCDLOCALEDIR> можна перевизначити значення I<LOCALEDIR>, вказане під час збирання та встановлення програми. Змінна I<LOCALEDIR> використовується wcd з підтримкою перекладів для пошуку файлів перекладів. Типовим значенням для системи GNU є C</usr/local/share/locale>. Дізнатися про поточне значення змінної I<LOCALEDIR> можна за допомогою команди C<wcd -V>."
 
 #. type: textblock
-#: wcd.pod:886
+#: wcd.pod:897
 msgid "If you have installed wcd in a different directory than the default directory you may need to set the environment variable I<WCDLOCALEDIR> to point to the locale directory."
 msgstr "Якщо ви встановили wcd до каталогу, відмінного від типового, вам варто встановити значення змінної середовища I<WCDLOCALEDIR> так, щоб вона вказувала на каталог з файлами перекладів."
 
 #. type: textblock
-#: wcd.pod:891
+#: wcd.pod:902
 msgid "An example for Windows cmd:"
 msgstr "Приклад для cmd у Windows:"
 
 #. type: verbatim
-#: wcd.pod:893
+#: wcd.pod:904
 #, no-wrap
 msgid ""
 "    set WCDLOCALEDIR=c:/my_prefix/share/locale\n"
@@ -1682,12 +1735,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:896
+#: wcd.pod:907
 msgid "An example for a POSIX shell:"
 msgstr "Приклад для оболонки POSIX:"
 
 #. type: verbatim
-#: wcd.pod:898
+#: wcd.pod:909
 #, no-wrap
 msgid ""
 "    export WCDLOCALEDIR=$HOME/share/locale\n"
@@ -1697,22 +1750,22 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:900
+#: wcd.pod:911
 msgid "B<LC_COLLATE>"
 msgstr "B<LC_COLLATE>"
 
 #. type: textblock
-#: wcd.pod:902
+#: wcd.pod:913
 msgid "When there are multiple directory matches wcd presents a sorted list. The sorting depends on the locale settings. If the environment I<LANG> has been set the matches are sorted like dictionaries or phone books are sorted in that language. For instance dots and dashes are ignored, or letters e with and without accent are equal, or upper and lower case is ignored."
 msgstr "Якщо wcd вдасться знайти декілька відповідників вказаного користувачем каталогу, програма покаже упорядкований список варіантів. Спосіб упорядковування залежить від параметрів локалі. Якщо у середовищі встановлено значення змінної I<LANG>, відповідники буде упорядковано відповідно до порядку, який використовується у словниках або телефонних книгах відповідною мовою. Наприклад, буде проігноровано крапки і дефіси, літери з акцентами вважатимуться еквівалентними до літер без акцентів, ігноруватимуться відмінності у написанні великими чи малими літерами."
 
 #. type: textblock
-#: wcd.pod:908
+#: wcd.pod:919
 msgid "The sorting gives preference to environment variable I<LC_COLLATE> over I<LANG>. If you make I<LC_COLLATE> equal to C<C> or C<POSIX>, locale sorting is turned off. For instance if you want Dutch language, but not Dutch sorting, you can do something like this:"
 msgstr "Під час визначення параметрів упорядковування перевага надається змінній середовища I<LC_COLLATE>, а не змінній I<LANG>. Якщо ви вкажете для I<LC_COLLATE> значення C<C> або C<POSIX>, упорядковування за параметрами локалі буде вимкнено. Наприклад, якщо ви хочете скористатися українською мовою інтерфейсу, але не хочете використовувати українські параметри упорядковування, ви можете зробити так:"
 
 #. type: verbatim
-#: wcd.pod:913
+#: wcd.pod:924
 #, no-wrap
 msgid ""
 "    export LANG=nl_NL\n"
@@ -1724,17 +1777,17 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:916
+#: wcd.pod:927
 msgid "B<LC_CTYPE>"
 msgstr "B<LC_CTYPE>"
 
 #. type: textblock
-#: wcd.pod:918
+#: wcd.pod:929
 msgid "With regard to character encoding Wcd will give preference to variable I<LC_CTYPE> over I<LANG>. For instance to set character encoding to UTF-8 the following environment setting can be done."
 msgstr "Під час визначення параметрів кодування у wcd надається перевага змінній I<LC_CTYPE>, а не I<LANG>. Наприклад, щоб встановити кодування символів UTF-8, слід скористатися такою командою:"
 
 #. type: verbatim
-#: wcd.pod:922
+#: wcd.pod:933
 #, no-wrap
 msgid ""
 "    export LC_CTYPE=en_US.UTF-8\n"
@@ -1744,82 +1797,82 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:924
+#: wcd.pod:935
 msgid "B<LC_ALL>"
 msgstr "B<LC_ALL>"
 
 #. type: textblock
-#: wcd.pod:926
+#: wcd.pod:937
 msgid "All locale environment variables that start with I<LC_> are overruled by the environment variable I<LC_ALL> if it is defined. Wcd gives preference to I<LC_ALL> over I<LC_COLLATE> and I<LC_CTYPE>."
 msgstr "Усі змінні середовища, пов’язані з локаллю, назви яких починаються з I<LC_>, можна перевизначити за допомогою змінної середовища I<LC_ALL>. Wcd надає перевагу значенню I<LC_ALL> над значеннями I<LC_COLLATE> та I<LC_CTYPE>."
 
 #. type: =head2
-#: wcd.pod:933
+#: wcd.pod:944
 msgid "WINDOWS CODE PAGES"
 msgstr "ТАБЛИЦІ КОДУВАНЬ WINDOWS"
 
 #. type: textblock
-#: wcd.pod:935
+#: wcd.pod:946
 msgid "There are two groups of code pages: DOS code pages (OEM) and Windows code pages (ANSI). The default encoding for Windows, when configured with Western regional settings, is ANSI CP1252. Windows programs, for instance notepad, use this default system ANSI code page. The Windows console uses by default an OEM code page (CP437 or CP850) for compatibility with DOS programs. If you use a DOS version of wcd in a Windows console it will work, because of the DOS code page.  But the DOS version of wcd lacks support for long directory names and network drives on Windows."
 msgstr "Існує дві групи кодових сторінок: кодові сторінки DOS (OEM) та кодові сторінки Windows (ANSI). Типовим кодуванням для Windows, якщо систему налаштовано на західноєвропейські параметри регіону, є ANSI CP1252. У програмах Windows, наприклад у notepad, використовується ця типова загальносистемна кодова сторінка ANSI. У консолі Windows типово використовується кодова сторінка OEM (CP437 або CP850) для сумісності з програмами DOS. Якщо ви використовуєте версію wcd для DOS у консолі Windows, програма не працюватиме, оскільки у ній використовується кодова сторінка DOS. Але у версії wcd для DOS не передбачено підтримку довгих назв каталогів та мережевих дисків у Windows."
 
 #. type: textblock
-#: wcd.pod:944
+#: wcd.pod:955
 msgid "The Windows version of wcd is a native Windows program and will use the Windows system ANSI code page. So on a Western regional Windows it will use code page CP1252 for directory names and messages. In order to get consistent output, independent of the active code page, all Windows versions of Wcd translate ANSI output to Unicode output in the Command Prompt and PowerShell."
 msgstr "Версія wcd для Windows є типовою програмою Windows, вона використовуватиме загальносистемну кодову сторінку ANSI Windows. Отже, у західноєвропейській локалізації Windows програма використовуватиме кодову сторінку CP1252 для назв каталогів та повідомлень. З метою забезпечення однорідності виведення даних, незалежно від активної кодової сторінки, усі версії wcd для Windows перетворюють виведені дані у форматі ANSI у формат Unicode у командній оболонці та PowerShell."
 
 #. type: textblock
-#: wcd.pod:950
+#: wcd.pod:961
 msgid "The console raster font only supports the original OEM code page installed with Windows, so you have to change the console's font to true type Lucida Console to make Unicode (and ANSI) letters appear correctly."
 msgstr "У консольних растрових шрифтах передбачено оригінальну кодову сторінку OEM, що встановлюється разом з Windows, отже, вам слід змінити шрифт консолі на Lucida Console, щоб літери з Unicode (та ANSI) було показано належним чином."
 
 #. type: textblock
-#: wcd.pod:954
+#: wcd.pod:965
 msgid "Non-Unicode versions of Wcd I<prior to version 5.2.0> use plain ANSI output.  For these older versions the code page of the console has to be made equal to the system code page (changed to 1252) to make wcd for Windows work properly with special characters such as accented characters or the Euro symbol."
 msgstr "Версії wcd без підтримки Unicode I<до версії 5.2.0> виводять дані у форматі ANSI. Для цих застарілих версій кодову сторінку консолі слід зробити еквівалентною до загальносистемної кодової сторінки (змінюється на 1252), щоб забезпечити належну роботу wcd для Windows зі спеціальними символами, зокрема символами з акцентами, символами кирилиці та символом євро."
 
 #. type: textblock
-#: wcd.pod:959
+#: wcd.pod:970
 msgid "The Windows system code page can be changed via the Control Panel regional options. The Windows console code page is changed with the C<chcp> command."
 msgstr "Загальносистемну кодову сторінку Windows можна змінити за допомогою регіональних параметрів «Панелі керування». Кодову сторінку консолі Windows можна змінити за допомогою команди C<chcp>."
 
 #. type: textblock
-#: wcd.pod:962
+#: wcd.pod:973
 msgid "When you type C<wcd -V>, the actual character encoding used by wcd is shown. Type the command C<chcp> to display the active code page of the Windows console."
 msgstr "Програма виводить дані щодо справжнього кодування символів у відповідь на команду C<wcd -V>. Щоб визначити активну кодову сторінку консолі Windows, введіть команду C<chcp>."
 
 #. type: =head2
-#: wcd.pod:967
+#: wcd.pod:978
 msgid "UNICODE"
 msgstr "UNICODE"
 
 #. type: textblock
-#: wcd.pod:969
+#: wcd.pod:980
 msgid "Wcd has optional support for Unicode. To see if wcd was built with Unicode support type C<wcd -V>. If your terminal/console and font supports it, you should see the Euro symbol and Chinese characters (meaning: \"Chinese\")."
 msgstr "У wcd може бути передбачено підтримку Unicode. Щоб визначити, чи було зібрано wcd з підтримкою Unicode, скористайтеся командою C<wcd -V>. Якщо у вашому терміналі або консолі та шрифті передбачено підтримку, ви зможете бачити символ євро та китайські ієрогліфи."
 
 #. type: textblock
-#: wcd.pod:974
+#: wcd.pod:985
 msgid "Wcd has been I<soft> converted to Unicode. In its core wcd handles all data as a stream of bytes. Only the lines printed to screen are on the fly converted to Unicode wide characters. Wcd fully relies on libc functions and has no UTF-8 specific code. See also L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>"
 msgstr "Перетворення у Unicode у wcd виконується I<програмно>. У ядрі програми усі дані обробляються як потік даних. У широкі символи Unicode перетворюються лише рядки, що виводяться на екран. Wcd повністю покладається на функції libc і не містить специфічного для UTF-8 коду. Див. також L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>"
 
 #. type: textblock
-#: wcd.pod:980
+#: wcd.pod:991
 msgid "Wcd has optional support for Unicode matching with normalisation. To find out whether Wcd has normalisation support type C<wcd -V>.  Wcd with Unicode normalization support will match Unicode names based on I<compatible> equivalence. Without Unicode normalization support, names are matched when they are binary equivalent.  See also L<http://en.wikipedia.org/wiki/Unicode_normalization>"
 msgstr "У wcd передбачено необов’язкову підтримку встановлення відповідності за Unicode з нормалізацією. Щоб визначити, чи передбачено у wcd підтримку нормалізації, скористайтеся командою C<wcd -V>. У wcd з підтримкою нормалізації Unicode відповідність назв Unicode виконується на основі I<сумісної> еквівалентності. Без підтримки нормалізації Unicode відповідність назв встановлюється за двійковою еквівалентністю. Див. також L<http://en.wikipedia.org/wiki/Unicode_normalization>"
 
 #. type: =head3
-#: wcd.pod:987
+#: wcd.pod:998
 msgid "UTF-8 on Unix/Linux"
 msgstr "UTF-8 у Unix/Linux"
 
 #. type: textblock
-#: wcd.pod:989
+#: wcd.pod:1000
 msgid "In order to view UTF-8 characters your console/terminal also needs to support UTF-8. The xterm version that comes with XFree86 4.0 or higher includes UTF-8 support. To activate it, start xterm(1) in a UTF-8 locale and use a font with iso10646-1 encoding, for instance with"
 msgstr "Щоб у вашій консолі або терміналі можна було переглядати символи UTF-8, у консолі і терміналі також має бути передбачено підтримку UTF-8. У версії xterm, яка постачається разом з XFree86 4.0 або наступними версіями, передбачено підтримку UTF-8. Щоб задіяти цю підтримку, запустіть xterm(1) у локалі UTF-8 і скористайтеся шрифтом з кодуванням iso10646-1, наприклад за допомогою такої команди:"
 
 #. type: verbatim
-#: wcd.pod:994
+#: wcd.pod:1005
 #, no-wrap
 msgid ""
 "    LC_CTYPE=en_GB.UTF-8 xterm -u8 -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'\n"
@@ -1829,102 +1882,102 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:996
+#: wcd.pod:1007
 msgid "Modern distributions of GNU/Linux support UTF-8 by default. Other multi-byte character encodings should also work, but that has not been tested."
 msgstr "У сучасних дистрибутивах GNU/Linux типовою використовується кодування UTF-8. Можна працювати і з іншими багатобайтовими кодуваннями символів, але належного тестування працездатності з цими кодуванням не виконувалося."
 
 #. type: textblock
-#: wcd.pod:999
+#: wcd.pod:1010
 msgid "Wcd assumes that the treedata files are encoded in the locale character encoding. There are no Byte Order Marks written to treedata files."
 msgstr "У wcd припускається, що кодуванням файлів даних ієрархії каталогів є кодування символів поточної локалі. До файлів даних ієрархії каталогів символ позначки порядку байтів (BOM) не записується."
 
 #. type: =head3
-#: wcd.pod:1003
+#: wcd.pod:1014
 msgid "UTF-16 on Windows"
 msgstr "UTF-16 у Windows"
 
 #. type: textblock
-#: wcd.pod:1005
+#: wcd.pod:1016
 msgid "On Windows Unicode is supported in all versions of PowerShell, and in Windows Command Prompt on Windows 7 (or higher). Unicode also works in Take Command or TCC/LE made by JP Software, which can be used on older Windows versions (XP/Vista)."
 msgstr "У Windows підтримку Unicode передбачено у всіх версіях PowerShell та у командній оболонці Windows у Windows 7 (та новіших версіях). Unicode також працює у Take Command або TCC/LE створених JP Software, якими можна скористатися у старіших версіях Windows (XP/Vista)."
 
 #. type: textblock
-#: wcd.pod:1010
+#: wcd.pod:1021
 msgid "On Windows all the directory names on disk are encoded in UTF-16 Unicode.  For non-Unicode Windows programs the Unicode characters are translated to the default ANSI code page. For characters that are not part of the regional setting this translation is not possible and non-Unicode programs print a question mark or a wrong character instead."
 msgstr "У Windows усі назви каталогів на диску кодуються за допомогою UTF-16. У програмах Windows без підтримки Unicode символи Unicode перетворюються у символи типової кодової сторінки ANSI. Для символів, які не є частиною регіонального кодування, це перетворення є неможливим, отже програми без підтримки Unicode виводитимуть замість них символ знаку питання або помилковий символ."
 
 #. type: textblock
-#: wcd.pod:1016
+#: wcd.pod:1027
 msgid "Wcd with Unicode support will read the UTF-16 encoded directory names and converts them internally to UTF-8. All treedata files are encoded in UTF-8 and not compatible with the non-Unicode version of Wcd. Wcd will create a go-script encoded in UTF-8."
 msgstr "Wcd з підтримкою Unicode читатиме закодовані у UTF-16 назви каталогів і перетворюватиме дані до UTF-8 у внутрішньому коді. Усі дані файлів ієрархії каталогів буде закодовано у UTF-8. Ці дані є несумісними з версіями wcd без підтримки Unicode. Wcd створить скрипт переходу у кодуванні UTF-8."
 
 #. type: textblock
-#: wcd.pod:1021
+#: wcd.pod:1032
 msgid "All versions of Windows PowerShell are able to run scripts encoded in UTF-8, provided there is an UTF-8 BOM in the script."
 msgstr "Усі версії Windows PowerShell можуть запускати скрипти у кодуванні UTF-8, якщо у скрипті є символ BOM UTF-8."
 
 #. type: textblock
-#: wcd.pod:1024
+#: wcd.pod:1035
 msgid "Since Windows 7 it is possible in Windows Command Prompt to change directory with a batch script to a directory with Unicode letters in the name. The directory name needs to be encoded in UTF-8, and the batch script must I<not> have a BOM. The active code page of the Command Prompt needs to be set to 65001 (UTF-8) prior to the cd command. Wcd for Command Prompt will create such a go script C<wcdgo.bat>. It first changes the code page to 65001, then changes directory, and finally sets the code page back to the original code page."
 msgstr "Починаючи з Windows 7, у командній оболонці Windows передбачено можливість змінити за допомогою пакетного скрипту каталог на каталог з літерами Unicode у назві. Кодуванням назви каталогу має бути UTF-8, а I<пакетний скрипт> не повинен містити позначки порядку байтів (BOM). Слід змінити активну кодову сторінку командної оболонки на 65001 (UTF-8) до виконання команди cd. Wcd для командної оболонки створити такий скрипт переходу (C<wcdgo.bat>). Цей скрипти спочатку змінюватиме кодову сторінку на 65001, потім змінюватиме каталог, і нарешті, повертатиме початкове значення параметрів кодової сторінки."
 
 #. type: textblock
-#: wcd.pod:1032
+#: wcd.pod:1043
 msgid "You need to set the font to True Type Lucida Console (not raster font) when letters don't appear correctly."
 msgstr "Якщо літери буде показано не так, як слід, вам слід встановити шрифт True Type Lucida Console (не растровий шрифт)."
 
 #. type: textblock
-#: wcd.pod:1035
+#: wcd.pod:1046
 msgid "The non-Unicode Windows version of Wcd can read Unicode treedata files since version 5.2.0, provided there is a Byte Order Mark (BOM) in the file (see L<http://en.wikipedia.org/wiki/Byte_order_mark>), but it can't change to directories with Unicode letters in the name that are not part of the default system ANSI code page. The Unicode Windows version of wcd writes a BOM in the UTF-8 encoded treedata files since version 5.2.0, which makes them also readable by notepad."
 msgstr "Версія wcd для Windows без підтримки Unicode може читати файли даних ієрархії каталогів у кодуванні Unicode, починаючи з версії 5.2.0, якщо у файлі є позначка порядку байтів (BOM) (див. L<http://en.wikipedia.org/wiki/Byte_order_mark>), але не може змінювати каталоги на каталоги з тими літерами Unicode у назві, які не є частиною типової кодової сторінки ANSI системи. Версія wcd для Windows з підтримкою Unicode записує BOM до файлів ієрархії каталогів у кодуванні UTF-8, починаючи з версії 5.2.0, отже, ці файли можна читати за допомогою notepad."
 
 #. type: =head3
-#: wcd.pod:1044
+#: wcd.pod:1055
 msgid "UTF-8 on Cygwin"
 msgstr "UTF-8 у Cygwin"
 
 #. type: textblock
-#: wcd.pod:1046
+#: wcd.pod:1057
 msgid "Cygwin supports Unicode since version 1.7. The Cygwin layer takes care that the Windows UTF-16 Unicode names are converted to UTF-8. So programs, like wcd, do not need to be aware of this and can operate using UTF-8 encoding as on Unix/Linux. Set character encoding to UTF-8 with the I<LANG> or I<LC_CTYPE> environment variable. You may need to rescan your drives. You need to set the font to True Type Lucida Console (not raster font) if you use the default Cygwin console."
 msgstr "У Cygwin передбачено підтримку Unicode, починаючи з версії 1.7. Шар обробки Cygwin виконує перетворення назв каталогів Windows у UTF-16 до UTF-8. Отже, програми, зокрема wcd, не потрібно перейматися процедурами перетворення, вони можуть обробляти дані у кодуванні UTF-8, як це робиться у Unix/Linux. Встановити кодування символів UTF-8 можна за допомогою змінної середовища I<LANG> або I<LC_CTYPE>. Ймовірно, вам доведеться пересканувати ваші диски. Якщо ви користуєтеся типовою консоллю Cygwin, вам слід встановити для неї шрифт True Type Lucida Console (не растровий шрифт)."
 
 #. type: textblock
-#: wcd.pod:1054
+#: wcd.pod:1065
 msgid "The Cygwin version behaves exactly as the Unix version of wcd.  There is no BOM written in the treedata files, and it is assumed they are encoded in the B<Cygwin> locale character encoding."
 msgstr "Версія wcd для Cygwin поводиться точно так само, як версія wcd для Unix. Мітка порядку байтів (BOM) не записується до файлів даних ієрархії каталогів. Кодуванням файлів вважається кодування символів локалі B<Cygwin>."
 
 #. type: =head1
-#: wcd.pod:1058
+#: wcd.pod:1069
 msgid "FILES"
 msgstr "ФАЙЛИ"
 
 #. type: textblock
-#: wcd.pod:1060
+#: wcd.pod:1071
 msgid "If the environment variable I<WCDHOME> is set wcd will use I<WCDHOME> instead of I<HOME>. All C<*.wcd> files are text files. They can be edited with a text editor.  The Windows Command Prompt version of wcd behaves as the DOS version. The Cygwin version of wcd behaves as the Unix version."
 msgstr "Якщо встановлено змінну середовища I<WCDHOME>, використовуватиме I<WCDHOME> замість I<HOME>. Усі файли C<*.wcd> є текстовими файлами. Їх можна редагувати у звичайному текстовому редакторі. Версія wcd для командної оболонки Windows поводиться так само, як версія для DOS. Версія wcd для Cygwin поводиться як версія для Unix."
 
 #. type: =item
-#: wcd.pod:1069
+#: wcd.pod:1080
 msgid "B<wcd.exe>"
 msgstr "B<wcd.exe>"
 
 #. type: textblock
-#: wcd.pod:1071
+#: wcd.pod:1082
 msgid "The program. In Unix shells the program is always called by a function or alias, because the current working directory of a Unix shell can only be changed by the builtin cd command. See also section INSTALLATION."
 msgstr "Сама програма. У оболонках Unix програма завжди викликається функцією або альтернативною командою, оскільки поточний робочий каталог у оболонці Unix можна змінювати лише за допомогою вбудованої команди cd. Див. також розділ «ВСТАНОВЛЕННЯ»."
 
 #. type: =item
-#: wcd.pod:1076
+#: wcd.pod:1087
 msgid "B<default treedata file>"
 msgstr "B<типовий файл даних ієрархії каталогів>"
 
 #. type: textblock
-#: wcd.pod:1078
+#: wcd.pod:1089
 msgid "This is the default treedata file where wcd searches for matches. If it is not readable wcd will create a new one."
 msgstr "Це типовий файл даних ієрархії каталогів, де wcd шукає відповідники. Якщо цей файл непридатний до читання, wcd створить новий."
 
 #. type: verbatim
-#: wcd.pod:1081
+#: wcd.pod:1092
 #, no-wrap
 msgid ""
 "    DOS: \\treedata.wcd or %HOME%\\treedata.wcd\n"
@@ -1936,17 +1989,17 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1084
+#: wcd.pod:1095
 msgid "B<extra treedata file>"
 msgstr "B<додатковий файл даних ієрархії каталогів>"
 
 #. type: textblock
-#: wcd.pod:1086
+#: wcd.pod:1097
 msgid "An optional extra treedata file. If it exists and is readable wcd will try to find matches in this file also."
 msgstr "Необов’язковий додатковий файл даних ієрархії каталогів. Якщо такий файл існує і є придатним до читання, wcd спробує знайти відповідники і у цьому файлі."
 
 #. type: verbatim
-#: wcd.pod:1089
+#: wcd.pod:1100
 #, no-wrap
 msgid ""
 "    DOS: \\extra.wcd or %HOME%\\extra.wcd\n"
@@ -1958,17 +2011,17 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1092
+#: wcd.pod:1103
 msgid "B<ban file>"
 msgstr "B<файл блокувань>"
 
 #. type: textblock
-#: wcd.pod:1094
+#: wcd.pod:1105
 msgid "In this optional file wcd places banned paths. See option B<-b>. Wildcards are supported."
 msgstr "До цього додаткового файла wcd записує заблоковані шляхи. Див. параметр B<-b>. Передбачено підтримку символів-замінників."
 
 #. type: verbatim
-#: wcd.pod:1097
+#: wcd.pod:1108
 #, no-wrap
 msgid ""
 "    DOS: \\ban.wcd or %HOME%\\ban.wcd\n"
@@ -1980,17 +2033,17 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1100
+#: wcd.pod:1111
 msgid "B<alias file>"
 msgstr "B<файл альтернативних назв>"
 
 #. type: textblock
-#: wcd.pod:1102
+#: wcd.pod:1113
 msgid "Optional file with wcd aliases. See option B<-l>."
 msgstr "Необов’язковий файл із записами альтернативних назв wcd. Див. параметр B<-l>."
 
 #. type: verbatim
-#: wcd.pod:1104
+#: wcd.pod:1115
 #, no-wrap
 msgid ""
 "    DOS: \\alias.wcd or %HOME%\\alias.wcd\n"
@@ -2002,17 +2055,17 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1107
+#: wcd.pod:1118
 msgid "B<stack file>"
 msgstr "B<файл stack>"
 
 #. type: textblock
-#: wcd.pod:1109
+#: wcd.pod:1120
 msgid "In this file wcd stores its stack. The drive letter can be changed with the B<-d> option."
 msgstr "У цьому файлі зберігається стос каталогів wcd. Літеру диска можна змінити за допомогою параметра B<-d>."
 
 #. type: verbatim
-#: wcd.pod:1112
+#: wcd.pod:1123
 #, no-wrap
 msgid ""
 "    DOS: c:\\stack.wcd or %HOME%\\stack.wcd\n"
@@ -2024,23 +2077,32 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1115
+#: wcd.pod:1126
 msgid "The name of the stack file can be changed with environment variable I<WCDSTACKFILE>.  See section ENVIRONMENT VARIABLES."
 msgstr "Назву файла стосу можна змінити за допомогою змінної середовища I<WCDSTACKFILE>. Див. розділ «ЗМІННІ СЕРЕДОВИЩА»."
 
 #. type: =item
-#: wcd.pod:1118
+#: wcd.pod:1129
 msgid "B<go-script>"
 msgstr "B<скрипт go>"
 
 #. type: textblock
-#: wcd.pod:1120
+#: wcd.pod:1131
 msgid "This is the shell script which wcd.exe creates each time. It is sourced via a function or an alias. The drive letter can be changed with the B<-d> option.  For history reasons it is placed by default in C<$HOME/bin> on Unix systems. The directory of this file can be changed with the option B<-G>."
 msgstr "Це скрипт командної оболонки, який wcd.exe створює під час кожного запуску. Від використовується функцією або альтернативною командою. Літеру диска можна змінити за допомогою параметра B<-d>. З історичних міркувань у системах Unix цей файл типово зберігається у C<$HOME/bin>. Каталог цього файла можна змінити за допомогою параметра B<-G>."
 
 #. type: verbatim
-#: wcd.pod:1125
-#, no-wrap
+#: wcd.pod:1136
+#, fuzzy, no-wrap
+#| msgid ""
+#| "    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
+#| "    Windows Command Prompt: c:\\wcdgo.bat or %HOME%\\wcdgo.bat\n"
+#| "    Windows PowerShell: $env:HOME\\wcdgo.ps1\n"
+#| "    WinZsh: $HOME/wcd.go\n"
+#| "    Cygwin/MSYS: $HOME/bin/wcd.go\n"
+#| "    OS/2 Command Prompt: c:\\wcdgo.cmd or %HOME%\\wcdgo.cmd\n"
+#| "    Unix: $HOME/bin/wcd.go\n"
+#| "\n"
 msgid ""
 "    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
 "    Windows Command Prompt: c:\\wcdgo.bat or %HOME%\\wcdgo.bat\n"
@@ -2048,6 +2110,7 @@ msgid ""
 "    WinZsh: $HOME/wcd.go\n"
 "    Cygwin/MSYS: $HOME/bin/wcd.go\n"
 "    OS/2 Command Prompt: c:\\wcdgo.cmd or %HOME%\\wcdgo.cmd\n"
+"    OS/2 bash: c:/wcd.go or $HOME/wcd.go\n"
 "    Unix: $HOME/bin/wcd.go\n"
 "\n"
 msgstr ""
@@ -2061,17 +2124,17 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1133
+#: wcd.pod:1145
 msgid "B<relative treedata file>"
 msgstr "B<файл відносних шляхів у ієрархії каталогів>"
 
 #. type: textblock
-#: wcd.pod:1135
+#: wcd.pod:1147
 msgid "Text file with relative paths from I<DIR>. See options B<+S>, B<-n> and B<+n>."
 msgstr "Текстовий файл з відносними шляхами щодо каталогу I<КАТАЛОГ>. Див. параметри B<+S>, B<-n> та B<+n>."
 
 #. type: verbatim
-#: wcd.pod:1138
+#: wcd.pod:1150
 #, no-wrap
 msgid ""
 "    DOS: <path>\\rtdata.wcd\n"
@@ -2083,37 +2146,37 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: wcd.pod:1143
+#: wcd.pod:1155
 msgid "ENVIRONMENT VARIABLES"
 msgstr "ЗМІННІ СЕРЕДОВИЩА"
 
 #. type: =item
-#: wcd.pod:1147
+#: wcd.pod:1159
 msgid "B<HOME>"
 msgstr "B<HOME>"
 
 #. type: textblock
-#: wcd.pod:1149
+#: wcd.pod:1161
 msgid "Wcd uses by default environment variable I<HOME> to determine where to store its files. See also section FILES. This can be overruled with environment variable I<WCDHOME>."
 msgstr "Типово, wcd використовує змінну середовища I<HOME> для визначення місця, де зберігатимуться файли програми. Див. також розділ «ФАЙЛИ». Перевизначити каталог можна за допомогою змінної середовища I<WCDHOME>."
 
 #. type: textblock
-#: wcd.pod:1153
+#: wcd.pod:1165
 msgid "I<HOME> also defines where to start scanning the disk when option B<-s> is used. This can be overruled with the environment variable I<WCDSCAN>."
 msgstr "I<HOME> також визначає місце, звідки слід розпочинати сканування диска, якщо використано параметр B<-s>. Перевизначити це місце можна за допомогою змінної середовища I<WCDSCAN>."
 
 #. type: textblock
-#: wcd.pod:1157
+#: wcd.pod:1169
 msgid "For the Unix, Cygwin, Windows PowerShell, WinZsh and MSYS version it is required that I<HOME> or I<WCDHOME> is set. For the other versions of wcd the use of these variables is optional."
 msgstr "У версіях для Unix, Cygwin, Windows PowerShell, WinZsh та MSYS слід встановити значення I<HOME> або I<WCDHOME>. Для інших версій wcd використання цих змінних є необов’язковим."
 
 #. type: textblock
-#: wcd.pod:1161
+#: wcd.pod:1173
 msgid "If I<HOME> is set on DOS/Windows, wcd will place all its files (treedata.wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) in directory I<HOME>. The behaviour of wcd is then equal to the Unix version of wcd. Wcd will scan the disk default from I<HOME>. Drives will not be automatically scanned by changing to them. You need to tell wcd explicitly. E.g.:"
 msgstr "Якщо змінну I<HOME> встановлено у DOS/Windows, wcd розташує свої файли (treedata.wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) у каталозі I<HOME>. Після встановлення змінної поведінка wcd стає еквівалентною до версії wcd для Unix. Типово, wcd скануватиме диск, починаючи з I<HOME>. Сканування дисків не виконуватиметься у автоматичному режимі після зміни диска. Про потребу у скануванні слід повідомити явно. Приклад:"
 
 #. type: verbatim
-#: wcd.pod:1168
+#: wcd.pod:1180
 #, no-wrap
 msgid ""
 "    wcd -S c: -A d: -A e:\n"
@@ -2123,32 +2186,32 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1170
+#: wcd.pod:1182
 msgid "Matching of directories is now global over all scanned drives."
 msgstr "Після цього встановлення відповідності каталогів буде загальним на усіх сканованих дисках."
 
 #. type: =item
-#: wcd.pod:1173
+#: wcd.pod:1185
 msgid "B<WCDHOME>"
 msgstr "B<WCDHOME>"
 
 #. type: textblock
-#: wcd.pod:1175
+#: wcd.pod:1187
 msgid "Environment variable I<WCDHOME> can be used to change the location of wcd's files. If both I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead of I<HOME>."
 msgstr "Для зміни місця зберігання файлів wcd слід використовувати змінну середовища I<WCDHOME>. Якщо встановлено одразу I<HOME> і I<WCDHOME>, замість I<HOME> буде використано I<WCDHOME>."
 
 #. type: textblock
-#: wcd.pod:1179
+#: wcd.pod:1191
 msgid "In wcd versions prior to 5.1.5 I<WCDHOME> also changed the default scan directory.  This has changed. Since version 5.1.5 I<WCDHOME> does not change the default scan directory. See option B<-s>. From version 5.1.5, use environment I<WCDSCAN> to overrule the default scan directory."
 msgstr "З версіях wcd до версії 5.1.5 типовий каталог сканування можна змінити також за допомогою змінної I<WCDHOME>. У наступних версіях таку поведінку було змінено. Починаючи з версії 5.1.5, I<WCDHOME> не змінює типового каталогу сканування. Див. параметр B<-s>. Починаючи з версії 5.1.5, для перевизначення типового каталогу сканування слід використовувати змінну середовища I<WCDSCAN>."
 
 #. type: textblock
-#: wcd.pod:1184
+#: wcd.pod:1196
 msgid "Example for DOS, Windows, OS/2 Command Prompt:"
 msgstr "Приклад для командних оболонок DOS, Windows, OS/2:"
 
 #. type: verbatim
-#: wcd.pod:1186
+#: wcd.pod:1198
 #, no-wrap
 msgid ""
 "    set WCDHOME=C:\\Users\\erwin\\wcd\n"
@@ -2158,12 +2221,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1188 wcd.pod:1209 wcd.pod:1229 wcd.pod:1254
+#: wcd.pod:1200 wcd.pod:1221 wcd.pod:1241 wcd.pod:1266
 msgid "An example for POSIX type shells:"
 msgstr "Приклад для командних оболонок типу POSIX:"
 
 #. type: verbatim
-#: wcd.pod:1190
+#: wcd.pod:1202
 #, no-wrap
 msgid ""
 "    export WCDHOME=\"$HOME/.wcd\"\n"
@@ -2173,12 +2236,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1192 wcd.pod:1213 wcd.pod:1233 wcd.pod:1258
+#: wcd.pod:1204 wcd.pod:1225 wcd.pod:1245 wcd.pod:1270
 msgid "An example for Csh type shells:"
 msgstr "Приклад для командних оболонок типу Csh:"
 
 #. type: verbatim
-#: wcd.pod:1194
+#: wcd.pod:1206
 #, no-wrap
 msgid ""
 "    setenv WCDHOME \"$HOME/.wcd\"\n"
@@ -2188,79 +2251,79 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1196
+#: wcd.pod:1208
 msgid "B<WCDSCAN>"
 msgstr "B<WCDSCAN>"
 
 #. type: textblock
-#: wcd.pod:1198
+#: wcd.pod:1210
 msgid "Use environment variable I<WCDSCAN> to overrule the default scan directory I<HOME>. Define a colon separated list (Unix) to define more than one directory.  On DOS/Windows make the list semi-colon separated."
 msgstr "Для перевизначення встановленого за допомогою змінної середовища I<HOME> типового каталогу сканування скористайтеся змінною середовища I<WCDSCAN>. Щоб визначити декілька каталогів, скористайтеся списком каталогів, відокремлених двокрапкою (Unix). У DOS або Windows записи у списку слід відокремлювати крапкою з комою."
 
 #. type: textblock
-#: wcd.pod:1203
+#: wcd.pod:1215
 msgid "Examples for DOS, Windows, OS/2 Command Prompt:"
 msgstr "Приклади для командних оболонок DOS, Windows, OS/2:"
 
 #. type: verbatim
-#: wcd.pod:1205
-#, no-wrap
-msgid ""
-"    set WCDSCAN=C:\\Users\\erwin;D:\\data\n"
-"\n"
-msgstr ""
-"    set WCDSCAN=C:\\Users\\erwin;D:\\data\n"
-"\n"
-
-#. type: verbatim
-#: wcd.pod:1207
-#, no-wrap
-msgid ""
-"    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\\\projectdrive\\projectX\n"
-"\n"
-msgstr ""
-"    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\\\projectdrive\\projectX\n"
-"\n"
-
-#. type: verbatim
-#: wcd.pod:1211
-#, no-wrap
-msgid ""
-"    export WCDSCAN=\"$HOME:/projectdisk/projectX\"\n"
-"\n"
-msgstr ""
-"    export WCDSCAN=\"$HOME:/projectdisk/projectX\"\n"
-"\n"
-
-#. type: verbatim
-#: wcd.pod:1215
-#, no-wrap
-msgid ""
-"    setenv WCDSCAN \"$HOME:/projectdisk/projectX\"\n"
-"\n"
-msgstr ""
-"    setenv WCDSCAN \"$HOME:/projectdisk/projectX\"\n"
-"\n"
-
-#. type: =item
 #: wcd.pod:1217
-msgid "B<WCDFILTER>"
-msgstr "B<WCDFILTER>"
+#, no-wrap
+msgid ""
+"    set WCDSCAN=C:\\Users\\erwin;D:\\data\n"
+"\n"
+msgstr ""
+"    set WCDSCAN=C:\\Users\\erwin;D:\\data\n"
+"\n"
 
-#. type: textblock
+#. type: verbatim
 #: wcd.pod:1219
-msgid "Specify filters with environment variable I<WCDFILTER>. All directories that do not match the filter(s) are ignored. A list can be specified by separating filters by the shell path separator. Similar as specifying the I<PATH> variable.  The case sensitivity is mandated by the Operating system."
-msgstr "Фільтри можна вказати за допомогою змінної середовища I<WCDFILTER>. Усі каталоги, які не відповідають цим фільтрам, буде проігноровано. Записи у списку слід відокремлювати типовим роздільником каталогів у шляхах командної оболонки. Це щось подібне до визначення змінної середовища I<PATH>. Те, чи буде враховано регістр символів, визначається параметрами операційної системи."
+#, no-wrap
+msgid ""
+"    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\\\projectdrive\\projectX\n"
+"\n"
+msgstr ""
+"    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\\\projectdrive\\projectX\n"
+"\n"
 
-#. type: textblock
-#: wcd.pod:1225 wcd.pod:1250
-msgid "An example for DOS, Windows, OS/2 Command Prompt:"
-msgstr "Приклад для командних оболонок DOS, Windows, OS/2:"
+#. type: verbatim
+#: wcd.pod:1223
+#, no-wrap
+msgid ""
+"    export WCDSCAN=\"$HOME:/projectdisk/projectX\"\n"
+"\n"
+msgstr ""
+"    export WCDSCAN=\"$HOME:/projectdisk/projectX\"\n"
+"\n"
 
 #. type: verbatim
 #: wcd.pod:1227
 #, no-wrap
 msgid ""
+"    setenv WCDSCAN \"$HOME:/projectdisk/projectX\"\n"
+"\n"
+msgstr ""
+"    setenv WCDSCAN \"$HOME:/projectdisk/projectX\"\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1229
+msgid "B<WCDFILTER>"
+msgstr "B<WCDFILTER>"
+
+#. type: textblock
+#: wcd.pod:1231
+msgid "Specify filters with environment variable I<WCDFILTER>. All directories that do not match the filter(s) are ignored. A list can be specified by separating filters by the shell path separator. Similar as specifying the I<PATH> variable.  The case sensitivity is mandated by the Operating system."
+msgstr "Фільтри можна вказати за допомогою змінної середовища I<WCDFILTER>. Усі каталоги, які не відповідають цим фільтрам, буде проігноровано. Записи у списку слід відокремлювати типовим роздільником каталогів у шляхах командної оболонки. Це щось подібне до визначення змінної середовища I<PATH>. Те, чи буде враховано регістр символів, визначається параметрами операційної системи."
+
+#. type: textblock
+#: wcd.pod:1237 wcd.pod:1262
+msgid "An example for DOS, Windows, OS/2 Command Prompt:"
+msgstr "Приклад для командних оболонок DOS, Windows, OS/2:"
+
+#. type: verbatim
+#: wcd.pod:1239
+#, no-wrap
+msgid ""
 "    set WCDFILTER=projects;doc\n"
 "\n"
 msgstr ""
@@ -2268,7 +2331,7 @@ msgstr ""
 "\n"
 
 #. type: verbatim
-#: wcd.pod:1231
+#: wcd.pod:1243
 #, no-wrap
 msgid ""
 "    export WCDFILTER=\"projects:doc\"\n"
@@ -2278,7 +2341,7 @@ msgstr ""
 "\n"
 
 #. type: verbatim
-#: wcd.pod:1235
+#: wcd.pod:1247
 #, no-wrap
 msgid ""
 "    setenv WCDFILTER \"projects:doc\"\n"
@@ -2288,27 +2351,27 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1237
+#: wcd.pod:1249
 msgid "B<WCDBAN>"
 msgstr "B<WCDBAN>"
 
 #. type: textblock
-#: wcd.pod:1239
+#: wcd.pod:1251
 msgid "The paths specified with environment I<WCDBAN> will be banned by wcd.  See also option B<-b>. Specify a list of paths separated by shell I<PATH> separator."
 msgstr "Шляхи, вказані за допомогою змінної середовища I<WCDBAN>, вважатимуться заблокованими для wcd. Див. також параметр B<-b>. Записи у списку шляхів слід відокремлювати типовим роздільником змінної I<PATH> командної оболонки."
 
 #. type: =item
-#: wcd.pod:1243
+#: wcd.pod:1255
 msgid "B<WCDEXCLUDE>"
 msgstr "B<WCDEXCLUDE>"
 
 #. type: textblock
-#: wcd.pod:1245
+#: wcd.pod:1257
 msgid "The paths specified with environment I<WCDEXCLUDE> will be excluded by wcd. See also options B<-x> and B<-xf>. Specify a list of paths separated by shell I<PATH> separator."
 msgstr "Шляхи, вказані за допомогою змінної середовища I<WCDEXCLUDE>, вважатимуться виключеними для wcd. Див. також параметри B<-x> та B<-xf>. Записи у списку шляхів слід відокремлювати типовим роздільником змінної I<PATH> командної оболонки."
 
 #. type: verbatim
-#: wcd.pod:1252
+#: wcd.pod:1264
 #, no-wrap
 msgid ""
 "    set WCDEXCLUDE=*/windows;*/temp;*CVS\n"
@@ -2318,7 +2381,7 @@ msgstr ""
 "\n"
 
 #. type: verbatim
-#: wcd.pod:1256
+#: wcd.pod:1268
 #, no-wrap
 msgid ""
 "    export WCDEXCLUDE=\"/dev:/tmp:*CVS\"\n"
@@ -2328,7 +2391,7 @@ msgstr ""
 "\n"
 
 #. type: verbatim
-#: wcd.pod:1260
+#: wcd.pod:1272
 #, no-wrap
 msgid ""
 "    setenv WCDEXCLUDE \"/dev:/tmp:*CVS\"\n"
@@ -2338,32 +2401,32 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1262
+#: wcd.pod:1274
 msgid "B<WCDUSERSHOME>"
 msgstr "B<WCDUSERSHOME>"
 
 #. type: textblock
-#: wcd.pod:1264
+#: wcd.pod:1276
 msgid "Set the base of user's home directories.  On DOS/Windows the default value is C<\\\\users>.  On Unix/Cygwin the default value is C</home>.  This variable is used to scan treedata files of other users. See also options B<-u> and B<+u>. In verbose mode wcd will print all filters, bans and excludes. See option B<-v>."
 msgstr "Встановлює основний каталог для домашніх каталогів користувачів. У DOS або Windows типовим значенням змінної є C<\\\\users>. У Unix або Cygwin типовим значенням є C</home>. Ця змінна середовища використовується для сканування файлів даних ієрархії каталогів інших користувачів. Див. також параметри B<-u> та B<+u>. У докладному режимі wcd виводитиме усі фільтри, блокування та виключення. Див. параметр B<-v>."
 
 #. type: =item
-#: wcd.pod:1271
+#: wcd.pod:1283
 msgid "B<WCDSTACKFILE>"
 msgstr "B<WCDSTACKFILE>"
 
 #. type: textblock
-#: wcd.pod:1273
+#: wcd.pod:1285
 msgid "Wcd gives preference to I<WCDSTACKFILE> over the default stack file name (see section FILES). With this variable each shell (or used terminal emulator) can have its private stack of used directories."
 msgstr "Wcd надає перевагу значенню змінної I<WCDSTACKFILE> над типовою назвою файла стосу (див. розділ «ФАЙЛИ»). За допомогою цієї змінної можна визначити окремий стос використаних каталогів для декількох різних командних оболонок (або використаних емуляторів термінала)."
 
 #. type: textblock
-#: wcd.pod:1277
+#: wcd.pod:1289
 msgid "To use a unique time based YYYYMMDD-HHMMSS file for each opened interactive shell."
 msgstr "Використання файла з унікальною назвою на основі поточного часу у форматі РРРММДД-ГГХХСС для кожної відкритої інтерактивної командної оболонки:"
 
 #. type: verbatim
-#: wcd.pod:1280
+#: wcd.pod:1292
 #, no-wrap
 msgid ""
 "    export WCDSTACKFILE=$HOME/.wcd/stack.$(date +%Y%m%d-%H%M%S)\n"
@@ -2373,12 +2436,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1282
+#: wcd.pod:1294
 msgid "For a stack per xterm(1), use the xterm I<WINDOWID> environment variable:"
 msgstr "Для окремого стосу на кожний екземпляр xterm(1) скористайтеся змінної середовища I<WINDOWID> для xterm:"
 
 #. type: verbatim
-#: wcd.pod:1284
+#: wcd.pod:1296
 #, no-wrap
 msgid ""
 "    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOWID\n"
@@ -2388,12 +2451,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1286
+#: wcd.pod:1298
 msgid "For GNU screen(1), to use stack per screen:"
 msgstr "Для GNU screen(1), використання окремого стосу на екземпляр screen:"
 
 #. type: verbatim
-#: wcd.pod:1288
+#: wcd.pod:1300
 #, no-wrap
 msgid ""
 "    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOW\n"
@@ -2403,27 +2466,27 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1290
+#: wcd.pod:1302
 msgid "B<TERMINFO>"
 msgstr "B<TERMINFO>"
 
 #. type: textblock
-#: wcd.pod:1292
+#: wcd.pod:1304
 msgid "If the environment variable I<TERMINFO> is defined, wcd with ncurses interface checks for a local terminal definition before checking in the standard place. This is useful if terminal definitions are not on a standard place. Often used standard places are C</usr/lib/terminfo> and C</usr/share/terminfo>."
 msgstr "Якщо визначено змінну середовища I<TERMINFO>, wcd з інтерфейсом на основі ncurses шукатиме локальні визначення термінала до виконання пошуку у стандартному місці. Це корисно, якщо визначення термінала зберігаються у нестандартному місці. Часто використовуються стандартні місця C</usr/lib/terminfo> та C</usr/share/terminfo>."
 
 #. type: =item
-#: wcd.pod:1298
+#: wcd.pod:1310
 msgid "B<PDC_RESTORE_SCREEN>"
 msgstr "B<PDC_RESTORE_SCREEN>"
 
 #. type: textblock
-#: wcd.pod:1300
+#: wcd.pod:1312
 msgid "Wcd with PDCurses interface recognizes the environment variable I<PDC_RESTORE_SCREEN>. If this environment variable is set, PDCurses will take a copy of the contents of the screen at the time that wcd is started; when wcd exits, the screen will be restored.  An example for Windows Command Prompt:"
 msgstr "Wcd з інтерфейсом на основі PDCurses розпізнає змінну середовища I<PDC_RESTORE_SCREEN>. Якщо встановлено цю змінну середовища, PDCurses скопіює вміст екрана на час запуску wcd; після завершення роботи wcd вміст екрана буде відновлено. Приклад для командної оболонки Windows:"
 
 #. type: verbatim
-#: wcd.pod:1306
+#: wcd.pod:1318
 #, no-wrap
 msgid ""
 "    set PDC_RESTORE_SCREEN=1\n"
@@ -2433,67 +2496,67 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1308
+#: wcd.pod:1320
 msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exists if you have set a large buffer width."
 msgstr "У Windows передбачено можливість зберігання лише буфера незначного обсягу. Тому повне відновлення не завжди можливе. Якщо вміст буфера є доволі значним, до консолі після виходу з wcd буде виведено випадкові символи."
 
 #. type: =item
-#: wcd.pod:1313
+#: wcd.pod:1325
 msgid "B<SHELL>"
 msgstr "B<SHELL>"
 
 #. type: textblock
-#: wcd.pod:1315
+#: wcd.pod:1327
 msgid "Printing of C<#!$SHELL> on the first line of the go-script for POSIX type shell or C shell is needed for 8 bit characters. Some shells otherwise think that the go-script is a binary file and will not source it. In Cygwin Bash the variable I<SHELL> must be set in environment using the C<export> command, otherwise wcd can't read the variable."
 msgstr "Для виведення 8-бітових символів у скриптах переходу для командних оболонок типу POSIX та C слід вказати C<#!$SHELL> у першому рядку. Якщо цього не зробити, у деяких оболонках скрипт переходу вважатиметься бінарним файлом і не використовуватиметься. У bash Cygwin у середовищі має бути визначено змінну I<SHELL> за допомогою команди C<export>, інакше wcd не зможе прочитати змінну."
 
 #. type: =item
-#: wcd.pod:1323
+#: wcd.pod:1335
 msgid "B<BASH>"
 msgstr "B<BASH>"
 
 #. type: textblock
-#: wcd.pod:1325
+#: wcd.pod:1337
 msgid "Wcd for DOS bash uses C<$BASH> instead of C<$SHELL>, because C<$SHELL> points to the DOS command shell. One may need to define C<$BASH> with an C<export> command, otherwise wcd can't read the variable."
 msgstr "Wcd для bash DOS використовується C<$BASH> замість C<$SHELL>, оскільки C<$SHELL> вказує на командну оболонку DOS. Можливо, слід визначити змінну C<$BASH> за допомогою команди C<export>, інакше wcd не зможе прочитати змінну."
 
 #. type: =head1
-#: wcd.pod:1332
+#: wcd.pod:1344
 msgid "SEE ALSO"
 msgstr "ТАКОЖ ПЕРЕГЛЯНЬТЕ"
 
 #. type: textblock
-#: wcd.pod:1334
+#: wcd.pod:1346
 msgid "sh(1), bash(1), csh(1), ksh(1), zsh(1), locale(1), ncurses(1),"
 msgstr "sh(1), bash(1), csh(1), ksh(1), zsh(1), locale(1), ncurses(1),"
 
 #. type: =head1
-#: wcd.pod:1342
+#: wcd.pod:1354
 msgid "AUTHORS"
 msgstr "АВТОРИ"
 
 #. type: textblock
-#: wcd.pod:1344
+#: wcd.pod:1356
 msgid "Wcd was written by Erwin Waterlander <waterlan@xs4all.nl>"
 msgstr "Wcd створено Erwin Waterlander <waterlan@xs4all.nl>"
 
 #. type: textblock
-#: wcd.pod:1346
+#: wcd.pod:1358
 msgid "Project homepage: L<http://waterlan.home.xs4all.nl/>"
 msgstr "Домашня сторінка проекту: L<http://waterlan.home.xs4all.nl/>"
 
 #. type: textblock
-#: wcd.pod:1349
+#: wcd.pod:1361
 msgid "SourceForge: L<http://sourceforge.net/projects/wcd/>"
 msgstr "SourceForge: L<http://sourceforge.net/projects/wcd/>"
 
 #. type: textblock
-#: wcd.pod:1352
+#: wcd.pod:1364
 msgid "The manual page formatting was provided by Jari Aalto <jari.aalto@cante.net>."
 msgstr "Форматування сторінки підручника було виконано Jari Aalto <jari.aalto@cante.net>."
 
 #. type: textblock
-#: wcd.pod:1355
+#: wcd.pod:1367
 msgid "NCD was originally written by Brad Kingsbury for Peter Norton's \"Norton Utilities\" around 1987. See also L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
 msgstr "Початкову версію NCD було створено Brad Kingsbury для пакунка \"Norton Utilities\" Пітера Нортона близько 1987 року. Див. також L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
 

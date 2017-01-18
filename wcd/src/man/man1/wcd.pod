@@ -759,21 +759,32 @@ installed. Reload the shell initialization files or start new shell.
 
 The location of the go-script C<wcd.go> differs per shell.
 
-Wcd for DJGPP DOS bash requires a different function. The go script is not
+Wcd for DJGPP DOS bash and OS/2 bash require a different function. The go script is not
 written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the
 go-script is written on c:/.
 
+DOS bash:
+
     wcd ()
     {
-        <PATH>/wcd.exe "$@"
+        <PATH>/wcdbash.exe "$@"
         . ${WCDHOME:-${HOME:-"c:"}}/wcd.go
     }
 
-The WinZsh version of wcd is also a bit different. No C<bin> directory.
+OS/2 bash:
 
     wcd ()
     {
-        <PATH>/wcd.exe "$@"
+        <PATH>/wcdos2bash.exe "$@"
+        . ${WCDHOME:-${HOME:-"c:"}}/wcd.go
+    }
+
+The WinZsh version of wcd requires a bit different function. The go-script will never
+be written in c:/.
+
+    wcd ()
+    {
+        <PATH>/wcdwin32zsh.exe "$@"
         . ${WCDHOME:-${HOME}}/wcd.go
     }
 
@@ -1128,6 +1139,7 @@ systems. The directory of this file can be changed with the option B<-G>.
     WinZsh: $HOME/wcd.go
     Cygwin/MSYS: $HOME/bin/wcd.go
     OS/2 Command Prompt: c:\wcdgo.cmd or %HOME%\wcdgo.cmd
+    OS/2 bash: c:/wcd.go or $HOME/wcd.go
     Unix: $HOME/bin/wcd.go
 
 =item B<relative treedata file>

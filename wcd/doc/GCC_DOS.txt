@@ -181,9 +181,10 @@ win64    : Windows 64 bit console version.
 win64psh : Windows 64 bit PowerShell version.
 win64zsh : Windows 64 bit MSYS and ZSH version.
 os2      : OS/2 32 bit console version.
+os2bash  : OS/2 32 bit bash version.
 
 Change to the appropriate directory `dos32', `dos32bsh', `win32', `win32psh',
-`win32zsh', `win64', `win64psh', `win64zsh', 'os2'.
+`win32zsh', `win64', `win64psh', `win64zsh', `os2', `os2bash'.
 
 
 Build wcd:
@@ -296,6 +297,7 @@ win64    : The default PREFIX is c:/usr/local64
 win64psh : The default PREFIX is c:/usr/local64
 win64zsh : The default PREFIX is c:/usr/local64
 os2      : The default PREFIX is c:/usr
+os2bash  : The default PREFIX is c:/usr
 
 
 distribution package

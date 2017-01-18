@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2012 Erwin Waterlander
+Copyright (C) 1997-2017 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -55,7 +55,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #      define GO_FILE "/wcdgo.ps1"
 #    elif defined(_WIN32)
 #      define GO_FILE "/wcdgo.bat"
-#    elif defined(__OS2__)
+#    elif (defined(__OS2__) && !defined(WCD_OS2BASH))
 #      define GO_FILE "/wcdgo.cmd"
 #    else
 #      define GO_FILE "/wcd.go"

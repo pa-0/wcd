@@ -12,7 +12,7 @@ CFLAGS = -O2 -Wall
 # Ncurses
 CURSES = ncurses
 ENABLE_NLS =
-DEFS   =
+DEFS   = -DWCD_OS2BASH
 
 ifeq ($(CURSES),pdcurses)
 LIB_CURSES = pdcurses.a
@@ -30,20 +30,17 @@ LIBS_EXTRA += -lintl
 endif
 
 bindir    = ${exec_prefix}/bin
-PROGRAM = wcdos2.exe
-VERSIONSUFFIX = -os2
-ZIPOBJ_EXTRA=bin/wcd.cmd
+PROGRAM = wcdos2bash.exe
+VERSIONSUFFIX = -os2bash
 
 all :
 	${MAKE} -C ../src all PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES="${LIB_CURSES}" DEFS="${DEFS}" LIBS_EXTRA="${LIBS_EXTRA}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} ENABLE_NLS=${ENABLE_NLS} OS=os/2
 
 install :
 	${MAKE} -C ../src install PROGRAM=${PROGRAM} CFLAGS="${CFLAGS}" CURSES=${CURSES} LIB_CURSES="${LIB_CURSES}" DEFS="${DEFS}" LIBS_EXTRA="${LIBS_EXTRA}" LDFLAGS_EXTRA="${LDFLAGS_EXTRA}" prefix=${prefix} MKDIR=${MKDIR} INSTALL_OBJS_DOC_INSTALL="../doc/INST_DOS.txt ../doc/INSTALL.txt" ENABLE_NLS=${ENABLE_NLS} OS=os/2
-	install -m 755 wcd.cmd $(DESTDIR)${bindir}/wcd.cmd
 
 uninstall :
 	${MAKE} -C ../src uninstall PROGRAM=${PROGRAM} prefix=${prefix} ENABLE_NLS=${ENABLE_NLS}
-	-rm -f $(DESTDIR)${bindir}/wcd.cmd
 
 
 dist :

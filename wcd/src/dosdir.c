@@ -77,7 +77,7 @@ struct stat dd_sstat;  /* global stat structure of last successful file
 			*/
 #endif
 
-#ifdef UNIX
+#if defined(UNIX) || ((defined(__OS2__) && defined(__EMX__)))
 #  define STAT lstat /* don't expand symbolic links */
 #else /* ?MSDOS\VMS */
 #  ifdef WCD_UTF16

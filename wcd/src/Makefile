@@ -239,7 +239,7 @@ ifeq (os/2,$(OS))
 	LDFLAGS_EXTRA = -Zhigh-mem -Zomf -Zargs-resp
 	ZIPOBJ_EXTRA=bin/wcd.cmd
 	VERSIONSUFFIX = -os2
-	LIBS_EXTRA = -lcx
+	LIBS_EXTRA =
 ifdef ENABLE_NLS
 	LIBS_EXTRA += -lintl
 endif
