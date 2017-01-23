@@ -1,7 +1,7 @@
 #
 #   Copyright information
 #
-#	Copyright (C) 2009-2016 Erwin Waterlander
+#	Copyright (C) 2009-2017 Erwin Waterlander
 #	Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -487,6 +487,7 @@ OBJS1 = \
 	wcddir.o \
 	matchl.o \
 	querycp.o \
+	finddirs.o \
 	$(EXTRA_OBJ)
 
 ifneq (,$(CURSES))

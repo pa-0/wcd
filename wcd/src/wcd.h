@@ -146,7 +146,6 @@ FILE *wcd_fopen(const char *filename, const char *m, int quiet);
 FILE *wcd_fopen_bom(const char *filename, const char *m, int quiet, int *bomtype);
 int wcd_fprintf(FILE *stream, const char *format, ...);
 void wcd_fclose(FILE *fp, const char *filename, const char *m, const char *functionname);
-void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet);
 int read_treefile(char *filename, nameset bd, int silent);
 void rmDirFromList(char *string, nameset n);
 void writeList(char *filename, nameset n, int bomtype);
@@ -174,12 +173,15 @@ int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const in
 int read_treefile_line (char line[], FILE* infile, const char* file_name, const int* line_nr, int bomtype);
 int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdStack ws, nameset excl);
 char *getCurPath(char *buffer, size_t size, int *use_HOME);
+size_t pathInNameset (text path, nameset set);
+#ifdef _WCD_DOSFS
+void rmDriveLetter(char path[], int *use_HOME);
+#endif
 
 #ifdef WCD_DOSBASH
 	void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript, int verbose);
 #else
 	void empty_wcdgo(char *go_file, int use_GoScript, int verbose);
 #endif
-int SpecialDir(const char *path);
 
 #endif
