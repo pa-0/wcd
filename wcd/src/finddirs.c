@@ -122,18 +122,16 @@ compiled with DJGPP.  It is about a factor 35 slower than using DJGPP's
 findfirst/findnext.  Probably due to a slow stat() function in dd_initstruct().
 Using DOSDIR in combination with DJGPP would make scanning the disk very slow.
 
-The Windows version of wcd don't use DOSDIR anymore. Using the Windows API functions results
-in about 4 times faster disc scanning. EW Jan 2017.
+The Windows version of wcd doesn't use DOSDIR anymore. Using the Windows API functions results
+in about 4 times faster disc scanning. EW Jan 27 2017.
+
+The Unix version of wcd doesn't use DOSDIR anymore. Using opendir/readdir directly results
+in about 4 times faster disc scanning. EW Jan 29 2017.
+
+Only native DOS and OS/2 compilers still use dosdir. E.g. Borland C and Watcom C.
 
 */
 
-/********************************************************************
- *
- *                    rmTree(dir)
- *
- * Recursively delete directory: *dir
- *
- ********************************************************************/
 #ifdef __DJGPP__
 #  define WCD_FB_NAME  fb.ff_name
 #  define WCD_FB_MODE  fb.ff_attrib
@@ -143,100 +141,194 @@ in about 4 times faster disc scanning. EW Jan 2017.
 #  define WCD_FB_MODE  fb.dd_mode
 #  define WCD_FINDNEXT dd_findnext
 #endif
+
+
+#if defined(_WIN32) && !defined(__CYGWIN__)
+#  ifdef WCD_UNICODE
+#    define WCD_FINDFIRSTFILE FindFirstFileW
+#    define WCD_FINDNEXTFILE  FindNextFileW
+#  else
+#    define WCD_FINDFIRSTFILE FindFirstFileA
+#    define WCD_FINDNEXTFILE  FindNextFileA
+#  endif
+#endif
+
+/********************************************************************
+ *
+ *                    rmTree(dir)
+ *
+ * Recursively delete directory: *dir
+ *
+ ********************************************************************/
 void rmTree(char *dir)
 {
-#ifdef __DJGPP__
-   static struct ffblk fb;   /* file block structure */
-   int rc;                   /* error code */
-#else
-   static dd_ffblk fb;       /* file block structure */
-   wcd_intptr_t rc;          /* error code */
+#if defined(_WIN32) && !defined(__CYGWIN__)
+   WIN32_FIND_DATA FindFileData;
+   HANDLE hFind;
+#elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
+#  ifdef __DJGPP__
+   static struct ffblk fb;       /* file block structure */
+   int rc;                       /* error code */
+#  else
+   static dd_ffblk fb;           /* file block structure */
+   wcd_intptr_t rc;              /* error code */
+#  endif
+   char tmp[DD_MAXPATH];         /* tmp string */
+   TDirList list;                /* directory queue */
+#else /* Unix, Cygwin, MSYS, EMX */
+   DIR *dirp;
+   struct dirent *dp;
 #endif
-   char tmp[DD_MAXPATH];     /* tmp string */
-   char *errstr;
-   TDirList list;            /* directory queue */
 
    if (dir)
    {
       if (wcd_chdir(dir,0)) return; /* Go to the dir, else return */
    }
    else
-       return ;  /* dir == NULL */
+     return ;  /* dir == NULL */
 
-/*
-   Don't set DD_LABEL. Otherwise wcd compiled with
+
+#if defined(_WIN32) && !defined(__CYGWIN__)
+
+   hFind = WCD_FINDFIRSTFILE(ALL_FILES_MASK, &FindFileData);
+   while (hFind != INVALID_HANDLE_VALUE)
+   {
+      char directory[DD_MAXPATH];
+#  ifdef WCD_UNICODE
+      wcstoutf8(directory, FindFileData.cFileName, sizeof(directory));
+#  else
+      wcd_strncpy(directory,FindFileData.cFileName,sizeof(directory));
+#  endif
+      if (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
+         if (!SpecialDir(directory)) {
+            if(wcd_islink(directory,0)) {
+               if (unlink(directory) != 0)
+                  print_error(_("Unable to remove file %s: %s\n"), directory, strerror(errno));
+            }
+            else {
+               rmTree(directory);
+               wcd_rmdir(directory,0);
+            }
+         }
+
+      } else {  /* not a directory */
+         if (unlink(directory) != 0)
+            print_error(_("Unable to remove file %s: %s\n"), directory, strerror(errno));
+
+      }
+      if (!WCD_FINDNEXTFILE(hFind, &FindFileData)) {
+          FindClose(hFind);
+          hFind = INVALID_HANDLE_VALUE;
+      }
+
+   }
+
+#elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
+
+/* Don't set DD_LABEL. Otherwise wcd compiled with
    Borland CPP 5.x bcc32 finds no files or directories at all.
    This was seen with Borland CPP 5.02 and 5.5.1.
-   Apr 29 2005   Erwin Waterlander
-*/
-#ifdef __DJGPP__
-   rc = findfirst( default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL);
-#else
-   rc = dd_findfirst( default_mask, &fb, DD_DIREC|DD_RDONLY|DD_HIDDEN|DD_SYSTEM|DD_ARCH|DD_DEVICE );
-#endif
-   /* Unix: dd_findfirst is a wrapper around 'opendir'. The directory opened in dd_findfirst
-    * has to be closed by 'closedir' in dd_findnext. So do not exit this function until
-    * the dd_findnext loop is complete. Otherwise directories will be left open and you
-    * will have a memory leak. When too many directories are left open getcwd() may return
-    * an incorrect pathname. */
-
+   Apr 29 2005   Erwin Waterlander */
+#  ifdef __DJGPP__
+   rc = findfirst(default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL);
+#  else
+   rc = dd_findfirst(default_mask, &fb, DD_DIREC|DD_RDONLY|DD_HIDDEN|DD_SYSTEM|DD_ARCH|DD_DEVICE);
+#  endif
    list.head = list.tail = 0;
 
-   while (rc==0)   /* go through all the files in the current dir */
-   {
-      if (DD_ISDIREC(WCD_FB_MODE))
-      {
-
-#ifndef VMS
-     /*  Ignore directory entries starting with '.'
-      *  which includes the current and parent directories.
-      */
+   while (rc==0) {  /* go through all the files in the current dir */
+      if (DD_ISDIREC(WCD_FB_MODE)) {
          if (!SpecialDir(WCD_FB_NAME))
-#endif /* ?!VMS */
             q_insert(&list, WCD_FB_NAME);   /* add all directories in current dir to list */
+      } else { /* not a directory */
+         if (unlink(WCD_FB_NAME) != 0) {
+            print_error(_("Unable to remove file %s: %s\n"), WCD_FB_NAME, strerror(errno));
+         }
       }
-      else
-      if ( unlink(WCD_FB_NAME) != 0)  /* not a directory */
-      {
-         errstr = strerror(errno);
-         print_error(_("Unable to remove file %s: %s\n"), WCD_FB_NAME, errstr);
-      }
-
       rc = WCD_FINDNEXT(&fb);
    } /* while !rc */
 
-   /* recursively parse subdirectories (if any) */
-   while (q_remove(&list, tmp))
-      {
-        rmTree(tmp);
-        wcd_rmdir(tmp,0);
-      }
+   /* recursively parse subdirectories (if any) (quiet) */
+   while (q_remove(&list, tmp)) {
+      rmTree(tmp);
+      wcd_rmdir(tmp,0);
+   }
 
-   wcd_chdir(DIR_PARENT,0); /* go to parent directory */
+#else /* Unix, Cygwin, MSYS, EMX */
+
+   dirp = opendir(".");
+   if (dirp == NULL) {
+      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
+      return;
+   }
+   dp = readdir(dirp);
+   while (dp) {
+#ifdef _DIRENT_HAVE_D_TYPE
+      if (dp->d_type == DT_DIR) {
+         if (!SpecialDir(dp->d_name)) {
+            rmTree(dp->d_name);
+            wcd_rmdir(dp->d_name,0);
+         }
+      
+      } else { /* not a directory */
+         if (unlink(dp->d_name) != 0) {
+            print_error(_("Unable to remove file %s: %s\n"), dp->d_name, strerror(errno));
+         }
+      }
+#else
+      /* Not all systems have d_type. */
+      static struct stat buf ;
+      if (lstat(dp->d_name, &buf) == 0) {
+         if (S_ISDIR(buf.st_mode)) {
+            if (!SpecialDir(dp->d_name)) {
+               rmTree(dp->d_name);
+               wcd_rmdir(dp->d_name,0);
+            }
+         } else { /* not a directory */
+            if (unlink(dp->d_name) != 0) {
+               print_error(_("Unable to remove file %s: %s\n"), dp->d_name, strerror(errno));
+            }
+         }
+      }
+#endif
+      dp = readdir(dirp);
+   }
+   if (closedir(dirp))
+      print_error(_("Unable to close directory %s: %s\n"), dir, strerror(errno));
+#endif
+
+   wcd_chdir(DIR_PARENT,1); /* go to parent directory */
 }
+
+
 
 /********************************************************************
  *
  *  finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, int quiet)
  *
  ********************************************************************/
-#if defined(_WIN32) && !defined(__CYGWIN__)
 
-#ifdef WCD_UNICODE
-#  define WCD_FINDFIRSTFILE FindFirstFileW
-#  define WCD_FINDNEXTFILE  FindNextFileW
-#else
-#  define WCD_FINDFIRSTFILE FindFirstFileA
-#  define WCD_FINDNEXTFILE  FindNextFileA
-#endif
 void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
 {
    char curdir[DD_MAXPATH];
-   char nextdir[DD_MAXPATH];
    char *tmp_ptr ;
    size_t len ;
+#if defined(_WIN32) && !defined(__CYGWIN__)
    WIN32_FIND_DATA FindFileData;
    HANDLE hFind;
+#elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
+#  ifdef __DJGPP__
+   static struct ffblk fb;       /* file block structure */
+   int rc;                       /* error code */
+#  else
+   static dd_ffblk fb;           /* file block structure */
+   wcd_intptr_t rc;              /* error code */
+#  endif
+   TDirList list;                /* directory queue */
+#else /* Unix, Cygwin, MSYS, EMX */
+   DIR *dirp;
+   struct dirent *dp;
+#endif
 
    if (dir)
    {
@@ -272,27 +364,28 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    else
      tmp_ptr = curdir + len;   /* tmp_ptr points to ending '\0' of curdir */
 
-   if (wcd_fprintf(outfile,"%s\n", tmp_ptr) < 0)
+   if (wcd_fprintf(outfile,"%s\n", tmp_ptr) < 0) {
+      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
       return;  /* Quit when we can't write path to disk */
+   }
+
+#if defined(_WIN32) && !defined(__CYGWIN__)
 
    hFind = WCD_FINDFIRSTFILE(ALL_FILES_MASK, &FindFileData);
    while (hFind != INVALID_HANDLE_VALUE)
    {
       if (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
          char directory[DD_MAXPATH];
-#ifdef WCD_UNICODE
+#  ifdef WCD_UNICODE
          wcstoutf8(directory, FindFileData.cFileName, sizeof(directory));
-#else
+#  else
          wcd_strncpy(directory,FindFileData.cFileName,sizeof(directory));
-#endif
+#  endif
          if (!SpecialDir(directory)) {
-            wcd_strncpy(nextdir,curdir,sizeof(nextdir));
-            wcd_strncat(nextdir,"/",sizeof(nextdir));
-            wcd_strncat(nextdir,directory,sizeof(nextdir));
-            if(wcd_islink(nextdir,quiet))
-               wcd_fprintf(outfile,"%s\n", nextdir);
+            if(wcd_islink(directory,quiet))
+               wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, directory);
             else
-               finddirs(nextdir,offset, outfile, use_HOME, exclude, 1);
+               finddirs(directory,offset, outfile, use_HOME, exclude, 1);
          }
 
       }
@@ -302,58 +395,8 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
       }
 
    }
-}
+
 #elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
-void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
-{
-#ifdef __DJGPP__
-   static struct ffblk fb;       /* file block structure */
-   int rc;                       /* error code */
-#else
-   static dd_ffblk fb;           /* file block structure */
-   wcd_intptr_t rc;              /* error code */
-#endif
-   static char curdir[DD_MAXPATH];  /* curdir string buffer */
-   size_t len ;
-   TDirList list;                /* directory queue */
-   char *tmp_ptr ;
-
-   if (dir)
-   {
-      if (wcd_chdir(dir,quiet)) return; /* Go to the dir, else return */
-   }
-   else
-     return ;  /* dir == NULL */
-
-
-   if (wcd_getcwd(curdir, sizeof(curdir)) == NULL)
-   {
-      print_error(_("finddirs(): can't determine path in directory %s\n"),dir);
-      print_error(_("path probably too long.\n"));
-      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
-      return;
-   };
-
-#ifdef _WCD_DOSFS
-   wcd_fixpath(curdir,sizeof(curdir));
-   rmDriveLetter(curdir,use_HOME);
-#endif
-
-   if (pathInNameset(curdir,exclude) != (size_t)-1)
-   {
-      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
-      return;
-   }
-
-   len = strlen(curdir);
-
-   if(*offset < len)
-     tmp_ptr = curdir + *offset ;
-   else
-     tmp_ptr = curdir + len;   /* tmp_ptr points to ending '\0' of curdir */
-
-   if (wcd_fprintf(outfile,"%s\n", tmp_ptr) < 0)
-      return;  /* Quit when we can't write path to disk */
 
 /*
    Don't set DD_LABEL. Otherwise wcd compiled with
@@ -361,11 +404,11 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    This was seen with Borland CPP 5.02 and 5.5.1.
    Apr 29 2005   Erwin Waterlander
 */
-#ifdef __DJGPP__
-   rc = findfirst( default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL );
-#else
-   rc = dd_findfirst( default_mask, &fb, DD_DIREC|DD_RDONLY|DD_HIDDEN|DD_SYSTEM|DD_ARCH|DD_DEVICE );
-#endif
+#  ifdef __DJGPP__
+   rc = findfirst(default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL);
+#  else
+   rc = dd_findfirst(default_mask, &fb, DD_DIREC|DD_RDONLY|DD_HIDDEN|DD_SYSTEM|DD_ARCH|DD_DEVICE);
+#  endif
    list.head = list.tail = 0;
 
    while (rc==0) {  /* go through all the files in the current dir */
@@ -380,58 +423,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    while (q_remove(&list, curdir))
       finddirs(curdir,offset, outfile, use_HOME, exclude, 1);
 
-   /* Quiet, because on OS/2 changing to .. from a disk root dir gives an error. */
-   wcd_chdir(DIR_PARENT,1); /* go to parent directory */
-}
-
 #else /* Unix, Cygwin, MSYS, EMX */
-
-void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
-{
-   char curdir[DD_MAXPATH];  /* curdir string buffer */
-   size_t len ;
-   char *tmp_ptr ;
-   DIR *dirp;
-   struct dirent *dp;
-
-   if (dir)
-   {
-      if (wcd_chdir(dir,quiet)) return; /* Go to the dir, else return */
-   }
-   else
-     return ;  /* dir == NULL */
-
-
-   if (wcd_getcwd(curdir, sizeof(curdir)) == NULL)
-   {
-      print_error(_("finddirs(): can't determine path in directory %s\n"),dir);
-      print_error(_("path probably too long.\n"));
-      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
-      return;
-   };
-
-#ifdef _WCD_DOSFS
-   wcd_fixpath(curdir,sizeof(curdir));
-   rmDriveLetter(curdir,use_HOME);
-#endif
-
-   if (pathInNameset(curdir,exclude) != (size_t)-1)
-   {
-      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
-      return;
-   }
-
-   len = strlen(curdir);
-
-   if(*offset < len)
-     tmp_ptr = curdir + *offset ;
-   else
-     tmp_ptr = curdir + len;   /* tmp_ptr points to ending '\0' of curdir */
-
-   if (fprintf(outfile,"%s\n", tmp_ptr) < 0) {
-      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
-      return;  /* Quit when we can't write path to disk */
-   }
 
    dirp = opendir(curdir);
    if (dirp == NULL) {
@@ -440,26 +432,46 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    }
    dp = readdir(dirp);
    while (dp) {
-      /* Is it a symbolic link? */
-#ifdef __CYGWIN__
-      /* On Cygwin DT_LNK only works for Windows native links. Cygwin links return DT_UNKNOWN. */
-      if ((dp->d_type == DT_LNK) || (dp->d_type == DT_UNKNOWN)) {
-#else
-      if (dp->d_type == DT_LNK) {
-#endif
-         static struct stat buf ;
-         if ((stat(dp->d_name, &buf) == 0) && S_ISDIR(buf.st_mode)) /* does the link point to a dir */
-            wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, dp->d_name);
-      }
+#ifdef _DIRENT_HAVE_D_TYPE
       if (dp->d_type == DT_DIR) {
          if (!SpecialDir(dp->d_name))
             finddirs(dp->d_name,offset, outfile, use_HOME, exclude, 1);
-      
+      } else if (dp->d_type == DT_LNK) { /* Is it a symbolic link? */
+         static struct stat buf ;
+         if ((stat(dp->d_name, &buf) == 0) && S_ISDIR(buf.st_mode)) /* does the link point to a dir */
+            wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, dp->d_name);
+      } else if (dp->d_type == DT_UNKNOWN) {
+         /* File type is not supported by all file systems.
+            On Cygwin DT_LNK only works for Windows native links. Cygwin links return DT_UNKNOWN. */
+         static struct stat buf ;
+         if (lstat(dp->d_name, &buf) == 0) {
+            if (S_ISDIR(buf.st_mode)) {
+               if (!SpecialDir(dp->d_name))
+                  finddirs(dp->d_name,offset, outfile, use_HOME, exclude, 1);
+            } else if (S_ISLNK(buf.st_mode)) { /* Is it a symbolic link? */
+               if ((stat(dp->d_name, &buf) == 0) && S_ISDIR(buf.st_mode)) /* does the link point to a dir */
+                  wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, dp->d_name);
+            }
+         }
       }
+#else
+      /* Not all systems have d_type. */
+      static struct stat buf ;
+      if (lstat(dp->d_name, &buf) == 0) {
+         if (S_ISDIR(buf.st_mode)) {
+            if (!SpecialDir(dp->d_name))
+               finddirs(dp->d_name,offset, outfile, use_HOME, exclude, 1);
+         } else if (S_ISLNK(buf.st_mode)) { /* Is it a symbolic link? */
+            if ((stat(dp->d_name, &buf) == 0) && S_ISDIR(buf.st_mode)) /* does the link point to a dir */
+               wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, dp->d_name);
+         }
+      }
+#endif
       dp = readdir(dirp);
    }
-   wcd_chdir(DIR_PARENT,1); /* go to parent directory */
    if (closedir(dirp))
       print_error(_("Unable to close directory %s: %s\n"), curdir, strerror(errno));
-}
 #endif
+
+   wcd_chdir(DIR_PARENT,1); /* go to parent directory */
+}
