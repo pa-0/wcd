@@ -1,4 +1,5 @@
-5.3.5-beta1 2017-01-18
+6.0.0-beta1 2017-01-29
+  - About 4 times faster disc scanning on Windows and Unix.
   - Support EMX symbolic links on OS/2.
   - Support bash on OS/2.
 

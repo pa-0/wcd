@@ -605,7 +605,7 @@ getpoman:
 %.mo : %.po
 	msgfmt -c $< -o $@
 
-$(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c c3po/Error.c
+$(POT) : wcd.c wcddir.c stack.c display.c graphics.c wfixpath.c finddirs.c c3po/Error.c
 	xgettext --no-wrap -C --keyword=_ $+ -o $(POT)
 
 ZIPFILE = $(PACKAGE)-$(VERSION)$(VERSIONSUFFIX)$(NLSSUFFIX)$(UCSSUFFIX).zip
