@@ -16,12 +16,18 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifdef WCD_UNICODE
-#  define UNICODE
-#  define _UNICODE
-#endif
 #ifdef _WIN32
+#  ifdef WCD_UNICODE
+#    define UNICODE
+#    define _UNICODE
+#  endif
 #  include <windows.h>
+#endif
+#if defined(UNIX) || defined(__CYGWIN__) || defined(__EMX__)
+#  define _GNU_SOURCE /* Required for DT_DIR and DT_LNK */
+#  include <dirent.h>
+#  include <sys/types.h>
+#  include <unistd.h>
 #endif
 #include <string.h>
 #include "dosdir.h"
@@ -31,6 +37,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "nameset.h"
 #include "config.h"
 #include "display.h"
+#include "tailor.h"
 
 const wcd_char *default_mask = ALL_FILES_MASK;
 
@@ -296,7 +303,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 
    }
 }
-#else
+#elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
 void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
 {
 #ifdef __DJGPP__
@@ -361,45 +368,11 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 #endif
    list.head = list.tail = 0;
 
-   /* Unix: dd_findfirst is a wrapper around 'opendir'. The directory opened in dd_findfirst
-    * has to be closed by 'closedir' in dd_findnext. So do not exit this function until
-    * the dd_findnext loop is complete. Otherwise directories will be left open and you
-    * will have a memory leak. When too many directories are left open getcwd() may return
-    * an incorrect pathname. */
-
-   while (rc==0)   /* go through all the files in the current dir */
-   {
-      if (DD_ISDIREC(WCD_FB_MODE))
-      {
-#ifndef VMS
-         /*  Ignore directory entries starting with '.'
-          *  which includes the current and parent directories. */
+   while (rc==0) {  /* go through all the files in the current dir */
+      if (DD_ISDIREC(WCD_FB_MODE)) {
          if (!SpecialDir(WCD_FB_NAME))
-#endif /* ?!VMS */
-#ifdef _WIN32
-         {
-            /* On Windows a symbolic directory link is seen as a normal directory
-             * by DD_ISDIREC().
-             */
-            if(wcd_islink(fb.dd_name,quiet))
-               wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
-            else
-               q_insert(&list, fb.dd_name);   /* add all directories in current dir to list */
-         }
-#else
             q_insert(&list, WCD_FB_NAME);   /* add all directories in current dir to list */
-#endif
       }
-
-#if defined(UNIX) || ((defined(__OS2__) && defined(__EMX__)))
-      if ( S_ISLNK(fb.dd_mode))  /* is it a link ? */
-      {
-        static struct stat buf ;
-
-        if ((stat(fb.dd_name, &buf) == 0) && S_ISDIR(buf.st_mode)) /* does the link point to a dir */
-           wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, fb.dd_name);
-      }
-#endif
       rc = WCD_FINDNEXT(&fb);
    } /* while !rc */
 
@@ -409,5 +382,84 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 
    /* Quiet, because on OS/2 changing to .. from a disk root dir gives an error. */
    wcd_chdir(DIR_PARENT,1); /* go to parent directory */
+}
+
+#else /* Unix, Cygwin, MSYS, EMX */
+
+void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
+{
+   char curdir[DD_MAXPATH];  /* curdir string buffer */
+   size_t len ;
+   char *tmp_ptr ;
+   DIR *dirp;
+   struct dirent *dp;
+
+   if (dir)
+   {
+      if (wcd_chdir(dir,quiet)) return; /* Go to the dir, else return */
+   }
+   else
+     return ;  /* dir == NULL */
+
+
+   if (wcd_getcwd(curdir, sizeof(curdir)) == NULL)
+   {
+      print_error(_("finddirs(): can't determine path in directory %s\n"),dir);
+      print_error(_("path probably too long.\n"));
+      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
+      return;
+   };
+
+#ifdef _WCD_DOSFS
+   wcd_fixpath(curdir,sizeof(curdir));
+   rmDriveLetter(curdir,use_HOME);
+#endif
+
+   if (pathInNameset(curdir,exclude) != (size_t)-1)
+   {
+      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
+      return;
+   }
+
+   len = strlen(curdir);
+
+   if(*offset < len)
+     tmp_ptr = curdir + *offset ;
+   else
+     tmp_ptr = curdir + len;   /* tmp_ptr points to ending '\0' of curdir */
+
+   if (fprintf(outfile,"%s\n", tmp_ptr) < 0) {
+      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
+      return;  /* Quit when we can't write path to disk */
+   }
+
+   dirp = opendir(curdir);
+   if (dirp == NULL) {
+      wcd_chdir(DIR_PARENT,1); /* go to parent directory */
+      return;
+   }
+   dp = readdir(dirp);
+   while (dp) {
+      /* Is it a symbolic link? */
+#ifdef __CYGWIN__
+      /* On Cygwin DT_LNK only works for Windows native links. Cygwin links return DT_UNKNOWN. */
+      if ((dp->d_type == DT_LNK) || (dp->d_type == DT_UNKNOWN)) {
+#else
+      if (dp->d_type == DT_LNK) {
+#endif
+         static struct stat buf ;
+         if ((stat(dp->d_name, &buf) == 0) && S_ISDIR(buf.st_mode)) /* does the link point to a dir */
+            wcd_fprintf(outfile,"%s/%s\n", tmp_ptr, dp->d_name);
+      }
+      if (dp->d_type == DT_DIR) {
+         if (!SpecialDir(dp->d_name))
+            finddirs(dp->d_name,offset, outfile, use_HOME, exclude, 1);
+      
+      }
+      dp = readdir(dirp);
+   }
+   wcd_chdir(DIR_PARENT,1); /* go to parent directory */
+   if (closedir(dirp))
+      print_error(_("Unable to close directory %s: %s\n"), curdir, strerror(errno));
 }
 #endif
