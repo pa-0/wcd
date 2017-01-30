@@ -951,7 +951,7 @@ void deleteLink(char *path, char *treefile)
          * we get 'permission denied'. Use rmdir. */
         if (wcd_rmdir(tmp2,0)==0) /* delete the link */
 #else
-        if (unlink(tmp2)==0)    /* delete the link */
+        if (wcd_unlink(tmp2)==0)    /* delete the link */
 #endif
         {
             print_msg("");

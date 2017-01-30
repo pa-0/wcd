@@ -56,6 +56,9 @@ wcd.obj :  $(SRCDIR)\wcd.c
 wcddir.obj :  $(SRCDIR)\wcddir.c
 	$(CC) /c $(CFLAGS) $(SRCDIR)\wcddir.c
 
+finddirs.obj :  $(SRCDIR)\finddirs.c
+	$(CC) /c $(CFLAGS) $(SRCDIR)\finddirs.c
+
 
 WcdStack.obj :  $(SRCDIR)\c3po\WcdStack.c
 	$(CC) /c $(CFLAGS) $(SRCDIR)\c3po\WcdStack.c

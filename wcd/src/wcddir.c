@@ -8,7 +8,7 @@ Author: Erwin Waterlander
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 2002-2016 Erwin Waterlander
+Copyright (C) 2002-2017 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -52,6 +52,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #if (defined(_WIN32) && defined(WCD_UNICODE))
 #include <wchar.h>
+#endif
+#if (defined(__MSDOS__) && !defined(__DJGPP__)) || (defined(__OS2__) && !defined(__EMX__))
+#  include <io.h> /* for unlink() */
 #endif
 
 #if (defined(_WIN32) || defined(__CYGWIN__))
@@ -349,19 +352,19 @@ char *wcd_getcwd(char *buf, size_t size)
       return(buf);   /* success */
 }
 
-int wcd_chdir(char *buf, int quiet)
+int wcd_chdir(const char *path, int quiet)
 {
    BOOL err;
    DWORD dw;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
-   if (utf8towcs(wstr, buf, DD_MAXPATH) == (size_t)(-1))
+   if (utf8towcs(wstr, path, DD_MAXPATH) == (size_t)(-1))
       err = 0;
    else
       err = SetCurrentDirectoryW(wstr);
 #else
-   err = SetCurrentDirectory(buf);
+   err = SetCurrentDirectory(path);
 #endif
 
    if (err == 0)
@@ -370,7 +373,7 @@ int wcd_chdir(char *buf, int quiet)
       {
          dw = GetLastError();
          print_error("");
-         wcd_printf(_("Unable to change to directory %s: "), buf);
+         wcd_printf(_("Unable to change to directory %s: "), path);
          wcd_PrintError(dw);
       }
       return(1);   /* fail */
@@ -379,19 +382,19 @@ int wcd_chdir(char *buf, int quiet)
       return(0);   /* success */
 }
 
-int wcd_mkdir(char *buf, int quiet)
+int wcd_mkdir(const char *path, int quiet)
 {
    BOOL err;
    DWORD dw;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
-   if (utf8towcs(wstr, buf, DD_MAXPATH) == (size_t)(-1))
+   if (utf8towcs(wstr, path, DD_MAXPATH) == (size_t)(-1))
       err = FALSE;
    else
       err = CreateDirectoryW(wstr, NULL);
 #else
-   err = CreateDirectory(buf, NULL);
+   err = CreateDirectory(path, NULL);
 #endif
 
    if (err == TRUE)
@@ -402,26 +405,26 @@ int wcd_mkdir(char *buf, int quiet)
      {
        dw = GetLastError();
        print_error("");
-       wcd_printf(_("Unable to create directory %s: "), buf);
+       wcd_printf(_("Unable to create directory %s: "), path);
        wcd_PrintError(dw);
      }
      return(1);  /* fail */
    }
 }
 
-int wcd_rmdir(char *buf, int quiet)
+int wcd_rmdir(const char *path, int quiet)
 {
    BOOL err;
    DWORD dw;
 #ifdef WCD_UNICODE
    static wchar_t wstr[DD_MAXPATH];
 
-   if (utf8towcs(wstr, buf, DD_MAXPATH) == (size_t)(-1))
+   if (utf8towcs(wstr, path, DD_MAXPATH) == (size_t)(-1))
       err = FALSE;
    else
       err = RemoveDirectoryW(wstr);
 #else
-   err = RemoveDirectory(buf);
+   err = RemoveDirectory(path);
 #endif
 
    if (err == TRUE)
@@ -432,12 +435,25 @@ int wcd_rmdir(char *buf, int quiet)
      {
        dw = GetLastError();
        print_error("");
-       wcd_printf(_("Unable to remove directory %s: "), buf);
+       wcd_printf(_("Unable to remove directory %s: "), path);
        wcd_PrintError(dw);
      }
      return(1);  /* fail */
    }
 }
+
+int wcd_unlink(const char *path)
+{
+#ifdef WCD_UNICODE
+   wchar_t pathw[DD_MAXPATH];
+   if (utf8towcs(pathw, path, DD_MAXPATH) == (size_t)(-1))
+      return -1;
+   return _wunlink(pathw);
+#else
+   return unlink(path);
+#endif
+}
+
 
 /******************************************************************
  *
@@ -551,29 +567,23 @@ int wcd_isdir(char *dir, int quiet)
 
 #if defined(UNIX) || defined(__DJGPP__) || defined(__EMX__)
 
-int wcd_mkdir(char *buf, mode_t m, int quiet)
+int wcd_mkdir(const char *path, mode_t m, int quiet)
 {
-  int err = mkdir(buf, m);
+  int err = mkdir(path, m);
 
   if ( !quiet && err)
-  {
-    char *errstr = strerror(errno);
-    print_error(_("Unable to create directory %s: %s\n"), buf, errstr);
-  }
+    print_error(_("Unable to create directory %s: %s\n"), path, strerror(errno));
   return(err);
 }
 
 #else
 
-int wcd_mkdir(char *buf, int quiet)
+int wcd_mkdir(const char *path, int quiet)
 {
-  int err = mkdir(buf);
+  int err = mkdir(path);
 
   if ( !quiet && err)
-  {
-    char *errstr = strerror(errno);
-    print_error(_("Unable to create directory %s: %s\n"), buf, errstr);
-  }
+    print_error(_("Unable to create directory %s: %s\n"), path, strerror(errno));
   return(err);
 }
 
@@ -703,28 +713,27 @@ char *wcd_getcwd(char *buf, size_t size)
    return(err);
 }
 
-int wcd_chdir(char *buf, int quiet)
+int wcd_chdir(const char *path, int quiet)
 {
-  int err = chdir(buf);
+  int err = chdir(path);
 
-  if ( !quiet && err)
-  {
-    char *errstr = strerror(errno);
-    print_error(_("Unable to change to directory %s: %s\n"), buf, errstr);
-  }
+  if (!quiet && err)
+    print_error(_("Unable to change to directory %s: %s\n"), path, strerror(errno));
   return(err);
 }
 
-int wcd_rmdir(char *buf, int quiet)
+int wcd_rmdir(const char *path, int quiet)
 {
-  int err = rmdir(buf);
+  int err = rmdir(path);
 
-  if ( !quiet && err)
-  {
-    char *errstr = strerror(errno);
-    print_error(_("Unable to remove directory %s: %s\n"), buf, errstr);
-  }
+  if (!quiet && err)
+    print_error(_("Unable to remove directory %s: %s\n"), path, strerror(errno));
   return(err);
+}
+
+int wcd_unlink(const char *path)
+{
+   return unlink(path);
 }
 
 /******************************************************************
@@ -740,24 +749,16 @@ int wcd_isdir(char *dir, int quiet)
 {
    struct stat buf;
 
-   if (stat(dir, &buf) == 0)
-   {
+   if (stat(dir, &buf) == 0) {
       if (S_ISDIR(buf.st_mode))
          return(0);
       else
          return(-1);
-   }
-   else
-   {
+   } else {
       if (!quiet)
-      {
-        char *errstr = strerror(errno);
-        print_error("%s: %s\n", dir, errstr);
-      }
+         print_error("%s: %s\n", dir, strerror(errno));
       return(-1);
    }
 }
 
-
 #endif
-

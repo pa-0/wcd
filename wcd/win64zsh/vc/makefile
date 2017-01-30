@@ -16,7 +16,7 @@ DEFINES = $(DEFINES) /DWCD_USECURSES /DPDC_WIDE
 CFLAGS  = $(DEFINES) /I$(SRCDIR) /I$(SRCDIR)\c3po
 CFLAGS_VERSION = -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 
-OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj matchl.obj querycp.obj wcwidth.obj
+OBJS    = wcd.obj match.obj stack.obj nameset.obj error.obj text.obj WcdStack.obj display.obj dosdir.obj wfixpath.obj intset.obj wcddir.obj command.obj matchl.obj querycp.obj wcwidth.obj finddirs.obj
 LIBS = mpr.lib
 
 

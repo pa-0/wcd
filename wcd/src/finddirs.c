@@ -16,13 +16,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifdef _WIN32
-#  ifdef WCD_UNICODE
-#    define UNICODE
-#    define _UNICODE
-#  endif
-#  include <windows.h>
-#endif
 #if defined(UNIX) || defined(__CYGWIN__) || defined(__EMX__)
 #  define _GNU_SOURCE /* Required for DT_DIR and DT_LNK */
 #  include <dirent.h>
@@ -38,6 +31,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "config.h"
 #include "display.h"
 #include "tailor.h"
+#ifdef _WIN32
+#  ifdef WCD_UNICODE
+#    define UNICODE
+#    define _UNICODE
+#  endif
+#  include <windows.h>
+#endif
 
 const wcd_char *default_mask = ALL_FILES_MASK;
 
@@ -180,19 +180,16 @@ void rmTree(char *dir)
    struct dirent *dp;
 #endif
 
-   if (dir)
-   {
+   if (dir) {
       if (wcd_chdir(dir,0)) return; /* Go to the dir, else return */
-   }
-   else
-     return ;  /* dir == NULL */
+   } else
+      return ;  /* dir == NULL */
 
 
 #if defined(_WIN32) && !defined(__CYGWIN__)
 
    hFind = WCD_FINDFIRSTFILE(ALL_FILES_MASK, &FindFileData);
-   while (hFind != INVALID_HANDLE_VALUE)
-   {
+   while (hFind != INVALID_HANDLE_VALUE) {
       char directory[DD_MAXPATH];
 #  ifdef WCD_UNICODE
       wcstoutf8(directory, FindFileData.cFileName, sizeof(directory));
@@ -202,25 +199,22 @@ void rmTree(char *dir)
       if (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
          if (!SpecialDir(directory)) {
             if(wcd_islink(directory,0)) {
-               if (unlink(directory) != 0)
+               if (wcd_unlink(directory) != 0)
                   print_error(_("Unable to remove file %s: %s\n"), directory, strerror(errno));
-            }
-            else {
+            } else {
                rmTree(directory);
                wcd_rmdir(directory,0);
             }
          }
 
       } else {  /* not a directory */
-         if (unlink(directory) != 0)
+         if (wcd_unlink(directory) != 0)
             print_error(_("Unable to remove file %s: %s\n"), directory, strerror(errno));
-
       }
       if (!WCD_FINDNEXTFILE(hFind, &FindFileData)) {
           FindClose(hFind);
           hFind = INVALID_HANDLE_VALUE;
       }
-
    }
 
 #elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
@@ -241,7 +235,7 @@ void rmTree(char *dir)
          if (!SpecialDir(WCD_FB_NAME))
             q_insert(&list, WCD_FB_NAME);   /* add all directories in current dir to list */
       } else { /* not a directory */
-         if (unlink(WCD_FB_NAME) != 0) {
+         if (wcd_unlink(WCD_FB_NAME) != 0) {
             print_error(_("Unable to remove file %s: %s\n"), WCD_FB_NAME, strerror(errno));
          }
       }
@@ -271,7 +265,7 @@ void rmTree(char *dir)
          }
       
       } else { /* not a directory */
-         if (unlink(dp->d_name) != 0) {
+         if (wcd_unlink(dp->d_name) != 0) {
             print_error(_("Unable to remove file %s: %s\n"), dp->d_name, strerror(errno));
          }
       }
@@ -285,7 +279,7 @@ void rmTree(char *dir)
                wcd_rmdir(dp->d_name,0);
             }
          } else { /* not a directory */
-            if (unlink(dp->d_name) != 0) {
+            if (wcd_unlink(dp->d_name) != 0) {
                print_error(_("Unable to remove file %s: %s\n"), dp->d_name, strerror(errno));
             }
          }
@@ -387,13 +381,11 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
             else
                finddirs(directory,offset, outfile, use_HOME, exclude, 1);
          }
-
       }
       if (!WCD_FINDNEXTFILE(hFind, &FindFileData)) {
           FindClose(hFind);
           hFind = INVALID_HANDLE_VALUE;
       }
-
    }
 
 #elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
