@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.3.4-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-29 23:59+0100\n"
+"POT-Creation-Date: 2017-01-31 23:07+0100\n"
 "PO-Revision-Date: 2016-12-21 17:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -103,8 +103,8 @@ msgid "Removed directory %s\n"
 msgstr "Вилучено каталог %s\n"
 
 #: wcd.c:1113 wcd.c:1182 wcd.c:1250
-#, c-format
-msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
+#, fuzzy, c-format
+msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"
 msgstr "надто довгий рядок у %s ( > %d). Можливо, файл ієрархії пошкоджено. Якщо це не так, виправити ситуацію можна збільшивши значення DD_MAXPATH у початковому коді.\n"
 
 #: wcd.c:1114 wcd.c:1183 wcd.c:1251
@@ -792,60 +792,60 @@ msgstr "Ймовірно, вам слід виконати повторне ск
 msgid "Cannot change to %s\n"
 msgstr "Не вдалося перейти до %s\n"
 
-#: wcddir.c:104
+#: wcddir.c:109
 #, c-format
 msgid "%lu (\"%s\") reported by \"%s\".\n"
 msgstr "%lu («%s») повідомлено «%s».\n"
 
-#: wcddir.c:127
+#: wcddir.c:132
 msgid "access denied.\n"
 msgstr "доступ заборонено.\n"
 
-#: wcddir.c:208
+#: wcddir.c:213
 #, c-format
 msgid "Searching for shared directories on server %s\n"
 msgstr "Шукаємо каталоги спільного використання на сервері %s\n"
 
-#: wcddir.c:220
+#: wcddir.c:225
 #, c-format
 msgid "Found %lu shared directories on server %s\n"
 msgstr "На сервері %2$s виявлено %1$lu каталогів спільного використання\n"
 
-#: wcddir.c:344
+#: wcddir.c:349
 msgid "Unable to get current working directory: "
 msgstr "Не вдалося визначити поточний робочий каталог: "
 
-#: wcddir.c:373
+#: wcddir.c:378
 #, c-format
 msgid "Unable to change to directory %s: "
 msgstr "Не вдалося перейти до каталогу %s: "
 
-#: wcddir.c:405
+#: wcddir.c:410
 #, c-format
 msgid "Unable to create directory %s: "
 msgstr "Не вдалося створити каталог %s:"
 
-#: wcddir.c:435
+#: wcddir.c:440
 #, c-format
 msgid "Unable to remove directory %s: "
 msgstr "Не вдалося вилучити каталог %s: "
 
-#: wcddir.c:561 wcddir.c:575
+#: wcddir.c:577 wcddir.c:588
 #, c-format
 msgid "Unable to create directory %s: %s\n"
 msgstr "Не вдалося створити каталог %s: %s\n"
 
-#: wcddir.c:697
+#: wcddir.c:709
 #, c-format
 msgid "Unable to get current working directory: %s\n"
 msgstr "Не вдалося отримати дані щодо поточного робочого каталогу: %s\n"
 
-#: wcddir.c:713
+#: wcddir.c:723
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
 msgstr "Не вдалося перейти до каталогу %s: %s\n"
 
-#: wcddir.c:725
+#: wcddir.c:732
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
 msgstr "Не вдалося вилучити каталог %s: %s\n"
@@ -1189,22 +1189,22 @@ msgstr "Для перегляду довідки висота екрана ма�
 msgid "Cannot find the current path %s in the directory tree.\n"
 msgstr "Не вдалося знайти поточний каталог, %s, у ієрархії каталогів.\n"
 
-#: finddirs.c:206 finddirs.c:216 finddirs.c:245 finddirs.c:275 finddirs.c:289
+#: finddirs.c:240 finddirs.c:248 finddirs.c:272 finddirs.c:299 finddirs.c:313
 #, c-format
 msgid "Unable to remove file %s: %s\n"
 msgstr "Не вдалося вилучити файл %s: %s\n"
 
-#: finddirs.c:297 finddirs.c:473
+#: finddirs.c:321 finddirs.c:485
 #, fuzzy, c-format
 msgid "Unable to close directory %s: %s\n"
 msgstr "Не вдалося створити каталог %s: %s\n"
 
-#: finddirs.c:343
+#: finddirs.c:364
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
 msgstr "finddirs(): не вдалося визначити шлях у каталозі %s\n"
 
-#: finddirs.c:344
+#: finddirs.c:365
 msgid "path probably too long.\n"
 msgstr "ймовірно, шлях є надто довгим.\n"
 

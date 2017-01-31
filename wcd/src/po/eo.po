@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-29 23:59+0100\n"
+"POT-Creation-Date: 2017-01-31 23:07+0100\n"
 "PO-Revision-Date: 2016-10-30 17:24+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -105,8 +105,8 @@ msgid "Removed directory %s\n"
 msgstr "Forigiĝis dosierujo %s\n"
 
 #: wcd.c:1113 wcd.c:1182 wcd.c:1250
-#, c-format
-msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
+#, fuzzy, c-format
+msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"
 msgstr ""
 "Linio en %s tro longas (> %d).  Eble la arbodosiero difektiĝis,\n"
 "aŭ alie evitu ĉi tiun per pligrandigi DD_MAXPATH en la programo.\n"
@@ -794,60 +794,60 @@ msgstr "Eble necesas reskani la diskon, aŭ la pado esceptiĝis.\n"
 msgid "Cannot change to %s\n"
 msgstr "Ne eblas ŝanĝi al %s\n"
 
-#: wcddir.c:104
+#: wcddir.c:109
 #, c-format
 msgid "%lu (\"%s\") reported by \"%s\".\n"
 msgstr "%lu (\"%s\") raportiĝis por \"%s\".\n"
 
-#: wcddir.c:127
+#: wcddir.c:132
 msgid "access denied.\n"
 msgstr "atingo malpermesatas.\n"
 
-#: wcddir.c:208
+#: wcddir.c:213
 #, c-format
 msgid "Searching for shared directories on server %s\n"
 msgstr "Serĉado de komunaj dosierujoj en servilo %s\n"
 
-#: wcddir.c:220
+#: wcddir.c:225
 #, c-format
 msgid "Found %lu shared directories on server %s\n"
 msgstr "Troviĝis %lu komunajn dosierujojn en servilo %s\n"
 
-#: wcddir.c:344
+#: wcddir.c:349
 msgid "Unable to get current working directory: "
 msgstr "Ne eblas eltrovi nunan labordosierujon: "
 
-#: wcddir.c:373
+#: wcddir.c:378
 #, c-format
 msgid "Unable to change to directory %s: "
 msgstr "Ne eblas ŝanĝi al dosierujo %s"
 
-#: wcddir.c:405
+#: wcddir.c:410
 #, c-format
 msgid "Unable to create directory %s: "
 msgstr "Ne eblas krei dosierujon %s: "
 
-#: wcddir.c:435
+#: wcddir.c:440
 #, c-format
 msgid "Unable to remove directory %s: "
 msgstr "Ne eblas forigi dosierujon %s: "
 
-#: wcddir.c:561 wcddir.c:575
+#: wcddir.c:577 wcddir.c:588
 #, c-format
 msgid "Unable to create directory %s: %s\n"
 msgstr "Ne eblas krei dosierujon %s: %s\n"
 
-#: wcddir.c:697
+#: wcddir.c:709
 #, c-format
 msgid "Unable to get current working directory: %s\n"
 msgstr "Ne eblas eltrovi nunan labordosierujon: %s\n"
 
-#: wcddir.c:713
+#: wcddir.c:723
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
 msgstr "Ne eblas ŝanĝi al dosierujo %s: %s\n"
 
-#: wcddir.c:725
+#: wcddir.c:732
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
 msgstr "Ne eblas forigi dosierujon %s: %s\n"
@@ -1191,22 +1191,22 @@ msgstr "Ekranalto devas esti pli ol 21 por helpo."
 msgid "Cannot find the current path %s in the directory tree.\n"
 msgstr "Ne eblas trovi la nunan padon (%s) en la dosieruja arbo.\n"
 
-#: finddirs.c:206 finddirs.c:216 finddirs.c:245 finddirs.c:275 finddirs.c:289
+#: finddirs.c:240 finddirs.c:248 finddirs.c:272 finddirs.c:299 finddirs.c:313
 #, c-format
 msgid "Unable to remove file %s: %s\n"
 msgstr "Ne eblas forigi dosieron %s: %s\n"
 
-#: finddirs.c:297 finddirs.c:473
+#: finddirs.c:321 finddirs.c:485
 #, fuzzy, c-format
 msgid "Unable to close directory %s: %s\n"
 msgstr "Ne eblas krei dosierujon %s: %s\n"
 
-#: finddirs.c:343
+#: finddirs.c:364
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
 msgstr "finddirs(): malsukcesis eltrovi padon en dosierujo %s\n"
 
-#: finddirs.c:344
+#: finddirs.c:365
 msgid "path probably too long.\n"
 msgstr "probable la pado tro longas.\n"
 

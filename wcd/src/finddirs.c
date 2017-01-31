@@ -16,16 +16,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include <string.h>
-#include "wcddir.h"
-#include "wcd.h"
-#include "wfixpath.h"
-#include "nameset.h"
-#include "config.h"
-#include "display.h"
-#include "tailor.h"
-#include "finddirs.h"
-
 
 #if defined(_WIN32) && !defined(__CYGWIN__)
 #  ifdef WCD_UNICODE
@@ -33,6 +23,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #    define _UNICODE
 #    define WCD_FINDFIRSTFILE FindFirstFileW
 #    define WCD_FINDNEXTFILE  FindNextFileW
+#    include "display.h"  /* for wcstoutf8() */
 #  else
 #    define WCD_FINDFIRSTFILE FindFirstFileA
 #    define WCD_FINDNEXTFILE  FindNextFileA
@@ -63,8 +54,19 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  define _GNU_SOURCE /* Required for DT_DIR and DT_LNK */
 #  include <dirent.h>
 #  include <sys/types.h>
+#  include <sys/stat.h>
 #  include <unistd.h>
+#  include <errno.h>
 #endif
+
+#include <string.h>
+#include "wcddir.h"
+#include "wcd.h"
+#include "wfixpath.h"
+#include "nameset.h"
+#include "config.h"
+#include "tailor.h"
+#include "finddirs.h"
 
 
 

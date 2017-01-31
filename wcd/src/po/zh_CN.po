@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-29 23:59+0100\n"
+"POT-Creation-Date: 2017-01-31 23:07+0100\n"
 "PO-Revision-Date: 2015-11-13 20:29-0500\n"
 "Last-Translator: Mingye Wang (Arthur2e5) <arthur200126@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -104,8 +104,8 @@ msgid "Removed directory %s\n"
 msgstr "已删除目录 %s\n"
 
 #: wcd.c:1113 wcd.c:1182 wcd.c:1250
-#, c-format
-msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
+#, fuzzy, c-format
+msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"
 msgstr "%s 中行太长 ( > %d)。目录树文件可能已损坏，如情况并非如此，请于源代码增加 DD_MAXPATH 赋值以修复此问题。\n"
 
 #: wcd.c:1114 wcd.c:1183 wcd.c:1251
@@ -791,60 +791,60 @@ msgstr "磁盘可能需要重新扫描，或此路径可能已被禁止。\n"
 msgid "Cannot change to %s\n"
 msgstr "无法切换到 %s\n"
 
-#: wcddir.c:104
+#: wcddir.c:109
 #, c-format
 msgid "%lu (\"%s\") reported by \"%s\".\n"
 msgstr "\"%3$s\" 报告了 %1$lu（\"%2$s\"）。\n"
 
-#: wcddir.c:127
+#: wcddir.c:132
 msgid "access denied.\n"
 msgstr "访问被拒绝。\n"
 
-#: wcddir.c:208
+#: wcddir.c:213
 #, c-format
 msgid "Searching for shared directories on server %s\n"
 msgstr "正在搜索服务器 %s 上的共享目录\n"
 
-#: wcddir.c:220
+#: wcddir.c:225
 #, c-format
 msgid "Found %lu shared directories on server %s\n"
 msgstr "在服务器 %2$s 上发现 %1$lu 个共享目录\n"
 
-#: wcddir.c:344
+#: wcddir.c:349
 msgid "Unable to get current working directory: "
 msgstr "无法获取当前的工作目录："
 
-#: wcddir.c:373
+#: wcddir.c:378
 #, c-format
 msgid "Unable to change to directory %s: "
 msgstr "无法切换到目录 %s："
 
-#: wcddir.c:405
+#: wcddir.c:410
 #, c-format
 msgid "Unable to create directory %s: "
 msgstr "无法创建目录 %s："
 
-#: wcddir.c:435
+#: wcddir.c:440
 #, c-format
 msgid "Unable to remove directory %s: "
 msgstr "无法移除目录 %s："
 
-#: wcddir.c:561 wcddir.c:575
+#: wcddir.c:577 wcddir.c:588
 #, c-format
 msgid "Unable to create directory %s: %s\n"
 msgstr "无法创建目录 %s：%s\n"
 
-#: wcddir.c:697
+#: wcddir.c:709
 #, c-format
 msgid "Unable to get current working directory: %s\n"
 msgstr "无法获取当前的工作目录：%s\n"
 
-#: wcddir.c:713
+#: wcddir.c:723
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
 msgstr "无法切换到目录 %s：%s\n"
 
-#: wcddir.c:725
+#: wcddir.c:732
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
 msgstr "无法移除目录 %s：%s\n"
@@ -1188,22 +1188,22 @@ msgstr "屏幕高度必须大于 21 字符才能显示帮助信息。"
 msgid "Cannot find the current path %s in the directory tree.\n"
 msgstr ""
 
-#: finddirs.c:206 finddirs.c:216 finddirs.c:245 finddirs.c:275 finddirs.c:289
+#: finddirs.c:240 finddirs.c:248 finddirs.c:272 finddirs.c:299 finddirs.c:313
 #, c-format
 msgid "Unable to remove file %s: %s\n"
 msgstr "无法移除文件 %s：%s\n"
 
-#: finddirs.c:297 finddirs.c:473
+#: finddirs.c:321 finddirs.c:485
 #, fuzzy, c-format
 msgid "Unable to close directory %s: %s\n"
 msgstr "无法创建目录 %s：%s\n"
 
-#: finddirs.c:343
+#: finddirs.c:364
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
 msgstr "finddirs()：无法确定目录 %s 中的路径\n"
 
-#: finddirs.c:344
+#: finddirs.c:365
 msgid "path probably too long.\n"
 msgstr "路径很可能太长。\n"
 

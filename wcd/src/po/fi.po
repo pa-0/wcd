@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-29 23:59+0100\n"
+"POT-Creation-Date: 2017-01-31 23:07+0100\n"
 "PO-Revision-Date: 2016-09-28 15:49+0300\n"
 "Last-Translator: Jorma Karvonen <karvonen.jorma@gmail.com>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -103,8 +103,8 @@ msgid "Removed directory %s\n"
 msgstr "Hakemisto %s poistettu\n"
 
 #: wcd.c:1113 wcd.c:1182 wcd.c:1250
-#, c-format
-msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"
+#, fuzzy, c-format
+msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"
 msgstr "liian pitkä rivi kohteessa %s ( > %d). Tiedosto treefile saattaa olla rikkinäinen, kasvata DD_MAXPATH-kokoa lähdekoodissa.\n"
 
 #: wcd.c:1114 wcd.c:1183 wcd.c:1251
@@ -793,60 +793,60 @@ msgstr "Levyasema on ehkä tutkittava uudelleen tai hakemisto on mustalla listal
 msgid "Cannot change to %s\n"
 msgstr "Hakemistoon %s vaihtaminen epäonnistui\n"
 
-#: wcddir.c:104
+#: wcddir.c:109
 #, c-format
 msgid "%lu (\"%s\") reported by \"%s\".\n"
 msgstr "%lu (”%s”) ilmoittaja: ”%s”.\n"
 
-#: wcddir.c:127
+#: wcddir.c:132
 msgid "access denied.\n"
 msgstr "pääsy kielletty.\n"
 
-#: wcddir.c:208
+#: wcddir.c:213
 #, c-format
 msgid "Searching for shared directories on server %s\n"
 msgstr "Etsitään jaettuja hakemistoja palvelimelta %s\n"
 
-#: wcddir.c:220
+#: wcddir.c:225
 #, c-format
 msgid "Found %lu shared directories on server %s\n"
 msgstr "Löydetty %lu hakemistoa palvelimelta %s\n"
 
-#: wcddir.c:344
+#: wcddir.c:349
 msgid "Unable to get current working directory: "
 msgstr "Nykyisen hakemiston sijainnin lukeminen epäonnistui: "
 
-#: wcddir.c:373
+#: wcddir.c:378
 #, c-format
 msgid "Unable to change to directory %s: "
 msgstr "Hakemistoon %s siirtyminen epäonnistui: "
 
-#: wcddir.c:405
+#: wcddir.c:410
 #, c-format
 msgid "Unable to create directory %s: "
 msgstr "Hakemiston %s luominen epäonnistui: "
 
-#: wcddir.c:435
+#: wcddir.c:440
 #, c-format
 msgid "Unable to remove directory %s: "
 msgstr "Hakemiston %s poistaminen epäonnistui: "
 
-#: wcddir.c:561 wcddir.c:575
+#: wcddir.c:577 wcddir.c:588
 #, c-format
 msgid "Unable to create directory %s: %s\n"
 msgstr "Hakemiston %s luominen epäonnistui: %s\n"
 
-#: wcddir.c:697
+#: wcddir.c:709
 #, c-format
 msgid "Unable to get current working directory: %s\n"
 msgstr "Nykyisen hakemiston sijainnin lukeminen epäonnistui: %s\n"
 
-#: wcddir.c:713
+#: wcddir.c:723
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
 msgstr "Hakemistoon %s siirtyminen epäonnistui: %s\n"
 
-#: wcddir.c:725
+#: wcddir.c:732
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
 msgstr "Ei oikeutta poistaa tiedostoa %s: %s\n"
@@ -1190,22 +1190,22 @@ msgstr "Opasteikkunan avaaminen ei onnistu. Ikkunan korkeuden tulee olla > 21 ri
 msgid "Cannot find the current path %s in the directory tree.\n"
 msgstr "Nykyisen polun %s löytäminen hakemistopuussa epäonnistui.\n"
 
-#: finddirs.c:206 finddirs.c:216 finddirs.c:245 finddirs.c:275 finddirs.c:289
+#: finddirs.c:240 finddirs.c:248 finddirs.c:272 finddirs.c:299 finddirs.c:313
 #, c-format
 msgid "Unable to remove file %s: %s\n"
 msgstr "Tiedoston %s poistaminen epäonnistui: %s\n"
 
-#: finddirs.c:297 finddirs.c:473
+#: finddirs.c:321 finddirs.c:485
 #, fuzzy, c-format
 msgid "Unable to close directory %s: %s\n"
 msgstr "Hakemiston %s luominen epäonnistui: %s\n"
 
-#: finddirs.c:343
+#: finddirs.c:364
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
 msgstr "finddirs(): polun määrittäminen hakemistossa %s epäonnistui\n"
 
-#: finddirs.c:344
+#: finddirs.c:365
 msgid "path probably too long.\n"
 msgstr "polun pituus on todennäköisesti liian suuri.\n"
 
