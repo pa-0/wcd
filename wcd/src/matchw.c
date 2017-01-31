@@ -91,7 +91,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #endif
 #include "wcd.h"
 #include "display.h"
-#include "dosdir.h"
+#include "finddirs.h"
 #include "matchw.h" /* define ToLower() in here (for Unix, define ToLower
                        * to be macro (using isupper()); otherwise just use
                        * tolower() */
@@ -185,12 +185,12 @@ static int recmatchwcs(wchar_t *pattern, wchar_t *string, int ignore_case, wint_
 
 int dd_matchmbs(const char *string, const char *pattern, int ignore_case, int ignore_diacritics)
 {
-    static wchar_t wstr_string[DD_MAXPATH];
-    static wchar_t wstr_pattern[DD_MAXPATH];
+    static wchar_t wstr_string[WCD_MAXPATH];
+    static wchar_t wstr_pattern[WCD_MAXPATH];
     size_t len1,len2;
 
-    len1 = MBSTOWCS(wstr_string , string ,(size_t)DD_MAXPATH);
-    len2 = MBSTOWCS(wstr_pattern, pattern,(size_t)DD_MAXPATH);
+    len1 = MBSTOWCS(wstr_string , string ,(size_t)WCD_MAXPATH);
+    len2 = MBSTOWCS(wstr_pattern, pattern,(size_t)WCD_MAXPATH);
     if ((len1 == (size_t)(-1)) || (len2 == (size_t)(-1)))
         return 0;
     return(dd_matchwcs(wstr_string, wstr_pattern, ignore_case, ignore_diacritics));
@@ -206,9 +206,9 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
     int result;
 
 #ifdef WCD_UNINORM
-    static wchar_t string_buffer[DD_MAXPATH];
-    static wchar_t pattern_buffer[DD_MAXPATH];
-    size_t lengthp = DD_MAXPATH;
+    static wchar_t string_buffer[WCD_MAXPATH];
+    static wchar_t pattern_buffer[WCD_MAXPATH];
+    size_t lengthp = WCD_MAXPATH;
     wchar_t *string_normalized;
     wchar_t *pattern_normalized;
 

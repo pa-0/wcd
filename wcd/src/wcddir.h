@@ -31,6 +31,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #define _WCD_WCDDIR_H
 
 #if (defined(_WIN32) || defined(__CYGWIN__))
+#include <stdio.h>
+#include "std_macr.h"
+#include "structur.h"
+#include "nameset.h"
 int wcd_isServerPath (char* path);
 void wcd_getshares(char* path, nameset n);
 #endif

@@ -16,14 +16,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#if defined(UNIX) || defined(__CYGWIN__) || defined(__EMX__)
-#  define _GNU_SOURCE /* Required for DT_DIR and DT_LNK */
-#  include <dirent.h>
-#  include <sys/types.h>
-#  include <unistd.h>
-#endif
 #include <string.h>
-#include "dosdir.h"
 #include "wcddir.h"
 #include "wcd.h"
 #include "wfixpath.h"
@@ -31,25 +24,156 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "config.h"
 #include "display.h"
 #include "tailor.h"
-#ifdef _WIN32
+#include "finddirs.h"
+
+
+#if defined(_WIN32) && !defined(__CYGWIN__)
 #  ifdef WCD_UNICODE
 #    define UNICODE
 #    define _UNICODE
+#    define WCD_FINDFIRSTFILE FindFirstFileW
+#    define WCD_FINDNEXTFILE  FindNextFileW
+#  else
+#    define WCD_FINDFIRSTFILE FindFirstFileA
+#    define WCD_FINDNEXTFILE  FindNextFileA
 #  endif
 #  include <windows.h>
+#  include <direct.h>
+#  ifdef __WATCOMC__
+#    include <dos.h> /* Watcom C does not have _getdrives(). We use the dos functions. */
+#  endif
+#elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
+#  ifdef __DJGPP__
+#    include <dir.h>
+#    define WCD_FB_NAME    fb.ff_name
+#    define WCD_FB_MODE    fb.ff_attrib
+#    define WCD_FINDNEXT   findnext
+#    define WCD_ISDIREC(m) ((m) & FA_DIREC)
+#  else  /* Watcom C */
+#    include <dos.h>
+#    define WCD_FB_NAME    fb.name
+#    define WCD_FB_MODE    fb.attrib
+#    define WCD_FINDNEXT   _dos_findnext
+#    define WCD_ISDIREC(m) ((m) & _A_SUBDIR)
+#  endif
+#  if (defined(__OS2__) && !defined(__EMX__))
+#    include <os2.h>
+#  endif
+#else
+#  define _GNU_SOURCE /* Required for DT_DIR and DT_LNK */
+#  include <dirent.h>
+#  include <sys/types.h>
+#  include <unistd.h>
 #endif
+
+
 
 const wcd_char *default_mask = ALL_FILES_MASK;
 
-/****************************************************************/
-typedef struct TDirTag {
-   char* dirname;
-   struct TDirTag *next;
-} TDirEntry;
+/* Various implementations of setdisk/getdisk */
 
-typedef struct {
-   TDirEntry *head, *tail;
-} TDirList;
+#if defined(__MSDOS__) || (defined(__WATCOMC__) && defined(__NT__))
+#  ifndef __TURBOC__
+/*
+ * getdisk
+ *
+ * Returns: -1 if error, otherwise: 0=drive A, 1=drive B, and so on.
+ */
+int getdisk()
+{
+   unsigned d;
+   _dos_getdrive(&d);
+   return ((int)d - 1);
+}
+
+/*
+ * setdisk: 0=drive A, 1=drive B, and so on.
+ *
+ * Returns: total number of drive available
+ *
+ */
+int setdisk( int drive )
+{
+   unsigned numdrives;
+   _dos_setdrive((unsigned) (drive + 1), &numdrives);
+   return numdrives;
+}
+
+#  endif /* ?!__TURBOC__ */
+
+#elif defined(__OS2__)
+
+/* OS/2 implementation of getdisk and setdisk for EMX */
+
+/*
+ * getdisk
+ *
+ * Returns: -1 if error, otherwise: 0=drive A, 1=drive B, and so on.
+ */
+int getdisk()
+{
+   ULONG ulDrive;
+   ULONG ulLogical;
+   /* APIRET rc; */
+   int d;
+
+   /* rc= */ DosQueryCurrentDisk(&ulDrive, &ulLogical); /* Get current drive */
+   d = (int)ulDrive;
+   return(d-1);
+}
+
+/*
+ * setdisk: 0=drive A, 1=drive B, and so on.
+ *
+ * Returns: total number of drive available
+ *
+ */
+int setdisk( int drive )
+{
+   int d;
+   ULONG ulDrive;
+   ulDrive = (ULONG)(drive+1);
+   if(DosSetDefaultDisk(ulDrive)) /* Set default drive, 1=A, 2=B, 3=C, 4=D */
+   {
+      /* printf("Wcd: error: Can not change default drive to %d\n",drive); */
+      return(-1);
+   }
+
+   d = getdisk();
+   return(d);
+}
+#elif defined(_WIN32)
+
+int getdisk(void)
+{
+   int d;
+   d = _getdrive();
+   return(d-1);
+}
+int setdisk (int drive)
+{
+   unsigned long numdrives;
+   _chdrive(drive+1);
+   numdrives = _getdrives();
+   return ((int)numdrives);
+}
+#else
+/* stub functions for get/set disk
+ * fake MS-DOS functions that do not apply to unix or vms:
+ */
+
+int getdisk()
+{
+   return 0;
+}
+
+int setdisk( int drive )
+{
+   return 0;
+}
+#endif
+
+/****************************************************************/
 
 /* Function: SpecialDir
  *
@@ -65,93 +189,6 @@ int SpecialDir(const char *path)
    return (*path=='/' || *path=='\0');
 }
 
-/******************************************************************
- *
- *          q_insert - insert directory name to queue
- *
- ******************************************************************/
-
-void q_insert(TDirList *list,const char *s)
-{
-   TDirEntry *ptr;
-   size_t len = strlen(s);
-   if (!len) return;
-   if ((ptr = (TDirEntry*) malloc(sizeof(TDirEntry))) == NULL )
-   {
-      perror("malloc");
-      return;
-   }
-   if ((ptr->dirname = (char*) malloc(len+1)) == NULL )
-   {
-      perror("malloc");
-      free(ptr);
-      return;
-   }
-   strcpy(ptr->dirname, s);
-   ptr->next = NULL;
-   if (!list->head) list->head = ptr;
-   else list->tail->next = ptr;
-   list->tail = ptr;
-}
-
-/*******************************************************************
- *
- *         q_remove - remove directory name from queue
- *
- *******************************************************************/
-
-int q_remove(TDirList *list,char *s)
-{
-   TDirEntry *ptr = list->head;
-   if (!ptr) return 0;     /* queue empty? */
-   strcpy(s, ptr->dirname);
-   list->head = ptr->next;
-   free(ptr->dirname);
-   free(ptr);
-   return 1;         /* okay */
-}
-
-/*
-The 32 bit dos versions are compiled with DJGPP and do not use DOSDIR. DJGPP is
-a mix of DOS/Unix (both 'MSDOS' and 'unix' are defined).  DOSDIR's
-dd_findfirst/dd_findnext implementation for Unix is build with opendir/readdir.
-Using DJGPP's implementation of opendir/readdir to scan a disk is about a
-factor 100 slower than using findfirst/findnext (with DJGPP 2.01, gcc 2.7.2).
-Also using DOSDIR's dd_findfirst/dd_findnext for DOS is very slow when it is
-compiled with DJGPP.  It is about a factor 35 slower than using DJGPP's
-findfirst/findnext.  Probably due to a slow stat() function in dd_initstruct().
-Using DOSDIR in combination with DJGPP would make scanning the disk very slow.
-
-The Windows version of wcd doesn't use DOSDIR anymore. Using the Windows API functions results
-in about 4 times faster disc scanning. EW Jan 27 2017.
-
-The Unix version of wcd doesn't use DOSDIR anymore. Using opendir/readdir directly results
-in about 4 times faster disc scanning. EW Jan 29 2017.
-
-Only native DOS and OS/2 compilers still use dosdir. E.g. Borland C and Watcom C.
-
-*/
-
-#ifdef __DJGPP__
-#  define WCD_FB_NAME  fb.ff_name
-#  define WCD_FB_MODE  fb.ff_attrib
-#  define WCD_FINDNEXT findnext
-#else
-#  define WCD_FB_NAME  fb.dd_name
-#  define WCD_FB_MODE  fb.dd_mode
-#  define WCD_FINDNEXT dd_findnext
-#endif
-
-
-#if defined(_WIN32) && !defined(__CYGWIN__)
-#  ifdef WCD_UNICODE
-#    define WCD_FINDFIRSTFILE FindFirstFileW
-#    define WCD_FINDNEXTFILE  FindNextFileW
-#  else
-#    define WCD_FINDFIRSTFILE FindFirstFileA
-#    define WCD_FINDNEXTFILE  FindNextFileA
-#  endif
-#endif
 
 /********************************************************************
  *
@@ -167,14 +204,12 @@ void rmTree(char *dir)
    HANDLE hFind;
 #elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
 #  ifdef __DJGPP__
-   static struct ffblk fb;       /* file block structure */
-   int rc;                       /* error code */
+   struct ffblk fb;       /* file block structure */
+   int rc;                /* error code */
 #  else
-   static dd_ffblk fb;           /* file block structure */
-   wcd_intptr_t rc;              /* error code */
+   struct _find_t fb;     /* file block structure */
+   unsigned rc;           /* error code */
 #  endif
-   char tmp[DD_MAXPATH];         /* tmp string */
-   TDirList list;                /* directory queue */
 #else /* Unix, Cygwin, MSYS, EMX */
    DIR *dirp;
    struct dirent *dp;
@@ -190,7 +225,7 @@ void rmTree(char *dir)
 
    hFind = WCD_FINDFIRSTFILE(ALL_FILES_MASK, &FindFileData);
    while (hFind != INVALID_HANDLE_VALUE) {
-      char directory[DD_MAXPATH];
+      char directory[WCD_MAXPATH];
 #  ifdef WCD_UNICODE
       wcstoutf8(directory, FindFileData.cFileName, sizeof(directory));
 #  else
@@ -206,7 +241,6 @@ void rmTree(char *dir)
                wcd_rmdir(directory,0);
             }
          }
-
       } else {  /* not a directory */
          if (wcd_unlink(directory) != 0)
             print_error(_("Unable to remove file %s: %s\n"), directory, strerror(errno));
@@ -219,21 +253,18 @@ void rmTree(char *dir)
 
 #elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
 
-/* Don't set DD_LABEL. Otherwise wcd compiled with
-   Borland CPP 5.x bcc32 finds no files or directories at all.
-   This was seen with Borland CPP 5.02 and 5.5.1.
-   Apr 29 2005   Erwin Waterlander */
 #  ifdef __DJGPP__
    rc = findfirst(default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL);
 #  else
-   rc = dd_findfirst(default_mask, &fb, DD_DIREC|DD_RDONLY|DD_HIDDEN|DD_SYSTEM|DD_ARCH|DD_DEVICE);
+   rc = _dos_findfirst(default_mask, _A_SUBDIR|_A_RDONLY|_A_HIDDEN|_A_SYSTEM|_A_ARCH, &fb);
 #  endif
-   list.head = list.tail = 0;
 
    while (rc==0) {  /* go through all the files in the current dir */
-      if (DD_ISDIREC(WCD_FB_MODE)) {
-         if (!SpecialDir(WCD_FB_NAME))
-            q_insert(&list, WCD_FB_NAME);   /* add all directories in current dir to list */
+      if (WCD_ISDIREC(WCD_FB_MODE)) {
+         if (!SpecialDir(WCD_FB_NAME)) {
+            rmTree(WCD_FB_NAME);
+            wcd_rmdir(WCD_FB_NAME,0);
+         }
       } else { /* not a directory */
          if (wcd_unlink(WCD_FB_NAME) != 0) {
             print_error(_("Unable to remove file %s: %s\n"), WCD_FB_NAME, strerror(errno));
@@ -241,12 +272,10 @@ void rmTree(char *dir)
       }
       rc = WCD_FINDNEXT(&fb);
    } /* while !rc */
+#  if defined(__OS2__)
+   _dos_findclose( &fb );
+#  endif
 
-   /* recursively parse subdirectories (if any) (quiet) */
-   while (q_remove(&list, tmp)) {
-      rmTree(tmp);
-      wcd_rmdir(tmp,0);
-   }
 
 #else /* Unix, Cygwin, MSYS, EMX */
 
@@ -263,7 +292,6 @@ void rmTree(char *dir)
             rmTree(dp->d_name);
             wcd_rmdir(dp->d_name,0);
          }
-      
       } else { /* not a directory */
          if (wcd_unlink(dp->d_name) != 0) {
             print_error(_("Unable to remove file %s: %s\n"), dp->d_name, strerror(errno));
@@ -304,7 +332,7 @@ void rmTree(char *dir)
 
 void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset exclude, int quiet)
 {
-   char curdir[DD_MAXPATH];
+   char curdir[WCD_MAXPATH];
    char *tmp_ptr ;
    size_t len ;
 #if defined(_WIN32) && !defined(__CYGWIN__)
@@ -312,28 +340,25 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    HANDLE hFind;
 #elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
 #  ifdef __DJGPP__
-   static struct ffblk fb;       /* file block structure */
-   int rc;                       /* error code */
+   struct ffblk fb;       /* file block structure */
+   int rc;                /* error code */
 #  else
-   static dd_ffblk fb;           /* file block structure */
-   wcd_intptr_t rc;              /* error code */
+   struct _find_t fb;     /* file block structure */
+   unsigned rc;           /* handle and error code */
 #  endif
-   TDirList list;                /* directory queue */
 #else /* Unix, Cygwin, MSYS, EMX */
    DIR *dirp;
    struct dirent *dp;
 #endif
 
-   if (dir)
-   {
+   if (dir) {
       if (wcd_chdir(dir,quiet)) return; /* Go to the dir, else return */
    }
    else
      return ;  /* dir == NULL */
 
 
-   if (wcd_getcwd(curdir, sizeof(curdir)) == NULL)
-   {
+   if (wcd_getcwd(curdir, sizeof(curdir)) == NULL) {
       print_error(_("finddirs(): can't determine path in directory %s\n"),dir);
       print_error(_("path probably too long.\n"));
       wcd_chdir(DIR_PARENT,1); /* go to parent directory */
@@ -345,8 +370,7 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
    rmDriveLetter(curdir,use_HOME);
 #endif
 
-   if (pathInNameset(curdir,exclude) != (size_t)-1)
-   {
+   if (pathInNameset(curdir,exclude) != (size_t)-1) {
       wcd_chdir(DIR_PARENT,1); /* go to parent directory */
       return;
    }
@@ -366,10 +390,9 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 #if defined(_WIN32) && !defined(__CYGWIN__)
 
    hFind = WCD_FINDFIRSTFILE(ALL_FILES_MASK, &FindFileData);
-   while (hFind != INVALID_HANDLE_VALUE)
-   {
+   while (hFind != INVALID_HANDLE_VALUE) {
       if (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
-         char directory[DD_MAXPATH];
+         char directory[WCD_MAXPATH];
 #  ifdef WCD_UNICODE
          wcstoutf8(directory, FindFileData.cFileName, sizeof(directory));
 #  else
@@ -390,30 +413,25 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 
 #elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
 
-/*
-   Don't set DD_LABEL. Otherwise wcd compiled with
-   Borland CPP 5.x bcc32 finds no files or directories at all.
-   This was seen with Borland CPP 5.02 and 5.5.1.
-   Apr 29 2005   Erwin Waterlander
-*/
+/* Only DJGPP and Watcom C are supported.  */
+
 #  ifdef __DJGPP__
-   rc = findfirst(default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL);
+   rc = findfirst(default_mask, &fb, FA_DIREC);
 #  else
-   rc = dd_findfirst(default_mask, &fb, DD_DIREC|DD_RDONLY|DD_HIDDEN|DD_SYSTEM|DD_ARCH|DD_DEVICE);
+   rc = _dos_findfirst(default_mask, _A_SUBDIR, &fb);
 #  endif
-   list.head = list.tail = 0;
 
    while (rc==0) {  /* go through all the files in the current dir */
-      if (DD_ISDIREC(WCD_FB_MODE)) {
+      if (WCD_ISDIREC(WCD_FB_MODE)) {
          if (!SpecialDir(WCD_FB_NAME))
-            q_insert(&list, WCD_FB_NAME);   /* add all directories in current dir to list */
+            finddirs(WCD_FB_NAME,offset, outfile, use_HOME, exclude, 1);
       }
       rc = WCD_FINDNEXT(&fb);
    } /* while !rc */
+#  if defined(__OS2__)
+   _dos_findclose( &fb );
+#  endif
 
-   /* recursively parse subdirectories (if any) (quiet) */
-   while (q_remove(&list, curdir))
-      finddirs(curdir,offset, outfile, use_HOME, exclude, 1);
 
 #else /* Unix, Cygwin, MSYS, EMX */
 

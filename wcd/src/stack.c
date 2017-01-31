@@ -24,7 +24,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "structur.h"
 #include "nameset.h"
 #include "display.h"
-#include "dosdir.h"
+#include "finddirs.h"
 #include "WcdStack.h"
 #include "Text.h"
 #include "wcd.h"
@@ -84,12 +84,12 @@ int stack_read(WcdStack ws,const char *stackfilename)
 		if(fscanf(infile,"%d %d",&ws->lastadded,&ws->current)==2)
 		{
 
-	                char tmp[DD_MAXPATH];
+	                char tmp[WCD_MAXPATH];
 			while( !feof(infile) && !ferror(infile) && (ws->size < (size_t)ws->maxsize) )
 			{
 			int len ;
 			/* read a line */
-			len = wcd_getline(tmp,DD_MAXPATH,infile,stackfilename,&line_nr);
+			len = wcd_getline(tmp,WCD_MAXPATH,infile,stackfilename,&line_nr);
 			++line_nr;
 
 			if (len > 0 )

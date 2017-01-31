@@ -482,7 +482,6 @@ OBJS1 = \
 	WcdStack.o \
 	dirnode.o \
 	display.o \
-	dosdir.o \
 	wfixpath.o \
 	wcddir.o \
 	matchl.o \

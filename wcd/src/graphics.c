@@ -53,7 +53,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 
 #include "wcd.h"
-#include "dosdir.h"
+#include "finddirs.h"
 #include "display.h"
 #include "wfixpath.h"
 #include "match.h"
@@ -108,7 +108,7 @@ static const char WCD_COMPACT_MOREDIR[] =   { 32, WCD_ACS_VL, WCD_SPACE,  WCD_SP
 static const char WCD_COMPACT_ENDDIR[] =    { 32, WCD_ACS_LLC, WCD_ACS_HL, WCD_ACS_HL, 0} ;
 #endif
 
-#define WCD_GRAPH_MAX_LINE_LENGTH  DD_MAXPATH * 2
+#define WCD_GRAPH_MAX_LINE_LENGTH  WCD_MAXPATH * 2
 
 #ifdef WCD_USECURSES
 
@@ -586,7 +586,7 @@ void addPath(text path, dirnode d)
    dirnode n,n_up;
    text t;
 #if (defined(_WIN32) || defined(__CYGWIN__))
-   static char buf[DD_MAXPATH] = "//" ;
+   static char buf[WCD_MAXPATH] = "//" ;
 
    if ( (path != NULL) &&
         (*path == '/') &&
@@ -677,8 +677,8 @@ void ssort_dirnode (dirnode* subdirs, int left, int right)
 {
  int i, last;
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
- static wchar_t wstr_left[DD_MAXPATH];
- static wchar_t wstr_right[DD_MAXPATH];
+ static wchar_t wstr_left[WCD_MAXPATH];
+ static wchar_t wstr_right[WCD_MAXPATH];
 #endif
  text t_left, t_right;
 
@@ -692,8 +692,8 @@ void ssort_dirnode (dirnode* subdirs, int left, int right)
    t_left  = (subdirs[left])->name;
    t_right = (subdirs[i])->name;
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-   size_t len1 = MBSTOWCS(wstr_left, t_left, (size_t)DD_MAXPATH);
-   size_t len2 = MBSTOWCS(wstr_right, t_right, (size_t)DD_MAXPATH);
+   size_t len1 = MBSTOWCS(wstr_left, t_left, (size_t)WCD_MAXPATH);
+   size_t len2 = MBSTOWCS(wstr_right, t_right, (size_t)WCD_MAXPATH);
    if ((len1 == (size_t)(-1)) || (len2 == (size_t)(-1)))
    {
       /* Erroneous multi-byte sequence */
@@ -818,7 +818,7 @@ void buildTreeFromFile(char* filename, dirnode d, int quiet)
        while (!feof(infile) && !ferror(infile))  /* parse the file */
        {
           int len;
-          char line[DD_MAXPATH];
+          char line[WCD_MAXPATH];
 
           len = read_treefile_line(line,infile,filename,&line_nr, bomtype);
           if (ferror(infile)) {
@@ -873,7 +873,7 @@ dirnode searchNodeForDir(text path, dirnode d, dirnode rNode)
    dirnode n;
    dirnode rootnode;
 #if (defined(_WIN32) || defined(__CYGWIN__))
-   static char buf[DD_MAXPATH] = "//" ;
+   static char buf[WCD_MAXPATH] = "//" ;
 #endif
 
    if (d == NULL)
@@ -936,7 +936,7 @@ char *getNodeFullPath(dirnode node)
 
    /* The reconstructed path will not be longer than
     * it was original in the treedata file. The max length
-    * is DD_MAXPATH. See also function `read_treefile()'
+    * is WCD_MAXPATH. See also function `read_treefile()'
     *
     * The reconstructed path has only an extra slash "/"
     * in the beginning on DOS/Windows if environment
@@ -945,11 +945,11 @@ char *getNodeFullPath(dirnode node)
 
    if (line == NULL)
    {
-      line = textNewSize((size_t)(DD_MAXPATH+1));
+      line = textNewSize((size_t)(WCD_MAXPATH+1));
    }
    if (tline == NULL)
    {
-      tline = textNewSize((size_t)(DD_MAXPATH+1));
+      tline = textNewSize((size_t)(WCD_MAXPATH+1));
    }
 
    line[0] = '\0';
@@ -1555,8 +1555,8 @@ void updateLine(WINDOW *win, dirnode n, int i, int y, dirnode curNode, int xoffs
    {
       int j;
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-      static wchar_t wstr[DD_MAXPATH];
-      size_t len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
+      static wchar_t wstr[WCD_MAXPATH];
+      size_t len = MBSTOWCS(wstr,(char *)s,(size_t)WCD_MAXPATH); /* number of wide characters */
 #else
       size_t len = strlen((char *)s);
 #endif
@@ -1791,7 +1791,7 @@ char *getZoomStackPath(dirnode stack)
 
    if (line == NULL)
    {
-      line = textNewSize((size_t)DD_MAXPATH);
+      line = textNewSize((size_t)WCD_MAXPATH);
    }
 
    line[0] = '\0';
@@ -1803,7 +1803,7 @@ char *getZoomStackPath(dirnode stack)
       if(i != 0)
          strcat(line,"/");
       name = dirnodeGetName(elementAtDirnode(i,stack));
-      if((strlen(line)+strlen(name)) < (size_t)DD_MAXPATH)
+      if((strlen(line)+strlen(name)) < (size_t)WCD_MAXPATH)
          strcat(line,name);
    }
 
@@ -1875,19 +1875,19 @@ void dataRefresh(int ydiff, int init)
   }
 
   /* mvwprintw(inputWin, 1,0,"%s",getNodeFullPath(curNode)); */
-  s = (wcd_uchar *)getZoomStackPath(wcd_cwin.zoomStack); /* s has size DD_MAXPATH */
+  s = (wcd_uchar *)getZoomStackPath(wcd_cwin.zoomStack); /* s has size WCD_MAXPATH */
   strcat((char *)s, getNodeFullPath(wcd_cwin.curNode));
-  wcd_fixpath((char *)s, (size_t)DD_MAXPATH);
+  wcd_fixpath((char *)s, (size_t)WCD_MAXPATH);
 
   if (s != NULL)
   {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-   static wchar_t wstr[DD_MAXPATH];  /* Declarations at beginning of scope for Watcom C */
+   static wchar_t wstr[WCD_MAXPATH];  /* Declarations at beginning of scope for Watcom C */
    int width;
 #endif
     wmove(wcd_cwin.inputWin, 1, 0);
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-   len = (int)MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
+   len = (int)MBSTOWCS(wstr,(char *)s,(size_t)WCD_MAXPATH); /* number of wide characters */
    if (len < 0)
    {
       /* Erroneous multi-byte sequence */
@@ -2236,7 +2236,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 {
   int c = 0, n =0, y, ymax;
   int ydiff;
-  char curPath[DD_MAXPATH];
+  char curPath[WCD_MAXPATH];
   char *ptr, *ptr2;
 #ifndef __PDCURSES__
   SCREEN *sp;
@@ -2254,7 +2254,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
    ptr=NULL;
 
-   if (getCurPath(curPath, (size_t)DD_MAXPATH, use_HOME) == NULL)
+   if (getCurPath(curPath, (size_t)WCD_MAXPATH, use_HOME) == NULL)
       return NULL;
    wcd_cwin.curNode = locatePathOrSo(curPath,tree);
    if (wcd_cwin.curNode == NULL)
@@ -2672,9 +2672,9 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
      case 13: /* Enter */
      case KEY_ENTER:
             c = 13;
-            ptr = getZoomStackPath(wcd_cwin.zoomStack); /* s has size DD_MAXPATH */
+            ptr = getZoomStackPath(wcd_cwin.zoomStack); /* s has size WCD_MAXPATH */
             strcat(ptr,getNodeFullPath(wcd_cwin.curNode));
-            wcd_fixpath(ptr, (size_t)DD_MAXPATH);
+            wcd_fixpath(ptr, (size_t)WCD_MAXPATH);
       break;
      case 8:  /* backspace */
      case KEY_BACKSPACE:
@@ -2752,7 +2752,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          (*(ptr+1) != '/'))  /* UNC path */
       ptr++;
 #endif
-   wcd_fixpath(ptr, (size_t)DD_MAXPATH);
+   wcd_fixpath(ptr, (size_t)WCD_MAXPATH);
    return(ptr);
 
 }

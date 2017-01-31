@@ -80,6 +80,12 @@ Table of Contents
         development was done on Linux, and later on Cygwin which supports
         Unicode since version 1.7.
 
+	In version 6.0.0 (Feb 2017) the DOSDIR directory interface layer was
+        removed from Wcd.  The amount of directories can be huge in these days,
+        so scanning a disk can take a long time. Removal of DOSDIR resulted in
+        about 4 times faster disk scanning on Windows and Unix. The DOSDIR
+        functions have been replaced by system specific functions.
+
 
 2.0 Copyright
 
@@ -110,8 +116,9 @@ Table of Contents
 
     2.2 DOSDIR
 
-        Wcd uses DOSDIR for scanning the disk. Only the parts of DOSDIR
-        that are distributed under GNU General Public License are used in WCD.
+        Wcd used DOSDIR for scanning the disk until Wcd version 5.3.4. Only
+        the parts of DOSDIR that are distributed under GNU General Public
+        License were used in WCD.
 
         DOSDIR: A Portable DOS/UNIX/VMS Directory Interface
 

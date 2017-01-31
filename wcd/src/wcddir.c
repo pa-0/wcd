@@ -44,11 +44,16 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #if defined(UNIX) || defined(__DJGPP__) || defined(__OS2__)
 # include <unistd.h>
 #endif
-#include "dosdir.h"
+#include "finddirs.h"
 #include "wcddir.h"
 #include "match.h"
 #include <string.h>
 #include <errno.h>
+#include "wcd.h"
+
+#ifdef _WCD_DOSFS
+#  include <direct.h>
+#endif
 
 #if (defined(_WIN32) && defined(WCD_UNICODE))
 #include <wchar.h>
@@ -70,12 +75,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "Text.h"
 #include "nameset.h"
 #include "wfixpath.h"
-#include "dosdir.h"
 #include <string.h>
 #include "display.h"
 #include <windows.h>
-/* #include <strsafe.h> */
-#include "wcd.h"
 
 
 /*
@@ -121,7 +123,7 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
    DWORD count, bufsize, ui;
    NETRESOURCE buf[MAX_NR_BUF];
    /* const char *type; */
-   char path[DD_MAXPATH];
+   char path[WCD_MAXPATH];
 
    rc = WNetOpenEnum( RESOURCE_GLOBALNET, RESOURCETYPE_DISK, 0, pnr, &hEnum );
    if ( rc == ERROR_ACCESS_DENIED )
@@ -160,8 +162,8 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
             case RESOURCEDISPLAYTYPE_SHARE:
                /* type = "share"; */
                print_msg( "%s\n", buf[ui].lpRemoteName );
-               wcd_strncpy(path, buf[ui].lpRemoteName, DD_MAXPATH);
-               wcd_fixpath(path, DD_MAXPATH);
+               wcd_strncpy(path, buf[ui].lpRemoteName, WCD_MAXPATH);
+               wcd_fixpath(path, WCD_MAXPATH);
                addToNamesetArray(textNew(path), n);
                break;
             default:
@@ -297,9 +299,9 @@ int wcd_islink(const char *dir, int quiet)
    DWORD attrs;
    DWORD dw;
 #ifdef WCD_UNICODE
-   static wchar_t wstr[DD_MAXPATH];
+   static wchar_t wstr[WCD_MAXPATH];
 
-   if (utf8towcs(wstr, dir, DD_MAXPATH) == (size_t)(-1))
+   if (utf8towcs(wstr, dir, WCD_MAXPATH) == (size_t)(-1))
       attrs = INVALID_FILE_ATTRIBUTES;
    else
       attrs = GetFileAttributesW(wstr);
@@ -331,11 +333,11 @@ char *wcd_getcwd(char *buf, size_t size)
    DWORD err;
    DWORD dw;
 #ifdef WCD_UNICODE
-   static wchar_t wstr[DD_MAXPATH];
+   static wchar_t wstr[WCD_MAXPATH];
 
    err = GetCurrentDirectoryW(size, wstr);
    if ( err != 0)
-      if (wcstoutf8(buf, wstr, DD_MAXPATH) == (size_t)(-1))
+      if (wcstoutf8(buf, wstr, WCD_MAXPATH) == (size_t)(-1))
          err = 0;
 #else
    err = GetCurrentDirectory(size, buf);
@@ -357,9 +359,9 @@ int wcd_chdir(const char *path, int quiet)
    BOOL err;
    DWORD dw;
 #ifdef WCD_UNICODE
-   static wchar_t wstr[DD_MAXPATH];
+   static wchar_t wstr[WCD_MAXPATH];
 
-   if (utf8towcs(wstr, path, DD_MAXPATH) == (size_t)(-1))
+   if (utf8towcs(wstr, path, WCD_MAXPATH) == (size_t)(-1))
       err = 0;
    else
       err = SetCurrentDirectoryW(wstr);
@@ -387,9 +389,9 @@ int wcd_mkdir(const char *path, int quiet)
    BOOL err;
    DWORD dw;
 #ifdef WCD_UNICODE
-   static wchar_t wstr[DD_MAXPATH];
+   static wchar_t wstr[WCD_MAXPATH];
 
-   if (utf8towcs(wstr, path, DD_MAXPATH) == (size_t)(-1))
+   if (utf8towcs(wstr, path, WCD_MAXPATH) == (size_t)(-1))
       err = FALSE;
    else
       err = CreateDirectoryW(wstr, NULL);
@@ -417,9 +419,9 @@ int wcd_rmdir(const char *path, int quiet)
    BOOL err;
    DWORD dw;
 #ifdef WCD_UNICODE
-   static wchar_t wstr[DD_MAXPATH];
+   static wchar_t wstr[WCD_MAXPATH];
 
-   if (utf8towcs(wstr, path, DD_MAXPATH) == (size_t)(-1))
+   if (utf8towcs(wstr, path, WCD_MAXPATH) == (size_t)(-1))
       err = FALSE;
    else
       err = RemoveDirectoryW(wstr);
@@ -445,8 +447,8 @@ int wcd_rmdir(const char *path, int quiet)
 int wcd_unlink(const char *path)
 {
 #ifdef WCD_UNICODE
-   wchar_t pathw[DD_MAXPATH];
-   if (utf8towcs(pathw, path, DD_MAXPATH) == (size_t)(-1))
+   wchar_t pathw[WCD_MAXPATH];
+   if (utf8towcs(pathw, path, WCD_MAXPATH) == (size_t)(-1))
       return -1;
    return _wunlink(pathw);
 #else
@@ -492,7 +494,7 @@ int wcd_isdir(char *dir, int quiet)
 
    if (wcd_isSharePath(dir))
    {
-      char tmp[DD_MAXDIR];
+      char tmp[WCD_MAXDIR];
       wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
 
       if (wcd_chdir(dir, quiet) == 0) /* just try to change to dir */
@@ -504,8 +506,8 @@ int wcd_isdir(char *dir, int quiet)
          return(-1);
    } else {
 #ifdef WCD_UTF16
-      static wchar_t wstr[DD_MAXPATH];
-      if (utf8towcs(wstr, dir, DD_MAXPATH) == (size_t)(-1))
+      static wchar_t wstr[WCD_MAXPATH];
+      if (utf8towcs(wstr, dir, WCD_MAXPATH) == (size_t)(-1))
          err = FALSE;
       else
          err = TRUE;
@@ -598,14 +600,14 @@ int wcd_mkdir(const char *path, int quiet)
 char *replace_volume_path_HOME(char *buf, size_t size)
 {
    static char *home = NULL;      /* value of $HOME env variable */
-   static char home_abs[DD_MAXPATH];  /* absolute volume path of $HOME */
+   static char home_abs[WCD_MAXPATH];  /* absolute volume path of $HOME */
    static char status = 0;
    static size_t  len_home = 0;
    static size_t  len_home_abs = 0;
    size_t i, len_buf;
    size_t j;
-   char tmp[DD_MAXPATH];
-   static char pattern[DD_MAXPATH];
+   char tmp[WCD_MAXPATH];
+   static char pattern[WCD_MAXPATH];
    char *ptr1, *ptr2;
 
 

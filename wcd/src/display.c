@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2016 Erwin Waterlander
+Copyright (C) 1997-2017 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -34,7 +34,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include "structur.h"
 #include "nameset.h"
 #include "config.h"
-#include "dosdir.h"
+#include "finddirs.h"
 #include "graphics.h"
 
 #include <stdarg.h>
@@ -94,11 +94,11 @@ size_t utf8towcs(wchar_t *wcstr, const char *mbstr, int len)
 void wcd_printf( const char* format, ... ) {
    va_list args;
 #if defined(_WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
-   wchar_t wstr[DD_MAXPATH];
-   char buf[DD_MAXPATH];
+   wchar_t wstr[WCD_MAXPATH];
+   char buf[WCD_MAXPATH];
 #  ifdef WCD_UTF16
-   char formatmbs[DD_MAXPATH];
-   wchar_t formatwcs[DD_MAXPATH];
+   char formatmbs[WCD_MAXPATH];
+   wchar_t formatwcs[WCD_MAXPATH];
 #  endif
    HANDLE stduit;
 
@@ -109,9 +109,9 @@ void wcd_printf( const char* format, ... ) {
    /* The format string is encoded in the system default
     * Windows ANSI code page. May have been translated
     * by gettext. Convert it to wide characters. */
-   MultiByteToWideChar(CP_ACP,0, format, -1, formatwcs, DD_MAXPATH);
+   MultiByteToWideChar(CP_ACP,0, format, -1, formatwcs, WCD_MAXPATH);
    /* then convert the format string to UTF-8 */
-   WideCharToMultiByte(CP_UTF8, 0, formatwcs, -1, formatmbs, DD_MAXPATH, NULL, NULL);
+   WideCharToMultiByte(CP_UTF8, 0, formatwcs, -1, formatmbs, WCD_MAXPATH, NULL, NULL);
 
    /* Assume the arguments (directory names) are in UTF-8 encoding, because
     * in Windows Unicode mode all treedata files are written in UTF-8 format.
@@ -119,12 +119,12 @@ void wcd_printf( const char* format, ... ) {
    vsnprintf( buf, sizeof(buf), formatmbs, args);
    buf[sizeof(buf)-1] = '\0';
     /* Convert UTF-8 buffer to wide characters, and print to console. */
-   if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, DD_MAXPATH) > 0  )
+   if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, WCD_MAXPATH) > 0  )
 #  else
    /* Everything is in ANSI code page */
    vsnprintf( buf, sizeof(buf), format, args);
    buf[sizeof(buf)-1] = '\0';
-   if (MultiByteToWideChar(CP_ACP,0, buf, -1, wstr, DD_MAXPATH) > 0  )
+   if (MultiByteToWideChar(CP_ACP,0, buf, -1, wstr, WCD_MAXPATH) > 0  )
 #  endif
       WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
    else
@@ -154,16 +154,16 @@ size_t str_columns (char *s)
 {
    assert(s);
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-   static wchar_t wstr[DD_MAXPATH];
+   static wchar_t wstr[WCD_MAXPATH];
    size_t i;
 
    /* convert to wide characters. i = nr. of characters */
-   i= MBSTOWCS(wstr,s,(size_t)DD_MAXPATH);
+   i= MBSTOWCS(wstr,s,(size_t)WCD_MAXPATH);
    if ( i == (size_t)(-1))
       return(strlen(s));
    else
    {
-      int j = wcd_wcswidth(wstr,(size_t)DD_MAXPATH);
+      int j = wcd_wcswidth(wstr,(size_t)WCD_MAXPATH);
       /* j =  nr. of columns */
       if ( j < 0)
          return(strlen(s));
@@ -196,8 +196,8 @@ void ssort (nameset list, int left, int right)
 {
  int i, last;
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
- static wchar_t wstr_left[DD_MAXPATH];
- static wchar_t wstr_right[DD_MAXPATH];
+ static wchar_t wstr_left[WCD_MAXPATH];
+ static wchar_t wstr_right[WCD_MAXPATH];
 #endif
 
   if (left >= right) return; /* fewer than 2 elements */
@@ -208,8 +208,8 @@ void ssort (nameset list, int left, int right)
   for (i = left+1; i <=right; i++)
   {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-   size_t len1 = MBSTOWCS(wstr_left, list->array[left],(size_t)DD_MAXPATH);
-   size_t len2 = MBSTOWCS(wstr_right,list->array[i],(size_t)DD_MAXPATH);
+   size_t len1 = MBSTOWCS(wstr_left, list->array[left],(size_t)WCD_MAXPATH);
+   size_t len2 = MBSTOWCS(wstr_right,list->array[i],(size_t)WCD_MAXPATH);
    if ((len1 == (size_t)(-1)) || (len2 == (size_t)(-1)))
    {
       /* Erroneous multi-byte sequence */
@@ -888,11 +888,11 @@ void signalSigwinchDisplay (int sig)
 void wcd_mvwaddstr(WINDOW *win, int x, int y, char *str)
 {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-   static wchar_t wstr[DD_MAXPATH];
+   static wchar_t wstr[WCD_MAXPATH];
    size_t i;
 
    /* convert to wide characters. i = nr. of characters */
-   i= mbstowcs(wstr,str,(size_t)DD_MAXPATH);
+   i= mbstowcs(wstr,str,(size_t)WCD_MAXPATH);
    if ( i == (size_t)(-1))
    {
       /* Erroneous multi-byte sequence */
@@ -915,8 +915,8 @@ void printLine(WINDOW *win, nameset n, int i, int y, int xoffset, int *use_numbe
    if (s != NULL)
    {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-      static wchar_t wstr[DD_MAXPATH];
-      size_t len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
+      static wchar_t wstr[WCD_MAXPATH];
+      size_t len = MBSTOWCS(wstr,(char *)s,(size_t)WCD_MAXPATH); /* number of wide characters */
 #else
       size_t len = strlen((char *)s);
       int j;
@@ -982,8 +982,8 @@ void printStackLine(WINDOW *win, WcdStack ws, int i, int y, int xoffset, int *us
    if (s != NULL)
    {
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-      static wchar_t wstr[DD_MAXPATH];
-      size_t len = MBSTOWCS(wstr,(char *)s,(size_t)DD_MAXPATH); /* number of wide characters */
+      static wchar_t wstr[WCD_MAXPATH];
+      size_t len = MBSTOWCS(wstr,(char *)s,(size_t)WCD_MAXPATH); /* number of wide characters */
 #else
       size_t len = strlen((char *)s);
       int j;

@@ -31,9 +31,6 @@ wcwidth.obj :  $(SRCDIR)\wcwidth.c
 wfixpath.obj :  $(SRCDIR)\wfixpath.c
 	$(CC) $(CFLAGS) $(SRCDIR)\wfixpath.c
 
-dosdir.obj :  $(SRCDIR)\dosdir.c
-	$(CC) $(CFLAGS) $(SRCDIR)\dosdir.c
-
 display.obj :  $(SRCDIR)\display.c
 	$(CC) $(CFLAGS) $(SRCDIR)\display.c
 

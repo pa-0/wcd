@@ -71,7 +71,7 @@ Jason Mathews' file filelist.c was a starting point for this file.
 #endif
 
 #include "querycp.h"
-#include "dosdir.h"
+#include "finddirs.h"
 #include "match.h"
 #ifdef WCD_UNICODE
 #  include "matchw.h"
@@ -444,8 +444,8 @@ void writeList(char * filename, nameset n, int bomtype)
       size_t i;
       int rc = 0;
 #ifdef WCD_ANSI
-      char    path[DD_MAXPATH];
-      wchar_t pathw[DD_MAXPATH];
+      char    path[WCD_MAXPATH];
+      wchar_t pathw[WCD_MAXPATH];
 #endif
       for(i=0;((i<n->size)&&(rc>=0));i++)
       {
@@ -484,7 +484,7 @@ void stripTmpMnt(char* path)
      if (strncmp(path,TMP_MNT_STR,strlen(TMP_MNT_STR)) == 0)
     {
        char* ptr = path + strlen(TMP_MNT_STR) - 1 ;
-       wcd_strncpy(path,ptr,(size_t)DD_MAXPATH);
+       wcd_strncpy(path,ptr,(size_t)WCD_MAXPATH);
     }
   }
 
@@ -520,11 +520,11 @@ void quoteString(char *string)
 {
  size_t i, j;
  int k,kmax;
- char help1_str[DD_MAXPATH];
+ char help1_str[WCD_MAXPATH];
 
  j = strlen(string);
  k = 0;
- kmax = DD_MAXPATH -3;
+ kmax = WCD_MAXPATH -3;
 
  for (i=0; (i < j)&&(k < kmax) ; i++)
  {
@@ -555,7 +555,7 @@ void quoteString(char *string)
  }
  help1_str[k] = '\0' ;
 
- wcd_strncpy(string,help1_str,(size_t)DD_MAXPATH);
+ wcd_strncpy(string,help1_str,(size_t)WCD_MAXPATH);
 }
 #endif
 
@@ -578,12 +578,12 @@ void quoteString(char *string)
 {
  size_t i, j;
  int k,kmax;
- char help1_str[DD_MAXPATH];
+ char help1_str[WCD_MAXPATH];
 
  j = strlen(string);
  help1_str[0] = '"';
  k = 1;
- kmax = DD_MAXPATH -3;
+ kmax = WCD_MAXPATH -3;
 
  for (i=0; (i < j)&&(k < kmax) ; i++)
  {
@@ -605,7 +605,7 @@ void quoteString(char *string)
  k++;
  help1_str[k] = '\0' ;
 
- wcd_strncpy(string,help1_str,(size_t)DD_MAXPATH);
+ wcd_strncpy(string,help1_str,(size_t)WCD_MAXPATH);
 
 }
 #endif
@@ -624,7 +624,7 @@ void quoteString(char *string)
 #ifdef _WCD_DOSFS
 int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
 {
-   char drive[DD_MAXDRIVE];
+   char drive[WCD_MAXDRIVE];
 
 
    int i = getdisk();  /* current disk */
@@ -647,18 +647,18 @@ int changeDisk(char *path, int *changed, char *newdrive, int *use_HOME)
          if ((i==destDisk) && (i>=0))  /* succes ? */
          {
             *changed = 1 ;
-            wcd_strncpy(newdrive,drive,(size_t)DD_MAXDRIVE) ;
+            wcd_strncpy(newdrive,drive,(size_t)WCD_MAXDRIVE) ;
 
            if((use_HOME == NULL)||(*use_HOME == 0))
            {
             char *ptr = path + 2;
             if (strcmp(ptr,"") == 0)
             {
-               wcd_strncpy(path,"/",(size_t)DD_MAXPATH);
+               wcd_strncpy(path,"/",(size_t)WCD_MAXPATH);
             }
             else
             {
-               wcd_strncpy(path,ptr,(size_t)DD_MAXPATH);
+               wcd_strncpy(path,ptr,(size_t)WCD_MAXPATH);
             }
            }
          }
@@ -692,9 +692,9 @@ char *getCurPath(char *buffer, size_t size, int *use_HOME)
 void addCurPathToFile(char *filename,int *use_HOME, int parents)
 {
 
- char tmp[DD_MAXPATH];      /* tmp string buffer */
+ char tmp[WCD_MAXPATH];      /* tmp string buffer */
 
- char *path = getCurPath(tmp,(size_t)DD_MAXPATH,use_HOME);
+ char *path = getCurPath(tmp,(size_t)WCD_MAXPATH,use_HOME);
 
  if(path != NULL)
  {
@@ -739,15 +739,15 @@ void addCurPathToFile(char *filename,int *use_HOME, int parents)
 void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *use_HOME, nameset exclude)
 {
    size_t  offset = 0 ;     /* offset to remove scanned from path */
-   char tmp2[DD_MAXPATH];   /* tmp string buffer */
+   char tmp2[WCD_MAXPATH];   /* tmp string buffer */
    FILE *outfile;
 #ifdef _WCD_DOSFS
-   char drive[DD_MAXDRIVE];
+   char drive[WCD_MAXDRIVE];
    int  changedrive = 0;
 #endif
 
-   wcd_fixpath(path,(size_t)DD_MAXPATH);
-   wcd_fixpath(treefile,(size_t)DD_MAXPATH);
+   wcd_fixpath(path,(size_t)WCD_MAXPATH);
+   wcd_fixpath(treefile,(size_t)WCD_MAXPATH);
    wcd_getcwd(tmp2, sizeof(tmp2)); /* remember current dir */
 
    if(wcd_isdir(path,0) != 0)
@@ -767,7 +767,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
    {
      if ( !wcd_chdir(path,0) )
      {
-      char tmp[DD_MAXPATH];    /* tmp string buffer */
+      char tmp[WCD_MAXPATH];    /* tmp string buffer */
       wcd_getcwd(tmp, sizeof(tmp)); /* get full path */
 #ifdef _WCD_DOSFS
           wcd_fixpath(tmp,sizeof(tmp));
@@ -796,8 +796,8 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
 
       if  ( (ptr = getenv("TEMP")) != NULL )
       {
-      wcd_strncpy(treefile,ptr,(size_t)DD_MAXPATH);
-      wcd_strncat(treefile,TREEFILE,(size_t)DD_MAXPATH);
+      wcd_strncpy(treefile,ptr,(size_t)WCD_MAXPATH);
+      wcd_strncat(treefile,TREEFILE,(size_t)WCD_MAXPATH);
       outfile = wcd_fopen(treefile,"w",1);
       }
 
@@ -805,8 +805,8 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
       {
          if  ( (ptr = getenv("TMP")) != NULL )
             {
-            wcd_strncpy(treefile,ptr,(size_t)DD_MAXPATH);
-            wcd_strncat(treefile,TREEFILE,(size_t)DD_MAXPATH);
+            wcd_strncpy(treefile,ptr,(size_t)WCD_MAXPATH);
+            wcd_strncat(treefile,TREEFILE,(size_t)WCD_MAXPATH);
             outfile = wcd_fopen(treefile,"w",1);
             }
 
@@ -814,8 +814,8 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
          {
             if  ( (ptr = getenv("TMPDIR")) != NULL )
                {
-               wcd_strncpy(treefile,ptr,(size_t)DD_MAXPATH);
-               wcd_strncat(treefile,TREEFILE,(size_t)DD_MAXPATH);
+               wcd_strncpy(treefile,ptr,(size_t)WCD_MAXPATH);
+               wcd_strncat(treefile,TREEFILE,(size_t)WCD_MAXPATH);
                outfile = wcd_fopen(treefile,"w",1);
                }
          }
@@ -883,11 +883,11 @@ void makeDir(char *path, char *treefile, int *use_HOME)
    mode_t m;
 #endif
 #ifdef _WCD_DOSFS
-   char drive[DD_MAXDRIVE];
+   char drive[WCD_MAXDRIVE];
    int  changedrive = 0;
 #endif
 
-   wcd_fixpath(path,(size_t)DD_MAXPATH);
+   wcd_fixpath(path,(size_t)WCD_MAXPATH);
 
 #if (defined(__DJGPP__) || defined(__EMX__))
    /* is there a drive to go to ? */
@@ -903,8 +903,8 @@ void makeDir(char *path, char *treefile, int *use_HOME)
    if (wcd_mkdir(path,0)==0)
 #endif
    {
-      char tmp2[DD_MAXPATH];
-      wcd_getcwd(tmp2, (size_t)DD_MAXPATH);  /* remember current dir */
+      char tmp2[WCD_MAXPATH];
+      wcd_getcwd(tmp2, (size_t)WCD_MAXPATH);  /* remember current dir */
       if(wcd_chdir(path,0)==0)        /* goto dir and add */
        addCurPathToFile(treefile,use_HOME,0);
       wcd_chdir(tmp2,0) ;                /* go back */
@@ -928,7 +928,7 @@ void deleteLink(char *path, char *treefile)
    if (S_ISDIR(buf.st_mode)) /* does the link point to a dir */
    {
         char *line_end ;
-        char tmp2[DD_MAXPATH];
+        char tmp2[WCD_MAXPATH];
 
         /* get the parent path of the link */
 
@@ -942,10 +942,10 @@ void deleteLink(char *path, char *treefile)
           line_end = path;  /* we were are already there */
 
         wcd_strncpy(tmp2,line_end,sizeof(tmp2));
-        wcd_getcwd(path, (size_t)DD_MAXPATH);  /* get the full path of parent dir*/
-        wcd_strncat(path,"/",(size_t)DD_MAXPATH);
-        wcd_strncat(path,tmp2,(size_t)DD_MAXPATH);
-        wcd_fixpath(path,(size_t)DD_MAXPATH);
+        wcd_getcwd(path, (size_t)WCD_MAXPATH);  /* get the full path of parent dir*/
+        wcd_strncat(path,"/",(size_t)WCD_MAXPATH);
+        wcd_strncat(path,tmp2,(size_t)WCD_MAXPATH);
+        wcd_fixpath(path,(size_t)WCD_MAXPATH);
 #ifdef _WIN32
         /* When we use unlink() on a Windows symbolic directory link
          * we get 'permission denied'. Use rmdir. */
@@ -986,11 +986,11 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
    static struct stat buf ;
 #endif
 #ifdef _WCD_DOSFS
-   char drive[DD_MAXDRIVE];
+   char drive[WCD_MAXDRIVE];
    int  changedrive = 0;
 #endif
 
-   wcd_fixpath(path,(size_t)DD_MAXPATH);
+   wcd_fixpath(path,(size_t)WCD_MAXPATH);
 
 #if defined(UNIX) || ((defined(__OS2__) && defined(__EMX__)))
    if (lstat(path, &buf) != 0)
@@ -1020,15 +1020,15 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
 
    if (wcd_isdir(path,0) == 0) /* is it a dir */
    {
-      char tmp2[DD_MAXPATH];
-      wcd_getcwd(tmp2, (size_t)DD_MAXPATH);  /* remember current path */
+      char tmp2[WCD_MAXPATH];
+      wcd_getcwd(tmp2, (size_t)WCD_MAXPATH);  /* remember current path */
 
       if(wcd_chdir(path,0)==0)
       {
-         wcd_getcwd(path, (size_t)DD_MAXPATH);   /* path to remove */
+         wcd_getcwd(path, (size_t)WCD_MAXPATH);   /* path to remove */
 
 #ifdef _WCD_DOSFS
-         wcd_fixpath(path,DD_MAXPATH);
+         wcd_fixpath(path,WCD_MAXPATH);
          rmDriveLetter(path,use_HOME);
 #endif
          wcd_chdir(tmp2,0);
@@ -1110,7 +1110,7 @@ int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const in
    if (i >= lim-1)
    {
       int j;
-      print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),"wcd_getline()",(lim-1));
+      print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"),"wcd_getline()",(lim-1));
       print_error(_("file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
       j = i+1;
@@ -1179,7 +1179,7 @@ int wcd_wgetline(wchar_t s[], int lim, FILE* infile, const char* file_name, cons
 
    if (i >= lim-1)
    {
-      print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),"wcd_wgetline()",(lim-1));
+      print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"),"wcd_wgetline()",(lim-1));
       print_error(_("file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
       int j = i+1;
@@ -1247,7 +1247,7 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, c
 
    if (i >= lim-1)
    {
-      print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing DD_MAXPATH in source code.\n"),"wcd_wgetline_be()",(lim-1));
+      print_error(_("line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"),"wcd_wgetline_be()",(lim-1));
       print_error(_("file: %s, line: %d,"),file_name, *line_nr);
       /* Continue reading until end of line */
       int j = i+1;
@@ -1276,12 +1276,12 @@ int wcd_wgetline_be(wchar_t s[], int lim, FILE* infile, const char* file_name, c
 void read_treefileA(FILE *f, nameset bd, const char* file_name)
 {
     int line_nr=1;
-    char path[DD_MAXPATH];
+    char path[WCD_MAXPATH];
 
     while (!feof(f) && !ferror(f))
     {
        /* read a line */
-       int len = wcd_getline(path,DD_MAXPATH,f,file_name,&line_nr);
+       int len = wcd_getline(path,WCD_MAXPATH,f,file_name,&line_nr);
        ++line_nr;
 
        if (len > 0 )
@@ -1295,13 +1295,13 @@ void read_treefileA(FILE *f, nameset bd, const char* file_name)
 void read_treefileUTF16LE(FILE *f, nameset bd, const char* file_name)
 {
     int line_nr=1;
-    char path[DD_MAXPATH];
-    wchar_t pathw[DD_MAXPATH];
+    char path[WCD_MAXPATH];
+    wchar_t pathw[WCD_MAXPATH];
 
     while (!feof(f) && !ferror(f))
     {
        /* read a line */
-       int len = wcd_wgetline(pathw,DD_MAXPATH,f,file_name,&line_nr);
+       int len = wcd_wgetline(pathw,WCD_MAXPATH,f,file_name,&line_nr);
        ++line_nr;
 
        if (len > 0 )
@@ -1316,13 +1316,13 @@ void read_treefileUTF16LE(FILE *f, nameset bd, const char* file_name)
 void read_treefileUTF16BE(FILE *f, nameset bd, const char* file_name)
 {
     int line_nr=1;
-    char path[DD_MAXPATH];
-    wchar_t pathw[DD_MAXPATH];
+    char path[WCD_MAXPATH];
+    wchar_t pathw[WCD_MAXPATH];
 
     while (!feof(f) && !ferror(f))
     {
        /* read a line */
-       int len = wcd_wgetline_be(pathw,DD_MAXPATH,f,file_name,&line_nr);
+       int len = wcd_wgetline_be(pathw,WCD_MAXPATH,f,file_name,&line_nr);
        ++line_nr;
 
        if (len > 0 )
@@ -1344,15 +1344,15 @@ void read_treefileUTF16BE(FILE *f, nameset bd, const char* file_name)
 void read_treefileUTF8(FILE *f, nameset bd, const char *file_name)
 {
     int line_nr=1;
-    char path[DD_MAXPATH];
+    char path[WCD_MAXPATH];
 #ifdef WCD_ANSI
-    wchar_t pathw[DD_MAXPATH];
+    wchar_t pathw[WCD_MAXPATH];
 #endif
 
     while (!feof(f) && !ferror(f))
     {
        /* read a line */
-       int len = wcd_getline(path,DD_MAXPATH,f,file_name,&line_nr);
+       int len = wcd_getline(path,WCD_MAXPATH,f,file_name,&line_nr);
        ++line_nr;
 
        if (len > 0 )
@@ -1491,7 +1491,7 @@ int read_treefile_line (char line[], FILE* infile, const char* filename, const i
 {
    int len;
 #if defined(_WIN32) || defined(WCD_UNICODE)
-   wchar_t linew[DD_MAXPATH];            /* database path */
+   wchar_t linew[WCD_MAXPATH];            /* database path */
 #endif
 
 #if defined(_WIN32) || defined(WCD_UNICODE)
@@ -1499,29 +1499,29 @@ int read_treefile_line (char line[], FILE* infile, const char* filename, const i
       switch (bomtype)
       {
          case FILE_MBS:
-           len = wcd_getline(line,DD_MAXPATH,infile,filename,line_nr);
+           len = wcd_getline(line,WCD_MAXPATH,infile,filename,line_nr);
            break;
          case FILE_UTF16LE:
-           len = wcd_wgetline(linew,DD_MAXPATH,infile,filename,line_nr);
-           WCSTOMBS(line, linew, (size_t)DD_MAXPATH);
+           len = wcd_wgetline(linew,WCD_MAXPATH,infile,filename,line_nr);
+           WCSTOMBS(line, linew, (size_t)WCD_MAXPATH);
            break;
          case FILE_UTF16BE:
-           len = wcd_wgetline_be(linew,DD_MAXPATH,infile,filename,line_nr);
-           WCSTOMBS(line, linew, (size_t)DD_MAXPATH);
+           len = wcd_wgetline_be(linew,WCD_MAXPATH,infile,filename,line_nr);
+           WCSTOMBS(line, linew, (size_t)WCD_MAXPATH);
            break;
          case FILE_UTF8:
-           len = wcd_getline(line,DD_MAXPATH,infile,filename,line_nr);
+           len = wcd_getline(line,WCD_MAXPATH,infile,filename,line_nr);
 #ifdef WCD_ANSI
            /* convert UTF-8 to ANSI */
            MultiByteToWideChar(CP_UTF8, 0, line, -1, linew, sizeof(linew));
-           len = WideCharToMultiByte(CP_ACP, 0, linew, -1, line, DD_MAXPATH, NULL, NULL) -1;
+           len = WideCharToMultiByte(CP_ACP, 0, linew, -1, line, WCD_MAXPATH, NULL, NULL) -1;
 #endif
            break;
          default:
-           len = wcd_getline(line,DD_MAXPATH,infile,filename,line_nr);
+           len = wcd_getline(line,WCD_MAXPATH,infile,filename,line_nr);
       }
 #else
-      len = wcd_getline(line,DD_MAXPATH,infile,filename,line_nr);
+      len = wcd_getline(line,WCD_MAXPATH,infile,filename,line_nr);
 #endif
 
    if (len<0)
@@ -1547,7 +1547,7 @@ int read_treefile_line (char line[], FILE* infile, const char* filename, const i
  ********************************************************************/
 size_t pathInNameset (text path, nameset set)
 {
-   char tmp[DD_MAXPATH];
+   char tmp[WCD_MAXPATH];
    size_t size, index = 0;
 
    if ((path == NULL)||(set == NULL))
@@ -1585,14 +1585,14 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
               nameset pm, nameset wm, nameset bd, nameset filter, int relative, int wildOnly, int ignore_diacritics)
 {
    FILE *infile;
-   char line[DD_MAXPATH];            /* database path */
+   char line[WCD_MAXPATH];            /* database path */
    int  bomtype ;
    char *line_end;                  /* database directory */
-   char path_str[DD_MAXPATH];        /* path name to match */
-   char dirwild_str[DD_MAXPATH];     /* directory name to wild match */
+   char path_str[WCD_MAXPATH];        /* path name to match */
+   char dirwild_str[WCD_MAXPATH];     /* directory name to wild match */
    char *dir_str ;                   /* directory name to perfect match */
-   char relative_prefix[DD_MAXPATH]; /* relative prefix */
-   char tmp[DD_MAXPATH];
+   char relative_prefix[WCD_MAXPATH]; /* relative prefix */
+   char tmp[WCD_MAXPATH];
    int wild = 0;
    int line_nr =1;
 
@@ -1612,7 +1612,7 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    {
      /* If user searches "c:bin" (a directory "bin" on drive c:) set path_str to "c:*bin" */
      wcd_strncpy(path_str,org_dir,sizeof(path_str));
-     line_end = org_dir + DD_MAXDRIVE ;
+     line_end = org_dir + WCD_MAXDRIVE ;
      wcd_strncat(path_str,"*",sizeof(path_str));
      wcd_strncat(path_str,line_end,sizeof(path_str));
    }
@@ -1737,7 +1737,7 @@ void scanaliasfile(char *org_dir, char *filename,
 {
    FILE *infile;
    char *dir;
-   char line[DD_MAXPATH];
+   char line[WCD_MAXPATH];
    int line_nr=1;
    int bomtype;
 
@@ -1770,7 +1770,7 @@ void scanaliasfile(char *org_dir, char *filename,
       ungetc(line[0], infile);
 
       /* read a line */
-      len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
+      len = wcd_getline(line,WCD_MAXPATH,infile,filename,&line_nr);
       ++line_nr;
 
       if (len == 0 ) continue;
@@ -1832,7 +1832,7 @@ void list_alias_file(char *filename)
 
    /* First read all the lines in a nameset so that we can sort it later */
    while (!feof(infile) && !ferror(infile)) {
-      char line[DD_MAXPATH];
+      char line[WCD_MAXPATH];
       int len;
 
       /* skip spaces at the beginning of the line */
@@ -1840,7 +1840,7 @@ void list_alias_file(char *filename)
       ungetc(line[0], infile);
 
       /* read a line */
-      len = wcd_getline(line,DD_MAXPATH,infile,filename,&line_nr);
+      len = wcd_getline(line,WCD_MAXPATH,infile,filename,&line_nr);
       ++line_nr;
       if (len > 0 )
          addToNamesetArray(textNew(line),aliaslines);
@@ -2164,7 +2164,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
  * the file */
 void create_dir_for_file(const char *f)
 {
-   char path[DD_MAXPATH];
+   char path[WCD_MAXPATH];
    char *ptr ;
 
    wcd_strncpy(path, f, sizeof(path));
@@ -2263,7 +2263,7 @@ void empty_wcdgo(char *go_file, int changedrive, char *drive, int use_GoScript, 
 
 size_t pickDir(nameset list, int *use_HOME)
 {
-   char curDir[DD_MAXPATH];
+   char curDir[WCD_MAXPATH];
    size_t i;
    char *path;
 
@@ -2272,7 +2272,7 @@ size_t pickDir(nameset list, int *use_HOME)
 
    sort_list(list);
 
-   path = getCurPath(curDir,(size_t)DD_MAXPATH,use_HOME); /* get previous dirname from file */
+   path = getCurPath(curDir,(size_t)WCD_MAXPATH,use_HOME); /* get previous dirname from file */
 
    if (path == NULL)  /* no dirname found */
       return(1);            /* return first of list */
@@ -2385,11 +2385,11 @@ void addListToNameset(nameset set, char *list)
 {
    if (list != NULL)
    {
-      char tmp[DD_MAXPATH];      /* tmp string buffer */
+      char tmp[WCD_MAXPATH];      /* tmp string buffer */
       list = strtok(list, LIST_SEPARATOR);
       while (list != NULL)
       {
-         if (strlen(list) < (DD_MAXPATH-2)) /* prevent buffer overflow */
+         if (strlen(list) < (WCD_MAXPATH-2)) /* prevent buffer overflow */
          {
             wcd_strncpy(tmp,list,sizeof(tmp));
             wcd_fixpath(tmp,sizeof(tmp));
@@ -2404,11 +2404,11 @@ void addListToNamesetFilter(nameset set, char *list)
 {
    if (list != NULL)
    {
-      char tmp[DD_MAXPATH];      /* tmp string buffer */
+      char tmp[WCD_MAXPATH];      /* tmp string buffer */
       list = strtok(list, LIST_SEPARATOR);
       while (list != NULL)
       {
-         if (strlen(list) < (DD_MAXPATH-2)) /* prevent buffer overflow */
+         if (strlen(list) < (WCD_MAXPATH-2)) /* prevent buffer overflow */
          {
             wcd_strncpy(tmp,"*",sizeof(tmp));
             wcd_strncat(tmp,list,sizeof(tmp));
@@ -2434,7 +2434,7 @@ int main(int argc,char** argv)
 {
    FILE *infile;
    FILE *outfile;
-   char best_match[DD_MAXPATH];
+   char best_match[WCD_MAXPATH];
    char verbose = 0;
    int i;
    size_t ii, j;
@@ -2446,19 +2446,19 @@ int main(int argc,char** argv)
    int strip_mount_string = 1 ;     /* remove mount string prefix( e.g. /tmp_mnt ) from path before /home */
 #endif
    int  stack_hit = 0, stack_index;
-   char rootdir[DD_MAXPATH],treefile[DD_MAXPATH],banfile[DD_MAXPATH],aliasfile[DD_MAXPATH];
-   char stackfile[DD_MAXPATH];
-   char scandir[DD_MAXPATH];
-   char rootscandir[DD_MAXPATH];
-   char extratreefile[DD_MAXPATH];
-   char homedir[DD_MAXPATH];
-   char dir[DD_MAXPATH];  /* directory to go to, or dir to scan, make or remove */
+   char rootdir[WCD_MAXPATH],treefile[WCD_MAXPATH],banfile[WCD_MAXPATH],aliasfile[WCD_MAXPATH];
+   char stackfile[WCD_MAXPATH];
+   char scandir[WCD_MAXPATH];
+   char rootscandir[WCD_MAXPATH];
+   char extratreefile[WCD_MAXPATH];
+   char homedir[WCD_MAXPATH];
+   char dir[WCD_MAXPATH];  /* directory to go to, or dir to scan, make or remove */
    char scan_mk_rm = 0; /* scan disk, or make dir, or remove dir */
    char *ptr, *stackptr;
    int  quieter = 0, cd = 0 ;
    size_t len;
-   char tmp[DD_MAXPATH];      /* tmp string buffer */
-   char tmp2[DD_MAXPATH];      /* tmp string buffer */
+   char tmp[WCD_MAXPATH];      /* tmp string buffer */
+   char tmp2[WCD_MAXPATH];      /* tmp string buffer */
    int  stack_is_read = 0;
    WcdStack DirStack;
    nameset extra_files, banned_dirs, scan_dirs;
@@ -2476,7 +2476,7 @@ int main(int argc,char** argv)
    dirnode rootNode ;
 #endif
    int  changedrive = 0;
-   char drive[DD_MAXDRIVE];
+   char drive[WCD_MAXDRIVE];
    int ignore_diacritics = 0;
 #ifdef _WCD_DOSFS
    int ignore_case = 1;
@@ -2484,7 +2484,7 @@ int main(int argc,char** argv)
    int ignore_case = 0;
 #endif
 #ifdef WCD_SHELL
-   char go_file[DD_MAXPATH];
+   char go_file[WCD_MAXPATH];
    int use_GoScript = 1;
 #endif
 #ifdef WCD_UTF16
@@ -2506,7 +2506,7 @@ int main(int argc,char** argv)
 #endif
 #endif
 #ifdef ENABLE_NLS
-   char localedir[DD_MAXPATH];
+   char localedir[WCD_MAXPATH];
    ptr = getenv("WCDLOCALEDIR");
    if (ptr == NULL)
       wcd_strncpy(localedir,LOCALEDIR,sizeof(localedir));
@@ -2557,7 +2557,7 @@ int main(int argc,char** argv)
     {
        wcd_strncpy(rootscandir,ROOTDIR,sizeof(rootscandir));
     } else {
-       if (strlen(ptr) > (DD_MAXPATH -20))
+       if (strlen(ptr) > (WCD_MAXPATH -20))
        {
          print_error(_("Value of environment variable %s is too long.\n"),"HOME");
          return(1);
@@ -2572,7 +2572,7 @@ int main(int argc,char** argv)
 
    if (ptr != NULL)
    {
-      if (strlen(ptr) > (DD_MAXPATH -20))
+      if (strlen(ptr) > (WCD_MAXPATH -20))
       {
          print_error(_("Value of environment variable %s is too long.\n"),"HOME or WCDHOME");
          return(1);
@@ -2640,7 +2640,7 @@ int main(int argc,char** argv)
    }
    else
    {
-      if (strlen(ptr) > (DD_MAXPATH -20))
+      if (strlen(ptr) > (WCD_MAXPATH -20))
       {
          print_error(_("Value of environment variable %s is too long.\n"),"HOME or WCDHOME");
          return(1);
@@ -2709,7 +2709,7 @@ int main(int argc,char** argv)
       wcd_strncpy(homedir,HOMESTRING,sizeof(homedir));
    else
    {
-      if (strlen(ptr) > DD_MAXPATH)
+      if (strlen(ptr) > WCD_MAXPATH)
       {
          print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
          return(1);
@@ -3211,7 +3211,7 @@ int main(int argc,char** argv)
                   strcpy(tmp,"/");
                else
                   wcd_strncpy(tmp,homedir,sizeof(tmp));
-               if ((strlen(tmp)+strlen(argv[i])+strlen(TREEFILE)+1) > DD_MAXPATH )
+               if ((strlen(tmp)+strlen(argv[i])+strlen(TREEFILE)+1) > WCD_MAXPATH )
                {
                   print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
                   return(1);
@@ -3230,7 +3230,7 @@ int main(int argc,char** argv)
                      strcpy(tmp2,"/");
                   else
                      wcd_strncpy(tmp2,homedir,sizeof(tmp2));
-                  if ((strlen(tmp2)+strlen(argv[i])+strlen(TREEFILE)+1+5) > DD_MAXPATH )
+                  if ((strlen(tmp2)+strlen(argv[i])+strlen(TREEFILE)+1+5) > WCD_MAXPATH )
                   {
                      print_error(_("Value of environment variable %s is too long.\n"),"WCDUSERSHOME");
                      return(1);
