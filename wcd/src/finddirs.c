@@ -17,6 +17,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
 
+#include "tailor.h"
 #if defined(_WIN32) && !defined(__CYGWIN__)
 #  ifdef WCD_UNICODE
 #    define UNICODE
@@ -36,6 +37,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #elif defined(__MSDOS__) || (defined(__OS2__) && !defined(__EMX__))
 #  ifdef __DJGPP__
 #    include <dir.h>
+#    include <dos.h>
 #    define WCD_FB_NAME    fb.ff_name
 #    define WCD_FB_MODE    fb.ff_attrib
 #    define WCD_FINDNEXT   findnext
@@ -56,16 +58,15 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #  include <sys/types.h>
 #  include <sys/stat.h>
 #  include <unistd.h>
-#  include <errno.h>
 #endif
 
 #include <string.h>
+#include <errno.h>
 #include "wcddir.h"
 #include "wcd.h"
 #include "wfixpath.h"
 #include "nameset.h"
 #include "config.h"
-#include "tailor.h"
 #include "finddirs.h"
 
 
@@ -418,9 +419,9 @@ void finddirs(char *dir, size_t *offset, FILE *outfile, int *use_HOME, nameset e
 /* Only DJGPP and Watcom C are supported.  */
 
 #  ifdef __DJGPP__
-   rc = findfirst(default_mask, &fb, FA_DIREC);
+   rc = findfirst(default_mask, &fb, FA_DIREC|FA_RDONLY|FA_HIDDEN|FA_SYSTEM|FA_ARCH|FA_LABEL);
 #  else
-   rc = _dos_findfirst(default_mask, _A_SUBDIR, &fb);
+   rc = _dos_findfirst(default_mask, _A_SUBDIR|_A_RDONLY|_A_HIDDEN|_A_SYSTEM|_A_ARCH, &fb);
 #  endif
 
    while (rc==0) {  /* go through all the files in the current dir */

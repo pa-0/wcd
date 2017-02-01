@@ -30,6 +30,10 @@ It includes cross compilation. From a Windows machine you
 can also create DOS and OS/2 programs.
 
 
+Open Watcom V2  : http://open-watcom.github.io/open-watcom/    (git repo)
+                  http://sourceforge.net/projects/openwatcom/  (binaries download)
+
+
 PDCurses
 ========
 

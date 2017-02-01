@@ -48,6 +48,7 @@ int wcd_mkdir(const char *path, int quiet);
 
 
 #  if defined(UNIX) || defined(__DJGPP__) || defined(__EMX__)
+#  include <sys/types.h>
    int wcd_mkdir(const char *path, mode_t m, int quiet);
 #  else
    int wcd_mkdir(const char *path, int quiet);
