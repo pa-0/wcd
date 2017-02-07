@@ -463,7 +463,7 @@ int wcd_unlink(const char *path)
  *
  * test if *dir points to a directory.
  *
- * returns 0 on success, -1 when it fails.
+ * returns 1 when *dir is a directory path, 0 when it isn't.
  *
  * - The following method using POSIX API fails on UNC share paths
  *   like //servername/sharename on MS-Windows systems.
@@ -500,10 +500,10 @@ int wcd_isdir(char *dir, int quiet)
       if (wcd_chdir(dir, quiet) == 0) /* just try to change to dir */
       {
         wcd_chdir(tmp, quiet); /* go back */
-        return(0);
+        return 1 ;
       }
       else
-         return(-1);
+         return 0;
    } else {
 #ifdef WCD_UTF16
       static wchar_t wstr[WCD_MAXPATH];
@@ -517,9 +517,9 @@ int wcd_isdir(char *dir, int quiet)
          if (_wstat(wstr, &buf) == 0)
          {
             if (S_ISDIR(buf.st_mode))
-               return(0);
+               return 1;
             else
-               return(-1);
+               return 0;
          }
          else
          {
@@ -528,7 +528,7 @@ int wcd_isdir(char *dir, int quiet)
               char *errstr = strerror(errno);
               wcd_printf("Wcd: %s: %s\n", dir, errstr);
             }
-            return(-1);
+            return 0;
          }
       }
       else
@@ -539,15 +539,15 @@ int wcd_isdir(char *dir, int quiet)
           wcd_printf("Wcd: %s: ", dir);
           wcd_PrintError(dw);
         }
-        return(-1);  /* fail */
+        return 0;  /* fail */
       }
 #else
       if (stat(dir, &buf) == 0)
       {
          if (S_ISDIR(buf.st_mode))
-            return(0);
+            return 1;
          else
-            return(-1);
+            return 0;
       }
       else
       {
@@ -556,7 +556,7 @@ int wcd_isdir(char *dir, int quiet)
            char *errstr = strerror(errno);
            print_error("%s: %s\n", dir, errstr);
          }
-         return(-1);
+         return 0;
       }
 #endif
    }
@@ -744,7 +744,7 @@ int wcd_unlink(const char *path)
  *
  * test if *dir points to a directory.
  *
- * returns 0 on success, -1 when it fails.
+ * returns 1 when *dir is a directory path, 0 when it isn't.
  *
  ******************************************************************/
 int wcd_isdir(char *dir, int quiet)
@@ -753,13 +753,13 @@ int wcd_isdir(char *dir, int quiet)
 
    if (stat(dir, &buf) == 0) {
       if (S_ISDIR(buf.st_mode))
-         return(0);
+         return 1;
       else
-         return(-1);
+         return 0;
    } else {
       if (!quiet)
          print_error("%s: %s\n", dir, strerror(errno));
-      return(-1);
+      return 0;
    }
 }
 
