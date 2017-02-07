@@ -750,7 +750,7 @@ void scanDisk(char *path, char *treefile, int scanreldir, size_t append, int *us
    wcd_fixpath(treefile,(size_t)WCD_MAXPATH);
    wcd_getcwd(tmp2, sizeof(tmp2)); /* remember current dir */
 
-   if(wcd_isdir(path,0) != 0)
+   if(! wcd_isdir(path,0))
    {
       print_msg("");
       wcd_printf(_("%s is not a directory.\n"),path);
@@ -1018,7 +1018,7 @@ void deleteDir(char *path, char *treefile, int recursive, int *use_HOME, int ass
    changeDisk(path,&changedrive,drive,use_HOME);
 #endif
 
-   if (wcd_isdir(path,0) == 0) /* is it a dir */
+   if (wcd_isdir(path,0)) /* is it a dir */
    {
       char tmp2[WCD_MAXPATH];
       wcd_getcwd(tmp2, (size_t)WCD_MAXPATH);  /* remember current path */
@@ -2176,7 +2176,7 @@ void create_dir_for_file(const char *f)
 #ifdef _WCD_DOSFS
            (!dd_match(path,"[a-z]:",1)) && /* not a drive letter */
 #endif
-           (wcd_isdir(path,1) != 0) /* dir does not exist */
+           (! wcd_isdir(path,1)) /* dir does not exist */
           )
        {
           create_dir_for_file(path);
@@ -3190,7 +3190,7 @@ int main(int argc,char** argv)
                /* is there a drive to go to ? */
                changeDisk(tmp,&changedrive,drive,&use_HOME);
 #endif
-               if (wcd_isdir(tmp,1) == 0) /* is it a dir */
+               if (wcd_isdir(tmp,1)) /* is it a dir */
                {
                   wcd_strncat(tmp,RELTREEFILE,sizeof(tmp));
                   wcd_fixpath(tmp,sizeof(tmp));
@@ -3451,7 +3451,7 @@ int main(int argc,char** argv)
 
    if ((cd==1)&&(strcmp(dir,"")!=0)) /* Try open dir direct. */
    {
-      if(wcd_isdir(dir,1) == 0) /* GJM */
+      if(wcd_isdir(dir,1)) /* GJM */
       {
          if ( use_stdout & WCD_STDOUT_DUMP ) /* just dump the match and exit */
          {
@@ -3504,7 +3504,7 @@ int main(int argc,char** argv)
          wcd_chdir(best_match,0); /* change to directory */
 #endif
          return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
-      } /* ? (wcd_isdir(dir) == 0) */
+      } /* ? (wcd_isdir(dir)) */
 
 
 
@@ -3649,7 +3649,7 @@ int main(int argc,char** argv)
 
    if ((perfect_list->size==0)&&(wild_list->size == 0)&&(cd==0)) /* No match at all & no direct CD mode */
    {
-      if(wcd_isdir(dir,1) == 0) /* GJM */
+      if(wcd_isdir(dir,1)) /* GJM */
       {
          /* typed directory exists */
          addToNamesetArray(textNew(dir),perfect_list);
