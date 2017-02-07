@@ -126,15 +126,13 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
    char path[WCD_MAXPATH];
 
    rc = WNetOpenEnum( RESOURCE_GLOBALNET, RESOURCETYPE_DISK, 0, pnr, &hEnum );
-   if ( rc == ERROR_ACCESS_DENIED )
-   {
+   if ( rc == ERROR_ACCESS_DENIED ) {
       /* printf( "%-6.6s %-4.4s%*s  Error 5 -- access denied\n", "", "", level * 2, "" ); */
       print_msg( _("access denied.\n"));
       return 1;
    }
 
-   if ( rc )
-   {
+   if ( rc ) {
       rc2 = GetLastError();
       /* printf( "WNOE(): rc = %lu, gle = %lu\n", rc, rc2 ); */
       if ( rc2 == ERROR_EXTENDED_ERROR )
@@ -142,17 +140,14 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
       return 0;
    }
 
-   while ( 1 )
-   {
+   while ( 1 ) {
       count = (DWORD) -1L;
       bufsize = sizeof buf;
       rc = WNetEnumResource( hEnum, &count, buf, &bufsize );
       if ( rc != NO_ERROR )
          break;
-      for ( ui = 0; (ui < count); ++ ui )
-      {
-         switch ( buf[ui].dwDisplayType )
-         {
+      for ( ui = 0; (ui < count); ++ ui ) {
+         switch ( buf[ui].dwDisplayType ) {
             case RESOURCEDISPLAYTYPE_DOMAIN:
                /* type = "domain"; */ break;
             case RESOURCEDISPLAYTYPE_GENERIC:
@@ -175,8 +170,7 @@ int doEnum( int level, NETRESOURCE *pnr, nameset n )
       }
    }
 
-   if ( rc != ERROR_NO_MORE_ITEMS )  /* bad things */
-   {
+   if ( rc != ERROR_NO_MORE_ITEMS ) { /* bad things */
       rc2 = GetLastError();
       /* printf( "WNER(): rc = %lu, gle = %lu\n", rc, rc2 ); */
       if ( rc2 == ERROR_EXTENDED_ERROR )
@@ -203,8 +197,7 @@ void wcd_getshares(char* path, nameset n)
    if ((path == NULL) || (n == NULL))
       return;
 
-   if (wcd_isServerPath(path))
-   {
+   if (wcd_isServerPath(path)) {
       /* an UNC path, possibly pointing to a server */
       /* WIN32 API needs backslashes. */
       *path = '\\';
@@ -269,18 +262,14 @@ void wcd_PrintError(DWORD dw)
 int wcd_isSharePath (char* path)
 {
    /* Assume the path has been fixed by wcd_fixpath(). Only forward slashes. */
-   if ((strlen(path) > 2) && (wcd_is_slash(*path)) && (wcd_is_slash(*(path+1))))
-   {
+   if ((strlen(path) > 2) && (wcd_is_slash(*path)) && (wcd_is_slash(*(path+1)))) {
       char *ptr = strchr(path+2,'/');
       if (ptr == NULL)
         return(0);
-      else
-      {
+      else {
         ptr = strchr(ptr+1,'/');
         if (ptr == NULL)
-        {
            return(1);
-        }
         else
            return(0);
       }
@@ -309,10 +298,8 @@ int wcd_islink(const char *dir, int quiet)
    attrs = GetFileAttributes(dir);
 #endif
 
-   if (attrs == INVALID_FILE_ATTRIBUTES)
-   {
-      if ( !quiet )
-      {
+   if (attrs == INVALID_FILE_ATTRIBUTES) {
+      if ( !quiet ) {
          dw = GetLastError();
          print_error("wcd_islink(): ");
          wcd_PrintError(dw);
@@ -343,8 +330,7 @@ char *wcd_getcwd(char *buf, size_t size)
    err = GetCurrentDirectory(size, buf);
 #endif
 
-   if (err == 0)
-   {
+   if (err == 0) {
      dw = GetLastError();
      print_error("%s", _("Unable to get current working directory: "));
      wcd_PrintError(dw);
@@ -369,10 +355,8 @@ int wcd_chdir(const char *path, int quiet)
    err = SetCurrentDirectory(path);
 #endif
 
-   if (err == 0)
-   {
-      if ( !quiet )
-      {
+   if (err == 0) {
+      if ( !quiet ) {
          dw = GetLastError();
          print_error("");
          wcd_printf(_("Unable to change to directory %s: "), path);
@@ -401,10 +385,8 @@ int wcd_mkdir(const char *path, int quiet)
 
    if (err == TRUE)
       return(0);  /* success */
-   else
-   {
-     if ( !quiet )
-     {
+   else {
+     if ( !quiet ) {
        dw = GetLastError();
        print_error("");
        wcd_printf(_("Unable to create directory %s: "), path);
@@ -431,10 +413,8 @@ int wcd_rmdir(const char *path, int quiet)
 
    if (err == TRUE)
       return(0);  /* success */
-   else
-   {
-     if ( !quiet )
-     {
+   else {
+     if ( !quiet ) {
        dw = GetLastError();
        print_error("");
        wcd_printf(_("Unable to remove directory %s: "), path);
@@ -492,13 +472,11 @@ int wcd_isdir(char *dir, int quiet)
    struct stat buf;
 #endif
 
-   if (wcd_isSharePath(dir))
-   {
+   if (wcd_isSharePath(dir)) {
       char tmp[WCD_MAXDIR];
       wcd_getcwd(tmp, sizeof(tmp)); /* remember current dir */
 
-      if (wcd_chdir(dir, quiet) == 0) /* just try to change to dir */
-      {
+      if (wcd_chdir(dir, quiet) == 0) { /* just try to change to dir */
         wcd_chdir(tmp, quiet); /* go back */
         return(0);
       }
@@ -512,29 +490,21 @@ int wcd_isdir(char *dir, int quiet)
       else
          err = TRUE;
 
-      if (err == TRUE)
-      {
-         if (_wstat(wstr, &buf) == 0)
-         {
+      if (err == TRUE) {
+         if (_wstat(wstr, &buf) == 0) {
             if (S_ISDIR(buf.st_mode))
                return(0);
             else
                return(-1);
-         }
-         else
-         {
-            if (!quiet)
-            {
+         } else {
+            if (!quiet) {
               char *errstr = strerror(errno);
               wcd_printf("Wcd: %s: %s\n", dir, errstr);
             }
             return(-1);
          }
-      }
-      else
-      {
-        if ( !quiet )
-        {
+      } else {
+        if ( !quiet ) {
           dw = GetLastError();
           wcd_printf("Wcd: %s: ", dir);
           wcd_PrintError(dw);
@@ -542,17 +512,13 @@ int wcd_isdir(char *dir, int quiet)
         return(-1);  /* fail */
       }
 #else
-      if (stat(dir, &buf) == 0)
-      {
+      if (stat(dir, &buf) == 0) {
          if (S_ISDIR(buf.st_mode))
             return(0);
          else
             return(-1);
-      }
-      else
-      {
-         if (!quiet)
-         {
+      } else {
+         if (!quiet) {
            char *errstr = strerror(errno);
            print_error("%s: %s\n", dir, errstr);
          }
@@ -614,28 +580,20 @@ char *replace_volume_path_HOME(char *buf, size_t size)
    if (buf == NULL)
       return(NULL);
 
-   if ( status == 0 )
-   {
+   if ( status == 0 ) {
    /* not intialised. */
    /* initialize only once. */
-      if ((home = getenv("HOME")) != NULL )
-      {
+      if ((home = getenv("HOME")) != NULL ) {
          getcwd(tmp, sizeof(tmp)); /* remember current dir */
-         if (wcd_chdir(home,0) == 0)
-         {
-            if (getcwd(home_abs, sizeof(home_abs)) == NULL)
-            {
+         if (wcd_chdir(home,0) == 0) {
+            if (getcwd(home_abs, sizeof(home_abs)) == NULL) {
                status = 3; /* fail */
-            } else
-            {
-               if (strcmp(home,home_abs) == 0)
-               {
+            } else {
+               if (strcmp(home,home_abs) == 0) {
                   status = 4; /* home and home_abs are equal */
                } else {
-                  if ( ((ptr1 = strrchr(home,DIR_SEPARATOR)) != NULL) && ((ptr2 = strrchr(home_abs,DIR_SEPARATOR)) != NULL))
-                  {
-                     if (strcmp(ptr1,ptr2) == 0)
-                     {
+                  if ( ((ptr1 = strrchr(home,DIR_SEPARATOR)) != NULL) && ((ptr2 = strrchr(home_abs,DIR_SEPARATOR)) != NULL)) {
+                     if (strcmp(ptr1,ptr2) == 0) {
                          /* Both paths have same user name. Strip user name, so that
                           * also paths from other users benefit if users have a common
                           * volume prefix. Depends on how Volume Manager was configured. */
@@ -663,32 +621,26 @@ char *replace_volume_path_HOME(char *buf, size_t size)
       }
       /* printf("status = %d\n", status); */
    }
-   if ( status == 1 )  /* $HOME is shorter or equal length than volume name */
-   {
-      if (dd_match(buf, pattern , 0))
-      {
+   if ( status == 1 ) { /* $HOME is shorter or equal length than volume name */
+      if (dd_match(buf, pattern , 0)) {
          len_buf = strlen(buf);
          for (i=0; i < len_home; i++)
             buf[i] = home[i];
          j = i;
-         for (i=len_home_abs; i < len_buf; i++)
-         {
+         for (i=len_home_abs; i < len_buf; i++) {
             buf[j] = buf[i];
             ++j;
          }
          buf[j] = '\0';
       }
    }
-   if ( status == 2 )  /* $HOME is longer than volume name */
-   {
-      if (dd_match(buf, pattern, 0))
-      {
+   if ( status == 2 ) { /* $HOME is longer than volume name */
+      if (dd_match(buf, pattern, 0)) {
          len_buf = strlen(buf);
          for (i=0; (i < len_home) && (i < size); i++)
             tmp[i] = home[i];
          j = i;
-         for (i=len_home_abs; (i < len_buf) && (i < size); i++)
-         {
+         for (i=len_home_abs; (i < len_buf) && (i < size); i++) {
             tmp[j] = buf[i];
             ++j;
          }
@@ -703,8 +655,7 @@ char *replace_volume_path_HOME(char *buf, size_t size)
 char *wcd_getcwd(char *buf, size_t size)
 {
    char *err = getcwd(buf, size);
-   if ( err == NULL)
-   {
+   if ( err == NULL) {
      char *errstr = strerror(errno);
      print_error(_("Unable to get current working directory: %s\n"), errstr);
    }
