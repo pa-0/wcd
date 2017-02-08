@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.3.4-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-31 23:07+0100\n"
+"POT-Creation-Date: 2017-02-07 23:48+0100\n"
 "PO-Revision-Date: 2016-12-21 17:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -797,55 +797,55 @@ msgstr "Не вдалося перейти до %s\n"
 msgid "%lu (\"%s\") reported by \"%s\".\n"
 msgstr "%lu («%s») повідомлено «%s».\n"
 
-#: wcddir.c:132
+#: wcddir.c:131
 msgid "access denied.\n"
 msgstr "доступ заборонено.\n"
 
-#: wcddir.c:213
+#: wcddir.c:206
 #, c-format
 msgid "Searching for shared directories on server %s\n"
 msgstr "Шукаємо каталоги спільного використання на сервері %s\n"
 
-#: wcddir.c:225
+#: wcddir.c:218
 #, c-format
 msgid "Found %lu shared directories on server %s\n"
 msgstr "На сервері %2$s виявлено %1$lu каталогів спільного використання\n"
 
-#: wcddir.c:349
+#: wcddir.c:335
 msgid "Unable to get current working directory: "
 msgstr "Не вдалося визначити поточний робочий каталог: "
 
-#: wcddir.c:378
+#: wcddir.c:362
 #, c-format
 msgid "Unable to change to directory %s: "
 msgstr "Не вдалося перейти до каталогу %s: "
 
-#: wcddir.c:410
+#: wcddir.c:392
 #, c-format
 msgid "Unable to create directory %s: "
 msgstr "Не вдалося створити каталог %s:"
 
-#: wcddir.c:440
+#: wcddir.c:420
 #, c-format
 msgid "Unable to remove directory %s: "
 msgstr "Не вдалося вилучити каталог %s: "
 
-#: wcddir.c:577 wcddir.c:588
+#: wcddir.c:543 wcddir.c:554
 #, c-format
 msgid "Unable to create directory %s: %s\n"
 msgstr "Не вдалося створити каталог %s: %s\n"
 
-#: wcddir.c:709
+#: wcddir.c:660
 #, c-format
 msgid "Unable to get current working directory: %s\n"
 msgstr "Не вдалося отримати дані щодо поточного робочого каталогу: %s\n"
 
-#: wcddir.c:723
+#: wcddir.c:674
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
 msgstr "Не вдалося перейти до каталогу %s: %s\n"
 
-#: wcddir.c:732
+#: wcddir.c:683
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
 msgstr "Не вдалося вилучити каталог %s: %s\n"
@@ -1189,22 +1189,22 @@ msgstr "Для перегляду довідки висота екрана ма�
 msgid "Cannot find the current path %s in the directory tree.\n"
 msgstr "Не вдалося знайти поточний каталог, %s, у ієрархії каталогів.\n"
 
-#: finddirs.c:240 finddirs.c:248 finddirs.c:272 finddirs.c:299 finddirs.c:313
+#: finddirs.c:241 finddirs.c:249 finddirs.c:273 finddirs.c:300 finddirs.c:314
 #, c-format
 msgid "Unable to remove file %s: %s\n"
 msgstr "Не вдалося вилучити файл %s: %s\n"
 
-#: finddirs.c:321 finddirs.c:485
+#: finddirs.c:322 finddirs.c:486
 #, fuzzy, c-format
 msgid "Unable to close directory %s: %s\n"
 msgstr "Не вдалося створити каталог %s: %s\n"
 
-#: finddirs.c:364
+#: finddirs.c:365
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
 msgstr "finddirs(): не вдалося визначити шлях у каталозі %s\n"
 
-#: finddirs.c:365
+#: finddirs.c:366
 msgid "path probably too long.\n"
 msgstr "ймовірно, шлях є надто довгим.\n"
 

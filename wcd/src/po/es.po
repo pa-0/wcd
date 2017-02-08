@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-31 23:07+0100\n"
+"POT-Creation-Date: 2017-02-07 23:48+0100\n"
 "PO-Revision-Date: 2008-09-08 22:17+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -772,55 +772,55 @@ msgstr "No puedo cambiar el directorio a %s\n"
 msgid "%lu (\"%s\") reported by \"%s\".\n"
 msgstr "%lu (\"%s\") reportado por \"%s\".\n"
 
-#: wcddir.c:132
+#: wcddir.c:131
 msgid "access denied.\n"
 msgstr "acceso denegado.\n"
 
-#: wcddir.c:213
+#: wcddir.c:206
 #, c-format
 msgid "Searching for shared directories on server %s\n"
 msgstr "Buscando archivos compartidos en el servidor %s\n"
 
-#: wcddir.c:225
+#: wcddir.c:218
 #, c-format
 msgid "Found %lu shared directories on server %s\n"
 msgstr "Se encontraron %lu directorios compartidos en el servidor %s\n"
 
-#: wcddir.c:349
+#: wcddir.c:335
 msgid "Unable to get current working directory: "
 msgstr "Imposible obtener el directorio actual de trabajo: "
 
-#: wcddir.c:378
+#: wcddir.c:362
 #, c-format
 msgid "Unable to change to directory %s: "
 msgstr "Imposible cambiarse al directorio %s: "
 
-#: wcddir.c:410
+#: wcddir.c:392
 #, c-format
 msgid "Unable to create directory %s: "
 msgstr "Imposible cambiarse al directorio %s: "
 
-#: wcddir.c:440
+#: wcddir.c:420
 #, c-format
 msgid "Unable to remove directory %s: "
 msgstr "Imposible remover el directorio %s: "
 
-#: wcddir.c:577 wcddir.c:588
+#: wcddir.c:543 wcddir.c:554
 #, c-format
 msgid "Unable to create directory %s: %s\n"
 msgstr "Imposible cambiarse al directorio %s: %s\n"
 
-#: wcddir.c:709
+#: wcddir.c:660
 #, c-format
 msgid "Unable to get current working directory: %s\n"
 msgstr "Imposible obtener el directorio actual de trabajo: %s\n"
 
-#: wcddir.c:723
+#: wcddir.c:674
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
 msgstr "Imposible cambiarse al directorio %s: %s\n"
 
-#: wcddir.c:732
+#: wcddir.c:683
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
 msgstr "Imposible remover el archivo %s: %s\n"
@@ -1164,22 +1164,22 @@ msgstr "La altura de la pantalla debe ser > 21 para la ayuda."
 msgid "Cannot find the current path %s in the directory tree.\n"
 msgstr ""
 
-#: finddirs.c:240 finddirs.c:248 finddirs.c:272 finddirs.c:299 finddirs.c:313
+#: finddirs.c:241 finddirs.c:249 finddirs.c:273 finddirs.c:300 finddirs.c:314
 #, c-format
 msgid "Unable to remove file %s: %s\n"
 msgstr "Imposible remover el archivo %s: %s\n"
 
-#: finddirs.c:321 finddirs.c:485
+#: finddirs.c:322 finddirs.c:486
 #, fuzzy, c-format
 msgid "Unable to close directory %s: %s\n"
 msgstr "Imposible cambiarse al directorio %s: %s\n"
 
-#: finddirs.c:364
+#: finddirs.c:365
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
 msgstr "finddirs(): imposible determinar la ruta en el directorio %s\n"
 
-#: finddirs.c:365
+#: finddirs.c:366
 msgid "path probably too long.\n"
 msgstr "probablemente la ruta es demasiado larga.\n"
 

@@ -8,13 +8,13 @@
 # pour la perpétuer, elle n'a que faire de notre sottise. » """
 #
 # Erwin Waterlander <waterlan@xs4all.nl>, 2008-2014.
-# Benno Schulenberg <benno@vertaalt.nl>, 2014, 2016.
+# Benno Schulenberg <benno@vertaalt.nl>, 2014, 2016, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.3.3-beta9\n"
+"Project-Id-Version: wcd 5.3.4-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-31 23:07+0100\n"
-"PO-Revision-Date: 2016-10-30 17:15+0100\n"
+"POT-Creation-Date: 2017-02-08 21:46+0100\n"
+"PO-Revision-Date: 2017-01-07 15:06+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -127,7 +127,7 @@ msgstr " lengte: %d\n"
 
 #: wcd.c:1758 wcd.c:1827
 msgid "Alias file in UTF-16 format is not supported.\n"
-msgstr ""
+msgstr "Een aliassenbestand in UTF-16-codering wordt niet ondersteund.\n"
 
 #: wcd.c:1924
 #, c-format
@@ -739,7 +739,7 @@ msgstr "Omgevingsvariabelen HOME en WCDHOME zijn niet ingesteld.\n"
 #: wcd.c:2821
 #, c-format
 msgid "aliasfile: %s\n"
-msgstr "aliasbestand: %s\n"
+msgstr "aliassenbestand: %s\n"
 
 #: wcd.c:2835
 msgid "HOME is not defined\n"
@@ -760,7 +760,7 @@ msgstr "Grafische modus wordt alleen ondersteund met een op 'curses' gebaseerde 
 #: wcd.c:3149
 #, c-format
 msgid "%s added to aliasfile %s\n"
-msgstr "%s is toegevoegd aan aliasbestand %s\n"
+msgstr "%s is toegevoegd aan aliassenbestand %s\n"
 
 #: wcd.c:3248
 #, c-format
@@ -806,55 +806,55 @@ msgstr "Kan niet veranderen naar %s\n"
 msgid "%lu (\"%s\") reported by \"%s\".\n"
 msgstr "%lu (\"%s\") gerapporteerd door \"%s\".\n"
 
-#: wcddir.c:132
+#: wcddir.c:131
 msgid "access denied.\n"
 msgstr "toegang is geweigerd.\n"
 
-#: wcddir.c:213
+#: wcddir.c:206
 #, c-format
 msgid "Searching for shared directories on server %s\n"
 msgstr "Zoeken naar gedeelde mappen op server %s\n"
 
-#: wcddir.c:225
+#: wcddir.c:218
 #, c-format
 msgid "Found %lu shared directories on server %s\n"
 msgstr "Er zijn %lu gedeelde mappen gevonden op server %s\n"
 
-#: wcddir.c:349
+#: wcddir.c:335
 msgid "Unable to get current working directory: "
 msgstr "Kan huidige werkmap niet verkrijgen: "
 
-#: wcddir.c:378
+#: wcddir.c:362
 #, c-format
 msgid "Unable to change to directory %s: "
 msgstr "Kan niet veranderen naar map %s: "
 
-#: wcddir.c:410
+#: wcddir.c:392
 #, c-format
 msgid "Unable to create directory %s: "
 msgstr "Kan map %s niet aanmaken: "
 
-#: wcddir.c:440
+#: wcddir.c:420
 #, c-format
 msgid "Unable to remove directory %s: "
 msgstr "Kan map %s niet verwijderen: "
 
-#: wcddir.c:577 wcddir.c:588
+#: wcddir.c:543 wcddir.c:554
 #, c-format
 msgid "Unable to create directory %s: %s\n"
 msgstr "Kan map %s niet aanmaken: %s\n"
 
-#: wcddir.c:709
+#: wcddir.c:660
 #, c-format
 msgid "Unable to get current working directory: %s\n"
 msgstr "Kan huidige werkmap niet verkrijgen: %s\n"
 
-#: wcddir.c:723
+#: wcddir.c:674
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
 msgstr "Kan niet veranderen naar map %s: %s\n"
 
-#: wcddir.c:732
+#: wcddir.c:683
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
 msgstr "Kan bestand %s niet verwijderen: %s\n"
@@ -1198,22 +1198,22 @@ msgstr "Schermhoogte moet groter zijn dan 21 voor hulp."
 msgid "Cannot find the current path %s in the directory tree.\n"
 msgstr "Kan huidig pad (%s) niet in mappenboom vinden.\n"
 
-#: finddirs.c:240 finddirs.c:248 finddirs.c:272 finddirs.c:299 finddirs.c:313
+#: finddirs.c:241 finddirs.c:249 finddirs.c:273 finddirs.c:300 finddirs.c:314
 #, c-format
 msgid "Unable to remove file %s: %s\n"
 msgstr "Kan bestand %s niet verwijderen: %s\n"
 
-#: finddirs.c:321 finddirs.c:485
+#: finddirs.c:322 finddirs.c:486
 #, fuzzy, c-format
 msgid "Unable to close directory %s: %s\n"
 msgstr "Kan map %s niet aanmaken: %s\n"
 
-#: finddirs.c:364
+#: finddirs.c:365
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
 msgstr "finddirs(): kan pad in map %s niet achterhalen\n"
 
-#: finddirs.c:365
+#: finddirs.c:366
 msgid "path probably too long.\n"
 msgstr "pad is waarschijnlijk te lang.\n"
 

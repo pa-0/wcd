@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-31 23:07+0100\n"
+"POT-Creation-Date: 2017-02-07 23:48+0100\n"
 "PO-Revision-Date: 2016-10-30 17:24+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -799,55 +799,55 @@ msgstr "Ne eblas ŝanĝi al %s\n"
 msgid "%lu (\"%s\") reported by \"%s\".\n"
 msgstr "%lu (\"%s\") raportiĝis por \"%s\".\n"
 
-#: wcddir.c:132
+#: wcddir.c:131
 msgid "access denied.\n"
 msgstr "atingo malpermesatas.\n"
 
-#: wcddir.c:213
+#: wcddir.c:206
 #, c-format
 msgid "Searching for shared directories on server %s\n"
 msgstr "Serĉado de komunaj dosierujoj en servilo %s\n"
 
-#: wcddir.c:225
+#: wcddir.c:218
 #, c-format
 msgid "Found %lu shared directories on server %s\n"
 msgstr "Troviĝis %lu komunajn dosierujojn en servilo %s\n"
 
-#: wcddir.c:349
+#: wcddir.c:335
 msgid "Unable to get current working directory: "
 msgstr "Ne eblas eltrovi nunan labordosierujon: "
 
-#: wcddir.c:378
+#: wcddir.c:362
 #, c-format
 msgid "Unable to change to directory %s: "
 msgstr "Ne eblas ŝanĝi al dosierujo %s"
 
-#: wcddir.c:410
+#: wcddir.c:392
 #, c-format
 msgid "Unable to create directory %s: "
 msgstr "Ne eblas krei dosierujon %s: "
 
-#: wcddir.c:440
+#: wcddir.c:420
 #, c-format
 msgid "Unable to remove directory %s: "
 msgstr "Ne eblas forigi dosierujon %s: "
 
-#: wcddir.c:577 wcddir.c:588
+#: wcddir.c:543 wcddir.c:554
 #, c-format
 msgid "Unable to create directory %s: %s\n"
 msgstr "Ne eblas krei dosierujon %s: %s\n"
 
-#: wcddir.c:709
+#: wcddir.c:660
 #, c-format
 msgid "Unable to get current working directory: %s\n"
 msgstr "Ne eblas eltrovi nunan labordosierujon: %s\n"
 
-#: wcddir.c:723
+#: wcddir.c:674
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
 msgstr "Ne eblas ŝanĝi al dosierujo %s: %s\n"
 
-#: wcddir.c:732
+#: wcddir.c:683
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
 msgstr "Ne eblas forigi dosierujon %s: %s\n"
@@ -1191,22 +1191,22 @@ msgstr "Ekranalto devas esti pli ol 21 por helpo."
 msgid "Cannot find the current path %s in the directory tree.\n"
 msgstr "Ne eblas trovi la nunan padon (%s) en la dosieruja arbo.\n"
 
-#: finddirs.c:240 finddirs.c:248 finddirs.c:272 finddirs.c:299 finddirs.c:313
+#: finddirs.c:241 finddirs.c:249 finddirs.c:273 finddirs.c:300 finddirs.c:314
 #, c-format
 msgid "Unable to remove file %s: %s\n"
 msgstr "Ne eblas forigi dosieron %s: %s\n"
 
-#: finddirs.c:321 finddirs.c:485
+#: finddirs.c:322 finddirs.c:486
 #, fuzzy, c-format
 msgid "Unable to close directory %s: %s\n"
 msgstr "Ne eblas krei dosierujon %s: %s\n"
 
-#: finddirs.c:364
+#: finddirs.c:365
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
 msgstr "finddirs(): malsukcesis eltrovi padon en dosierujo %s\n"
 
-#: finddirs.c:365
+#: finddirs.c:366
 msgid "path probably too long.\n"
 msgstr "probable la pado tro longas.\n"
 

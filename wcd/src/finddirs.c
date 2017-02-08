@@ -49,15 +49,15 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #    define WCD_FINDNEXT   _dos_findnext
 #    define WCD_ISDIREC(m) ((m) & _A_SUBDIR)
 #  endif
-#  if (defined(__OS2__) && !defined(__EMX__))
-#    include <os2.h>
-#  endif
 #else
 #  define _GNU_SOURCE /* Required for DT_DIR and DT_LNK */
 #  include <dirent.h>
 #  include <sys/types.h>
 #  include <sys/stat.h>
 #  include <unistd.h>
+#endif
+#ifdef __OS2__
+#  include <os2.h>
 #endif
 
 #include <string.h>

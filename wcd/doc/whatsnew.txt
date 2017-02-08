@@ -1,5 +1,7 @@
-6.0.0-beta2 2017-01-31
+6.0.0-beta3 2017-02-08
   - About 4 times faster disk scanning on Windows and Unix.
+    About 5 times faster disk scanning on OS/2 with Watcom C
+    built version.
     This was achieved by removing the DOSDIR directory interface
     layer and replacing it with system specific functions.
   - Fixed -rmtree for unicode file names on Windows.
