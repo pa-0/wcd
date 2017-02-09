@@ -1,9 +1,12 @@
-6.0.0-beta3 2017-02-08
-  - About 4 times faster disk scanning on Windows and Unix.
-    About 5 times faster disk scanning on OS/2 with Watcom C
+6.0.0-beta4 2017-02-09
+  - Up to about 4 times faster disk scanning on Windows and Unix.
+    Up to about 5 times faster disk scanning on OS/2 with Watcom C
     built version.
     This was achieved by removing the DOSDIR directory interface
     layer and replacing it with system specific functions.
+    Disk scanning speed depends also on external factors, like disk
+    caching and other processes accessing the disk at the same time.
+    The speed increasement you see may vary.
   - Fixed -rmtree for unicode file names on Windows.
   - Support EMX symbolic links on OS/2.
   - Support bash on OS/2.

@@ -322,7 +322,7 @@ char *wcd_getcwd(char *buf, size_t size)
 #ifdef WCD_UNICODE
    static wchar_t wstr[WCD_MAXPATH];
 
-   err = GetCurrentDirectoryW(size, wstr);
+   err = GetCurrentDirectoryW((DWORD)size, wstr);
    if ( err != 0)
       if (wcstoutf8(buf, wstr, WCD_MAXPATH) == (size_t)(-1))
          err = 0;

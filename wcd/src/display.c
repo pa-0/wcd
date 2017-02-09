@@ -126,7 +126,7 @@ void wcd_printf( const char* format, ... ) {
    buf[sizeof(buf)-1] = '\0';
    if (MultiByteToWideChar(CP_ACP,0, buf, -1, wstr, WCD_MAXPATH) > 0  )
 #  endif
-      WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
+      WriteConsoleW(stduit, wstr, (DWORD)wcslen(wstr), NULL, NULL);
    else
    {
       /* An error occured. */

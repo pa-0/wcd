@@ -300,7 +300,7 @@ static int recmatchwcs(wchar_t *p,wchar_t *s,int ic, wint_t *CPTable)
     int result;
 
     /* Get first character, the pattern for new recmatch calls follows */
-    c = *p++;
+    c = (wint_t)*p++;
 
     /* If that was the end of the pattern, match if string empty too */
     if (c == 0)
@@ -352,7 +352,7 @@ static int recmatchwcs(wchar_t *p,wchar_t *s,int ic, wint_t *CPTable)
             if (e == 0 && *p == L'\\')             /* set escape flag if \ */
                 e = 1;
             else if (e == 0 && *p == L'-')         /* set start of range if - */
-                c = *(p-1);
+                c = (wint_t)*(p-1);
             else {
                 wint_t cc = Case((wint_t)*s);
 
@@ -374,7 +374,7 @@ static int recmatchwcs(wchar_t *p,wchar_t *s,int ic, wint_t *CPTable)
 #endif /* !VMS */
 
     /* if escape ('\'), just compare next character */
-    if (c == '\\' && (c = *p++) == 0)     /* if \ at end, then syntax error */
+    if (c == '\\' && (c = (wint_t)*p++) == 0)     /* if \ at end, then syntax error */
         return 0;
 
     /* just a character--compare it */
