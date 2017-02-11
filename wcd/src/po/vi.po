@@ -1,14 +1,14 @@
 # Vietnamese translations for wcd
 # Bản dịch tiếng Việt cho gói wcd.
 # This file is distributed under the same license as the wcd package.
-# Trần Ngọc Quân <vnwildman@gmail.com>, 2014, 2016.
+# Trần Ngọc Quân <vnwildman@gmail.com>, 2014, 2016, 2017.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.3.4-beta3\n"
+"Project-Id-Version: wcd 6.0.0-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-07 23:48+0100\n"
-"PO-Revision-Date: 2016-12-22 07:19+0700\n"
+"POT-Creation-Date: 2017-02-11 18:06+0100\n"
+"PO-Revision-Date: 2017-02-11 07:11+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -103,9 +103,9 @@ msgid "Removed directory %s\n"
 msgstr "Đã gỡ bỏ thư mục %s\n"
 
 #: wcd.c:1113 wcd.c:1182 wcd.c:1250
-#, fuzzy, c-format
+#, c-format
 msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"
-msgstr "dòng quá dài trong %s ( > %d). Tập-tin-cây có lẽ đã hỏng, hãy sửa chữa bằng cánh tăng DD_MAXPATH trong mã nguồn.\n"
+msgstr "dòng quá dài trong %s ( > %d). Tập-tin-cây có lẽ đã hỏng, hãy sửa chữa bằng cánh tăng WCD_MAXPATH trong mã nguồn.\n"
 
 #: wcd.c:1114 wcd.c:1183 wcd.c:1251
 #, c-format
@@ -704,7 +704,7 @@ msgid ""
 "along with this program; if not, write to the Free Software\n"
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 msgstr ""
-"Bạn nên lấy một bản Giấy Phép Công Cộng GNU cùng với chương trình này;\n"
+"Bạn đã nhận một bản Giấy Phép Công Cộng GNU đi kèm với chương trình này;\n"
 "nếu không thì hãy viết thư cho Tổ chức Phần mềm Tự do theo địa chỉ:\n"
 "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA (Mỹ).\n"
 
@@ -1195,9 +1195,9 @@ msgid "Unable to remove file %s: %s\n"
 msgstr "Không thể gỡ bỏ tập tin %s: %s\n"
 
 #: finddirs.c:322 finddirs.c:486
-#, fuzzy, c-format
+#, c-format
 msgid "Unable to close directory %s: %s\n"
-msgstr "Không thể tạo thư mục %s: %s\n"
+msgstr "Không thể đóng thư mục %s: %s\n"
 
 #: finddirs.c:365
 #, c-format

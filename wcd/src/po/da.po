@@ -1,123 +1,123 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Danish translation wcd.
+# Copyright (C) 2017 Erwin Waterlander (msgids)
+# This file is distributed under the same license as the wcd package.
+# Joe Hansen <joedalton2@yahoo.dk>, 2017.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: wcd-6.0.0-beta4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-11 18:06+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2017-02-11 22:30+0200\n"
+"Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 
 #: wcd.c:171
 #, c-format
 msgid "Wcd: error: "
-msgstr ""
+msgstr "Wcd: fejl: "
 
 #: wcd.c:184 wcd.c:238 wcd.c:258
 #, c-format
 msgid "Unable to read file %s: %s\n"
-msgstr ""
+msgstr "Kan ikke læse filen %s: %s\n"
 
 #: wcd.c:247
 #, c-format
 msgid "Unable to read file %s: Not a regular file.\n"
-msgstr ""
+msgstr "Kan ikke læse filen %s: Ikke en normal fil.\n"
 
 #: wcd.c:260 wcd.c:347
 #, c-format
 msgid "Unable to write file %s: %s\n"
-msgstr ""
+msgstr "Kan ikke skrive filen %s: %s\n"
 
 #: wcd.c:349
 #, c-format
 msgid "Unable to close file %s: %s\n"
-msgstr ""
+msgstr "Kan ikke lukke filen %s: %s\n"
 
 #: wcd.c:395 wcd.c:400 wfixpath.c:65
 #, c-format
 msgid "Memory allocation error in %s: %s\n"
-msgstr ""
+msgstr "Hukommelsesallokeringsfejl i %s: %s\n"
 
 #: wcd.c:707 wcd.c:721
 #, c-format
 msgid "%s added to file %s\n"
-msgstr ""
+msgstr "%s tilføjet til filen %s\n"
 
 #: wcd.c:756 wcd.c:1088
 #, c-format
 msgid "%s is not a directory.\n"
-msgstr ""
+msgstr "%s er ikke en mappe.\n"
 
 #: wcd.c:761
 #, c-format
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
-msgstr ""
+msgstr "Vent venligst. Skanner disk. Bygger treedata-filen %s fra %s\n"
 
 #: wcd.c:823 wcd.c:2210 wcd.c:2233 wcd.c:2313
 #, c-format
 msgid "Writing file \"%s\"\n"
-msgstr ""
+msgstr "Skriver filen »%s«\n"
 
 #: wcd.c:828
 msgid "Write access to tree-file denied.\n"
-msgstr ""
+msgstr "Skriveadgang til tree-file nægtet.\n"
 
 #: wcd.c:829
 msgid "Set TEMP environment variable if this is a read-only disk.\n"
-msgstr ""
+msgstr "Angiv TEMP-miljøvaribalen hvis dette er en skrivebeskyttet disk.\n"
 
 #: wcd.c:958
 #, c-format
 msgid "Removed symbolic link %s\n"
-msgstr ""
+msgstr "Fjernede symbolsk henvisning %s\n"
 
 #: wcd.c:962
 #, c-format
 msgid "Unable to remove symbolic link %s: %s\n"
-msgstr ""
+msgstr "Kan ikke fjerne symbolsk henvinsing %s: %s\n"
 
 #: wcd.c:966
 #, c-format
 msgid "%s is a symbolic link to a file.\n"
-msgstr ""
+msgstr "%s er en symbolsk henvisning til en fil.\n"
 
 #: wcd.c:1049
 #, c-format
 msgid "Recursively remove %s? Are you sure? y/n :"
-msgstr ""
+msgstr "Rekursivt fjern %s? Er du sikker? j/n :"
 
 #: wcd.c:1071 wcd.c:1081
 #, c-format
 msgid "Removed directory %s\n"
-msgstr ""
+msgstr "Fjernede mappen %s\n"
 
 #: wcd.c:1113 wcd.c:1182 wcd.c:1250
 #, c-format
 msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"
-msgstr ""
+msgstr "linjen er for lang i %s ( > %d). Treefilen kan være ødelagt, ellers ret ved at øge WCD_MAXPATH i kildekoden.\n"
 
 #: wcd.c:1114 wcd.c:1183 wcd.c:1251
 #, c-format
 msgid "file: %s, line: %d,"
-msgstr ""
+msgstr "fil: %s, linje: %d,"
 
 #: wcd.c:1121 wcd.c:1190 wcd.c:1258
 #, c-format
 msgid " length: %d\n"
-msgstr ""
+msgstr " længde: %d\n"
 
 #: wcd.c:1758 wcd.c:1827
 msgid "Alias file in UTF-16 format is not supported.\n"
-msgstr ""
+msgstr "Aliasfil i UTF-16-format er ikke understøttet.\n"
 
 #: wcd.c:1924
 #, c-format
@@ -125,11 +125,13 @@ msgid ""
 "Usage: wcd [options] [directory]\n"
 "\n"
 msgstr ""
+"Brug: wcd [tilvalg] [mappe]\n"
+"\n"
 
 #: wcd.c:1925
 #, c-format
 msgid "directory:  Name of directory to change to.\n"
-msgstr ""
+msgstr "mappe: Navn på mappe at ændre til.\n"
 
 #: wcd.c:1926
 #, c-format
@@ -137,311 +139,313 @@ msgid ""
 "            Wildcards *, ? and [SET] are supported.\n"
 "\n"
 msgstr ""
+"            Jokertegn *, ? og [SET] er understøttet.\n"
+"\n"
 
 #: wcd.c:1928
 #, c-format
 msgid "options:\n"
-msgstr ""
+msgstr "tilvalg:\n"
 
 #: wcd.c:1929
 #, c-format
 msgid "  -a                      Add current path to treefile\n"
-msgstr ""
+msgstr "  -a                      Tilføj nuværende sti til treefile\n"
 
 #: wcd.c:1930
 #, c-format
 msgid "  -aa                     Add current and all parent paths to treefile\n"
-msgstr ""
+msgstr "  -aa                     Tilføj nuværende stier og alle overstier til treefile\n"
 
 #: wcd.c:1931
 #, c-format
 msgid "  -A PATH                 Add tree from PATH\n"
-msgstr ""
+msgstr "  -A STI                  Tilføj træ fra STI\n"
 
 #: wcd.c:1932
 #, c-format
 msgid "  -b                      Ban current path\n"
-msgstr ""
+msgstr "  -b                      Placer nuværende sti i karantæne\n"
 
 #: wcd.c:1933
 #, c-format
 msgid "  -c,  --direct-cd        direct CD mode\n"
-msgstr ""
+msgstr "  -c,  --direct-cd        direct cd-tilstand\n"
 
 #: wcd.c:1934
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
-msgstr ""
+msgstr "  -d DRIVE                angiv DREV for stack & go-filer (DOS)\n"
 
 #: wcd.c:1935
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
-msgstr ""
+msgstr "  -e                      tilføj nuværende sti til Extra treefile\n"
 
 #: wcd.c:1936
 #, c-format
 msgid "  -ee                     add current and all parent paths to Extra treefile\n"
-msgstr ""
+msgstr "  -ee                     tilføj nuværende sti og alle overstier til Extra treefile\n"
 
 #: wcd.c:1937
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
-msgstr ""
+msgstr "  -E STI                  tilføj træ fra STI til Extra treefile\n"
 
 #: wcd.c:1938
 #, c-format
 msgid "  -f FILE                 use extra treeFile\n"
-msgstr ""
+msgstr "  -f FIL                  brug ekstra treeFile\n"
 
 #: wcd.c:1939
 #, c-format
 msgid "  +f FILE                 add extra treeFile\n"
-msgstr ""
+msgstr "  +f FIL                  tilføj ekstra treeFile\n"
 
 #: wcd.c:1940
 #, c-format
 msgid "  -g                      Graphics\n"
-msgstr ""
+msgstr "  -g                      Grafik\n"
 
 #: wcd.c:1941
 #, c-format
 msgid "  -gd                     Graphics, dump tree\n"
-msgstr ""
+msgstr "  -gd                     Grafik, dump træ\n"
 
 #: wcd.c:1942
 #, c-format
 msgid "  -G PATH                 set PATH Go-script\n"
-msgstr ""
+msgstr "  -G STI                  angiv STI Go-skript\n"
 
 #: wcd.c:1943
 #, c-format
 msgid "  -GN, --no-go-script     No Go-script\n"
-msgstr ""
+msgstr "  -GN, --no-go-script     Intet Go-skript\n"
 
 #: wcd.c:1944
 #, c-format
 msgid "  -h,  --help             show this Help\n"
-msgstr ""
+msgstr "  -h,  --help             vis denne hjælpetekst\n"
 
 #: wcd.c:1947
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
-msgstr ""
+msgstr "  -i,  --ignore-case      Ignorer store/små bogstaver (standard)\n"
 
 #: wcd.c:1948
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case\n"
-msgstr ""
+msgstr "  +i,  --no-ignore-case   tag højde for store/små bogstaver\n"
 
 #: wcd.c:1950
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case\n"
-msgstr ""
+msgstr "  -i,  --ignore-case      Ignorer store/små bogstaver\n"
 
 #: wcd.c:1951
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case (default)\n"
-msgstr ""
+msgstr "  +i,  --no-ignore-case   tag højde for store/små bogstaver (standard)\n"
 
 #: wcd.c:1954
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
-msgstr ""
+msgstr "  -I,  --ignore-diacritics     Ignorer diakritiske tegn\n"
 
 #: wcd.c:1955
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
-msgstr ""
+msgstr "  +I,  --no-ignore-diacritics  tag højde for diakritiske tegn (standard)\n"
 
 #: wcd.c:1956
 #, c-format
 msgid "  -j,  --just-go          Just go mode\n"
-msgstr ""
+msgstr "  -j,  --just-go          Just go-tilstand\n"
 
 #: wcd.c:1957
 #, c-format
 msgid "  -k,  --keep-paths       Keep paths\n"
-msgstr ""
+msgstr "  -k,  --keep-paths       Bevar stier\n"
 
 #: wcd.c:1958
 #, c-format
 msgid "  -K,  --color            colors\n"
-msgstr ""
+msgstr "  -K,  --color            farver\n"
 
 #: wcd.c:1959
 #, c-format
 msgid "  -l ALIAS                aLias current directory\n"
-msgstr ""
+msgstr "  -l ALIAS                aLias nuværende mappe\n"
 
 #: wcd.c:1960
 #, c-format
 msgid "  -ls                     List the aliases\n"
-msgstr ""
+msgstr "  -ls                     Vis aliasserne\n"
 
 #: wcd.c:1961
 #, c-format
 msgid "  -L,  --license          show software License\n"
-msgstr ""
+msgstr "  -L,  --license          vis programlicens\n"
 
 #: wcd.c:1962
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
-msgstr ""
+msgstr "  -m MAPPE                Lav MAPPE, tilføj til treefile\n"
 
 #: wcd.c:1963
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
-msgstr ""
+msgstr "  -M MAPPE                Lav MAPPE, tilføj til ekstra treefile\n"
 
 #: wcd.c:1964
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
-msgstr ""
+msgstr "  -n STI                  brug relativ treefile i STI\n"
 
 #: wcd.c:1965
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
-msgstr ""
+msgstr "  +n STI                  tilføj relativ treefile i STI\n"
 
 #: wcd.c:1966
 #, c-format
 msgid "  -N,  --numbers          use Numbers\n"
-msgstr ""
+msgstr "  -N,  --numbers          brug numre\n"
 
 #: wcd.c:1967
 #, c-format
 msgid "  -o                      use stdOut\n"
-msgstr ""
+msgstr "  -o                      brug standardud\n"
 
 #: wcd.c:1968
 #, c-format
 msgid "  -od, --to-stdout        dump matches\n"
-msgstr ""
+msgstr "  -od, --to-stdout        dump match\n"
 
 #: wcd.c:1969
 #, c-format
 msgid "  -q,  --quiet            Quieter operation\n"
-msgstr ""
+msgstr "  -q,  --quiet            Roligere operation\n"
 
 #: wcd.c:1970
 #, c-format
 msgid "  -r DIR                  Remove DIR\n"
-msgstr ""
+msgstr "  -r MAPPE                Fjern MAPPE\n"
 
 #: wcd.c:1971
 #, c-format
 msgid "  -rmtree DIR             Remove DIR recursive\n"
-msgstr ""
+msgstr "  -rmtree MAPPE           Fjern MAPPE rekursivt\n"
 
 #: wcd.c:1972
 #, c-format
 msgid "  -s                      Scan disk from $HOME\n"
-msgstr ""
+msgstr "  -s                      Skan disk fra $HOME\n"
 
 #: wcd.c:1973
 #, c-format
 msgid "  -S PATH                 Scan disk from PATH\n"
-msgstr ""
+msgstr "  -S STI                  Skan disk fra STI\n"
 
 #: wcd.c:1974
 #, c-format
 msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
-msgstr ""
+msgstr "  +S STI                  Skan disk fra STI, opret relativ treefile\n"
 
 #: wcd.c:1975
 #, c-format
 msgid "  -t                      don't strip /tmp_mnt from paths\n"
-msgstr ""
+msgstr "  -t                      fjern ikke /tmp_mnt fra stier\n"
 
 #: wcd.c:1976
 #, c-format
 msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
-msgstr ""
+msgstr "  -T,  --ascii-tree       tegn træ med ASCII-tegn\n"
 
 #: wcd.c:1977
 #, c-format
 msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
-msgstr ""
+msgstr "  -Ta, --alt-tree-nav     Alternativ trænavigation\n"
 
 #: wcd.c:1978
 #, c-format
 msgid "  -TC, --center-tree      Centered tree view\n"
-msgstr ""
+msgstr "  -TC, --center-tree      Centreret trævisning\n"
 
 #: wcd.c:1979
 #, c-format
 msgid "  -Tc, --compact-tree     Compact tree\n"
-msgstr ""
+msgstr "  -Tc, --compact-tree     Kompakt træ\n"
 
 #: wcd.c:1980
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
-msgstr ""
+msgstr "  -Td, --cjk-width        understøt forældet CJK-skrifttyper\n"
 
 #: wcd.c:1981
 #, c-format
 msgid "  -u USER                 use USER's treefile\n"
-msgstr ""
+msgstr "  -u BRUGER               anvend BRUGERs treefile\n"
 
 #: wcd.c:1982
 #, c-format
 msgid "  +u USER                 add USER's treefile\n"
-msgstr ""
+msgstr "  +u BRUGER               tilføj BRUGERs treefile\n"
 
 #: wcd.c:1983
 #, c-format
 msgid "  -v,  --verbose          Verbose operation\n"
-msgstr ""
+msgstr "  -v,  --verbose          Uddybende operation\n"
 
 #: wcd.c:1984
 #, c-format
 msgid "  -V,  --version          show Version info\n"
-msgstr ""
+msgstr "  -V,  --version          vis versionsinformation\n"
 
 #: wcd.c:1985
 #, c-format
 msgid "  -w,  --wild-match-only  Wild matching only\n"
-msgstr ""
+msgstr "  -w,  --wild-match-only  Kun jokertegns match\n"
 
 #: wcd.c:1986
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
-msgstr ""
+msgstr "  -x STI                  ekskluder STI under diskskanning\n"
 
 #: wcd.c:1987
 #, c-format
 msgid "  -xf FILE                eXclude paths from FILE\n"
-msgstr ""
+msgstr "  -xf FIL                 ekskluder stier fra FIL\n"
 
 #: wcd.c:1988
 #, c-format
 msgid "  -y,  --assume-yes       assume Yes on all queries\n"
-msgstr ""
+msgstr "  -y,  --assume-yes       antag Ja på alle forespørgsler\n"
 
 #: wcd.c:1989
 #, c-format
 msgid "  -z NUMBER               set max stack siZe\n"
-msgstr ""
+msgstr "  -z NUMMER               angiv maks. stakstørrelse\n"
 
 #: wcd.c:1990
 #, c-format
 msgid "  -[NUMBER]               push dir (NUMBER times)\n"
-msgstr ""
+msgstr "  -[ANTAL]                push mappe (ANTAL gange)\n"
 
 #: wcd.c:1991
 #, c-format
 msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
-msgstr ""
+msgstr "  +[ANTAL]                pop mappe (ANTAL gange)\n"
 
 #: wcd.c:1992
 #, c-format
 msgid "  =                       show stack\n"
-msgstr ""
+msgstr "  =                       vis stak\n"
 
 #: wcd.c:2001 wcd.c:2130
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
-msgstr ""
+msgstr "wcd %s (%s) - Wherever Change Directory\n"
 
 #: wcd.c:2002
 #, c-format
@@ -449,181 +453,183 @@ msgid ""
 "Chdir for Dos and Unix.\n"
 "\n"
 msgstr ""
+"Chdir for Dos og Unix.\n"
+"\n"
 
 #: wcd.c:2006
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
-msgstr ""
+msgstr "DOS-version 16-bit (WATCOMC).\n"
 
 #: wcd.c:2008
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
-msgstr ""
+msgstr "DOS-version 16-bit (TURBOC).\n"
 
 #: wcd.c:2010
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
-msgstr ""
+msgstr "DOS-version 32-bit (DJGPP).\n"
 
 #: wcd.c:2012
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
-msgstr ""
+msgstr "DOS-version 32-bit (WATCOMC).\n"
 
 #: wcd.c:2019
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
-msgstr ""
+msgstr "Win64-version (MSVC %d).\n"
 
 #: wcd.c:2021
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
-msgstr ""
+msgstr "Win64-version (MinGW-w64).\n"
 
 #: wcd.c:2025
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
-msgstr ""
+msgstr "Win32-version (WATCOMC).\n"
 
 #: wcd.c:2027
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
-msgstr ""
+msgstr "Win32-version (MSVC %d).\n"
 
 #: wcd.c:2029
 #, c-format
 msgid "Win32 version (MinGW-w64).\n"
-msgstr ""
+msgstr "Win32-version (MinGW-w64).\n"
 
 #: wcd.c:2031
 #, c-format
 msgid "Win32 version (MinGW).\n"
-msgstr ""
+msgstr "Win32-version (MinGW).\n"
 
 #: wcd.c:2038
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
-msgstr ""
+msgstr "Denne version er for MSYS og WinZsh.\n"
 
 #: wcd.c:2040
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
-msgstr ""
+msgstr "Denne version er for Windows PowerShell.\n"
 
 #: wcd.c:2042
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
-msgstr ""
+msgstr "Denne version er for Windows Command Prompt (cmd.exe).\n"
 
 #: wcd.c:2047
 #, c-format
 msgid "OS/2 version"
-msgstr ""
+msgstr "OS2/2-verison"
 
 #: wcd.c:2058
 #, c-format
 msgid "This version is for native MSYS.\n"
-msgstr ""
+msgstr "Denne version er for MSYS.\n"
 
 #: wcd.c:2061
 #, c-format
 msgid "Cygwin version.\n"
-msgstr ""
+msgstr "Cygwin-version.\n"
 
 #: wcd.c:2064
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
-msgstr ""
+msgstr "Denne version er for DJGPP DOS bash.\n"
 
 #: wcd.c:2067
 #, c-format
 msgid "This version is for OS/2 bash.\n"
-msgstr ""
+msgstr "Denne version er for OS/2 bash.\n"
 
 #: wcd.c:2070
 #, c-format
 msgid "Interface: "
-msgstr ""
+msgstr "Grænseflade: "
 
 #: wcd.c:2076
 #, c-format
 msgid "ncurses version %s.%d\n"
-msgstr ""
+msgstr "ncurses version %s.%d\n"
 
 #: wcd.c:2079
 #, c-format
 msgid "PDCurses build %d\n"
-msgstr ""
+msgstr "PDCurses kompilering %d\n"
 
 #: wcd.c:2081
 #, c-format
 msgid "curses\n"
-msgstr ""
+msgstr "curses\n"
 
 #: wcd.c:2090
 #, c-format
 msgid "stdout\n"
-msgstr ""
+msgstr "standardud\n"
 
 #: wcd.c:2094
 #, c-format
 msgid "Native language support included.\n"
-msgstr ""
+msgstr "Standardunderstøttelse for sprog er inkluderet.\n"
 
 #: wcd.c:2095
 #, c-format
 msgid "LOCALEDIR=%s\n"
-msgstr ""
+msgstr "LOCALEDIR=%s\n"
 
 #: wcd.c:2097
 #, c-format
 msgid "No native language support included.\n"
-msgstr ""
+msgstr "Ingen standardunderstøttelse for sprog er inkluderet.\n"
 
 #: wcd.c:2100
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
-msgstr ""
+msgstr "Nuværende sprog bruger CP%u-kodning.\n"
 
 #: wcd.c:2102
 #, c-format
 msgid "Current locale uses %s encoding.\n"
-msgstr ""
+msgstr "Nuværende sprog bruger %s-kodning.\n"
 
 #: wcd.c:2105
 #, c-format
 msgid "With Unicode support.\n"
-msgstr ""
+msgstr "Med Unicodeunderstøttelse.\n"
 
 #: wcd.c:2110
 #, c-format
 msgid "  Euro symbol: "
-msgstr ""
+msgstr "  Euro-symbol: "
 
 #: wcd.c:2112
 #, c-format
 msgid "  Chinese characters: "
-msgstr ""
+msgstr "  kinesiske tegn: "
 
 #: wcd.c:2116
 #, c-format
 msgid "Without Unicode support.\n"
-msgstr ""
+msgstr "Uden Unicodeunderstøttelse.\n"
 
 #: wcd.c:2119
 #, c-format
 msgid "With Unicode normalization.\n"
-msgstr ""
+msgstr "Med Unicodenormalisering.\n"
 
 #: wcd.c:2121
 #, c-format
 msgid "Without Unicode normalization.\n"
-msgstr ""
+msgstr "Uden Unicodenormalisering.\n"
 
 #: wcd.c:2124
 #, c-format
 msgid "Download the latest executables and sources from:\n"
-msgstr ""
+msgstr "Hent den seneste kørbare fil og kilder fra:\n"
 
 #: wcd.c:2131
 #, c-format
@@ -636,6 +642,13 @@ msgid ""
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
+"Ophavsret 1996-%d Erwin Waterlander\n"
+"Ophavsret 1994-2002 Ondrej Popp on C3PO\n"
+"Ophavsret 1995-1996 DJ Delorie for _fixpath()\n"
+"Ophavsret 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"
+"Ophavsret 1994-1996 Jason Mathews on DOSDIR\n"
+"Ophavsret 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
+"Kai Uwe Rommel og Igor Mandrichenko for recmatch()\n"
 
 #: wcd.c:2139
 #, c-format
@@ -646,6 +659,12 @@ msgid ""
 "Rugxulo is the original author of query_con_codepage() (public domain).\n"
 "\n"
 msgstr ""
+"Kildekode til at skanne Windows LAN blev oprindelig skrevet og\n"
+"placeret i offentlig ejendom af Felix Kasza.\n"
+"Markus Kuhns frie wcwidth()- og wcswidth()-implementeringer anvendes.\n"
+"Rugxulo er den oprindelige forfatter af query_con_codepage()\n"
+"(offentlige ejendom).\n"
+"\n"
 
 #: wcd.c:2145
 #, c-format
@@ -656,6 +675,11 @@ msgid ""
 "of the License, or (at your option) any later version.\n"
 "\n"
 msgstr ""
+"Dette er et frit program; du kan videredistribuere det og/eller\n"
+"ændre det under betingelserne i GNU General Public License\n"
+"som udgivet af Free Software Foundation; enten version 2\n"
+"af licensen, eller (efter dit valg) enhver senere version.\n"
+"\n"
 
 #: wcd.c:2151
 #, c-format
@@ -666,6 +690,11 @@ msgid ""
 "GNU General Public License for more details.\n"
 "\n"
 msgstr ""
+"Dette program distribueres med håb om, at det vil være nyttigt,\n"
+"men UDEN NOGEN FORM FOR GARANTI; også uden den underforståede\n"
+"garanti for SALGBARHED eller EGNETHED FOR ET BESTEMT FORMÅL. Se\n"
+"GNU General Public License for yderligere detaljer.\n"
+"\n"
 
 #: wcd.c:2157
 #, c-format
@@ -674,508 +703,516 @@ msgid ""
 "along with this program; if not, write to the Free Software\n"
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 msgstr ""
+"Du skal have modtaget en kopi af GNU General Public License\n"
+"sammen med dette program; hvis ikke, så skriv til Free Software\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,\n"
+"MA 02110-1301 USA.\n"
 
 #: wcd.c:2190
 #, c-format
 msgid "creating directory %s\n"
-msgstr ""
+msgstr "opretter mappe %s\n"
 
 #: wcd.c:2522 wcd.c:2562 wcd.c:2577 wcd.c:2645 wcd.c:2714 wcd.c:3216 wcd.c:3235
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
-msgstr ""
+msgstr "Værdien for miljøvariablen %s er for lang.\n"
 
 #: wcd.c:2551
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
-msgstr ""
+msgstr "Kunne ikke frakoble miljøvariablen TERM: %s\n"
 
 #: wcd.c:2609 wcd.c:2638
 msgid "Environment variable HOME or WCDHOME is not set.\n"
-msgstr ""
+msgstr "Miljøvariablen HOME eller WCDHOME er ikke angivet.\n"
 
 #: wcd.c:2821
 #, c-format
 msgid "aliasfile: %s\n"
-msgstr ""
+msgstr "aliasfil: %s\n"
 
 #: wcd.c:2835
 msgid "HOME is not defined\n"
-msgstr ""
+msgstr "HOME er ikke defineret\n"
 
 #: wcd.c:2839
 msgid "WCDHOME is not defined\n"
-msgstr ""
+msgstr "WCDHOME er ikke defineret\n"
 
 #: wcd.c:2843
 msgid "WCDSCAN is not defined\n"
-msgstr ""
+msgstr "WCDSCAN er ikke defineret\n"
 
 #: wcd.c:2868
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
-msgstr ""
+msgstr "Grafiktilstand er kun understøttet i wcd med curses-baseret grænseflade.\n"
 
 #: wcd.c:3149
 #, c-format
 msgid "%s added to aliasfile %s\n"
-msgstr ""
+msgstr "%s tilføjet til aliasfilen %s\n"
 
 #: wcd.c:3248
 #, c-format
 msgid "Unable to read file %s or %s\n"
-msgstr ""
+msgstr "Kunne ikke læse filen %s eller %s\n"
 
 #: wcd.c:3398
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
-msgstr ""
+msgstr "WCDSCAN-mappe {%s}\n"
 
 #: wcd.c:3400
 #, c-format
 msgid "banning {%s}\n"
-msgstr ""
+msgstr "placerer i karantæne {%s}\n"
 
 #: wcd.c:3402
 #, c-format
 msgid "excluding {%s}\n"
-msgstr ""
+msgstr "ekskluderer {%s}\n"
 
 #: wcd.c:3404
 #, c-format
 msgid "filtering {%s}\n"
-msgstr ""
+msgstr "filtrerer {%s}\n"
 
 #: wcd.c:3667
 #, c-format
 msgid "No directory found matching %s\n"
-msgstr ""
+msgstr "Der blev ikke fundet en mappe, der matcher %s\n"
 
 #: wcd.c:3668
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
-msgstr ""
+msgstr "Måske skal du skanne disken igen eller stien er måske placeret i karantæne.\n"
 
 #: wcd.c:3836
 #, c-format
 msgid "Cannot change to %s\n"
-msgstr ""
+msgstr "Kan ikke ændre til %s\n"
 
 #: wcddir.c:109
 #, c-format
 msgid "%lu (\"%s\") reported by \"%s\".\n"
-msgstr ""
+msgstr "%lu (»%s«) rapporteret af »%s«.\n"
 
 #: wcddir.c:131
 msgid "access denied.\n"
-msgstr ""
+msgstr "adgang nægtet.\n"
 
 #: wcddir.c:206
 #, c-format
 msgid "Searching for shared directories on server %s\n"
-msgstr ""
+msgstr "Søger efter delte mapper på serveren %s\n"
 
 #: wcddir.c:218
 #, c-format
 msgid "Found %lu shared directories on server %s\n"
-msgstr ""
+msgstr "Fandt %lu delte mapper på serveren %s\n"
 
 #: wcddir.c:335
 msgid "Unable to get current working directory: "
-msgstr ""
+msgstr "Kunne ikke indhente nuværende arbejdsmappe: "
 
 #: wcddir.c:362
 #, c-format
 msgid "Unable to change to directory %s: "
-msgstr ""
+msgstr "Kunne ikke ændre til mappen %s: "
 
 #: wcddir.c:392
 #, c-format
 msgid "Unable to create directory %s: "
-msgstr ""
+msgstr "Kunne ikke oprette mappen %s: "
 
 #: wcddir.c:420
 #, c-format
 msgid "Unable to remove directory %s: "
-msgstr ""
+msgstr "Kunne ikke fjerne mappen %s: "
 
 #: wcddir.c:543 wcddir.c:554
 #, c-format
 msgid "Unable to create directory %s: %s\n"
-msgstr ""
+msgstr "Kunne ikke oprette mappen %s: %s\n"
 
 #: wcddir.c:660
 #, c-format
 msgid "Unable to get current working directory: %s\n"
-msgstr ""
+msgstr "Kunne ikke indhente nuværende arbejdsmappe: %s\n"
 
 #: wcddir.c:674
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
-msgstr ""
+msgstr "Kunne ikke ændre til mappen %s: %s\n"
 
 #: wcddir.c:683
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
-msgstr ""
+msgstr "Kunne ikke fjerne mappen %s: %s\n"
 
 #: stack.c:101
 msgid "Error parsing stack\n"
-msgstr ""
+msgstr "Der opstod en fejl under fortolkning af stak\n"
 
 #: display.c:261
 msgid "internal error in maxLength(), list == NULL\n"
-msgstr ""
+msgstr "intern fejl i maxLength(), liste == NUL\n"
 
 #: display.c:282
 msgid "internal error in maxLengthStack(), s == NULL\n"
-msgstr ""
+msgstr "intern fejl i maxLengthStack(), s == NUL\n"
 
 #: display.c:522 display.c:1137 display.c:1513
 #, c-format
 msgid "Perfect match for %d directories."
-msgstr ""
+msgstr "Perfekt match for %d mapper."
 
 #: display.c:524 display.c:1139 display.c:1515
 #, c-format
 msgid "Wild match for %d directories."
-msgstr ""
+msgstr "Jokertegnsmatch for %d mapper."
 
 #: display.c:528 display.c:1151 display.c:1517 display.c:1560
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
-msgstr ""
+msgstr "Vælg venligst en (<Retur> for at afbryde): "
 
 #: display.c:530 display.c:606 display.c:638 display.c:1144
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
-msgstr ""
+msgstr " w=op x=ned ?=hjælp Side %d/%d "
 
 #: display.c:682 display.c:1167
 msgid "Screenheight must be > 20 for help."
-msgstr ""
+msgstr "Skærmhøjde skal være > 20 for hjælp."
 
 #: display.c:687 display.c:1170
 msgid "w or <Up>         page up"
-msgstr ""
+msgstr "w eller <Op>          side op"
 
 #: display.c:688 display.c:1171
 msgid "x or z or <Down>  page down"
-msgstr ""
+msgstr "x eller z eller <Ned> side ned"
 
 #: display.c:689 display.c:1172
 msgid ", or <Left>       scroll 1 left"
-msgstr ""
+msgstr ", eller <Venstre>     rul 1 mod venstre"
 
 #: display.c:690 display.c:1173
 msgid ". or <Right>      scroll 1 right"
-msgstr ""
+msgstr ". eller <Højre>       rul 1 mod højre"
 
 #: display.c:691 display.c:1174
 msgid "< or [            scroll 10 left"
-msgstr ""
+msgstr "< eller [             rul 10 mod venstre"
 
 #: display.c:692 display.c:1175
 msgid "> or ]            scroll 10 right"
-msgstr ""
+msgstr "> eller ]             rul 10 mod højre"
 
 #: display.c:693 display.c:1176
 msgid "CTRL-a or <HOME>  scroll to beginning"
-msgstr ""
+msgstr "CTRL-a eller <HOME>   rul til begyndelsen"
 
 #: display.c:694 display.c:1177
 msgid "CTRL-e or <END>   scroll to end"
-msgstr ""
+msgstr "CTRL-e eller <END>    rul til slutningen"
 
 #: display.c:695 display.c:1179
 msgid "CTRL-c or <Esc>   abort"
-msgstr ""
+msgstr "CTRL-c eller <Esc>    afbryd"
 
 #: display.c:696 display.c:1180
 msgid "<Enter>           abort"
-msgstr ""
+msgstr "<Retur>               afbryd"
 
 #: display.c:697
 msgid "Type w or x to quit help."
-msgstr ""
+msgstr "Tast w eller x for at afslutte hjælpeteksten."
 
 #: display.c:1178 graphics.c:1983
 msgid "CTRL-l or F5      redraw screen"
-msgstr ""
+msgstr "CTRL-l eller F5       gentegn skærm"
 
 #: display.c:1181 graphics.c:1968 graphics.c:1985 graphics.c:2008
 #: graphics.c:2025
 msgid "Press any key."
-msgstr ""
+msgstr "Tryk på en tast."
 
 #: display.c:1246 graphics.c:2280
 msgid "Error opening terminal, falling back to stdout interface.\n"
-msgstr ""
+msgstr "Der opstod en fejl under åbning af skærm, anvender standardudgrænsefladen.\n"
 
 #: display.c:1267
 msgid "screen height must be larger than 3 lines.\n"
-msgstr ""
+msgstr "skærmhøjde skal være større end 3 linjer.\n"
 
 #: display.c:1301 graphics.c:2311
 msgid "error creating scroll window.\n"
-msgstr ""
+msgstr "der opstod en fejl under oprettelse af rullevinduet.\n"
 
 #: display.c:1315
 msgid "error creating input window.\n"
-msgstr ""
+msgstr "der opstod en fejl under oprettelse af inddatavinduet.\n"
 
 #: graphics.c:277
 #, c-format
 msgid "Wcd: error: path too long"
-msgstr ""
+msgstr "Wcd: fejl: stien er for lang"
 
 #: graphics.c:1929
 msgid "/ = search forward,  ? = search backward,  : = help"
-msgstr ""
+msgstr "/ = søg fremad, ? = søg baglæns, : = hjælp"
 
 #: graphics.c:1934
 msgid "SEARCH: "
-msgstr ""
+msgstr "SØG: "
 
 #: graphics.c:1937
 msgid "Search: "
-msgstr ""
+msgstr "Søg: "
 
 #: graphics.c:1953
 msgid "NAVIGATION MODE (1/2):"
-msgstr ""
+msgstr "NAVIGATIONSTILSTAND (1/2):"
 
 #: graphics.c:1954
 msgid "h or <Left>       go left"
-msgstr ""
+msgstr "h eller <venstre>     gå mod venstre"
 
 #: graphics.c:1955
 msgid "j or <Down>       go down"
-msgstr ""
+msgstr "j eller <Ned>         gå nedad"
 
 #: graphics.c:1956
 msgid "k or <Up>         go up"
-msgstr ""
+msgstr "k elle <Op>           gå op"
 
 #: graphics.c:1957
 msgid "l or <Right>      go right"
-msgstr ""
+msgstr "l eller <Højre>       gå mod højre"
 
 #: graphics.c:1958
 msgid "* or v or <Space> go forward to dir with same name"
-msgstr ""
+msgstr "* eller v eller <Mellemrum> gå fremad til mappen med det samme navn"
 
 #: graphics.c:1959
 msgid "# or p or <BS>    go backward to dir with same name"
-msgstr ""
+msgstr "# eller p eller <BS>  gå tilbage til mappen med det samme navn"
 
 #: graphics.c:1960
 msgid "^ or a            go to beginning of line"
-msgstr ""
+msgstr "^ eller a             gå til linjens begyndelse"
 
 #: graphics.c:1961
 msgid "$ or e            go to end of line"
-msgstr ""
+msgstr "$ eller e             gå til linjens slutning"
 
 #: graphics.c:1962
 msgid "1                 go to root dir"
-msgstr ""
+msgstr "1                     gå til rodmappen"
 
 #: graphics.c:1963
 msgid "g or G            go to last dir"
-msgstr ""
+msgstr "g eller G             gå til sidste mappe"
 
 #: graphics.c:1964
 msgid "f                 go page forward"
-msgstr ""
+msgstr "f                     gå en side frem"
 
 #: graphics.c:1965
 msgid "b                 go page backward"
-msgstr ""
+msgstr "b                     gå en side baglæns"
 
 #: graphics.c:1966
 msgid "u                 go half page up"
-msgstr ""
+msgstr "u                     gå en halv side op"
 
 #: graphics.c:1967
 msgid "d                 go half page down"
-msgstr ""
+msgstr "d                     gå en halv side ned"
 
 #: graphics.c:1974
 msgid "NAVIGATION MODE (2/2):"
-msgstr ""
+msgstr "NAVIGATIONSTILSTAND (2/2):"
 
 #: graphics.c:1975
 msgid "A                 switch alternative tree navigation on/off"
-msgstr ""
+msgstr "A                     aktiver/deaktiver alternativ trænavigation"
 
 #: graphics.c:1976
 msgid "t                 switch centered mode on/off"
-msgstr ""
+msgstr "t                     aktiver/deaktiver centreret tilstand"
 
 #: graphics.c:1977
 msgid "T                 toggle between line drawing and ASCII characters"
-msgstr ""
+msgstr "T                     skift mellem linjetegning og ASCII-tegn"
 
 #: graphics.c:1978
 msgid "m                 toggle between compact and wide tree"
-msgstr ""
+msgstr "m                     skift mellem kompakt og bredt træ"
 
 #: graphics.c:1979
 msgid "<Esc> or q        abort"
-msgstr ""
+msgstr "<Esc> eller q         afbryd"
 
 #: graphics.c:1980
 msgid "/                 search forward"
-msgstr ""
+msgstr "/                     søg fremad"
 
 #: graphics.c:1981
 msgid "?                 search backward"
-msgstr ""
+msgstr "?                     søg baglæns"
 
 #: graphics.c:1982
 msgid "n                 repeat last / or ? search"
-msgstr ""
+msgstr "n                     gentag sidste søgning / eller ?-søgning"
 
 #: graphics.c:1984 graphics.c:2007
 msgid "<Enter>           select directory"
-msgstr ""
+msgstr "<Retur>               vælg mappe"
 
 #: graphics.c:1991
 msgid "SEARCH MODE with wildcard and subdir support:"
-msgstr ""
+msgstr "SØGETILSTAND med understøttelse af jokertegn og undermappe:"
 
 #: graphics.c:1992
 msgid "<Left>            go left"
-msgstr ""
+msgstr "<Venstre>             gå mod venstre"
 
 #: graphics.c:1993
 msgid "<Down>            go down"
-msgstr ""
+msgstr "<Ned>                 gå ned"
 
 #: graphics.c:1994
 msgid "<Up>              go up"
-msgstr ""
+msgstr "<Op>                  gå op"
 
 #: graphics.c:1995
 msgid "<Right>           go right"
-msgstr ""
+msgstr "<Højre>               gå mod højre"
 
 #: graphics.c:1996
 msgid "CTRL-v            go forward to dir with same name"
-msgstr ""
+msgstr "CTRL-v                gå fremad til mappen med samme navn"
 
 #: graphics.c:1997
 msgid "CTRL-p            go backward to dir with same name"
-msgstr ""
+msgstr "CTRL-p                gå baglæns til mappen med samme navn"
 
 #: graphics.c:1998
 msgid "CTRL-a            go to beginning of line"
-msgstr ""
+msgstr "CTRL-a                gå til begyndelsen af linjen"
 
 #: graphics.c:1999
 msgid "CTRL-e            go to end of line"
-msgstr ""
+msgstr "CTRL-e                gå til slutningen af linjen"
 
 #: graphics.c:2000
 msgid "CTRL-g            go to last dir"
-msgstr ""
+msgstr "CTRL-g                gå til sidste mappe"
 
 #: graphics.c:2001
 msgid "CTRL-f            go page forward"
-msgstr ""
+msgstr "CTRL-f                gå 1 side frem"
 
 #: graphics.c:2002
 msgid "CTRL-b            go page backward"
-msgstr ""
+msgstr "CTRL-b                gå 1 side baglæns"
 
 #: graphics.c:2003
 msgid "CTRL-u            go half page up"
-msgstr ""
+msgstr "CTRL-u                gå en halv side op"
 
 #: graphics.c:2004
 msgid "CTRL-d            go half page down"
-msgstr ""
+msgstr "CTRL-d                gå en halv side ned"
 
 #: graphics.c:2005
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
-msgstr ""
+msgstr "<Esc> eller CTRL-x    afbryd SØGETILSTAND"
 
 #: graphics.c:2006
 msgid "CTRL-n            repeat last / or ? search"
-msgstr ""
+msgstr "CTRL-n                gentag sidste søgning eller ?-søgning"
 
 #: graphics.c:2014
 msgid "ZOOMING:"
-msgstr ""
+msgstr "ZOOM:"
 
 #: graphics.c:2015
 msgid "z or i or CTRL-i  zoom in"
-msgstr ""
+msgstr "z eller i eller CTRL-i  zoom ind"
 
 #: graphics.c:2016
 msgid "Z or o or CTRL-o  zoom out"
-msgstr ""
+msgstr "Z eller o eller CTRL-o  zoom ud"
 
 #: graphics.c:2017
 msgid "c                 condense: fold current level"
-msgstr ""
+msgstr "c                     kondensere: fold nuværende niveau"
 
 #: graphics.c:2018
 msgid "C                 condense: fold subdir level"
-msgstr ""
+msgstr "C                     kondensere: fold undermappeniveau"
 
 #: graphics.c:2019
 msgid "w                 condense: fold current and subdir levels"
 msgstr ""
+"w                     kondensere: fold nuværende niveau og\n"
+"                                  undermappeniveauer"
 
 #: graphics.c:2020
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
 msgstr ""
+"y eller CTRL-y        afkondensere: fold nuværende niveau og og\n"
+"                                    undermappeniveauer ud"
 
 #: graphics.c:2021
 msgid "r or CTRL-r       uncondense: unfold all directories"
-msgstr ""
+msgstr "r eller CTRL-r        afkondensere: fold alle mapper ud"
 
 #: graphics.c:2022
 msgid "-                 fold directory"
-msgstr ""
+msgstr "-                     fold mappe"
 
 #: graphics.c:2023
 msgid "+ or =            unfold directory"
-msgstr ""
+msgstr "+ eller =             fold mappe ud"
 
 #: graphics.c:2024
 msgid "l or <Right>      unfold and go right"
-msgstr ""
+msgstr "l eller <Right>       fold ud og gå mod højre"
 
 #: graphics.c:2028
 msgid "Screenheight must be > 21 for help."
-msgstr ""
+msgstr "Skærmhøjde skal være > 21 for hjælp."
 
 #: graphics.c:2262 graphics.c:2731
 #, c-format
 msgid "Cannot find the current path %s in the directory tree.\n"
-msgstr ""
+msgstr "Kan ikke finde den nuværende sti %s i mappetræet.\n"
 
 #: finddirs.c:241 finddirs.c:249 finddirs.c:273 finddirs.c:300 finddirs.c:314
 #, c-format
 msgid "Unable to remove file %s: %s\n"
-msgstr ""
+msgstr "Kan ikke fjerne filen %s: %s\n"
 
 #: finddirs.c:322 finddirs.c:486
 #, c-format
 msgid "Unable to close directory %s: %s\n"
-msgstr ""
+msgstr "Kan ikke lukke mappen %s: %s\n"
 
 #: finddirs.c:365
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
-msgstr ""
+msgstr "finddirs(): kan ikke bestemme sti i mappen %s\n"
 
 #: finddirs.c:366
 msgid "path probably too long.\n"
-msgstr ""
+msgstr "sti er sandsynligvis for lang.\n"
 
 #: c3po/Error.c:41
 #, c-format
 msgid "in '%s', insufficient memory for allocation\n"
-msgstr ""
+msgstr "i »%s«, utilstrækkelig hukommelse for allokering\n"

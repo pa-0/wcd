@@ -281,6 +281,7 @@ Table of Contents
 
         Chinese (simplified)  Mingcong Bai (Jeff) and      Version 5.3.1
                               Mingye Wang (Arthur)
+        Danish                Joe Hansen                   Version 6.0.0
         Dutch                 Erwin Waterlander            Version 4.0.0 - 5.2.4
         Dutch                 Benno Schulenberg            Version 5.2.5 - 5.3.3
         Esperanto             Benno Schulenberg            Version 5.2.5 - 5.3.3
@@ -292,8 +293,8 @@ Table of Contents
         German                Mario Blättermann            Version 5.2.5 - 5.2.6
         Serbian               Мирослав Николић             Version 5.3.4
         Spanish               Julio A. Freyre-Gonzalez     Version 5.0.4 - 5.2.4
-        Ukrainian             Yuri Chornoivan              Version 5.2.5 - 5.3.4
-	Vietnamese            Trần Ngọc Quân               Version 5.2.5 - 5.3.4
+        Ukrainian             Yuri Chornoivan              Version 5.2.5 - 6.0.0
+	Vietnamese            Trần Ngọc Quân               Version 5.2.5 - 6.0.0
 
 
         Translations of the manual:
