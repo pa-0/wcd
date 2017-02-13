@@ -866,10 +866,8 @@ msgstr "Gebruik nummers in plaats van letters."
 
 #. type: textblock
 #: wcd.pod:462
-#, fuzzy
-#| msgid "Wcd with a conio or curses based interface (see section INTERFACE) presents a match list by default numbered with letters. When the B<-N> option is used the match list is numbered with numbers. Regardless of the B<-N> option one can type a letter or numbers to make a selection from the list of matches."
 msgid "Wcd with a conio or curses based interface (see section Interfaces) presents a match list by default numbered with letters. When the B<-N> option is used the match list is numbered with numbers. Regardless of the B<-N> option one can type a letter or numbers to make a selection from the list of matches."
-msgstr "Wcd met een conio of curses gebaseerde interface (zie paragraaf INTERFACE) presenteert een trefferlijst standaard genummerd met letters. Wanneer de optie B<-N> is gebruikt wordt de trefferlijst genummerd met nummers. Onafhankelijk van de optie B<-N> kan men een letter of een nummer typen om een selectie uit de lijst te maken."
+msgstr "Wcd met een conio of curses gebaseerde interface (zie paragraaf Interfaces) presenteert een trefferlijst standaard genummerd met letters. Wanneer de optie B<-N> is gebruikt wordt de trefferlijst genummerd met nummers. Onafhankelijk van de optie B<-N> kan men een letter of een nummer typen om een selectie uit de lijst te maken."
 
 #. type: =item
 #: wcd.pod:467
@@ -1448,8 +1446,6 @@ msgstr "De locatie van het go-script C<wcd.go> is anders per shell."
 
 #. type: textblock
 #: wcd.pod:762
-#, fuzzy
-#| msgid "Wcd for DJGPP DOS bash requires a different function. The go script is not written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
 msgid "Wcd for DJGPP DOS bash and OS/2 bash require a different function. The go script is not written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
 msgstr "Wcd voor DJGPP DOS bash heeft een andere functie nodig. Het go-script wordt niet in map C<bin> geschreven, en wanneer I<WCDHOME> en I<HOME> beide niet gedefinieerd zijn wordt het go-script geschreven in c:/."
 
@@ -1460,14 +1456,7 @@ msgstr ""
 
 #. type: verbatim
 #: wcd.pod:768
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcd.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1478,7 +1467,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PAD>/wcd.exe \"$@\"\n"
+"        <PAD>/wcdbash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1490,14 +1479,7 @@ msgstr ""
 
 #. type: verbatim
 #: wcd.pod:776
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcd.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1508,28 +1490,20 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PAD>/wcd.exe \"$@\"\n"
+"        <PAD>/wcdos2bash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
 
 #. type: textblock
 #: wcd.pod:782
-#, fuzzy
 #| msgid "The WinZsh version of wcd is also a bit different. No C<bin> directory."
 msgid "The WinZsh version of wcd requires a bit different function. The go-script will never be written in c:/."
-msgstr "De WinZsh versie van wcd is ook een beetje anders. Geen C<bin> map."
+msgstr "De WinZsh versie van wcd is ook een beetje anders. Het go-script wordt nooit in c:/ geschreven."
 
 #. type: verbatim
 #: wcd.pod:785
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcd.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1540,7 +1514,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcd.exe \"$@\"\n"
+"        <PATH>/wcdwin32zsh.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -2095,16 +2069,7 @@ msgstr "Dit is het shell-script dat wcd elke keer creëert. Het wordt ingelezen 
 
 #. type: verbatim
 #: wcd.pod:1136
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
-#| "    Windows Command Prompt: c:\\wcdgo.bat or %HOME%\\wcdgo.bat\n"
-#| "    Windows PowerShell: $env:HOME\\wcdgo.ps1\n"
-#| "    WinZsh: $HOME/wcd.go\n"
-#| "    Cygwin/MSYS: $HOME/bin/wcd.go\n"
-#| "    OS/2 Command Prompt: c:\\wcdgo.cmd or %HOME%\\wcdgo.cmd\n"
-#| "    Unix: $HOME/bin/wcd.go\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
 "    Windows Command Prompt: c:\\wcdgo.bat or %HOME%\\wcdgo.bat\n"
@@ -2122,6 +2087,7 @@ msgstr ""
 "    WinZsh: $HOME/wcd.go\n"
 "    Cygwin/MSYS: $HOME/bin/wcd.go\n"
 "    OS/2 Opdrachtprompt: c:\\wcdgo.cmd of %HOME%\\wcdgo.cmd\n"
+"    OS/2 bash: c:/wcd.go or $HOME/wcd.go\n"
 "    Unix: $HOME/bin/wcd.go\n"
 "\n"
 

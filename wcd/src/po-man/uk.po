@@ -2,12 +2,12 @@
 # Copyright 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2016.
+# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2016, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd-man-5.3.3-beta4\n"
-"POT-Creation-Date: 2017-01-19 00:10+0100\n"
-"PO-Revision-Date: 2016-05-31 13:30+0300\n"
+"Project-Id-Version: wcd-man-6.0.0-beta4\n"
+"POT-Creation-Date: 2017-02-09 23:29+0100\n"
+"PO-Revision-Date: 2017-02-10 11:50+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -1446,26 +1446,17 @@ msgstr "Розташування скрипту переходу, C<wcd.go>, є 
 
 #. type: textblock
 #: wcd.pod:762
-#, fuzzy
-#| msgid "Wcd for DJGPP DOS bash requires a different function. The go script is not written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
 msgid "Wcd for DJGPP DOS bash and OS/2 bash require a different function. The go script is not written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
-msgstr "Wcd для bash у DJGPP DOS потрібна інша функція. Скрипт переходу не буде записано до каталогу C<bin> і, якщо одночасно визначено I<WCDHOME> та I<HOME>, скрипт переходу буде записано до c:/."
+msgstr "Wcd для bash у DJGPP DOS bash та OS/2 bash потрібна інша функція. Скрипт переходу не буде записано до каталогу C<bin> і, якщо одночасно визначено I<WCDHOME> та I<HOME>, скрипт переходу буде записано до c:/."
 
 #. type: textblock
 #: wcd.pod:766
 msgid "DOS bash:"
-msgstr ""
+msgstr "DOS bash:"
 
 #. type: verbatim
 #: wcd.pod:768
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcd.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1476,7 +1467,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <ШЛЯХ>/wcd.exe \"$@\"\n"
+"        <ШЛЯХ>/wcdbash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1484,18 +1475,11 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:774
 msgid "OS/2 bash:"
-msgstr ""
+msgstr "OS/2 bash:"
 
 #. type: verbatim
 #: wcd.pod:776
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcd.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1506,28 +1490,19 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <ШЛЯХ>/wcd.exe \"$@\"\n"
+"        <ШЛЯХ>/wcdos2bash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
 
 #. type: textblock
 #: wcd.pod:782
-#, fuzzy
-#| msgid "The WinZsh version of wcd is also a bit different. No C<bin> directory."
 msgid "The WinZsh version of wcd requires a bit different function. The go-script will never be written in c:/."
-msgstr "Версія wcd для WinZsh теж має свої особливості. Немає каталогу C<bin>."
+msgstr "Версія wcd для WinZsh потребує трохи іншої функції. Скрипт go ніколи не буде записано до c:/."
 
 #. type: verbatim
 #: wcd.pod:785
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcd.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1538,7 +1513,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <ШЛЯХ>/wcd.exe \"$@\"\n"
+"        <ШЛЯХ>/wcdwin32zsh.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -2093,16 +2068,7 @@ msgstr "Це скрипт командної оболонки, який wcd.exe 
 
 #. type: verbatim
 #: wcd.pod:1136
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
-#| "    Windows Command Prompt: c:\\wcdgo.bat or %HOME%\\wcdgo.bat\n"
-#| "    Windows PowerShell: $env:HOME\\wcdgo.ps1\n"
-#| "    WinZsh: $HOME/wcd.go\n"
-#| "    Cygwin/MSYS: $HOME/bin/wcd.go\n"
-#| "    OS/2 Command Prompt: c:\\wcdgo.cmd or %HOME%\\wcdgo.cmd\n"
-#| "    Unix: $HOME/bin/wcd.go\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
 "    Windows Command Prompt: c:\\wcdgo.bat or %HOME%\\wcdgo.bat\n"
@@ -2120,6 +2086,7 @@ msgstr ""
 "    WinZsh: $HOME/wcd.go\n"
 "    Cygwin/MSYS: $HOME/bin/wcd.go\n"
 "    командна оболонка OS/2: c:\\wcdgo.cmd або %HOME%\\wcdgo.cmd\n"
+"    OS/2 bash: c:/wcd.go або $HOME/wcd.go\n"
 "    Unix: $HOME/bin/wcd.go\n"
 "\n"
 

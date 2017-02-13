@@ -1,13 +1,13 @@
 # German translation of the wcd man page.
 # Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2016.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2016-2017.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd-man 5.3.3-beta4\n"
-"POT-Creation-Date: 2017-01-19 00:10+0100\n"
-"PO-Revision-Date: 2016-06-11 17:53+0200\n"
+"Project-Id-Version: wcd-man 6.0.0-beta4\n"
+"POT-Creation-Date: 2017-02-09 23:29+0100\n"
+"PO-Revision-Date: 2017-02-11 21:54+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #. type: =head1
 #: wcd.pod:43
@@ -1449,26 +1449,17 @@ msgstr "Der Ort des Go-Skripts C<wcd.go> ist abhängig von der Shell selbst."
 
 #. type: textblock
 #: wcd.pod:762
-#, fuzzy
-#| msgid "Wcd for DJGPP DOS bash requires a different function. The go script is not written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
 msgid "Wcd for DJGPP DOS bash and OS/2 bash require a different function. The go script is not written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
-msgstr "Wcd für die auf DJGPP basierende DOS-Bash erfordert eine andere Funktionalität. Das Go-Skript wird nicht in einem Verzeichnis C<bin> gespeichert, und falls weder I<WCDHOME> noch I<HOME> definiert sind, wird das Go-Skript nach c:/ geschrieben."
+msgstr "Wcd für die auf DJGPP basierende DOS-Bash und die OS/2-Bash erfordert eine andere Funktionalität. Das Go-Skript wird nicht in einem Verzeichnis C<bin> gespeichert, und falls weder I<WCDHOME> noch I<HOME> definiert sind, wird das Go-Skript nach c:/ geschrieben."
 
 #. type: textblock
 #: wcd.pod:766
 msgid "DOS bash:"
-msgstr ""
+msgstr "DOS-Bash:"
 
 #. type: verbatim
 #: wcd.pod:768
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcd.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1479,7 +1470,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcd.exe \"$@\"\n"
+"        <PATH>/wcdbash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1487,18 +1478,11 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:774
 msgid "OS/2 bash:"
-msgstr ""
+msgstr "OS/2-Bash:"
 
 #. type: verbatim
 #: wcd.pod:776
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcd.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1509,28 +1493,19 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcd.exe \"$@\"\n"
+"        <PATH>/wcdos2bash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
 
 #. type: textblock
 #: wcd.pod:782
-#, fuzzy
-#| msgid "The WinZsh version of wcd is also a bit different. No C<bin> directory."
 msgid "The WinZsh version of wcd requires a bit different function. The go-script will never be written in c:/."
-msgstr "Die WinZsh-Version von wcd ist auch etwas anders. Es gibt kein C<bin>-Verzeichnis."
+msgstr "Die WinZsh-Version von wcd erfordert eine etwas andere Funktion. Das Go-Skript wird niemals in c:/ gespeichert."
 
 #. type: verbatim
 #: wcd.pod:785
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcd.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1541,7 +1516,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcd.exe \"$@\"\n"
+"        <PATH>/wcdwin32zsh.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -2096,16 +2071,7 @@ msgstr "Dies ist das Shell-Skript, welches wcd.exe jedes Mal erzeugt. Es wird ü
 
 #. type: verbatim
 #: wcd.pod:1136
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
-#| "    Windows Command Prompt: c:\\wcdgo.bat or %HOME%\\wcdgo.bat\n"
-#| "    Windows PowerShell: $env:HOME\\wcdgo.ps1\n"
-#| "    WinZsh: $HOME/wcd.go\n"
-#| "    Cygwin/MSYS: $HOME/bin/wcd.go\n"
-#| "    OS/2 Command Prompt: c:\\wcdgo.cmd or %HOME%\\wcdgo.cmd\n"
-#| "    Unix: $HOME/bin/wcd.go\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
 "    Windows Command Prompt: c:\\wcdgo.bat or %HOME%\\wcdgo.bat\n"
@@ -2117,12 +2083,13 @@ msgid ""
 "    Unix: $HOME/bin/wcd.go\n"
 "\n"
 msgstr ""
-"    DOS Bash: c:/wcd.go oder $HOME/wcd.go\n"
+"    DOS-Bash: c:/wcd.go oder $HOME/wcd.go\n"
 "    Windows Befehlszeileninterpreter: c:\\wcdgo.bat oder %HOME%\\wcdgo.bat\n"
 "    Windows PowerShell: $env:HOME\\wcdgo.ps1\n"
 "    WinZsh: $HOME/wcd.go\n"
 "    Cygwin/MSYS: $HOME/bin/wcd.go\n"
 "    OS/2-Befehlszeileninterpreter: c:\\wcdgo.cmd oder %HOME%\\wcdgo.cmd\n"
+"    OS/2-Bash: c:/wcd.go oder $HOME/wcd.go\n"
 "    Unix: $HOME/bin/wcd.go\n"
 "\n"
 
