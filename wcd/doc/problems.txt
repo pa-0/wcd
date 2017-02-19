@@ -8,12 +8,10 @@ Known problems
   This is the result of the filename expansion of the shell.
   The work-around is to 'single quote' the argument.
 
-
 2 Option -rmtree doesn't remove directories.
   This only happens with Windows versions
   when wcd has been build with Borland 5.x. The problem is not
   there when wcd has been build with any other compiler.
-
 
 3 Garbage printed on screen after exit.
   Occurs in Windows NT/2000/XP console with large buffer
@@ -22,13 +20,20 @@ Known problems
 
 4 `gmake install' may fail on Windows or OS/2.
 
- When you build wcd on Windows without the MSYS environment you may run into
- problems during `make install', because the GnuWin32 ports of `mkdir' and
- `install' of the coreutils package have problems. See
- http://sourceforge.net/tracker/?func=detail&aid=2115584&group_id=23617&atid=379173
- Better use the MSYS environment.
+  When you build wcd on Windows without the MSYS environment you may run into
+  problems during `make install', because the GnuWin32 ports of `mkdir' and
+  `install' of the coreutils package have problems. See
+  http://sourceforge.net/tracker/?func=detail&aid=2115584&group_id=23617&atid=379173
+  Better use the MSYS environment.
 
  This problem is also seen on OS/2. Try an older version of coreutils package.
+
+5 A DOS 32 bit version built with OpenWatcom C stops scanning the disk when it
+  encounters on a Windows drive a path longer than 66 characters. The problem is that
+  after chdir() fails to change to a path longer than 66 characters, getcwd() returns
+  a wrong path, namely the path chdir() could not change to chopped at 66 characters. I
+  think this is a bug in OpenWatcom. getcwd() should return the path of the last
+  successful chdir(). This was seen on Windows Vista 32 bit.
 
 
 ......................................................................

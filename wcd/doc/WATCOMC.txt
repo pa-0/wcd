@@ -33,6 +33,8 @@ can also create DOS and OS/2 programs.
 Open Watcom V2  : http://open-watcom.github.io/open-watcom/    (git repo)
                   http://sourceforge.net/projects/openwatcom/  (binaries download)
 
+Note there is an issue with the DOS 32 bit version built with Watcom C. See problems.txt.
+
 
 PDCurses
 ========
