@@ -91,7 +91,6 @@ Jason Mathews' file filelist.c was a starting point for this file.
 #include "graphics.h"
 #include "wcddir.h"
 #include "config.h"
-#include "finddirs.h"
 #if defined(_WIN32) || defined(WCD_UNICODE)
 #  include <wchar.h>
 #endif

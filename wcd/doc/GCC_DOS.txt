@@ -20,6 +20,7 @@ Optional:
 * gettext   : Framework to help GNU packages produce multi-lingual messages.
 * libiconv  : Character set conversion library.
 * pdcurses  : CRT screen handling and optimization package
+* ncurses   : A free software emulation of curses in System V Release 4.0 (SVr4), and more.
 
 
 If you want to generate PostScript or PDF versions of the manual:
@@ -117,38 +118,6 @@ The patch was not accepted by MinGW.org, but the MSYS2 project has included
 the patch for both 32 and 64 bit.
 
 
-PDCurses
-========
-
-To build wcd with PDCurses interface you need to have the PDCurses
-library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
-Compile it and copy the library file into the \lib directory of your
-compiler and the curses.h file in the \include directory.
-
-The DJGPP and MinGW project also provide ready-to-use binary PDCurses packages.
-
-
-Ncurses
-=======
-
-You can also build the Windows version of wcd with Ncurses. It is best to take
-the most recent version from http://invisible-island.net/ncurses/
-See also whatsnew.txt for issues with Ncurses that have been solved.
-To compile for ncurses add CURSES=ncursesw to the make command line.
-
-* By default the Ncurses interface does not work in the Console2 console. Set
-  environment variable NCURSES_CONSOLE2 to 1 to make it work.
-* The ncurses interface shows some trembling while moving around in the tree.
-* The ncurses interface has better support for Unicode than PDCurses, because Ncurses
-  supports combining characters, while PDCurses doesn't.
-
-Both Ncurses and PDCurses have misalignment at highlighted directory in tree
-with true type CJK font, e.g. the Chinese Simsun font. (PDCurses has same
-problem.)
-
-Ncurses is still in active development, while PDCurses development is on hold.
-
-
 groff and ghostscript
 ==========================
 
@@ -205,9 +174,9 @@ To start clean:
 Native Language Support (NLS)
 =============================
 
-NLS is by default enabled. To disable reset the ENABLE_NLS variable:
+NLS is by default disabled. To enable NLS set the ENABLE_NLS variable to 1:
 
-  make ENABLE_NLS=
+  make ENABLE_NLS=1
 
 
 Curses interface
@@ -215,12 +184,59 @@ Curses interface
 
 The default interface is curses.
 
-win32* and win64* uses PDCurses with wide character support (CURSES=pdcursesw)
-OS/2 uses NCurses (CURSES=ncurses)
-
 To disable CURSES and compile with stdio interface, reset the CURSES variable:
 
   make CURSES=
+
+
+PDCurses
+--------
+
+The DOS and Windows versions of Wcd use by default PDCurses.
+
+To build wcd with PDCurses interface you need to have the PDCurses
+library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
+Compile it and copy the library file into the \lib directory of your
+compiler and the curses.h file in the \include directory.
+
+The DJGPP and MinGW project also provide ready-to-use binary PDCurses packages.
+
+The DOS versions use the library with narrow character support (CURSES=pdcurses).
+The Windows versions (Wcd with and without Unicode support) use the library with
+wide (Unicode) character support (CURSES=pdcursesw).
+
+
+Ncurses
+-------
+
+The OS/2 EMX (gcc) versions of Wcd use by default ncurses (CURSES=ncurses).
+
+You can also build the Windows version of wcd with Ncurses. It is best to take
+the most recent version from http://invisible-island.net/ncurses/
+See also whatsnew.txt for issues with Ncurses that have been solved.
+To compile for ncurses add CURSES=ncursesw (wide Unicode characters support)
+to the make command line for Windows.
+
+* By default the Ncurses interface does not work in the Console2 console. Set
+  environment variable NCURSES_CONSOLE2 to 1 to make it work.
+* The ncurses interface shows some trembling while moving around in the tree.
+* The ncurses interface has better support for Unicode than PDCurses, because Ncurses
+  supports combining characters, while PDCurses doesn't.
+
+Both Ncurses and PDCurses have misalignment at highlighted directory in tree
+with true type CJK font, e.g. the Chinese Simsun font. (PDCurses has same
+problem.)
+
+Ncurses is still in active development, while PDCurses development is on hold.
+
+
+Conio interface (DOS only)
+==========================
+
+To enable the conio interface instead of curses add CONIO=1:
+
+
+  make CONIO=1
 
 
 Graphical tree
@@ -232,15 +248,6 @@ can set ASCII_TREE=1 so that ASCII characters are used instead.
 
   make ASCII_TREE=1
 
-
-
-Conio interface (DOS only)
-==========================
-
-To enable the conio interface instead of curses add CONIO=1:
-
-
-  make CONIO=1
 
 
 Unicode support
@@ -271,6 +278,7 @@ Unicode normalization requires libunistring, see
 
   Get libunistring packages via
   http://waterlan.home.xs4all.nl/libunistring.html
+
 
 Installation Names
 ==================
@@ -306,4 +314,3 @@ distribution package
 After installation a ready-to-run binary distribution package can be created.
 
   Type `make dist' to create the package.
-
