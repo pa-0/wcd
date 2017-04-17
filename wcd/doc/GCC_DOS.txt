@@ -43,7 +43,7 @@ OS/2    : EMX       :
 
 DJGPP 2.03 gcc >= 4.6 seems to cause problems. Crashes of gcc itself, or crashing
 wcd binaries. Use DJGPP 2.03 gcc <= 4.5.3.
-DJGPP 2.05 gcc 5.3.0 runs out of memory for me.
+DJGPP 2.05 gcc 5.3.0 seems to work OK.
 
 Wcd compiles with mingw.org and mingw-w64. I recommend using the MSYS2 project.
 
@@ -133,9 +133,70 @@ Groff and ghostscript are available in the Cygwin environment (http://cygwin.com
 Problems on Windows VISTA and higher
 ====================================
 
-To be able to run `gmake install' you may need adminstrator rights. You can get
-a Command Prompt with administrator rights if you right click on the Command
-Prompt icon and select `run as administrator'.
+DOS programs can only run on 32 bit versions of Windows,
+not on 64 bit Windows versions.
+
+Permissions
+-----------
+
+    To be able to run `gmake install' you may need adminstrator rights. You
+    can get a Command Prompt with administrator rights if you right click on
+    the Command Prompt icon and select `run as administrator'.
+
+Out of memory
+-------------
+
+    Since Windows Vista SP1 DOS programs are by default limited by Windows to
+    use a maximum amount of 32 MB memory.  When you compile wcd with DJGPP
+    2.05 gcc will run out of memory with this message:
+
+    cc1.exe: out of memory allocating 39408 bytes after a total of 9774416 bytes
+
+    Use a registry editor (such as REGEDIT) to create the new (REG_DWORD)
+    registry value DpmiLimit under the key
+
+    Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WOW
+
+    Now edit the value to reflect the maximum amount of memory (in bytes)
+    that you wish to make available to console applications (DOS command boxes).
+    E.g. 8000000 (hexadecimal) to make 128 MB available.
+
+    See also http://www.trnicely.net/misc/vista.html
+
+Windows 10
+----------
+
+    Windows 10 has a renewed Windows Console. When you run a DOS program you
+    may get this error message:
+
+    16 bit MS-DOS Subsystem
+    C:\Windows\system32\cmd.exe - ls
+    NTVTM has encountered a System Error
+    The handle is invalid.
+    Choos 'Close' to terminate the application.
+
+    To solve this.
+
+    First:
+
+    Enable NTVDM (This may also be done automatically when you start
+    a DOS program for the first time):
+
+    All settings -> Apps -> Apps & features.
+    Scroll down to Related settings, and then   
+    Programs and Features -> Turn Windows Features on or off ->
+     Legacy Components -> Enable NTVDM
+
+    Second:
+
+    Open "Command prompt"
+    Right click over title "Command prompt" and select "Properties"
+    Select the left tab "Options"
+    Select "Use legacy console (require relauch)", then "OK"
+    Close and re-open "Command prompt" to test. 
+
+    See also
+    https://social.technet.microsoft.com/Forums/en-US/d3482e1c-bc5d-4245-baec-ae900469fd89/problems-running-16bit-programs-in-32bit-windows-10tp?forum=WinPreview2014General
 
 
 Basic Installation
