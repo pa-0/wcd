@@ -171,7 +171,7 @@ Windows 10
 
     16 bit MS-DOS Subsystem
     C:\Windows\system32\cmd.exe - ls
-    NTVTM has encountered a System Error
+    NTVDM has encountered a System Error
     The handle is invalid.
     Choos 'Close' to terminate the application.
 
