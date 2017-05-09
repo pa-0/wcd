@@ -1,6 +1,6 @@
 #  Copyright and License
 #
-#      Copyright (C) 1997-2016 Erwin Waterlander
+#      Copyright (C) 1997-2017 Erwin Waterlander
 #      Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -750,7 +750,7 @@ C<$HOME/.bashrc>):
 
     wcd ()
     {
-        <PATH>/wcd.exe "$@"
+        PATH/wcd.exe "$@"
         . ${WCDHOME:-${HOME}}/bin/wcd.go
     }
 
@@ -767,7 +767,7 @@ DOS bash:
 
     wcd ()
     {
-        <PATH>/wcdbash.exe "$@"
+        PATH/wcdbash.exe "$@"
         . ${WCDHOME:-${HOME:-"c:"}}/wcd.go
     }
 
@@ -775,7 +775,7 @@ OS/2 bash:
 
     wcd ()
     {
-        <PATH>/wcdos2bash.exe "$@"
+        PATH/wcdos2bash.exe "$@"
         . ${WCDHOME:-${HOME:-"c:"}}/wcd.go
     }
 
@@ -784,7 +784,7 @@ be written in c:/.
 
     wcd ()
     {
-        <PATH>/wcdwin32zsh.exe "$@"
+        PATH/wcdwin32zsh.exe "$@"
         . ${WCDHOME:-${HOME}}/wcd.go
     }
 
@@ -796,9 +796,9 @@ Add the following alias to the shell startup file C<$HOME/.cshrc> or
 C<$HOME/.tcshrc> :
 
     if ( ${?WCDHOME} ) then
-        alias wcd "<PATH>/wcd.exe \!* ; source $WCDHOME/bin/wcd.go"
+        alias wcd "PATH/wcd.exe \!* ; source $WCDHOME/bin/wcd.go"
     else
-        alias wcd "<PATH>/wcd.exe \!* ; source $HOME/bin/wcd.go"
+        alias wcd "PATH/wcd.exe \!* ; source $HOME/bin/wcd.go"
     endif
 
 Replace I<PATH> with the location where the wcd executable has been installed.
@@ -830,7 +830,7 @@ one of the environment variables I<HOME> or I<WCDHOME> is defined.
 
     function wcd
     {
-        <PATH>\wcdwin32psh.exe $args
+        PATH\wcdwin32psh.exe $args
         & $env:HOME\wcdgo.ps1
     }
 
@@ -1147,8 +1147,8 @@ systems. The directory of this file can be changed with the option B<-G>.
 Text file with relative paths from I<DIR>. See options B<+S>, B<-n> and
 B<+n>.
 
-    DOS: <path>\rtdata.wcd
-    Unix: <path>/.rtdata.wcd
+    DOS: PATH\rtdata.wcd
+    Unix: PATH/.rtdata.wcd
 
 =back
 

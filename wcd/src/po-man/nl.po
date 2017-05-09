@@ -1,12 +1,12 @@
 # Dutch translation of the wcd man page.
-# Copyright (C) 2014 Erwin Waterlander (msgids)
+# Copyright (C) 2014-2017 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
 # Erwin Waterlander <waterlan@xs4all.nl>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man\n"
-"POT-Creation-Date: 2017-01-19 00:10+0100\n"
+"POT-Creation-Date: 2017-05-09 23:06+0200\n"
 "PO-Revision-Date: 2014-05-27 22:29+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -377,7 +377,7 @@ msgstr "B<-A PAD>"
 #. type: textblock
 #: wcd.pod:225
 msgid "Scan directory tree from I<PATH> and append to the default treedata file. Examples:"
-msgstr "Scan mappenboom vanaf I<PATH> en voeg toe aan het standaard boomdata-bestand. Voorbeelden:"
+msgstr "Scan mappenboom vanaf I<PAD> en voeg toe aan het standaard boomdata-bestand. Voorbeelden:"
 
 #. type: verbatim
 #: wcd.pod:228
@@ -1418,18 +1418,17 @@ msgstr "Voor een POSIX shell (ksh, bash, zsh, etc) op Unix, Linux, Cygwin, of MS
 
 #. type: verbatim
 #: wcd.pod:751
-#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcd.exe \"$@\"\n"
+"        PATH/wcd.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/bin/wcd.go\n"
 "    }\n"
 "\n"
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PAD>/wcd.exe \"$@\"\n"
+"        PAD/wcd.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/bin/wcd.go\n"
 "    }\n"
 "\n"
@@ -1456,18 +1455,17 @@ msgstr ""
 
 #. type: verbatim
 #: wcd.pod:768
-#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcdbash.exe \"$@\"\n"
+"        PATH/wcdbash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PAD>/wcdbash.exe \"$@\"\n"
+"        PAD/wcdbash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1479,42 +1477,39 @@ msgstr ""
 
 #. type: verbatim
 #: wcd.pod:776
-#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcdos2bash.exe \"$@\"\n"
+"        PATH/wcdos2bash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PAD>/wcdos2bash.exe \"$@\"\n"
+"        PAD/wcdos2bash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
 
 #. type: textblock
 #: wcd.pod:782
-#| msgid "The WinZsh version of wcd is also a bit different. No C<bin> directory."
 msgid "The WinZsh version of wcd requires a bit different function. The go-script will never be written in c:/."
 msgstr "De WinZsh versie van wcd is ook een beetje anders. Het go-script wordt nooit in c:/ geschreven."
 
 #. type: verbatim
 #: wcd.pod:785
-#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcdwin32zsh.exe \"$@\"\n"
+"        PATH/wcdwin32zsh.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/wcd.go\n"
 "    }\n"
 "\n"
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcdwin32zsh.exe \"$@\"\n"
+"        PAD/wcdwin32zsh.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1536,19 +1531,18 @@ msgstr "Voeg de volgende alias toe aan het shell opstartbestand C<$HOME/.cshrc> 
 
 #. type: verbatim
 #: wcd.pod:798
-#, no-wrap
 msgid ""
 "    if ( ${?WCDHOME} ) then\n"
-"        alias wcd \"<PATH>/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
+"        alias wcd \"PATH/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
 "    else\n"
-"        alias wcd \"<PATH>/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
+"        alias wcd \"PATH/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
 "    endif\n"
 "\n"
 msgstr ""
 "    if ( ${?WCDHOME} ) then\n"
-"        alias wcd \"<PAD>/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
+"        alias wcd \"PAD/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
 "    else\n"
-"        alias wcd \"<PAD>/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
+"        alias wcd \"PAD/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
 "    endif\n"
 "\n"
 
@@ -1594,18 +1588,17 @@ msgstr "Voeg de volgende functie toe aan uw PowerShell gebruikersprofiel. De loc
 
 #. type: verbatim
 #: wcd.pod:831
-#, no-wrap
 msgid ""
 "    function wcd\n"
 "    {\n"
-"        <PATH>\\wcdwin32psh.exe $args\n"
+"        PATH\\wcdwin32psh.exe $args\n"
 "        & $env:HOME\\wcdgo.ps1\n"
 "    }\n"
 "\n"
 msgstr ""
 "    function wcd\n"
 "    {\n"
-"        <PAD>\\wcdwin32psh.exe $args\n"
+"        PAD\\wcdwin32psh.exe $args\n"
 "        & $env:HOME\\wcdgo.ps1\n"
 "    }\n"
 "\n"
@@ -2103,14 +2096,13 @@ msgstr "Tekstbestand met relatieve paden vanaf I<MAP>. Zie opties B<+S>, B<-n> e
 
 #. type: verbatim
 #: wcd.pod:1150
-#, no-wrap
 msgid ""
-"    DOS: <path>\\rtdata.wcd\n"
-"    Unix: <path>/.rtdata.wcd\n"
+"    DOS: PATH\\rtdata.wcd\n"
+"    Unix: PATH/.rtdata.wcd\n"
 "\n"
 msgstr ""
-"    DOS: <path>\\rtdata.wcd\n"
-"    Unix: <path>/.rtdata.wcd\n"
+"    DOS: PAD\\rtdata.wcd\n"
+"    Unix: PAD/.rtdata.wcd\n"
 "\n"
 
 #. type: =head1
@@ -2527,6 +2519,3 @@ msgstr "De opmaak van de handleiding was verzorgd door Jari Aalto <jari.aalto@ca
 #: wcd.pod:1367
 msgid "NCD was originally written by Brad Kingsbury for Peter Norton's \"Norton Utilities\" around 1987. See also L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
 msgstr "NCD was oorspronkelijk geschreven door Brad Kingsbury voor Peter Norton's \"Norton Utilities\" omstreeks 1987. Zie ook L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
-
-#~ msgid "Freecode: L<http://freecode.com/projects/wcd/>"
-#~ msgstr "Freecode: L<http://freecode.com/projects/wcd/>"
