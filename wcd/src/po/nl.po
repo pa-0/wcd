@@ -1,5 +1,5 @@
 # Dutch translations for wcd.
-# Copyright (C) 2016 Erwin Waterlander (msgids)
+# Copyright (C) 2017 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
 #
 # """ On demandait à monsieur Chamfort pourquoi la nature avait
@@ -11,17 +11,17 @@
 # Benno Schulenberg <benno@vertaalt.nl>, 2014, 2016, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 5.3.4-beta3\n"
+"Project-Id-Version: wcd 6.0.0-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-08 21:46+0100\n"
-"PO-Revision-Date: 2017-01-07 15:06+0100\n"
+"POT-Creation-Date: 2017-02-09 23:29+0100\n"
+"PO-Revision-Date: 2017-02-22 13:36+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 
@@ -109,11 +109,11 @@ msgid "Removed directory %s\n"
 msgstr "Map %s is verwijderd.\n"
 
 #: wcd.c:1113 wcd.c:1182 wcd.c:1250
-#, fuzzy, c-format
+#, c-format
 msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"
 msgstr ""
 "Regel in %s is te lang (> %d).  Het boombestand kan beschadigd zijn,\n"
-"of anders is het op te lossen door DD_MAXPATH in broncode te verhogen.\n"
+"of anders is het op te lossen door WCD_MAXPATH in broncode te verhogen.\n"
 
 #: wcd.c:1114 wcd.c:1183 wcd.c:1251
 #, c-format
@@ -722,7 +722,8 @@ msgstr ""
 msgid "creating directory %s\n"
 msgstr "aanmaken van map %s\n"
 
-#: wcd.c:2522 wcd.c:2562 wcd.c:2577 wcd.c:2645 wcd.c:2714 wcd.c:3216 wcd.c:3235
+#: wcd.c:2522 wcd.c:2562 wcd.c:2577 wcd.c:2645 wcd.c:2714 wcd.c:3216
+#: wcd.c:3235
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Waarde van omgevingsvariabele %s is te lang.\n"
@@ -1204,9 +1205,9 @@ msgid "Unable to remove file %s: %s\n"
 msgstr "Kan bestand %s niet verwijderen: %s\n"
 
 #: finddirs.c:322 finddirs.c:486
-#, fuzzy, c-format
+#, c-format
 msgid "Unable to close directory %s: %s\n"
-msgstr "Kan map %s niet aanmaken: %s\n"
+msgstr "Kan map %s niet sluiten: %s\n"
 
 #: finddirs.c:365
 #, c-format
