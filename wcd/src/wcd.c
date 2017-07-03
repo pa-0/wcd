@@ -1610,7 +1610,8 @@ void scanfile(char *org_dir, char *filename, int ignore_case,
    if ((strlen(org_dir)>1) && (dd_match(org_dir,"[a-z]:*",1)))
    {
      /* If user searches "c:bin" (a directory "bin" on drive c:) set path_str to "c:*bin" */
-     wcd_strncpy(path_str,org_dir,sizeof(path_str));
+     wcd_strncpy(path_str,org_dir,WCD_MAXDRIVE-1);
+     path_str[WCD_MAXDRIVE-1] = '\0';
      line_end = org_dir + WCD_MAXDRIVE ;
      wcd_strncat(path_str,"*",sizeof(path_str));
      wcd_strncat(path_str,line_end,sizeof(path_str));

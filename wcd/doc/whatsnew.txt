@@ -1,3 +1,9 @@
+6.0.1-beta1 2017-07-03
+  - wcd.c: Fix. DOS, OS2, and Windows versions. When user gives drive
+    plus directory name (e.g. wcd d:games), wcd did not find the directory.
+    This was broken since wcd 5.3.3. Thanks to Martin for reporting this issue.
+    https://sourceforge.net/p/wcd/feature-requests/14/
+
 6.0.0 2017-02-21
   - Faster disk scanning on Windows and Unix and on OS/2 with Watcom C
     built version.
