@@ -269,6 +269,7 @@ Table of Contents
         Benno Schulenberg   Cleanup user interface messages.
         Andreas Schwab      Fix: etc/profile.d/wcd.sh: wcd function was overwriting shell's $go variable.
         Erik Rijshouwer     Idea for option -ls, list the aliases.
+        Martin              Report bug that wcd DRIVE:DIR was broken in 6.0.0.
 
 
     3.1 Translators
