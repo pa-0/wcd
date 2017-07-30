@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd-man 6.0.0-beta4\n"
-"POT-Creation-Date: 2017-05-09 23:06+0200\n"
-"PO-Revision-Date: 2017-02-11 21:54+0100\n"
+"Project-Id-Version: wcd-man 6.0.1-beta1\n"
+"POT-Creation-Date: 2017-07-03 22:53+0200\n"
+"PO-Revision-Date: 2017-07-29 14:59+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #. type: =head1
 #: wcd.pod:43
@@ -1421,14 +1421,7 @@ msgstr "Für eine POSIX-Shell (ksh, bash, zsh, etc.) unter Unix, Linux, Cygwin o
 
 #. type: verbatim
 #: wcd.pod:751
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcd.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME}}/bin/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1439,15 +1432,13 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PFAD>/wcd.exe \"$@\"\n"
+"        PATH/wcd.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/bin/wcd.go\n"
 "    }\n"
 "\n"
 
 #. type: textblock
 #: wcd.pod:757
-#, fuzzy
-#| msgid "Replace I<PATH> with the location where the wcd executable has been installed.  Reload the shell initialization files or start a new shell."
 msgid "Replace I<PATH> with the location where the wcd executable has been installed. Reload the shell initialization files or start new shell."
 msgstr "I<PFAD> wird durch den Ort ersetzt, in dem das ausführbare wcd-Programm gespeichert ist. Laden Sie die Initialisierungsdateien der Shell neu oder starten Sie eine neue Shell."
 
@@ -1468,14 +1459,7 @@ msgstr "DOS-Bash:"
 
 #. type: verbatim
 #: wcd.pod:768
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcdbash.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1486,7 +1470,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcdbash.exe \"$@\"\n"
+"        PATH/wcdbash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1498,14 +1482,7 @@ msgstr "OS/2-Bash:"
 
 #. type: verbatim
 #: wcd.pod:776
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcdos2bash.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1516,7 +1493,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcdos2bash.exe \"$@\"\n"
+"        PATH/wcdos2bash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1528,14 +1505,7 @@ msgstr "Die WinZsh-Version von wcd erfordert eine etwas andere Funktion. Das Go-
 
 #. type: verbatim
 #: wcd.pod:785
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcdwin32zsh.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1546,7 +1516,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <PATH>/wcdwin32zsh.exe \"$@\"\n"
+"        PATH/wcdwin32zsh.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1568,14 +1538,7 @@ msgstr "Fügen Sie den folgenden Alias zur Shell-Startdatei C<$HOME/.cshrc> oder
 
 #. type: verbatim
 #: wcd.pod:798
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    if ( ${?WCDHOME} ) then\n"
-#| "        alias wcd \"<PATH>/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
-#| "    else\n"
-#| "        alias wcd \"<PATH>/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
-#| "    endif\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    if ( ${?WCDHOME} ) then\n"
 "        alias wcd \"PATH/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
@@ -1585,9 +1548,9 @@ msgid ""
 "\n"
 msgstr ""
 "    if ( ${?WCDHOME} ) then\n"
-"        alias wcd \"<PATH>/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
+"        alias wcd \"PATH/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
 "    else\n"
-"        alias wcd \"<PATH>/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
+"        alias wcd \"PATH/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
 "    endif\n"
 "\n"
 
@@ -1633,14 +1596,7 @@ msgstr "Fügen Sie die folgende Funktion zu Ihrem PowerShell-Benutzerprofil hinz
 
 #. type: verbatim
 #: wcd.pod:831
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    function wcd\n"
-#| "    {\n"
-#| "        <PATH>\\wcdwin32psh.exe $args\n"
-#| "        & $env:HOME\\wcdgo.ps1\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    function wcd\n"
 "    {\n"
@@ -1651,7 +1607,7 @@ msgid ""
 msgstr ""
 "    function wcd\n"
 "    {\n"
-"        <PFAD>\\wcdwin32psh.exe $args\n"
+"        PATH\\wcdwin32psh.exe $args\n"
 "        & $env:HOME\\wcdgo.ps1\n"
 "    }\n"
 "\n"
@@ -2149,18 +2105,14 @@ msgstr "Textdatei mit relativen Pfaden von I<VERZEICHNIS>. Siehe die Optionen B<
 
 #. type: verbatim
 #: wcd.pod:1150
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    DOS: <path>\\rtdata.wcd\n"
-#| "    Unix: <path>/.rtdata.wcd\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    DOS: PATH\\rtdata.wcd\n"
 "    Unix: PATH/.rtdata.wcd\n"
 "\n"
 msgstr ""
-"    DOS: <path>\\rtdata.wcd\n"
-"    Unix: <path>/.rtdata.wcd\n"
+"    DOS: PATH\\rtdata.wcd\n"
+"    Unix: PATH/.rtdata.wcd\n"
 "\n"
 
 #. type: =head1
@@ -2577,11 +2529,6 @@ msgstr "Die Formatierung der Handbuchseite wurde von Jari Aalto <jari.aalto@cant
 #: wcd.pod:1367
 msgid "NCD was originally written by Brad Kingsbury for Peter Norton's \"Norton Utilities\" around 1987. See also L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
 msgstr "NCD wurde ursprünglich von Brad Kingsbury für Peter Nortons »Norton Utilities« etwa 1987 geschrieben. Siehe auch L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
-
-#, fuzzy
-#~| msgid "Replace I<PATH> with the location where the wcd executable has been installed. Reload the shell initialization files or start new shell."
-#~ msgid "Replace <PATH E<gt>> with the location where the wcd executable has been installed. Reload the shell initialization files or start new shell."
-#~ msgstr "I<PFAD> wird durch den Ort ersetzt, in dem das ausführbare wcd-Programm gespeichert ist. Laden Sie die Initialisierungsdateien der Shell neu oder starten Sie eine neue Shell."
 
 #~ msgid "Freecode: L<http://freecode.com/projects/wcd/>"
 #~ msgstr "Freecode: L<http://freecode.com/projects/wcd/>"

@@ -5,9 +5,9 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2014, 2016, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd-man-6.0.0-beta4\n"
-"POT-Creation-Date: 2017-05-09 23:06+0200\n"
-"PO-Revision-Date: 2017-02-10 11:50+0200\n"
+"Project-Id-Version: wcd-man-6.0.1-beta1\n"
+"POT-Creation-Date: 2017-07-03 22:53+0200\n"
+"PO-Revision-Date: 2017-07-29 15:04+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
 #. type: =head1
 #: wcd.pod:43
@@ -1418,14 +1418,7 @@ msgstr "Для командних оболонок POSIX (ksh, bash, zsh, etc.) 
 
 #. type: verbatim
 #: wcd.pod:751
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcd.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME}}/bin/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1436,15 +1429,13 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <ШЛЯХ>/wcd.exe \"$@\"\n"
+"        PATH/wcd.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/bin/wcd.go\n"
 "    }\n"
 "\n"
 
 #. type: textblock
 #: wcd.pod:757
-#, fuzzy
-#| msgid "Replace I<PATH> with the location where the wcd executable has been installed.  Reload the shell initialization files or start a new shell."
 msgid "Replace I<PATH> with the location where the wcd executable has been installed. Reload the shell initialization files or start new shell."
 msgstr "Замініть I<ШЛЯХ> на адресу каталогу, до якого встановлено виконуваний файл wcd. Перезавантажте файли ініціалізації оболонки або запустіть нову оболонку."
 
@@ -1465,14 +1456,7 @@ msgstr "DOS bash:"
 
 #. type: verbatim
 #: wcd.pod:768
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcdbash.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1483,7 +1467,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <ШЛЯХ>/wcdbash.exe \"$@\"\n"
+"        PATH/wcdbash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1495,14 +1479,7 @@ msgstr "OS/2 bash:"
 
 #. type: verbatim
 #: wcd.pod:776
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcdos2bash.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1513,7 +1490,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <ШЛЯХ>/wcdos2bash.exe \"$@\"\n"
+"        PATH/wcdos2bash.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1525,14 +1502,7 @@ msgstr "Версія wcd для WinZsh потребує трохи іншої ф
 
 #. type: verbatim
 #: wcd.pod:785
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    wcd ()\n"
-#| "    {\n"
-#| "        <PATH>/wcdwin32zsh.exe \"$@\"\n"
-#| "        . ${WCDHOME:-${HOME}}/wcd.go\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1543,7 +1513,7 @@ msgid ""
 msgstr ""
 "    wcd ()\n"
 "    {\n"
-"        <ШЛЯХ>/wcdwin32zsh.exe \"$@\"\n"
+"        PATH/wcdwin32zsh.exe \"$@\"\n"
 "        . ${WCDHOME:-${HOME}}/wcd.go\n"
 "    }\n"
 "\n"
@@ -1565,14 +1535,7 @@ msgstr "Додайте такі альтернативні назви до фа�
 
 #. type: verbatim
 #: wcd.pod:798
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    if ( ${?WCDHOME} ) then\n"
-#| "        alias wcd \"<PATH>/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
-#| "    else\n"
-#| "        alias wcd \"<PATH>/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
-#| "    endif\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    if ( ${?WCDHOME} ) then\n"
 "        alias wcd \"PATH/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
@@ -1582,9 +1545,9 @@ msgid ""
 "\n"
 msgstr ""
 "    if ( ${?WCDHOME} ) then\n"
-"        alias wcd \"<ШЛЯХ>/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
+"        alias wcd \"PATH/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
 "    else\n"
-"        alias wcd \"<ШЛЯХ>/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
+"        alias wcd \"PATH/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
 "    endif\n"
 "\n"
 
@@ -1630,14 +1593,7 @@ msgstr "Додайте вказану нижче функцію до вашог�
 
 #. type: verbatim
 #: wcd.pod:831
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    function wcd\n"
-#| "    {\n"
-#| "        <PATH>\\wcdwin32psh.exe $args\n"
-#| "        & $env:HOME\\wcdgo.ps1\n"
-#| "    }\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    function wcd\n"
 "    {\n"
@@ -1648,7 +1604,7 @@ msgid ""
 msgstr ""
 "    function wcd\n"
 "    {\n"
-"        <ШЛЯХ>\\wcdwin32psh.exe $args\n"
+"        PATH\\wcdwin32psh.exe $args\n"
 "        & $env:HOME\\wcdgo.ps1\n"
 "    }\n"
 "\n"
@@ -2146,18 +2102,14 @@ msgstr "Текстовий файл з відносними шляхами що�
 
 #. type: verbatim
 #: wcd.pod:1150
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    DOS: <path>\\rtdata.wcd\n"
-#| "    Unix: <path>/.rtdata.wcd\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    DOS: PATH\\rtdata.wcd\n"
 "    Unix: PATH/.rtdata.wcd\n"
 "\n"
 msgstr ""
-"    DOS: <шлях>\\rtdata.wcd\n"
-"    Unix: <шлях>/.rtdata.wcd\n"
+"    DOS: PATH\\rtdata.wcd\n"
+"    Unix: PATH/.rtdata.wcd\n"
 "\n"
 
 #. type: =head1
@@ -2574,11 +2526,6 @@ msgstr "Форматування сторінки підручника було 
 #: wcd.pod:1367
 msgid "NCD was originally written by Brad Kingsbury for Peter Norton's \"Norton Utilities\" around 1987. See also L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
 msgstr "Початкову версію NCD було створено Brad Kingsbury для пакунка \"Norton Utilities\" Пітера Нортона близько 1987 року. Див. також L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
-
-#, fuzzy
-#~| msgid "Replace I<PATH> with the location where the wcd executable has been installed. Reload the shell initialization files or start new shell."
-#~ msgid "Replace <PATH E<gt>> with the location where the wcd executable has been installed. Reload the shell initialization files or start new shell."
-#~ msgstr "Замініть I<ШЛЯХ> на адресу каталогу, до якого встановлено виконуваний файл wcd. Перезавантажте файли ініціалізації оболонки або запустіть нову оболонку."
 
 #~ msgid "Freecode: L<http://freecode.com/projects/wcd/>"
 #~ msgstr "Freecode: L<http://freecode.com/projects/wcd/>"

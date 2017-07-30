@@ -81,10 +81,9 @@ Table of Contents
         Unicode since version 1.7.
 
 	In version 6.0.0 (Feb 2017) the DOSDIR directory interface layer was
-        removed from Wcd.  The amount of directories can be huge in these days,
+        removed from Wcd.  The amount of directories can be huge these days,
         so scanning a disk can take a long time. Removal of DOSDIR resulted in
-        about 4 times faster disk scanning on Windows and Unix. The DOSDIR
-        functions have been replaced by system specific functions.
+        faster disk scanning on Windows and Unix.
 
 
 2.0 Copyright
@@ -301,9 +300,9 @@ Table of Contents
         Translations of the manual:
         See http://translationproject.org/domain/wcd-man.html
 
-        Dutch                 Erwin Waterlander            Version 5.2.5 - 6.0.0
-        German                Mario Blättermann            Version 5.2.5 - 6.0.0
-        Ukrainian             Yuri Chornoivan              Version 5.2.5 - 6.0.0
+        Dutch                 Erwin Waterlander            Version 5.2.5 - 6.0.1
+        German                Mario Blättermann            Version 5.2.5 - 6.0.1
+        Ukrainian             Yuri Chornoivan              Version 5.2.5 - 6.0.1
 
 
     3.2 Works of others used in the program
@@ -368,6 +367,8 @@ Table of Contents
         http://packages.ubuntu.com/
 
         Fedora Linux
+
+        openSuse Linux
 
         Gentoo Linux
 
