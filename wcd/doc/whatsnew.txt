@@ -3,6 +3,9 @@
     plus directory name (e.g. wcd d:games), wcd did not find the directory.
     This was broken since wcd 5.3.3. Thanks to Martin for reporting this issue.
     https://sourceforge.net/p/wcd/feature-requests/14/
+  - GCC_DOS.txt: Document problems and solutions for building (using DJGPP) and
+    using wcd on Windows Vista and higher.
+  - Minor cleanup of the manual.
 
 6.0.0 2017-02-21
   - Faster disk scanning on Windows and Unix and on OS/2 with Watcom C
