@@ -425,7 +425,11 @@ endif
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
 CFLAGS_USER	=
+ifeq ($(DEBUG), 1)
+CFLAGS	?= -O0
+else
 CFLAGS	?= -O2
+endif
 CFLAGS  += -Wall -Wextra -Wno-unused-parameter -Wconversion $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
 
 EXTRA_CFLAGS	= -Ic3po \
