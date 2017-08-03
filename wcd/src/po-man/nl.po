@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man\n"
-"POT-Creation-Date: 2017-05-09 23:06+0200\n"
+"POT-Creation-Date: 2017-08-03 09:56+0200\n"
 "PO-Revision-Date: 2014-05-27 22:29+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -1418,6 +1418,7 @@ msgstr "Voor een POSIX shell (ksh, bash, zsh, etc) op Unix, Linux, Cygwin, of MS
 
 #. type: verbatim
 #: wcd.pod:751
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1455,6 +1456,7 @@ msgstr ""
 
 #. type: verbatim
 #: wcd.pod:768
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1477,6 +1479,7 @@ msgstr ""
 
 #. type: verbatim
 #: wcd.pod:776
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1499,6 +1502,7 @@ msgstr "De WinZsh versie van wcd is ook een beetje anders. Het go-script wordt n
 
 #. type: verbatim
 #: wcd.pod:785
+#, no-wrap
 msgid ""
 "    wcd ()\n"
 "    {\n"
@@ -1531,6 +1535,7 @@ msgstr "Voeg de volgende alias toe aan het shell opstartbestand C<$HOME/.cshrc> 
 
 #. type: verbatim
 #: wcd.pod:798
+#, no-wrap
 msgid ""
 "    if ( ${?WCDHOME} ) then\n"
 "        alias wcd \"PATH/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
@@ -1563,7 +1568,7 @@ msgstr "Pak het zip-bestand uit en voeg map C<bin> toe aan omgevingsvariabele I<
 
 #. type: textblock
 #: wcd.pod:813
-msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch scrip C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
+msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch script C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
 msgstr "In Windows Opdrachtprompt kan een Windows programma niet de huidige werkmap veranderen, maar een .bat bestand kan dat wel. Het batch script C<wcd.bat> draait het wcd programma dat een nieuw batch script C<wcdgo.bat> genereert. Daarna start C<wcd.bat> C<wcdgo.bat> die feitelijk de map verandert."
 
 #. type: =head2
@@ -1588,6 +1593,7 @@ msgstr "Voeg de volgende functie toe aan uw PowerShell gebruikersprofiel. De loc
 
 #. type: verbatim
 #: wcd.pod:831
+#, no-wrap
 msgid ""
 "    function wcd\n"
 "    {\n"
@@ -2096,6 +2102,7 @@ msgstr "Tekstbestand met relatieve paden vanaf I<MAP>. Zie opties B<+S>, B<-n> e
 
 #. type: verbatim
 #: wcd.pod:1150
+#, no-wrap
 msgid ""
 "    DOS: PATH\\rtdata.wcd\n"
 "    Unix: PATH/.rtdata.wcd\n"
@@ -2457,7 +2464,7 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:1320
-msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exists if you have set a large buffer width."
+msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exits if you have set a large buffer width."
 msgstr "Wcd laat maar een kleine buffer opslaan. Daardoor is het niet altijd mogelijk om alles te herstellen. Er kan wat rommel in de console geprint worden als wcd afsluit wanneer u een grote bufferbreedte heeft ingesteld."
 
 #. type: =item

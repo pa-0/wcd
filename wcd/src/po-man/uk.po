@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man-6.0.1-beta1\n"
-"POT-Creation-Date: 2017-07-03 22:53+0200\n"
+"POT-Creation-Date: 2017-08-03 09:56+0200\n"
 "PO-Revision-Date: 2017-07-29 15:04+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -1568,7 +1568,9 @@ msgstr "Розпакуйте архів zip і додайте каталог C<b
 
 #. type: textblock
 #: wcd.pod:813
-msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch scrip C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
+#, fuzzy
+#| msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch scrip C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
+msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch script C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
 msgstr "Програма для Windows, що працює у вікні командної оболонки Windows (Command Prompt) не може змінити поточного каталогу, але це може зробити скрипт .bat. Пакетний скрипт C<wcd.ba>» запускає програму wcd, яка створює новий пакетний скрипт, C<wcdgo.bat>. Після цього C<wcd.bat> запускає скрипт C<wcdgo.bat>, який здійснює зміну каталогу."
 
 #. type: =head2
@@ -2464,7 +2466,9 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:1320
-msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exists if you have set a large buffer width."
+#, fuzzy
+#| msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exists if you have set a large buffer width."
+msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exits if you have set a large buffer width."
 msgstr "У Windows передбачено можливість зберігання лише буфера незначного обсягу. Тому повне відновлення не завжди можливе. Якщо вміст буфера є доволі значним, до консолі після виходу з wcd буде виведено випадкові символи."
 
 #. type: =item

@@ -811,7 +811,7 @@ Unpack the zip file and add directory C<bin> to your environment
 variable I<PATH>.
 
 In Windows Command Prompt a Windows program cannot change the current work
-directory, but a .bat file can. The batch scrip C<wcd.bat> runs the wcd program
+directory, but a .bat file can. The batch script C<wcd.bat> runs the wcd program
 which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat>
 which actually changes the directory.
 
@@ -1319,7 +1319,7 @@ An example for Windows Command Prompt:
 
 Windows allows only a small buffer to be saved. So it is not always
 possible to restore everything. Some garbage data may be printed in
-the console after wcd exists if you have set a large buffer width.
+the console after wcd exits if you have set a large buffer width.
 
 
 =item B<SHELL>

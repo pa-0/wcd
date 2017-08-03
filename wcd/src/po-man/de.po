@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man 6.0.1-beta1\n"
-"POT-Creation-Date: 2017-07-03 22:53+0200\n"
+"POT-Creation-Date: 2017-08-03 09:56+0200\n"
 "PO-Revision-Date: 2017-07-29 14:59+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -1571,7 +1571,9 @@ msgstr "Entpacken Sie die Zip-Datei und fügen Sie den Ordner C<bin> zu Ihrer Um
 
 #. type: textblock
 #: wcd.pod:813
-msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch scrip C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
+#, fuzzy
+#| msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch scrip C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
+msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch script C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
 msgstr "Im Windows-Befehlszeileninterpreter kann ein Windows-Programm das aktuelle Arbeitsverzeichnis nicht wechseln, das ist aber mit einer .bat-Datei möglich. Das Batch-Skript C<wcd.bat> ruft das wcd-Programm auf, welches seinerseits das neue Batch-Skript C<wcdgo.bat> erzeugt. Dann führt C<wcd.go> wiederum C<wcdgo.bat> aus, welches tatsächlich das Verzeichnis wechselt."
 
 #. type: =head2
@@ -2467,7 +2469,9 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:1320
-msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exists if you have set a large buffer width."
+#, fuzzy
+#| msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exists if you have set a large buffer width."
+msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exits if you have set a large buffer width."
 msgstr "Windows kann nur einen kleinen Puffer speichern. Es ist daher nicht immer möglich, alles wiederherzustellen. Andererseits kann in der Konsole nach wcd Datenmüll ausgegeben werden, falls Sie den Puffer größer gewählt haben."
 
 #. type: =item
