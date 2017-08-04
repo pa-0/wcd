@@ -6,6 +6,8 @@
   - GCC_DOS.txt: Document problems and solutions for building (using DJGPP) and
     using wcd on Windows Vista and higher.
   - Minor cleanup of the manual.
+  - New Brazilian Portuguese translation of the messages. Thanks to Rafael Fontenelle.
+  - New Brazilian Portuguese translation of the manual. Thanks to Rafael Fontenelle.
 
 6.0.0 2017-02-21
   - Faster disk scanning on Windows and Unix and on OS/2 with Watcom C

@@ -279,6 +279,7 @@ Table of Contents
         All translations of the messages go via the Translation Project.
         see http://translationproject.org/domain/wcd.html
 
+        Brazilian Portuguese  Rafael Fontenelle            Version 6.0.1
         Chinese (simplified)  Mingcong Bai (Jeff) and      Version 5.3.1
                               Mingye Wang (Arthur)
         Danish                Joe Hansen                   Version 6.0.0
@@ -300,6 +301,7 @@ Table of Contents
         Translations of the manual:
         See http://translationproject.org/domain/wcd-man.html
 
+        Brazilian Portuguese  Rafael Fontenelle            Version 6.0.1
         Dutch                 Erwin Waterlander            Version 5.2.5 - 6.0.1
         German                Mario Blättermann            Version 5.2.5 - 6.0.1
         Ukrainian             Yuri Chornoivan              Version 5.2.5 - 6.0.1

@@ -45,8 +45,9 @@ Features
   * Windows Command Prompt, Windows PowerShell, Windows ZSH, MSYS, Cygwin
   * Unix/Linux: all Bourne and C type shells
   * OS/2 Warp
-* Native language support: Chinese simplified, Danish, Dutch, English, Esperanto,
-    Finnish, German, Serbian, Spanish, Ukrainian, Vietnamese.
+* Native language support: Brazilian Portuguese, Chinese simplified, Danish,
+  Dutch, English, Esperanto, Finnish, German, Serbian, Spanish, Ukrainian,
+  Vietnamese.
 * Unicode Level 3 support (all UCS characters including double width and combining characters).
   * Unix/Linux
   * Cygwin-1.7.
