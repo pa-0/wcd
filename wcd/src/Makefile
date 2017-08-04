@@ -1,27 +1,26 @@
-#
 #   Copyright information
 #
-#	Copyright (C) 2009-2017 Erwin Waterlander
-#	Copyright (C) 2009 Jari Aalto
+#       Copyright (C) 2009-2017 Erwin Waterlander
+#       Copyright (C) 2009 Jari Aalto
 #
 #   License
 #
-#	This program is free software; you can redistribute it and/or
-#	modify it under the terms of the GNU General Public License as
-#	published by the Free Software Foundation; either version 2 of the
-#	License, or (at your option) any later version
+#       This program is free software; you can redistribute it and/or
+#       modify it under the terms of the GNU General Public License as
+#       published by the Free Software Foundation; either version 2 of the
+#       License, or (at your option) any later version
 #
-#	This program is distributed in the hope that it will be useful, but
-#	WITHOUT ANY WARRANTY; without even the implied warranty of
-#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#	General Public License for more details at
-#	Visit <http://www.gnu.org/copyleft/gpl.html>.
+#       This program is distributed in the hope that it will be useful, but
+#       WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#       General Public License for more details at
+#       Visit <http://www.gnu.org/copyleft/gpl.html>.
 #
 #   Description
 #
-#	This is a GNU Makefile that uses GNU compilers, linkers and cpp. The
-#	platform specific issues are determined by the various OS teets that
-#	rely on the uname(1) command and directory locations.
+#       This is a GNU Makefile that uses GNU compilers, linkers and cpp. The
+#       platform specific issues are determined by the various OS teets that
+#       rely on the uname(1) command and directory locations.
 #
 #   Developer notes
 #
@@ -29,8 +28,8 @@
 #
 #           make maintainer-clean
 #
-#	Set additional flags for the build with variables CFLAGS_USER,
-#	DEFS_USER and LDFLAGS_USER.
+#       Set additional flags for the build with variables CFLAGS_USER,
+#       DEFS_USER and LDFLAGS_USER.
 
 ifneq (,)
 This makefile requires GNU Make.
@@ -44,42 +43,42 @@ include version.mk
 
 .PRECIOUS: %.1 %.pod
 
-CC		?= gcc
-STATIC		=
-STRIP		= strip
+CC              ?= gcc
+STATIC          =
+STRIP           = strip
 
 ENABLE_NLS = 1
 
-PACKAGE		= wcd
-EXT		= .exe
+PACKAGE         = wcd
+EXT             = .exe
 PROGRAM         = $(PACKAGE)$(EXT)
-BIN		= $(PROGRAM)
+BIN             = $(PROGRAM)
 
-PREFIX		= /usr
-prefix		= $(PREFIX)
-exec_prefix	= $(prefix)
-bindir		= $(exec_prefix)/bin
-datarootdir	= $(prefix)/share
-datadir		= $(datarootdir)
+PREFIX          = /usr
+prefix          = $(PREFIX)
+exec_prefix     = $(prefix)
+bindir          = $(exec_prefix)/bin
+datarootdir     = $(prefix)/share
+datadir         = $(datarootdir)
 
-docsubdir	= $(PACKAGE)-$(VERSION)
-docdir		= $(datarootdir)/doc/$(docsubdir)
-localedir	= $(datarootdir)/locale
+docsubdir       = $(PACKAGE)-$(VERSION)
+docdir          = $(datarootdir)/doc/$(docsubdir)
+localedir       = $(datarootdir)/locale
 sysconfdir      = /etc
 
 # 1 = regular, 5 = conf, 6 = games, 8 = daemons
-mandir		= $(datarootdir)/man
-man1dir		= $(mandir)/man1
+mandir          = $(datarootdir)/man
+man1dir         = $(mandir)/man1
 
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
-INSTALL		= install
+INSTALL         = install
 # On some systems (e.g. GNU Win32) GNU mkdir is installed as `gmkdir'.
 MKDIR           = mkdir
 
-INSTALL_PROGRAM	= $(INSTALL) -m 755
-INSTALL_DATA	= $(INSTALL) -m 644
-INSTALL_SUID	= $(INSTALL) -m 4755
+INSTALL_PROGRAM = $(INSTALL) -m 755
+INSTALL_DATA    = $(INSTALL) -m 644
+INSTALL_SUID    = $(INSTALL) -m 4755
 
 INSTALL_OBJS_BIN   = $(BIN)
 INSTALL_OBJS_MAN1  = man/man1/wcd.1
@@ -107,30 +106,30 @@ INSTALL_OBJS_DOC   = \
   man/man1/$(PACKAGE).$(HTMLEXT)
 
 ifdef ENABLE_NLS
-POT		= po/$(PACKAGE).pot
-POFILES		= $(wildcard po/*.po)
-MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
-NLSSUFFIX	= -nls
+POT             = po/$(PACKAGE).pot
+POFILES         = $(wildcard po/*.po)
+MOFILES         = $(patsubst %.po,%.mo,$(POFILES))
+NLSSUFFIX       = -nls
 endif
 
 ifdef ENABLE_NLS
 MANPOTFILE      = po-man/wcd-man.pot
 MANPOFILES      = $(wildcard po-man/*.po)
-MANPODFILES	= $(patsubst po-man/%.po,man/%/man1/wcd.pod,$(MANPOFILES))
+MANPODFILES     = $(patsubst po-man/%.po,man/%/man1/wcd.pod,$(MANPOFILES))
 endif
-MANPODFILES_ALL	= man/man1/wcd.pod $(MANPODFILES)
-MANFILES	= $(patsubst %.pod,%.1,$(MANPODFILES))
-TXTFILES	= $(patsubst %.pod,%.txt,$(MANPODFILES_ALL))
-HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(MANPODFILES_ALL))
-PSFILES 	= $(patsubst %.pod,%.ps,$(MANPODFILES_ALL))
-PDFFILES	= $(patsubst %.pod,%.pdf,$(MANPODFILES_ALL))
+MANPODFILES_ALL = man/man1/wcd.pod $(MANPODFILES)
+MANFILES        = $(patsubst %.pod,%.1,$(MANPODFILES))
+TXTFILES        = $(patsubst %.pod,%.txt,$(MANPODFILES_ALL))
+HTMLFILES       = $(patsubst %.pod,%.$(HTMLEXT),$(MANPODFILES_ALL))
+PSFILES         = $(patsubst %.pod,%.ps,$(MANPODFILES_ALL))
+PDFFILES        = $(patsubst %.pod,%.pdf,$(MANPODFILES_ALL))
 
-CPP		= cpp
-CFLAGS_VERSION	= -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
+CPP             = cpp
+CFLAGS_VERSION  = -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
 DEF_UNIX        = -DUNIX
 EXTRA_DEFS      =
 
-VERSIONSUFFIX	= -bin
+VERSIONSUFFIX   = -bin
 
 # Large File Support (LFS)
 LFS             = 1
@@ -144,30 +143,30 @@ wcd_os := $(shell uname)
 # Enble Unicode
 UCS = 1
 ifdef WCD_UTF8
-	# WCD_UTF8 was used in older versions.
-	UCS=1
+        # WCD_UTF8 was used in older versions.
+        UCS=1
 endif
 ifdef UNINORM
-	UCS = 1
+        UCS = 1
 endif
 
 
-ZIPOBJ		= bin/$(BIN) \
-		  share/man/man1/$(PACKAGE).1 \
-		  share/doc/$(docsubdir)/*.* \
-		  $(ZIPOBJ_EXTRA)
+ZIPOBJ          = bin/$(BIN) \
+                  share/man/man1/$(PACKAGE).1 \
+                  share/doc/$(docsubdir)/*.* \
+                  $(ZIPOBJ_EXTRA)
 
 INSTALL_TARGETS = install-bin install-man install-doc
 
 ifdef ENABLE_NLS
-	INSTALL_TARGETS += install-mo
-	ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
-	ZIPOBJ += share/man/*/man1/$(PACKAGE).1
-	ZIPOBJ += share/doc/$(docsubdir)/*/*
+        INSTALL_TARGETS += install-mo
+        ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
+        ZIPOBJ += share/man/*/man1/$(PACKAGE).1
+        ZIPOBJ += share/doc/$(docsubdir)/*/*
 endif
 
 ifdef ENABLE_NLS
-	NLSDEFS    = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
+        NLSDEFS    = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
 endif
 
 # ......................................................... OS flags ...
@@ -176,151 +175,151 @@ OS =
 
 ifndef OS
 ifeq ($(findstring CYGWIN,$(wcd_os)),CYGWIN)
-	OS = cygwin
+        OS = cygwin
 endif
 endif
 
 ifndef OS
 ifeq ($(findstring MSYS,$(wcd_os)),MSYS)
-	OS = msys
+        OS = msys
 # MSYS 1 does not support locales and no Unicode.
 ifeq ($(shell ./chk_loc.sh en_US.utf8),no)
-	MSYS_VERSION=1
+        MSYS_VERSION=1
 else
-	MSYS_VERSION=2
+        MSYS_VERSION=2
 endif
 endif
 endif
 
 ifndef OS
 ifeq ($(findstring MINGW,$(wcd_os)),MINGW)
-	OS = mingw
+        OS = mingw
 endif
 endif
 
 ifndef OS
 ifneq ($(DJGPP),)
-	OS = msdos
+        OS = msdos
 endif
 endif
 
 ifndef OS
 ifneq (, $(wildcard /opt/csw))
-	OS = sun
+        OS = sun
 endif
 endif
 
 ifndef OS
-	OS=$(shell echo $(wcd_os) | tr [A-Z] [a-z])
+        OS=$(shell echo $(wcd_os) | tr [A-Z] [a-z])
 endif
 
 
 ifeq (cygwin,$(OS))
 ifdef ENABLE_NLS
-	LIBS_EXTRA    = -lintl -liconv -lmpr
+        LIBS_EXTRA    = -lintl -liconv -lmpr
 else
-	LIBS_EXTRA    = -lmpr
+        LIBS_EXTRA    = -lmpr
 endif
-	UNINORM = 1  
-	LDFLAGS_EXTRA = -Wl,--enable-auto-import
-	INSTALL_TARGETS += install-profile
-	docsubdir	= $(PACKAGE)
-	MACHINE := $(subst -pc-cygwin,,$(shell gcc -dumpmachine))
-	VERSIONSUFFIX	= -cygwin-$(MACHINE)
+        UNINORM = 1  
+        LDFLAGS_EXTRA = -Wl,--enable-auto-import
+        INSTALL_TARGETS += install-profile
+        docsubdir       = $(PACKAGE)
+        MACHINE := $(subst -pc-cygwin,,$(shell gcc -dumpmachine))
+        VERSIONSUFFIX   = -cygwin-$(MACHINE)
 endif
 
 ifeq (os/2,$(OS))
-	prefix = c:/usr
-	PROGRAM = wcdos2.exe
-	DEF_UNIX =
-	UCS =
-	UNINORM =
-	LDFLAGS_EXTRA = -Zhigh-mem -Zomf -Zargs-resp
-	ZIPOBJ_EXTRA=bin/wcd.cmd
-	VERSIONSUFFIX = -os2
-	LIBS_EXTRA =
+        prefix = c:/usr
+        PROGRAM = wcdos2.exe
+        DEF_UNIX =
+        UCS =
+        UNINORM =
+        LDFLAGS_EXTRA = -Zhigh-mem -Zomf -Zargs-resp
+        ZIPOBJ_EXTRA=bin/wcd.cmd
+        VERSIONSUFFIX = -os2
+        LIBS_EXTRA =
 ifdef ENABLE_NLS
-	LIBS_EXTRA += -lintl
+        LIBS_EXTRA += -lintl
 endif
 endif
 
 ifeq (mingw,$(OS))
-	CC = gcc
-	DEF_UNIX =
-	LIBS_EXTRA = -lkernel32 -luser32 -lmpr
+        CC = gcc
+        DEF_UNIX =
+        LIBS_EXTRA = -lkernel32 -luser32 -lmpr
 ifdef ENABLE_NLS
-	LIBS_EXTRA += -lintl -liconv
+        LIBS_EXTRA += -lintl -liconv
 endif
 endif
 
 ifeq (msdos,$(OS))
-	CC = gcc
-	DEF_UNIX =
-	UCS =
-	UNINORM =
+        CC = gcc
+        DEF_UNIX =
+        UCS =
+        UNINORM =
 endif
 
 ifeq (msys,$(OS))
-	CC = gcc
-	CFLAGS_OS = -DWCD_MSYS
-	PROGRAM = wcdmsys.exe
-	LIBS_EXTRA  = -lkernel32 -luser32 -lmpr
-	MACHINE := $(subst -pc-msys,,$(shell gcc -dumpmachine))
+        CC = gcc
+        CFLAGS_OS = -DWCD_MSYS
+        PROGRAM = wcdmsys.exe
+        LIBS_EXTRA  = -lkernel32 -luser32 -lmpr
+        MACHINE := $(subst -pc-msys,,$(shell gcc -dumpmachine))
 ifeq ($(MSYS_VERSION),1)
-	UCS =
-	UNINORM =
-	VERSIONSUFFIX = -msys1-$(MACHINE)-$(CURSES)
+        UCS =
+        UNINORM =
+        VERSIONSUFFIX = -msys1-$(MACHINE)-$(CURSES)
 else
-	UCS = 1
-	UNINORM = 1
-	VERSIONSUFFIX = -msys2-$(MACHINE)
+        UCS = 1
+        UNINORM = 1
+        VERSIONSUFFIX = -msys2-$(MACHINE)
 endif
 ifdef ENABLE_NLS
-	LIBS_EXTRA += -lintl -liconv
+        LIBS_EXTRA += -lintl -liconv
 endif
 endif
 
 ifeq (freebsd,$(OS))
-	# Running under FreeBSD
+        # Running under FreeBSD
 ifdef ENABLE_NLS
-	CFLAGS_OS     = -I/usr/local/include
-	LDFLAGS_EXTRA = -L/usr/local/lib
-	LIBS_EXTRA    = -lintl
+        CFLAGS_OS     = -I/usr/local/include
+        LDFLAGS_EXTRA = -L/usr/local/lib
+        LIBS_EXTRA    = -lintl
 endif
 endif
 
 ifeq (darwin, $(OS))
 ifdef ENABLE_NLS
-	CFLAGS_OS     = -I/usr/local/include
-	LDFLAGS_EXTRA = -L/usr/local/lib
-	LIBS_EXTRA    = -lintl
+        CFLAGS_OS     = -I/usr/local/include
+        LDFLAGS_EXTRA = -L/usr/local/lib
+        LIBS_EXTRA    = -lintl
 endif
 endif
 
 
 ifeq (sun,$(OS))
-	# Running under SunOS/Solaris
-	LIBS_EXTRA = -lintl
+        # Running under SunOS/Solaris
+        LIBS_EXTRA = -lintl
 endif
 
 ifeq (hp-ux,$(OS))
-	# Running under HP-UX
-	EXTRA_DEFS += -Dhpux -D_HPUX_SOURCE -D_XOPEN_SOURCE_EXTENDED
+        # Running under HP-UX
+        EXTRA_DEFS += -Dhpux -D_HPUX_SOURCE -D_XOPEN_SOURCE_EXTENDED
 
-	# These flags were for native HP compiler
-	# CFLAGS_OS = -O -Aa
+        # These flags were for native HP compiler
+        # CFLAGS_OS = -O -Aa
 endif
 
 # .......................................................... unicode ...
 
 ifdef UCS
-	CFLAGS_UCS = -std=gnu99
-	WDEFS	   = -DWCD_UNICODE
+        CFLAGS_UCS = -std=gnu99
+        WDEFS      = -DWCD_UNICODE
 endif
 ifdef UNINORM
-	CFLAGS_UCS = -std=gnu99
-	WDEFS	   = -DWCD_UNICODE -DWCD_UNINORM
-	LIB_UNISTRING  = -lunistring
+        CFLAGS_UCS = -std=gnu99
+        WDEFS      = -DWCD_UNICODE -DWCD_UNINORM
+        LIB_UNISTRING  = -lunistring
 endif
 
 ifdef UCS
@@ -333,9 +332,9 @@ endif
 # possible values: ncurses, curses, pdcurses, pdcursesw or <empty>
 
 ifdef UCS
-	CURSES = ncursesw
+        CURSES = ncursesw
 else
-	CURSES = ncurses
+        CURSES = ncurses
 endif
 
 
@@ -345,7 +344,7 @@ endif
 # mintty. For msys2 we use ncurses.
 ifeq (msys,$(OS))
 ifeq ($(MSYS_VERSION),1)
-	CURSES = pdcurses
+        CURSES = pdcurses
 endif
 endif
 
@@ -354,7 +353,7 @@ endif
 # All native Windows versions (with and without Unicode support) use wide
 # (Unicode) curses functions.
 ifeq (mingw,$(OS))
-	CURSES = pdcursesw
+        CURSES = pdcursesw
 endif
 
 ifdef CURSES
@@ -364,10 +363,10 @@ endif
 endif
 
 ifneq (,$(CURSES))
-	DEFS_CURSES = -DWCD_USECURSES
-	LIB_CURSES  = -l$(CURSES)
+        DEFS_CURSES = -DWCD_USECURSES
+        LIB_CURSES  = -l$(CURSES)
 ifeq (os/2,$(OS))
-	LIB_CURSES  += -ltinfo
+        LIB_CURSES  += -ltinfo
 endif
 endif
 
@@ -390,29 +389,29 @@ endif
 # ncurses (normal)/ncursesw (wide char)/ncursest (threads)
 ifeq ($(findstring ncurses,$(CURSES)),ncurses)
 ifneq ($(wildcard $(INCPREFIX)/include/$(CURSES)/curses.h),)
-	INCFLAGS = -I$(INCPREFIX)/include/$(CURSES) -I$(INCPREFIX)/include
+        INCFLAGS = -I$(INCPREFIX)/include/$(CURSES) -I$(INCPREFIX)/include
 endif
 ifeq ($(NCURSES_DEBUG), 1)
-	LIB_CURSES  = -l$(CURSES)_g
+        LIB_CURSES  = -l$(CURSES)_g
 endif
 else
-	INCFLAGS = -I$(INCPREFIX)/include
+        INCFLAGS = -I$(INCPREFIX)/include
 endif
 
 ifeq ($(CURSES),ncursesw)
-	EXTRA_DEFS += -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED
+        EXTRA_DEFS += -D_XOPEN_SOURCE -D_XOPEN_SOURCE_EXTENDED
 endif
 
 ifeq ($(CURSES),pdcursesw)
-	EXTRA_DEFS += -DPDC_STATIC_BUILD -DPDC_WIDE
+        EXTRA_DEFS += -DPDC_STATIC_BUILD -DPDC_WIDE
 endif
 
 # Local installation prefix of ncurses.
-#LOCAL_NCURSES	= $(HOME)
+#LOCAL_NCURSES  = $(HOME)
 #
 #ifneq (, $(wildcard $(LOCAL_NCURSES)/include/ncurses.h))
-#	NCFLAG = -I$(LOCAL_NCURSES)/include
-#	NLFLAG = -L$(LOCAL_NCURSES)/lib
+#       NCFLAG = -I$(LOCAL_NCURSES)/include
+#       NLFLAG = -L$(LOCAL_NCURSES)/lib
 #endif
 
 # ............................................................ flags ...
@@ -423,78 +422,78 @@ endif
 # dynamically) comment the LDFLAGS line and add the 'libncurses.a' file
 # (often found as /usr/lib/libncurses.a) to the OBJS1 list.
 
-CFLAGS_USER	=
+CFLAGS_USER     =
 ifeq ($(DEBUG), 1)
-CFLAGS	?= -O0
+CFLAGS  ?= -O0
 else
-CFLAGS	?= -O2
+CFLAGS  ?= -O2
 endif
 CFLAGS  += -Wall -Wextra -Wno-unused-parameter -Wconversion $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
 
-EXTRA_CFLAGS	= -Ic3po \
-		  $(CFLAGS_VERSION) \
-		  $(CFLAGS_OS) \
-		  $(CFLAGS_UCS) \
-		  $(CFLAGS_COMPILER) \
-		  $(WDEFS) \
-		  $(NLSDEFS) \
-		  $(NCFLAG) \
-		  $(INCFLAGS) \
-		  -DDEBUG=$(DEBUGMSG)
+EXTRA_CFLAGS    = -Ic3po \
+                  $(CFLAGS_VERSION) \
+                  $(CFLAGS_OS) \
+                  $(CFLAGS_UCS) \
+                  $(CFLAGS_COMPILER) \
+                  $(WDEFS) \
+                  $(NLSDEFS) \
+                  $(NCFLAG) \
+                  $(INCFLAGS) \
+                  -DDEBUG=$(DEBUGMSG)
 
 ifeq ($(DEBUG), 1)
-	EXTRA_CFLAGS += -g
+        EXTRA_CFLAGS += -g
 endif
 
 ifdef STATIC
-	LDFLAG_STATIC = -static
+        LDFLAG_STATIC = -static
 endif
 
 ifdef LFS
-	EXTRA_CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
+        EXTRA_CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
 endif
 
 ifdef ASCII_TREE
-	EXTRA_CFLAGS += -DASCII_TREE
+        EXTRA_CFLAGS += -DASCII_TREE
 endif
 
 LDFLAGS_USER   =
-LDFLAGS		= $(RPM_OPT_FLAGS) \
-	          $(LDFLAGS_EXTRA) \
-		  $(NLFLAG) \
-		  $(LDFLAG_STATIC) \
-		  $(LDFLAGS_USER)
+LDFLAGS         = $(RPM_OPT_FLAGS) \
+                  $(LDFLAGS_EXTRA) \
+                  $(NLFLAG) \
+                  $(LDFLAG_STATIC) \
+                  $(LDFLAGS_USER)
 
 LIBS = $(LIB_CURSES) \
        $(LIB_UNISTRING) \
        $(LIBS_EXTRA)
 
 DEFS_USER   =
-DEFS		= $(DEF_UNIX) $(DEFS_CURSES) $(EXTRA_DEFS) $(DEFS_USER)
+DEFS            = $(DEF_UNIX) $(DEFS_CURSES) $(EXTRA_DEFS) $(DEFS_USER)
 
 # .......................................................... targets ...
 
 OBJS1 = \
-	wcd.o \
-	match.o \
-	stack.o \
-	nameset.o \
-	intset.o \
-	Error.o \
-	Text.o \
-	WcdStack.o \
-	dirnode.o \
-	display.o \
-	wfixpath.o \
-	wcddir.o \
-	matchl.o \
-	querycp.o \
-	finddirs.o \
-	$(EXTRA_OBJ)
+        wcd.o \
+        match.o \
+        stack.o \
+        nameset.o \
+        intset.o \
+        Error.o \
+        Text.o \
+        WcdStack.o \
+        dirnode.o \
+        display.o \
+        wfixpath.o \
+        wcddir.o \
+        matchl.o \
+        querycp.o \
+        finddirs.o \
+        $(EXTRA_OBJ)
 
 ifneq (,$(CURSES))
 OBJS1 += colors.o \
-	graphics.o
+        graphics.o
 endif
 
 all: $(BIN) $(TXTFILES) $(HTMLFILES) $(MOFILES) $(INSTALL_OBJS_MAN1) $(MANFILES) $(MANPOTFILE)

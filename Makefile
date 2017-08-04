@@ -61,5 +61,3 @@ pgpsend:
 tag:
 	git tag -a wcd-${VERSION} -m "Tagging release ${VERSION}."
 	git push origin wcd-${VERSION}
-
-

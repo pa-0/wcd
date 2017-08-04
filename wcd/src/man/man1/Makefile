@@ -2,25 +2,25 @@
 #
 #   Copyright information
 #
-#	Copyright (C) 2008-2009 Jari Aalto
-#	Copyright (C) 2010-2017 Erwin Waterlander
+#       Copyright (C) 2008-2009 Jari Aalto
+#       Copyright (C) 2010-2017 Erwin Waterlander
 #
 #   License
 #
-#	This program is free software; you can redistribute it and/or
-#	modify it under the terms of the GNU General Public License as
-#	published by the Free Software Foundation; either version 2 of the
-#	License, or (at your option) any later version
+#       This program is free software; you can redistribute it and/or
+#       modify it under the terms of the GNU General Public License as
+#       published by the Free Software Foundation; either version 2 of the
+#       License, or (at your option) any later version
 #
-#	This program is distributed in the hope that it will be useful, but
-#	WITHOUT ANY WARRANTY; without even the implied warranty of
-#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#	General Public License for more details at
-#	Visit <http://www.gnu.org/copyleft/gpl.html>.
+#       This program is distributed in the hope that it will be useful, but
+#       WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#       General Public License for more details at
+#       Visit <http://www.gnu.org/copyleft/gpl.html>.
 #
 #   Description
 #
-# 	Convert *.pod files to manual pages.
+#       Convert *.pod files to manual pages.
 
 ifneq (,)
     This makefile requires GNU Make.
@@ -31,21 +31,21 @@ include ../../version.mk
 .PRECIOUS: %.pod
 
 # This variable *must* be set when calling
-PACKAGE		?= wcd
+PACKAGE         ?= wcd
 
 # Optional variables to set
-MANSECT		?= 1
-PODCENTER	?= $(VERSION_DATE)
+MANSECT         ?= 1
+PODCENTER       ?= $(VERSION_DATE)
 
 # Directories
-MANSRC		=
-MANDEST		= $(MANSRC)
+MANSRC          =
+MANDEST         = $(MANSRC)
 
-MANPOD		= $(MANSRC)$(PACKAGE).pod
-MANPAGE		= $(MANDEST)$(PACKAGE).$(MANSECT)
+MANPOD          = $(MANSRC)$(PACKAGE).pod
+MANPAGE         = $(MANDEST)$(PACKAGE).$(MANSECT)
 
-POD2MAN		= pod2man
-POD2MAN_FLAGS	=
+POD2MAN         = pod2man
+POD2MAN_FLAGS   =
 
 POFILES = $(wildcard ../../po-man/*.po)
 PODFILES = $(patsubst ../../po-man/%.po,../%/man1/wcd.pod,$(POFILES))
