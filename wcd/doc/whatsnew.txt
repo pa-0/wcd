@@ -5,6 +5,7 @@
     https://sourceforge.net/p/wcd/feature-requests/14/
   - GCC_DOS.txt: Document problems and solutions for building (using DJGPP) and
     using wcd on Windows Vista and higher.
+  - src/Makefile: Build all text and html manual files when ENABLE_NLS=1.
   - Minor cleanup of the manual.
   - New Brazilian Portuguese translation of the messages. Thanks to Rafael Fontenelle.
   - New Brazilian Portuguese translation of the manual. Thanks to Rafael Fontenelle.

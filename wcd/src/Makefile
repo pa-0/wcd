@@ -112,19 +112,18 @@ POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 NLSSUFFIX	= -nls
 endif
-DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 
 ifdef ENABLE_NLS
 MANPOTFILE      = po-man/wcd-man.pot
 MANPOFILES      = $(wildcard po-man/*.po)
-PODFILES	= $(patsubst po-man/%.po,man/%/man1/wcd.pod,$(MANPOFILES))
+MANPODFILES	= $(patsubst po-man/%.po,man/%/man1/wcd.pod,$(MANPOFILES))
 endif
-PODFILES_ALL	= man/man1/wcd.pod $(PODFILES)
-MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
-TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
-HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_ALL))
-PSFILES 	= $(patsubst %.pod,%.ps,$(PODFILES_ALL))
-PDFFILES	= $(patsubst %.pod,%.pdf,$(PODFILES_ALL))
+MANPODFILES_ALL	= man/man1/wcd.pod $(MANPODFILES)
+MANFILES	= $(patsubst %.pod,%.1,$(MANPODFILES))
+TXTFILES	= $(patsubst %.pod,%.txt,$(MANPODFILES_ALL))
+HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(MANPODFILES_ALL))
+PSFILES 	= $(patsubst %.pod,%.ps,$(MANPODFILES_ALL))
+PDFFILES	= $(patsubst %.pod,%.pdf,$(MANPODFILES_ALL))
 
 CPP		= cpp
 CFLAGS_VERSION	= -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
@@ -498,7 +497,7 @@ OBJS1 += colors.o \
 	graphics.o
 endif
 
-all: $(BIN) $(DOCFILES) $(MOFILES) $(INSTALL_OBJS_MAN1) $(MANFILES) $(MANPOTFILE)
+all: $(BIN) $(TXTFILES) $(HTMLFILES) $(MOFILES) $(INSTALL_OBJS_MAN1) $(MANFILES) $(MANPOTFILE)
 
 status:
 	@echo "-- $(PACKAGE) Makefile settings begin --"
@@ -592,7 +591,7 @@ pdf: $(PDFFILES)
 
 mofiles: $(MOFILES)
 
-doc: $(DOCFILES)
+doc: $(TXTFILES) $(HTMLFILES)
 
 tags: $(POT)
 
@@ -697,7 +696,7 @@ install-mo: $(MOFILES)
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
 	$(foreach mofile, $(MOFILES), $(INSTALL_DATA) $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 
-install-doc: $(DOCFILES)
+install-doc: $(TXTFILES) $(HTMLFILES)
 	@echo "-- target: install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
