@@ -9,7 +9,10 @@ PREREQUISITES
 
         Optional (depending on build targets):
             * perl        : Practical Extraction and Report Language (perlpod)
-                            perl >= 5.10.1 is required.
+                            perl >= 5.10.1 is required for rebuilding the
+                            manual pages with pod2man.
+                            perl >= 5.18 is required for rebuilding the
+                            international manual pages correctly in HTML with pod2html.
             * gettext     : Framework to help GNU packages produce multi-lingual messages.
             * po4a        : PO for anything.
             * ncurses     : CRT screen handling and optimization package.
@@ -179,17 +182,10 @@ INTERNATIONAL MAN PAGES
 DOCUMENTATION
 
     Manual pages are generated from Perl POD files.
+    To rebuild the man pages from POD type:
 
-    The manual pages in text and html format are by default only
-    created in English language. To create text and html manuals
-    for other languages type:
-
-        make txt
-        make html
-
-    Once the manuals in non-English languages have been created,
-    they will also be installed under share/doc/ when you type
-    'make install'
+        make maintainer-clean
+        make man
 
     Manuals in PDF format are by default not created.
     To create manuals in PDF format type:

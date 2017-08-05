@@ -23,8 +23,8 @@ Needed for building packages:
 Visual C++
 ==========
 
-You can get a free express version via this web page:
-http://www.microsoft.com/visualstudio/eng/downloads#d-2010-express
+You can get a free community version via this web page:
+https://www.visualstudio.com/vs/community/
 
 
 PDCurses

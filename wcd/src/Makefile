@@ -37,8 +37,8 @@ endif
 
 include version.mk
 
-.PHONY: status uninstall install install-doc dist dist-zip dist-tgz
-.PHONY: man txt html ps pdf mofiles tags merge
+.PHONY: status uninstall install install-man install-doc install-pdf dist dist-zip dist-tgz
+.PHONY: doc man txt html ps pdf mofiles tags merge
 
 
 .PRECIOUS: %.1 %.pod
@@ -81,17 +81,14 @@ INSTALL_DATA    = $(INSTALL) -m 644
 INSTALL_SUID    = $(INSTALL) -m 4755
 
 INSTALL_OBJS_BIN   = $(BIN)
-INSTALL_OBJS_MAN1  = man/man1/wcd.1
-
 HTMLEXT = htm
 
-INSTALL_OBJS_DOC_INSTALL = \
-  ../doc/INSTALL.txt \
-  ../doc/UNIX.txt \
-  ../doc/RPM.txt
-
-INSTALL_OBJS_DOC_COPYING = \
-  ../doc/copying.txt
+# English manual
+MANFILES_EN  = man/man1/wcd.1
+TXTFILES_EN  = man/man1/wcd.txt
+HTMLFILES_EN  = man/man1/wcd.$(HTMLEXT)
+PSFILES_EN  = man/man1/wcd.ps
+PDFFILES_EN  = man/man1/wcd.pdf
 
 # Documents for end users, not for developers:
 INSTALL_OBJS_DOC   = \
@@ -100,10 +97,10 @@ INSTALL_OBJS_DOC   = \
   ../doc/README.txt \
   ../doc/problems.txt \
   ../doc/todo.txt \
-  $(INSTALL_OBJS_DOC_INSTALL) \
-  $(INSTALL_OBJS_DOC_COPYING) \
-  man/man1/$(PACKAGE).txt \
-  man/man1/$(PACKAGE).$(HTMLEXT)
+  ../doc/INSTALL.txt \
+  ../doc/UNIX.txt \
+  ../doc/RPM.txt \
+  ../doc/copying.txt
 
 ifdef ENABLE_NLS
 POT             = po/$(PACKAGE).pot
@@ -112,17 +109,17 @@ MOFILES         = $(patsubst %.po,%.mo,$(POFILES))
 NLSSUFFIX       = -nls
 endif
 
+# International manuals
 ifdef ENABLE_NLS
 MANPOTFILE      = po-man/wcd-man.pot
 MANPOFILES      = $(wildcard po-man/*.po)
 MANPODFILES     = $(patsubst po-man/%.po,man/%/man1/wcd.pod,$(MANPOFILES))
 endif
-MANPODFILES_ALL = man/man1/wcd.pod $(MANPODFILES)
 MANFILES        = $(patsubst %.pod,%.1,$(MANPODFILES))
-TXTFILES        = $(patsubst %.pod,%.txt,$(MANPODFILES_ALL))
-HTMLFILES       = $(patsubst %.pod,%.$(HTMLEXT),$(MANPODFILES_ALL))
-PSFILES         = $(patsubst %.pod,%.ps,$(MANPODFILES_ALL))
-PDFFILES        = $(patsubst %.pod,%.pdf,$(MANPODFILES_ALL))
+TXTFILES        = $(patsubst %.pod,%.txt,$(MANPODFILES))
+HTMLFILES       = $(patsubst %.pod,%.$(HTMLEXT),$(MANPODFILES))
+PSFILES         = $(patsubst %.pod,%.ps,$(MANPODFILES))
+PDFFILES        = $(patsubst %.pod,%.pdf,$(MANPODFILES))
 
 CPP             = cpp
 CFLAGS_VERSION  = -DVERSION=\"$(VERSION)\" -DVERSION_DATE=\"$(VERSION_DATE)\"
@@ -496,7 +493,7 @@ OBJS1 += colors.o \
         graphics.o
 endif
 
-all: $(BIN) $(TXTFILES) $(HTMLFILES) $(MOFILES) $(INSTALL_OBJS_MAN1) $(MANFILES) $(MANPOTFILE)
+all: $(BIN) doc mofiles man
 
 status:
 	@echo "-- $(PACKAGE) Makefile settings begin --"
@@ -578,19 +575,19 @@ man/uk/man1/$(PACKAGE).$(HTMLEXT) : man/uk/man1/$(PACKAGE).pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(VERSION) - довільна зміна каталогу (Wherever Change Directory)" $< > $@
 
 
-man: man/man1/wcd.1 $(MANFILES) $(MANPOTFILE)
+man: $(MANFILES_EN) $(MANFILES) $(MANPOTFILE)
 
-html: $(HTMLFILES)
+html: $(HTMLFILES_EN) $(HTMLFILES)
 
-txt: $(TXTFILES)
+txt: $(TXTFILES_EN) $(TXTFILES)
 
-ps: $(PSFILES)
+ps: $(PSFILES_EN) $(PSFILES)
 
-pdf: $(PDFFILES)
+pdf: $(PDFFILES_EN) $(PDFFILES)
 
 mofiles: $(MOFILES)
 
-doc: $(TXTFILES) $(HTMLFILES)
+doc: txt html
 
 tags: $(POT)
 
@@ -690,33 +687,41 @@ endif
 # Old versions of install(1) don't support option -D. Use
 # mkdir instead. Was seen on HP-UX 11 and DOS DJGPP.
 
-install-mo: $(MOFILES)
+install-mo: mofiles
 	@echo "-- target: install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
 	$(foreach mofile, $(MOFILES), $(INSTALL_DATA) $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 
-install-doc: $(TXTFILES) $(HTMLFILES)
+install-doc: doc
 	@echo "-- target: install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
+	$(INSTALL_DATA) $(TXTFILES_EN) $(DESTDIR)$(docdir)
+	$(INSTALL_DATA) $(HTMLFILES_EN) $(DESTDIR)$(docdir)
+ifdef ENABLE_NLS
+	$(foreach txtfile, $(TXTFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
+	$(foreach txtfile, $(TXTFILES), $(INSTALL_DATA) $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
+	$(foreach htmlfile, $(HTMLFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
+	$(foreach htmlfile, $(HTMLFILES), $(INSTALL_DATA) $(htmlfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
+endif
+
+# No dependency. Install pdf/ps only when they have been manually generated.
+install-pdf:
+	@echo "-- target: install-pdf"
+	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(foreach pdffile, $(wildcard man/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir) ;)
 	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir) ;)
 ifdef ENABLE_NLS
-	# Install translated manuals when they have been generated.
-	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
-	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(INSTALL_DATA) $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
-	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
-	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(INSTALL_DATA) $(htmlfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
 	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
 	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
 endif
 
-install-man: $(INSTALL_OBJS_MAN1) $(MANFILES) $(MANPOTFILE)
+install-man: man
 	@echo "-- target: install-man"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
-	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(DESTDIR)$(man1dir)
+	$(INSTALL_DATA) $(MANFILES_EN) $(DESTDIR)$(man1dir)
 ifdef ENABLE_NLS
 	$(foreach manfile, $(MANFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
 	$(foreach manfile, $(MANFILES), $(INSTALL_DATA) $(manfile) $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
@@ -731,6 +736,9 @@ ifeq (os/2,$(OS))
 endif
 
 install: $(INSTALL_TARGETS)
+	# Run a new instance of 'make' otherwise the $$(wildcard ) function my not have been expanded,
+	# because the files may not have been there when make was started.
+	$(MAKE) install-pdf
 
 uninstall:
 	@echo "-- target: uninstall"
