@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd-man 6.0.1-beta1\n"
-"POT-Creation-Date: 2017-08-03 09:56+0200\n"
-"PO-Revision-Date: 2017-07-29 14:59+0200\n"
+"Project-Id-Version: wcd-man 6.0.1-beta2\n"
+"POT-Creation-Date: 2017-08-03 10:04+0200\n"
+"PO-Revision-Date: 2017-08-07 15:32+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -147,7 +147,7 @@ msgstr "Eine Gruppe wird als Zeichen oder Bereich angegeben. Ein Bereich folgt d
 #. type: textblock
 #: wcd.pod:108
 msgid "Using wildcards makes powerful searching possible. For instance this matches any directory name that ends with \"top\":"
-msgstr "Die Verwendung von Platzhaltern ermöglicht eine leistungsfähige Suche. Beispielsweise findet folgende Anfrage alle Verzeichnisse, deren Name auf »top« endet: "
+msgstr "Die Verwendung von Platzhaltern ermöglicht eine leistungsfähige Suche. Beispielsweise findet folgende Anfrage alle Verzeichnisse, deren Name auf »top« endet:"
 
 #. type: verbatim
 #: wcd.pod:111
@@ -455,7 +455,7 @@ msgstr ""
 #. type: textblock
 #: wcd.pod:258
 msgid "In direct CD mode wcd works in reversed order."
-msgstr "Im direkten CD-Modus arbeitet wcd in umgekehrter Reihenfolge:"
+msgstr "Im direkten CD-Modus arbeitet wcd in umgekehrter Reihenfolge."
 
 #. type: verbatim
 #: wcd.pod:260
@@ -1571,10 +1571,8 @@ msgstr "Entpacken Sie die Zip-Datei und fügen Sie den Ordner C<bin> zu Ihrer Um
 
 #. type: textblock
 #: wcd.pod:813
-#, fuzzy
-#| msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch scrip C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
 msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch script C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
-msgstr "Im Windows-Befehlszeileninterpreter kann ein Windows-Programm das aktuelle Arbeitsverzeichnis nicht wechseln, das ist aber mit einer .bat-Datei möglich. Das Batch-Skript C<wcd.bat> ruft das wcd-Programm auf, welches seinerseits das neue Batch-Skript C<wcdgo.bat> erzeugt. Dann führt C<wcd.go> wiederum C<wcdgo.bat> aus, welches tatsächlich das Verzeichnis wechselt."
+msgstr "Im Windows-Befehlszeileninterpreter kann ein Windows-Programm das aktuelle Arbeitsverzeichnis nicht wechseln, das ist aber mit einer .bat-Datei möglich. Das Batch-Skript C<wcd.bat> ruft das wcd-Programm auf, welches seinerseits das neue Batch-Skript C<wcdgo.bat> erzeugt. Dann führt C<wcd.bat> wiederum C<wcdgo.bat> aus, welches tatsächlich das Verzeichnis wechselt."
 
 #. type: =head2
 #: wcd.pod:818
@@ -1834,7 +1832,7 @@ msgstr "Wcd verfügt über optionale Unterstützung für Unicode. Um zu sehen, o
 #. type: textblock
 #: wcd.pod:985
 msgid "Wcd has been I<soft> converted to Unicode. In its core wcd handles all data as a stream of bytes. Only the lines printed to screen are on the fly converted to Unicode wide characters. Wcd fully relies on libc functions and has no UTF-8 specific code. See also L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>"
-msgstr "Wcd wurde »weich« auf Unicode migriert. In dessen Kern werden alle Daten als Byte-Datenstrom verarbeitet. Nur die auf dem Bildschirm ausgegebenen Zeilen werden unmittelbar in Unicode-Zeichen umgewandelt. Wcd verwendet vollständig libc-Funktionen und enthält keinen UTF-8-spezifischen Code. Siehe auch L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>."
+msgstr "Wcd wurde I<weich> auf Unicode migriert. In dessen Kern werden alle Daten als Byte-Datenstrom verarbeitet. Nur die auf dem Bildschirm ausgegebenen Zeilen werden unmittelbar in Unicode-Zeichen umgewandelt. Wcd verwendet vollständig libc-Funktionen und enthält keinen UTF-8-spezifischen Code. Siehe auch L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>."
 
 #. type: textblock
 #: wcd.pod:991
@@ -2469,10 +2467,8 @@ msgstr ""
 
 #. type: textblock
 #: wcd.pod:1320
-#, fuzzy
-#| msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exists if you have set a large buffer width."
 msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exits if you have set a large buffer width."
-msgstr "Windows kann nur einen kleinen Puffer speichern. Es ist daher nicht immer möglich, alles wiederherzustellen. Andererseits kann in der Konsole nach wcd Datenmüll ausgegeben werden, falls Sie den Puffer größer gewählt haben."
+msgstr "Windows kann nur einen kleinen Puffer speichern. Es ist daher nicht immer möglich, alles wiederherzustellen. Andererseits kann in der Konsole nach dem Beenden von wcd Datenmüll ausgegeben werden, falls Sie den Puffer größer gewählt haben."
 
 #. type: =item
 #: wcd.pod:1325
@@ -2533,12 +2529,3 @@ msgstr "Die Formatierung der Handbuchseite wurde von Jari Aalto <jari.aalto@cant
 #: wcd.pod:1367
 msgid "NCD was originally written by Brad Kingsbury for Peter Norton's \"Norton Utilities\" around 1987. See also L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
 msgstr "NCD wurde ursprünglich von Brad Kingsbury für Peter Nortons »Norton Utilities« etwa 1987 geschrieben. Siehe auch L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
-
-#~ msgid "Freecode: L<http://freecode.com/projects/wcd/>"
-#~ msgstr "Freecode: L<http://freecode.com/projects/wcd/>"
-
-#~ msgid "Option -x must be used in front of any scan option (B<-s>, B<-S>, B<+S>, B<-A>, B<-E>)."
-#~ msgstr "Die Option -x muss vor jeder anderen Einleseoption angegeben werden (B<-s>, B<-S>, B<+S>, B<-A>, B<-E>)."
-
-#~ msgid "Replace <PATH> with the location where wcd executable have been installed.  Reload the shell initialization files or start new shell."
-#~ msgstr "Ersetzen Sie <PATH> durch den Ort, an dem die ausführbare wcd-Datei installiert ist. Laden Sie die Initialisierungsdateien der Shell erneut oder starten Sie eine neue Shell."
