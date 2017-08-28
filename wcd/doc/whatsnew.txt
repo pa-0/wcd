@@ -1,10 +1,10 @@
-6.0.1-beta2 2017-08-03
+6.0.1 2017-08-28
   - wcd.c: Fix. DOS, OS2, and Windows versions. When user gives drive
     plus directory name (e.g. wcd d:games), wcd did not find the directory.
     This was broken since wcd 5.3.3. Thanks to Martin for reporting this issue.
     https://sourceforge.net/p/wcd/feature-requests/14/
-  - GCC_DOS.txt: Document problems and solutions for building (using DJGPP) and
-    using wcd on Windows Vista and higher.
+  - GCC_DOS.txt: Document problems and solutions for building wcd with DJGPP
+    on Windows Vista and higher.
   - src/Makefile: Build all text and html manual files when ENABLE_NLS=1.
   - Minor cleanup of the manual.
   - New Brazilian Portuguese translation of the messages. Thanks to Rafael Fontenelle.
