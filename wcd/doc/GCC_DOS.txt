@@ -38,19 +38,20 @@ gcc
 
 DOS     : DJGPP     : http://www.delorie.com/djgpp/
 Windows : MinGW     : http://www.mingw.org/
-Windows : MSYS2     : http://sourceforge.net/projects/msys2/
-OS/2    : EMX       :
+Windows : MinGW-w64 : https://mingw-w64.org/
+Windows : MSYS2     : http://www.msys2.org/
+OS/2    : EMX       : http://www.edm2.com/index.php/The_EMX_Project
 
 DJGPP 2.03 gcc >= 4.6 seems to cause problems. Crashes of gcc itself, or crashing
 wcd binaries. Use DJGPP 2.03 gcc <= 4.5.3.
-DJGPP 2.05 gcc 5.3.0 seems to work OK.
+DJGPP 2.05 gcc seems to work OK (I tried gcc 5.3.0).
 
-Wcd compiles with mingw.org and mingw-w64. I recommend using the MSYS2 project.
+Wcd compiles with mingw.org and mingw-w64. I recommend using mingw-w64 in the MSYS2 project.
 
-The MSYS2 project includes the MinGW-w64 compiler <http://mingw-w64.sourceforge.net/>
+The MSYS2 project includes the MinGW-w64 compiler <https://mingw-w64.org/>
 for both 32 and 64 bit. Plus it includes a complete building environment. A
 POSIX shell, and many libraries and utilities.
-See also http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
+See also http://www.msys2.org/
 
 On OS/2 don't add gcc flag -Zargs-wild, because we want wcd to see the literal
 arguments.  Wild argument expansion may lead to unexpected behaviour when an
@@ -85,27 +86,17 @@ install   : copy files and set their attributes (part of GNU `coreutils' package
 For DJGPP compiler use package `fileutils' instead of `coreutils'. Coreutils is
 not (yet) available for DJGPP.
 
-DJGPP     : http://www.delorie.com/pub/djgpp/current/v2gnu/
-MSYS2     : http://sourceforge.net/projects/msys2/
-
 
 perl
 ====
 
 Perl packages are distributed with the DJGPP, MinGW, and EMX environment.
 
-DJGPP     : http://www.delorie.com/pub/djgpp/current/v2gnu/
-MSYS2     : http://sourceforge.net/projects/msys2/
-
 
 gettext (libintl) and libiconv
 ==============================
 
 gettext and libiconv can be found as packages on the web site of the gcc compiler.
-
-DJGPP     : http://www.delorie.com/pub/djgpp/current/v2gnu/
-MSYS2     : http://sourceforge.net/projects/msys2/
-
 
 Until wcd version 5.1.1 I used GnuWin32's gettext/libiconv instead of MinGW's,
 because the GnuWin32 port of libintl (part of gettext) has builtin relocation
@@ -119,13 +110,10 @@ the patch for both 32 and 64 bit.
 
 
 groff and ghostscript
-==========================
+=====================
 
 These packages are needed if you want to create PostScript and PDF versions of
 the wcd manual page.
-
-The manual pages are included in the wcd DOS source package, not in the Unix
-source package.
 
 Groff and ghostscript are available in the Cygwin environment (http://cygwin.com).
 
@@ -272,23 +260,30 @@ Ncurses
 
 The OS/2 EMX (gcc) versions of Wcd use by default ncurses (CURSES=ncurses).
 
-You can also build the Windows version of wcd with Ncurses. It is best to take
-the most recent version from http://invisible-island.net/ncurses/
+You can also build the Windows version of wcd with Ncurses. Mingw.org and MSYS2
+provide ncurses(w) libraries.
 See also whatsnew.txt for issues with Ncurses that have been solved.
 To compile for ncurses add CURSES=ncursesw (wide Unicode characters support)
 to the make command line for Windows.
 
-* By default the Ncurses interface does not work in the Console2 console. Set
-  environment variable NCURSES_CONSOLE2 to 1 to make it work.
-* The ncurses interface shows some trembling while moving around in the tree.
+* By default the Ncurses interface does not work in Console (also known as
+  Console2) <https://sourceforge.net/projects/console/> and ConsoleZ
+  <https://chocolatey.org/packages/ConsoleZ>. Set environment variable
+  NCURSES_CONSOLE2 to 1 to make it work.
+* The ncurses interface vibrates while moving around in the tree.
+  It is very visible in a standard Windows Command Prompt. In ConEmu
+  <https://conemu.github.io/> there is less vibration.
+  The vibration can be solved by using werase() instead of wclear(), but when werase()
+  is used, the screen gets filled with garbage when an East-Asian CJK legacy font
+  is used.
 * The ncurses interface has better support for Unicode than PDCurses, because Ncurses
   supports combining characters, while PDCurses doesn't.
 
-Both Ncurses and PDCurses have misalignment at highlighted directory in tree
-with true type CJK font, e.g. the Chinese Simsun font. (PDCurses has same
-problem.)
+Both Ncurses and PDCurses have misalignment at the highlighted directory in the
+graphical tree with true type CJK font. E.g. the Chinese Simsun font.
 
 Ncurses is still in active development, while PDCurses development is on hold.
+PDCurses is still the default on Windows, because it gives a more stable screen.
 
 
 Conio interface (DOS only)
@@ -337,8 +332,7 @@ Unicode normalization requires libunistring, see
   http://www.gnu.org/s/libunistring/
   http://en.wikipedia.org/wiki/Unicode_normalization
 
-  Get libunistring packages via
-  http://waterlan.home.xs4all.nl/libunistring.html
+  libunistring packages are provided by Mingw.org and MSYS2.
 
 
 Installation Names
