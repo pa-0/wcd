@@ -16,11 +16,12 @@ Prerequisites
 
 Optional:
 
-* perl      : Practical Extraction and Report Language (perlpod)
-* gettext   : Framework to help GNU packages produce multi-lingual messages.
-* libiconv  : Character set conversion library.
-* pdcurses  : CRT screen handling and optimization package
-* ncurses   : A free software emulation of curses in System V Release 4.0 (SVr4), and more.
+* perl         : Practical Extraction and Report Language (perlpod)
+* gettext      : Framework to help GNU packages produce multi-lingual messages.
+* libiconv     : Character set conversion library.
+* pdcurses     : CRT screen handling and optimization package
+* ncurses      : A free software emulation of curses in System V Release 4.0 (SVr4), and more.
+* libunistring : Library with functions for manipulating Unicode strings.
 
 
 If you want to generate PostScript or PDF versions of the manual:
@@ -90,7 +91,7 @@ not (yet) available for DJGPP.
 perl
 ====
 
-Perl packages are distributed with the DJGPP, MinGW, and EMX environment.
+Perl packages are distributed with the DJGPP, MinGW, MSYS2, and EMX environment.
 
 
 gettext (libintl) and libiconv
