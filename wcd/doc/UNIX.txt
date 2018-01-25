@@ -8,16 +8,17 @@ PREREQUISITES
             * sed       : Stream editor
 
         Optional (depending on build targets):
-            * perl        : Practical Extraction and Report Language (perlpod)
-                            perl >= 5.10.1 is required for rebuilding the
-                            manual pages with pod2man.
-                            perl >= 5.18 is required for rebuilding the
-                            international manual pages correctly in HTML with pod2html.
-            * gettext     : Framework to help GNU packages produce multi-lingual messages.
-            * po4a        : PO for anything.
-            * ncurses     : CRT screen handling and optimization package.
-            * groff       : GNU troff text formatting system.
-            * ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
+            * perl         : Practical Extraction and Report Language (perlpod)
+                             perl >= 5.10.1 is required for rebuilding the
+                             manual pages with pod2man.
+                             perl >= 5.18 is required for rebuilding the
+                             international manual pages correctly in HTML with pod2html.
+            * gettext      : Framework to help GNU packages produce multi-lingual messages.
+            * po4a         : PO for anything.
+            * ncurses      : CRT screen handling and optimization package.
+            * libunistring : Library with functions for manipulating Unicode strings.
+            * groff        : GNU troff text formatting system.
+            * ghostscript  : An interpreter for the PostScript language and for PDF (ps2pdf)
 
         Check if you have GNU make(1) and GNU gcc(1) installed on your
         system. On some systems GNU make may be installed as 'gmake' command.
@@ -207,9 +208,6 @@ BINARY DISTRIBUTION PACKAGE CREATION
 
 PORTABILITY
 
-        See also file SOURCE.txt.
-
-        --
 
         A compile error occurs when you use gcc < 3.0 and
         <stdbool.h> is included somewhere (e.g. in curses.h).

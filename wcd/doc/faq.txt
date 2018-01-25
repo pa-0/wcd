@@ -63,4 +63,3 @@ A: In the wcd.bat file you have to copy HOME into another
    c:\wcdgo.bat
 
    You may need to rescan your drives after this.
-

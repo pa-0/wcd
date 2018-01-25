@@ -52,4 +52,3 @@ and VMS 5.5 with VAX C. Other comparable ANSI C compilers should work as well.
 DOSDIR is free software, you can redistribute it and/or modify it under
 the terms of the GNU General Public License, a copy of which is
 provided under the name COPYING.
-

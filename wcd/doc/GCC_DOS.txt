@@ -172,7 +172,7 @@ Windows 10
     a DOS program for the first time):
 
     All settings -> Apps -> Apps & features.
-    Scroll down to Related settings, and then   
+    Scroll down to Related settings, and then
     Programs and Features -> Turn Windows Features on or off ->
      Legacy Components -> Enable NTVDM
 
@@ -182,7 +182,7 @@ Windows 10
     Right click over title "Command prompt" and select "Properties"
     Select the left tab "Options"
     Select "Use legacy console (require relauch)", then "OK"
-    Close and re-open "Command prompt" to test. 
+    Close and re-open "Command prompt" to test.
 
     See also
     https://social.technet.microsoft.com/Forums/en-US/d3482e1c-bc5d-4245-baec-ae900469fd89/problems-running-16bit-programs-in-32bit-windows-10tp?forum=WinPreview2014General

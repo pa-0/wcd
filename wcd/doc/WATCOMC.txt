@@ -187,4 +187,3 @@ distribution package
 After installation a ready-to-run binary distribution package can be created.
 
   Type `wmake dist' to create the package.
-

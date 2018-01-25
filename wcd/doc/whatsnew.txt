@@ -662,7 +662,7 @@
 
 2.1.1 Jun 29 1998
    - Bug fix: alias, ban and stack could not deal with
-	  paths with spaces.
+     paths with spaces.
 
 2.1.0   Jun 18 1998
    - Directory stack
@@ -740,4 +740,3 @@ V1.0      Nov 14 1996. Always let the user choose
           in case of multiple match.
 
 V1.0 beta Oct-1996  Original version.
-

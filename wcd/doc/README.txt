@@ -1,7 +1,6 @@
 File list
 
     README.txt               : This file.
-    SOURCE.txt               : Notes about the source code.
     INSTALL.txt              : Installation documentation.
     ../src/man/man1/wcd.txt  : Manual, text format.
     ../src/man/man1/wcd.htm  : Manual, HTML format.

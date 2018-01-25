@@ -1,11 +1,10 @@
-
 TO DO
 =====
 
 * Translate the program messages.
 
   Translation of the messages for wcd is going via the Translation Project (TP).
-  See http://translationproject.org/domain/wcd.html 
+  See http://translationproject.org/domain/wcd.html
 
 
 * Translate the manual.
@@ -59,4 +58,3 @@ Things I deliberately not implemented. (This may change in the future.)
   very large the fuzzy matching often causes unexpected behaviour. That is why
   I removed it again. I used the TRE regexp matching library, made by Ville
   Laurikari. See http://www.laurikari.net/tre/
-

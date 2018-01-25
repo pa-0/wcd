@@ -46,4 +46,3 @@ tell me what version of WCD you use and under what operating
 system.
 
 Also ideas to improve wcd are welcome.
-

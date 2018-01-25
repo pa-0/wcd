@@ -243,4 +243,3 @@ directory, but a .cmd file can.
 The command scrip "wcd.cmd" runs the wcd program which generates a new command
 script "wcdgo.cmd". Then wcd.cmd runs wcdgo.cmd which actually changes the
 directory.
-

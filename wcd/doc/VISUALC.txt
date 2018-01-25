@@ -167,4 +167,3 @@ distribution package
 After installation a ready-to-run binary distribution package can be created.
 
   Type `nmake dist' to create the package.
-
