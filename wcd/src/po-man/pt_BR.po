@@ -2,19 +2,19 @@
 # Copyright (C) 2017 Erwin Waterlander (msgids)
 # Copyright (C) 2017 Free Software Foundation
 # This file is distributed under the same license as the wcd package.
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2017.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man 6.0.1-beta2\n"
 "POT-Creation-Date: 2017-08-03 10:04+0200\n"
 "PO-Revision-Date: 2017-08-03 06:10-0200\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
 "Language: pt_BR\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Virtaal 1.0.0-beta1\n"
 
