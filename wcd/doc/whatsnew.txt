@@ -1,3 +1,6 @@
+6.0.2-beta1 2018-03-08
+  - New Friulian translation of the messages. Thanks to Fabio Tomat.
+
 6.0.1 2017-08-28
   - wcd.c: Fix. DOS, OS2, and Windows versions. When user gives drive
     plus directory name (e.g. wcd d:games), wcd did not find the directory.

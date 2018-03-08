@@ -79,7 +79,7 @@ Table of Contents
         development was done on Linux, and later on Cygwin which supports
         Unicode since version 1.7.
 
-	In version 6.0.0 (Feb 2017) the DOSDIR directory interface layer was
+        In version 6.0.0 (Feb 2017) the DOSDIR directory interface layer was
         removed from Wcd.  The amount of directories can be huge these days,
         so scanning a disk can take a long time. Removal of DOSDIR resulted in
         faster disk scanning on Windows and Unix.
@@ -88,7 +88,7 @@ Table of Contents
 2.0 Copyright
 
 
-        Copyright (C) 1996-2017 Erwin Waterlander
+        Copyright (C) 1996-2018 Erwin Waterlander
 
         This program is free software; you can redistribute it and/or
         modify it under the terms of the GNU General Public License
@@ -286,7 +286,8 @@ Table of Contents
         Dutch                 Benno Schulenberg            Version 5.2.5 - 5.3.3
         Esperanto             Benno Schulenberg            Version 5.2.5 - 5.3.3
         Finnish               Jari Aalto                   Version 5.1.0 - 5.2.4
-	Finnish               Jorma Karvonen               Version 5.2.5 - 5.3.3
+        Finnish               Jorma Karvonen               Version 5.2.5 - 5.3.3
+        Friulian              Fabio Tomat                  Version 6.0.2
         German                Philipp Thomas               Version 5.1.3 - 5.2.3,
                                                            5.3.3 - 5.3.4
         German                Lars Wendler                 Version 5.2.4
@@ -294,7 +295,7 @@ Table of Contents
         Serbian               Мирослав Николић             Version 5.3.4
         Spanish               Julio A. Freyre-Gonzalez     Version 5.0.4 - 5.2.4
         Ukrainian             Yuri Chornoivan              Version 5.2.5 - 6.0.0
-	Vietnamese            Trần Ngọc Quân               Version 5.2.5 - 6.0.0
+        Vietnamese            Trần Ngọc Quân               Version 5.2.5 - 6.0.0
 
 
         Translations of the manual:

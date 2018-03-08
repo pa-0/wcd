@@ -1,125 +1,125 @@
-# Brazilian Portuguese translation for wcd
-# Copyright (C) 2017 Erwin Waterlander (msgids)
-# Copyright (C) 2017 Free Software Foundation
+# Friulian translation of wcd.
+# Copyright (C) 2018 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2017.
+# Fabio Tomat <f.t.public@gmail.com>, 2018.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd 6.0.0-beta4\n"
+"Project-Id-Version: wcd-6.0.0-beta4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-08 20:49+0100\n"
-"PO-Revision-Date: 2017-07-29 15:28-0200\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
-"Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
-"Language: pt_BR\n"
+"PO-Revision-Date: 2018-01-04 16:16+0100\n"
+"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
+"Language-Team: Friulian <f.t.public@gmail.com>\n"
+"Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Virtaal 1.0.0-beta1\n"
+"X-Generator: Poedit 2.0.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:170
 #, c-format
 msgid "Wcd: error: "
-msgstr "Wcd: erro: "
+msgstr "Wcd: erôr: "
 
 #: wcd.c:183 wcd.c:237 wcd.c:257
 #, c-format
 msgid "Unable to read file %s: %s\n"
-msgstr "Não foi possível ler %s: %s\n"
+msgstr "Impussibil lei il file %s: %s\n"
 
 #: wcd.c:246
 #, c-format
 msgid "Unable to read file %s: Not a regular file.\n"
-msgstr "Não foi possível ler %s: não é um arquivo comum.\n"
+msgstr "Impussibil lei il file %s: Nol è un file regolâr.\n"
 
 #: wcd.c:259 wcd.c:346
 #, c-format
 msgid "Unable to write file %s: %s\n"
-msgstr "Não foi possível escrever no arquivo %s: %s\n"
+msgstr "Impussibil lei il file %s: %s\n"
 
 #: wcd.c:348
 #, c-format
 msgid "Unable to close file %s: %s\n"
-msgstr "Não foi possível fechar o arquivo %s: %s\n"
+msgstr "Impussibil sierâ il file %s: %s\n"
 
 #: wcd.c:394 wcd.c:399 wfixpath.c:65
 #, c-format
 msgid "Memory allocation error in %s: %s\n"
-msgstr "Erro de alocação de memória em %s: %s\n"
+msgstr "Erôr di assegnazion memorie in %s: %s\n"
 
 #: wcd.c:706 wcd.c:720
 #, c-format
 msgid "%s added to file %s\n"
-msgstr "%s adicionado ao arquivo %s\n"
+msgstr "%s zontât al file %s\n"
 
 #: wcd.c:755 wcd.c:1087
 #, c-format
 msgid "%s is not a directory.\n"
-msgstr "%s não é um diretório.\n"
+msgstr "%s nol è une cartele.\n"
 
 #: wcd.c:760
 #, c-format
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
-msgstr "Por favor, aguarde. Varrendo disco. Construindo arquivo de dados de árvore %s de %s\n"
+msgstr "Par plasê spiete. Analisi dal disc. Costruzion di treedata-file %s di %s\n"
 
 #: wcd.c:822 wcd.c:2210 wcd.c:2233 wcd.c:2313
 #, c-format
 msgid "Writing file \"%s\"\n"
-msgstr "Escrevendo o arquivo \"%s\"\n"
+msgstr "Daûr a scrivi il file \"%s\"\n"
 
 #: wcd.c:827
 msgid "Write access to tree-file denied.\n"
-msgstr "Acesso negado para escrita no arquivo-árvore.\n"
+msgstr "Acès in scriture a tree-file dineât.\n"
 
 #: wcd.c:828
 msgid "Set TEMP environment variable if this is a read-only disk.\n"
-msgstr "Define a variável de ambiente TEMP se esse é um disco de somente leitura.\n"
+msgstr "Stabilìs la variabile di ambient TEMP se chest al è un disc in dome-leture.\n"
 
 #: wcd.c:957
 #, c-format
 msgid "Removed symbolic link %s\n"
-msgstr "Removido o link simbólico %s\n"
+msgstr "Gjave colegament simbolic %s\n"
 
 #: wcd.c:961
 #, c-format
 msgid "Unable to remove symbolic link %s: %s\n"
-msgstr "Não foi possível remover link simbólico %s: %s\n"
+msgstr "Impussibil gjavâ il colegament simbolic %s: %s\n"
 
 #: wcd.c:965
 #, c-format
 msgid "%s is a symbolic link to a file.\n"
-msgstr "%s não é um link simbólico para um arquivo.\n"
+msgstr "%s al è un colegament simbolic a un file.\n"
 
 #: wcd.c:1048
 #, c-format
 msgid "Recursively remove %s? Are you sure? y/n :"
-msgstr "Remover recursivamente %s? Tem certeza? y/n :"
+msgstr "Gjavâ in maniere ricorsive %s? sigûrs? y(sì)/n(no) :"
 
 #: wcd.c:1070 wcd.c:1080
 #, c-format
 msgid "Removed directory %s\n"
-msgstr "Removido o diretório %s\n"
+msgstr "Cartele %s gjavade\n"
 
 #: wcd.c:1112 wcd.c:1181 wcd.c:1249
 #, c-format
 msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"
-msgstr "linha longa demais em %s ( > %d). O arquivo-árvore pode estar corrompido, ou tente corrigir incrementando WCD_MAXPATH no código-fonte.\n"
+msgstr "rie masse lungje in %s ( > %d). Il treefile al podarès jessi ruvinât, se no comede aumentant WCD_MAXPATH tal codiç sorzint.\n"
 
 #: wcd.c:1113 wcd.c:1182 wcd.c:1250
 #, c-format
 msgid "file: %s, line: %d,"
-msgstr "arquivo: %s, linha: %d,"
+msgstr "file: %s, rie: %d,"
 
 #: wcd.c:1120 wcd.c:1189 wcd.c:1257
 #, c-format
 msgid " length: %d\n"
-msgstr " tamanho: %d\n"
+msgstr " lungjece: %d\n"
 
 #: wcd.c:1758 wcd.c:1827
 msgid "Alias file in UTF-16 format is not supported.\n"
-msgstr "Não há suporte a arquivo de alias no formato UTF-16.\n"
+msgstr "Il file alias intal formât UTF-16 nol è supuartât.\n"
 
 #: wcd.c:1924
 #, c-format
@@ -127,13 +127,13 @@ msgid ""
 "Usage: wcd [options] [directory]\n"
 "\n"
 msgstr ""
-"Uso: wcd [opções] [diretório]\n"
+"Ûs: wcd [opzions] [cartele]\n"
 "\n"
 
 #: wcd.c:1925
 #, c-format
 msgid "directory:  Name of directory to change to.\n"
-msgstr "diretório:  Nome de diretório para o qual deseja-se mudar.\n"
+msgstr "cartele:  Non de cartele dulà passâ.\n"
 
 #: wcd.c:1926
 #, c-format
@@ -141,313 +141,313 @@ msgid ""
 "            Wildcards *, ? and [SET] are supported.\n"
 "\n"
 msgstr ""
-"            Há suporte a caracteres curingas *, ? e [SET].\n"
+"            I caratars mate *, ? e [SET] a son supuartâts.\n"
 "\n"
 
 #: wcd.c:1928
 #, c-format
 msgid "options:\n"
-msgstr "opções:\n"
+msgstr "opzions:\n"
 
 #: wcd.c:1929
 #, c-format
 msgid "  -a                      Add current path to treefile\n"
-msgstr "  -a                      Adiciona o caminho atual ao arquivo-árvore\n"
+msgstr ""
 
 #: wcd.c:1930
 #, c-format
 msgid "  -aa                     Add current and all parent paths to treefile\n"
-msgstr "  -aa                     Adiciona caminhos atual e todos pais ao arquivo-árvore\n"
+msgstr ""
 
 #: wcd.c:1931
 #, c-format
 msgid "  -A PATH                 Add tree from PATH\n"
-msgstr "  -A CAMINHO              Adiciona o árvore a partir de CAMINHO\n"
+msgstr ""
 
 #: wcd.c:1932
 #, c-format
 msgid "  -b                      Ban current path\n"
-msgstr "  -b                      Bane o caminho atual\n"
+msgstr "  -b                      Proibìs il percors atuâl\n"
 
 #: wcd.c:1933
 #, c-format
 msgid "  -c,  --direct-cd        direct CD mode\n"
-msgstr "  -c,  --direct-cd        modo CD direto\n"
+msgstr ""
 
 #: wcd.c:1934
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
-msgstr "  -d UNIDADE              define UNIDADE para arquivos de pilha & go (DOS)\n"
+msgstr ""
 
 #: wcd.c:1935
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
-msgstr "  -e                      adiciona o caminho atual para arquivo-árvore Extra\n"
+msgstr ""
 
 #: wcd.c:1936
 #, c-format
 msgid "  -ee                     add current and all parent paths to Extra treefile\n"
-msgstr "  -ee                     adiciona caminhos atual e todos pais ao arquivo-árvore Extra\n"
+msgstr ""
 
 #: wcd.c:1937
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
-msgstr "  -E CAMINHO              adiciona árvore de CAMINHO para arquivo-árvore Extra\n"
+msgstr ""
 
 #: wcd.c:1938
 #, c-format
 msgid "  -f FILE                 use extra treeFile\n"
-msgstr "  -f ARQUIVO              usa o arquivo-árvore extra\n"
+msgstr ""
 
 #: wcd.c:1939
 #, c-format
 msgid "  +f FILE                 add extra treeFile\n"
-msgstr "  +f ARQUIVO              adiciona o arquivo-árvore extra\n"
+msgstr ""
 
 #: wcd.c:1940
 #, c-format
 msgid "  -g                      Graphics\n"
-msgstr "  -g                      Gráficos\n"
+msgstr ""
 
 #: wcd.c:1941
 #, c-format
 msgid "  -gd                     Graphics, dump tree\n"
-msgstr "  -gd                     Gráficos, despeja árvore\n"
+msgstr ""
 
 #: wcd.c:1942
 #, c-format
 msgid "  -G PATH                 set PATH Go-script\n"
-msgstr "  -G CAMINHO              define o CAMINHO do Go-script\n"
+msgstr ""
 
 #: wcd.c:1943
 #, c-format
 msgid "  -GN, --no-go-script     No Go-script\n"
-msgstr "  -GN, --no-go-script     Nenhum Go-script\n"
+msgstr ""
 
 #: wcd.c:1944
 #, c-format
 msgid "  -h,  --help             show this Help\n"
-msgstr "  -h,  --help             mostra essa ajuda\n"
+msgstr "  -h,  --help             mostre chest Jutori\n"
 
 #: wcd.c:1947
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case (default)\n"
-msgstr "  -i,  --ignore-case      Ignora diferença maiúsculo/minúsculo (padrão)\n"
+msgstr "  -i,  --ignore-case      Ignore maiusculis/minusculis (predefinît)\n"
 
 #: wcd.c:1948
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case\n"
-msgstr "  +i,  --no-ignore-case   considera maiúsculo/minúsculo\n"
+msgstr "  +i,  --no-ignore-case   ten di cont des maiusculis\n"
 
 #: wcd.c:1950
 #, c-format
 msgid "  -i,  --ignore-case      Ignore case\n"
-msgstr "  -i,  --ignore-case      Ignora diferença maiúsculo/minúsculo\n"
+msgstr "  -i,  --ignore-case      Ignore maiusculis/minusculis\n"
 
 #: wcd.c:1951
 #, c-format
 msgid "  +i,  --no-ignore-case   regard case (default)\n"
-msgstr "  +i,  --no-ignore-case   considera maiúsculo/minúsculo (padrão)\n"
+msgstr "  +i,  --no-ignore-case   ten di cont des maiusculis (predefinît) \n"
 
 #: wcd.c:1954
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
-msgstr "  -I,  --ignore-diacritics     Ignora diacríticos\n"
+msgstr ""
 
 #: wcd.c:1955
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
-msgstr "  +I,  --no-ignore-diacritics  considera diacríticos (padrão)\n"
+msgstr ""
 
 #: wcd.c:1956
 #, c-format
 msgid "  -j,  --just-go          Just go mode\n"
-msgstr "  -j,  --just-go          modo \"Just go\"\n"
+msgstr ""
 
 #: wcd.c:1957
 #, c-format
 msgid "  -k,  --keep-paths       Keep paths\n"
-msgstr "  -k,  --keep-paths       mantém caminhos\n"
+msgstr "  -k,  --keep-paths       Ten i percors\n"
 
 #: wcd.c:1958
 #, c-format
 msgid "  -K,  --color            colors\n"
-msgstr "  -K,  --color            cores\n"
+msgstr "  -K,  --color            colôrs\n"
 
 #: wcd.c:1959
 #, c-format
 msgid "  -l ALIAS                aLias current directory\n"
-msgstr "  -l ALIAS                aLias do diretório atual\n"
+msgstr ""
 
 #: wcd.c:1960
 #, c-format
 msgid "  -ls                     List the aliases\n"
-msgstr "  -ls                     Lista os apelidos\n"
+msgstr "  -ls                     Liste i alias\n"
 
 #: wcd.c:1961
 #, c-format
 msgid "  -L,  --license          show software License\n"
-msgstr "  -L,  --license          mostra a Licença de software\n"
+msgstr "  -L,  --license          mostre la Licence dal software\n"
 
 #: wcd.c:1962
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
-msgstr "  -m DIR                  cria DIR, adiciona ao arquivo-árvore\n"
+msgstr ""
 
 #: wcd.c:1963
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
-msgstr "  -M DIR                  cria DIR, adiciona ao arquivo-árvore extra\n"
+msgstr ""
 
 #: wcd.c:1964
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
-msgstr "  -n CAMINHO              usa arquivo-árvore relativo no CAMINHO\n"
+msgstr ""
 
 #: wcd.c:1965
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
-msgstr "  +n CAMINHO              adiciona arquivo-árvore relativo no CAMINHO\n"
+msgstr ""
 
 #: wcd.c:1966
 #, c-format
 msgid "  -N,  --numbers          use Numbers\n"
-msgstr "  -N,  --numbers          usa Números\n"
+msgstr "  -N,  --numbers          dopre Numars\n"
 
 #: wcd.c:1967
 #, c-format
 msgid "  -o                      use stdOut\n"
-msgstr "  -o                      usa a saída padrão (stdOut)\n"
+msgstr "  -o                      dopre stdOut\n"
 
 #: wcd.c:1968
 #, c-format
 msgid "  -od, --to-stdout        dump matches\n"
-msgstr "  -od, --to-stdout        despeja correspondências\n"
+msgstr ""
 
 #: wcd.c:1969
 #, c-format
 msgid "  -q,  --quiet            Quieter operation\n"
-msgstr "  -q,  --quiet            operação mais Quieta\n"
+msgstr "  -q,  --quiet            Operazion plui cuiete\n"
 
 #: wcd.c:1970
 #, c-format
 msgid "  -r DIR                  Remove DIR\n"
-msgstr "  -r DIR                  Remove DIR\n"
+msgstr "  -r DIR                  Gjave CARTELE\n"
 
 #: wcd.c:1971
 #, c-format
 msgid "  -rmtree DIR             Remove DIR recursive\n"
-msgstr "  -rmtree DIR             Remove DIR recursivamente\n"
+msgstr "  -rmtree DIR             Gjave CARTELE in maniere ricorsive\n"
 
 #: wcd.c:1972
 #, c-format
 msgid "  -s                      Scan disk from $HOME\n"
-msgstr "  -s                      varre o disco a partir de $HOME\n"
+msgstr "  -s                      Analize disc tacant di $HOME\n"
 
 #: wcd.c:1973
 #, c-format
 msgid "  -S PATH                 Scan disk from PATH\n"
-msgstr "  -S CAMINHO              varre o disco a partir de CAMINHO\n"
+msgstr "  -S PATH                 Analize disc tacant di PATH\n"
 
 #: wcd.c:1974
 #, c-format
 msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
-msgstr "  +S CAMINHO              varre o disco a partir de PATH, cria arquivo-árvore relativo\n"
+msgstr ""
 
 #: wcd.c:1975
 #, c-format
 msgid "  -t                      don't strip /tmp_mnt from paths\n"
-msgstr "  -t                      não remove /tmp_mnt dos caminhos\n"
+msgstr ""
 
 #: wcd.c:1976
 #, c-format
 msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
-msgstr "  -T,  --ascii-tree       desenha árvore com caracteres ASCII\n"
+msgstr ""
 
 #: wcd.c:1977
 #, c-format
 msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
-msgstr "  -Ta, --alt-tree-nav     navegação Alternativa de árvore\n"
+msgstr ""
 
 #: wcd.c:1978
 #, c-format
 msgid "  -TC, --center-tree      Centered tree view\n"
-msgstr "  -TC, --center-tree      visão Centralizada de árvore\n"
+msgstr "  -TC, --center-tree      Viodude arbul centrade\n"
 
 #: wcd.c:1979
 #, c-format
 msgid "  -Tc, --compact-tree     Compact tree\n"
-msgstr "  -Tc, --compact-tree     árvore Compacta\n"
+msgstr "  -Tc, --compact-tree     Arbul compat\n"
 
 #: wcd.c:1980
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
-msgstr "  -Td, --cjk-width        suporte a fontes CJK legadas\n"
+msgstr ""
 
 #: wcd.c:1981
 #, c-format
 msgid "  -u USER                 use USER's treefile\n"
-msgstr "  -u USUÁRIO              usa arquivo-árvore do USUÁRIO\n"
+msgstr ""
 
 #: wcd.c:1982
 #, c-format
 msgid "  +u USER                 add USER's treefile\n"
-msgstr "  +u USUÁRIO              adiciona arquivo-árvore do USUÁRIO\n"
+msgstr ""
 
 #: wcd.c:1983
 #, c-format
 msgid "  -v,  --verbose          Verbose operation\n"
-msgstr "  -v,  --verbose          operação Verbosa\n"
+msgstr "  -v,  --verbose          Operazion prolisse\n"
 
 #: wcd.c:1984
 #, c-format
 msgid "  -V,  --version          show Version info\n"
-msgstr "  -V,  --version          mostra informações da versão\n"
+msgstr "  -V,  --version          mostre informazions di Version\n"
 
 #: wcd.c:1985
 #, c-format
 msgid "  -w,  --wild-match-only  Wild matching only\n"
-msgstr "  -w,  --wild-match-only  apenas correspondência curinga\n"
+msgstr "  -w,  --wild-match-only  dome corispuindincis imperfetis\n"
 
 #: wcd.c:1986
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
-msgstr "  -x CAMINHO              eXclui CAMINHO durante varredura de disco\n"
+msgstr ""
 
 #: wcd.c:1987
 #, c-format
 msgid "  -xf FILE                eXclude paths from FILE\n"
-msgstr "  -xf ARQUIVO             eXclui caminhos do ARQUIVO\n"
+msgstr ""
 
 #: wcd.c:1988
 #, c-format
 msgid "  -y,  --assume-yes       assume Yes on all queries\n"
-msgstr "  -y,  --assume-yes       presume sim para todas as perguntas\n"
+msgstr "  -y,  --assume-yes       rispuint Sì a dutis lis domandis\n"
 
 #: wcd.c:1989
 #, c-format
 msgid "  -z NUMBER               set max stack siZe\n"
-msgstr "  -z NÚMERO               define o tamanho máximo da pilha\n"
+msgstr ""
 
 #: wcd.c:1990
 #, c-format
 msgid "  -[NUMBER]               push dir (NUMBER times)\n"
-msgstr "  -[NÚMERO]               adiciona dir (NÚMERO de vezes)\n"
+msgstr ""
 
 #: wcd.c:1991
 #, c-format
 msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
-msgstr "  +[NÚMERO]               retira dir (NÚMERO de vezes)\n"
+msgstr ""
 
 #: wcd.c:1992
 #, c-format
 msgid "  =                       show stack\n"
-msgstr "  =                       mostra pilha\n"
+msgstr ""
 
 #: wcd.c:2001 wcd.c:2130
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
-msgstr "wcd %s (%s) - Wherever Change Directory\n"
+msgstr ""
 
 #: wcd.c:2002
 #, c-format
@@ -455,98 +455,98 @@ msgid ""
 "Chdir for Dos and Unix.\n"
 "\n"
 msgstr ""
-"Chdir para Dos e Unix.\n"
+"Chdir par Dos e Unix.\n"
 "\n"
 
 #: wcd.c:2006
 #, c-format
 msgid "DOS 16 bit version (WATCOMC).\n"
-msgstr "Versão DOS 16 bits (WATCOMC).\n"
+msgstr "Version DOS a 16 bit (WATCOMC).\n"
 
 #: wcd.c:2008
 #, c-format
 msgid "DOS 16 bit version (TURBOC).\n"
-msgstr "Versão DOS 16 bits (TURBOC).\n"
+msgstr "Version DOS a 16 bit (TURBOC).\n"
 
 #: wcd.c:2010
 #, c-format
 msgid "DOS 32 bit version (DJGPP).\n"
-msgstr "Versão DOS 32 bits (DJGPP).\n"
+msgstr "Version DOS a 32 bit (DJGPP).\n"
 
 #: wcd.c:2012
 #, c-format
 msgid "DOS 32 bit version (WATCOMC).\n"
-msgstr "Versão DOS 32 bits (WATCOMC).\n"
+msgstr "Version DOS a 32 bit (WATCOMC).\n"
 
 #: wcd.c:2019
 #, c-format
 msgid "Win64 version (MSVC %d).\n"
-msgstr "Versão Win64 (MSVC %d).\n"
+msgstr "Version Win64 (MSVC %d).\n"
 
 #: wcd.c:2021
 #, c-format
 msgid "Win64 version (MinGW-w64).\n"
-msgstr "Versão Win64 (MinGW-w64).\n"
+msgstr "Version Win64 (MinGW-w64).\n"
 
 #: wcd.c:2025
 #, c-format
 msgid "Win32 version (WATCOMC).\n"
-msgstr "Versão Win32 (WATCOMC).\n"
+msgstr "Version Win32 (WATCOMC).\n"
 
 #: wcd.c:2027
 #, c-format
 msgid "Win32 version (MSVC %d).\n"
-msgstr "Versão Win32 (MSVC %d).\n"
+msgstr "Version Win32 (MSVC %d).\n"
 
 #: wcd.c:2029
 #, c-format
 msgid "Win32 version (MinGW-w64).\n"
-msgstr "Versão Win32 (MinGW-w64).\n"
+msgstr "Version Win32 (MinGW-w64).\n"
 
 #: wcd.c:2031
 #, c-format
 msgid "Win32 version (MinGW).\n"
-msgstr "Versão Win32 (MinGW).\n"
+msgstr "Version Win32 (MinGW).\n"
 
 #: wcd.c:2038
 #, c-format
 msgid "This version is for MSYS and WinZsh.\n"
-msgstr "Essa versão é para MSYS e WinZsh.\n"
+msgstr "Cheste version e je par MSYS e WinZsh.\n"
 
 #: wcd.c:2040
 #, c-format
 msgid "This version is for Windows PowerShell.\n"
-msgstr "Essa versão é para PowerShell do Windows.\n"
+msgstr "Cheste version e je pe PowerShell di Windows.\n"
 
 #: wcd.c:2042
 #, c-format
 msgid "This version is for Windows Command Prompt (cmd.exe).\n"
-msgstr "Essa versão é para Prompt de Comando do Windows (cmd.exe).\n"
+msgstr "Cheste version e je par Windows Command Prompt (cmd.exe).\n"
 
 #: wcd.c:2047
 #, c-format
 msgid "OS/2 version"
-msgstr "Versão OS/2"
+msgstr "Version OS/2"
 
 #: wcd.c:2058
 #, c-format
 msgid "This version is for native MSYS.\n"
-msgstr "Essa versão é para MSYS nativo.\n"
+msgstr "Cheste version e je par MSYS natîf.\n"
 
 #: wcd.c:2061
 #, c-format
 msgid "Cygwin version.\n"
-msgstr "Versão Cygwin.\n"
+msgstr "Version Cygwin.\n"
 
 #: wcd.c:2064
 #, c-format
 msgid "This version is for DJGPP DOS bash.\n"
-msgstr "Essa versão é para bash de DOS do DJGPP.\n"
+msgstr "Cheste version e je pe bash DOS di DJGPP.\n"
 
 #: wcd.c:2067
 #, c-format
 msgid "This version is for OS/2 bash.\n"
-msgstr "Essa versão é para bash de OS/2.\n"
+msgstr "Cheste version e je pe bash di OS/2.\n"
 
 #: wcd.c:2070
 #, c-format
@@ -556,12 +556,12 @@ msgstr "Interface: "
 #: wcd.c:2076
 #, c-format
 msgid "ncurses version %s.%d\n"
-msgstr "ncurses versão %s.%d\n"
+msgstr "version ncurses %s.%d\n"
 
 #: wcd.c:2079
 #, c-format
 msgid "PDCurses build %d\n"
-msgstr "PDCurses compilação %d\n"
+msgstr ""
 
 #: wcd.c:2081
 #, c-format
@@ -576,62 +576,62 @@ msgstr "stdout\n"
 #: wcd.c:2094
 #, c-format
 msgid "Native language support included.\n"
-msgstr "Suporte a idioma nativo incluído.\n"
+msgstr "Supuart includût pe lenghe native.\n"
 
 #: wcd.c:2095
 #, c-format
 msgid "LOCALEDIR=%s\n"
-msgstr "LOCALEDIR=%s\n"
+msgstr ""
 
 #: wcd.c:2097
 #, c-format
 msgid "No native language support included.\n"
-msgstr "Sem suporte a idioma nativo.\n"
+msgstr "Nissun supuart includût pe lenghe native.\n"
 
 #: wcd.c:2100
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
-msgstr "A localidade atual usa a codificação CP%u.\n"
+msgstr ""
 
 #: wcd.c:2102
 #, c-format
 msgid "Current locale uses %s encoding.\n"
-msgstr "A localidade atual usa a codificação %s.\n"
+msgstr ""
 
 #: wcd.c:2105
 #, c-format
 msgid "With Unicode support.\n"
-msgstr "Com suporte a Unicode.\n"
+msgstr "Cun supuart Unicode.\n"
 
 #: wcd.c:2110
 #, c-format
 msgid "  Euro symbol: "
-msgstr "  Símbolo do euro: "
+msgstr "  Simbul Euro: "
 
 #: wcd.c:2112
 #, c-format
 msgid "  Chinese characters: "
-msgstr "  Caracteres chineses: "
+msgstr "  Caratars cinês: "
 
 #: wcd.c:2116
 #, c-format
 msgid "Without Unicode support.\n"
-msgstr "Sem suporte a Unicode.\n"
+msgstr "Cence supuart Unicode.\n"
 
 #: wcd.c:2119
 #, c-format
 msgid "With Unicode normalization.\n"
-msgstr "Com normalização Unicode.\n"
+msgstr ""
 
 #: wcd.c:2121
 #, c-format
 msgid "Without Unicode normalization.\n"
-msgstr "Sem normalização Unicode.\n"
+msgstr ""
 
 #: wcd.c:2124
 #, c-format
 msgid "Download the latest executables and sources from:\n"
-msgstr "Baixe os executáveis e fontes mais recentes de:\n"
+msgstr "Discjarie i ultins eseguibii e sorzints di:\n"
 
 #: wcd.c:2131
 #, c-format
@@ -645,12 +645,12 @@ msgid ""
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 msgstr ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
-"Copyright (C) 1994-2002 Ondrej Popp no C3PO\n"
-"Copyright (C) 1995-1996 DJ Delorie no _fixpath()\n"
-"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol no Ninux Czo Directory\n"
-"Copyright (C) 1994-1996 Jason Mathews no DOSDIR\n"
+"Copyright (C) 1994-2002 Ondrej Popp su C3PO\n"
+"Copyright (C) 1995-1996 DJ Delorie su _fixpath()\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol su Ninux Czo Directory\n"
+"Copyright (C) 1994-1996 Jason Mathews su DOSDIR\n"
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
-"Kai Uwe Rommel e Igor Mandrichenko no recmatch()\n"
+"Kai Uwe Rommel e Igor Mandrichenko su recmatch()\n"
 
 #: wcd.c:2139
 #, c-format
@@ -661,11 +661,6 @@ msgid ""
 "Rugxulo is the original author of query_con_codepage() (public domain).\n"
 "\n"
 msgstr ""
-"O código-fonte para varrer LAN de Windows foi originalmente escrito e\n"
-"colocado no domínio público por Felix Kasza.\n"
-"Implementações livres wcwidth() e wcswidth() do Markus Kuhn são usadas.\n"
-"Rugxulo é o autor original de query_con_codepage() (domínio público).\n"
-"\n"
 
 #: wcd.c:2145
 #, c-format
@@ -676,10 +671,10 @@ msgid ""
 "of the License, or (at your option) any later version.\n"
 "\n"
 msgstr ""
-"Este programa é um software livre; você pode redistribuí-lo e/ou\n"
-"modificá-lo sob os termos da Licença Pública Geral do GNU como\n"
-"publicada pela Free Software Foundation (FSF); na versão\n"
-"2 da Licença, ou (a seu critério) qualquer versão posterior.\n"
+"Chest program al è software libar; tu puedis redistribuîlu e/o \n"
+"modificâlu secont i tiermins de GNU General Public License \n"
+"come publicade de Free Software Foundation; sedi la version 2 \n"
+"de licence, o (a to plasê) cualsisei version sucessive.\n"
 "\n"
 
 #: wcd.c:2151
@@ -691,11 +686,10 @@ msgid ""
 "GNU General Public License for more details.\n"
 "\n"
 msgstr ""
-"Este programa é distribuído na expectativa de ser útil, mas\n"
-"SEM QUALQUER GARANTIA; sem mesmo a garantia implícita de\n"
-"COMERCIALIZAÇÃO ou de ADEQUAÇÃO A QUALQUER PROPÓSITO EM\n"
-"PARTICULAR. Consulte a Licença Pública Geral do GNU para obter\n"
-"mais detalhes.\n"
+"Chest program al è distribuît inte sperance che al sedi util, \n"
+"ma CENCE NISSUNE GARANZIE; cence nancje la implicite garanzie di \n"
+"CUMIERÇABILITÂT o IDONEITÂT A UNE PARTICOLÂR FINALITÂT.  Viodi la \n"
+"GNU General Public License par vê plui detais.\n"
 "\n"
 
 #: wcd.c:2157
@@ -705,511 +699,511 @@ msgid ""
 "along with this program; if not, write to the Free Software\n"
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 msgstr ""
-"Você deve ter recebido uma cópia da Licença Pública Geral do GNU\n"
-"junto com este programa; se não, escreva para a Free Software\n"
-"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+"Tu varessis di vê ricevût un copie de licence GNU General Public License\n"
+"adun cun chest program; se no, scrîf ae Free Software \n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n"
 
 #: wcd.c:2190
 #, c-format
 msgid "creating directory %s\n"
-msgstr "criando diretório %s\n"
+msgstr "daûr a creâ la cartele %s\n"
 
 #: wcd.c:2522 wcd.c:2562 wcd.c:2577 wcd.c:2645 wcd.c:2714 wcd.c:3216 wcd.c:3235
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
-msgstr "O valor da variável de ambiente %s é muito longo.\n"
+msgstr "Il valôr de variabile di ambient %s al è masse lunc.\n"
 
 #: wcd.c:2551
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
-msgstr "Falha ao remover definição da variável de ambiente TERM: %s\n"
+msgstr "No si è rivâts a azerâ la variabile di ambient TERM: %s\n"
 
 #: wcd.c:2609 wcd.c:2638
 msgid "Environment variable HOME or WCDHOME is not set.\n"
-msgstr "A variável de ambiente HOME ou WCDHOME não está definida.\n"
+msgstr "La variabile di ambient HOME o WCDHOME no je stabilide.\n"
 
 #: wcd.c:2821
 #, c-format
 msgid "aliasfile: %s\n"
-msgstr "arquivo alias: %s\n"
+msgstr "file alias: %s\n"
 
 #: wcd.c:2835
 msgid "HOME is not defined\n"
-msgstr "HOME não está definido\n"
+msgstr "HOME nol è definît\n"
 
 #: wcd.c:2839
 msgid "WCDHOME is not defined\n"
-msgstr "WCDHOME não está definido\n"
+msgstr "WCDHOME nol è definît\n"
 
 #: wcd.c:2843
 msgid "WCDSCAN is not defined\n"
-msgstr "WCDSCAN não está definido\n"
+msgstr "WCDSCAN nol è definît\n"
 
 #: wcd.c:2868
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
-msgstr "Suporte ao modo gráfico no wcd com interface baseada a curses.\n"
+msgstr ""
 
 #: wcd.c:3149
 #, c-format
 msgid "%s added to aliasfile %s\n"
-msgstr "%s adicionado ao arquivo alias: %s\n"
+msgstr "%s zontât al file alias %s\n"
 
 #: wcd.c:3248
 #, c-format
 msgid "Unable to read file %s or %s\n"
-msgstr "Não foi possível ler o arquivo %s ou %s\n"
+msgstr "Impussibil lei il file %s o %s\n"
 
 #: wcd.c:3398
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
-msgstr "WCDSCAN diretório {%s}\n"
+msgstr "WCDSCAN cartele {%s}\n"
 
 #: wcd.c:3400
 #, c-format
 msgid "banning {%s}\n"
-msgstr "banindo {%s}\n"
+msgstr "daûr a proibî {%s}\n"
 
 #: wcd.c:3402
 #, c-format
 msgid "excluding {%s}\n"
-msgstr "excluindo {%s}\n"
+msgstr "daûr a escludi {%s}\n"
 
 #: wcd.c:3404
 #, c-format
 msgid "filtering {%s}\n"
-msgstr "filtrando {%s}\n"
+msgstr "daûr a filtrâ {%s}\n"
 
 #: wcd.c:3667
 #, c-format
 msgid "No directory found matching %s\n"
-msgstr "Nenhum diretório localizado correspondendo a %s\n"
+msgstr "Nissune cartele cjatade che e corispuindi a %s\n"
 
 #: wcd.c:3668
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
-msgstr "Talvez você precise varrer novamente o disco ou o caminho está banido.\n"
+msgstr "Forsit si scugne tornâ a analizâ il disc o il percors al è proibît.\n"
 
 #: wcd.c:3836
 #, c-format
 msgid "Cannot change to %s\n"
-msgstr "Não foi possível mudar para %s\n"
+msgstr "Impussibil passâ su %s\n"
 
 #: wcddir.c:109
 #, c-format
 msgid "%lu (\"%s\") reported by \"%s\".\n"
-msgstr "%lu (\"%s\") relatado por \"%s\".\n"
+msgstr "%lu (\"%s\") segnalât di \"%s\".\n"
 
 #: wcddir.c:131
 msgid "access denied.\n"
-msgstr "acesso negado.\n"
+msgstr "acès dineât.\n"
 
 #: wcddir.c:206
 #, c-format
 msgid "Searching for shared directories on server %s\n"
-msgstr "Pesquisando por diretórios compartilhados no servidor %s\n"
+msgstr "Daûr a cirî cartelis condividudis sul servidôr %s\n"
 
 #: wcddir.c:218
 #, c-format
 msgid "Found %lu shared directories on server %s\n"
-msgstr "Encontrados %lu diretórios compartilhados no servidor %s\n"
+msgstr "Cjatât %lu cartelis condividudis sul servidôr %s\n"
 
 #: wcddir.c:335
 msgid "Unable to get current working directory: "
-msgstr "Não foi possível obter o diretório de trabalho atual: "
+msgstr "Impussibil otignî la cartele di lavôr atuâl: "
 
 #: wcddir.c:362
 #, c-format
 msgid "Unable to change to directory %s: "
-msgstr "Não foi possível mudar para o diretório %s: "
+msgstr "Impussibil passâ ae cartele %s: "
 
 #: wcddir.c:392
 #, c-format
 msgid "Unable to create directory %s: "
-msgstr "Não foi possível criar o diretório %s: "
+msgstr "Impussibil creâ la cartele %s: "
 
 #: wcddir.c:420
 #, c-format
 msgid "Unable to remove directory %s: "
-msgstr "Não foi possível remover o diretório %s: "
+msgstr "Impussibil gjavâ la cartele %s: "
 
 #: wcddir.c:543 wcddir.c:554
 #, c-format
 msgid "Unable to create directory %s: %s\n"
-msgstr "Não foi possível criar o diretório %s: %s\n"
+msgstr "Impussibil creâ la cartele %s: %s\n"
 
 #: wcddir.c:660
 #, c-format
 msgid "Unable to get current working directory: %s\n"
-msgstr "Não foi possível obter o diretório de trabalho atual: %s\n"
+msgstr "Impussibil otignî la cartele di lavôr atuâl: %s\n"
 
 #: wcddir.c:674
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
-msgstr "Não foi possível mudar para o diretório %s: %s\n"
+msgstr "Impussibil passâ ae cartele %s: %s\n"
 
 #: wcddir.c:683
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
-msgstr "Não foi possível remover o diretório %s: %s\n"
+msgstr "Impussibil gjavâ la cartele %s: %s\n"
 
 #: stack.c:101
 msgid "Error parsing stack\n"
-msgstr "Erro ao analisar a pilha\n"
+msgstr ""
 
 #: display.c:261
 msgid "internal error in maxLength(), list == NULL\n"
-msgstr "erro interno em maxLength(), list == NULL\n"
+msgstr ""
 
 #: display.c:282
 msgid "internal error in maxLengthStack(), s == NULL\n"
-msgstr "erro interno em maxLengthStack(), s == NULL\n"
+msgstr ""
 
 #: display.c:522 display.c:1137 display.c:1513
 #, c-format
 msgid "Perfect match for %d directories."
-msgstr "Correspondência perfeita para diretórios %d."
+msgstr "Corispuindince perfete par %d cartelis."
 
 #: display.c:524 display.c:1139 display.c:1515
 #, c-format
 msgid "Wild match for %d directories."
-msgstr "Correspondência curinga para %d diretórios."
+msgstr "Corispuindince imperfete par %d cartelis."
 
 #: display.c:528 display.c:1151 display.c:1517 display.c:1560
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
-msgstr "Por favor, escolha um (<Enter> para abortar): "
+msgstr "Sielzi un (<Enter> par interompi): "
 
 #: display.c:530 display.c:606 display.c:638 display.c:1144
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
-msgstr " w=cima x=baixo ?=ajuda  Página %d/%d "
+msgstr " w=sù x=jù ?=jutori  Pagjine %d/%d "
 
 #: display.c:682 display.c:1167
 msgid "Screenheight must be > 20 for help."
-msgstr "Altura da tela deve ser > 20 para a ajuda."
+msgstr "La altece dal schermi e scugne jessi > 20 pal jutori."
 
 #: display.c:687 display.c:1170
 msgid "w or <Up>         page up"
-msgstr "w ou <Cima>        paginação para cima"
+msgstr "w o <Up>         pagjine sù"
 
 #: display.c:688 display.c:1171
 msgid "x or z or <Down>  page down"
-msgstr "x ou z ou <Baixo>  paginação para baixo"
+msgstr "x o z o <Down>  pagjine jù"
 
 #: display.c:689 display.c:1172
 msgid ", or <Left>       scroll 1 left"
-msgstr ", ou <Esquerda>    rola 1 para esquerda"
+msgstr ", o <Left>       scor 1 a çampe"
 
 #: display.c:690 display.c:1173
 msgid ". or <Right>      scroll 1 right"
-msgstr ". ou <Direita>     rola 1 para direita"
+msgstr ". o <Right>      scor 1 a drete"
 
 #: display.c:691 display.c:1174
 msgid "< or [            scroll 10 left"
-msgstr "< ou [             rola 10 para esquerda"
+msgstr "< o [            scor 10 a çampe"
 
 #: display.c:692 display.c:1175
 msgid "> or ]            scroll 10 right"
-msgstr "> ou ]             rola 10 para direita"
+msgstr "> o ]            scor 10 a drete"
 
 #: display.c:693 display.c:1176
 msgid "CTRL-a or <HOME>  scroll to beginning"
-msgstr "CTRL-a ou <HOME>   rola para o começo"
+msgstr "CTRL-a o <HOME>  scor al inizi"
 
 #: display.c:694 display.c:1177
 msgid "CTRL-e or <END>   scroll to end"
-msgstr "CTRL-e ou <END>    rola para o final"
+msgstr "CTRL-e o <END>   scor ae fin"
 
 #: display.c:695 display.c:1179
 msgid "CTRL-c or <Esc>   abort"
-msgstr "CTRL-c ou <Esc>    aborta"
+msgstr "CTRL-c o <Esc>   interomp"
 
 #: display.c:696 display.c:1180
 msgid "<Enter>           abort"
-msgstr "<Enter>            aborta"
+msgstr "<Enter>           interomp"
 
 #: display.c:697
 msgid "Type w or x to quit help."
-msgstr "Digite w ou x para sair da ajuda."
+msgstr "Scrîf w o x par jessi dal jutori."
 
 #: display.c:1178 graphics.c:1983
 msgid "CTRL-l or F5      redraw screen"
-msgstr "CTRL-l ou F5      desenha novamente a tela"
+msgstr "CTRL-l or F5      torne disegne il schermi"
 
 #: display.c:1181 graphics.c:1968 graphics.c:1985 graphics.c:2008
 #: graphics.c:2025
 msgid "Press any key."
-msgstr "Pressione qualquer tecla."
+msgstr "Frache cualsisei tast."
 
 #: display.c:1246 graphics.c:2280
 msgid "Error opening terminal, falling back to stdout interface.\n"
-msgstr "Erro ao abrir o terminal, voltando para interface de stdout.\n"
+msgstr "Erôr tal vierzi il terminâl, si torne ae interface stdout.\n"
 
 #: display.c:1267
 msgid "screen height must be larger than 3 lines.\n"
-msgstr "a altura da tela deve ser maior que 3 linhas.\n"
+msgstr "la altece dal schermi e scugne jessi plui grande di 3 riis.\n"
 
 #: display.c:1301 graphics.c:2311
 msgid "error creating scroll window.\n"
-msgstr "erro ao criar janela de rolagem.\n"
+msgstr "erôr tal creâ il barcon pal scoriment.\n"
 
 #: display.c:1315
 msgid "error creating input window.\n"
-msgstr "erro ao criar janela de entrada.\n"
+msgstr "erôr tal creâ il barcon pal input.\n"
 
 #: graphics.c:277
 #, c-format
 msgid "Wcd: error: path too long"
-msgstr "Wcd: erro: caminho grande demais"
+msgstr "Wcd: erôr: percors masse lunc"
 
 #: graphics.c:1929
 msgid "/ = search forward,  ? = search backward,  : = help"
-msgstr "/ = pesquisa para frente,  ? = pesquisa para trás,  : = help"
+msgstr "/ = cir indenant,  ? = cîr indaûr,  : = jutori"
 
 #: graphics.c:1934
 msgid "SEARCH: "
-msgstr "PESQUISA: "
+msgstr ""
 
 #: graphics.c:1937
 msgid "Search: "
-msgstr "Pesquisa: "
+msgstr ""
 
 #: graphics.c:1953
 msgid "NAVIGATION MODE (1/2):"
-msgstr "MODO DE NAVEGAÇÃO (1/2):"
+msgstr "MODALITÂT NAVIGAZION (1/2):"
 
 #: graphics.c:1954
 msgid "h or <Left>       go left"
-msgstr "h ou <Esquerda>    vai para a esquerda"
+msgstr "h o <Left>       va a çampe"
 
 #: graphics.c:1955
 msgid "j or <Down>       go down"
-msgstr "j ou <Baixo>       vai para baixo"
+msgstr "j o <Down>       va jù"
 
 #: graphics.c:1956
 msgid "k or <Up>         go up"
-msgstr "k ou <Cima>        vai para cima"
+msgstr "k o <Up>         va sù"
 
 #: graphics.c:1957
 msgid "l or <Right>      go right"
-msgstr "l ou <Direita>     vai para a direita"
+msgstr "l o <Right>      va a drete"
 
 #: graphics.c:1958
 msgid "* or v or <Space> go forward to dir with same name"
-msgstr "* ou v ou <Espaço> avança para o diretório com mesmo nome"
+msgstr "* opûr v opûr <Space> va indenant ae cartele cul stes non"
 
 #: graphics.c:1959
 msgid "# or p or <BS>    go backward to dir with same name"
-msgstr "# ou p ou <BS>     volta para dir com o mesmo nome"
+msgstr "# opûr p opûr <BS>    va indaûr ae cartele cul stes non"
 
 #: graphics.c:1960
 msgid "^ or a            go to beginning of line"
-msgstr "^ ou a             vai para o começo da linha"
+msgstr "^ o a            va al inizi de rie"
 
 #: graphics.c:1961
 msgid "$ or e            go to end of line"
-msgstr "$ ou e             vai para o fim da linha"
+msgstr "$ o e            va ae fin de rie"
 
 #: graphics.c:1962
 msgid "1                 go to root dir"
-msgstr "1                  vai para o diretório raiz"
+msgstr "1                 va ae cartele lidrîs"
 
 #: graphics.c:1963
 msgid "g or G            go to last dir"
-msgstr "g ou G             vai para o último diretório"
+msgstr "g o G            va ae ultime cartele"
 
 #: graphics.c:1964
 msgid "f                 go page forward"
-msgstr "f                  avança uma página"
+msgstr ""
 
 #: graphics.c:1965
 msgid "b                 go page backward"
-msgstr "b                  volta uma página"
+msgstr ""
 
 #: graphics.c:1966
 msgid "u                 go half page up"
-msgstr "u                  sobe metade da página"
+msgstr "u                 va mieze pagjine in sù"
 
 #: graphics.c:1967
 msgid "d                 go half page down"
-msgstr "d                  desce metade da página"
+msgstr "d                 va mieze pagjine in jù"
 
 #: graphics.c:1974
 msgid "NAVIGATION MODE (2/2):"
-msgstr "MODO DE NAVEGAÇÃO (2/2):"
+msgstr "MODALITÂT NAVIGAZION (2/2):"
 
 #: graphics.c:1975
 msgid "A                 switch alternative tree navigation on/off"
-msgstr "A                 ativa/desativa navegação alternativa de árvore"
+msgstr ""
 
 #: graphics.c:1976
 msgid "t                 switch centered mode on/off"
-msgstr "t                 ativa/desativa modo centralizado"
+msgstr ""
 
 #: graphics.c:1977
 msgid "T                 toggle between line drawing and ASCII characters"
-msgstr "T                 alterna entre desenho de linha e caracteres ASCII"
+msgstr ""
 
 #: graphics.c:1978
 msgid "m                 toggle between compact and wide tree"
-msgstr "m                 alterna entre árvore compacta e ampla"
+msgstr ""
 
 #: graphics.c:1979
 msgid "<Esc> or q        abort"
-msgstr "<Esc> ou q        aborta"
+msgstr "<Esc> o q        interomp"
 
 #: graphics.c:1980
 msgid "/                 search forward"
-msgstr "/                 pesquisa para frente"
+msgstr "/                 cîr indenant"
 
 #: graphics.c:1981
 msgid "?                 search backward"
-msgstr "?                 pesquisa para trás"
+msgstr "?                 cîr indaûr"
 
 #: graphics.c:1982
 msgid "n                 repeat last / or ? search"
-msgstr "n                 repete último / ou ? de pesquisa"
+msgstr ""
 
 #: graphics.c:1984 graphics.c:2007
 msgid "<Enter>           select directory"
-msgstr "<Enter>           seleciona diretório"
+msgstr "<Enter>           selezione cartele"
 
 #: graphics.c:1991
 msgid "SEARCH MODE with wildcard and subdir support:"
-msgstr "MODO DE PESQUISA com suporte a subdir e caracteres curingas:"
+msgstr ""
 
 #: graphics.c:1992
 msgid "<Left>            go left"
-msgstr "<Esquerda>        vai para a esquerda"
+msgstr "<Left>            va a çampe"
 
 #: graphics.c:1993
 msgid "<Down>            go down"
-msgstr "<Baixo>           vai para baixo"
+msgstr "<Down>            va jù"
 
 #: graphics.c:1994
 msgid "<Up>              go up"
-msgstr "<Cima>            vai para cima"
+msgstr "<Up>              va sù"
 
 #: graphics.c:1995
 msgid "<Right>           go right"
-msgstr "<Direito>         vai para a direita"
+msgstr "<Right>           va a drete"
 
 #: graphics.c:1996
 msgid "CTRL-v            go forward to dir with same name"
-msgstr "CTRL-v            avança para dir com o mesmo nome"
+msgstr "CTRL-v            va indenant ae cartele cul stes non"
 
 #: graphics.c:1997
 msgid "CTRL-p            go backward to dir with same name"
-msgstr "CTRL-p            volta para dir com mesmo nome"
+msgstr "CTRL-p            va indaûr ae cartele cul stes non"
 
 #: graphics.c:1998
 msgid "CTRL-a            go to beginning of line"
-msgstr "CTRL-a            vai para o começo da linha"
+msgstr "CTRL-a            va al inizi de rie"
 
 #: graphics.c:1999
 msgid "CTRL-e            go to end of line"
-msgstr "CTRL-e            vai para o fim da linha"
+msgstr "CTRL-e            va ae fin de rie"
 
 #: graphics.c:2000
 msgid "CTRL-g            go to last dir"
-msgstr "CTRL-g            vai para o último diretório"
+msgstr "CTRL-g            va ae ultime cartele"
 
 #: graphics.c:2001
 msgid "CTRL-f            go page forward"
-msgstr "CTRL-f            avança uma página"
+msgstr ""
 
 #: graphics.c:2002
 msgid "CTRL-b            go page backward"
-msgstr "CTRL-b            volta uma página"
+msgstr ""
 
 #: graphics.c:2003
 msgid "CTRL-u            go half page up"
-msgstr "CTRL-u            sobe metade da página"
+msgstr "CTRL-u            va mieze pagjine in sù"
 
 #: graphics.c:2004
 msgid "CTRL-d            go half page down"
-msgstr "CTRL-d            desce metade da página"
+msgstr "CTRL-d            va mieze pagjine in jù"
 
 #: graphics.c:2005
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
-msgstr "<Esc> ou CTRL-x   aborta o MODO DE PESQUISA"
+msgstr ""
 
 #: graphics.c:2006
 msgid "CTRL-n            repeat last / or ? search"
-msgstr "CTRL-n            repete a último / ou ? de pesquisa"
+msgstr ""
 
 #: graphics.c:2014
 msgid "ZOOMING:"
-msgstr "AMPLIAÇÃO:"
+msgstr "INGRANDIMENT:"
 
 #: graphics.c:2015
 msgid "z or i or CTRL-i  zoom in"
-msgstr "z ou i ou CTRL-i  amplia"
+msgstr "z opûr i opûr CTRL-i  ingrandìs"
 
 #: graphics.c:2016
 msgid "Z or o or CTRL-o  zoom out"
-msgstr "Z ou o ou CTRL-o  reduz a ampliação"
+msgstr "Z opûr o opûr CTRL-o  impiçulìs"
 
 #: graphics.c:2017
 msgid "c                 condense: fold current level"
-msgstr "c                 condensa: dobra o nível atual"
+msgstr ""
 
 #: graphics.c:2018
 msgid "C                 condense: fold subdir level"
-msgstr "C                 condensa: dobra o nível de subdir"
+msgstr ""
 
 #: graphics.c:2019
 msgid "w                 condense: fold current and subdir levels"
-msgstr "w                 condensa: dobra os níveis atual e de subdir"
+msgstr ""
 
 #: graphics.c:2020
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
-msgstr "y ou CTRL-y       descondensa: desdobra os níveis atual e de subdir"
+msgstr ""
 
 #: graphics.c:2021
 msgid "r or CTRL-r       uncondense: unfold all directories"
-msgstr "r ou CTRL-r       descondensa: desdobra todos diretórios"
+msgstr ""
 
 #: graphics.c:2022
 msgid "-                 fold directory"
-msgstr "-                 dobra diretório"
+msgstr ""
 
 #: graphics.c:2023
 msgid "+ or =            unfold directory"
-msgstr "+ ou =            desdobra diretório"
+msgstr ""
 
 #: graphics.c:2024
 msgid "l or <Right>      unfold and go right"
-msgstr "l ou <Direita>    desdobra e vai para direita"
+msgstr ""
 
 #: graphics.c:2028
 msgid "Screenheight must be > 21 for help."
-msgstr "A altura da tela deve ser > 21 para a ajuda."
+msgstr "La altece dal schermi e scugne jessi > 21 pal jutori."
 
 #: graphics.c:2262 graphics.c:2731
 #, c-format
 msgid "Cannot find the current path %s in the directory tree.\n"
-msgstr "Não foi possível localizar o caminho atual %s na árvore de diretório.\n"
+msgstr "Impussibil cjatâ il percors atuâl %s intal arbul des cartelis.\n"
 
 #: finddirs.c:241 finddirs.c:249 finddirs.c:273 finddirs.c:300 finddirs.c:314
 #, c-format
 msgid "Unable to remove file %s: %s\n"
-msgstr "Não foi possível remover o arquivo %s: %s\n"
+msgstr "Impussibil gjavâ il file %s: %s\n"
 
 #: finddirs.c:322 finddirs.c:486
 #, c-format
 msgid "Unable to close directory %s: %s\n"
-msgstr "Não foi possível fechar o diretório %s: %s\n"
+msgstr "Impussibil sierâ la cartele %s: %s\n"
 
 #: finddirs.c:365
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
-msgstr "finddirs(): não é possível determinar o caminho no diretório %s\n"
+msgstr "finddirs(): impussibil determinâ il percors te cartele %s\n"
 
 #: finddirs.c:366
 msgid "path probably too long.\n"
-msgstr "caminho provavelmente muito longo.\n"
+msgstr "probabil percors masse lunc.\n"
 
 #: c3po/Error.c:41
 #, c-format
 msgid "in '%s', insufficient memory for allocation\n"
-msgstr "em \"%s\", memória insuficiente para alocação\n"
+msgstr "in '%s', memorie no suficiente pe assegnazion\n"

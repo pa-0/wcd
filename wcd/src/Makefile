@@ -1,6 +1,6 @@
 #   Copyright information
 #
-#       Copyright (C) 2009-2017 Erwin Waterlander
+#       Copyright (C) 2009-2018 Erwin Waterlander
 #       Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -99,7 +99,6 @@ INSTALL_OBJS_DOC   = \
   ../doc/todo.txt \
   ../doc/INSTALL.txt \
   ../doc/UNIX.txt \
-  ../doc/RPM.txt \
   ../doc/copying.txt
 
 ifdef ENABLE_NLS
