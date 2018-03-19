@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-6.0.0-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-08 20:49+0100\n"
-"PO-Revision-Date: 2018-01-04 16:16+0100\n"
+"POT-Creation-Date: 2018-03-19 07:00+0100\n"
+"PO-Revision-Date: 2018-03-15 09:39+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <f.t.public@gmail.com>\n"
 "Language: fur\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: wcd.c:170
@@ -162,7 +162,7 @@ msgstr ""
 #: wcd.c:1931
 #, c-format
 msgid "  -A PATH                 Add tree from PATH\n"
-msgstr ""
+msgstr "  -A PERCORS                 Zonte arbul dal PERCORS\n"
 
 #: wcd.c:1932
 #, c-format
@@ -172,7 +172,7 @@ msgstr "  -b                      Proibìs il percors atuâl\n"
 #: wcd.c:1933
 #, c-format
 msgid "  -c,  --direct-cd        direct CD mode\n"
-msgstr ""
+msgstr "  -c,  --direct-cd        modalitât CD direte\n"
 
 #: wcd.c:1934
 #, c-format
@@ -207,22 +207,22 @@ msgstr ""
 #: wcd.c:1940
 #, c-format
 msgid "  -g                      Graphics\n"
-msgstr ""
+msgstr "  -g                      Ambient grafic\n"
 
 #: wcd.c:1941
 #, c-format
 msgid "  -gd                     Graphics, dump tree\n"
-msgstr ""
+msgstr "  -gd                     Ambient grafic, scrîf fûr l'arbul\n"
 
 #: wcd.c:1942
 #, c-format
 msgid "  -G PATH                 set PATH Go-script\n"
-msgstr ""
+msgstr "  -G PERCORS                 stabilìs il PERCORS dal script Go\n"
 
 #: wcd.c:1943
 #, c-format
 msgid "  -GN, --no-go-script     No Go-script\n"
-msgstr ""
+msgstr "  -GN, --no-go-script     No doprâ il script Go\n"
 
 #: wcd.c:1944
 #, c-format
@@ -252,17 +252,17 @@ msgstr "  +i,  --no-ignore-case   ten di cont des maiusculis (predefinît) \n"
 #: wcd.c:1954
 #, c-format
 msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
-msgstr ""
+msgstr "  -I,  --ignore-diacritics     Ignore segns diacritics\n"
 
 #: wcd.c:1955
 #, c-format
 msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
-msgstr ""
+msgstr "  +I,  --no-ignore-diacritics  ten di cont i segns diacritics (predefinît)\n"
 
 #: wcd.c:1956
 #, c-format
 msgid "  -j,  --just-go          Just go mode\n"
-msgstr ""
+msgstr "  -j,  --just-go          Modalitât direte\n"
 
 #: wcd.c:1957
 #, c-format
@@ -277,7 +277,7 @@ msgstr "  -K,  --color            colôrs\n"
 #: wcd.c:1959
 #, c-format
 msgid "  -l ALIAS                aLias current directory\n"
-msgstr ""
+msgstr "  -l ALIAS                cree un ALIAS pe cartele atuâl\n"
 
 #: wcd.c:1960
 #, c-format
@@ -322,7 +322,7 @@ msgstr "  -o                      dopre stdOut\n"
 #: wcd.c:1968
 #, c-format
 msgid "  -od, --to-stdout        dump matches\n"
-msgstr ""
+msgstr "  -od, --to-stdout        scrîf fûr lis corispondencis\n"
 
 #: wcd.c:1969
 #, c-format
@@ -357,17 +357,17 @@ msgstr ""
 #: wcd.c:1975
 #, c-format
 msgid "  -t                      don't strip /tmp_mnt from paths\n"
-msgstr ""
+msgstr "  -t                      no sta gjavâ /tmp_mnt dai percors\n"
 
 #: wcd.c:1976
 #, c-format
 msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
-msgstr ""
+msgstr "  -T,  --ascii-tree       disegne arbul cui caratars ASCII\n"
 
 #: wcd.c:1977
 #, c-format
 msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
-msgstr ""
+msgstr "  -Ta, --alt-tree-nav     Navigazion arbul alternative\n"
 
 #: wcd.c:1978
 #, c-format
@@ -382,7 +382,7 @@ msgstr "  -Tc, --compact-tree     Arbul compat\n"
 #: wcd.c:1980
 #, c-format
 msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
-msgstr ""
+msgstr "  -Td, --cjk-width        supuarte caratars CJK vecje maniere\n"
 
 #: wcd.c:1981
 #, c-format
@@ -412,12 +412,12 @@ msgstr "  -w,  --wild-match-only  dome corispuindincis imperfetis\n"
 #: wcd.c:1986
 #, c-format
 msgid "  -x PATH                 eXclude PATH during disk scan\n"
-msgstr ""
+msgstr "  -x PERCORS                 esclût PERCORS de analisi dal disc\n"
 
 #: wcd.c:1987
 #, c-format
 msgid "  -xf FILE                eXclude paths from FILE\n"
-msgstr ""
+msgstr "  -xf FILE                esclût i percors di FILE\n"
 
 #: wcd.c:1988
 #, c-format
@@ -427,27 +427,27 @@ msgstr "  -y,  --assume-yes       rispuint Sì a dutis lis domandis\n"
 #: wcd.c:1989
 #, c-format
 msgid "  -z NUMBER               set max stack siZe\n"
-msgstr ""
+msgstr "  -z NUMBER               stabilìs la dimension massime dal stack\n"
 
 #: wcd.c:1990
 #, c-format
 msgid "  -[NUMBER]               push dir (NUMBER times)\n"
-msgstr ""
+msgstr "  -[NUMAR]               met la cartele in tasse (NUMAR di voltis)\n"
 
 #: wcd.c:1991
 #, c-format
 msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
-msgstr ""
+msgstr "  -[NUMAR]               gjave la cartele de tasse (NUMAR di voltis)\n"
 
 #: wcd.c:1992
 #, c-format
 msgid "  =                       show stack\n"
-msgstr ""
+msgstr "  =                       mostre il stack\n"
 
 #: wcd.c:2001 wcd.c:2130
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
-msgstr ""
+msgstr "wcd %s (%s) - Wherever Change Directory\n"
 
 #: wcd.c:2002
 #, c-format
@@ -561,7 +561,7 @@ msgstr "version ncurses %s.%d\n"
 #: wcd.c:2079
 #, c-format
 msgid "PDCurses build %d\n"
-msgstr ""
+msgstr "PDCurses version %d\n"
 
 #: wcd.c:2081
 #, c-format
@@ -581,7 +581,7 @@ msgstr "Supuart includût pe lenghe native.\n"
 #: wcd.c:2095
 #, c-format
 msgid "LOCALEDIR=%s\n"
-msgstr ""
+msgstr "LOCALEDIR=%s\n"
 
 #: wcd.c:2097
 #, c-format
@@ -591,12 +591,12 @@ msgstr "Nissun supuart includût pe lenghe native.\n"
 #: wcd.c:2100
 #, c-format
 msgid "Current locale uses CP%u encoding.\n"
-msgstr ""
+msgstr "La localizazion atuâl e dopre la codifiche CP%u.\n"
 
 #: wcd.c:2102
 #, c-format
 msgid "Current locale uses %s encoding.\n"
-msgstr ""
+msgstr "La localizazion atuâl e dopre la codifiche %s.\n"
 
 #: wcd.c:2105
 #, c-format
@@ -621,12 +621,12 @@ msgstr "Cence supuart Unicode.\n"
 #: wcd.c:2119
 #, c-format
 msgid "With Unicode normalization.\n"
-msgstr ""
+msgstr "Cun normalizazion Unicode.\n"
 
 #: wcd.c:2121
 #, c-format
 msgid "Without Unicode normalization.\n"
-msgstr ""
+msgstr "Cence normalizazion Unicode.\n"
 
 #: wcd.c:2124
 #, c-format
@@ -661,6 +661,11 @@ msgid ""
 "Rugxulo is the original author of query_con_codepage() (public domain).\n"
 "\n"
 msgstr ""
+"Il codiç sorzint par analizâ la LAN di Windows sul imprin al è stât scrit e metût\n"
+"su public domini di Felix Kasza.\n"
+"Lis implementazions libaris di wcwidth() e wcswidth() di Markus Kuhn a vegnin dopradis.\n"
+"Rugxulo al è l'autôr origjinâl di query_con_codepage() (domini public).\n"
+"\n"
 
 #: wcd.c:2145
 #, c-format
@@ -741,7 +746,7 @@ msgstr "WCDSCAN nol è definît\n"
 
 #: wcd.c:2868
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
-msgstr ""
+msgstr "Modalitât grafiche supuartade dome in wcd cun interface basade su curses.\n"
 
 #: wcd.c:3149
 #, c-format
@@ -847,15 +852,15 @@ msgstr "Impussibil gjavâ la cartele %s: %s\n"
 
 #: stack.c:101
 msgid "Error parsing stack\n"
-msgstr ""
+msgstr "Erôr tal analizâ il stack\n"
 
 #: display.c:261
 msgid "internal error in maxLength(), list == NULL\n"
-msgstr ""
+msgstr "erôr interni in maxLength(), list == NULL\n"
 
 #: display.c:282
 msgid "internal error in maxLengthStack(), s == NULL\n"
-msgstr ""
+msgstr "erôr interni in maxLengthStack(), s == NULL\n"
 
 #: display.c:522 display.c:1137 display.c:1513
 #, c-format
@@ -961,11 +966,11 @@ msgstr "/ = cir indenant,  ? = cîr indaûr,  : = jutori"
 
 #: graphics.c:1934
 msgid "SEARCH: "
-msgstr ""
+msgstr "CÎR: "
 
 #: graphics.c:1937
 msgid "Search: "
-msgstr ""
+msgstr "Cîr: "
 
 #: graphics.c:1953
 msgid "NAVIGATION MODE (1/2):"
@@ -1013,11 +1018,11 @@ msgstr "g o G            va ae ultime cartele"
 
 #: graphics.c:1964
 msgid "f                 go page forward"
-msgstr ""
+msgstr "f                 va indenant di pagjine"
 
 #: graphics.c:1965
 msgid "b                 go page backward"
-msgstr ""
+msgstr "b                 va indaûr di pagjine"
 
 #: graphics.c:1966
 msgid "u                 go half page up"
@@ -1033,19 +1038,19 @@ msgstr "MODALITÂT NAVIGAZION (2/2):"
 
 #: graphics.c:1975
 msgid "A                 switch alternative tree navigation on/off"
-msgstr ""
+msgstr "A                 passaç navigazion arbul alternative on/off"
 
 #: graphics.c:1976
 msgid "t                 switch centered mode on/off"
-msgstr ""
+msgstr "t                 passaç modalitât centrade on/off"
 
 #: graphics.c:1977
 msgid "T                 toggle between line drawing and ASCII characters"
-msgstr ""
+msgstr "T                 comute tra disen cun liniis e caratars ASCII"
 
 #: graphics.c:1978
 msgid "m                 toggle between compact and wide tree"
-msgstr ""
+msgstr "m                 comute tra arbul compat e pandût"
 
 #: graphics.c:1979
 msgid "<Esc> or q        abort"
@@ -1061,7 +1066,7 @@ msgstr "?                 cîr indaûr"
 
 #: graphics.c:1982
 msgid "n                 repeat last / or ? search"
-msgstr ""
+msgstr "n                 ripet la ultime ricercje / o ?"
 
 #: graphics.c:1984 graphics.c:2007
 msgid "<Enter>           select directory"
@@ -1069,7 +1074,7 @@ msgstr "<Enter>           selezione cartele"
 
 #: graphics.c:1991
 msgid "SEARCH MODE with wildcard and subdir support:"
-msgstr ""
+msgstr "MODALITÂT RICERCJE cun supuart a caratars speciâi e sot-cartelis:"
 
 #: graphics.c:1992
 msgid "<Left>            go left"
@@ -1109,11 +1114,11 @@ msgstr "CTRL-g            va ae ultime cartele"
 
 #: graphics.c:2001
 msgid "CTRL-f            go page forward"
-msgstr ""
+msgstr "CTRL-f            va indenant di pagjine"
 
 #: graphics.c:2002
 msgid "CTRL-b            go page backward"
-msgstr ""
+msgstr "CTRL-b            va indaûr di pagjine"
 
 #: graphics.c:2003
 msgid "CTRL-u            go half page up"
@@ -1125,11 +1130,11 @@ msgstr "CTRL-d            va mieze pagjine in jù"
 
 #: graphics.c:2005
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
-msgstr ""
+msgstr "<Esc> o CTRL-x   interomp MODALITÂT RICERCJE"
 
 #: graphics.c:2006
 msgid "CTRL-n            repeat last / or ? search"
-msgstr ""
+msgstr "CTRL-n            ripet la ultime ricercje / o ?"
 
 #: graphics.c:2014
 msgid "ZOOMING:"
@@ -1145,35 +1150,35 @@ msgstr "Z opûr o opûr CTRL-o  impiçulìs"
 
 #: graphics.c:2017
 msgid "c                 condense: fold current level"
-msgstr ""
+msgstr "c                 condense: invuluce il nivel atuâl"
 
 #: graphics.c:2018
 msgid "C                 condense: fold subdir level"
-msgstr ""
+msgstr "C                 condense: invuluce il nivel des sot-cartelis"
 
 #: graphics.c:2019
 msgid "w                 condense: fold current and subdir levels"
-msgstr ""
+msgstr "w                 condense: invuluce i nivei des sot-cartelis e chel atuâl"
 
 #: graphics.c:2020
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
-msgstr ""
+msgstr "y o CTRL-y       pant: disvuluce i nivei des sot-cartelis e chel atuâl"
 
 #: graphics.c:2021
 msgid "r or CTRL-r       uncondense: unfold all directories"
-msgstr ""
+msgstr "r o CTRL-r       pant: disvuluce dutis lis cartelis"
 
 #: graphics.c:2022
 msgid "-                 fold directory"
-msgstr ""
+msgstr "-                 invuluce la cartele"
 
 #: graphics.c:2023
 msgid "+ or =            unfold directory"
-msgstr ""
+msgstr "+ o =            disvuluce la cartele"
 
 #: graphics.c:2024
 msgid "l or <Right>      unfold and go right"
-msgstr ""
+msgstr "l o <Right>      disvuluce e va a drete"
 
 #: graphics.c:2028
 msgid "Screenheight must be > 21 for help."
