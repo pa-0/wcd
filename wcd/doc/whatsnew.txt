@@ -1,4 +1,4 @@
-6.0.2-beta1 2018-03-08
+6.0.2-beta2 2018-03-28
   - New Friulian translation of the messages. Thanks to Fabio Tomat.
 
 6.0.1 2017-08-28
