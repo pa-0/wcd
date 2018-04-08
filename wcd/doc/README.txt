@@ -294,6 +294,7 @@ Table of Contents
         German                Mario Blättermann            Version 5.2.5 - 5.2.6
         Serbian               Мирослав Николић             Version 5.3.4
         Spanish               Julio A. Freyre-Gonzalez     Version 5.0.4 - 5.2.4
+        Spanish               Francisco Javier Serrador    Version 6.0.2
         Ukrainian             Yuri Chornoivan              Version 5.2.5 - 6.0.0
         Vietnamese            Trần Ngọc Quân               Version 5.2.5 - 6.0.0
 
