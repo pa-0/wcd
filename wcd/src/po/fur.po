@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-6.0.0-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-19 07:00+0100\n"
+"POT-Creation-Date: 2018-04-11 22:33+0200\n"
 "PO-Revision-Date: 2018-03-15 09:39+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <f.t.public@gmail.com>\n"
@@ -787,7 +787,7 @@ msgstr "Nissune cartele cjatade che e corispuindi a %s\n"
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Forsit si scugne tornâ a analizâ il disc o il percors al è proibît.\n"
 
-#: wcd.c:3836
+#: wcd.c:3795
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Impussibil passâ su %s\n"

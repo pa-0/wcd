@@ -2272,7 +2272,7 @@ size_t pickDir(nameset list, int *use_HOME)
 
    sort_list(list);
 
-   path = getCurPath(curDir,(size_t)WCD_MAXPATH,use_HOME); /* get previous dirname from file */
+   path = getCurPath(curDir,(size_t)WCD_MAXPATH,use_HOME);
 
    if (path == NULL)  /* no dirname found */
       return(1);            /* return first of list */
@@ -3675,64 +3675,26 @@ int main(int argc,char** argv)
 #endif
       return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
    }
-   else if (perfect_list->size > 1)     /* choose from perfect list */
-   {
-#ifdef WCD_USECURSES
-      if(graphics & WCD_GRAPH_NORMAL)
-      {
-         rootNode = createRootNode();
-         buildTreeFromNameset(perfect_list, rootNode);
-         setXYTree(rootNode, &graphics);
-         if (graphics & WCD_GRAPH_DUMP)
-         {
-            dumpTree(rootNode, &graphics);
-            ptr = NULL;
-         }
-         else
-            ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
-         if (ptr != NULL) {
-            wcd_strncpy(best_match,ptr,sizeof(best_match));
-         } else
-            exit_wcd = 1;
-      }
-      else
-#endif
-      {
-         if (justGo)
-            i = (int)pickDir(perfect_list,&use_HOME);
-         else
-            i = display_list(perfect_list,1,use_numbers,use_stdout);
-
-         if ( (i>0) && (i <= (int)perfect_list->size))
-         {
-            i--;
-            wcd_strncpy(best_match,perfect_list->array[i],sizeof(best_match));
-         }
-         else
-            exit_wcd = 1;
-      }
-      if (exit_wcd)
-      {
-#if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
-         empty_wcdgo(go_file,use_GoScript,verbose);
-#endif
-#ifdef WCD_DOSBASH       /* empty wcd.go file */
-         empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
-#endif
-         return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
-      }
-   }
    else if (perfect_list->size==1)   /* one perfect match */
    {
       wcd_strncpy(best_match,perfect_list->array[0],sizeof(best_match));
    }
-   else if ((perfect_list->size==0)&&(wild_list->size > 1))  /* more than one wild match, zero perfect matches */
-   {                                   /* choose from wild list */
+   else if ((perfect_list->size==0) && (wild_list->size==1))   /* one wild match, zero perfect matches */
+   {
+      wcd_strncpy(best_match,wild_list->array[0],sizeof(best_match));
+   }
+   else
+   {
+       nameset match_list;
+       if (perfect_list->size > 1)
+          match_list = perfect_list;  /* choose from perfect list */
+       else
+          match_list = wild_list;     /* choose from wild list */
 #ifdef WCD_USECURSES
       if(graphics & WCD_GRAPH_NORMAL)
       {
          rootNode = createRootNode();
-         buildTreeFromNameset(wild_list, rootNode);
+         buildTreeFromNameset(match_list, rootNode);
          setXYTree(rootNode, &graphics);
          if (graphics & WCD_GRAPH_DUMP)
          {
@@ -3750,14 +3712,14 @@ int main(int argc,char** argv)
 #endif
       {
          if (justGo)
-            i = (int)pickDir(wild_list,&use_HOME);
+            i = (int)pickDir(match_list,&use_HOME);
          else
-            i = display_list(wild_list,0,use_numbers,use_stdout);
+            i = display_list(match_list,(int)perfect_list->size,use_numbers,use_stdout);
 
-         if ( (i>0) && (i <= (int)wild_list->size))
+         if ( (i>0) && (i <= (int)match_list->size))
          {
             i--;
-            wcd_strncpy(best_match,wild_list->array[i],sizeof(best_match));
+            wcd_strncpy(best_match,match_list->array[i],sizeof(best_match));
          }
          else
             exit_wcd = 1;
@@ -3772,89 +3734,85 @@ int main(int argc,char** argv)
 #endif
          return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
       }
-   }
-   else  /* (perfect_list->size==0) && (wild_list->size==1) */   /* one wild match, zero perfect matches */
-   {
-      wcd_strncpy(best_match,wild_list->array[0],sizeof(best_match));
    }
 
 
    /*******************************/
 
-      /* Yes, a match (best_match) */
-      if ( use_stdout & WCD_STDOUT_DUMP ) /* just dump the match and exit */
-      {
-         wcd_printf("%s\n", best_match);
+   /* Yes, a match (best_match) */
+   if ( use_stdout & WCD_STDOUT_DUMP ) /* just dump the match and exit */
+   {
+      wcd_printf("%s\n", best_match);
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
-         empty_wcdgo(go_file,use_GoScript,verbose);
+      empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-         empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
+      empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
-         return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+      return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+   }
+
+   wcd_strncpy(tmp,best_match,sizeof(tmp)); /* remember path (with /tmp_mnt) */
+#ifdef UNIX
+   /* strip the /tmp_mnt string */
+   if (strip_mount_string)
+      stripTmpMnt(best_match);
+#endif
+#ifdef _WCD_DOSFS
+   changeDisk(tmp,&changedrive,drive,&use_HOME);
+#endif
+
+   if ( wcd_chdir(best_match,0) == 0)  /* change to dir to get full path */
+   {
+      if(wcd_getcwd(tmp, sizeof(tmp)) != NULL)
+      {
+         if ((!quieter)&&(!justGo))
+            wcd_printf("-> %s\n",best_match); /* print match without /tmp_mnt string */
+
+         len = strlen(tmp);
+         if (len==0)
+            tmp[len] = '\0';
+
+         wcd_fixpath(tmp,sizeof(tmp));
+
+         if ( (ptr=strstr(tmp,"/")) != NULL)
+         {
+            wcd_strncpy(best_match,tmp,sizeof(best_match));
+#ifdef UNIX
+            /* strip the /tmp_mnt string */
+            if (strip_mount_string)
+               stripTmpMnt(best_match);
+#endif
+            stack_add(DirStack,tmp);     /* stack includes /tmp_mnt string */
+            stack_write(DirStack,stackfile);
+         }
+
       }
-
-          wcd_strncpy(tmp,best_match,sizeof(tmp)); /* remember path (with /tmp_mnt) */
-#ifdef UNIX
-           /* strip the /tmp_mnt string */
-          if (strip_mount_string)
-            stripTmpMnt(best_match);
-#else
-         changeDisk(tmp,&changedrive,drive,&use_HOME);
-#endif
-
-         if ( wcd_chdir(best_match,0) == 0)  /* change to dir to get full path */
-         {
-            if(wcd_getcwd(tmp, sizeof(tmp)) != NULL)
-            {
-               if ((!quieter)&&(!justGo))
-                  wcd_printf("-> %s\n",best_match); /* print match without /tmp_mnt string */
-
-               len = strlen(tmp);
-               if (len==0)
-                  tmp[len] = '\0';
-
-               wcd_fixpath(tmp,sizeof(tmp));
-
-               if ( (ptr=strstr(tmp,"/")) != NULL)
-               {
-                       wcd_strncpy(best_match,tmp,sizeof(best_match));
-#ifdef UNIX
-                  /* strip the /tmp_mnt string */
-                      if (strip_mount_string)
-                     stripTmpMnt(best_match);
-#endif
-                  stack_add(DirStack,tmp);     /* stack includes /tmp_mnt string */
-                  stack_write(DirStack,stackfile);
-               }
-
-            }
-         }
-         else
-         {
-            print_msg("");
-            wcd_printf(_("Cannot change to %s\n"),best_match);
+   }
+   else
+   {
+      print_msg("");
+      wcd_printf(_("Cannot change to %s\n"),best_match);
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)     /* empty wcd.go file */
-            empty_wcdgo(go_file,use_GoScript,verbose);
+      empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
-            empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
+      empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
-            if (keep_paths == 0)
-               cleanTreeFile(treefile,tmp);
-            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
-         }
+      if (keep_paths == 0)
+         cleanTreeFile(treefile,tmp);
+      return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+   }
 
 #ifdef WCD_SHELL
-         quoteString(best_match);
-         if (justGo)
-            wcd_printf("%s\n",best_match);
-         writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript,verbose);
+   quoteString(best_match);
+   if (justGo)
+      wcd_printf("%s\n",best_match);
+   writeGoFile(go_file,&changedrive,drive,best_match,use_GoScript,verbose);
 #else
-         wcd_chdir(best_match,0); /* change to directory */
+   wcd_chdir(best_match,0); /* change to directory */
 #endif
 
 
    return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
 }
-

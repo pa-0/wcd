@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 6.0.0-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-03 22:34+0200\n"
+"POT-Creation-Date: 2018-04-11 22:33+0200\n"
 "PO-Revision-Date: 2017-02-22 13:36+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -796,7 +796,7 @@ msgstr "Geen map gevonden die overeenkomt met %s\n"
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Misschien moet u de schijf opnieuw scannen of is het pad verbannen.\n"
 
-#: wcd.c:3836
+#: wcd.c:3795
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Kan niet veranderen naar %s\n"

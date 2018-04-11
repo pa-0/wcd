@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.3.4-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-03 22:34+0200\n"
+"POT-Creation-Date: 2018-04-11 22:33+0200\n"
 "PO-Revision-Date: 2016-12-21 14:26+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -800,7 +800,7 @@ msgstr "Es wurde kein auf %s passendes Verzeichnis gefunden\n"
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Vieleicht müssen Sie die Platte neu durchsuchen oder der Pfad ist verbannt.\n"
 
-#: wcd.c:3836
+#: wcd.c:3795
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Zu %s kann nicht gewechselt werden\n"

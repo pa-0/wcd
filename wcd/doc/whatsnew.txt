@@ -1,6 +1,7 @@
-6.0.2-beta2 2018-03-28
+6.0.2-beta3 2018-04-11
   - New Friulian translation of the messages. Thanks to Fabio Tomat.
   - Updated Spanish translation. Thanks to Francisco Javier Serrador.
+  - Code cleanup.
 
 6.0.1 2017-08-28
   - wcd.c: Fix. DOS, OS2, and Windows versions. When user gives drive

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-03 22:34+0200\n"
+"POT-Creation-Date: 2018-04-11 22:33+0200\n"
 "PO-Revision-Date: 2016-10-30 17:24+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -789,7 +789,7 @@ msgstr "Ne troviĝas dosierujo kiu kongruas kun %s\n"
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Eble necesas reskani la diskon, aŭ la pado esceptiĝis.\n"
 
-#: wcd.c:3836
+#: wcd.c:3795
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Ne eblas ŝanĝi al %s\n"

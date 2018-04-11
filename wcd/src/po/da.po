@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-6.0.0-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-03 22:34+0200\n"
+"POT-Creation-Date: 2018-04-11 22:33+0200\n"
 "PO-Revision-Date: 2017-02-11 22:30+0200\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -787,7 +787,7 @@ msgstr "Der blev ikke fundet en mappe, der matcher %s\n"
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Måske skal du skanne disken igen eller stien er måske placeret i karantæne.\n"
 
-#: wcd.c:3836
+#: wcd.c:3795
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Kan ikke ændre til %s\n"

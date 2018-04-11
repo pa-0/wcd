@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-03 22:34+0200\n"
+"POT-Creation-Date: 2018-04-11 22:33+0200\n"
 "PO-Revision-Date: 2016-09-28 15:49+0300\n"
 "Last-Translator: Jorma Karvonen <karvonen.jorma@gmail.com>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -788,7 +788,7 @@ msgstr "Ei hakemistoa kriteerillä %s\n"
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Levyasema on ehkä tutkittava uudelleen tai hakemisto on mustalla listalla.\n"
 
-#: wcd.c:3836
+#: wcd.c:3795
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Hakemistoon %s vaihtaminen epäonnistui\n"

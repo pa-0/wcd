@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 6.0.0-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-08 20:49+0100\n"
+"POT-Creation-Date: 2018-04-11 22:33+0200\n"
 "PO-Revision-Date: 2017-07-29 15:28-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
@@ -788,7 +788,7 @@ msgstr "Nenhum diretório localizado correspondendo a %s\n"
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Talvez você precise varrer novamente o disco ou o caminho está banido.\n"
 
-#: wcd.c:3836
+#: wcd.c:3795
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Não foi possível mudar para %s\n"
