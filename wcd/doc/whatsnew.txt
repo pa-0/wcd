@@ -1,6 +1,7 @@
 6.0.2-beta3 2018-04-11
   - New Friulian translation of the messages. Thanks to Fabio Tomat.
   - Updated Spanish translation. Thanks to Francisco Javier Serrador.
+  - Makefile: Fix: Add RPM_LD_FLAGS instead of RPM_OPT_FLAGS to LDFLAGS.
   - Code cleanup.
 
 6.0.1 2017-08-28

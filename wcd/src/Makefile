@@ -420,11 +420,18 @@ endif
 
 CFLAGS_USER     =
 ifeq ($(DEBUG), 1)
-CFLAGS  ?= -O0
+CFLAGS_OPT = -O0
 else
-CFLAGS  ?= -O2
+CFLAGS_OPT = -O2
+endif
+
+CFLAGS  ?=
+CFLAGS  += $(CFLAGS_OPT)
+ifeq ($(DEBUG), 1)
+        CFLAGS += -g
 endif
 CFLAGS  += -Wall -Wextra -Wno-unused-parameter -Wconversion $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
+
 
 EXTRA_CFLAGS    = -Ic3po \
                   $(CFLAGS_VERSION) \
@@ -437,14 +444,6 @@ EXTRA_CFLAGS    = -Ic3po \
                   $(INCFLAGS) \
                   -DDEBUG=$(DEBUGMSG)
 
-ifeq ($(DEBUG), 1)
-        EXTRA_CFLAGS += -g
-endif
-
-ifdef STATIC
-        LDFLAG_STATIC = -static
-endif
-
 ifdef LFS
         EXTRA_CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
 endif
@@ -453,12 +452,17 @@ ifdef ASCII_TREE
         EXTRA_CFLAGS += -DASCII_TREE
 endif
 
+ifdef STATIC
+        LDFLAG_STATIC = -static
+endif
+
 LDFLAGS_USER   =
-LDFLAGS         = $(RPM_OPT_FLAGS) \
-                  $(LDFLAGS_EXTRA) \
-                  $(NLFLAG) \
-                  $(LDFLAG_STATIC) \
-                  $(LDFLAGS_USER)
+LDFLAGS ?=
+LDFLAGS += $(RPM_LD_FLAGS) \
+           $(LDFLAGS_EXTRA) \
+           $(NLFLAG) \
+           $(LDFLAG_STATIC) \
+           $(LDFLAGS_USER)
 
 LIBS = $(LIB_CURSES) \
        $(LIB_UNISTRING) \
