@@ -9,4 +9,5 @@ mput wcd-6.0.2-win64.zip wcd-6.0.2-win64psh.zip
 mput wcd-6.0.2-win64-nls-ucs.zip wcd-6.0.2-win64psh-nls-ucs.zip
 mput README.txt
 mput wcd-6.0.2.tar.gz.asc
+mput wcd-6.0.2-os2-watcom.zip
 exit
