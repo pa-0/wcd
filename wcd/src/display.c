@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2017 Erwin Waterlander
+Copyright (C) 1997-2018 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -1191,9 +1191,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
   int i, n=0, c=0;
   int displayed_list;
   size_t len ;
-#ifndef __PDCURSES__
   SCREEN *sp;
-#endif
 
 #if CAN_RESIZE
    signal (SIGWINCH, signalSigwinchDisplay);
@@ -1237,16 +1235,12 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
 /* Older versions of PDCurses and ncurses < 5.9.20120922 do not
  * support newterm() on Windows */
-#if defined(__PDCURSES__) || (defined(_WIN32) && !defined(__CYGWIN__))
-   initscr();
-#else
    sp = newterm(NULL,stdout,stdin);
    if (sp == NULL)
    {
       print_error("%s", _("Error opening terminal, falling back to stdout interface.\n"));
       return WCD_ERR_CURSES;
    }
-#endif
 
    keypad(stdscr, TRUE);
    intrflush(stdscr, FALSE);
@@ -1261,6 +1255,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
    if (LINES < 4)
    {
       endwin();
+      delscreen(sp);
 #ifdef XCURSES
       XCursesExit();
 #endif
@@ -1286,8 +1281,14 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
    else
       if (ws != NULL)
          len = maxLengthStack(ws);
-      else
+      else {
+         endwin();
+         delscreen(sp);
+#ifdef XCURSES
+         XCursesExit();
+#endif
          return(WCD_ERR_LIST);
+      }
 
    refresh();
 
@@ -1295,6 +1296,7 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
    if (wcd_display.scrollWin == NULL)
    {
       endwin();
+      delscreen(sp);
 #ifdef XCURSES
       XCursesExit();
 #endif
@@ -1308,7 +1310,9 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
 
    if (wcd_display.inputWin == NULL)
    {
+      delwin(wcd_display.scrollWin);
       endwin();
+      delscreen(sp);
 #ifdef XCURSES
       XCursesExit();
 #endif
@@ -1454,7 +1458,10 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
      displayRefresh(0);
    }
 
+   delwin(wcd_display.scrollWin);
+   delwin(wcd_display.inputWin);
    endwin();
+   delscreen(sp);
 #ifdef XCURSES
    XCursesExit();
 #endif

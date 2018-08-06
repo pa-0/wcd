@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2017 Erwin Waterlander
+Copyright (C) 1997-2018 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -171,7 +171,7 @@ void print_license(void);
 int  wcd_get_int(void);
 int wcd_getline(char s[], int lim, FILE* infile, const char* file_name, const int* line_nr);
 int read_treefile_line (char line[], FILE* infile, const char* file_name, const int* line_nr, int bomtype);
-int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdStack ws, nameset excl);
+int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdStack ws, nameset excl, nameset scan_dirs, nameset filter);
 char *getCurPath(char *buffer, size_t size, int *use_HOME);
 size_t pathInNameset (text path, nameset set);
 #ifdef _WCD_DOSFS

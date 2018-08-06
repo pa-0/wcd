@@ -1899,7 +1899,8 @@ int wcd_get_int(void)
  *
  ********************************************************************/
 
-int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdStack ws, nameset excl)
+int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdStack ws, nameset excl,
+             nameset scan_dirs, nameset filter)
 {
 
    /* free datastructures */
@@ -1910,6 +1911,8 @@ int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdSta
    freeNameset(nfs, 1); /* relative files */
    freeWcdStack(ws, 1); /* directory stack */
    freeNameset(excl, 1); /* excluded paths */
+   freeNameset(scan_dirs, 1);
+   freeNameset(filter, 1);
 
    return(0);
 }
@@ -2826,7 +2829,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
                empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
-               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
             }
             break;
          case 'v':
@@ -2858,7 +2861,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
             empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
-            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
          case 'g':
 #ifdef WCD_USECURSES
             graphics |= WCD_GRAPH_NORMAL ;
@@ -2876,7 +2879,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
             empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
-            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
          case 'c':
          case 'C':
             cd = 1;
@@ -2961,7 +2964,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
                empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
-               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
             } else if (strcmp(argv[i]+2,"verbose") == 0) {
                verbose = 1;
             } else if (strcmp(argv[i]+2,"direct-cd") == 0) {
@@ -2992,7 +2995,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
                empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
-               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
             } else if (strcmp(argv[i]+2,"numbers") == 0) {
                use_numbers = 1;
             } else if (strcmp(argv[i]+2,"to-stdout") == 0) {
@@ -3021,7 +3024,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
                empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
-               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
             }
             break;
          default:               /* any switch except the above */
@@ -3033,7 +3036,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
             empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
-            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
          }
       else
       if (*argv[i]=='+') /* Pop dir */
@@ -3119,7 +3122,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
                empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
-               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+               return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
             }
          }
       else /* Not a switch. Must be a dir or filename. */
@@ -3156,7 +3159,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH     /* empty wcd.go file */
             empty_wcdgo(go_file,0,drive,use_GoScript,verbose);
 #endif
-            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
          }
          else
          if ((strcmp(argv[i-1],"-f") == 0 ) || (strcmp(argv[i-1],"+f") == 0 ))
@@ -3442,7 +3445,7 @@ int main(int argc,char** argv)
 #endif
 
          stack_write(DirStack,stackfile);
-         return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+         return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
       }
 
    /*--- end stack hit ? ------------------------*/
@@ -3462,7 +3465,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
             empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
-            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
          }
          wcd_strncpy(best_match,dir,sizeof(best_match));
          if ((!quieter)&&(!justGo))
@@ -3503,7 +3506,7 @@ int main(int argc,char** argv)
 #else
          wcd_chdir(best_match,0); /* change to directory */
 #endif
-         return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+         return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
       } /* ? (wcd_isdir(dir)) */
 
 
@@ -3555,7 +3558,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
       empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
-      return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+      return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
    }
 
 
@@ -3590,8 +3593,6 @@ int main(int argc,char** argv)
       /* search alias file */
 
       scanaliasfile(dir, aliasfile, perfect_list, wild_list,wildOnly);
-
-      freeNameset(filter, 1); /* free filter list */
     }
 #ifdef WCD_USECURSES
    else
@@ -3599,6 +3600,7 @@ int main(int argc,char** argv)
       /* graphics? */
       if (graphics & WCD_GRAPH_NORMAL)
       {
+         ptr = NULL;
          rootNode = createRootNode();
          if(rootNode != NULL)
          {
@@ -3616,27 +3618,25 @@ int main(int argc,char** argv)
 
             sortTree(rootNode);
             setXYTree(rootNode, &graphics);
+
+            if (graphics & WCD_GRAPH_DUMP)
+               dumpTree(rootNode, &graphics);
+            else
+               ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
+            freeDirnode(rootNode,1);
          }
 
-         if (graphics & WCD_GRAPH_DUMP)
-         {
-            dumpTree(rootNode, &graphics);
-            ptr = NULL;
-         }
-         else
-            ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
-
-         if (ptr != NULL)
+         if (ptr != NULL) {
             addToNamesetArray(textNew(ptr),perfect_list);
-         else
-         {
+            free(ptr);
+         } else {
 #if defined(UNIX) || defined(_WIN32) || defined(__OS2__)    /* empty wcd.go file */
             empty_wcdgo(go_file,use_GoScript,verbose);
 #endif
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
             empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
-            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+            return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
          }
 
       }
@@ -3673,7 +3673,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
       empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
-      return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+      return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
    }
    else if (perfect_list->size==1)   /* one perfect match */
    {
@@ -3693,18 +3693,20 @@ int main(int argc,char** argv)
 #ifdef WCD_USECURSES
       if(graphics & WCD_GRAPH_NORMAL)
       {
+         ptr = NULL;
          rootNode = createRootNode();
-         buildTreeFromNameset(match_list, rootNode);
-         setXYTree(rootNode, &graphics);
-         if (graphics & WCD_GRAPH_DUMP)
-         {
-            dumpTree(rootNode, &graphics);
-            ptr = NULL;
+         if(rootNode != NULL) {
+            buildTreeFromNameset(match_list, rootNode);
+            setXYTree(rootNode, &graphics);
+            if (graphics & WCD_GRAPH_DUMP)
+               dumpTree(rootNode, &graphics);
+            else
+               ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
+            freeDirnode(rootNode,1);
          }
-         else
-            ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
          if (ptr != NULL) {
             wcd_strncpy(best_match,ptr,sizeof(best_match));
+            free(ptr);
          } else
             exit_wcd = 1;
       }
@@ -3732,7 +3734,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
          empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
-         return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+         return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
       }
    }
 
@@ -3749,7 +3751,7 @@ int main(int argc,char** argv)
 #ifdef WCD_DOSBASH       /* empty wcd.go file */
       empty_wcdgo(go_file,changedrive,drive,use_GoScript,verbose);
 #endif
-      return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+      return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
    }
 
    wcd_strncpy(tmp,best_match,sizeof(tmp)); /* remember path (with /tmp_mnt) */
@@ -3801,7 +3803,7 @@ int main(int argc,char** argv)
 #endif
       if (keep_paths == 0)
          cleanTreeFile(treefile,tmp);
-      return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+      return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
    }
 
 #ifdef WCD_SHELL
@@ -3814,5 +3816,5 @@ int main(int argc,char** argv)
 #endif
 
 
-   return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude);
+   return wcd_exit(perfect_list,wild_list,extra_files,banned_dirs,relative_files,DirStack,exclude,scan_dirs,filter);
 }

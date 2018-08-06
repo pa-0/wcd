@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2000-2016 Erwin Waterlander
+Copyright (C) 2000-2018 Erwin Waterlander
 
 Ideas and source code of NCD (Ninux Czo Directory) have been
 used in the WCD graphical interface.
@@ -1788,7 +1788,6 @@ char *getZoomStackPath(dirnode stack)
    size_t i, size;
    text name;
 
-
    if (line == NULL)
    {
       line = textNewSize((size_t)WCD_MAXPATH);
@@ -1806,7 +1805,6 @@ char *getZoomStackPath(dirnode stack)
       if((strlen(line)+strlen(name)) < (size_t)WCD_MAXPATH)
          strcat(line,name);
    }
-
 
    return(line);
 }
@@ -2090,7 +2088,7 @@ dirnode popZoom(dirnode zoomStack, dirnode curNode, int *ymax)
    dirnodeSetDown(dirnodeGetDown(zlast),top);
 
    /* remove last element from stack */
-   removeElementAtDirnode(size - 1, zoomStack, false, false);
+   removeElementAtDirnode(size - 1, zoomStack, true, true);
 
    newtop = endOfRecursionOfDirnodeParent(top);
    dirnodeSetX(0,newtop);
@@ -2238,9 +2236,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
   int ydiff;
   char curPath[WCD_MAXPATH];
   char *ptr, *ptr2;
-#ifndef __PDCURSES__
   SCREEN *sp;
-#endif
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
   wint_t ch;
 #endif
@@ -2271,16 +2267,13 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
 /* Older versions of PDCurses and ncurses < 5.9.20120922 do not
  * support newterm() on Windows */
-#if defined(__PDCURSES__) || (defined(_WIN32) && !defined(__CYGWIN__))
-   initscr();
-#else
    sp = newterm(NULL,stdout,stdin);
    if (sp == NULL)
    {
+      freeDirnode(wcd_cwin.zoomStack,true);
       print_error("%s", _("Error opening terminal, falling back to stdout interface.\n"));
       return NULL;
    }
-#endif
 
    if (wcd_cwin.graphics_mode & WCD_GRAPH_COLOR)
       initcolor();
@@ -2295,16 +2288,11 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
    wcd_cwin.scrollWinHeight = LINES - INPUT_WIN_HEIGHT;
    wcd_cwin.scrollWin = newwin(wcd_cwin.scrollWinHeight,COLS,0,0);
-   wcd_cwin.inputWin = newwin(INPUT_WIN_HEIGHT,COLS,wcd_cwin.scrollWinHeight,0);
-
-   if (wcd_cwin.graphics_mode & WCD_GRAPH_COLOR)
-   {
-      colorbox (wcd_cwin.scrollWin, MENU_COLOR, 0);     /* BillyC add colors */
-      colorbox (wcd_cwin.inputWin,  BODY_COLOR, 0);     /* BillyC add colors */
-   }
    if (wcd_cwin.scrollWin == NULL)
    {
       endwin();
+      delscreen(sp);
+      freeDirnode(wcd_cwin.zoomStack,true);
 #ifdef XCURSES
       XCursesExit();
 #endif
@@ -2313,6 +2301,26 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
    }
 
    scrollok(wcd_cwin.scrollWin, TRUE);
+
+   wcd_cwin.inputWin = newwin(INPUT_WIN_HEIGHT,COLS,wcd_cwin.scrollWinHeight,0);
+   if (wcd_cwin.inputWin == NULL)
+   {
+      delwin(wcd_cwin.scrollWin);
+      endwin();
+      delscreen(sp);
+      freeDirnode(wcd_cwin.zoomStack,true);
+#ifdef XCURSES
+      XCursesExit();
+#endif
+      print_error("%s", _("error creating input window.\n"));
+      return NULL;
+   }
+
+   if (wcd_cwin.graphics_mode & WCD_GRAPH_COLOR)
+   {
+      colorbox (wcd_cwin.scrollWin, MENU_COLOR, 0);     /* BillyC add colors */
+      colorbox (wcd_cwin.inputWin,  BODY_COLOR, 0);     /* BillyC add colors */
+   }
 
    wcd_cwin.str[n] = '\0';
 
@@ -2728,6 +2736,14 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
     if (wcd_cwin.curNode == NULL)
     {
+       delwin(wcd_cwin.scrollWin);
+       delwin(wcd_cwin.inputWin);
+       endwin();
+       delscreen(sp);
+       freeDirnode(wcd_cwin.zoomStack,true);
+#ifdef XCURSES
+       XCursesExit();
+#endif
        print_error(_("Cannot find the current path %s in the directory tree.\n"), curPath);
        return NULL;
     }
@@ -2739,7 +2755,11 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
        dataRefresh(ydiff, 0);
    }
 
+   delwin(wcd_cwin.scrollWin);
+   delwin(wcd_cwin.inputWin);
    endwin();
+   delscreen(sp);
+   freeDirnode(wcd_cwin.zoomStack,true);
 #ifdef XCURSES
    XCursesExit();
 #endif
