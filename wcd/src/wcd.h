@@ -151,6 +151,7 @@ void rmDirFromList(char *string, nameset n);
 void writeList(char *filename, nameset n, int bomtype);
 void cleanTreeFile(char *filename, char *dir);
 void create_dir_for_file(const char *f);
+void trimPath(char* path, size_t n);
 
 char *removeBackSlash(char *string);
 void addCurPathToFile(char *filename, int *use_HOME, int parents);

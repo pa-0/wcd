@@ -369,6 +369,21 @@ void cleanPath(char path[], int len, int minlength)
    if (len > minlength && path[len-1]==DIR_SEPARATOR && path[len-2]!=':') path[len-1] = '\0';
 }
 
+/* trimPath(char* path, size_t n)
+ * Remove n characters from beginning of path.
+ */
+void trimPath(char* path, size_t n)
+{
+  if ((path != NULL) && (n <= strlen(path)))
+  {
+       char* dest = path;
+       char* src = path + n;
+       while (*src)
+          *dest++ = *src++;
+       *dest = *src;
+  }
+}
+
 #ifdef _WCD_DOSFS
 void rmDriveLetter(char path[], int *use_HOME)
 {
@@ -378,7 +393,7 @@ void rmDriveLetter(char path[], int *use_HOME)
    if (*use_HOME == 0 ) {
       char *ptr;
       if ( (ptr=strstr(path,"/")) != NULL)
-         strcpy(path,ptr);
+         trimPath(path,ptr-path);
    }
 }
 #endif
@@ -477,16 +492,11 @@ void writeList(char * filename, nameset n, int bomtype)
  *************************************************************/
 void stripTmpMnt(char* path)
 {
-
-  if (path != NULL)
-  {
-     if (strncmp(path,TMP_MNT_STR,strlen(TMP_MNT_STR)) == 0)
-    {
-       char* ptr = path + strlen(TMP_MNT_STR) - 1 ;
-       wcd_strncpy(path,ptr,(size_t)WCD_MAXPATH);
-    }
-  }
-
+   if (path != NULL)
+   {
+      if (strncmp(path,TMP_MNT_STR,strlen(TMP_MNT_STR)) == 0)
+         trimPath(path,strlen(TMP_MNT_STR) - 1);
+   }
 }
 #endif
 
@@ -867,7 +877,7 @@ void scanServer(char *path, char *treefile, size_t append, int *use_HOME, namese
       scanDisk(elementAtNamesetArray(i,shares),treefile, 0, i + append, use_HOME, exclude);
       ++i;
    }
-   freeNameset(shares, 1);
+   freeNameset(shares, true);
 }
 #endif
 
@@ -1418,7 +1428,7 @@ void cleanTreeFile(char *filename, char *dir)
       rmDirFromList(dir,dirs);
       writeList(filename, dirs, bomtype);
    }
-   freeNameset(dirs, 1);
+   freeNameset(dirs, true);
 }
 
 
@@ -1867,7 +1877,7 @@ void list_alias_file(char *filename)
       if (strlen(ptr) > 0 )
          wcd_printf("%s\t%s\n",alias,ptr);
    }
-   freeNameset(aliaslines, 1);
+   freeNameset(aliaslines, true);
 }
 /********************************************************************
  *
@@ -1904,15 +1914,15 @@ int wcd_exit(nameset pm, nameset wm, nameset ef, nameset bd, nameset nfs, WcdSta
 {
 
    /* free datastructures */
-   freeNameset(pm, 1); /* perfect list */
-   freeNameset(wm, 1); /* wild list */
-   freeNameset(ef, 1); /* extra files */
-   freeNameset(bd, 1); /* banned dirs */
-   freeNameset(nfs, 1); /* relative files */
-   freeWcdStack(ws, 1); /* directory stack */
-   freeNameset(excl, 1); /* excluded paths */
-   freeNameset(scan_dirs, 1);
-   freeNameset(filter, 1);
+   freeNameset(pm, true); /* perfect list */
+   freeNameset(wm, true); /* wild list */
+   freeNameset(ef, true); /* extra files */
+   freeNameset(bd, true); /* banned dirs */
+   freeNameset(nfs, true); /* relative files */
+   freeWcdStack(ws, true); /* directory stack */
+   freeNameset(excl, true); /* excluded paths */
+   freeNameset(scan_dirs, true);
+   freeNameset(filter, true);
 
    return(0);
 }
@@ -3623,7 +3633,7 @@ int main(int argc,char** argv)
                dumpTree(rootNode, &graphics);
             else
                ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
-            freeDirnode(rootNode,1);
+            freeDirnode(rootNode,true);
          }
 
          if (ptr != NULL) {
@@ -3702,7 +3712,7 @@ int main(int argc,char** argv)
                dumpTree(rootNode, &graphics);
             else
                ptr = selectANode(rootNode,&use_HOME,ignore_case,graphics,ignore_diacritics);
-            freeDirnode(rootNode,1);
+            freeDirnode(rootNode,true);
          }
          if (ptr != NULL) {
             wcd_strncpy(best_match,ptr,sizeof(best_match));

@@ -88,6 +88,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include <wctype.h>
 #ifdef WCD_UNINORM
 #  include <uninorm.h>  /* part of libunistring */
+#  include <stdint.h>
 #endif
 #include "wcd.h"
 #include "display.h"
@@ -214,17 +215,17 @@ int dd_matchwcs(const wchar_t *string,const wchar_t *pattern,int ignore_case, in
 
 #  if defined(_WIN32) || defined(__CYGWIN__)
     /* Normalization. Composition, such that we can ignore diacritics. */
-    string_normalized  = u16_normalize (UNINORM_NFKC, string,  wcslen(string) +1, string_buffer,  &lengthp);
+    string_normalized  = (wchar_t*)u16_normalize (UNINORM_NFKC, (uint16_t*)string,  wcslen(string) +1, (uint16_t*)string_buffer,  &lengthp);
     if (string_normalized == NULL)
         return(0);
-    pattern_normalized = u16_normalize (UNINORM_NFKC, pattern, wcslen(pattern) +1, pattern_buffer, &lengthp);
+    pattern_normalized = (wchar_t*)u16_normalize (UNINORM_NFKC, (uint16_t*)pattern, wcslen(pattern) +1, (uint16_t*)pattern_buffer, &lengthp);
     if (pattern_normalized == NULL)
         return(0);
 #  else
-    string_normalized  = u32_normalize (UNINORM_NFKC, string,  wcslen(string) +1, string_buffer,  &lengthp);
+    string_normalized  = (wchar_t*)u32_normalize (UNINORM_NFKC, (uint32_t*)string,  wcslen(string) +1, (uint32_t*)string_buffer,  &lengthp);
     if (string_normalized == NULL)
         return(0);
-    pattern_normalized = u32_normalize (UNINORM_NFKC, pattern, wcslen(pattern) +1, pattern_buffer, &lengthp);
+    pattern_normalized = (wchar_t*)u32_normalize (UNINORM_NFKC, (uint32_t*)pattern, wcslen(pattern) +1, (uint32_t*)pattern_buffer, &lengthp);
     if (pattern_normalized == NULL)
         return(0);
 #  endif

@@ -851,7 +851,7 @@ dirnode createRootNode()
 
    if (rootNode != NULL)
    {
-      dirnodeSetName(ROOTDIR,rootNode);
+      dirnodeSetName(textNew(ROOTDIR),rootNode);
       dirnodeSetX(0,rootNode);
       dirnodeSetY(0,rootNode);
    }
@@ -2685,16 +2685,8 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
             wcd_fixpath(ptr, (size_t)WCD_MAXPATH);
       break;
      case 8:  /* backspace */
-     case KEY_BACKSPACE:
-            if(n==1)
-               wcd_cwin.mode = WCD_NAV;
-            if(n>1) n--;
-            wcd_cwin.str[n] = '\0';
-#if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
-            wcd_cwin.wstr[n] = '\0';
-#endif
-     break;
      case 127: /* delete */
+     case KEY_BACKSPACE:
      case KEY_DC:
             if(n==1)
                wcd_cwin.mode = WCD_NAV;
@@ -2770,11 +2762,10 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
    /* remove '/' before drive letter */
    if ((ptr != NULL)&&(*use_HOME)&&
          (*(ptr+1) != '/'))  /* UNC path */
-      ptr++;
+      trimPath(ptr,1);
 #endif
    wcd_fixpath(ptr, (size_t)WCD_MAXPATH);
    return(ptr);
-
 }
 
 #endif /* WCD_USECURSES */

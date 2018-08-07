@@ -206,7 +206,7 @@ endif
 endif
 
 ifndef OS
-        OS=$(shell echo $(wcd_os) | tr [A-Z] [a-z])
+        OS=$(shell echo $(wcd_os) | tr '[A-Z]' '[a-z]')
 endif
 
 
