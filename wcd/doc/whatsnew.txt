@@ -1,3 +1,6 @@
+6.0.3-beta2 2018-08-08
+  - Code cleanup.
+
 6.0.2 2018-05-10
   - New Friulian translation of the messages. Thanks to Fabio Tomat.
   - Updated Spanish translation. Thanks to Francisco Javier Serrador.
