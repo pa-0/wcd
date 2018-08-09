@@ -145,6 +145,7 @@ void ioResize()
    /* end curses mode */
    endwin();
    refresh();  /* start curses */
+   resize_term(0,0);
 
    wcd_cwin.scrollWinHeight = LINES - INPUT_WIN_HEIGHT;
 
@@ -2659,6 +2660,9 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
          break;
       case KEY_F (5):
       case Key_CTRL ('l'):
+#ifdef KEY_RESIZE
+      case KEY_RESIZE:
+#endif
             ioResize();
          break;
       case Key_CTRL ('i'):
@@ -2676,14 +2680,14 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
             wcd_cwin.mode = WCD_NAV;
          else
             c = 13;
-      break;
+        break;
      case 13: /* Enter */
      case KEY_ENTER:
             c = 13;
             ptr = getZoomStackPath(wcd_cwin.zoomStack); /* s has size WCD_MAXPATH */
             strcat(ptr,getNodeFullPath(wcd_cwin.curNode));
             wcd_fixpath(ptr, (size_t)WCD_MAXPATH);
-      break;
+        break;
      case 8:  /* backspace */
      case 127: /* delete */
      case KEY_BACKSPACE:
@@ -2695,7 +2699,7 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
             wcd_cwin.wstr[n] = '\0';
 #endif
-     break;
+        break;
      default:
       if ((wcd_cwin.mode == WCD_SEARCH) && (n < (WCD_MAX_INPSTR -1)))
       {
