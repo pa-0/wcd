@@ -35,7 +35,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 #include <stdio.h>
 #include <string.h>
-#include <signal.h>
 #if defined(WCD_UNICODE) || (defined(_WIN32) && !defined(__CYGWIN__))
 #ifndef __USE_XOPEN
 #define __USE_XOPEN
@@ -65,6 +64,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include "config.h"
 #ifdef WCD_USECURSES
 #include "colors.h"             /* add colors for the tree on MS platform */
+#ifndef KEY_RESIZE
+#include <signal.h>
+#endif
 #endif
 
 /*
@@ -168,12 +170,14 @@ void ioResize()
    dataRefresh(0, 1);
 }
 
+#ifndef KEY_RESIZE
 #if CAN_RESIZE
 void signalSigwinch (int sig)
 {
   ioResize ();
   signal(SIGWINCH,signalSigwinch);
 }
+#endif
 #endif
 
 #endif /* WCD_USECURSES */
@@ -2262,8 +2266,10 @@ char *selectANode(dirnode tree, int *use_HOME, int ignore_case, int graphics_mod
 
    wcd_cwin.zoomStack = dirnodeNew(NULL,NULL,NULL);
 
+#ifndef KEY_RESIZE
 #if CAN_RESIZE
    signal (SIGWINCH, signalSigwinch);
+#endif
 #endif
 
 /* Older versions of PDCurses and ncurses < 5.9.20120922 do not

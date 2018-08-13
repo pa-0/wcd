@@ -20,7 +20,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#ifndef KEY_RESIZE
 #include <signal.h>
+#endif
 #include <assert.h>
 #include "wcd.h"
 #if defined(WCD_UNICODE) || defined(WCD_WINDOWS)
@@ -847,6 +849,7 @@ void displayResize()
    /* end curses mode */
    endwin();
    refresh();  /* start curses */
+   resize_term(0,0);
 
    wcd_display.scrollWinHeight = LINES - INPUT_WIN_HEIGHT;
    wcd_display.lines_per_page = wcd_display.scrollWinHeight;
@@ -876,12 +879,14 @@ void displayResize()
    displayRefresh(1);
 }
 
+#ifndef KEY_RESIZE
 #if CAN_RESIZE
 void signalSigwinchDisplay (int sig)
 {
   displayResize ();
   signal(SIGWINCH,signalSigwinchDisplay);
 }
+#endif
 #endif
 
 
@@ -1193,8 +1198,10 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
   size_t len ;
   SCREEN *sp;
 
+#ifndef KEY_RESIZE
 #if CAN_RESIZE
    signal (SIGWINCH, signalSigwinchDisplay);
+#endif
 #endif
 
 /* Notice that list->size > 1 when this function is called. */
@@ -1408,6 +1415,9 @@ int display_list_curses(nameset list, WcdStack ws, int perfect,int use_numbers)
          break;
       case KEY_F (5):
       case Key_CTRL ('l'):
+#ifdef KEY_RESIZE
+      case KEY_RESIZE:
+#endif
             displayResize ();
          break;
      case 3:  /* Control-C */
