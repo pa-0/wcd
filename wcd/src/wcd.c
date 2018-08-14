@@ -393,7 +393,7 @@ void rmDriveLetter(char path[], int *use_HOME)
    if (*use_HOME == 0 ) {
       char *ptr;
       if ( (ptr=strstr(path,"/")) != NULL)
-         trimPath(path,ptr-path);
+         trimPath(path,(size_t)(ptr-path));
    }
 }
 #endif
