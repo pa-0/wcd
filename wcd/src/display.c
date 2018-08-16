@@ -846,9 +846,6 @@ void displayRefresh(int init);
  * to just rebuild the windows from scratch */
 void displayResize()
 {
-   /* end curses mode */
-   endwin();
-   refresh();  /* start curses */
    resize_term(0,0);
 
    wcd_display.scrollWinHeight = LINES - INPUT_WIN_HEIGHT;

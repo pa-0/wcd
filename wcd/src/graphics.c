@@ -144,9 +144,6 @@ void dataRefresh(int ydiff, int init);
  * to just rebuild the windows from scratch */
 void ioResize()
 {
-   /* end curses mode */
-   endwin();
-   refresh();  /* start curses */
    resize_term(0,0);
 
    wcd_cwin.scrollWinHeight = LINES - INPUT_WIN_HEIGHT;
