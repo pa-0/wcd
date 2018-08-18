@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-13 23:39+0200\n"
+"POT-Creation-Date: 2018-08-18 11:44+0200\n"
 "PO-Revision-Date: 2016-09-28 15:49+0300\n"
 "Last-Translator: Jorma Karvonen <karvonen.jorma@gmail.com>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -863,67 +863,67 @@ msgstr "sisäinen virhe funktiossa maxLength(), list == NULL\n"
 msgid "internal error in maxLengthStack(), s == NULL\n"
 msgstr "sisäinen virhe funktiossa maxLengthStack(), s == NULL\n"
 
-#: display.c:524 display.c:1142 display.c:1530
+#: display.c:524 display.c:1150 display.c:1538
 #, c-format
 msgid "Perfect match for %d directories."
 msgstr "Täydelliset täsmäykset %d hakemistoa."
 
-#: display.c:526 display.c:1144 display.c:1532
+#: display.c:526 display.c:1152 display.c:1540
 #, c-format
 msgid "Wild match for %d directories."
 msgstr "Jokerimerkkitäsmäys %d hakemistoa."
 
-#: display.c:530 display.c:1156 display.c:1534 display.c:1577
+#: display.c:530 display.c:1164 display.c:1542 display.c:1585
 #, c-format
 msgid "Please choose one (<Enter> to abort): "
 msgstr "Valitse toiminta (<Enter> keskeytys): "
 
-#: display.c:532 display.c:608 display.c:640 display.c:1149
+#: display.c:532 display.c:608 display.c:640 display.c:1157
 #, c-format
 msgid " w=up x=down ?=help  Page %d/%d "
 msgstr " w=ylös x=alas ?=opaste Sivu %d/%d "
 
-#: display.c:684 display.c:1172
+#: display.c:684 display.c:1180
 msgid "Screenheight must be > 20 for help."
 msgstr "Opasteikkunan avaaminen epäonnistui. Ikkunan korkeuden tulee olla > 20 riviä."
 
-#: display.c:689 display.c:1175
+#: display.c:689 display.c:1183
 msgid "w or <Up>         page up"
 msgstr "w tai <Up>          Sivu ylös"
 
-#: display.c:690 display.c:1176
+#: display.c:690 display.c:1184
 msgid "x or z or <Down>  page down"
 msgstr "x tai z tai <Down>  Sivu alas"
 
-#: display.c:691 display.c:1177
+#: display.c:691 display.c:1185
 msgid ", or <Left>       scroll 1 left"
 msgstr ", tai <Left>        Vieritys 1 vasemmalle"
 
-#: display.c:692 display.c:1178
+#: display.c:692 display.c:1186
 msgid ". or <Right>      scroll 1 right"
 msgstr ". tai <Right>       Vieritys 1 oikealle"
 
-#: display.c:693 display.c:1179
+#: display.c:693 display.c:1187
 msgid "< or [            scroll 10 left"
 msgstr "< tai [             Vieritys 10 vasemmalle"
 
-#: display.c:694 display.c:1180
+#: display.c:694 display.c:1188
 msgid "> or ]            scroll 10 right"
 msgstr "> tai ]             Vieritys 10 oikealle"
 
-#: display.c:695 display.c:1181
+#: display.c:695 display.c:1189
 msgid "CTRL-a or <HOME>  scroll to beginning"
 msgstr "CTRL-a tai <HOME>   Sivun alkuun"
 
-#: display.c:696 display.c:1182
+#: display.c:696 display.c:1190
 msgid "CTRL-e or <END>   scroll to end"
 msgstr "CTRL-e tai <END>    Sivun loppuun"
 
-#: display.c:697 display.c:1184
+#: display.c:697 display.c:1192
 msgid "CTRL-c or <Esc>   abort"
 msgstr "CTRL-c tai <Esc>    Keskeytys"
 
-#: display.c:698 display.c:1185
+#: display.c:698 display.c:1193
 msgid "<Enter>           abort"
 msgstr "<Enter>             Keskeytys"
 
@@ -931,261 +931,261 @@ msgstr "<Enter>             Keskeytys"
 msgid "Type w or x to quit help."
 msgstr "Opasteesta poistumiseksi kirjoita w tai x."
 
-#: display.c:1183 graphics.c:1986
+#: display.c:1191 graphics.c:1994
 msgid "CTRL-l or F5      redraw screen"
 msgstr "CTRL-l tai F5       piirrä näyttö uudelleen"
 
-#: display.c:1186 graphics.c:1971 graphics.c:1988 graphics.c:2011
-#: graphics.c:2028
+#: display.c:1194 graphics.c:1979 graphics.c:1996 graphics.c:2019
+#: graphics.c:2036
 msgid "Press any key."
 msgstr "Paina jotakin näppäintä."
 
-#: display.c:1248 graphics.c:2281
+#: display.c:1256 graphics.c:2289
 msgid "Error opening terminal, falling back to stdout interface.\n"
 msgstr "Pääteikkunan avaus ei onnistu, käytössä vain vakiotulostekäyttöliittymä.\n"
 
-#: display.c:1269
+#: display.c:1277
 msgid "screen height must be larger than 3 lines.\n"
 msgstr "pääteikkunan korkeuden on oltava suurempi kuin 3 riviä.\n"
 
-#: display.c:1310 graphics.c:2306
+#: display.c:1318 graphics.c:2314
 msgid "error creating scroll window.\n"
 msgstr "virhe luotaessa vierityspalkkia.\n"
 
-#: display.c:1326 graphics.c:2322
+#: display.c:1334 graphics.c:2330
 msgid "error creating input window.\n"
 msgstr "virhe luotaessa syöteikkunaa.\n"
 
-#: graphics.c:282
+#: graphics.c:290
 #, c-format
 msgid "Wcd: error: path too long"
 msgstr "Wcd: virhe: polku on liian pitkä"
 
-#: graphics.c:1932
+#: graphics.c:1940
 msgid "/ = search forward,  ? = search backward,  : = help"
 msgstr "/ = etsi eteenpäin,  ? = etsi taaksepäin,  : = opaste"
 
-#: graphics.c:1937
+#: graphics.c:1945
 msgid "SEARCH: "
 msgstr "HAKU: "
 
-#: graphics.c:1940
+#: graphics.c:1948
 msgid "Search: "
 msgstr "Haku: "
 
-#: graphics.c:1956
+#: graphics.c:1964
 msgid "NAVIGATION MODE (1/2):"
 msgstr "NAVIGOINTITILa (1/2):"
 
-#: graphics.c:1957
+#: graphics.c:1965
 msgid "h or <Left>       go left"
 msgstr "h tai <Vasen>            vasemmalle"
 
-#: graphics.c:1958
+#: graphics.c:1966
 msgid "j or <Down>       go down"
 msgstr "j tai <Alas>             alas"
 
-#: graphics.c:1959
+#: graphics.c:1967
 msgid "k or <Up>         go up"
 msgstr "k tai <Ylös>             ylös"
 
-#: graphics.c:1960
+#: graphics.c:1968
 msgid "l or <Right>      go right"
 msgstr "l tai <Oikea>            oikealle"
 
-#: graphics.c:1961
+#: graphics.c:1969
 msgid "* or v or <Space> go forward to dir with same name"
 msgstr "* tai v tai <Välilyönti> siirry eteenpäin samannimiseen hakemistoon"
 
-#: graphics.c:1962
+#: graphics.c:1970
 msgid "# or p or <BS>    go backward to dir with same name"
 msgstr "# tai p tai <Backspace>  siirry taaksepäin samannimiseen hakemistoon"
 
-#: graphics.c:1963
+#: graphics.c:1971
 msgid "^ or a            go to beginning of line"
 msgstr "^ tai a                  rivin alkuun"
 
-#: graphics.c:1964
+#: graphics.c:1972
 msgid "$ or e            go to end of line"
 msgstr "$ tai e                  rivin loppuun"
 
-#: graphics.c:1965
+#: graphics.c:1973
 msgid "1                 go to root dir"
 msgstr "1                        siirry juurihakemistoon"
 
-#: graphics.c:1966
+#: graphics.c:1974
 msgid "g or G            go to last dir"
 msgstr "g tai G                  siirry viimeiseen hakemistoon"
 
-#: graphics.c:1967
+#: graphics.c:1975
 msgid "f                 go page forward"
 msgstr "f                        sivu alas"
 
-#: graphics.c:1968
+#: graphics.c:1976
 msgid "b                 go page backward"
 msgstr "b                        sivu ylös"
 
-#: graphics.c:1969
+#: graphics.c:1977
 msgid "u                 go half page up"
 msgstr "u                        puolisivua ylös"
 
-#: graphics.c:1970
+#: graphics.c:1978
 msgid "d                 go half page down"
 msgstr "d                        puolisivua alas"
 
-#: graphics.c:1977
+#: graphics.c:1985
 msgid "NAVIGATION MODE (2/2):"
 msgstr "NAVIGOINTITILA (2/2):"
 
-#: graphics.c:1978
+#: graphics.c:1986
 msgid "A                 switch alternative tree navigation on/off"
 msgstr "A                 vaihtoehtoinen navigointitapa päälle/pois"
 
-#: graphics.c:1979
+#: graphics.c:1987
 msgid "t                 switch centered mode on/off"
 msgstr "t                 keskitetty tila päälle/pois"
 
-#: graphics.c:1980
+#: graphics.c:1988
 msgid "T                 toggle between line drawing and ASCII characters"
 msgstr "T                 kytke viivanpiirto ASCII kirjaimin päälle/pois"
 
-#: graphics.c:1981
+#: graphics.c:1989
 msgid "m                 toggle between compact and wide tree"
 msgstr "m                 vaihda kompaktin ja tavallisen puuesitystavan välillä"
 
-#: graphics.c:1982
+#: graphics.c:1990
 msgid "<Esc> or q        abort"
 msgstr "<Esc> tai q       keskeytä"
 
-#: graphics.c:1983
+#: graphics.c:1991
 msgid "/                 search forward"
 msgstr "/                 haku eteenpäin"
 
-#: graphics.c:1984
+#: graphics.c:1992
 msgid "?                 search backward"
 msgstr "?                 haku taaksepäin"
 
-#: graphics.c:1985
+#: graphics.c:1993
 msgid "n                 repeat last / or ? search"
 msgstr "n                 toista viimeisen / tai ? etsintä"
 
-#: graphics.c:1987 graphics.c:2010
+#: graphics.c:1995 graphics.c:2018
 msgid "<Enter>           select directory"
 msgstr "<Enter>           valitse hakemisto"
 
-#: graphics.c:1994
+#: graphics.c:2002
 msgid "SEARCH MODE with wildcard and subdir support:"
 msgstr "HAKUTILA jokerimerkkien ja alihakemistojen tuella:"
 
-#: graphics.c:1995
+#: graphics.c:2003
 msgid "<Left>            go left"
 msgstr "<Vasen>           vasemmalle"
 
-#: graphics.c:1996
+#: graphics.c:2004
 msgid "<Down>            go down"
 msgstr "<Alas>            siirry alas"
 
-#: graphics.c:1997
+#: graphics.c:2005
 msgid "<Up>              go up"
 msgstr "<Ylös>            ylös"
 
-#: graphics.c:1998
+#: graphics.c:2006
 msgid "<Right>           go right"
 msgstr "<Right>           oikealle"
 
-#: graphics.c:1999
+#: graphics.c:2007
 msgid "CTRL-v            go forward to dir with same name"
 msgstr "CTRL-v            siirry seuraavaan samannimiseen hakemistoon"
 
-#: graphics.c:2000
+#: graphics.c:2008
 msgid "CTRL-p            go backward to dir with same name"
 msgstr "CTRL-p            siirry edelliseen samannimiseen hakemistoon"
 
-#: graphics.c:2001
+#: graphics.c:2009
 msgid "CTRL-a            go to beginning of line"
 msgstr "CTRL-a            rivin alkuun"
 
-#: graphics.c:2002
+#: graphics.c:2010
 msgid "CTRL-e            go to end of line"
 msgstr "CTRL-e            rivin loppuun"
 
-#: graphics.c:2003
+#: graphics.c:2011
 msgid "CTRL-g            go to last dir"
 msgstr "CTRL-g            siirry viimeiseen hakemistoon"
 
-#: graphics.c:2004
+#: graphics.c:2012
 msgid "CTRL-f            go page forward"
 msgstr "CTRL-f            sivu alas"
 
-#: graphics.c:2005
+#: graphics.c:2013
 msgid "CTRL-b            go page backward"
 msgstr "CTRL-b            sivu ylös"
 
-#: graphics.c:2006
+#: graphics.c:2014
 msgid "CTRL-u            go half page up"
 msgstr "CTRL-u            puolisivua ylös"
 
-#: graphics.c:2007
+#: graphics.c:2015
 msgid "CTRL-d            go half page down"
 msgstr "CTRL-d            puolisivua alas"
 
-#: graphics.c:2008
+#: graphics.c:2016
 msgid "<Esc> or CTRL-x   abort SEARCH MODE"
 msgstr "<Esc> tai CTRL-x  Keskeytä HAKUTILA"
 
-#: graphics.c:2009
+#: graphics.c:2017
 msgid "CTRL-n            repeat last / or ? search"
 msgstr "CTRL-n            toista viimeisin / tai ? etsintä"
 
-#: graphics.c:2017
+#: graphics.c:2025
 msgid "ZOOMING:"
 msgstr "ZOOMAUS:"
 
-#: graphics.c:2018
+#: graphics.c:2026
 msgid "z or i or CTRL-i  zoom in"
 msgstr "z tai i tai CTRL-i  lähennä"
 
-#: graphics.c:2019
+#: graphics.c:2027
 msgid "Z or o or CTRL-o  zoom out"
 msgstr "Z tai o tai CTRL-o  loitonna"
 
-#: graphics.c:2020
+#: graphics.c:2028
 msgid "c                 condense: fold current level"
 msgstr "c                   näkymä: tiivistä nykyinen taso"
 
-#: graphics.c:2021
+#: graphics.c:2029
 msgid "C                 condense: fold subdir level"
 msgstr "C                   näkymä: tiivistä alihakemiston taso"
 
-#: graphics.c:2022
+#: graphics.c:2030
 msgid "w                 condense: fold current and subdir levels"
 msgstr "w                   näkymä: tiivistä nykyinen ja kaikki alitasot"
 
-#: graphics.c:2023
+#: graphics.c:2031
 msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
 msgstr "y tai CTRL-y        näkymä: avaa nykyinen ja alitasot"
 
-#: graphics.c:2024
+#: graphics.c:2032
 msgid "r or CTRL-r       uncondense: unfold all directories"
 msgstr "r tai CTRL-r        näkymä: avaa kaikki hakemistot"
 
-#: graphics.c:2025
+#: graphics.c:2033
 msgid "-                 fold directory"
 msgstr "-                   näkymä: tiivistä hakemisto"
 
-#: graphics.c:2026
+#: graphics.c:2034
 msgid "+ or =            unfold directory"
 msgstr "+ tai =             näkymä: avaa hakemisto"
 
-#: graphics.c:2027
+#: graphics.c:2035
 msgid "l or <Right>      unfold and go right"
 msgstr "l tai <Right>       näkymä: avaa ja siirry oikealle"
 
-#: graphics.c:2031
+#: graphics.c:2039
 msgid "Screenheight must be > 21 for help."
 msgstr "Opasteikkunan avaaminen ei onnistu. Ikkunan korkeuden tulee olla > 21 riviä."
 
-#: graphics.c:2263 graphics.c:2749
+#: graphics.c:2271 graphics.c:2757
 #, c-format
 msgid "Cannot find the current path %s in the directory tree.\n"
 msgstr "Nykyisen polun %s löytäminen hakemistopuussa epäonnistui.\n"

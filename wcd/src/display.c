@@ -846,7 +846,18 @@ void displayRefresh(int init);
  * to just rebuild the windows from scratch */
 void displayResize()
 {
+#ifdef __PDCURSES__
+   /* Correct resizing on Windows (ConEmu and Windows 10 console) requires a
+      recent PDCurses version (>3.7). */
    resize_term(0,0);
+#else  
+   /* resize_term() is not working properly with old versions of curses.
+      (e.g. seen with ncurses 5.6.20080804). There are still a lot of old
+      curses library installations around. Stopping and restarting curses
+      does the job too with old curses libraries. */
+   endwin();  /* end curses mode */
+   refresh(); /* start curses */
+#endif
 
    wcd_display.scrollWinHeight = LINES - INPUT_WIN_HEIGHT;
    wcd_display.lines_per_page = wcd_display.scrollWinHeight;

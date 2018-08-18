@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man\n"
-"POT-Creation-Date: 2017-08-03 09:56+0200\n"
+"POT-Creation-Date: 2018-08-20 22:17+0200\n"
 "PO-Revision-Date: 2014-05-27 22:29+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -1782,72 +1782,82 @@ msgid "All locale environment variables that start with I<LC_> are overruled by 
 msgstr "Alle lokalisatie omgevingsvariabelen die beginnen met I<LC> worden overstemd de omgevingsvariabele I<LC_ALL> wanneer die ingesteld is. Wcd geeft prioriteit aan I<LC_ALL> boven I<LC_COLLATE> en I<LC_CTYPE>."
 
 #. type: =head2
-#: wcd.pod:944
+#: wcd.pod:943
+msgid "CONSOLE RESIZING ON WINDOWS"
+msgstr "OPDRACHTPROMTVENSTER FORMAAT WIJZIGEN IN WINDOWS"
+
+#. type: textblock
+#: wcd.pod:945
+msgid "Wcd supports console resizing in Windows 10 console and ConEmu (see L<https://conemu.github.io/>) since version 6.0.3. The Windows 10 console must not be in legacy mode (check the console's properties). When the console Layout property \"Wrap text output on resize\" is disabled you may need to refresh the screen by pressing the F5 key."
+msgstr "Wcd ondersteunt het wijzigen van het formaat van het opdrachtpromptvenster in Windows 10 en ConEmu (zie L<https://conemu.github.io/>) sinds versie 6.0.3. Het Windows 10 opdrachtpromptvenster moet niet in verouderde console modus zitten (controleer de opdrachtpromptvenster eigenschappen). Wanneer de Indeling eigenschap \"tekstterugloopuitvoer bij formaat wijzigen\" uit staat moet u mogelijk het scherm verversen door op de F5 toets te drukken."
+
+#. type: =head2
+#: wcd.pod:951
 msgid "WINDOWS CODE PAGES"
 msgstr "WINDOWS CODETABELLEN"
 
 #. type: textblock
-#: wcd.pod:946
+#: wcd.pod:953
 msgid "There are two groups of code pages: DOS code pages (OEM) and Windows code pages (ANSI). The default encoding for Windows, when configured with Western regional settings, is ANSI CP1252. Windows programs, for instance notepad, use this default system ANSI code page. The Windows console uses by default an OEM code page (CP437 or CP850) for compatibility with DOS programs. If you use a DOS version of wcd in a Windows console it will work, because of the DOS code page.  But the DOS version of wcd lacks support for long directory names and network drives on Windows."
 msgstr "Er zijn twee groepen van codetabellen, DOS codetabellen (OEM) en Windows codetabellen (ANSI). De standaard codering voor Windows, wanneer geconfigureerd met westerse regionale instellingen, is ANSI CP1252. Windows programma's, bijvoorbeeld kladblok, gebruiken deze standaard systeem ANSI codetabel. De Windows Opdrachtprompt gebruikt standaard een OEM codetabel (CP437 of CP850) voor compatibeliteit met DOS programma's. Als u een DOS versie van Wcd in een Windows Opdrachtprompt gebruikt zal het werken, vanwege de DOS codetabel. Maar de DOS versie van wcd ontbeert ondersteuning voor lange mapnamen en netwerkschijven op Windows."
 
 #. type: textblock
-#: wcd.pod:955
+#: wcd.pod:962
 msgid "The Windows version of wcd is a native Windows program and will use the Windows system ANSI code page. So on a Western regional Windows it will use code page CP1252 for directory names and messages. In order to get consistent output, independent of the active code page, all Windows versions of Wcd translate ANSI output to Unicode output in the Command Prompt and PowerShell."
 msgstr "De Windows versie van wcd is een echt Windows programma en zal de Windows systeem ANSI codetabel gebruiken. Dus op een Westers regionale Windows zal het de codetabel CP1252 gebruiken voor directory namen en berichten. Om een consistente uitvoer te verkrijgen, onafhankelijk van de ingestelde codetabel, vertalen alle Windows versies van wcd ANSI uitvoer naar Unicode uitvoer in de Opdrachtprompt en PowerShell."
 
 #. type: textblock
-#: wcd.pod:961
+#: wcd.pod:968
 msgid "The console raster font only supports the original OEM code page installed with Windows, so you have to change the console's font to true type Lucida Console to make Unicode (and ANSI) letters appear correctly."
 msgstr "Het Opdrachtprompt rastertypefont ondersteunt alleen de originele OEM codetabel van Windows, dus u moet het Opdrachtprompt font veranderen naar Lucida Console om Unicode (en ANSI) tekens correct te laten verschijnen."
 
 #. type: textblock
-#: wcd.pod:965
+#: wcd.pod:972
 msgid "Non-Unicode versions of Wcd I<prior to version 5.2.0> use plain ANSI output.  For these older versions the code page of the console has to be made equal to the system code page (changed to 1252) to make wcd for Windows work properly with special characters such as accented characters or the Euro symbol."
 msgstr "Niet-Unicode versies van Wcd I<voorafgaande aan versie 5.2.0> gebruiken gewone ANSI uitvoer. Voor deze oude versie moet de codetabel van de Opdrachtprompt gelijk gemaakt worden aan de systeem codetabel (naar 1252) om wcd voor Windows goed te laten werken met speciale tekens zoals geaccentueerde tekens of een euroteken."
 
 #. type: textblock
-#: wcd.pod:970
+#: wcd.pod:977
 msgid "The Windows system code page can be changed via the Control Panel regional options. The Windows console code page is changed with the C<chcp> command."
 msgstr "De Windows systeem codetabel kan veranderd worden via het Configuratiescherm Klok, taal en land/regio opties. De Windows Opdrachtprompt codetabel wordt veranderd met de C<chcp> opdracht."
 
 #. type: textblock
-#: wcd.pod:973
+#: wcd.pod:980
 msgid "When you type C<wcd -V>, the actual character encoding used by wcd is shown. Type the command C<chcp> to display the active code page of the Windows console."
 msgstr "Wanneer u C<wcd -V> typet, wordt de actuele tekencodering getoond die door wcd gebruikt wordt.  Type opdracht C<chcp> op de actieve codetabel van de Opdrachtprompt te tonen."
 
 #. type: =head2
-#: wcd.pod:978
+#: wcd.pod:985
 msgid "UNICODE"
 msgstr "UNICODE"
 
 #. type: textblock
-#: wcd.pod:980
+#: wcd.pod:987
 msgid "Wcd has optional support for Unicode. To see if wcd was built with Unicode support type C<wcd -V>. If your terminal/console and font supports it, you should see the Euro symbol and Chinese characters (meaning: \"Chinese\")."
 msgstr "Wcd heeft optioneel ondersteuning voor Unicode. Om te zien of wcd gebouwd is met Unicode ondersteuning type C<wcd -V>. Als uw terminal en font het ondersteunen, zou u een euroteken en Chinese tekens (betekenis: \"Chinees\") moeten zien."
 
 #. type: textblock
-#: wcd.pod:985
+#: wcd.pod:992
 msgid "Wcd has been I<soft> converted to Unicode. In its core wcd handles all data as a stream of bytes. Only the lines printed to screen are on the fly converted to Unicode wide characters. Wcd fully relies on libc functions and has no UTF-8 specific code. See also L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>"
 msgstr "Wcd is I<zacht> omgezet naar Unicode. In de kern behandelt wcd alle data als een stroom van bytes. Alleen de regels die op het scherm geprint worden, worden terstond omgezet naar Unicode brede tekens. Wcd hangt volledig af van libc functies en heeft geen UTF-8 specifieke broncode. Zie ook L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>"
 
 #. type: textblock
-#: wcd.pod:991
+#: wcd.pod:998
 msgid "Wcd has optional support for Unicode matching with normalisation. To find out whether Wcd has normalisation support type C<wcd -V>.  Wcd with Unicode normalization support will match Unicode names based on I<compatible> equivalence. Without Unicode normalization support, names are matched when they are binary equivalent.  See also L<http://en.wikipedia.org/wiki/Unicode_normalization>"
 msgstr "Wcd heeft optioneel ondersteuning voor Unicode vergelijkingen met normalisatie. Om er achter te komen of Wcd normalisatie ondersteunt type C<wcd -V>. Wcd met Unicode normalisatie ondersteuning vergelijkt Unicode namen gebaseerd op I<compatibele> gelijkwaardigheid. Zonder Unicode normalisatie worden treffen namen een gelijke wanneer ze binair gelijk zijn. Zie ook L<http://en.wikipedia.org/wiki/Unicode_normalization>"
 
 #. type: =head3
-#: wcd.pod:998
+#: wcd.pod:1005
 msgid "UTF-8 on Unix/Linux"
 msgstr "UTF-8 op Unix/Linux"
 
 #. type: textblock
-#: wcd.pod:1000
+#: wcd.pod:1007
 msgid "In order to view UTF-8 characters your console/terminal also needs to support UTF-8. The xterm version that comes with XFree86 4.0 or higher includes UTF-8 support. To activate it, start xterm(1) in a UTF-8 locale and use a font with iso10646-1 encoding, for instance with"
 msgstr "Om UTF-8 tekens te zien moet uw terminal ook UTF-8 ondersteunen. De xterm versie die meekomt met XFree86 4.0 of hoger bevat UTF-8 ondersteuning. Om het te activeren, start xterm(1) in een UTF-8 taalregio en gebruik een font met iso10646-1 codering, bijvoorbeeld met"
 
 #. type: verbatim
-#: wcd.pod:1005
+#: wcd.pod:1012
 #, no-wrap
 msgid ""
 "    LC_CTYPE=en_GB.UTF-8 xterm -u8 -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'\n"
@@ -1857,102 +1867,102 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1007
+#: wcd.pod:1014
 msgid "Modern distributions of GNU/Linux support UTF-8 by default. Other multi-byte character encodings should also work, but that has not been tested."
 msgstr "Moderne uitgaves van GNU/Linux ondersteunen standaard UTF-8. Andere multi-byte tekencoderingen zouden ook moeten werken, maar dat is niet getest."
 
 #. type: textblock
-#: wcd.pod:1010
+#: wcd.pod:1017
 msgid "Wcd assumes that the treedata files are encoded in the locale character encoding. There are no Byte Order Marks written to treedata files."
 msgstr "Wcd veronderstelt dat de boomdata-bestanden gecodeerd zijn in de lokale tekencodering. Er worden geen Byte Order Marks geschreven in de boomdata-bestanden."
 
 #. type: =head3
-#: wcd.pod:1014
+#: wcd.pod:1021
 msgid "UTF-16 on Windows"
 msgstr "UTF-16 op Windows"
 
 #. type: textblock
-#: wcd.pod:1016
+#: wcd.pod:1023
 msgid "On Windows Unicode is supported in all versions of PowerShell, and in Windows Command Prompt on Windows 7 (or higher). Unicode also works in Take Command or TCC/LE made by JP Software, which can be used on older Windows versions (XP/Vista)."
 msgstr "Op Windows wordt Unicode in alle versies van PowerShell ondersteund, en in Windows Opdrachtprompt op Windows 7 (of hoger). Unicode werkt ook in Take Command of TCC/LE gemaakt door JP Software, dat gebruikt kan worden op oudere Windows versies (XP/Vista)."
 
 #. type: textblock
-#: wcd.pod:1021
+#: wcd.pod:1028
 msgid "On Windows all the directory names on disk are encoded in UTF-16 Unicode.  For non-Unicode Windows programs the Unicode characters are translated to the default ANSI code page. For characters that are not part of the regional setting this translation is not possible and non-Unicode programs print a question mark or a wrong character instead."
 msgstr "In Windows zijn alle mapnamen op schijf gecodeerd in UTF-16 Unicode. Voor niet-Unicode Windows programma's worden de tekens vertaald naar de standaard ANSI codetabel. Voor tekens die geen onderdeel zijn van de regionale instelling is de vertaling niet mogelijk en niet-Unicode programma's printen in plaats daarvan een vraagteken of een verkeerd teken."
 
 #. type: textblock
-#: wcd.pod:1027
+#: wcd.pod:1034
 msgid "Wcd with Unicode support will read the UTF-16 encoded directory names and converts them internally to UTF-8. All treedata files are encoded in UTF-8 and not compatible with the non-Unicode version of Wcd. Wcd will create a go-script encoded in UTF-8."
 msgstr "Wcd met Unicode ondersteuning leest de UTF-16 gecodeerde mappennamen en zet ze intern om naar UTF-8. Alle boomdata-bestanden zijn gecodeerd in UTF-8 en niet compatibel met de niet-Unicode versie van Wcd. Wcd zal een go-script aanmaken gecodeerd in UTF-8."
 
 #. type: textblock
-#: wcd.pod:1032
+#: wcd.pod:1039
 msgid "All versions of Windows PowerShell are able to run scripts encoded in UTF-8, provided there is an UTF-8 BOM in the script."
 msgstr "Alle versies van Windows PowerShell zijn in staat om in UTF-8 gecodeerde scripts te draaien, indien het script is voorzien van een UTF-8 BOM."
 
 #. type: textblock
-#: wcd.pod:1035
+#: wcd.pod:1042
 msgid "Since Windows 7 it is possible in Windows Command Prompt to change directory with a batch script to a directory with Unicode letters in the name. The directory name needs to be encoded in UTF-8, and the batch script must I<not> have a BOM. The active code page of the Command Prompt needs to be set to 65001 (UTF-8) prior to the cd command. Wcd for Command Prompt will create such a go script C<wcdgo.bat>. It first changes the code page to 65001, then changes directory, and finally sets the code page back to the original code page."
 msgstr "Sinds Windows 7 is het mogelijk om in Windows Opdrachtprompt van map te veranderen met een batch script naar een map met Unicode tekens in de naam. De mapnaam moet gecodeerd zijn in UTF-8, en het batch script moet I<geen> BOM bevatten. De actieve codetabel van de Opdrachtprompt moet gezet zijn op 65001 (UTF-8) vooraf aan de cd opdracht. Wcd voor Opdrachtprompt creëert zo'n go-script C<wcdgo.bat>. Eerst verandert het de codetabel naar 65001, verandert dan de map, en tenslotte wordt de codetabel terug gezet naar de originele waarde."
 
 #. type: textblock
-#: wcd.pod:1043
+#: wcd.pod:1050
 msgid "You need to set the font to True Type Lucida Console (not raster font) when letters don't appear correctly."
 msgstr "U moet het font instellen op True Type Lucida Console (niet raster type font) wanneer de letters niet correct verschijnen."
 
 #. type: textblock
-#: wcd.pod:1046
+#: wcd.pod:1053
 msgid "The non-Unicode Windows version of Wcd can read Unicode treedata files since version 5.2.0, provided there is a Byte Order Mark (BOM) in the file (see L<http://en.wikipedia.org/wiki/Byte_order_mark>), but it can't change to directories with Unicode letters in the name that are not part of the default system ANSI code page. The Unicode Windows version of wcd writes a BOM in the UTF-8 encoded treedata files since version 5.2.0, which makes them also readable by notepad."
 msgstr "De niet-Unicode Windows versie van Wcd kan Unicode boomdata-bestanden lezen sinds versie 5.2.0, indien er een Byte Order Mark (BOM) in het bestand zit (zie L<http://en.wikipedia.org/wiki/Byte_order_mark>), maar kan niet veranderen naar mappen met Unicode tekens in de naam die geen onderdeel zijn van de standaard systeem ANSI codetabel. De Unicode Windows versie van wcd schrijft een BOM in het UTF-8 gecodeerde boomdata-bestand sinds versie 5.2.0, wat ze ook leesbaar maakt voor kladblok."
 
 #. type: =head3
-#: wcd.pod:1055
+#: wcd.pod:1062
 msgid "UTF-8 on Cygwin"
 msgstr "UTF-8 in Cygwin"
 
 #. type: textblock
-#: wcd.pod:1057
+#: wcd.pod:1064
 msgid "Cygwin supports Unicode since version 1.7. The Cygwin layer takes care that the Windows UTF-16 Unicode names are converted to UTF-8. So programs, like wcd, do not need to be aware of this and can operate using UTF-8 encoding as on Unix/Linux. Set character encoding to UTF-8 with the I<LANG> or I<LC_CTYPE> environment variable. You may need to rescan your drives. You need to set the font to True Type Lucida Console (not raster font) if you use the default Cygwin console."
 msgstr "Cygwin ondersteunt Unicode sinds versie 1.7. De Cygwin laag zorgt er voor dat de Windows UTF-16 Unicode namen vertaald worden naar UTF-8. Dus programma's, zoals wcd, hoeven hier niet bewust van te zijn en kunnen werken gebruikmakend van UTF-8 codering als op Unix/Linux. Stel de tekencodering in op UTF-8 met de I<LANG> of I<LC_CTYPE> omgevingsvariabele. Het kan nodig zijn dat u de schijven opnieuw moet scannen. U dient het font in te stellen op True Type Lucida Console (niet raster type font) wanneer u de standaard Cygwin console gebruikt."
 
 #. type: textblock
-#: wcd.pod:1065
+#: wcd.pod:1072
 msgid "The Cygwin version behaves exactly as the Unix version of wcd.  There is no BOM written in the treedata files, and it is assumed they are encoded in the B<Cygwin> locale character encoding."
 msgstr "De Cygwin versie gedraagt zich exact gelijk aan de Unix versie van wcd. Er wordt geen BOM geschreven in de boomdata-bestanden, en er wordt aangenomen dat ze gecodeerd zijn in de B<Cygwin> lokalisatie tekencodering."
 
 #. type: =head1
-#: wcd.pod:1069
+#: wcd.pod:1076
 msgid "FILES"
 msgstr "BESTANDEN"
 
 #. type: textblock
-#: wcd.pod:1071
+#: wcd.pod:1078
 msgid "If the environment variable I<WCDHOME> is set wcd will use I<WCDHOME> instead of I<HOME>. All C<*.wcd> files are text files. They can be edited with a text editor.  The Windows Command Prompt version of wcd behaves as the DOS version. The Cygwin version of wcd behaves as the Unix version."
 msgstr "Wanneer omgevingsvariabele I<WCDHOME> ingesteld is zal wcd I<WCDHOME> gebruiken in plaats van I<HOME>. Alle C<*.wcd> bestanden zijn tekstbestanden. Ze kunnen bewerkt worden met een tekstbewerker. De Windows Opdrachtprompt versie gedraagt zich als de DOS versie. De Cygwin versie van wcd gedraagt zich als de Unix versie."
 
 #. type: =item
-#: wcd.pod:1080
+#: wcd.pod:1087
 msgid "B<wcd.exe>"
 msgstr "B<wcd.exe>"
 
 #. type: textblock
-#: wcd.pod:1082
+#: wcd.pod:1089
 msgid "The program. In Unix shells the program is always called by a function or alias, because the current working directory of a Unix shell can only be changed by the builtin cd command. See also section INSTALLATION."
 msgstr "Het programma. In Unix shells wordt het programma altijd aangeroepen door een functie of alias, omdat de huidige werkmap alleen veranderd kan worden door de ingebouwde cd opdracht. Zie ook paragraaf INSTALLATIE."
 
 #. type: =item
-#: wcd.pod:1087
+#: wcd.pod:1094
 msgid "B<default treedata file>"
 msgstr "B<standaard boomdata-bestand>"
 
 #. type: textblock
-#: wcd.pod:1089
+#: wcd.pod:1096
 msgid "This is the default treedata file where wcd searches for matches. If it is not readable wcd will create a new one."
 msgstr "Dit is het standaard boomdata-bestand waarin wcd zoekt naar treffers. Wanneer het niet leesbaar is zal wcd een nieuwe aanmaken."
 
 #. type: verbatim
-#: wcd.pod:1092
+#: wcd.pod:1099
 #, no-wrap
 msgid ""
 "    DOS: \\treedata.wcd or %HOME%\\treedata.wcd\n"
@@ -1964,17 +1974,17 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1095
+#: wcd.pod:1102
 msgid "B<extra treedata file>"
 msgstr "B<extra boomdata-bestand>"
 
 #. type: textblock
-#: wcd.pod:1097
+#: wcd.pod:1104
 msgid "An optional extra treedata file. If it exists and is readable wcd will try to find matches in this file also."
 msgstr "Een optioneel extra boomdata-bestand. Wanneer het bestaat en leesbaar is zal wcd ook in dit bestand proberen treffers te vinden."
 
 #. type: verbatim
-#: wcd.pod:1100
+#: wcd.pod:1107
 #, no-wrap
 msgid ""
 "    DOS: \\extra.wcd or %HOME%\\extra.wcd\n"
@@ -1986,17 +1996,17 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1103
+#: wcd.pod:1110
 msgid "B<ban file>"
 msgstr "B< ban-bestand>"
 
 #. type: textblock
-#: wcd.pod:1105
+#: wcd.pod:1112
 msgid "In this optional file wcd places banned paths. See option B<-b>. Wildcards are supported."
 msgstr "In dit optionele bestand plaatst wcd de verbannen paden. Zie optie B<-b>. Jokertekens worden ondersteund."
 
 #. type: verbatim
-#: wcd.pod:1108
+#: wcd.pod:1115
 #, no-wrap
 msgid ""
 "    DOS: \\ban.wcd or %HOME%\\ban.wcd\n"
@@ -2008,17 +2018,17 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1111
+#: wcd.pod:1118
 msgid "B<alias file>"
 msgstr "B<alias-bestand>"
 
 #. type: textblock
-#: wcd.pod:1113
+#: wcd.pod:1120
 msgid "Optional file with wcd aliases. See option B<-l>."
 msgstr "Optioneel bestand met wcd aliassen. Zie optie B<-I>."
 
 #. type: verbatim
-#: wcd.pod:1115
+#: wcd.pod:1122
 #, no-wrap
 msgid ""
 "    DOS: \\alias.wcd or %HOME%\\alias.wcd\n"
@@ -2030,17 +2040,17 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1118
+#: wcd.pod:1125
 msgid "B<stack file>"
 msgstr "B<stapel-bestand>"
 
 #. type: textblock
-#: wcd.pod:1120
+#: wcd.pod:1127
 msgid "In this file wcd stores its stack. The drive letter can be changed with the B<-d> option."
 msgstr "In dit bestand slaat wcd zijn stapel op. De schijfletter kan veranderd worden met de B<-d> optie."
 
 #. type: verbatim
-#: wcd.pod:1123
+#: wcd.pod:1130
 #, no-wrap
 msgid ""
 "    DOS: c:\\stack.wcd or %HOME%\\stack.wcd\n"
@@ -2052,22 +2062,22 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1126
+#: wcd.pod:1133
 msgid "The name of the stack file can be changed with environment variable I<WCDSTACKFILE>.  See section ENVIRONMENT VARIABLES."
 msgstr "De naam van het stapelbestand kan veranderd worden met omgevingsvariabele I<WCDSTACKFILE>. Zie paragraaf OMGEVINGSVARIABELEN."
 
 #. type: =item
-#: wcd.pod:1129
+#: wcd.pod:1136
 msgid "B<go-script>"
 msgstr "B<go-script>"
 
 #. type: textblock
-#: wcd.pod:1131
+#: wcd.pod:1138
 msgid "This is the shell script which wcd.exe creates each time. It is sourced via a function or an alias. The drive letter can be changed with the B<-d> option.  For history reasons it is placed by default in C<$HOME/bin> on Unix systems. The directory of this file can be changed with the option B<-G>."
 msgstr "Dit is het shell-script dat wcd elke keer creëert. Het wordt ingelezen via een functie of een alias. De schijfletter kan gewijzigd worden met de B<-d> optie. Wegens voorgeschiedenis redenen wordt het standaard geplaatst in C<$HOME/bin> op Unix systemen. De map van dit bestand kan gewijzigd worden met de optie B<-G>."
 
 #. type: verbatim
-#: wcd.pod:1136
+#: wcd.pod:1143
 #, no-wrap
 msgid ""
 "    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
@@ -2091,17 +2101,17 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1145
+#: wcd.pod:1152
 msgid "B<relative treedata file>"
 msgstr "B<relatieve boomdata-bestand>"
 
 #. type: textblock
-#: wcd.pod:1147
+#: wcd.pod:1154
 msgid "Text file with relative paths from I<DIR>. See options B<+S>, B<-n> and B<+n>."
 msgstr "Tekstbestand met relatieve paden vanaf I<MAP>. Zie opties B<+S>, B<-n> en B<+n>."
 
 #. type: verbatim
-#: wcd.pod:1150
+#: wcd.pod:1157
 #, no-wrap
 msgid ""
 "    DOS: PATH\\rtdata.wcd\n"
@@ -2113,37 +2123,37 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: wcd.pod:1155
+#: wcd.pod:1162
 msgid "ENVIRONMENT VARIABLES"
 msgstr "OMGEVINGSVARIABELEN"
 
 #. type: =item
-#: wcd.pod:1159
+#: wcd.pod:1166
 msgid "B<HOME>"
 msgstr "B<HOME>"
 
 #. type: textblock
-#: wcd.pod:1161
+#: wcd.pod:1168
 msgid "Wcd uses by default environment variable I<HOME> to determine where to store its files. See also section FILES. This can be overruled with environment variable I<WCDHOME>."
 msgstr "Wcd gebruikt standaard omgevingsvariabele I<HOME> om te bepalen waar z'n bestanden op te slaan. Zie ook paragraaf BESTANDEN. Dit kan overstemd worden met omgevingsvariabele I<WCDHOME>."
 
 #. type: textblock
-#: wcd.pod:1165
+#: wcd.pod:1172
 msgid "I<HOME> also defines where to start scanning the disk when option B<-s> is used. This can be overruled with the environment variable I<WCDSCAN>."
 msgstr "I<HOME> bepaalt ook waar te beginnen met het scannen van de schijf wanneer optie B<-s> gebruikt wordt. Dit kan overstemd worden met omgevingsvariabele I<WCDSCAN>."
 
 #. type: textblock
-#: wcd.pod:1169
+#: wcd.pod:1176
 msgid "For the Unix, Cygwin, Windows PowerShell, WinZsh and MSYS version it is required that I<HOME> or I<WCDHOME> is set. For the other versions of wcd the use of these variables is optional."
 msgstr "Voor de Unix, Cygwin, Windows PowerShell, WinZsh en MSYS versie is het vereist dat I<HOME> of I<WCDHOME> ingesteld is. Voor de andere versies van wcd is het gebruik van deze variabelen optioneel."
 
 #. type: textblock
-#: wcd.pod:1173
+#: wcd.pod:1180
 msgid "If I<HOME> is set on DOS/Windows, wcd will place all its files (treedata.wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) in directory I<HOME>. The behaviour of wcd is then equal to the Unix version of wcd. Wcd will scan the disk default from I<HOME>. Drives will not be automatically scanned by changing to them. You need to tell wcd explicitly. E.g.:"
 msgstr "Wanneer I<HOME> ingesteld is op DOS/Windows, zal wcd al zijn bestanden (treedata.wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) in map I<HOME> plaatsen. Het gedrag van wcd is dan gelijk aan de Unix versie van wcd. Wcd zal de schijf standaard scannen vanaf I<HOME>. Schijven worden niet automatisch gescant door er naar te veranderen. Dat moet wcd expliciet opgedragen worden. B.v.:"
 
 #. type: verbatim
-#: wcd.pod:1180
+#: wcd.pod:1187
 #, no-wrap
 msgid ""
 "    wcd -S c: -A d: -A e:\n"
@@ -2153,32 +2163,32 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1182
+#: wcd.pod:1189
 msgid "Matching of directories is now global over all scanned drives."
 msgstr "Vergelijken van mappen is nu globaal over alle gescande schijven."
 
 #. type: =item
-#: wcd.pod:1185
+#: wcd.pod:1192
 msgid "B<WCDHOME>"
 msgstr "B<WCDHOME>"
 
 #. type: textblock
-#: wcd.pod:1187
+#: wcd.pod:1194
 msgid "Environment variable I<WCDHOME> can be used to change the location of wcd's files. If both I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead of I<HOME>."
 msgstr "Omgevingsvariabele I<WCDHOME> kan gebruikt worden om de locatie van wcds bestanden te wijzigen. Wanneer zowel I<HOME> als I<WCDHOME> ingesteld zijn, zal I<WCDHOME> gebruikt worden in plaats van I<HOME>."
 
 #. type: textblock
-#: wcd.pod:1191
+#: wcd.pod:1198
 msgid "In wcd versions prior to 5.1.5 I<WCDHOME> also changed the default scan directory.  This has changed. Since version 5.1.5 I<WCDHOME> does not change the default scan directory. See option B<-s>. From version 5.1.5, use environment I<WCDSCAN> to overrule the default scan directory."
 msgstr "In wcd versies voorafgaand aan 5.1.5 veranderde I<WCDHOME> ook de standaard scan-map. Dit is veranderd. Sinds versie 5.1.5 verandert I<WCDHOME> niet de standaard scan-map. Zie optie B<-s>. Gebruik vanaf versie 5.1.5 omgevingsvariabele I<WCDSCAN> om de standaard scan-map te overstemmen."
 
 #. type: textblock
-#: wcd.pod:1196
+#: wcd.pod:1203
 msgid "Example for DOS, Windows, OS/2 Command Prompt:"
 msgstr "Voorbeeld voor DOS, Windows, OS/2 Opdrachtprompt:"
 
 #. type: verbatim
-#: wcd.pod:1198
+#: wcd.pod:1205
 #, no-wrap
 msgid ""
 "    set WCDHOME=C:\\Users\\erwin\\wcd\n"
@@ -2188,12 +2198,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1200 wcd.pod:1221 wcd.pod:1241 wcd.pod:1266
+#: wcd.pod:1207 wcd.pod:1228 wcd.pod:1248 wcd.pod:1273
 msgid "An example for POSIX type shells:"
 msgstr "Een voorbeeld voor POSIX type shells:"
 
 #. type: verbatim
-#: wcd.pod:1202
+#: wcd.pod:1209
 #, no-wrap
 msgid ""
 "    export WCDHOME=\"$HOME/.wcd\"\n"
@@ -2203,12 +2213,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1204 wcd.pod:1225 wcd.pod:1245 wcd.pod:1270
+#: wcd.pod:1211 wcd.pod:1232 wcd.pod:1252 wcd.pod:1277
 msgid "An example for Csh type shells:"
 msgstr "Een voorbeeld voor Csh type shells:"
 
 #. type: verbatim
-#: wcd.pod:1206
+#: wcd.pod:1213
 #, no-wrap
 msgid ""
 "    setenv WCDHOME \"$HOME/.wcd\"\n"
@@ -2218,22 +2228,22 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1208
+#: wcd.pod:1215
 msgid "B<WCDSCAN>"
 msgstr "B<WCDSCAN>"
 
 #. type: textblock
-#: wcd.pod:1210
+#: wcd.pod:1217
 msgid "Use environment variable I<WCDSCAN> to overrule the default scan directory I<HOME>. Define a colon separated list (Unix) to define more than one directory.  On DOS/Windows make the list semi-colon separated."
 msgstr "Gebruik omgevingsvariabele I<WCDSCAN> om de standaard scan-map I<HOME> te overstemmen. Gebruik een door dubbele punten gescheiden lijst (Unix) om meer dan een map te definiëren. Gebruik op DOS/Windows een lijst gescheiden door puntkomma's."
 
 #. type: textblock
-#: wcd.pod:1215
+#: wcd.pod:1222
 msgid "Examples for DOS, Windows, OS/2 Command Prompt:"
 msgstr "Voorbeelden voor DOS, Windows, OS/2 Opdrachtprompt:"
 
 #. type: verbatim
-#: wcd.pod:1217
+#: wcd.pod:1224
 #, no-wrap
 msgid ""
 "    set WCDSCAN=C:\\Users\\erwin;D:\\data\n"
@@ -2243,7 +2253,7 @@ msgstr ""
 "\n"
 
 #. type: verbatim
-#: wcd.pod:1219
+#: wcd.pod:1226
 #, no-wrap
 msgid ""
 "    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\\\projectdrive\\projectX\n"
@@ -2253,7 +2263,7 @@ msgstr ""
 "\n"
 
 #. type: verbatim
-#: wcd.pod:1223
+#: wcd.pod:1230
 #, no-wrap
 msgid ""
 "    export WCDSCAN=\"$HOME:/projectdisk/projectX\"\n"
@@ -2263,7 +2273,7 @@ msgstr ""
 "\n"
 
 #. type: verbatim
-#: wcd.pod:1227
+#: wcd.pod:1234
 #, no-wrap
 msgid ""
 "    setenv WCDSCAN \"$HOME:/projectdisk/projectX\"\n"
@@ -2273,22 +2283,22 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1229
+#: wcd.pod:1236
 msgid "B<WCDFILTER>"
 msgstr "B<WCDFILTER>"
 
 #. type: textblock
-#: wcd.pod:1231
+#: wcd.pod:1238
 msgid "Specify filters with environment variable I<WCDFILTER>. All directories that do not match the filter(s) are ignored. A list can be specified by separating filters by the shell path separator. Similar as specifying the I<PATH> variable.  The case sensitivity is mandated by the Operating system."
 msgstr "Specificeer filters met omgevingsvariabele I<WCDFILTER>. Alle mappen die niet treffen met het filter worden genegeerd. Een lijst kan gespecificeerd worden met het shell pad scheidingsteken. Gelijk aan het specificeren van de I<PATH> variabele. Hoofdlettergevoeligheid wordt bepaald door het besturingssysteem."
 
 #. type: textblock
-#: wcd.pod:1237 wcd.pod:1262
+#: wcd.pod:1244 wcd.pod:1269
 msgid "An example for DOS, Windows, OS/2 Command Prompt:"
 msgstr "Een voorbeeld voor DOS, Windows, OS/2 Opdrachtprompt:"
 
 #. type: verbatim
-#: wcd.pod:1239
+#: wcd.pod:1246
 #, no-wrap
 msgid ""
 "    set WCDFILTER=projects;doc\n"
@@ -2298,7 +2308,7 @@ msgstr ""
 "\n"
 
 #. type: verbatim
-#: wcd.pod:1243
+#: wcd.pod:1250
 #, no-wrap
 msgid ""
 "    export WCDFILTER=\"projects:doc\"\n"
@@ -2308,7 +2318,7 @@ msgstr ""
 "\n"
 
 #. type: verbatim
-#: wcd.pod:1247
+#: wcd.pod:1254
 #, no-wrap
 msgid ""
 "    setenv WCDFILTER \"projects:doc\"\n"
@@ -2318,27 +2328,27 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1249
+#: wcd.pod:1256
 msgid "B<WCDBAN>"
 msgstr "B<WCDBAN>"
 
 #. type: textblock
-#: wcd.pod:1251
+#: wcd.pod:1258
 msgid "The paths specified with environment I<WCDBAN> will be banned by wcd.  See also option B<-b>. Specify a list of paths separated by shell I<PATH> separator."
 msgstr "De paden gespecificeerd met omgevingsvariabele I<WCDBAN> worden verbannen door wcd. Zie ook optie B<-b>. Specificeer een lijst van paden met het shell I<PATH> scheidingsteken."
 
 #. type: =item
-#: wcd.pod:1255
+#: wcd.pod:1262
 msgid "B<WCDEXCLUDE>"
 msgstr "B<WCDEXCLUDE>"
 
 #. type: textblock
-#: wcd.pod:1257
+#: wcd.pod:1264
 msgid "The paths specified with environment I<WCDEXCLUDE> will be excluded by wcd. See also options B<-x> and B<-xf>. Specify a list of paths separated by shell I<PATH> separator."
 msgstr "De paden gespecificeerd met omgevingsvariabele I<WCDEXCLUDE> worden uitgesloten door wcd. Zie ook opties B<-x> en B<-xf>. Specificeer een lijst van paden met het shell I<PATH> scheidingsteken."
 
 #. type: verbatim
-#: wcd.pod:1264
+#: wcd.pod:1271
 #, no-wrap
 msgid ""
 "    set WCDEXCLUDE=*/windows;*/temp;*CVS\n"
@@ -2348,7 +2358,7 @@ msgstr ""
 "\n"
 
 #. type: verbatim
-#: wcd.pod:1268
+#: wcd.pod:1275
 #, no-wrap
 msgid ""
 "    export WCDEXCLUDE=\"/dev:/tmp:*CVS\"\n"
@@ -2358,7 +2368,7 @@ msgstr ""
 "\n"
 
 #. type: verbatim
-#: wcd.pod:1272
+#: wcd.pod:1279
 #, no-wrap
 msgid ""
 "    setenv WCDEXCLUDE \"/dev:/tmp:*CVS\"\n"
@@ -2368,32 +2378,32 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1274
+#: wcd.pod:1281
 msgid "B<WCDUSERSHOME>"
 msgstr "B<WCDUSERSHOME>"
 
 #. type: textblock
-#: wcd.pod:1276
+#: wcd.pod:1283
 msgid "Set the base of user's home directories.  On DOS/Windows the default value is C<\\\\users>.  On Unix/Cygwin the default value is C</home>.  This variable is used to scan treedata files of other users. See also options B<-u> and B<+u>. In verbose mode wcd will print all filters, bans and excludes. See option B<-v>."
 msgstr "Stel de basis in de de thuismappen van de gebruikers. Op DOS/Windows is de standaard waarde C<\\\\users>. Op Unix/Cygwin is de standaard waarde C</home>. Deze variabele wordt gebruikt om boomdata-bestanden van andere gebruikers te scannen. Zie ook opties B<-u> en B<+u>.  In gedetailleerde uitvoer-modus zal wcd alle filters, verbanningen en uitsluitingen tonen. Zie ook optie B<-v>."
 
 #. type: =item
-#: wcd.pod:1283
+#: wcd.pod:1290
 msgid "B<WCDSTACKFILE>"
 msgstr "B<WCDSTACKFILE>"
 
 #. type: textblock
-#: wcd.pod:1285
+#: wcd.pod:1292
 msgid "Wcd gives preference to I<WCDSTACKFILE> over the default stack file name (see section FILES). With this variable each shell (or used terminal emulator) can have its private stack of used directories."
 msgstr "Wcd geeft prioriteit aan I<WCDSTACKFILE> boven de standaard stapelbestandsnaam (zie paragraaf BESTANDEN). Met deze variabele kan elke shell (of terminal) zijn eigen privé stapel voor mappen hebben."
 
 #. type: textblock
-#: wcd.pod:1289
+#: wcd.pod:1296
 msgid "To use a unique time based YYYYMMDD-HHMMSS file for each opened interactive shell."
 msgstr "Om een uniek tijdgebaseerde YYYYMMDD-HHMMSS bestand voor elke geopende interactieve shell te gebruiken."
 
 #. type: verbatim
-#: wcd.pod:1292
+#: wcd.pod:1299
 #, no-wrap
 msgid ""
 "    export WCDSTACKFILE=$HOME/.wcd/stack.$(date +%Y%m%d-%H%M%S)\n"
@@ -2403,12 +2413,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1294
+#: wcd.pod:1301
 msgid "For a stack per xterm(1), use the xterm I<WINDOWID> environment variable:"
 msgstr "Voor een stapel per xterm(1), gebruik de xterm omgevingsvariabele I<WINDOWID>:"
 
 #. type: verbatim
-#: wcd.pod:1296
+#: wcd.pod:1303
 #, no-wrap
 msgid ""
 "    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOWID\n"
@@ -2418,12 +2428,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1298
+#: wcd.pod:1305
 msgid "For GNU screen(1), to use stack per screen:"
 msgstr "Voor GNU screen(1), gebruik een stapel per scherm:"
 
 #. type: verbatim
-#: wcd.pod:1300
+#: wcd.pod:1307
 #, no-wrap
 msgid ""
 "    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOW\n"
@@ -2433,27 +2443,27 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: wcd.pod:1302
+#: wcd.pod:1309
 msgid "B<TERMINFO>"
 msgstr "B<TERMINFO>"
 
 #. type: textblock
-#: wcd.pod:1304
+#: wcd.pod:1311
 msgid "If the environment variable I<TERMINFO> is defined, wcd with ncurses interface checks for a local terminal definition before checking in the standard place. This is useful if terminal definitions are not on a standard place. Often used standard places are C</usr/lib/terminfo> and C</usr/share/terminfo>."
 msgstr "Wanneer omgevingsvariabele I<TERMINFO> ingesteld is, controleert wcd met ncurses interface of er lokale terminal definities zijn voor op de standaard plek te kijken. Dit is nuttig wanneer terminal definities niet op een standaard plaats staan. Veel gebruikte standaard plaatsen zijn C</usr/lib/terminfo> en C</usr/share/terminfo>."
 
 #. type: =item
-#: wcd.pod:1310
+#: wcd.pod:1317
 msgid "B<PDC_RESTORE_SCREEN>"
 msgstr "B<PDC_RESTORE_SCREEN>"
 
 #. type: textblock
-#: wcd.pod:1312
+#: wcd.pod:1319
 msgid "Wcd with PDCurses interface recognizes the environment variable I<PDC_RESTORE_SCREEN>. If this environment variable is set, PDCurses will take a copy of the contents of the screen at the time that wcd is started; when wcd exits, the screen will be restored.  An example for Windows Command Prompt:"
 msgstr "Wcd met PDCurses interface herkent de omgevingsvariabele I<PDC_RESTORE_SCREEN>. Wanneer deze omgevingsvariabele ingesteld is, zal PDCurses een kopie maken van de inhoud van het scherm op het moment dat wcd gestart is.  Wanneer wcd afsluit zal het scherm hersteld worden. Een voorbeeld voor Windows Opdrachtprompt:"
 
 #. type: verbatim
-#: wcd.pod:1318
+#: wcd.pod:1325
 #, no-wrap
 msgid ""
 "    set PDC_RESTORE_SCREEN=1\n"
@@ -2463,66 +2473,66 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: wcd.pod:1320
+#: wcd.pod:1327
 msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exits if you have set a large buffer width."
 msgstr "Wcd laat maar een kleine buffer opslaan. Daardoor is het niet altijd mogelijk om alles te herstellen. Er kan wat rommel in de console geprint worden als wcd afsluit wanneer u een grote bufferbreedte heeft ingesteld."
 
 #. type: =item
-#: wcd.pod:1325
+#: wcd.pod:1332
 msgid "B<SHELL>"
 msgstr "B<SHELL>"
 
 #. type: textblock
-#: wcd.pod:1327
+#: wcd.pod:1334
 msgid "Printing of C<#!$SHELL> on the first line of the go-script for POSIX type shell or C shell is needed for 8 bit characters. Some shells otherwise think that the go-script is a binary file and will not source it. In Cygwin Bash the variable I<SHELL> must be set in environment using the C<export> command, otherwise wcd can't read the variable."
 msgstr "Het printen van C<#!$SHELL> op de de eerste regel van het go-script voor POSIX type shell of C shell is nodig voor 8 bit tekens. Sommige shells denken anders dat het go-script een binair bestand is en willen het niet inlezen. In Cygwin Bash moet de variabele I<SHELL> ingesteld zijn met de C<export> opdracht, anders kan wcd de variabele niet lezen."
 
 #. type: =item
-#: wcd.pod:1335
+#: wcd.pod:1342
 msgid "B<BASH>"
 msgstr "B<BASH>"
 
 #. type: textblock
-#: wcd.pod:1337
+#: wcd.pod:1344
 msgid "Wcd for DOS bash uses C<$BASH> instead of C<$SHELL>, because C<$SHELL> points to the DOS command shell. One may need to define C<$BASH> with an C<export> command, otherwise wcd can't read the variable."
 msgstr "Wcd voor DOS bash gebruikt C<$BASH> in plaats van C<$SHELL>, omdat C<$SHELL> verwijst naar de DOS Opdrachtprompt. Het kan nodig zijn dat men C<$BASH> met een C<export> opdracht moet definiëren, anders kan wcd de variabele niet lezen."
 
 #. type: =head1
-#: wcd.pod:1344
+#: wcd.pod:1351
 msgid "SEE ALSO"
 msgstr "ZIE OOK"
 
 #. type: textblock
-#: wcd.pod:1346
+#: wcd.pod:1353
 msgid "sh(1), bash(1), csh(1), ksh(1), zsh(1), locale(1), ncurses(1),"
 msgstr "sh(1), bash(1), csh(1), ksh(1), zsh(1), locale(1), ncurses(1),"
 
 #. type: =head1
-#: wcd.pod:1354
+#: wcd.pod:1361
 msgid "AUTHORS"
 msgstr "AUTEURS"
 
 #. type: textblock
-#: wcd.pod:1356
+#: wcd.pod:1363
 msgid "Wcd was written by Erwin Waterlander <waterlan@xs4all.nl>"
 msgstr "Wcd is geschreven door Erwin Waterlander <waterlan@xs4all.nl>"
 
 #. type: textblock
-#: wcd.pod:1358
+#: wcd.pod:1365
 msgid "Project homepage: L<http://waterlan.home.xs4all.nl/>"
 msgstr "Project beginpagina L<http://waterlan.home.xs4all.nl/>"
 
 #. type: textblock
-#: wcd.pod:1361
+#: wcd.pod:1368
 msgid "SourceForge: L<http://sourceforge.net/projects/wcd/>"
 msgstr "SourceForge: L<http://sourceforge.net/projects/wcd/>"
 
 #. type: textblock
-#: wcd.pod:1364
+#: wcd.pod:1371
 msgid "The manual page formatting was provided by Jari Aalto <jari.aalto@cante.net>."
 msgstr "De opmaak van de handleiding was verzorgd door Jari Aalto <jari.aalto@cante.net>."
 
 #. type: textblock
-#: wcd.pod:1367
+#: wcd.pod:1374
 msgid "NCD was originally written by Brad Kingsbury for Peter Norton's \"Norton Utilities\" around 1987. See also L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
 msgstr "NCD was oorspronkelijk geschreven door Brad Kingsbury voor Peter Norton's \"Norton Utilities\" omstreeks 1987. Zie ook L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"

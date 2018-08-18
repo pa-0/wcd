@@ -11,7 +11,7 @@ Contents
    - DOS 16 bit
    - DOS 32 bit
    - DOS Bourne Again Shell (bash)
- 2 Installation on Windows NT (NT/2000/XP/Vista/7)
+ 2 Installation on Windows (XP and later)
    - Windows Command Prompt (cmd.exe)
    - Windows VISTA/7
    - Windows PowerShell
@@ -88,7 +88,7 @@ WCDHOME instead of HOME.
 
 
 ======================================================================
-= 2 Installation on Windows NT (NT/2000/XP/Vista/7)                  =
+= 2 Installation on Windows (XP and later)                           =
 ======================================================================
 
 - Windows Command Prompt (cmd.exe)
