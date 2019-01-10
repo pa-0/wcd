@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2000-2018 Erwin Waterlander
+Copyright (C) 2000-2019 Erwin Waterlander
 
 Ideas and source code of NCD (Ninux Czo Directory) have been
 used in the WCD graphical interface.
@@ -146,7 +146,7 @@ void ioResize()
 {
 #ifdef __PDCURSES__
    /* Correct resizing on Windows (ConEmu and Windows 10 console) requires a
-      recent PDCurses version (>3.7). */
+      recent PDCurses version ( >= 3.7 ). */
    resize_term(0,0);
 #else  
    /* resize_term() is not working properly with old versions of curses.

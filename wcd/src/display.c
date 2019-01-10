@@ -1,5 +1,5 @@
 /*
-Copyright (C) 1997-2018 Erwin Waterlander
+Copyright (C) 1997-2019 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -848,7 +848,7 @@ void displayResize()
 {
 #ifdef __PDCURSES__
    /* Correct resizing on Windows (ConEmu and Windows 10 console) requires a
-      recent PDCurses version (>3.7). */
+      recent PDCurses version ( >= 3.7 ). */
    resize_term(0,0);
 #else  
    /* resize_term() is not working properly with old versions of curses.

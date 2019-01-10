@@ -1,6 +1,6 @@
 #  Copyright and License
 #
-#      Copyright (C) 1997-2018 Erwin Waterlander
+#      Copyright (C) 1997-2019 Erwin Waterlander
 #      Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -944,9 +944,9 @@ I<LC_ALL> over I<LC_COLLATE> and I<LC_CTYPE>.
 
 Wcd supports console resizing in Windows 10 console and ConEmu (see
 L<https://conemu.github.io/>) since version 6.0.3. The Windows 10 console must
-not be in legacy mode (check the console's properties). When the console Layout
-property "Wrap text output on resize" is disabled you may need to refresh the
-screen by pressing the F5 key.
+not be in legacy mode (check the console's properties). The screen may not
+refresh when the console Layout property "Wrap text output on resize" is
+disabled. The screen can be refreshed manually by pressing the F5 key.
 
 =head2 WINDOWS CODE PAGES
 

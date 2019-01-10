@@ -249,6 +249,12 @@ library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
 Compile it and copy the library file into the \lib directory of your
 compiler and the curses.h file in the \include directory.
 
+Build PDCurses for Windows with wide-character (Unicode) support (WIDE=Y),
+and install it as libpdcursesw.a.
+
+Support for resizing of ConEmu or Windows 10 console requires PDCurses version
+3.7 or higher.
+
 The DJGPP and MinGW project also provide ready-to-use binary PDCurses packages.
 
 The DOS versions use the library with narrow character support (CURSES=pdcurses).
@@ -283,7 +289,6 @@ to the make command line for Windows.
 Both Ncurses and PDCurses have misalignment at the highlighted directory in the
 graphical tree with true type CJK font. E.g. the Chinese Simsun font.
 
-Ncurses is still in active development, while PDCurses development is on hold.
 PDCurses is still the default on Windows, because it gives a more stable screen.
 
 

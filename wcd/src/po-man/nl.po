@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcd-man\n"
-"POT-Creation-Date: 2018-08-20 22:17+0200\n"
+"POT-Creation-Date: 2019-01-10 23:37+0100\n"
 "PO-Revision-Date: 2014-05-27 22:29+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -1788,8 +1788,8 @@ msgstr "OPDRACHTPROMTVENSTER FORMAAT WIJZIGEN IN WINDOWS"
 
 #. type: textblock
 #: wcd.pod:945
-msgid "Wcd supports console resizing in Windows 10 console and ConEmu (see L<https://conemu.github.io/>) since version 6.0.3. The Windows 10 console must not be in legacy mode (check the console's properties). When the console Layout property \"Wrap text output on resize\" is disabled you may need to refresh the screen by pressing the F5 key."
-msgstr "Wcd ondersteunt het wijzigen van het formaat van het opdrachtpromptvenster in Windows 10 en ConEmu (zie L<https://conemu.github.io/>) sinds versie 6.0.3. Het Windows 10 opdrachtpromptvenster moet niet in verouderde console modus zitten (controleer de opdrachtpromptvenster eigenschappen). Wanneer de Indeling eigenschap \"tekstterugloopuitvoer bij formaat wijzigen\" uit staat moet u mogelijk het scherm verversen door op de F5 toets te drukken."
+msgid "Wcd supports console resizing in Windows 10 console and ConEmu (see L<https://conemu.github.io/>) since version 6.0.3. The Windows 10 console must not be in legacy mode (check the console's properties). The screen may not refresh when the console Layout property \"Wrap text output on resize\" is disabled. The screen can be refreshed manually by pressing the F5 key."
+msgstr "Wcd ondersteunt het wijzigen van het formaat van het opdrachtpromptvenster in Windows 10 en ConEmu (zie L<https://conemu.github.io/>) sinds versie 6.0.3. Het Windows 10 opdrachtpromptvenster moet niet in verouderde console modus zitten (controleer de opdrachtpromptvenster eigenschappen). Het scherm kan mogelijk niet verversen wanneer de Indeling eigenschap \"tekstterugloopuitvoer bij formaat wijzigen\" uit staat. Het scherm kan handmatig ververst worden door op de F5 toets te drukken."
 
 #. type: =head2
 #: wcd.pod:951

@@ -1,9 +1,9 @@
-6.0.3-beta5 2018-08-20
+6.0.3-beta6 2019-01-10
   - Support resizing in ConEmu and Windows 10 command console.
     If it doesn't work in a Windows 10 console make sure the console is not
-    in legacy mode (see properties). When you have the console Layout option
-    "Wrap text output on resize" disabled you may need to refresh the screen
-    by pressing the F5 key.
+    in legacy mode (see properties). The screen may not refresh when the
+    console Layout property "Wrap text output on resize" is disabled.
+    The screen can be refreshed manually by pressing the F5 key.
   - Code cleanup.
 
 6.0.2 2018-05-10
