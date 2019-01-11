@@ -250,7 +250,8 @@ Compile it and copy the library file into the \lib directory of your
 compiler and the curses.h file in the \include directory.
 
 Build PDCurses for Windows with wide-character (Unicode) support (WIDE=Y),
-and install it as libpdcursesw.a.
+and install it as libpdcursesw.a. Also the non-Unicode version of wcd requires
+PDCurses with wide-character support.
 
 Support for resizing of ConEmu or Windows 10 console requires PDCurses version
 3.7 or higher.

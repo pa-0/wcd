@@ -177,6 +177,14 @@ command to automatically map a UNC path to a drive letter. In Windows
 PowerShell, MSYS, zsh and Cygwin UNC paths are fully supported. The
 current working directory can be a UNC path.
 
+=head2 Console resizing on Windows
+
+Wcd supports console resizing in Windows 10 console and ConEmu (see
+L<https://conemu.github.io/>) since version 6.0.3. The Windows 10 console must
+not be in legacy mode (check the console's properties). The screen may not
+refresh when the console Layout property "Wrap text output on resize" is
+disabled. The screen can be refreshed manually by pressing the F5 key.
+
 
 =head2 Interfaces
 
@@ -939,14 +947,6 @@ the environment variable I<LC_ALL> if it is defined. Wcd gives preference to
 I<LC_ALL> over I<LC_COLLATE> and I<LC_CTYPE>.
 
 =back
-
-=head2 CONSOLE RESIZING ON WINDOWS
-
-Wcd supports console resizing in Windows 10 console and ConEmu (see
-L<https://conemu.github.io/>) since version 6.0.3. The Windows 10 console must
-not be in legacy mode (check the console's properties). The screen may not
-refresh when the console Layout property "Wrap text output on resize" is
-disabled. The screen can be refreshed manually by pressing the F5 key.
 
 =head2 WINDOWS CODE PAGES
 

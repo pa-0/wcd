@@ -39,6 +39,9 @@ Build PDCurses width wide character support (WIDE=Y), also when you build a wcd
 version without Unicode support. A non-Unicode Windows version of wcd will
 still use Unicode for the interface. Name the library "pdcursesw.lib".
 
+Support for resizing of ConEmu or Windows 10 console requires PDCurses version
+3.7 or higher.
+
 
 Perl
 ====

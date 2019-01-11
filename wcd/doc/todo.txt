@@ -14,8 +14,7 @@ TO DO
 
 
 * Improve interface for East Asian double width CJK fonts (Chinese, Japanese, Korean)
-  in a Windows console. This depends on ncurses development. PDCurses development is
-  on hold.
+  in a Windows console. This depends on PDCurses/ncurses development.
 
 * Support scripts that write from right to left like Arabic, Persian or Hebrew.
 
