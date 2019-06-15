@@ -2,12 +2,12 @@
 # Copyright 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2016, 2017.
+# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2016, 2017, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd-man-6.0.1-beta1\n"
-"POT-Creation-Date: 2019-01-11 18:42+0100\n"
-"PO-Revision-Date: 2017-07-29 15:04+0200\n"
+"Project-Id-Version: wcd-man-6.0.3-beta7\n"
+"POT-Creation-Date: 2019-01-11 20:02+0100\n"
+"PO-Revision-Date: 2019-01-14 16:37+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 18.12.0\n"
 
 #. type: =head1
 #: wcd.pod:43
@@ -312,12 +312,12 @@ msgstr "У версіях для Windows (для командного рядка
 #. type: =head2
 #: wcd.pod:180
 msgid "Console resizing on Windows"
-msgstr ""
+msgstr "Зміна розмірів вікна консолі у Windows"
 
 #. type: textblock
 #: wcd.pod:182
 msgid "Wcd supports console resizing in Windows 10 console and ConEmu (see L<https://conemu.github.io/>) since version 6.0.3. The Windows 10 console must not be in legacy mode (check the console's properties). The screen may not refresh when the console Layout property \"Wrap text output on resize\" is disabled. The screen can be refreshed manually by pressing the F5 key."
-msgstr ""
+msgstr "У wcd передбачено можливість зміни розмірів вікна консолі у Windows 10 і ConEmu (див. L<https://conemu.github.io/>), починаючи з версії 6.0.3. Консоль Windows 10 має бути запущено не у застарілому режимі (перевірте це у властивостях консолі). Якщо властивість компонування вікна «Переносити текстове виведення при зміні розмірів» не увімкнено, вміст вікна може не оновлюватися. Оновити вміст вікна можна вручну натисканням клавіші F5."
 
 #. type: =head2
 #: wcd.pod:189
@@ -2536,6 +2536,9 @@ msgstr "Форматування сторінки підручника було 
 #: wcd.pod:1374
 msgid "NCD was originally written by Brad Kingsbury for Peter Norton's \"Norton Utilities\" around 1987. See also L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
 msgstr "Початкову версію NCD було створено Brad Kingsbury для пакунка \"Norton Utilities\" Пітера Нортона близько 1987 року. Див. також L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
+
+#~ msgid "CONSOLE RESIZING ON WINDOWS"
+#~ msgstr "ЗМІНА РОЗМІРІВ КОНСОЛІ У WINDOWS"
 
 #~ msgid "Freecode: L<http://freecode.com/projects/wcd/>"
 #~ msgstr "Freecode: L<http://freecode.com/projects/wcd/>"

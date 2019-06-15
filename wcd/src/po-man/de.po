@@ -1,13 +1,13 @@
 # German translation of the wcd man page.
 # Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2016-2017.
 #
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2016-2017, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd-man 6.0.1-beta2\n"
-"POT-Creation-Date: 2019-01-11 18:42+0100\n"
-"PO-Revision-Date: 2017-08-07 15:32+0200\n"
+"Project-Id-Version: wcd-man 6.0.3-beta7\n"
+"POT-Creation-Date: 2019-01-11 20:02+0100\n"
+"PO-Revision-Date: 2019-01-19 17:13+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -15,7 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Lokalize 18.12.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. type: =head1
 #: wcd.pod:43
@@ -312,12 +313,12 @@ msgstr "Die Windows-Versionen (Befehlszeileninterpreter, PowerShell, MSYS, zsh, 
 #. type: =head2
 #: wcd.pod:180
 msgid "Console resizing on Windows"
-msgstr ""
+msgstr "Größenänderung der Konsole unter Windows"
 
 #. type: textblock
 #: wcd.pod:182
 msgid "Wcd supports console resizing in Windows 10 console and ConEmu (see L<https://conemu.github.io/>) since version 6.0.3. The Windows 10 console must not be in legacy mode (check the console's properties). The screen may not refresh when the console Layout property \"Wrap text output on resize\" is disabled. The screen can be refreshed manually by pressing the F5 key."
-msgstr ""
+msgstr "Wcd unterstützt seit Version 6.0.3 die Größenänderung der Konsole unter Windows 10 und ConEmu (siehe L<https://conemu.github.io/>). Die Windows-10-Konsole darf nicht im Legacy-Modus sein (prüfen sie das in den Einstellungen der Konsole). Der Bildschirm darf nicht aktualisiert werden, wenn »Wrap text output on resize« deaktiviert ist. Der Bildschirm kann manuell durch Drücken von F5 aktualisiert werden."
 
 #. type: =head2
 #: wcd.pod:189

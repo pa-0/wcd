@@ -1,10 +1,12 @@
-6.0.3-beta7 2019-01-11
+6.0.3-beta8 2019-06-15
+  - New French translations of the messages and the manual.
+    Thanks to Grégoire Scano.
   - Support resizing in ConEmu and Windows 10 command console.
     If it doesn't work in a Windows 10 console make sure the console is not
     in legacy mode (see properties). The screen may not refresh when the
     console Layout property "Wrap text output on resize" is disabled.
     The screen can be refreshed manually by pressing the F5 key.
-  - Upgrade to PDCurses 3.7. Required for console resize support on Windows.
+  - Upgrade to PDCurses 3.8. Required for console resize support on Windows.
   - Code cleanup.
 
 6.0.2 2018-05-10
