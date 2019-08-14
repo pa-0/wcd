@@ -26,11 +26,11 @@ interactive directory tree browser with speed search.
   * Unix/Linux: all Bourne and C type shells
   * OS/2 Warp
 * Native language support: Brazilian Portuguese, Chinese simplified, Danish,
-  Dutch, English, Esperanto, Finnish, Friulian, German, Serbian, Spanish,
+  Dutch, English, Esperanto, Finnish, French, Friulian, German, Serbian, Spanish,
   Ukrainian, Vietnamese.
 * Unicode Level 3 support (all UCS characters including double width and combining characters).
   * Unix/Linux
-  * Cygwin-1.7.
+  * Cygwin.
   * Windows PowerShell.
   * Windows Command Prompt (cmd.exe) on Windows 7 and up.
   * Unicode matching with normalization (compatible equivalence).

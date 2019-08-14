@@ -1,4 +1,4 @@
-6.0.3-beta8 2019-06-15
+6.0.3 2019-08-14
   - New French translations of the messages and the manual.
     Thanks to Grégoire Scano.
   - Support resizing in ConEmu and Windows 10 command console.
