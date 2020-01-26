@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: wcd-6.0.3-beta6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-10 23:45+0100\n"
-"PO-Revision-Date: 2019-04-14 10:26+0800\n"
+"PO-Revision-Date: 2019-12-05 14:13+0800\n"
 "Last-Translator: Grégoire Scano <gregoire.scano@malloc.fr>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -140,7 +140,7 @@ msgid ""
 "            Wildcards *, ? and [SET] are supported.\n"
 "\n"
 msgstr ""
-"            Les caractères étendus *, ? et [SET] sont prise en charge.\n"
+"            Les caractères génériques *, ? et [SET] sont prise en charge.\n"
 "\n"
 
 #: wcd.c:1941
@@ -201,7 +201,7 @@ msgstr "  -f FICHIER              utiliser le Fichier d'arborescence supplément
 #: wcd.c:1952
 #, c-format
 msgid "  +f FILE                 add extra treeFile\n"
-msgstr "  +f FICHIER              ajouter un fichier d'arborescence supplémentaire\n"
+msgstr "  +f FICHIER              ajouter un Fichier d'arborescence supplémentaire\n"
 
 #: wcd.c:1953
 #, c-format
@@ -326,7 +326,7 @@ msgstr "  -od, --to-stdout        afficher toutes les correspondances\n"
 #: wcd.c:1982
 #, c-format
 msgid "  -q,  --quiet            Quieter operation\n"
-msgstr "  -q,  --quiet            opérations plus silencieuses\n"
+msgstr "  -q,  --quiet            fonctionnement plus silencieuses\n"
 
 #: wcd.c:1983
 #, c-format
@@ -351,7 +351,7 @@ msgstr "  -S CHEMIN               Examiner le disque depuis CHEMIN\n"
 #: wcd.c:1987
 #, c-format
 msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
-msgstr "  +S CHEMIN               Examiner le disque depuis CHEMIN, créer un fichier d'arborescence relatif\n"
+msgstr "  +S CHEMIN               Examiner le disque depuis CHEMIN, créer un fichier d'arborescence relative\n"
 
 #: wcd.c:1988
 #, c-format
@@ -406,7 +406,7 @@ msgstr "  -V,  --version          afficher les informations de Version\n"
 #: wcd.c:1998
 #, c-format
 msgid "  -w,  --wild-match-only  Wild matching only\n"
-msgstr "  -w,  --wild-match-only  Correspondance étendue seulement\n"
+msgstr "  -w,  --wild-match-only  Correspondance générique seulement\n"
 
 #: wcd.c:1999
 #, c-format
@@ -600,7 +600,7 @@ msgstr "La configuration linguistique courante utilise l'encodage %s.\n"
 #: wcd.c:2118
 #, c-format
 msgid "With Unicode support.\n"
-msgstr "Avec prise en charge Unicode.\n"
+msgstr "Avec prise en charge de l'Unicode.\n"
 
 #: wcd.c:2123
 #, c-format
@@ -615,7 +615,7 @@ msgstr "  Caractères chinois : "
 #: wcd.c:2129
 #, c-format
 msgid "Without Unicode support.\n"
-msgstr "Sans prise en charge Unicode.\n"
+msgstr "Sans prise en charge de l'Unicode.\n"
 
 #: wcd.c:2132
 #, c-format
@@ -812,42 +812,42 @@ msgstr "%lu bibliothèques partagées trouvées sur le serveur %s\n"
 
 #: wcddir.c:335
 msgid "Unable to get current working directory: "
-msgstr "Incapable de récupérer le répertoire de travail courant : "
+msgstr "Impossible de récupérer le répertoire de travail courant : "
 
 #: wcddir.c:362
 #, c-format
 msgid "Unable to change to directory %s: "
-msgstr "Incapable de changer vers le répertoire %s : "
+msgstr "Impossible de changer vers le répertoire %s : "
 
 #: wcddir.c:392
 #, c-format
 msgid "Unable to create directory %s: "
-msgstr "Incapable de créer le répertoire %s : "
+msgstr "Impossible de créer le répertoire %s : "
 
 #: wcddir.c:420
 #, c-format
 msgid "Unable to remove directory %s: "
-msgstr "Incapable de supprimer le répertoire %s: "
+msgstr "Impossible de supprimer le répertoire %s: "
 
 #: wcddir.c:543 wcddir.c:554
 #, c-format
 msgid "Unable to create directory %s: %s\n"
-msgstr "Incapable de créer le répertoire %s : %s\n"
+msgstr "Impossible de créer le répertoire %s : %s\n"
 
 #: wcddir.c:660
 #, c-format
 msgid "Unable to get current working directory: %s\n"
-msgstr "Incapable de récupérer le répertoire de travail courant : %s\n"
+msgstr "Impossible de récupérer le répertoire de travail courant : %s\n"
 
 #: wcddir.c:674
 #, c-format
 msgid "Unable to change to directory %s: %s\n"
-msgstr "Incapable de changer vers le répertoire %s : %s\n"
+msgstr "Impossible de changer vers le répertoire %s : %s\n"
 
 #: wcddir.c:683
 #, c-format
 msgid "Unable to remove directory %s: %s\n"
-msgstr "Incapable de supprimer le répertoire %s : %s\n"
+msgstr "Impossible de supprimer le répertoire %s : %s\n"
 
 #: stack.c:101
 msgid "Error parsing stack\n"
@@ -869,7 +869,7 @@ msgstr "Correspondance parfaite pour %d répertoires."
 #: display.c:526 display.c:1152 display.c:1540
 #, c-format
 msgid "Wild match for %d directories."
-msgstr "Correspondance étendue pour %d répertoires."
+msgstr "Correspondance générique pour %d répertoires."
 
 #: display.c:530 display.c:1164 display.c:1542 display.c:1585
 #, c-format
@@ -936,7 +936,7 @@ msgstr "CTRL-l ou F5      redessiner l'écran"
 #: display.c:1194 graphics.c:1979 graphics.c:1996 graphics.c:2019
 #: graphics.c:2036
 msgid "Press any key."
-msgstr "Appuyer sur n'importe qu'elle touche."
+msgstr "Appuyer sur n'importe quelle touche."
 
 #: display.c:1256 graphics.c:2289
 msgid "Error opening terminal, falling back to stdout interface.\n"
@@ -1073,7 +1073,7 @@ msgstr "<Entrer>          sélectionner un répertoire"
 
 #: graphics.c:2002
 msgid "SEARCH MODE with wildcard and subdir support:"
-msgstr "MODE DE RECHERCHE avec la prise en charge de sous-répertoires et de caractères étendus"
+msgstr "MODE DE RECHERCHE avec la prise en charge de sous-répertoires et de caractères génériques"
 
 #: graphics.c:2003
 msgid "<Left>            go left"
@@ -1201,7 +1201,7 @@ msgstr "Incapable de fermer le répertoire %s : %s\n"
 #: finddirs.c:365
 #, c-format
 msgid "finddirs(): can't determine path in directory %s\n"
-msgstr "finddirs() : impossible d'établie le chemin dans le répertoire %s\n"
+msgstr "finddirs() : impossible d'établir le chemin dans le répertoire %s\n"
 
 #: finddirs.c:366
 msgid "path probably too long.\n"
