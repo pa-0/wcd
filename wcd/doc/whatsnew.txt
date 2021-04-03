@@ -1,3 +1,7 @@
+6.0.4 ????-??-??
+  - Updated French translation. Thanks to Grégoire Scano.
+  - Updated Esperanto translation. Thanks to Felipe Castro.
+
 6.0.3 2019-08-14
   - New French translations of the messages and the manual.
     Thanks to Grégoire Scano.

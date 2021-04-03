@@ -285,6 +285,7 @@ Table of Contents
         Dutch                 Erwin Waterlander            Version 4.0.0 - 5.2.4
         Dutch                 Benno Schulenberg            Version 5.2.5 - 5.3.3
         Esperanto             Benno Schulenberg            Version 5.2.5 - 5.3.3
+        Esperanto             Felipe Castro                Version 6.0.4
         Finnish               Jari Aalto                   Version 5.1.0 - 5.2.4
         Finnish               Jorma Karvonen               Version 5.2.5 - 5.3.3
         French                Grégoire Scano               Version 6.0.3
