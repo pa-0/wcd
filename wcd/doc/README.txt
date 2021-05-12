@@ -288,7 +288,7 @@ Table of Contents
         Esperanto             Felipe Castro                Version 6.0.4
         Finnish               Jari Aalto                   Version 5.1.0 - 5.2.4
         Finnish               Jorma Karvonen               Version 5.2.5 - 5.3.3
-        French                Grégoire Scano               Version 6.0.3
+        French                Grégoire Scano               Version 6.0.3 - 6.0.4
         Friulian              Fabio Tomat                  Version 6.0.2
         German                Philipp Thomas               Version 5.1.3 - 5.2.3,
                                                            5.3.3 - 5.3.4
@@ -307,7 +307,7 @@ Table of Contents
         Brazilian Portuguese  Rafael Fontenelle            Version 6.0.1 - 6.0.3
         Dutch                 Erwin Waterlander            Version 5.2.5 - 6.0.3
         German                Mario Blättermann            Version 5.2.5 - 6.0.3
-        French                Grégoire Scano               Version 6.0.3
+        French                Grégoire Scano               Version 6.0.3 - 6.0.4
         Ukrainian             Yuri Chornoivan              Version 5.2.5 - 6.0.3
 
 
