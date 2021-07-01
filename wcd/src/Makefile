@@ -574,6 +574,9 @@ man/man1/wcd.pod : ;
 %.$(HTMLEXT) : %.pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
 
+man/sr/man1/$(PACKAGE).$(HTMLEXT) : man/sr/man1/$(PACKAGE).pod
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(VERSION) - Промени директоријум било где (Wherever Change Directory)" $< > $@
+
 man/uk/man1/$(PACKAGE).$(HTMLEXT) : man/uk/man1/$(PACKAGE).pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(VERSION) - довільна зміна каталогу (Wherever Change Directory)" $< > $@
 

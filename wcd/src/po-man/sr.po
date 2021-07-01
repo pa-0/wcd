@@ -1,0 +1,2536 @@
+# Serbian translation for wcd-man
+# Copyright (C) 2019 Erwin Waterlander (msgids)
+# This file is distributed under the same license as the wcd package.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: wcd-man-6.0.3-beta7\n"
+"POT-Creation-Date: 2019-01-11 20:02+0100\n"
+"PO-Revision-Date: 2021-05-09 19:06+0200\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Language-Team: Serbian <(nothing)>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. type: =head1
+#: wcd.pod:43
+msgid "NAME"
+msgstr "НАЗИВ"
+
+#. type: textblock
+#: wcd.pod:45
+msgid "wcd - Wherever Change Directory"
+msgstr "wcd – Промени директоријум било где (Wherever Change Directory)"
+
+#. type: textblock
+#: wcd.pod:47
+msgid "chdir for DOS and Unix"
+msgstr "промена директоријума (chdir) за ДОС и Јуникс"
+
+#. type: =head1
+#: wcd.pod:49
+msgid "SYNOPSIS"
+msgstr "УВОД"
+
+#. type: verbatim
+#: wcd.pod:51
+#, no-wrap
+msgid ""
+"    wcd [options] [directory]\n"
+"\n"
+msgstr ""
+"    wcd [опције] [директоријум]\n"
+"\n"
+
+#. type: =head1
+#: wcd.pod:53
+msgid "DESCRIPTION"
+msgstr "ОПИС"
+
+#. type: =head2
+#: wcd.pod:55
+msgid "Overview"
+msgstr "Преглед"
+
+#. type: textblock
+#: wcd.pod:57
+msgid "Wcd is a command-line program to change directory fast. It saves time typing at the keyboard. One needs to type only a part of a directory name and wcd will jump to it. Wcd has a fast selection method in case of multiple matches and allows aliasing and banning of directories. Wcd also includes a full screen interactive directory tree browser with speed search."
+msgstr "Вцд је програм линије наредби за брзу промену директорија. Штеди време куцања на тастатури. Треба уписати само део назива директоријума и вцд ће се наћи у њему. Вцд има брзу методу избора у случају вишеструких подударања и омогућава удруживање и забрану директорија. Вцд такође укључује пун екран међудејственог претраживача стабла директорија са брзом претрагом."
+
+#. type: textblock
+#: wcd.pod:63
+msgid "Wcd was modeled after Norton Change Directory (NCD). NCD appeared first in I<The Norton Utilities, Release 4>, for DOS in 1987, published by Peter Norton."
+msgstr "Вцд је осмишљен по основу Нортонове промене директоријума (NCD – Norton Change Directory). НПД се први пут јавља у I<Нортоновим помагалима, издање 4>, за ДОС у 1987, које је објавио Питер Нортон."
+
+#. type: textblock
+#: wcd.pod:66
+msgid "Wcd has been ported to different command-line shells: DOS command.com, Windows cmd.exe and PowerShell, OS/2 cmd.exe, and Unix shells such as Bourne (sh), Bourne Again (bash), Korn (ksh), Z (zsh), and C (csh) shell and others running on any operating system."
+msgstr "Вцд је прилагођен за различите шкољке линије наредби: ДОС „command.com“, Виндоуз „cmd.exe“ и „PowerShell“, ОС/2 „cmd.exe“, и Јуникс шкољке као што су Борнова (sh), Нова Борнова (bash), Корн (ksh), Z (zsh), и C (csh) шкољка и друге које раде на било ком оперативном систему."
+
+#. type: textblock
+#: wcd.pod:71
+msgid "Wcd supports 8 bit character sets on all systems, and has optional support for Unicode. See section LOCALIZATION."
+msgstr "Вцд подржава 8-битне скупове знакова на свим системима, и има изборну подршку за Јуникод. Видите одељак ЛОКАЛИЗАЦИЈА."
+
+#. type: textblock
+#: wcd.pod:74
+msgid "See section INSTALLATION how to setup wcd for personal use."
+msgstr "Видите одељак ИНСТАЛАЦИЈА о томе како да поставите вцд за личну употребу."
+
+#. type: =head2
+#: wcd.pod:76
+msgid "Basic use"
+msgstr "Основно коришћење"
+
+#. type: textblock
+#: wcd.pod:78
+msgid "By default (if no wildcards are used) wcd searches for a directory with a name that begins with the typed name."
+msgstr "По основи (ако се не користе џокери) вдц тражи директоријум са називом који почиње уписаним називом."
+
+#. type: textblock
+#: wcd.pod:81
+msgid "For instance this command will change to directory to the current user's C</home/user/Desktop>:"
+msgstr "На пример овом наредбом ћете прећи у директоријум у корисников тренутни C</home/user/Desktop>:"
+
+#. type: verbatim
+#: wcd.pod:84
+#, no-wrap
+msgid ""
+"    wcd Desk\n"
+"\n"
+msgstr ""
+"    wcd Desk\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:86
+msgid "When there are multiple matches, wcd will present the user a list of all matches. The user can then make a selection with a few keystrokes (most of the times only one)."
+msgstr "Када има више поклапања, вцд ће приказати кориснику списак свих поклапања. Корисник тада може да направи избор са неколико откуцаја (у већини случајева само са једним)."
+
+#. type: =head2
+#: wcd.pod:90
+msgid "Wildcards"
+msgstr "Џокери"
+
+#. type: textblock
+#: wcd.pod:92
+msgid "Wcd supports following wildcards:"
+msgstr "Вцд подржава следеће џокере:"
+
+#. type: verbatim
+#: wcd.pod:94
+#, no-wrap
+msgid ""
+"    *       matches any sequence of characters (zero or more)\n"
+"    ?       matches any character\n"
+"    [SET]   matches any character in the specified set,\n"
+"    [!SET]  or [^SET] matches any character not in the specified set.\n"
+"\n"
+msgstr ""
+"    *        поклапа било који низ знакова (нула или више)\n"
+"    ?        поклапа било који знак\n"
+"    [СКУП]   поклапа било који знак у наведеном скупу,\n"
+"    [!СКУП]  или [^СКУП] поклапа било који знак који није у наведеном скупу.\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:99
+msgid "A set is composed of characters or ranges; a range looks like I<character hyphen character> as in C<0-9> or C<A-Z>. The C<[0-9a-zA-Z_]> is the minimal set of characters allowed in the C<[..]> pattern construct. International characters (i.e. 8 bit characters) are allowed if the system supports them. To suppress the special syntactic significance of any of C<[]*?!^-\\> inside or outside a C<[..]> construct and match the character exactly, precede the character with a backslash (C<\\>)  marker."
+msgstr "Скуп се састоји од знакова или опсега; опсег изгледа као I<знак цртица знак> као у C<0-9> или C<A-Z>. C<[0-9a-zА-Z_]> је минимални скуп знакова дозвољен у творби „[..]“ шаблона. Међународни знакови (тј. 8-битни знакови) су дозвољени ако их систем подржава. Да бисте потисли посебан синтаксички значај било ког од C<[]*?!^-\\> унутар или ван C<[..]> творбе и тачно подударили знак, испред знака ставите обрнуту косу црту (C<\\>)."
+
+#. type: textblock
+#: wcd.pod:108
+msgid "Using wildcards makes powerful searching possible. For instance this matches any directory name that ends with \"top\":"
+msgstr "Коришћење џокера чини моћну претрагу могућом. На пример ово ће поклопити сваки назив директоријума који се завршава на „еца“:"
+
+#. type: verbatim
+#: wcd.pod:111
+#, no-wrap
+msgid ""
+"    wcd *top\n"
+"\n"
+msgstr ""
+"    wcd *еца\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:113
+msgid "Match directories that have \"top\" anywhere in the name:"
+msgstr "Поклопиће директоријуме који имају „еца“ било где у називу:"
+
+#. type: verbatim
+#: wcd.pod:115
+#, no-wrap
+msgid ""
+"    wcd *top*\n"
+"\n"
+msgstr ""
+"    wcd *еца*\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:117
+msgid "Match any directory name that begins with \"a\", \"b\" or \"c\":"
+msgstr "Поклопиће све називе директоријума који почињу на а, б или в (или латинично a, b или c):"
+
+#. type: verbatim
+#: wcd.pod:119
+#, no-wrap
+msgid ""
+"    wcd [a-c]*\n"
+"\n"
+msgstr ""
+"    wcd [а-в]*\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:121
+msgid "It is also possible to give a part of a directory path. Here Wcd searches for directory that begins with \"Desk\" and which path matches I<*me/Desk*>."
+msgstr "Такође је могуће задати део путање директоријума. Овде Вцд тражи директоријум који почиње са „Слике“ и чија се путања поклапа са I<*ја/Слике*>."
+
+#. type: verbatim
+#: wcd.pod:124
+#, no-wrap
+msgid ""
+"    wcd me/Desk\n"
+"\n"
+msgstr ""
+"    wcd ја/Слике\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:126
+msgid "It is allowed to type any kind of expression with slashes and wildcards.  E.g.:"
+msgstr "Дозвољено је уписивање било које врсте израза са косим цртама и џокерима. Нпр.:"
+
+#. type: verbatim
+#: wcd.pod:129
+#, no-wrap
+msgid ""
+"    wcd src*/*1?/a*2\n"
+"\n"
+msgstr ""
+"    wcd src*/*1?/a*2\n"
+"\n"
+
+#. type: =head2
+#: wcd.pod:131
+msgid "Other uses"
+msgstr "Остали корисници"
+
+#. type: textblock
+#: wcd.pod:133
+msgid "If no wildcards are used and wcd finds a perfect match, wcd will ignore all wild matches by default. This behaviour can be changed with the B<-w> option."
+msgstr "Ако се не користе џокери а вцд нађе савршено поклапање, занемариће сва дивља поклапања по основи. Ово понашање се може изменити опцијом B<„-w“>."
+
+#. type: textblock
+#: wcd.pod:136
+msgid "The interactive directory tree browser can be started by using option B<-g>."
+msgstr "Међудејствени прегледник стабла директоријума се може покренути коришћењем опције B<„-g“>."
+
+#. type: verbatim
+#: wcd.pod:138
+#, no-wrap
+msgid ""
+"    wcd -g\n"
+"\n"
+msgstr ""
+"    wcd -g\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:140
+msgid "Wcd generates a treedata file where it searches the directory. On Unix and Windows systems wcd does add symbolic links to the treedata file while scanning the disk, but does not follow them. While following links wcd could end up scanning infinite loops, or scan very large portions of a network."
+msgstr "Вцд генерише датотеку стабла података где претражује директоријум. На Јуникс и Виндоуз системима вцд додаје симболичке везе до датотеке стабла података док скенира диск, али их не прати. Док прати везе, вцд би могао да заврши скенирајући бесконачне петље или скенирати врло велике делове мреже."
+
+#. type: textblock
+#: wcd.pod:145
+msgid "Wcd can also change to directories that are not in the treedata file. E.g.:"
+msgstr "Вцд такође може прећи у директоријуме који нису у датотеци стабла података. Нпр.:"
+
+#. type: verbatim
+#: wcd.pod:147
+#, no-wrap
+msgid ""
+"    wcd ..\n"
+"\n"
+msgstr ""
+"    wcd ..\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:149
+msgid "If wcd found a match but can't change to the directory it tries to remove it from the default treedata file. Not from the extra treedata file. See also option B<-k>."
+msgstr "Ако вцд нађе поклапање али не може да се пребаци у директоријум покушава да га уклони из основне датотеке стабла података. Не из посебне датотеке стабла података. Видите такође опцију B<„-k“>."
+
+#. type: textblock
+#: wcd.pod:153
+msgid "Wcd keeps a directory stack which is stored on disk. The stack has a default size of 10 and is cyclic. See options B<-z>, B<->, B<+> and B<=>."
+msgstr "Вцд садржи спремник директоријума који је смештен на диску. Спремник има основну величину 10 и цикличан је. Видите опције B<„-z“>, B<„-“>, B<„+“> и B<„=“>."
+
+#. type: textblock
+#: wcd.pod:157
+msgid "In multi-user environments option B<-u> can be used to change to directories of other users."
+msgstr "У окружењима са више корисника опција B<„-u“> се може користити за прелазак у директоријуме других корисника."
+
+#. type: textblock
+#: wcd.pod:161
+msgid "On DOS and Windows systems it does not matter if you use a slash \"/\" or a backslash \"\\\" as a directory separator."
+msgstr "На ДОС и Виндоуз системима није важно да ли користите косу / или контра косу црту \\ као раздвојник директоријума."
+
+#. type: textblock
+#: wcd.pod:164
+msgid "It is possible on DOS and Windows systems to change drive and directory in one go by preceding the directory name with the drive name."
+msgstr "Могуће је на ДОС и Виндоуз системима да се промени диск и директоријум у једном потезу стављајући назив диска испред назива директоријума."
+
+#. type: verbatim
+#: wcd.pod:167
+#, no-wrap
+msgid ""
+"    wcd d:games\n"
+"\n"
+msgstr ""
+"    wcd d:games\n"
+"\n"
+
+#. type: =head2
+#: wcd.pod:171
+msgid "Windows UNC paths"
+msgstr "Виндоуз УНЦ путање"
+
+#. type: textblock
+#: wcd.pod:173
+msgid "The Windows versions (Command Prompt, PowerShell, MSYS, zsh, cygwin) support Windows SMB LAN UNC paths without drive letter such as C<\\\\servername\\sharename>. Wcd for Windows Command Prompt makes use of the \"pushd\" command to automatically map a UNC path to a drive letter. In Windows PowerShell, MSYS, zsh and Cygwin UNC paths are fully supported. The current working directory can be a UNC path."
+msgstr "Виндоуз издања (Упит наредби, PowerShell, MSYS, zsh, cygwin) подржавају Виндоуз СМБ ЛАН УНЦ путање без слова диска као што је C<\\\\naziv_servera\\naziv_deljenja>. Вцд за Виндоуз Упит наредби чини да коришћење наредбе „pushd“ аутоматски мапира УНЦ путању на слово диска. У Виндоуз „PowerShell, MSYS, zsh и Cygwin“ УНЦ путање су потпуно подржане. Текући радни директоријум може бити УНЦ путања."
+
+#. type: =head2
+#: wcd.pod:180
+msgid "Console resizing on Windows"
+msgstr "Промена величине конзоле на Виндоузу"
+
+#. type: textblock
+#: wcd.pod:182
+msgid "Wcd supports console resizing in Windows 10 console and ConEmu (see L<https://conemu.github.io/>) since version 6.0.3. The Windows 10 console must not be in legacy mode (check the console's properties). The screen may not refresh when the console Layout property \"Wrap text output on resize\" is disabled. The screen can be refreshed manually by pressing the F5 key."
+msgstr "Вцд подржава промену величине конзоле у Виндоуз 10 конзоли и „ConEmu“-у (видите L<https://conemu.github.io/>) све до издања 6.0.3. Виндоуз 10 конзола не сме бити у старом режиму (проверите својства конзоле). Екран не може да се освежи када је својство распореда конзоле „Преламај излаз текста при промени величине“ искључено. Екран можете освежити ручно притиском на тастер Ф5."
+
+#. type: =head2
+#: wcd.pod:189
+msgid "Interfaces"
+msgstr "Сучеља"
+
+#. type: textblock
+#: wcd.pod:191
+msgid "Wcd has three different interfaces to choose from a list of matches. The interface can be chosen at compile time."
+msgstr "Вцд има три различита сучеља за избор са списка поклапања. Сучеље се може изабарати у време превођења."
+
+#. type: textblock
+#: wcd.pod:194
+msgid "The first interface uses plain stdin/stdout. A numbered list is printed in the terminal. The user has to choose from the list by typing a number followed by <Enter>. This interface does not provide scroll back functionality in case of a long list. The scroll back capability of the terminal/console has to be used. It is very small and portable."
+msgstr "Прво сучеље користи обичан стандарни улаз/излаз. Бројевни списак се исписује у терминалу. Корисник треба да изабере са списка уписивањем броја за којим следи „Унеси“. Ово сучеље не пружа функцију померања уназад у случају дугог списка. Могућност премицања уназад у терминалу/конзоли треба да се користи. Веома је мало и преносиво."
+
+#. type: textblock
+#: wcd.pod:200
+msgid "The second interface is built with the conio library. It provides a builtin scroll back capability. The user is presented a list numbered with letters.  Choosing from a list can be done by pressing just one letter. This interface is fast because it saves keystrokes. If possible the screen will be restored after exiting. One who prefers to type numbers can use the B<-N> option."
+msgstr "Друго сучеље је изграђено са библиотеком „conio“. Пружа уграђену могућност померања уназад. Кориснику се приказује списак нумерисан словима. Бирање са списка се може извршити притиском само једног слова. Ово сучеље је брзо јер штеди притиске на тастере. Ако је могуће, екран ће бити враћен након изласка. Онај ко више воли да куца бројеве, може да користи опцију B<„-N“>."
+
+#. type: textblock
+#: wcd.pod:207
+msgid "The third interface is built with the curses library. It is similar to the conio interface. The curses version of wcd has also an additional 'graphical' interface. It lets the user select a directory via a full screen interactive directory tree browser. It has a vim(1) like navigation and search method. It can be activated with option B<-g>."
+msgstr "Треће сучеље је изграђено са библиотеком „curses“. Сличан је сучељу „conio“. Кјурзис издање вцд-а има такође додатно „графичко“ сучеље. Омогућава кориснику да изабере директоријум преко интерактивног претраживача стабла директоријума преко целог екрана. Има навигацију и методу претраге сличну „vim(1)“-у. Може се активирати опцијом B<„-g“>."
+
+#. type: textblock
+#: wcd.pod:213
+msgid "By using the B<-o> option one can always fall back to the stdin/stdout interface."
+msgstr "Коришћењем опције B<„-o“> увек се можете вратити на сучеље стандарног улаза/излаза."
+
+#. type: =head1
+#: wcd.pod:216
+msgid "OPTIONS"
+msgstr "ОПЦИЈЕ"
+
+#. type: =item
+#: wcd.pod:220
+msgid "B<-a>"
+msgstr "B<-a>"
+
+#. type: textblock
+#: wcd.pod:222
+msgid "Add current path to the default treedata file."
+msgstr "Додаје тренутну путању основној датотеци стабла података."
+
+#. type: textblock
+#: wcd.pod:224
+msgid "Use this option to quickly add the current path to the default treedata file. Re-scanning the complete disk can take a long time in some cases."
+msgstr "Користите ову опцију да брзо додате тренутну путању основној датотеци стабла података. Поновно прегледање читавог диска може потрајати у неким случајевима."
+
+#. type: =item
+#: wcd.pod:227
+msgid "B<-aa>"
+msgstr "B<-aa>"
+
+#. type: textblock
+#: wcd.pod:229
+msgid "Add current and all parent paths to the default treedata file."
+msgstr "Додаје тренутну и све полазне путање основној датотеци стабла података."
+
+#. type: =item
+#: wcd.pod:231
+msgid "B<-A PATH>"
+msgstr "B<-A ПУТАЊА>"
+
+#. type: textblock
+#: wcd.pod:233
+msgid "Scan directory tree from I<PATH> and append to the default treedata file. Examples:"
+msgstr "Прегледа стабло директоријума из I<ПУТАЊЕ> и придодаје основној датотеци стабла података. Примери:"
+
+#. type: verbatim
+#: wcd.pod:236
+#, no-wrap
+msgid ""
+"    wcd -A .\n"
+"    wcd -A /home -A /etc\n"
+"    wcd -A d: -A e: -A \\\\server\\share\n"
+"\n"
+msgstr ""
+"    wcd -A .\n"
+"    wcd -A /home -A /etc\n"
+"    wcd -A d: -A e: -A \\\\server\\share\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:240
+msgid "On Windows one can scan all shared directories of a Windows LAN server by typing something like: C<wcd -A \\\\servername>."
+msgstr "На Виндоузу можете прегледати све дељене директоријуме Виндоуз ЛАН сервера уписујући нешто као: C<wcd -A \\\\назив_сервера>."
+
+#. type: textblock
+#: wcd.pod:244
+msgid "See also option B<-S> and B<-s> and B<-E>."
+msgstr "Видите такође опције B<-S>, B<-s> и B<-E>."
+
+#. type: =item
+#: wcd.pod:246
+msgid "B<-b>"
+msgstr "B<-b>"
+
+#. type: textblock
+#: wcd.pod:248
+msgid "Ban current path."
+msgstr "Забрањује тренутну путању."
+
+#. type: textblock
+#: wcd.pod:250
+msgid "Wcd places the current path in the ban file. This means that wcd ignores all matches of this directory and its sub directories."
+msgstr "Вцд ставља тренутну путању у датотеку забрана. То значи да вцд занемарује сва поклапања овог директоријума и његових поддиректоријума."
+
+#. type: textblock
+#: wcd.pod:253
+msgid "The ban file can be edited with a text editor. Use of wildcards is supported and names are matched against the absolute path."
+msgstr "Датотека забрана се може уређивати уређивачем текста. Коришћење џокера је подржано а називи се упоређују са апсолутном путањом."
+
+#. type: textblock
+#: wcd.pod:256
+msgid "Banned paths are not excluded from scanning the disk. To do that use option B<-xf>."
+msgstr "Забрањене путање нису искључене из прегледања диска. Да урадите то користите опцију B<„-xf“>."
+
+#. type: =item
+#: wcd.pod:259
+msgid "B<-c, --direct-cd>"
+msgstr "B<-c, --direct-cd>"
+
+#. type: textblock
+#: wcd.pod:261
+msgid "Direct CD mode. By default wcd works as follows:"
+msgstr "Непосредни режим промене директоријума. По основи вцд ради као што следи:"
+
+#. type: verbatim
+#: wcd.pod:263
+#, no-wrap
+msgid ""
+"    1. Try to find a match in the treedata file(s)\n"
+"    2. If no match, try to open the directory you typed.\n"
+"\n"
+msgstr ""
+"    1. Покушава да нађе поклапање у датотеци стабла података\n"
+"    2. Ако нема поклапања, покушава да отвори директоријум који сте уписали.\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:266
+msgid "In direct CD mode wcd works in reversed order."
+msgstr "У непосредном режиму промене директоријума вцд ради обрнутим редом."
+
+#. type: verbatim
+#: wcd.pod:268
+#, no-wrap
+msgid ""
+"    1. Try to open the directory you typed.\n"
+"    2. If not, try to find a match in the treedata file(s).\n"
+"\n"
+msgstr ""
+"    1. Покушава да отвори директоријум који сте уписали.\n"
+"    2. Ако не, покушава да нађе поклапање у датотеци стабла података.\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:272
+msgid "B<-d DRIVE>"
+msgstr "B<-d ДИСК>"
+
+#. type: textblock
+#: wcd.pod:274
+msgid "Set drive for stack and go file (DOS only)."
+msgstr "Поставља диск за спремник и „go“ датотеку (само ДОС)."
+
+#. type: textblock
+#: wcd.pod:276
+msgid "The stack file and the go-script are by default stored on drive C: if environment variable I<HOME> is not set. Use this option if drive C: is a read-only drive. This option must be used in front of the stack options B<->, B<+> and B<=>."
+msgstr "Датотека спремника и „go“-скрипта се по основи налазе на диску „C:“ ако променљива окружења I<HOME> није постављена. Користите ов опцију ако је диск „C:“ само за читање. Ова опција се мора користити испред опција спремника B<„-“>, B<„+“> и B<„=“>."
+
+#. type: =item
+#: wcd.pod:281
+msgid "B<-e>"
+msgstr "B<-e>"
+
+#. type: textblock
+#: wcd.pod:283
+msgid "Add current path to the extra treedata file."
+msgstr "Додаје тренутну путању додатној датотеци стабла података."
+
+#. type: textblock
+#: wcd.pod:285
+msgid "Use this option to quickly add the current path to the extra treedata file."
+msgstr "Користите ову опцију да брзо додате текућу путању у додатну датотеку стабла података."
+
+#. type: =item
+#: wcd.pod:287
+msgid "B<-ee>"
+msgstr "B<-ee>"
+
+#. type: textblock
+#: wcd.pod:289
+msgid "Add current and all parent paths to extra treedata file."
+msgstr "Додаје тренутну и све полазне путање додатној датотеци стабла података."
+
+#. type: =item
+#: wcd.pod:291
+msgid "B<-E PATH>"
+msgstr "B<-E ПУТАЊА>"
+
+#. type: textblock
+#: wcd.pod:293
+msgid "Scan directory tree from I<PATH> and append to Extra treedata file. See also options B<-A> and B<-S>."
+msgstr "Прегледа стабло директоријума из I<ПУТАЊЕ> и придодаје Додатној датотеци стабла података. Видите такође опције B<„-A“> и B<„-S“>."
+
+#. type: =item
+#: wcd.pod:296
+msgid "B<-f FILE>"
+msgstr "B<-f ДАТОТЕКА>"
+
+#. type: textblock
+#: wcd.pod:298
+msgid "Read treedata file I<FILE>. Do not read the default treedata file."
+msgstr "Чита датотеку стабла података I<ДАТОТЕКА>. Не чита основну датотеку стабла података."
+
+#. type: =item
+#: wcd.pod:300
+msgid "B<+f FILE>"
+msgstr "B<+f ДАТОТЕКА>"
+
+#. type: textblock
+#: wcd.pod:302
+msgid "Read treedata file I<FILE> in addition to the default treedata file."
+msgstr "Чита датотеку стабла података I<ДАТОТЕКА> као додатак основној датотеци стабла података."
+
+#. type: =item
+#: wcd.pod:304
+msgid "B<-g>"
+msgstr "B<-g>"
+
+#. type: textblock
+#: wcd.pod:306
+msgid "Graphical interface (only in version with curses interface)."
+msgstr "Графичко сучеље (само у издању са кјурзис сучељем)."
+
+#. type: textblock
+#: wcd.pod:308
+msgid "Wcd starts a textual curses based 'graphical' interface. The user can select a directory via a full-screen interactive directory tree browser. It has a vim(1) like navigation and search method."
+msgstr "Вцд покреће текстуално „графичко“ сучеље засновано на кјурзису. Корисник може да изабере директоријум путем међудејственог претраживача стабла директорија преко целог екрана. Има навигацију и методу претраживања сличну „vim(1)“-у."
+
+#. type: textblock
+#: wcd.pod:312
+msgid "If no search string is given wcd presents the whole tree which is in the default treedata file and the extra treedata files."
+msgstr "Ако није дата ниска за претрагу, вцд представља читаво стабло које се налази у основној датотеци стабла података и додатне датотеке стабла података."
+
+#. type: textblock
+#: wcd.pod:315
+msgid "If a search string is given the match list is presented as a directory tree."
+msgstr "Ако је ниска за претрагу дата списак поклапања се представља као стабло директоријума."
+
+#. type: textblock
+#: wcd.pod:318
+msgid "The default tree layout is similar to the tree layout of the original NCD on DOS. The difference in layout is that in NCD all directories of a same depth level were vertically aligned over the whole tree. This was possible in NCD, because the maximum width of a directory name in DOS was 12 (8.3) characters. On modern operating systems directory names can be very long, so also the differences in length can be large. Therefore folders with a same depth are not vertically aligned over the whole tree in wcd, but only in sub-branches.  So there is some sideways movement when moving straight up and down from one sub-branch to another sub-branch."
+msgstr "Основни распоред стабла је сличан распореду стабла оригиналног НЦД-а на ДОС-у. Разлика у распореду је у томе што су у НЦД-у сви директоријуми истог нивоа дубине били усправно поравнати преко читавог стабла. То је било могуће у НЦД-у, јер је највећа ширина назива директоријума у ​​ДОС-у била 12 (8.3) знакова. На савременим оперативним системима називи директоријума могу бити врло дуги, тако да и разлике у дужини могу бити велике. Стога директоријуми са истом дубином нису усправно поравнати преко читавог стабла у вцд-у, већ само у подгранама. Дакле, постоји неко бочно кретање када се крећете равно горе-доле са једне подгране на другу подграну."
+
+#. type: textblock
+#: wcd.pod:328
+msgid "The navigation behaviour in Wcd is exactly the same as in the original NCD. For instance if you push the Down key you go down to the next directory with the same depth level, jumping over branches. This enables fast navigation through the tree."
+msgstr "Понашање навигације у Вцд-у је потпуно исто као у оригиналном НЦД-у. На пример, ако притиснете тастер „Доле“, прелазите у следећи директоријум са истим нивоом дубине, прескачући гране. Ово омогућава брзу навигацију кроз стабло."
+
+#. type: textblock
+#: wcd.pod:333
+msgid "See options B<-Ta>, B<-TC>, and B<-Tc> to change the navigation behaviour."
+msgstr "Видите опције B<„-Ta“>, B<„-TC“>, и B<„-Tc“> да измените понашање навигације."
+
+#. type: =item
+#: wcd.pod:335
+msgid "B<-gd>"
+msgstr "B<-gd>"
+
+#. type: textblock
+#: wcd.pod:337
+msgid "Dump the treedata files as a tree to stdout."
+msgstr "Исписује датотеке стабла података као стабло на стандарни излаз."
+
+#. type: =item
+#: wcd.pod:339
+msgid "B<-G PATH>"
+msgstr "B<-G ПУТАЊА>"
+
+#. type: textblock
+#: wcd.pod:341
+msgid "Write go-script in directory I<PATH>. For instance on Unix, C<wcd -G PATH> will write a go-script B<PATH/wcd.go>."
+msgstr "Пише „go“-скрипту у I<ПУТАЊУ> директоријума. На пример на Јуниксу, C<wcd -G ПУТАЊА> записаће „go“-скрипту B<„ПУТАЊА/wcd.go“>."
+
+#. type: =item
+#: wcd.pod:344
+msgid "B<-GN, --no-go-script>"
+msgstr "B<-GN, --no-go-script>"
+
+#. type: textblock
+#: wcd.pod:346
+msgid "Do not create go-script. This option can be used in combination with the option B<-j> if one does not want wcd to create a go-script."
+msgstr "Не ствара „go“-скрипту. Ова опција се може користити у комбинацији са опцијом B<„-j“> ако неко не жели да вцд направи „go“-скрипту."
+
+#. type: =item
+#: wcd.pod:349
+msgid "B<-h, --help>"
+msgstr "B<-h, --help>"
+
+#. type: textblock
+#: wcd.pod:351
+msgid "Show help and exit."
+msgstr "Приказује помоћ и излази."
+
+#. type: =item
+#: wcd.pod:353
+msgid "B<-i, --ignore-case>"
+msgstr "B<-i, --ignore-case>"
+
+#. type: textblock
+#: wcd.pod:355
+msgid "Ignore case.  Dos and Windows versions of wcd ignore case default. Unix/Cygwin versions regard case by default."
+msgstr "Занемарује величину слова. ДОС и Виндоуз издања вцд-а занемарују основности величине слова. Јуникс/Cygwin издања пазе на величину слова по основу."
+
+#. type: =item
+#: wcd.pod:359
+msgid "B<+i, --no-ignore-case>"
+msgstr "B<+i, --no-ignore-case>"
+
+#. type: textblock
+#: wcd.pod:361
+msgid "Regard case. See also option B<-i>."
+msgstr "Пази на величину слова. Видите такође опцију B<-i>."
+
+#. type: =item
+#: wcd.pod:363
+msgid "B<-I, --ignore-diacritics>"
+msgstr "B<-I, --ignore-diacritics>"
+
+#. type: textblock
+#: wcd.pod:365
+msgid "Ignore diacritics for Latin-based scripts.  Letters with diacritical marks match their base letter without diacritical mark. The following Latin encodings are supported: CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, ISO-8859-2, and Unicode Latin-1, Latin Extended-A, and Latin Extended-B.  See also L<http://en.wikipedia.org/wiki/Diacritic>"
+msgstr "Занемарује дијакритике за латиничне скрипте. Слова са дијакритичким знацима поклапају базно слово без дијакритичког знака. Следећа латинична кодирања су подржана: CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, ISO-8859-2, и Јуникод Латинични-1, Латинични проширени-А, Латинични проширени-Б. Видите такође L<http://en.wikipedia.org/wiki/Diacritic>"
+
+#. type: =item
+#: wcd.pod:372
+msgid "B<+I, --no-ignore-diacritics>"
+msgstr "B<+I, --no-ignore-diacritics>"
+
+#. type: textblock
+#: wcd.pod:374
+msgid "Regard diacritics (default). See also option B<-I>."
+msgstr "Пази на дијакритике (основно). Видите такође опцију B<-I>."
+
+#. type: =item
+#: wcd.pod:376
+msgid "B<-j, --just-go>"
+msgstr "B<-j, --just-go>"
+
+#. type: textblock
+#: wcd.pod:378
+msgid "Just go mode."
+msgstr "Заправо „go“ режим."
+
+#. type: textblock
+#: wcd.pod:380
+msgid "In this mode wcd will not present a list when there is more than one directory that matches the given directory. Wcd will just change to the first option. When wcd is invoked again with the same arguments it will change to the next option, and so on."
+msgstr "У овом режиму вцд неће приказати списак када постоји више директоријума који се подударају са датим директоријумом. Вцд ће се само пребацити на прву опцију. Када се вцд поново позове са истим аргументима, промениће се у следећу опцију, итд."
+
+#. type: textblock
+#: wcd.pod:385
+msgid "Wcd will print the directory to go to to stdout. So a different installation method can be used. One could make the following function for a POSIX compatible shell:"
+msgstr "Вцд ће исписати директоријум у који иде на стандарни излаз. Дакле, може се користити другачији начин инсталације. За ПОСИКС компатибилну љуску могла би се направити следећа функција:"
+
+#. type: verbatim
+#: wcd.pod:389
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        cd \"$($HOME/bin/wcd.exe -j $@)\"\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        cd \"$($HOME/bin/wcd.exe -j $@)\"\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:394
+msgid "When you are using an old shell that doesn't support \"$()\" command substitution you have to use old style command substitution with back-quotes."
+msgstr "Када користите стару шкољку која не подржава замену наредбе \"$()\" морате користити замену наредбе старог стила са контра наводницима."
+
+#. type: verbatim
+#: wcd.pod:397
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        cd \"`$HOME/bin/wcd.exe -j $@`\"\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        cd \"`$HOME/bin/wcd.exe -j $@`\"\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:403
+msgid "On Windows systems, if one is running 4NT shell, one could make the following alias:"
+msgstr "На Виндоуз системима, ако се ради на „4NT“ шкољци, може се направити следећи алијас:"
+
+#. type: verbatim
+#: wcd.pod:406
+#, no-wrap
+msgid ""
+"    alias wcd `cd %@execstr[wcdwin32.exe -z 0 -j %1]`\n"
+"\n"
+msgstr ""
+"    alias wcd `cd %@execstr[wcdwin32.exe -z 0 -j %1]`\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:409
+msgid "This method eliminates the need of the go-script, so one can use option B<-GN> in combination with B<-j>."
+msgstr "Ова метода елиминише потребу за „go“-скриптом, тако да се може користити опција B<„-GN“> у комбинацији са B<„-j“>."
+
+#. type: =item
+#: wcd.pod:412
+msgid "B<-k, --keep-paths>"
+msgstr "B<-k, --keep-paths>"
+
+#. type: textblock
+#: wcd.pod:414
+msgid "Keep paths."
+msgstr "Задржава путање."
+
+#. type: textblock
+#: wcd.pod:416
+msgid "Keep paths in the treedata file when wcd can't change to them. The default behaviour of wcd is that it tries to remove paths from the treedata when wcd can't change to them. With this option this behavior is turned off."
+msgstr "Задржава путање у датотеци стабла података када вцд не може да пређе у њих. Основно понашање вцд-а је да покушава да уклони путање из стабла података када вцд не може да пређе у њих. Помоћу ове опције ово понашање је искључено."
+
+#. type: =item
+#: wcd.pod:420
+msgid "B<-K, --color>"
+msgstr "B<-K, --color>"
+
+#. type: textblock
+#: wcd.pod:422
+msgid "Use colors in graphical mode."
+msgstr "Користи боје у графичком режиму."
+
+#. type: =item
+#: wcd.pod:424
+msgid "B<-l ALIAS>"
+msgstr "B<-l АЛИЈАС>"
+
+#. type: textblock
+#: wcd.pod:426
+msgid "Name the current path with I<ALIAS>. Wcd places the current path with alias I<ALIAS> in the alias file. Aliases are case sensitive."
+msgstr "Именује текућу путању I<АЛИЈАСОМ>. Вцд ставља текућу путању алијасом I<АЛИЈАС> у датотеци алијаса. Алијаси су осетљиви на величину слова."
+
+#. type: =item
+#: wcd.pod:429
+msgid "B<-ls>"
+msgstr "B<-ls>"
+
+#. type: textblock
+#: wcd.pod:431
+msgid "Show the name of the alias file, and list all the aliases."
+msgstr "Приказује назив датотеке алијаса и исписује све алијасе."
+
+#. type: =item
+#: wcd.pod:433
+msgid "B<-m DIR>"
+msgstr "B<-m ДИР>"
+
+#. type: textblock
+#: wcd.pod:435
+msgid "Make directory and add to treedata file."
+msgstr "Прави директоријум и додаје га у датотеку података стабла."
+
+#. type: =item
+#: wcd.pod:437
+msgid "B<-L, --license>"
+msgstr "B<-L, --license>"
+
+#. type: textblock
+#: wcd.pod:439
+msgid "Print the distribution license."
+msgstr "Исписује лиценцу дистрибуције."
+
+#. type: =item
+#: wcd.pod:441
+msgid "B<-M DIR>"
+msgstr "B<-M ДИР>"
+
+#. type: textblock
+#: wcd.pod:443
+msgid "Make directory and add to extra treedata file."
+msgstr "Прави директоријум и додаје га у посебну датотеку података стабла."
+
+#. type: =item
+#: wcd.pod:445
+msgid "B<-n PATH>"
+msgstr "B<-n ПУТАЊА>"
+
+#. type: textblock
+#: wcd.pod:447
+msgid "Read relative treedata file from I<PATH>."
+msgstr "Чита односну датотеку података стабла из I<ПУТАЊА>."
+
+#. type: textblock
+#: wcd.pod:449
+msgid "Do not read the default treedata file. The relative treedata file should already have been created using the wcd B<+S> option.  I<PATH> may also point to a file directly."
+msgstr "Не чита основну датотеку стабла података. Релативна датотека стабла података треба да је већ направљена коришћењем опције B<„+S“>.  I<ПУТАЊА> може такође непосредно да показује на датотеке."
+
+#. type: textblock
+#: wcd.pod:453
+msgid "An example. Suppose another system has been mounted to mount point C</mnt/network>:"
+msgstr "Пример. Претпоставимо да је други систем прикачен на тачку качења C</mnt/network>:"
+
+#. type: verbatim
+#: wcd.pod:456
+#, no-wrap
+msgid ""
+"    wcd -n /mnt/network src\n"
+"\n"
+msgstr ""
+"    wcd -n /mnt/network src\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:458
+msgid "Wcd opens the relative treedata file in C</mnt/network/>. The file contains the paths relative from that point."
+msgstr "Вцд отвара релативну датотеку стабла података у C</mnt/network/>. Датотека садржи путању релативну из те тачке."
+
+#. type: =item
+#: wcd.pod:461
+msgid "B<+n PATH>"
+msgstr "B<+n ПУТАЊА>"
+
+#. type: textblock
+#: wcd.pod:463
+msgid "Read relative treedata file in addition to the default treedata file. See option B<-n>."
+msgstr "Чита релативну датотеку стабла података као додатак основној датотеци стабла података. Видите опцију B<„-n“>."
+
+#. type: =item
+#: wcd.pod:466
+msgid "B<-N, --numbers>"
+msgstr "B<-N, --numbers>"
+
+#. type: textblock
+#: wcd.pod:468
+msgid "Use numbers instead of letters."
+msgstr "Користи бројеве уместо слова."
+
+#. type: textblock
+#: wcd.pod:470
+msgid "Wcd with a conio or curses based interface (see section Interfaces) presents a match list by default numbered with letters. When the B<-N> option is used the match list is numbered with numbers. Regardless of the B<-N> option one can type a letter or numbers to make a selection from the list of matches."
+msgstr "Вцд са сучељем заснованим на „conio“ или „curses“ (видите одељак Сучеља) представља списак подударања који је по основи нумерисан словима. Када се користи опција B<„-N“>, списак поклапања је нумерисан бројевима. Без обзира на опцију B<„-N“>, можете уписати слово или бројеве да направите избор са списка подударања."
+
+#. type: =item
+#: wcd.pod:475
+msgid "B<-o>"
+msgstr "B<-o>"
+
+#. type: textblock
+#: wcd.pod:477
+msgid "Use stdin/stdout interface."
+msgstr "Користи сучеље стандарног улаза/излаза."
+
+#. type: textblock
+#: wcd.pod:479
+msgid "When for some kind of reason the conio or curses interface of wcd does not work one can fall back to the stdin/stdout interface of wcd by using the B<-o> option."
+msgstr "Када из неке врсте разлога сучеље „conio“ или „curses“ вцд-а не ради, можете се вратити на сучеље стандарног улаза/излаза вцд-а користећи опцију B<„-o“>."
+
+#. type: =item
+#: wcd.pod:483
+msgid "B<-od, --to-stdout>"
+msgstr "B<-od, --to-stdout>"
+
+#. type: textblock
+#: wcd.pod:485
+msgid "Dump all matches to stdout."
+msgstr "Исписује сва поклапања на стандарни излаз."
+
+#. type: =item
+#: wcd.pod:487
+msgid "B<-q, --quiet>"
+msgstr "B<-q, --quiet>"
+
+#. type: textblock
+#: wcd.pod:489
+msgid "Quieter operation. Printing of the final match is suppressed."
+msgstr "Тиши рад. Исписивање крајњег поклапања је сузбијено."
+
+#. type: =item
+#: wcd.pod:491
+msgid "B<-r DIR>"
+msgstr "B<-r ДИР>"
+
+#. type: textblock
+#: wcd.pod:493
+msgid "Remove directory and remove from the treedata file."
+msgstr "Уклања директоријум и уклања га из датотеке података стабла."
+
+#. type: textblock
+#: wcd.pod:495
+msgid "If the directory is empty, wcd will remove it, and try to remove it from the treedata file."
+msgstr "Ако је директоријум празан, вцд ће га уклонити, и покушати да га уклони из датотеке стабла података."
+
+#. type: =item
+#: wcd.pod:498
+msgid "B<-rmtree DIR>"
+msgstr "B<-rmtree ДИР>"
+
+#. type: textblock
+#: wcd.pod:500
+msgid "Recursively remove directory and remove from the treedata file."
+msgstr "Дубински уклања директоријум и уклања га из датотеке података стабла."
+
+#. type: textblock
+#: wcd.pod:502
+msgid "Wcd will remove the directory and all its sub directories and files, and remove the directories from the treedata file."
+msgstr "Вцд ће уклонити директоријум и све његове поддиректоријуме и датотеке, и уклонити директоријуме из датотеке стабла података."
+
+#. type: =item
+#: wcd.pod:505
+msgid "B<-s>"
+msgstr "B<-s>"
+
+#. type: textblock
+#: wcd.pod:507
+msgid "(re)Scan disk from C<$HOME> directory. If I<HOME> is not defined the disk is scanned from root directory /."
+msgstr "(поново)Прегледа диск из директоријума C<$HOME>. Ако I<HOME> није дефинисана, диск се прегледа из кореног директоријума /."
+
+#. type: textblock
+#: wcd.pod:510
+msgid "The existing default treedata file is overwritten."
+msgstr "Постојећа основна датотека података стабла се преписује."
+
+#. type: textblock
+#: wcd.pod:512
+msgid "The default scan directory can be overruled with environment variable C<WCDSCAN>. See section ENVIRONMENT VARIABLES."
+msgstr "Основни директоријум прегледања може се надјачати променљивом окружења C<WCDSCAN>. Видите одељак ПРОМЕНЉИВЕ ОКРУЖЕЊА."
+
+#. type: =item
+#: wcd.pod:515
+msgid "B<-S PATH>"
+msgstr "B<-S ПУТАЊА>"
+
+#. type: textblock
+#: wcd.pod:517
+msgid "Scan directory tree from I<PATH> and overwrite the default treedata file.  See also options B<-A>, B<-s> and B<-E>. E.g. with option B<-A> you can create a default treedata file of your choice. Examples:"
+msgstr "Прегледа стабло директоријума из I<ПУТАЊЕ> и преписује основну датотеку стабла података. Видите такође опције B<„-A“>, B<„-s“> и B<„-E“>. Нпр. опцијом B<„-A“> можете направити основну датотеку стабла података по вашем избору. Примери:"
+
+#. type: textblock
+#: wcd.pod:521
+msgid "Unix:"
+msgstr "Јуникс:"
+
+#. type: verbatim
+#: wcd.pod:523
+#, no-wrap
+msgid ""
+"    wcd -S /\n"
+"    wcd -S /home -A /etc -A /usr\n"
+"\n"
+msgstr ""
+"    wcd -S /\n"
+"    wcd -S /home -A /etc -A /usr\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:526
+msgid "DOS/Windows:"
+msgstr "ДОС/Виндоуз:"
+
+#. type: verbatim
+#: wcd.pod:528
+#, no-wrap
+msgid ""
+"    wcd -S c:/\n"
+"    wcd -S c: -A d: -A \\\\server\\share\n"
+"\n"
+msgstr ""
+"    wcd -S c:/\n"
+"    wcd -S c: -A d: -A \\\\server\\share\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:531
+msgid "With the Windows versions one can scan all shared directories of a Windows LAN server by typing something like: C<wcd -S \\\\servername>."
+msgstr "Са Виндоуз издањима можете прегледати све дељене директоријуме Виндоуз ЛАН сервера уписујући нешто као: C<wcd -S \\\\назив_сервера>."
+
+#. type: =item
+#: wcd.pod:535
+msgid "B<+S PATH>"
+msgstr "B<+S ПУТАЊА>"
+
+#. type: textblock
+#: wcd.pod:537
+msgid "Scan disk from I<PATH> and place relative paths in a relative treedata file.  This file is used by the B<-n> and B<+n> options of wcd. E.g. C<wcd -n PATH src>."
+msgstr "Прегледа диск из I<ПУТАЊЕ> и ставља релативне путање у релативну датотеку стабла података. Ова датотека се користи са вцд опцијама B<„-n“> и B<„+n“>. Нпр. C<wcd -n ПУТАЊА src>."
+
+#. type: =item
+#: wcd.pod:541
+msgid "B<-t>"
+msgstr "B<-t>"
+
+#. type: textblock
+#: wcd.pod:543
+msgid "Do not strip tmp mount dir C</tmp_mnt> (Unix only)"
+msgstr "Не скида директоријум привременог качења C</tmp_mnt> (само Јуникс)"
+
+#. type: textblock
+#: wcd.pod:545
+msgid "Wcd strips by default C</tmp_mnt/> from the match. Directory C</tmp_mnt> is used by the auto-mounter. This behaviour can be turned off with the B<-t> option."
+msgstr "Вцд скида по основи C</tmp_mnt/> из поклапања. Директоријум C</tmp_mnt> се користи од стране само-прикачињања. Ово понашање се може искључити опцијом B<„-t“>."
+
+#. type: =item
+#: wcd.pod:549
+msgid "B<-T, --ascii-tree>"
+msgstr "B<-T, --ascii-tree>"
+
+#. type: textblock
+#: wcd.pod:551
+msgid "Draw tree with ASCII characters. Use this option if line drawing characters are not displayed properly in your terminal."
+msgstr "Исцртава стабло АСКРИ знакова. Користите ову опцију ако се знакови исцртавања линија не приказују правилно на вашем терминалу."
+
+#. type: =item
+#: wcd.pod:554
+msgid "B<-Ta, --alt-tree-nav>"
+msgstr "B<-Ta, --alt-tree-nav>"
+
+#. type: textblock
+#: wcd.pod:556
+msgid "Alternative way of navigation in the graphical tree."
+msgstr "Заменски начин кретања у графичком стаблу."
+
+#. type: textblock
+#: wcd.pod:558
+msgid "In the default NCD style tree layout the B<-Ta> option disables jumping to unrelated directories."
+msgstr "У основном распореду стабла НЦД стила, опција B<„-Ta“> онемогућава прелазак на неповезане директоријуме."
+
+#. type: textblock
+#: wcd.pod:561
+msgid "In compact tree mode the alternative mode makes navigation similar to navigation in GUI file managers such as Windows Explorer or Linux KDE Konqueror. Pressing Up and Down moves the selected folder one line up or down. Pressing Left first folds the sub-folders and the next move left moves really left."
+msgstr "У режиму сажетог стабла, алтернативни режим чини навигацију сличном навигацији у управницима датотека са графичким сучељем као што су Виндоуз Екплорер или Линукс КДЕ Конкверор. Притиском на горе и доле помера се изабрана фасцикла за један ред на горе или на доле. Притиском на лево прво се завијају садржане фасцикле, а следећи потез на лево се помера заиста на лево."
+
+#. type: textblock
+#: wcd.pod:567
+msgid "You can switch on-the-fly between default and alternative navigation by pressing <Shift-A>."
+msgstr "Можете у лету да се пребацујете са основне на заменску навигацију притиском тастера <Шифт-A>."
+
+#. type: textblock
+#: wcd.pod:570
+msgid "When alternative navigation mode is on, you will see an \"A\" in the lower right corner."
+msgstr "Када је замеснки режим навигације укључен, видећете „А“ у доњем десном углу."
+
+#. type: =item
+#: wcd.pod:572
+msgid "B<-TC, --center-tree>"
+msgstr "B<-TC, --center-tree>"
+
+#. type: textblock
+#: wcd.pod:574
+msgid "Centered view in the graphical tree. The selected directory stays in the middle of the screen. The centered mode can also be switched on and off with key <t> in the graphical tree."
+msgstr "Усредиштени преглед у графичком стаблу. Изабрани директоријум остаје на средини екрана. Усредиштени режим се може такође укључити и искључити тастером <t> у графичком стаблу."
+
+#. type: textblock
+#: wcd.pod:578
+msgid "The standard non-centered behaviour, which minimises tree movement, is the same as in the original NCD."
+msgstr "Стандардно неусредиштено понашање, које умањује кретање стаблом, је исто као у изворном НЦД-у."
+
+#. type: =item
+#: wcd.pod:581
+msgid "B<-Tc, --compact-tree>"
+msgstr "B<-Tc, --compact-tree>"
+
+#. type: textblock
+#: wcd.pod:583
+msgid "By default the 'graphical' tree is drawn the same way as the original NCD on DOS did it. On DOS a directory path could only be 66 characters in total. With the deep directory structures of today the tree can become very wide. To overcome this wcd can draw the tree in a compact way, similar to most GUI file managers, with only one folder per line. Use option B<-Tc> or switch on-the-fly with the <m> key."
+msgstr "По основи „графичко“ стабло се исцртава на исти начин као што је то учинио изворни НЦД на ДОС-у. На ДОС-у путања директоријума може имати само 66 знакова. Са данашњим дубоким структурама директоријума стабло може постати врло велико. Да би ово превазишао, вцд може исцртати стабло на збијени начин, слично већини управника датотека са графичким сучељем, са само једном фасциклом у реду. Користите опцију B<„-Tc“> или се пребаците у лету помоћу тастера „m“."
+
+#. type: =item
+#: wcd.pod:590
+msgid "B<-Td, --cjk-width>"
+msgstr "B<-Td, --cjk-width>"
+
+#. type: textblock
+#: wcd.pod:592
+msgid "Legacy East-Asian CJK (Chinese, Japanese, and Korean) fonts have certain characters and line drawing symbols with a column width of 2, while the normal Unicode width for these characters is 1 column. For instance the Chinese CP936 raster font on Windows and the Simsun font. Use this option for a correct outlining of the graphical tree when a legacy CJK font is used."
+msgstr "Старе источно-азијске КЈК (кинески, јапански и корејски) врсте слова имају одређене знакове и симболе исцртавања линија са ширином колоне 2, док је нормална Јуникод ширина за ове знаке 1 колона. На пример, кинеска растерска слова CP936 на Виндоузу и „Simsun“ врсте слова. Користите ову опцију за тачан приказ графичког стабла када се користи стара КЈК врста слова."
+
+#. type: textblock
+#: wcd.pod:598
+msgid "When CJK mode is on, you will see a \"C\" in the lower right corner."
+msgstr "Када је КЈК режим укључен, видећете „C“ у доњем десном углу."
+
+#. type: =item
+#: wcd.pod:600
+msgid "B<-u USER>"
+msgstr "B<-u КОРИСНИК>"
+
+#. type: textblock
+#: wcd.pod:602
+msgid "Scan treedata file of another user based on I<USER>, do not scan your own default treedata file. See also section ENVIRONMENT VARIABLES for I<WCDUSERSHOME>."
+msgstr "Прегледа датотеку стабла података другог корисника на основу I<КОРИСНИКА>, не прегледа вашу властиту датотеку стабла података. Видите такође одељак ПРОМЕНЉИВЕ ОКРУЖЕЊА ЗА I<WCDUSERSHOME>."
+
+#. type: textblock
+#: wcd.pod:605
+msgid "On Unix/Cygwin the base directory for user home directories is assumed to be C</home>. Wcd will look for C</home/USER/.treedata.wcd> and C</home/USER/.wcd/.treedata.wcd>, in that order, and read the first one that exists and is readable.  On DOS/Windows the base directory for user home directories is assumed to be C<\\\\users>, so wcd tries to read C<\\\\users\\USER\\treedata.wcd> and C<\\\\users\\USER\\.wcd\\treedata.wcd>."
+msgstr "На Јуниксу/Cygwin-у основни директоријум за корисничке личне директоријуме подразумева се да је C</home>. Вцд ће тражити C</home/КОРИСНИК/.treedata.wcd> и C</Лична фасцикла/КОРИСНИК/.wcd/.treedata.wcd>, тим редом, и читаће прву која постоји и може да се чита.  На ДОС-у/Виндоузу основни директоријум за корисничке личне директоријуме подразумева се да је C<\\\\users>, тако да вцд покушава да чита C<\\\\users\\КОРИСНИК\\treedata.wcd> и C<\\\\users\\КОРИСНИК\\.wcd\\treedata.wcd>."
+
+#. type: =item
+#: wcd.pod:613
+msgid "B<+u USER>"
+msgstr "B<+u КОРИСНИК>"
+
+#. type: textblock
+#: wcd.pod:615
+msgid "Read default treedata file of USER in addition to your own treedata file."
+msgstr "Чита основну датотеку података стабла КОРИСНИКА као додатак вашој сопственој датотеци података стабла."
+
+#. type: =item
+#: wcd.pod:618
+msgid "B<-v, --verbose>"
+msgstr "B<-v, --verbose>"
+
+#. type: textblock
+#: wcd.pod:620
+msgid "Display verbose messages. With this option wcd prints all filters, bans and excludes."
+msgstr "Приказује опширне поруке. Овом опцијом вцд исписује све филтере, забране и изузимања."
+
+#. type: =item
+#: wcd.pod:623
+msgid "B<-V, --version>"
+msgstr "B<-V, --version>"
+
+#. type: textblock
+#: wcd.pod:625
+msgid "Print version information and exit."
+msgstr "Исписује податке о издању и излази."
+
+#. type: =item
+#: wcd.pod:627
+msgid "B<-w, --wild-match-only>"
+msgstr "B<-w, --wild-match-only>"
+
+#. type: textblock
+#: wcd.pod:629
+msgid "Wild matching only. Treat all matches as wild matches."
+msgstr "Само дивље упоређивање. Сматра сва упоређивања дивљим упоређивањима."
+
+#. type: =item
+#: wcd.pod:631
+msgid "B<-x PATH>"
+msgstr "B<-x ПУТАЊА>"
+
+#. type: textblock
+#: wcd.pod:633
+msgid "Exclude I<PATH> from scanning."
+msgstr "Искључује I<ПУТАЊУ> из прегледања."
+
+#. type: textblock
+#: wcd.pod:635
+msgid "When this option is used wcd will exclude I<PATH> and all its subdirectories when wcd is scanning a disk. Wildcards are supported and matched against absolute paths. Option B<-x> can be used multiple times."
+msgstr "Када се користи ова опција вцд ће искључити I<ПУТАЊУ> и све њене поддиректоријуме када прегледа диск. Џокери су подржани и упоређују се са апсолутним путањама. Опција B<„-x“> се може користити више пута."
+
+#. type: verbatim
+#: wcd.pod:639
+#, no-wrap
+msgid ""
+"    wcd -x <path1> -x <path2> -s\n"
+"\n"
+msgstr ""
+"    wcd -x <путања1> -x <путања2> -s\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:641
+msgid "Option B<-x> must be used in front of any scan option (B<-s>, B<-S>, B<+S>, B<-A>, B<-E>)."
+msgstr "Опција B<„-x“> се мора користити испред било које опције прегледања (B<-s>, B<-S>, B<+S>, B<-A>, B<-E>)."
+
+#. type: textblock
+#: wcd.pod:645
+msgid "On DOS/Windows systems one must specify the drive letter depending on if environment variable I<HOME> or I<WCDHOME> is set. If I<HOME> or I<WCDHOME> is set one needs to specify the drive letter. An example:"
+msgstr "На ДОС/Виндоуз системима морате навести слово диска у зависности да ли је постављена променљива окружења I<HOME> или I<WCDHOME>. Ако је постављена I<HOME> или I<WCDHOME> морате навести слово диска. На пример:"
+
+#. type: verbatim
+#: wcd.pod:649
+#, no-wrap
+msgid ""
+"    wcd -x c:/temp -S c:\n"
+"\n"
+msgstr ""
+"    wcd -x c:/temp -S c:\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:651
+msgid "Otherwise do not specify drive letter."
+msgstr "У супротном немоте наводити слово диска."
+
+#. type: verbatim
+#: wcd.pod:653
+#, no-wrap
+msgid ""
+"    wcd -x /temp -s\n"
+"\n"
+msgstr ""
+"    wcd -x /temp -s\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:656
+msgid "B<-xf FILE>"
+msgstr "B<-xf ДАТОТЕКА>"
+
+#. type: textblock
+#: wcd.pod:658
+msgid "Exclude all paths listed in I<FILE> from scanning."
+msgstr "Искључује све путање исписане у I<ДАТОТЕЦИ> из прегледања."
+
+#. type: textblock
+#: wcd.pod:660
+msgid "When this option is used wcd will exclude all paths listed in I<FILE> and all their subdirectories when wcd is scanning a disk. Wildcards are supported and they are matched against absolute paths; one path per line. Be aware that wcd will not ignore leading or trailing blanks on a line, because they are legal characters in a directory name. Option B<-xf> can be used multiple times. When one wants to exclude all banned paths from scanning one can do the following (example for wcd on unix):"
+msgstr "Када се користи ова опција, вцд ће искључити све путање наведене у I<ДАТОТЕЦИ> и све њихове поддиректоријуме када прегледа диск. Џокери су подржани и они се упоређују са апсолутним путањама; једна путања у једном реду. Знајте да вцд неће занемарити празнине на почетку или на крају реда, јер су то стари знакови у називу директоријума. Опција B<„-xf“> се може користити више пута. Када желите да изузмете све забрањене путање из прегледања, можете урадити следеће (пример за вцд на јуниксу):"
+
+#. type: verbatim
+#: wcd.pod:668
+#, no-wrap
+msgid ""
+"    wcd -xf ~/.ban.wcd -s\n"
+"\n"
+msgstr ""
+"    wcd -xf ~/.ban.wcd -s\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:670
+msgid "Wildcards are supported. For instance to exclude all your Subversion directories with administrative files add a line with C<*/.svn>."
+msgstr "Џокери су подржани. На пример да искључите све ваше „Subversion“ директоријуме са администраторском датотекама додајте ред C<*/.svn>."
+
+#. type: textblock
+#: wcd.pod:673
+msgid "Option B<-xf> must be used in front of any scan option (B<-s>, B<-S>, B<+S>, B<-A>, B<-E>)."
+msgstr "Опција B<-xf> се мора користити испред било које опције прегледања (B<-s>, B<-S>, B<+S>, B<-A>, B<-E>)."
+
+#. type: =item
+#: wcd.pod:676
+msgid "B<-y, --assume-yes>"
+msgstr "B<-y, --assume-yes>"
+
+#. type: textblock
+#: wcd.pod:678
+msgid "Assume Yes on all queries."
+msgstr "Подразумева „Да“ на свим упитима."
+
+#. type: textblock
+#: wcd.pod:680
+msgid "Wcd will not prompt the user with yes/no questions, but assumes the user answers yes on all questions. This can be used in combination with option B<-rmtree>. This option must be used in front of options that can lead to yes/no questions."
+msgstr "Вцд неће поставити упит кориснику са да/не питањима, већ ће претпоставити да је корисник одговорио са да на сва питања. Ово се може користити у комбинацији са опцијом B<„-rmtree“>. Ова опција се мора користити испред опција које могу довести до питања „да/не“."
+
+#. type: =item
+#: wcd.pod:685
+msgid "B<-z NUMBER>"
+msgstr "B<-z БРОЈ>"
+
+#. type: textblock
+#: wcd.pod:687
+msgid "Set maximum stack size to NUMBER."
+msgstr "Поставља највећу величину спремника на БРОЈ."
+
+#. type: textblock
+#: wcd.pod:689
+msgid "The default size of the stack is 10. Stack operation can be turned off by setting the size to 0. This option must be used in front of any other stack operations (B<->,B<+>,B<=>). Otherwise the size of the stack will be set back to the default 10."
+msgstr "Основна величина спремника је 10. Радња спремника се може искључити постављањем величине на 0. Ова опција се мора користити испред сваке друге радње спремника (B<->,B<+>,B<=>). У супротном величина спремниак биће постављена на основну 10."
+
+#. type: textblock
+#: wcd.pod:694
+msgid "A correct command is:"
+msgstr "Исправна наредба је:"
+
+#. type: verbatim
+#: wcd.pod:696
+#, no-wrap
+msgid ""
+"    wcd -z 50 -\n"
+"\n"
+msgstr ""
+"    wcd -z 50 -\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:698
+msgid "The new stack size will be 50, wcd will go one directory back. A wrong command is:"
+msgstr "Нова величина спремника биће 50, вцд ће се вратити један директоријум уназад. Погрешна наредба је:"
+
+#. type: verbatim
+#: wcd.pod:701
+#, no-wrap
+msgid ""
+"    wcd - -z 50\n"
+"\n"
+msgstr ""
+"    wcd - -z 50\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:703
+msgid "Wcd goes one directory back, the stack gets the default size 10. The B<-z 50> is ignored."
+msgstr "Вцд се враћа један директоријум уназад, спремник добија основну величину 10. B<-z 50> се занемарује."
+
+#. type: textblock
+#: wcd.pod:706
+msgid "Add this option as the first option to your wcd alias or function. E.g.  for the a POSIX compatible shell this would be:"
+msgstr "Додајте ову опцију као прву опцију вашем вцд алијасу или функцији. Нпр. за ПОСИКС сагласну шкољку ово ће бити:"
+
+#. type: verbatim
+#: wcd.pod:709
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"\twcd.exe -z 50 \"$@\"\n"
+"\t. ${WCDHOME:-${HOME}}/bin/wcd.go\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"\twcd.exe -z 50 \"$@\"\n"
+"\t. ${WCDHOME:-${HOME}}/bin/wcd.go\n"
+"    }\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:715
+msgid "B<-[NUMBER]>"
+msgstr "B<-[БРОЈ]>"
+
+#. type: textblock
+#: wcd.pod:717
+msgid "Push dir NUMBER of times. Default is one."
+msgstr "Гура директоријум БРОЈ пута. Основно је један."
+
+#. type: textblock
+#: wcd.pod:719
+msgid "Go back a directory. Command C<wcd -> goes one directory back. To go more directories back add a number to it. E.g. command C<wcd -3>. The stack is cyclic."
+msgstr "Враћа се за директоријум. Наредба C<wcd -> се враћа уназад за један директоријум. Да се вратите назад за више директоријума додајте јој број. Нпр. C<wcd -3>. Спремник је цикличан."
+
+#. type: =item
+#: wcd.pod:723
+msgid "B<+[NUMBER]>"
+msgstr "B<+[БРОЈ]>"
+
+#. type: textblock
+#: wcd.pod:725
+msgid "Pop dir NUMBER of times. Default is one."
+msgstr "Избацује директоријум БРОЈ пута. Основно је један."
+
+#. type: textblock
+#: wcd.pod:727
+msgid "Go forward a directory. Command C<wcd +> goes one directory forward. To go more directories forward add a number to it. E.g. command C<wcd +2>. The stack is cyclic."
+msgstr "Напредује за директоријум. Наредба C<wcd +> иде напред за један директоријум. Да идете напред за више директоријума додајте јој број. Нпр. C<wcd +2>. Спремник је цикличан."
+
+#. type: =item
+#: wcd.pod:731
+msgid "B<=>"
+msgstr "B<=>"
+
+#. type: textblock
+#: wcd.pod:733
+msgid "Show stack."
+msgstr "Приказује спремник."
+
+#. type: textblock
+#: wcd.pod:735
+msgid "Use this option if you do not know anymore how many times to push or pop.  The stack is printed and you can choose a number. The current place in the stack is marked with an asterisk C<*>."
+msgstr "Користите ову опцију ако више не знате колико пута да гурнете или избаците. Спремник бива исписан и можете изабрати број. Тренутно место у спремнику је означено звездицом C<*>."
+
+#. type: =head1
+#: wcd.pod:741
+msgid "INSTALLATION"
+msgstr "ИНСТАЛАЦИЈА"
+
+#. type: textblock
+#: wcd.pod:743
+msgid "The current working directory of a Unix shell can only be changed by the builtin cd(1) command. Therefore the program is always called by a function or an alias. The function or alias sources a shell script (go-script) which is generated by the wcd program. Wcd can only work after the function or alias is defined."
+msgstr "Тренутни радни директоријум Јуникс шкољке може се променити само помоћу уграђене наредбе „cd(1)“. Стога се програм увек позива функцијом или алијасем. Функција или алијас дају скрипту шкољке (go-скрипту) коју ствара вцд програм. Вцд може да ради само након дефинисања функције или алијаса."
+
+#. type: textblock
+#: wcd.pod:749
+msgid "Another important influence on your installation is the definition of environment variables I<HOME> and I<WCDHOME>. See section ENVIRONMENT VARIABLES."
+msgstr "Још један важан утицај на вашу инсталацију је дефиниција променљивих окружења I<HOME> и I<WCDHOME>. Погледајте одељак ПРОМЕНЉИВЕ ОКРУЖЕЊА."
+
+#. type: =head2
+#: wcd.pod:753
+msgid "Install for POSIX type shells"
+msgstr "Инсталација за шкољке ПОСИКС врсте"
+
+#. type: textblock
+#: wcd.pod:755
+msgid "For a POSIX shell (ksh, bash, zsh, etc.) on Unix, Linux, Cygwin, or native MSYS add the following function to the shell startup file (e.g. Bash uses C<$HOME/.bashrc>):"
+msgstr "За ПОСИКС шкољке (ksh, bash, zsh, etc.) на Јуниксу, Линуксу, Cygwin-у, или изворном MSYS додајте следећу функцију покретачкој датотеци шкољке (нпр. Баш користи C<$HOME/.bashrc>):"
+
+#. type: verbatim
+#: wcd.pod:759
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        PATH/wcd.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME}}/bin/wcd.go\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        ПУТАЊА/wcd.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME}}/bin/wcd.go\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:765
+msgid "Replace I<PATH> with the location where the wcd executable has been installed. Reload the shell initialization files or start new shell."
+msgstr "Замените I<ПУТАЊУ> са местом на коме је инсталирана вцд извршна. Поново учитајте покретачке датотеке шкољке или започните нову шкољку."
+
+#. type: textblock
+#: wcd.pod:768
+msgid "The location of the go-script C<wcd.go> differs per shell."
+msgstr "Место „go“-скрипте C<wcd.go> се разликује по шкољци."
+
+#. type: textblock
+#: wcd.pod:770
+msgid "Wcd for DJGPP DOS bash and OS/2 bash require a different function. The go script is not written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
+msgstr "Вцд за „DJGPP DOS bash“ и „OS/2 bash“ захтева другачију функцију. „go“ скрипта се не записује у директоријуму C<bin>, и ако нису дефинисан I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
+
+#. type: textblock
+#: wcd.pod:774
+msgid "DOS bash:"
+msgstr "ДОС шкољка:"
+
+#. type: verbatim
+#: wcd.pod:776
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        PATH/wcdbash.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        ПУТАЊА/wcdbash.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:782
+msgid "OS/2 bash:"
+msgstr "ОС/2 шкољка:"
+
+#. type: verbatim
+#: wcd.pod:784
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        PATH/wcdos2bash.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        ПУТАЊА/wcdos2bash.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:790
+msgid "The WinZsh version of wcd requires a bit different function. The go-script will never be written in c:/."
+msgstr "„WinZsh“ издање вцд-а захтева мало другачију функцију. „go“-скрипта никада неће бити записана у „c:/“."
+
+#. type: verbatim
+#: wcd.pod:793
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        PATH/wcdwin32zsh.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME}}/wcd.go\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        ПУТАЊА/wcdwin32zsh.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME}}/wcd.go\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:799
+msgid "See section FILES for more information."
+msgstr "Видите одељак ДАТОТЕКЕ за више информација."
+
+#. type: =head2
+#: wcd.pod:801
+msgid "Install for C-alike shells (csh, tcsh)"
+msgstr "Инсталација за C-сличне шкољке (csh, tcsh)"
+
+#. type: textblock
+#: wcd.pod:803
+msgid "Add the following alias to the shell startup file C<$HOME/.cshrc> or C<$HOME/.tcshrc> :"
+msgstr "Додајте следећи алијас у покретачку датотеку шкољке C<$HOME/.cshrc> или C<$HOME/.tcshrc> :"
+
+#. type: verbatim
+#: wcd.pod:806
+#, no-wrap
+msgid ""
+"    if ( ${?WCDHOME} ) then\n"
+"        alias wcd \"PATH/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
+"    else\n"
+"        alias wcd \"PATH/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
+"    endif\n"
+"\n"
+msgstr ""
+"    if ( ${?WCDHOME} ) then\n"
+"        alias wcd \"ПУТАЊА/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
+"    else\n"
+"        alias wcd \"ПУТАЊА/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
+"    endif\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:812
+msgid "Replace I<PATH> with the location where the wcd executable has been installed.  Reload the shell initialization files or start a new shell."
+msgstr "Замените I<ПУТАЊУ> са местом на коме је инсталирана вцд извршна. Поново учитајте покретачке датотеке шкољке или започните нову шкољку."
+
+#. type: =head2
+#: wcd.pod:816
+msgid "Windows Command Prompt version"
+msgstr "Издање Виндоуз линије наредби"
+
+#. type: textblock
+#: wcd.pod:818
+msgid "Unpack the zip file and add directory C<bin> to your environment variable I<PATH>."
+msgstr "Распакујте зип датотеку и додајте директоријум C<bin> вашој променљивој окружења I<PATH>."
+
+#. type: textblock
+#: wcd.pod:821
+msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch script C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
+msgstr "У Виндоуз линији наредби програм Виндоуза не може да пређе у радни директоријум, али „.bat“ датотека може. Скрипта групе C<wcd.bat> покреће вцд програм који ствара нову скрупту групе C<wcdgo.bat>. Затим C<wcd.bat> покреће C<wcdgo.bat> која заправо мења директоријум."
+
+#. type: =head2
+#: wcd.pod:826
+msgid "Windows VISTA and higher"
+msgstr "Виндоуз ВИСТА и новији"
+
+#. type: textblock
+#: wcd.pod:828
+msgid "In a Windows VISTA and higher Command Prompt you may have limited access to directories. To get access to more directories you need administrator rights. You can get a Command Prompt with administrator rights if you right click on the Command Prompt icon and select I<Run as administrator>."
+msgstr "У Виндоуз ВИСТИ и новијим издањима Линије наредби можете имати ограничен приступ директоријумима. Да добијете приступ већем броју директоријума, потребна су вам администраторска права. Можете добити Линију наредби са администраторским правима ако кликнете десним тастером на иконицу Линије наредби и изаберете I<Покрени као администратор>."
+
+#. type: =head2
+#: wcd.pod:833
+msgid "Windows PowerShell version"
+msgstr "Издање Виндоуз Моћне Шкољке"
+
+#. type: textblock
+#: wcd.pod:835
+msgid "Add the following function to your PowerShell user profile. The location of this profile is stored in the $profile variable. It is required that one of the environment variables I<HOME> or I<WCDHOME> is defined."
+msgstr "Додајте следећу функцију вашем корисничком профилу Моћне шкољке. Место тог профила се чува у променљивој „$profile“. Неопходно је да је дефинисана једна од променљивих окружења I<HOME> или I<WCDHOME>."
+
+#. type: verbatim
+#: wcd.pod:839
+#, no-wrap
+msgid ""
+"    function wcd\n"
+"    {\n"
+"        PATH\\wcdwin32psh.exe $args\n"
+"        & $env:HOME\\wcdgo.ps1\n"
+"    }\n"
+"\n"
+msgstr ""
+"    function wcd\n"
+"    {\n"
+"        ПУТАЊА\\wcdwin32psh.exe $args\n"
+"        & $env:HOME\\wcdgo.ps1\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:845
+msgid "Replace I<PATH> with the location where the wcd executable has been installed.  Start a new PowerShell. Wcd for PowerShell supports only the file system provider. No other providers."
+msgstr "Замените I<ПУТАЊУ> са местом на коме је инсталирана вцд извршна. Покрените нову Моћну шкољку. Вцд за Моћну шкољку подржава само достављача система датотека, не и друге достављаче."
+
+#. type: =head2
+#: wcd.pod:849
+msgid "OS/2 Command Prompt version"
+msgstr "Издање ОС/2 линије наредби"
+
+#. type: textblock
+#: wcd.pod:851
+msgid "In an OS/2 Command Prompt (cmd.exe) an OS/2-program can't change the current work directory. That is why wcd generates a command script C<wcdgo.cmd> which must be executed in the current shell. The script C<wcd.cmd> first executes C<wcdos2.exe>, which creates the C<wcdgo.cmd> script. Then C<wcd.cmd> executes the C<wcdgo.cmd> script."
+msgstr "На ОС/2 линији наредби (cmd.exe) ОС/2-програм не може да промени текући радни директоријум. Због тога вцд ствара скрипту наредбе C<wcdgo.cmd> која мора бити извршена у текућој шкољци. Скрипта C<wcd.cmd> прво извршава C<wcdos2.exe>, која ствара C<wcdgo.cmd> скрипту. Затим C<wcd.cmd> извршава C<wcdgo.cmd> скрипту."
+
+#. type: =head1
+#: wcd.pod:858
+msgid "LOCALIZATION"
+msgstr "ЛОКАЛИЗАЦИЈА"
+
+#. type: =item
+#: wcd.pod:862
+msgid "B<LANG>"
+msgstr "B<LANG>"
+
+#. type: textblock
+#: wcd.pod:864
+msgid "The primary language is selected with the environment variable I<LANG>. The I<LANG> variable consists out of several parts. The first part is in small letters the language code. The second one is optional and is the country code in capital letters, preceded with an underscore. There is also an optional third part: character encoding, preceded with a dot. A few examples for POSIX standard type shells:"
+msgstr "Главни језик се бира променљивом окружења I<LANG>. Променљива I<LANG> се састоји из неколико делова. Први део је малим словима код језика. Други је необавезан и представља код државе великим словима, испред којег је доња црта. Ту је и необавезни трећи део: кодни распоред, којем претходи тачка. Неколико примера за ПОСИКС шкољке стандардног типа:"
+
+#. type: verbatim
+#: wcd.pod:871
+#, no-wrap
+msgid ""
+"    export LANG=nl               Dutch\n"
+"    export LANG=nl_NL            Dutch, The Netherlands\n"
+"    export LANG=nl_BE            Dutch, Belgium\n"
+"    export LANG=es_ES            Spanish, Spain\n"
+"    export LANG=es_MX            Spanish, Mexico\n"
+"    export LANG=en_US.iso88591   English, USA, Latin-1 encoding\n"
+"\n"
+msgstr ""
+"    export LANG=nl               Холандски\n"
+"    export LANG=nl_NL            Холандски, Низоземска\n"
+"    export LANG=nl_BE            Холандски, Белгија\n"
+"    export LANG=es_ES            Шпански, Шпанија\n"
+"    export LANG=es_MX            Шпански, Мексико\n"
+"    export LANG=en_US.iso88591   Енглески, САД, латинично-1 кодирање\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:878
+msgid "For a complete list of language and country codes see the gettext(1)  manual: L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes> On Unix systems you can use to command locale(1) to get locale specific information."
+msgstr "За потпуни списак кодова језика и земаља видите „gettext(1)“ упутство: L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes> На Јуникс системима можете да користите да наредба „locale(1)“ добави језику специфичне информације."
+
+#. type: =item
+#: wcd.pod:884
+msgid "B<LANGUAGE>"
+msgstr "B<LANGUAGE>"
+
+#. type: textblock
+#: wcd.pod:886
+msgid "With the I<LANGUAGE> environment variable you can specify a priority list of languages, separated by colons. Wcd gives preference to I<LANGUAGE> over I<LANG>. For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first enable localization, by setting I<LANG> or I<LC_ALL> to a value other than I<C>, before you can use a language priority list through the I<LANGUAGE> variable. See also the gettext(1) manual: L<http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>"
+msgstr "Помоћу променљиве окружења I<LANGUAGE> можете одредити списак приоритета језика, одвојених двотачком. Вцд даје предност I<LANGUAGE>-у над I<LANG>-ом. На пример, прво холандски, а затим немачки: C<LANGUAGE=nl:de>. Прво морате да омогућите локализацију, постављањем I<LANG> или I<LC_ALL> на вредност која није I<C>, пре него што будете могли да користите списак приоритета језика помоћу променљиве I<LANGUAGE>. Такође погледајте приручник „gettext(1)“: L<http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>"
+
+#. type: textblock
+#: wcd.pod:894
+msgid "If you select a language which is not available you will get the standard English messages."
+msgstr "Ако изаберете језик који није доступан добићете уобичајене поруке на енглеском."
+
+#. type: =item
+#: wcd.pod:897
+msgid "B<WCDLOCALEDIR>"
+msgstr "B<WCDLOCALEDIR>"
+
+#. type: textblock
+#: wcd.pod:899
+msgid "With the environment variable I<WCDLOCALEDIR> the I<LOCALEDIR> used during compilation and installation of wcd can be overruled. I<LOCALEDIR> is used by wcd with native language support to find the language files. The GNU default value is C</usr/local/share/locale>. By typing C<wcd -V> wcd will print the I<LOCALEDIR> that is used."
+msgstr "Променљивом окружења I<WCDLOCALEDIR> I<LOCALEDIR> коришћен за време превођења и инсталације вцд-а се може заменити. Вцд користи I<LOCALEDIR> са подршком изворног језика да нађе датотеке језика. Гнуова основна вредност је C</usr/local/share/locale>. Када упишете C<wcd -V> вцд ће исписати I<LOCALEDIR> који се користи."
+
+#. type: textblock
+#: wcd.pod:905
+msgid "If you have installed wcd in a different directory than the default directory you may need to set the environment variable I<WCDLOCALEDIR> to point to the locale directory."
+msgstr "Ако сте инсталирали вцд у другом директоријуму а не у основном, морате да поставите променљиву окружења I<WCDLOCALEDIR> да показује на директоријум језика."
+
+#. type: textblock
+#: wcd.pod:910
+msgid "An example for Windows cmd:"
+msgstr "Пример за Виндоуз наредбу:"
+
+#. type: verbatim
+#: wcd.pod:912
+#, no-wrap
+msgid ""
+"    set WCDLOCALEDIR=c:/my_prefix/share/locale\n"
+"\n"
+msgstr ""
+"    set WCDLOCALEDIR=c:/moj_prefiks/share/locale\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:915
+msgid "An example for a POSIX shell:"
+msgstr "Пример за ПОСИКС шкољку:"
+
+#. type: verbatim
+#: wcd.pod:917
+#, no-wrap
+msgid ""
+"    export WCDLOCALEDIR=$HOME/share/locale\n"
+"\n"
+msgstr ""
+"    export WCDLOCALEDIR=$HOME/share/locale\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:919
+msgid "B<LC_COLLATE>"
+msgstr "B<LC_COLLATE>"
+
+#. type: textblock
+#: wcd.pod:921
+msgid "When there are multiple directory matches wcd presents a sorted list. The sorting depends on the locale settings. If the environment I<LANG> has been set the matches are sorted like dictionaries or phone books are sorted in that language. For instance dots and dashes are ignored, or letters e with and without accent are equal, or upper and lower case is ignored."
+msgstr "Када постоје подударања више директоријума, вцд приказује уређен списак. Ређање зависи од поставки локалитета. Ако је постављено окружење I<LANG>, подударања се ређају попут речника или телефонског именика на том језику. На пример, тачке и цртице се занемарују, или слова е са и без акцента су једнака, или се занемарују велика и мала слова."
+
+#. type: textblock
+#: wcd.pod:927
+msgid "The sorting gives preference to environment variable I<LC_COLLATE> over I<LANG>. If you make I<LC_COLLATE> equal to C<C> or C<POSIX>, locale sorting is turned off. For instance if you want Dutch language, but not Dutch sorting, you can do something like this:"
+msgstr "Ређање даје предност променљивој окружења I<LC_COLLATE> у односу на I<LANG>. Ако учините I<LC_COLLATE> једнаким са C<C> или са C<POSIX>-ом, ређање локалитета је искључено. На пример, ако желите холандски језик, али не и холандско ређање, можете урадити нешто попут овог:"
+
+#. type: verbatim
+#: wcd.pod:932
+#, no-wrap
+msgid ""
+"    export LANG=nl_NL\n"
+"    export LC_COLLATE=C\n"
+"\n"
+msgstr ""
+"    export LANG=nl_NL\n"
+"    export LC_COLLATE=C\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:935
+msgid "B<LC_CTYPE>"
+msgstr "B<LC_CTYPE>"
+
+#. type: textblock
+#: wcd.pod:937
+msgid "With regard to character encoding Wcd will give preference to variable I<LC_CTYPE> over I<LANG>. For instance to set character encoding to UTF-8 the following environment setting can be done."
+msgstr "Што се тиче кодирања знакова, Вцд ће дати предност променљивој I<LC_CTYPE> у односу на I<LANG>. На пример, да поставите кодирање знакова на УТФ-8, можете извршити следеће подешавање окружења."
+
+#. type: verbatim
+#: wcd.pod:941
+#, no-wrap
+msgid ""
+"    export LC_CTYPE=en_US.UTF-8\n"
+"\n"
+msgstr ""
+"    export LC_CTYPE=en_US.UTF-8\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:943
+msgid "B<LC_ALL>"
+msgstr "B<LC_ALL>"
+
+#. type: textblock
+#: wcd.pod:945
+msgid "All locale environment variables that start with I<LC_> are overruled by the environment variable I<LC_ALL> if it is defined. Wcd gives preference to I<LC_ALL> over I<LC_COLLATE> and I<LC_CTYPE>."
+msgstr "Све променљиве окружења локалитета које почињу са I<LC_> замењују се променљивом окружења I<LC_ALL> ако је дефинисана. Вцд даје предност I<LC_ALL> над I<LC_COLLATE> и I<LC_CTYPE>."
+
+#. type: =head2
+#: wcd.pod:951
+msgid "WINDOWS CODE PAGES"
+msgstr "ВИНДОУЗ КОДНЕ СТРАНИЦЕ"
+
+#. type: textblock
+#: wcd.pod:953
+msgid "There are two groups of code pages: DOS code pages (OEM) and Windows code pages (ANSI). The default encoding for Windows, when configured with Western regional settings, is ANSI CP1252. Windows programs, for instance notepad, use this default system ANSI code page. The Windows console uses by default an OEM code page (CP437 or CP850) for compatibility with DOS programs. If you use a DOS version of wcd in a Windows console it will work, because of the DOS code page.  But the DOS version of wcd lacks support for long directory names and network drives on Windows."
+msgstr "Постоје две групе кодних страница: ДОС кодне странице (OEM) и Виндоуз кодне странице (АНСИ). Подразумевано кодирање за Виндоуз, када је подешено са западним регионалним поставкама, је АНСИ CP1252. Виндоуз програми, на пример бележница, користе ову подразумевану системску АНСИ кодну страницу. Виндоуз конзола подразумевано користи ОЕМ кодну страницу (CP437 или CP850) за сагласност са ДОС програмима. Ако користите ДОС издање вцд-а у Виндоуз конзоли, радиће, због ДОС кодне странице. Али ДОС издању вцд-а недостаје подршка за дугачке називе директоријума и мрежне дискове на Виндоузу."
+
+#. type: textblock
+#: wcd.pod:962
+msgid "The Windows version of wcd is a native Windows program and will use the Windows system ANSI code page. So on a Western regional Windows it will use code page CP1252 for directory names and messages. In order to get consistent output, independent of the active code page, all Windows versions of Wcd translate ANSI output to Unicode output in the Command Prompt and PowerShell."
+msgstr "Виндоуз издање вцд-а је изворни Виндоуз програм и користиће АНСИ кодну страницу Виндоуз система. Дакле, на западнорегионалном Виндоузу користиће кодну страницу CP1252 за називе директоријума и поруке. Да би се добио доследан излаз, незавивисно од активне кодне странице, сва Виндоуз издања Вцд-а преводе АНСИ излаз у Јуникод излаз на линији наредби и Моћној шкољци."
+
+#. type: textblock
+#: wcd.pod:968
+msgid "The console raster font only supports the original OEM code page installed with Windows, so you have to change the console's font to true type Lucida Console to make Unicode (and ANSI) letters appear correctly."
+msgstr "Растерска конзолна слова подржавају само оригиналну ОЕМ кодну страницу инсталирану са Виндоузом, тако да морате да промените врсту слова конзоле у „true type Lucida Console“ да би се Јникод (и АНСИ) слова правилно приказивала."
+
+#. type: textblock
+#: wcd.pod:972
+msgid "Non-Unicode versions of Wcd I<prior to version 5.2.0> use plain ANSI output.  For these older versions the code page of the console has to be made equal to the system code page (changed to 1252) to make wcd for Windows work properly with special characters such as accented characters or the Euro symbol."
+msgstr "Не-Јуникод издање Вцд-а I<пре издања 5.2.0> користе обичан АНСИ излаз. За ова старија издања кодна страница конзоле мора бити једнака системској кодној страници (промењена у 1252) да би вцд за Виндоуз исправно радио са посебним знаковима као што су наглашени знакови или симбол евра."
+
+#. type: textblock
+#: wcd.pod:977
+msgid "The Windows system code page can be changed via the Control Panel regional options. The Windows console code page is changed with the C<chcp> command."
+msgstr "Кодна страница Виндоуз система може се променити путем опција региона на контролној табли. Кодна страница Виндоуз конзоле се мења помоћу наредбе C<chcp>."
+
+#. type: textblock
+#: wcd.pod:980
+msgid "When you type C<wcd -V>, the actual character encoding used by wcd is shown. Type the command C<chcp> to display the active code page of the Windows console."
+msgstr "Када упишете C<wcd -V>, приказује се тренутно кодирање знакова које користи вцд. Упишите наредбу C<chcp> да прикажете тренутну кодну страницу Виндоуз конзоле."
+
+#. type: =head2
+#: wcd.pod:985
+msgid "UNICODE"
+msgstr "ЈУНИКОД"
+
+#. type: textblock
+#: wcd.pod:987
+msgid "Wcd has optional support for Unicode. To see if wcd was built with Unicode support type C<wcd -V>. If your terminal/console and font supports it, you should see the Euro symbol and Chinese characters (meaning: \"Chinese\")."
+msgstr "Вцд има изборну подршку за Јуникод. Да видите да ли је вцд изграђен са Јуникод подршком упишите C<wcd -V>. Ако га ваш терминал/конзола и врста слова подржавају, требало би да видите симбол евра и кинеске знакове (који значе: „Кинески“)."
+
+#. type: textblock
+#: wcd.pod:992
+msgid "Wcd has been I<soft> converted to Unicode. In its core wcd handles all data as a stream of bytes. Only the lines printed to screen are on the fly converted to Unicode wide characters. Wcd fully relies on libc functions and has no UTF-8 specific code. See also L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>"
+msgstr "Вцд је I<лагано> претворен у Јуникод. У свом језгру вцд ради са свим подацима као да су токови бајтова. Само редови исписани на екрану се у лету претварају у Јуникод свеопште знакове. Вцд се у потпуности ослања на „libc“ функције и нема УТФ-8 специфични код. Видите такође L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>"
+
+#. type: textblock
+#: wcd.pod:998
+msgid "Wcd has optional support for Unicode matching with normalisation. To find out whether Wcd has normalisation support type C<wcd -V>.  Wcd with Unicode normalization support will match Unicode names based on I<compatible> equivalence. Without Unicode normalization support, names are matched when they are binary equivalent.  See also L<http://en.wikipedia.org/wiki/Unicode_normalization>"
+msgstr "Вцд има опционалну подршку за Јуникод подударање са нормализацијом. Да сазнате да ли Вцд има подршку за нормализацију упишите C<wcd -V>. Вцд са подршком за Јуникод нормализацију подудараће Јуникод називе на основу I<сагласне> истоветности. Без подршке Јуникод нормализације, називи се подударају када су бинарно еквивалентни. Видите такође L<http://en.wikipedia.org/wiki/Unicode_normalization>"
+
+#. type: =head3
+#: wcd.pod:1005
+msgid "UTF-8 on Unix/Linux"
+msgstr "УТФ-8 на Јуниксу/Линуксу"
+
+#. type: textblock
+#: wcd.pod:1007
+msgid "In order to view UTF-8 characters your console/terminal also needs to support UTF-8. The xterm version that comes with XFree86 4.0 or higher includes UTF-8 support. To activate it, start xterm(1) in a UTF-8 locale and use a font with iso10646-1 encoding, for instance with"
+msgstr "Да бисте видели УТФ-8 знакове, ваша конзола/терминал такође мора подржавати УТФ-8. Издање „xterm“-а које долази са XFree86 4.0 или новијим укључује подршку за УТФ-8. Да је активирате, покрените „xterm(1)“ у УТФ-8 локалитету и користите врсту слова са кодирањем „iso10646-1“, на пример са"
+
+#. type: verbatim
+#: wcd.pod:1012
+#, no-wrap
+msgid ""
+"    LC_CTYPE=en_GB.UTF-8 xterm -u8 -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'\n"
+"\n"
+msgstr ""
+"    LC_CTYPE=en_GB.UTF-8 xterm -u8 -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1014
+msgid "Modern distributions of GNU/Linux support UTF-8 by default. Other multi-byte character encodings should also work, but that has not been tested."
+msgstr "Савремене дистрибуције Гну/Линукса подржавају УТФ-8 по основи. Остала вишебајтна кодирања знакова такође би требало да раде, али то није испробано."
+
+#. type: textblock
+#: wcd.pod:1017
+msgid "Wcd assumes that the treedata files are encoded in the locale character encoding. There are no Byte Order Marks written to treedata files."
+msgstr "Вцд претпоставља да су датотеке стабла података кодиране у кодирању знакова локалитета. У датотеке стабла података нису записане ознаке бајтног поретка."
+
+#. type: =head3
+#: wcd.pod:1021
+msgid "UTF-16 on Windows"
+msgstr "УТФ-16 на Виндоузу"
+
+#. type: textblock
+#: wcd.pod:1023
+msgid "On Windows Unicode is supported in all versions of PowerShell, and in Windows Command Prompt on Windows 7 (or higher). Unicode also works in Take Command or TCC/LE made by JP Software, which can be used on older Windows versions (XP/Vista)."
+msgstr "На Виндоузу Јуникод је подржан у свим издањима Моћне шкољке, и у линији наредби Виндоуза на Виндоузу 7 (или новијем). Јуникод такође ради у „Take Command“ или у „TCC/LE“ ЈП Софтвера, који се може користити на старијим издањима Виндоуза (XP/Виста)."
+
+#. type: textblock
+#: wcd.pod:1028
+msgid "On Windows all the directory names on disk are encoded in UTF-16 Unicode.  For non-Unicode Windows programs the Unicode characters are translated to the default ANSI code page. For characters that are not part of the regional setting this translation is not possible and non-Unicode programs print a question mark or a wrong character instead."
+msgstr "У Виндоузу сви називи директоријума на диску су кодирани у УТФ-16 Јуникоду. За не-Јуникод Виндоуз програме, Јникод знакови се преводе на основну АНСИ кодну страницу. За знакове који нису део регионалне поставке овај превод није могућ, а не-Јуникод програми исписују знак питања или погрешан знак."
+
+#. type: textblock
+#: wcd.pod:1034
+msgid "Wcd with Unicode support will read the UTF-16 encoded directory names and converts them internally to UTF-8. All treedata files are encoded in UTF-8 and not compatible with the non-Unicode version of Wcd. Wcd will create a go-script encoded in UTF-8."
+msgstr "Вцд са Јуникод подршком прочитаће називе директорија кодиране у УТФ-16 и интерно их претворити у УТФ-8. Све датотеке стабла података су кодиране у УТФ-8 и нису сагласне са не-Јуникод издањем Вцд-а. Вцд ће створити „go“-скрипту кодирану у УТФ-8."
+
+#. type: textblock
+#: wcd.pod:1039
+msgid "All versions of Windows PowerShell are able to run scripts encoded in UTF-8, provided there is an UTF-8 BOM in the script."
+msgstr "Сва издања Виндоуз Моћне шкољке могу да покрећу скрипте кодиране у УТФ-8, под условом да у скрипти постоји УТФ-8 знак поретка бајтова."
+
+#. type: textblock
+#: wcd.pod:1042
+msgid "Since Windows 7 it is possible in Windows Command Prompt to change directory with a batch script to a directory with Unicode letters in the name. The directory name needs to be encoded in UTF-8, and the batch script must I<not> have a BOM. The active code page of the Command Prompt needs to be set to 65001 (UTF-8) prior to the cd command. Wcd for Command Prompt will create such a go script C<wcdgo.bat>. It first changes the code page to 65001, then changes directory, and finally sets the code page back to the original code page."
+msgstr "Од Виндоуза 7, могуће је на линији наредби променити директоријум скриптом групе у директоријум са Јуникод словима у називу. Назив директоријума мора бити кодиран у УТФ-8, а скрипта групе I<не> сме да имам знак поретка бајтова. Активна кодна страница линије наредби треба да буде постављена на 65001 (УТФ-8) пре наредбе „cd“. Вцд за линију наредби створиће такву „go“ скрипту C<wcdgo.bat>. Прво мења кодну страницу у 65001, затим мења директоријум и на крају враћа кодну страницу на изворну кодну страницу."
+
+#. type: textblock
+#: wcd.pod:1050
+msgid "You need to set the font to True Type Lucida Console (not raster font) when letters don't appear correctly."
+msgstr "Треба да поставите врсту слова на „True Type Lucida Console“ (не растерска слова) када се слова не приказују исправно."
+
+#. type: textblock
+#: wcd.pod:1053
+msgid "The non-Unicode Windows version of Wcd can read Unicode treedata files since version 5.2.0, provided there is a Byte Order Mark (BOM) in the file (see L<http://en.wikipedia.org/wiki/Byte_order_mark>), but it can't change to directories with Unicode letters in the name that are not part of the default system ANSI code page. The Unicode Windows version of wcd writes a BOM in the UTF-8 encoded treedata files since version 5.2.0, which makes them also readable by notepad."
+msgstr "Издање не-Јуникод Вцд-а за Виндоуз може читати Јуникод датотеке стабла података од издања 5.2.0, под условом да у датотеци постоји ознака редоследа бајтова (BOM) (видите L<http://en.wikipedia.org/wiki/Byte_order_mark> ), али не може да промени у директоријум са Јуникод словима у називу која нису део подразумеване системске АНСИ кодне странице. Издање Јуникод вцд-а за Виндоуз записује ознаку редоследа бајтова у УТФ-8 кодиране датотеке стабла података од издања 5.2.0, што их чини читљивим и у бележници."
+
+#. type: =head3
+#: wcd.pod:1062
+msgid "UTF-8 on Cygwin"
+msgstr "УТФ-8 на Цигвину"
+
+#. type: textblock
+#: wcd.pod:1064
+msgid "Cygwin supports Unicode since version 1.7. The Cygwin layer takes care that the Windows UTF-16 Unicode names are converted to UTF-8. So programs, like wcd, do not need to be aware of this and can operate using UTF-8 encoding as on Unix/Linux. Set character encoding to UTF-8 with the I<LANG> or I<LC_CTYPE> environment variable. You may need to rescan your drives. You need to set the font to True Type Lucida Console (not raster font) if you use the default Cygwin console."
+msgstr "Цигвин подржава Јуникод од издања 1.7. Слој Цигвина брине да се УТФ-16 Јуникод називи Виндоуза претворе у УТФ-8. Дакле, програми, попут вцд-а, не морају бити тога свесни и могу радити користећи УТФ-8 кодирање као на Јуниксу/Линуксу. Поставите кодирање знакова на УТФ-8 са променљивом окружења I<LANG> или I<LC_CTYPE>. Мораћете поново да прегледате своје дискове. Морате да поставите врсту слова на „True Type Lucida Console“ (не растерска слова) ако користите подразумевану Цигвин конзолу."
+
+#. type: textblock
+#: wcd.pod:1072
+msgid "The Cygwin version behaves exactly as the Unix version of wcd.  There is no BOM written in the treedata files, and it is assumed they are encoded in the B<Cygwin> locale character encoding."
+msgstr "Издање Цигвина се понаша исто као Јуникс издање вцд-а. У датотекама стабла података нису записане ознаке редоследа бајтова, и претпоставља се да су кодирани у B<Цигвин> кодирању знакова локалитета."
+
+#. type: =head1
+#: wcd.pod:1076
+msgid "FILES"
+msgstr "ДАТОТЕКЕ"
+
+#. type: textblock
+#: wcd.pod:1078
+msgid "If the environment variable I<WCDHOME> is set wcd will use I<WCDHOME> instead of I<HOME>. All C<*.wcd> files are text files. They can be edited with a text editor.  The Windows Command Prompt version of wcd behaves as the DOS version. The Cygwin version of wcd behaves as the Unix version."
+msgstr "Ако је променљива окружења I<WCDHOME>, вцд ће користити I<WCDHOME> уместо I<HOME>. Све C<*.wcd> датотеке су текстуалне датотеке. Могу се уређивати помоћу уређивача текста. Вцд издање Виндоуз линије наредби се понаша као ДОС издање. Цигвин издање вцд-а се понаша као Јуникс издање."
+
+#. type: =item
+#: wcd.pod:1087
+msgid "B<wcd.exe>"
+msgstr "B<wcd.exe>"
+
+#. type: textblock
+#: wcd.pod:1089
+msgid "The program. In Unix shells the program is always called by a function or alias, because the current working directory of a Unix shell can only be changed by the builtin cd command. See also section INSTALLATION."
+msgstr "Програм. У Јуникс шкољкама програм се увек позива функцијом или алијасом, јер тренутни радни директоријум Јуникс шкољке може се променити само уграђеном наредбом „cd“. Погледајте такође одељак ИНСТАЛАЦИЈА."
+
+#. type: =item
+#: wcd.pod:1094
+msgid "B<default treedata file>"
+msgstr "B<основна датотека података стабла>"
+
+#. type: textblock
+#: wcd.pod:1096
+msgid "This is the default treedata file where wcd searches for matches. If it is not readable wcd will create a new one."
+msgstr "Ово је основн адатотека података стабла у којој вцд тражи поклапања. Ако није читљива вцд ће направити нову."
+
+#. type: verbatim
+#: wcd.pod:1099
+#, no-wrap
+msgid ""
+"    DOS: \\treedata.wcd or %HOME%\\treedata.wcd\n"
+"    Unix: $HOME/.treedata.wcd\n"
+"\n"
+msgstr ""
+"    ДОС: \\treedata.wcd or %HOME%\\treedata.wcd\n"
+"    Јуникс: $HOME/.treedata.wcd\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1102
+msgid "B<extra treedata file>"
+msgstr "B<посебна датотека података стабла>"
+
+#. type: textblock
+#: wcd.pod:1104
+msgid "An optional extra treedata file. If it exists and is readable wcd will try to find matches in this file also."
+msgstr "Изборна посебна датотека података стабла. Ако постоји и може да се чита вцд ће покушати да нађе поклапања и у њој такође."
+
+#. type: verbatim
+#: wcd.pod:1107
+#, no-wrap
+msgid ""
+"    DOS: \\extra.wcd or %HOME%\\extra.wcd\n"
+"    Unix: $HOME/.extra.wcd\n"
+"\n"
+msgstr ""
+"    ДОС: \\extra.wcd or %HOME%\\extra.wcd\n"
+"    Јуникс: $HOME/.extra.wcd\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1110
+msgid "B<ban file>"
+msgstr "B<датотека забране>"
+
+#. type: textblock
+#: wcd.pod:1112
+msgid "In this optional file wcd places banned paths. See option B<-b>. Wildcards are supported."
+msgstr "У овој опционалној датотеци вцд ставља забрањене путање. Видите опцију B<-b>. Џокери су подржани."
+
+#. type: verbatim
+#: wcd.pod:1115
+#, no-wrap
+msgid ""
+"    DOS: \\ban.wcd or %HOME%\\ban.wcd\n"
+"    Unix: $HOME/.ban.wcd\n"
+"\n"
+msgstr ""
+"    ДОС: \\ban.wcd or %HOME%\\ban.wcd\n"
+"    Јуникс: $HOME/.ban.wcd\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1118
+msgid "B<alias file>"
+msgstr "B<датотека алијаса>"
+
+#. type: textblock
+#: wcd.pod:1120
+msgid "Optional file with wcd aliases. See option B<-l>."
+msgstr "Опционална датотека са вцд алијасима. Видите опцију B<-l>."
+
+#. type: verbatim
+#: wcd.pod:1122
+#, no-wrap
+msgid ""
+"    DOS: \\alias.wcd or %HOME%\\alias.wcd\n"
+"    Unix: $HOME/.alias.wcd\n"
+"\n"
+msgstr ""
+"    ДОС: \\alias.wcd or %HOME%\\alias.wcd\n"
+"    Јуникс: $HOME/.alias.wcd\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1125
+msgid "B<stack file>"
+msgstr "B<датотека спремника>"
+
+#. type: textblock
+#: wcd.pod:1127
+msgid "In this file wcd stores its stack. The drive letter can be changed with the B<-d> option."
+msgstr "У овој датотеци вцд чува свој спремник. Слово диска се може заменити опцијом B<-d>."
+
+#. type: verbatim
+#: wcd.pod:1130
+#, no-wrap
+msgid ""
+"    DOS: c:\\stack.wcd or %HOME%\\stack.wcd\n"
+"    Unix: $HOME/.stack.wcd\n"
+"\n"
+msgstr ""
+"    ДОС: c:\\stack.wcd or %HOME%\\stack.wcd\n"
+"    Јуникс: $HOME/.stack.wcd\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1133
+msgid "The name of the stack file can be changed with environment variable I<WCDSTACKFILE>.  See section ENVIRONMENT VARIABLES."
+msgstr "Назив датотеке спремника може се изменити променљивом окружења I<WCDSTACKFILE>. Видите одељак ПРОМЕНЉИВЕ ОКРУЖЕЊА."
+
+#. type: =item
+#: wcd.pod:1136
+msgid "B<go-script>"
+msgstr "B<go-скрипта>"
+
+#. type: textblock
+#: wcd.pod:1138
+msgid "This is the shell script which wcd.exe creates each time. It is sourced via a function or an alias. The drive letter can be changed with the B<-d> option.  For history reasons it is placed by default in C<$HOME/bin> on Unix systems. The directory of this file can be changed with the option B<-G>."
+msgstr "Ово је скрипта шкољке коју „wcd.exe“ ствара сваки пут. Извор је путем функције или алијаса. Слово диска се може изменити опцијом B<„-d“>. Из историјских разлога се подразумевано ставља у C<$HOME/bin> на Јуникс системима. Директоријум ове датотеке се може изменити опцијом B<„-G“>."
+
+#. type: verbatim
+#: wcd.pod:1143
+#, no-wrap
+msgid ""
+"    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
+"    Windows Command Prompt: c:\\wcdgo.bat or %HOME%\\wcdgo.bat\n"
+"    Windows PowerShell: $env:HOME\\wcdgo.ps1\n"
+"    WinZsh: $HOME/wcd.go\n"
+"    Cygwin/MSYS: $HOME/bin/wcd.go\n"
+"    OS/2 Command Prompt: c:\\wcdgo.cmd or %HOME%\\wcdgo.cmd\n"
+"    OS/2 bash: c:/wcd.go or $HOME/wcd.go\n"
+"    Unix: $HOME/bin/wcd.go\n"
+"\n"
+msgstr ""
+"    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
+"    Windows Command Prompt: c:\\wcdgo.bat или %HOME%\\wcdgo.bat\n"
+"    Windows PowerShell: $env:HOME\\wcdgo.ps1\n"
+"    WinZsh: $HOME/wcd.go\n"
+"    Cygwin/MSYS: $HOME/bin/wcd.go\n"
+"    OS/2 Command Prompt: c:\\wcdgo.cmd или %HOME%\\wcdgo.cmd\n"
+"    OS/2 bash: c:/wcd.go или $HOME/wcd.go\n"
+"    Unix: $HOME/bin/wcd.go\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1152
+msgid "B<relative treedata file>"
+msgstr "B<релативна датотека података стабла>"
+
+#. type: textblock
+#: wcd.pod:1154
+msgid "Text file with relative paths from I<DIR>. See options B<+S>, B<-n> and B<+n>."
+msgstr "Текстуална датотека са релативним путањама из I<ДИРЕКТОРИЈУМА>. Видите опције B<+S>, B<-n> и B<+n>."
+
+#. type: verbatim
+#: wcd.pod:1157
+#, no-wrap
+msgid ""
+"    DOS: PATH\\rtdata.wcd\n"
+"    Unix: PATH/.rtdata.wcd\n"
+"\n"
+msgstr ""
+"    ДОС: ПУТАЊА\\rtdata.wcd\n"
+"    Јуникс: ПУТАЊА/.rtdata.wcd\n"
+"\n"
+
+#. type: =head1
+#: wcd.pod:1162
+msgid "ENVIRONMENT VARIABLES"
+msgstr "ПРОМЕНЉИВЕ ОКРУЖЕЊА"
+
+#. type: =item
+#: wcd.pod:1166
+msgid "B<HOME>"
+msgstr "B<HOME>"
+
+#. type: textblock
+#: wcd.pod:1168
+msgid "Wcd uses by default environment variable I<HOME> to determine where to store its files. See also section FILES. This can be overruled with environment variable I<WCDHOME>."
+msgstr "Вцд користи по основи променљиву окружења I<HOME> да одреди где ће сместити датотеке. Видите такође одељак ДАТОТЕКЕ. Ово се може превазићи променљивом окружења I<WCDHOME>."
+
+#. type: textblock
+#: wcd.pod:1172
+msgid "I<HOME> also defines where to start scanning the disk when option B<-s> is used. This can be overruled with the environment variable I<WCDSCAN>."
+msgstr "I<HOME> такође дефинише где ће почети прегледање диска када се користи опција B<„-s“>. Ово се може превазићи променљивом окружења I<WCDSCAN>."
+
+#. type: textblock
+#: wcd.pod:1176
+msgid "For the Unix, Cygwin, Windows PowerShell, WinZsh and MSYS version it is required that I<HOME> or I<WCDHOME> is set. For the other versions of wcd the use of these variables is optional."
+msgstr "За Јуникс, Цигвин, Виндоуз Моћну шкољку, WinZsh и MSYS издања потребно је да је постављена I<HOME> или I<WCDHOME>. За друга издања вцд-а коришћење ових променљивих је изборно."
+
+#. type: textblock
+#: wcd.pod:1180
+msgid "If I<HOME> is set on DOS/Windows, wcd will place all its files (treedata.wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) in directory I<HOME>. The behaviour of wcd is then equal to the Unix version of wcd. Wcd will scan the disk default from I<HOME>. Drives will not be automatically scanned by changing to them. You need to tell wcd explicitly. E.g.:"
+msgstr "Ако је постављено I<HOME> на ДОС-у/Виндоузу, вцд ће ставити све своје датотеке (treedata.wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) у директоријум I<HOME>. Понашање вцд-а је тада исто Јуникс издању вцд-а. Вцд ће прегледати диск по основи из I<HOME>. Дискови неће бити самостално прегледани преласком на њих. То треба изричито да кажете вцд-у. Нпр.:"
+
+#. type: verbatim
+#: wcd.pod:1187
+#, no-wrap
+msgid ""
+"    wcd -S c: -A d: -A e:\n"
+"\n"
+msgstr ""
+"    wcd -S c: -A d: -A e:\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1189
+msgid "Matching of directories is now global over all scanned drives."
+msgstr "Упоређивање директоријума је сада свеопште над свим прегледаним дисковима."
+
+#. type: =item
+#: wcd.pod:1192
+msgid "B<WCDHOME>"
+msgstr "B<WCDHOME>"
+
+#. type: textblock
+#: wcd.pod:1194
+msgid "Environment variable I<WCDHOME> can be used to change the location of wcd's files. If both I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead of I<HOME>."
+msgstr "Променљива окружења I<WCDHOME> се може користити за промену места датотека вцд-а. Ако су постављене и I<HOME> и I<WCDHOME>, I<WCDHOME> ће се користити уместо I<HOME>."
+
+#. type: textblock
+#: wcd.pod:1198
+msgid "In wcd versions prior to 5.1.5 I<WCDHOME> also changed the default scan directory.  This has changed. Since version 5.1.5 I<WCDHOME> does not change the default scan directory. See option B<-s>. From version 5.1.5, use environment I<WCDSCAN> to overrule the default scan directory."
+msgstr "У вцд издањима пре 5.1.5 I<WCDHOME> такође замењује основни директоријум прегледања. Ово је измењено. Од издања 5.1.5 I<WCDHOME> не мења основни директоријум прегледања. Видите опцију B<„-s“>. Од издања 5.1.5, користите окружење I<WCDSCAN> да превазиђете основни директоријум прегледања."
+
+#. type: textblock
+#: wcd.pod:1203
+msgid "Example for DOS, Windows, OS/2 Command Prompt:"
+msgstr "Пример за линију наредби за ДОС, Виндоуз, ОС/2:"
+
+#. type: verbatim
+#: wcd.pod:1205
+#, no-wrap
+msgid ""
+"    set WCDHOME=C:\\Users\\erwin\\wcd\n"
+"\n"
+msgstr ""
+"    set WCDHOME=C:\\Korisnici\\erwin\\wcd\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1207 wcd.pod:1228 wcd.pod:1248 wcd.pod:1273
+msgid "An example for POSIX type shells:"
+msgstr "Пример за шкољке ПОСИКС врсте:"
+
+#. type: verbatim
+#: wcd.pod:1209
+#, no-wrap
+msgid ""
+"    export WCDHOME=\"$HOME/.wcd\"\n"
+"\n"
+msgstr ""
+"    export WCDHOME=\"$HOME/.wcd\"\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1211 wcd.pod:1232 wcd.pod:1252 wcd.pod:1277
+msgid "An example for Csh type shells:"
+msgstr "Пример за шкољке „Csh“ врсте:"
+
+#. type: verbatim
+#: wcd.pod:1213
+#, no-wrap
+msgid ""
+"    setenv WCDHOME \"$HOME/.wcd\"\n"
+"\n"
+msgstr ""
+"    setenv WCDHOME \"$HOME/.wcd\"\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1215
+msgid "B<WCDSCAN>"
+msgstr "B<WCDSCAN>"
+
+#. type: textblock
+#: wcd.pod:1217
+msgid "Use environment variable I<WCDSCAN> to overrule the default scan directory I<HOME>. Define a colon separated list (Unix) to define more than one directory.  On DOS/Windows make the list semi-colon separated."
+msgstr "Користите променљиву окружења I<WCDSCAN> да превазиђете основни директоријум прегледања I<HOME>. Дефинишите двотачком одвојен списак (Јуникс) да одредите више од једног директоријума. На ДОС-у/Виндоузу направите списак раздвојен запетачком."
+
+#. type: textblock
+#: wcd.pod:1222
+msgid "Examples for DOS, Windows, OS/2 Command Prompt:"
+msgstr "Примери за линију наредби за ДОС, Виндоуз, ОС/2:"
+
+#. type: verbatim
+#: wcd.pod:1224
+#, no-wrap
+msgid ""
+"    set WCDSCAN=C:\\Users\\erwin;D:\\data\n"
+"\n"
+msgstr ""
+"    set WCDSCAN=C:\\Korisnici\\erwin;D:\\data\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1226
+#, no-wrap
+msgid ""
+"    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\\\projectdrive\\projectX\n"
+"\n"
+msgstr ""
+"    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\\\projectdrive\\projectX\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1230
+#, no-wrap
+msgid ""
+"    export WCDSCAN=\"$HOME:/projectdisk/projectX\"\n"
+"\n"
+msgstr ""
+"    export WCDSCAN=\"$HOME:/projectdisk/projectX\"\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1234
+#, no-wrap
+msgid ""
+"    setenv WCDSCAN \"$HOME:/projectdisk/projectX\"\n"
+"\n"
+msgstr ""
+"    setenv WCDSCAN \"$HOME:/projectdisk/projectX\"\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1236
+msgid "B<WCDFILTER>"
+msgstr "B<WCDFILTER>"
+
+#. type: textblock
+#: wcd.pod:1238
+msgid "Specify filters with environment variable I<WCDFILTER>. All directories that do not match the filter(s) are ignored. A list can be specified by separating filters by the shell path separator. Similar as specifying the I<PATH> variable.  The case sensitivity is mandated by the Operating system."
+msgstr "Наведите филтере са променљивом окружења I<WCDFILTER>. Сви директорији који се не подударају са филтрима занемарују се. Списак се може одредити раздвајањем филтера помоћу раздвојника путање шкољке. Слично као одређивање променљиве I<PATH>. Разликовање величине слова налаже оперативни систем."
+
+#. type: textblock
+#: wcd.pod:1244 wcd.pod:1269
+msgid "An example for DOS, Windows, OS/2 Command Prompt:"
+msgstr "Пример за линију наредби за ДОС, Виндоуз, ОС/2:"
+
+#. type: verbatim
+#: wcd.pod:1246
+#, no-wrap
+msgid ""
+"    set WCDFILTER=projects;doc\n"
+"\n"
+msgstr ""
+"    set WCDFILTER=projects;doc\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1250
+#, no-wrap
+msgid ""
+"    export WCDFILTER=\"projects:doc\"\n"
+"\n"
+msgstr ""
+"    export WCDFILTER=\"projects:doc\"\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1254
+#, no-wrap
+msgid ""
+"    setenv WCDFILTER \"projects:doc\"\n"
+"\n"
+msgstr ""
+"    setenv WCDFILTER \"projects:doc\"\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1256
+msgid "B<WCDBAN>"
+msgstr "B<WCDBAN>"
+
+#. type: textblock
+#: wcd.pod:1258
+msgid "The paths specified with environment I<WCDBAN> will be banned by wcd.  See also option B<-b>. Specify a list of paths separated by shell I<PATH> separator."
+msgstr "Путање наведене окружењем I<WCDBAN> биће забрањене вцд-ом. Видите такође опцију B<„-b“>. Наведите списак путања раздвојених раздвојником I<PATH> шкољке."
+
+#. type: =item
+#: wcd.pod:1262
+msgid "B<WCDEXCLUDE>"
+msgstr "B<WCDEXCLUDE>"
+
+#. type: textblock
+#: wcd.pod:1264
+msgid "The paths specified with environment I<WCDEXCLUDE> will be excluded by wcd. See also options B<-x> and B<-xf>. Specify a list of paths separated by shell I<PATH> separator."
+msgstr "Путање наведене окружењем I<WCDEXCLUDE> биће избачене вцд-ом. Видите такође опције B<„-x“> и B<„-xf“>. Наведите списак путања раздвојених раздвојником I<PATH> шкољке."
+
+#. type: verbatim
+#: wcd.pod:1271
+#, no-wrap
+msgid ""
+"    set WCDEXCLUDE=*/windows;*/temp;*CVS\n"
+"\n"
+msgstr ""
+"    set WCDEXCLUDE=*/windows;*/temp;*CVS\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1275
+#, no-wrap
+msgid ""
+"    export WCDEXCLUDE=\"/dev:/tmp:*CVS\"\n"
+"\n"
+msgstr ""
+"    export WCDEXCLUDE=\"/dev:/tmp:*CVS\"\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1279
+#, no-wrap
+msgid ""
+"    setenv WCDEXCLUDE \"/dev:/tmp:*CVS\"\n"
+"\n"
+msgstr ""
+"    setenv WCDEXCLUDE \"/dev:/tmp:*CVS\"\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1281
+msgid "B<WCDUSERSHOME>"
+msgstr "B<WCDUSERSHOME>"
+
+#. type: textblock
+#: wcd.pod:1283
+msgid "Set the base of user's home directories.  On DOS/Windows the default value is C<\\\\users>.  On Unix/Cygwin the default value is C</home>.  This variable is used to scan treedata files of other users. See also options B<-u> and B<+u>. In verbose mode wcd will print all filters, bans and excludes. See option B<-v>."
+msgstr "Поставите основу личног директоријума корисника. На ДОС-у/Виндоузу основна вредност је C<\\\\users>. На Јуниксу/Цигвин-у основна вредност је c</home>. Ова променљива се користи за прегледање датотека стабла података других корисника. Видите такође опције B<„-u“> и B<„+u“>. У опширном режиму вцд ће исписати све филтере, забране и изузимања. Погледајте опцију B<„-v“>."
+
+#. type: =item
+#: wcd.pod:1290
+msgid "B<WCDSTACKFILE>"
+msgstr "B<WCDSTACKFILE>"
+
+#. type: textblock
+#: wcd.pod:1292
+msgid "Wcd gives preference to I<WCDSTACKFILE> over the default stack file name (see section FILES). With this variable each shell (or used terminal emulator) can have its private stack of used directories."
+msgstr "Вцд даје предност I<WCDSTACKFILE> у односу на основни назив датотеке спремника (видите одељак ДАТОТЕКЕ). Са овом променљивом свака шкољка (или коришћени емулатор терминала) може имати свој приватни спремник коришћених директоријума."
+
+#. type: textblock
+#: wcd.pod:1296
+msgid "To use a unique time based YYYYMMDD-HHMMSS file for each opened interactive shell."
+msgstr "Да користите јединствену времнски засновану „YYYYMMDD-HHMMSS“ датотеку за сваку међудејствену шкољку."
+
+#. type: verbatim
+#: wcd.pod:1299
+#, no-wrap
+msgid ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$(date +%Y%m%d-%H%M%S)\n"
+"\n"
+msgstr ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$(date +%Y%m%d-%H%M%S)\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1301
+msgid "For a stack per xterm(1), use the xterm I<WINDOWID> environment variable:"
+msgstr "За спремник по „xterm(1)“-у, користите променљиву окружења „xterm“-а I<WINDOWID>:"
+
+#. type: verbatim
+#: wcd.pod:1303
+#, no-wrap
+msgid ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOWID\n"
+"\n"
+msgstr ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOWID\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1305
+msgid "For GNU screen(1), to use stack per screen:"
+msgstr "За Гну „screen(1)“, да користите спремник по екрану:"
+
+#. type: verbatim
+#: wcd.pod:1307
+#, no-wrap
+msgid ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOW\n"
+"\n"
+msgstr ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOW\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1309
+msgid "B<TERMINFO>"
+msgstr "B<TERMINFO>"
+
+#. type: textblock
+#: wcd.pod:1311
+msgid "If the environment variable I<TERMINFO> is defined, wcd with ncurses interface checks for a local terminal definition before checking in the standard place. This is useful if terminal definitions are not on a standard place. Often used standard places are C</usr/lib/terminfo> and C</usr/share/terminfo>."
+msgstr "Ако је променљива окружења I<TERMINFO> дефинисана, вцд са нкјурзис сучељем врши проверу за дефиницијом локалног терминала пре провере на стандардном месту. Ово је корисно ако дефиниције терминала нису на стандардном месту. Често коришћена стандардна места су C</usr/lib/terminfo> и C</usr/share/terminfo>."
+
+#. type: =item
+#: wcd.pod:1317
+msgid "B<PDC_RESTORE_SCREEN>"
+msgstr "B<PDC_RESTORE_SCREEN>"
+
+#. type: textblock
+#: wcd.pod:1319
+msgid "Wcd with PDCurses interface recognizes the environment variable I<PDC_RESTORE_SCREEN>. If this environment variable is set, PDCurses will take a copy of the contents of the screen at the time that wcd is started; when wcd exits, the screen will be restored.  An example for Windows Command Prompt:"
+msgstr "Вцд са ПДКјурзис сучељем препознаје променљиву окружења I<PDC_RESTORE_SCREEN>. Ако је ова променљива окружења постављена, ПДКјурзис ће направити умножак садржаја екрана у тренутку покретања вцд-а; када вцд изађе, екран ће бити враћен. Пример за Виндоуз линију наредби:"
+
+#. type: verbatim
+#: wcd.pod:1325
+#, no-wrap
+msgid ""
+"    set PDC_RESTORE_SCREEN=1\n"
+"\n"
+msgstr ""
+"    set PDC_RESTORE_SCREEN=1\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1327
+msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exits if you have set a large buffer width."
+msgstr "Виндоуз омогућава чување само мале међумеморије. Дакле, није увек могуће обновити све. Неки непотребни подаци могу бити исписани у конзоли након изласка из вцд-а ако сте поставили велику ширину међумеморије."
+
+#. type: =item
+#: wcd.pod:1332
+msgid "B<SHELL>"
+msgstr "B<SHELL>"
+
+#. type: textblock
+#: wcd.pod:1334
+msgid "Printing of C<#!$SHELL> on the first line of the go-script for POSIX type shell or C shell is needed for 8 bit characters. Some shells otherwise think that the go-script is a binary file and will not source it. In Cygwin Bash the variable I<SHELL> must be set in environment using the C<export> command, otherwise wcd can't read the variable."
+msgstr "Испис C<#!$SHELL> у првом реду „go“-скрипте за ПОСИКС врсту шкољке или „C“ шкољке је потребан за 8-битне знакове. Неке шкољке иначе мисле да је „go“-скрипта бинарна датотека и неће је изворити. У Цигвин Баш-у променљива I<SHELL> мора бити постављена у окружењу помоћу наредбе C<export>, у супротном вцд не може прочитати променљиву."
+
+#. type: =item
+#: wcd.pod:1342
+msgid "B<BASH>"
+msgstr "B<BASH>"
+
+#. type: textblock
+#: wcd.pod:1344
+msgid "Wcd for DOS bash uses C<$BASH> instead of C<$SHELL>, because C<$SHELL> points to the DOS command shell. One may need to define C<$BASH> with an C<export> command, otherwise wcd can't read the variable."
+msgstr "Вцд за ДОС баш користи C<$BASH> уместо C<$SHELL>, јер „$SHELL“ показује на ДОС шкољку наредби. Мораћете да дефинишете C<$BASH> наредбом C<export>, у супротном вцд неће моћи да чита променљиву."
+
+#. type: =head1
+#: wcd.pod:1351
+msgid "SEE ALSO"
+msgstr "ВИДИТЕ ТАКОЂЕ"
+
+#. type: textblock
+#: wcd.pod:1353
+msgid "sh(1), bash(1), csh(1), ksh(1), zsh(1), locale(1), ncurses(1),"
+msgstr "sh(1), bash(1), csh(1), ksh(1), zsh(1), locale(1), ncurses(1),"
+
+#. type: =head1
+#: wcd.pod:1361
+msgid "AUTHORS"
+msgstr "АУТОРИ"
+
+#. type: textblock
+#: wcd.pod:1363
+msgid "Wcd was written by Erwin Waterlander <waterlan@xs4all.nl>"
+msgstr "Вцд је написао Ервин Вотерландер <waterlan@xs4all.nl>"
+
+#. type: textblock
+#: wcd.pod:1365
+msgid "Project homepage: L<http://waterlan.home.xs4all.nl/>"
+msgstr "Матична страница пројекта: L<http://waterlan.home.xs4all.nl/>"
+
+#. type: textblock
+#: wcd.pod:1368
+msgid "SourceForge: L<http://sourceforge.net/projects/wcd/>"
+msgstr "Ковница извора: L<http://sourceforge.net/projects/wcd/>"
+
+#. type: textblock
+#: wcd.pod:1371
+msgid "The manual page formatting was provided by Jari Aalto <jari.aalto@cante.net>."
+msgstr "Форматирање странице упутства је обезбедио Јари Алто <jari.aalto@cante.net>."
+
+#. type: textblock
+#: wcd.pod:1374
+msgid "NCD was originally written by Brad Kingsbury for Peter Norton's \"Norton Utilities\" around 1987. See also L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
+msgstr "„NCD“ је изворно написао Бред Кингсбри за „Norton Utilities“ Петера Нортона око 1987. Видите такође L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"

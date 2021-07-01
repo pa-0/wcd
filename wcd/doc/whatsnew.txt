@@ -1,4 +1,6 @@
 6.0.4-beta1 2021-04-03
+  - New Serbian translation of the manual.
+    Thanks to Мирослав Николић.
   - Updated French translations of messages and manual.
     Thanks to Grégoire Scano.
   - Updated Esperanto translation. Thanks to Felipe Castro.

@@ -308,6 +308,7 @@ Table of Contents
         Dutch                 Erwin Waterlander            Version 5.2.5 - 6.0.3
         German                Mario Blättermann            Version 5.2.5 - 6.0.3
         French                Grégoire Scano               Version 6.0.3 - 6.0.4
+        Serbian               Мирослав Николић             Version 6.0.4
         Ukrainian             Yuri Chornoivan              Version 5.2.5 - 6.0.3
 
 
