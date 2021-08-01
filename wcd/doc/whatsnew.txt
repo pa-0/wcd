@@ -1,4 +1,4 @@
-6.0.4-beta1 2021-04-03
+6.0.4-beta2 2021-08-01
   - New Serbian translation of the manual.
     Thanks to Мирослав Николић.
   - Updated French translations of messages and manual.
@@ -6,6 +6,7 @@
   - Updated Esperanto translation. Thanks to Felipe Castro.
   - Updated information about building wcd with DJGPP on Windows 8.1
     and higher.
+  - Windows version: Upgrade to PDCurses 3.9.
 
 6.0.3 2019-08-14
   - New French translations of the messages and the manual.
