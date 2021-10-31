@@ -1,13 +1,13 @@
 open sftp://waterlan,wcd@frs.sourceforge.net
 cd /home/frs/project/w/wc/wcd/wcd
-mkdir 6.0.3
-cd 6.0.3
-mput wcd-6.0.3.tar.gz wcd603.zip wcd603b.zip wcd603pm.zip wcd603bh.zip
-mput wcd-6.0.3-win32.zip wcd-6.0.3-win32psh.zip
-mput wcd-6.0.3-win32-nls-ucs.zip wcd-6.0.3-win32psh-nls-ucs.zip
-mput wcd-6.0.3-win64.zip wcd-6.0.3-win64psh.zip
-mput wcd-6.0.3-win64-nls-ucs.zip wcd-6.0.3-win64psh-nls-ucs.zip
+mkdir 6.0.4
+cd 6.0.4
+mput wcd-6.0.4.tar.gz wcd604.zip wcd604b.zip wcd604pm.zip wcd604bh.zip
+mput wcd-6.0.4-win32.zip wcd-6.0.4-win32psh.zip
+mput wcd-6.0.4-win32-nls-ucs.zip wcd-6.0.4-win32psh-nls-ucs.zip
+mput wcd-6.0.4-win64.zip wcd-6.0.4-win64psh.zip
+mput wcd-6.0.4-win64-nls-ucs.zip wcd-6.0.4-win64psh-nls-ucs.zip
 mput README.txt
-mput wcd-6.0.3.tar.gz.asc
-mput wcd-6.0.3-os2-watcom.zip
+mput wcd-6.0.4.tar.gz.asc
+mput wcd-6.0.4-os2-watcom.zip
 exit

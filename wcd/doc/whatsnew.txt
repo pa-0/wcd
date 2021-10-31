@@ -1,4 +1,4 @@
-6.0.4-beta2 2021-08-01
+6.0.4 2021-10-31
   - New Serbian translation of the manual.
     Thanks to Мирослав Николић.
   - Updated French translations of messages and manual.
