@@ -129,7 +129,7 @@ char *wcd_strncpy(char *dest, const char *src, size_t dest_size)
    dest[dest_size-1] = '\0';
 #if DEBUG
    if(strlen(src) > (dest_size-1)) {
-     print_error("Text %s has been truncated from %d to %d characters in %s to prevent a buffer overflow.\n", src, (int)strlen(src), (int)dest_size, "wcd_strncpy()");
+     print_error("Text %s has been truncated from %d to %d characters in %s to prevent a buffer overflow.\n", src, (int)strlen(src), (int)dest_size-1, "wcd_strncpy()");
    }
 #endif
    return dest;
