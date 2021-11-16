@@ -13,11 +13,18 @@ Prerequisites
 
 * Visual C++ compiler.
 * pdcurses  : CRT screen handling and optimization package
+
+
+Optional
+========
+
+For rebuilding the documenation.
+
 * perl      : Practical Extraction and Report Language (perlpod)
 
 Needed for building packages:
 
-* zip         : compressor-archiver  http://www.info-zip.org/
+* zip       : compressor-archiver https://sourceforge.net/projects/infozip/
 
 
 Visual C++

@@ -31,7 +31,7 @@ If you want to generate PostScript or PDF versions of the manual:
 
 Needed for building packages:
 
-* zip         : compressor-archiver
+* zip         : compressor-archiver https://sourceforge.net/projects/infozip/
 
 
 gcc

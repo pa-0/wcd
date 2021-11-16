@@ -13,11 +13,18 @@ Prerequisites
 
 * Watcom C compiler.
 * pdcurses  : CRT screen handling and optimization package
+
+
+Optional
+========
+
+For rebuilding the documenation.
+
 * perl      : Practical Extraction and Report Language (perlpod)
 
 Needed for building packages:
 
-* zip         : compressor-archiver
+* zip       : compressor-archiver https://sourceforge.net/projects/infozip/
 
 
 Watcom C
