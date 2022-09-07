@@ -38,7 +38,7 @@ PDCurses
 ========
 
 To build wcd with PDCurses interface you need to have the PDCurses
-library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
+library installed. Get PDCurses at https://sourceforge.net/projects/pdcurses/
 Compile it and copy the library file into the proper VC\lib directory
 and the curses.h file in the VC\include directory.
 
@@ -60,8 +60,8 @@ the manuals, you need a 'perl' installation.
 There exist ready-to-run perl packages.
 
     Windows:
-        Strawberry Perl: http://strawberryperl.com/
-        Active Perl    : http://www.activestate.com/activeperl
+        Strawberry Perl: https://strawberryperl.com/
+        Active Perl    : https://www.activestate.com/activeperl
 
 
 Problems on Windows VISTA and higher

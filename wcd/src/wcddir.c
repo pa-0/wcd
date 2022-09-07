@@ -99,7 +99,7 @@ int wcd_isServerPath (char* path)
 void exterr( void )
 {
    /* This function was taken from Felix Kasza's Win32 Samples page
-      at MVPS.ORG.  http://www.mvps.org/win32/
+      at MVPS.ORG.  https://www.mvps.org/
       */
    char errbuf[2048], namebuf[2048];
    DWORD err;
@@ -116,7 +116,7 @@ void exterr( void )
 int doEnum( int level, NETRESOURCE *pnr, nameset n )
 {
    /* This function was taken from Felix Kasza's Win32 Samples page
-      at MVPS.ORG.  http://www.mvps.org/win32/
+      at MVPS.ORG.  https://www.mvps.org/
       */
    DWORD rc, rc2;
    HANDLE hEnum;
@@ -451,8 +451,8 @@ int wcd_unlink(const char *path)
  *       stat(path, &buf) ;
  *          if (S_ISDIR(buf.st_mode)) { ... }
  *
- * See also bug report at http://sourceforge.net/projects/mingw/
- *   http://sourceforge.net/tracker/?func=detail&atid=102435&aid=3304800&group_id=2435
+ * See also bug report at https://sourceforge.net/projects/mingw/
+ *   https://sourceforge.net/tracker/?func=detail&atid=102435&aid=3304800&group_id=2435
  *
  * - The function 'opendir()' from <dirent.h> works on all systems,
  *   also on Windows UNC paths as above, but not all compilers have 'dirent'

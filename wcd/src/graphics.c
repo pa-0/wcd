@@ -7,7 +7,7 @@ used in the WCD graphical interface.
 Ninux Change Directory
 Copyright (C) 1995 Borja Etxebarria
 <borja@bips.bi.ehu.es> or <jtbecgob@s835cc.bi.ehu.es>
-http://www.ibiblio.org/pub/Linux/utils/shell/ncd-0.9.8.tgz
+https://www.ibiblio.org/pub/Linux/utils/shell/ncd-0.9.8.tgz
 
 Additions on NCD were made by Olivier Sirol (Czo)
 
@@ -15,7 +15,7 @@ Ninux Czo Directory
 Copyright (C) 1995 Borja Etxebarria
 Copyright (C) 1996 Olivier Sirol
 Olivier Sirol <sirol@ecoledoc.ibp.fr>
-http://www.ibiblio.org/pub/Linux/utils/file/managers/ncd1_205.tgz
+https://www.ibiblio.org/pub/Linux/utils/file/managers/ncd1_205.tgz
 
 
 This program is free software; you can redistribute it and/or

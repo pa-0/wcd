@@ -23,7 +23,7 @@ Known problems
   When you build wcd on Windows without the MSYS environment you may run into
   problems during `make install', because the GnuWin32 ports of `mkdir' and
   `install' of the coreutils package have problems. See
-  http://sourceforge.net/tracker/?func=detail&aid=2115584&group_id=23617&atid=379173
+  https://sourceforge.net/tracker/?func=detail&aid=2115584&group_id=23617&atid=379173
   Better use the MSYS environment.
 
  This problem is also seen on OS/2. Try an older version of coreutils package.

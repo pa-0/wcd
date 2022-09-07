@@ -4,13 +4,13 @@ TO DO
 * Translate the program messages.
 
   Translation of the messages for wcd is going via the Translation Project (TP).
-  See http://translationproject.org/domain/wcd.html
+  See https://translationproject.org/domain/wcd.html
 
 
 * Translate the manual.
 
   Translation of the manual for wcd is going via the Translation Project (TP).
-  See http://translationproject.org/domain/wcd-man.html
+  See https://translationproject.org/domain/wcd-man.html
 
 
 * Improve interface for East Asian double width CJK fonts (Chinese, Japanese, Korean)
@@ -56,4 +56,4 @@ Things I deliberately not implemented. (This may change in the future.)
   matching support. My experience was that when the number of directories is
   very large the fuzzy matching often causes unexpected behaviour. That is why
   I removed it again. I used the TRE regexp matching library, made by Ville
-  Laurikari. See http://www.laurikari.net/tre/
+  Laurikari. See https://www.laurikari.net/tre/

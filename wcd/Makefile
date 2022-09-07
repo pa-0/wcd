@@ -11,7 +11,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 # General Public License for more details.
 #
-# Visit <http://www.gnu.org/copyleft/gpl.html>
+# Visit <https://www.gnu.org/copyleft/gpl.html>
 
 
 # This makefile is intended only for Unix/Linux.

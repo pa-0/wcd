@@ -121,7 +121,7 @@ Prompt icon and select `Run as administrator'.
 ......................................................................
 - Windows PowerShell
 
-See http://en.wikipedia.org/wiki/Windows_PowerShell
+See https://en.wikipedia.org/wiki/Windows_PowerShell
 
 It  is  required that environment variable HOME or WCDHOME is set.  A function
 in your PowerShell user profile must be defined. The location of this profile
@@ -141,7 +141,7 @@ Start a new PowerShell
 - WinZsh (zsh) and MSYS (bash)
 
 A native Windows port of Z shell has been made by Amol Deshpande.
-See http://waterlan.home.xs4all.nl/#ZSH
+See https://waterlan.home.xs4all.nl/#ZSH
 An updated version is available at:
 http://zsh-nt.sourceforge.net/
 
@@ -149,8 +149,8 @@ MSYS, a contraction of "Minimal SYStem", is a Bourne Shell command line
 interpreter system. Offered as an alternative to Microsoft's cmd.exe, this
 provides a general purpose command line environment, which is particularly
 suited to use with MinGW, for porting of many Open Source applications to the
-MS-Windows platform. See also http://www.mingw.org/
-
+MS-Windows platform. See also https://osdn.net/projects/mingw/ and
+https://mingw.osdn.io/
 
 
 It  is  required that environment variable HOME or WCDHOME is set.  A function
@@ -170,7 +170,7 @@ Replace PREFIX with the prefix used during package installation.
 
 You have to start MSYS like this: msys.bat --norxvt , because the default rxvt
 terminal doesn't accept standard input from native Windows programs. See also
-http://www.nabble.com/Accepting-standard-input-from-MSYS-with-native-Win32-programs-td19432889.html
+https://sourceforge.net/p/mingw/mailman/mingw-users/thread/20080911113208.c7imlwsuksbcws8g%40mail.progw.org/#msg20318652
 You need a recent version of msys.bat that supports option --norxvt.
 
 ......................................................................

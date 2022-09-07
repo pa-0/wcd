@@ -37,10 +37,10 @@ Needed for building packages:
 gcc
 ===
 
-DOS     : DJGPP     : http://www.delorie.com/djgpp/
-Windows : MinGW     : http://www.mingw.org/
+DOS     : DJGPP     : https://www.delorie.com/djgpp/
+Windows : MinGW     : https://osdn.net/projects/mingw/
 Windows : MinGW-w64 : https://mingw-w64.org/
-Windows : MSYS2     : http://www.msys2.org/
+Windows : MSYS2     : https://www.msys2.org/
 OS/2    : EMX       : http://www.edm2.com/index.php/The_EMX_Project
 
 DJGPP 2.03 gcc >= 4.6 seems to cause problems. Crashes of gcc itself, or crashing
@@ -52,7 +52,7 @@ Wcd compiles with mingw.org and mingw-w64. I recommend using mingw-w64 in the MS
 The MSYS2 project includes the MinGW-w64 compiler <https://mingw-w64.org/>
 for both 32 and 64 bit. Plus it includes a complete building environment. A
 POSIX shell, and many libraries and utilities.
-See also http://www.msys2.org/
+See also https://www.msys2.org/
 
 On OS/2 don't add gcc flag -Zargs-wild, because we want wcd to see the literal
 arguments.  Wild argument expansion may lead to unexpected behaviour when an
@@ -67,7 +67,7 @@ GNU make may not work as expected if you don't have a proper shell installed.
 You can choose a shell for GNU Make by setting the environment variable SHELL.
 See also the GNU make manual:
 
-http://www.gnu.org/software/make/manual/make.html#Choosing-the-Shell
+https://www.gnu.org/software/make/manual/make.html#Choosing-the-Shell
 
 DJGPP     : Includes bash
 MinGW-w64 : Use MSYS2
@@ -103,8 +103,8 @@ Until wcd version 5.1.1 I used GnuWin32's gettext/libiconv instead of MinGW's,
 because the GnuWin32 port of libintl (part of gettext) has builtin relocation
 support. From wcd version 5.1.2 I use MinGW's gettext/libiconv. Wcd win32
 binaries are packed with a patched version of MinGW's libintl-8.dll that also
-supports relocation. See also http://waterlan.home.xs4all.nl/libintl.html and
-http://sourceforge.net/p/mingw/bugs/1808/
+supports relocation. See also https://waterlan.home.xs4all.nl/libintl.html and
+https://sourceforge.net/p/mingw/bugs/1808/
 
 The patch was not accepted by MinGW.org, but the MSYS2 project has included
 the patch for both 32 and 64 bit.
@@ -116,7 +116,7 @@ groff and ghostscript
 These packages are needed if you want to create PostScript and PDF versions of
 the wcd manual page.
 
-Groff and ghostscript are available in the Cygwin environment (http://cygwin.com).
+Groff and ghostscript are available in the Cygwin environment (https://cygwin.com).
 
 
 Problems on Windows VISTA and higher
@@ -150,7 +150,7 @@ DJGPP Out of memory
     that you wish to make available to console applications (DOS command boxes).
     E.g. 8000000 (hexadecimal) to make 128 MB available.
 
-    See also http://www.trnicely.net/misc/vista.html
+    See also https://www.trnicely.net/misc/vista.html
 
 DJGPP on Windows 8.1 and higher
 -------------------------------
@@ -218,7 +218,7 @@ PDCurses
 The DOS and Windows versions of Wcd use by default PDCurses.
 
 To build wcd with PDCurses interface you need to have the PDCurses
-library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
+library installed. Get PDCurses at https://sourceforge.net/projects/pdcurses/
 Compile it and copy the library file into the \lib directory of your
 compiler and the curses.h file in the \include directory.
 
@@ -309,8 +309,8 @@ Enable Unicode normalization with UNINORM=1. This implies UCS=1.
 
 
 Unicode normalization requires libunistring, see
-  http://www.gnu.org/s/libunistring/
-  http://en.wikipedia.org/wiki/Unicode_normalization
+  https://www.gnu.org/s/libunistring/
+  https://en.wikipedia.org/wiki/Unicode_normalization
 
   libunistring packages are provided by Mingw.org and MSYS2.
 

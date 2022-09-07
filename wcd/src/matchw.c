@@ -51,7 +51,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
    Info-ZIP's home WWW site is listed on Yahoo and is at:
 
-   http://www.cdrom.com/pub/infozip/
+   https://sourceforge.net/projects/infozip/
 
    e-mail : Zip-Bugs@lists.wku.edu
 

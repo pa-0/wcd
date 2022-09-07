@@ -6,8 +6,8 @@ DOSVERSION=wcd${VERSION_SHORT}
 # Keep dates so that no make target is out of date.
 #
 # This Makefile requires 'dos2unix' with --keepdate option:
-# http://waterlan.home.xs4all.nl/dos2unix.html
-# http://sourceforge.net/projects/dos2unix/
+# https://waterlan.home.xs4all.nl/dos2unix.html
+# https://sourceforge.net/projects/dos2unix/
 
 unix2dos:
 	cd ../.. ; cp -Rp ${UNIXVERSION} ${DOSVERSION}

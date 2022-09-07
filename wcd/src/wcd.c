@@ -7,12 +7,12 @@
 Author: Erwin Waterlander
 
 E-mail  : waterlan@xs4all.nl
-WWW     : http://waterlan.home.xs4all.nl/
+WWW     : https://waterlan.home.xs4all.nl/
 
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 1996-2021 Erwin Waterlander
+Copyright (C) 1996-2022 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -2135,7 +2135,8 @@ void print_version(void)
 #endif
    printf("\n");
    printf(_("Download the latest executables and sources from:\n"));
-   printf("http://waterlan.home.xs4all.nl/\n");
+   printf("https://waterlan.home.xs4all.nl/\n");
+   printf("https://wcd.sourceforge.io/\n");
 }
 
 void print_license(void)

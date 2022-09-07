@@ -139,11 +139,11 @@
     * New German translation. Thanks to Mario Blättermann.
     * New Ukrainian translation. Thanks to Yuri Chornoivan.
   - Use po4a to create international man pages.
-    See http://po4a.alioth.debian.org/
+    See https://po4a.org/
   - Wcd is member of Translation Project for translation of
     messages and manual. See
-    http://translationproject.org/domain/wcd.html
-    http://translationproject.org/domain/wcd-man.html
+    https://translationproject.org/domain/wcd.html
+    https://translationproject.org/domain/wcd-man.html
   - Makefile: Include generated manuals in the source package.  Adding man
     files to the source package, which have been generated with a high version
     of perl/pod2man, is a favour to users, because newer perl/pod2man versions
@@ -152,7 +152,7 @@
     'make maintainer-clean'.
   - Switch to MinGW-w64 compiler for Windows 32 bit.
   - Makefile: Wcd compiles in MSYS2/MinGW-w64 environment.
-    See http://sourceforge.net/projects/msys2/
+    See https://www.msys2.org/
   - New makefiles for Microsoft Visual C++ (MS VC) 64 bit.
   - New makefiles for Zsh/MSYS 64 bit (win64zsh).
   - Watcom and VC makefiles support DEBUG=1.
@@ -282,25 +282,25 @@
   - querycp.c: Support WatcomC for DOS32.
 
 5.2.0 2011-11-12
-  - URL home page changed to http://waterlan.home.xs4all.nl/
+  - URL home page changed to https://waterlan.home.xs4all.nl/
   - New option -I: Ignore  diacritics.
     Ignore diacritics for Latin-based scripts.
     Letters with diacritical marks match their base letter without
-    diacritical mark. See also http://en.wikipedia.org/wiki/Diacritic
+    diacritical mark. See also https://en.wikipedia.org/wiki/Diacritic
     The following Latin encodings are supported:
     CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1,
     ISO-8859-2, and Unicode Latin-1, Latin Extended-A, and Latin Extended-B.
   - New option +I: Regard diacritics (default).
   - Matching with Unicode normalisation (compatible equivalence).
     Compile with UNINORM=1.
-    See also http://en.wikipedia.org/wiki/Unicode_normalization
-    Requires libunistring. http://www.gnu.org/s/libunistring/
+    See also https://en.wikipedia.org/wiki/Unicode_normalization
+    Requires libunistring. https://www.gnu.org/s/libunistring/
   - Unicode support in Windows Command Prompt (cmd.exe). Requires Windows 7.
   - All Windows versions of Wcd write their output in the console in Unicode format.
     This gives consistent output, independent of the active code page.
   - Wcd for Windows with Unicode writes tree-data file with BOM (Byte Order Mark).
     The file is now readable by notepad.
-    See http://en.wikipedia.org/wiki/Byte_order_mark
+    See https://en.wikipedia.org/wiki/Byte_order_mark
   - Wcd can read UTF-8 and UTF-16 encoded tree-data files with BOM.
   - Makefile use RPM_OPT_FLAGS.
   - Enable Large File Support.
@@ -353,7 +353,7 @@
     semicolon ';' (like in wcd 5.0.4 and before) for DOS-bash and WinZsh.
     These shells use Windows style paths with colons like c:/windows.
   - Don't ship po/*.mo files in source package.
-  - Port for native MSYS. See also http://www.mingw.org/
+  - Port for native MSYS. See also https://osdn.net/projects/mingw/
   - Windows 64 bit port.
 
 5.1.2 2010-05-23
@@ -364,7 +364,7 @@
   - Dos32 version by default without Native Language Support.
   - Renamed Dos32 BASH version to wcdbash.exe.
   - Win32 binary packages use patched MinGW's libintl, with builtin
-    relocation support. See http://waterlan.home.xs4all.nl/libintl.html
+    relocation support. See https://waterlan.home.xs4all.nl/libintl.html
 
 5.1.1 2010-01-07
   - Alternate stack file support with environment variable WCDSTACKFILE (thanks to anonymous).
@@ -437,7 +437,7 @@
     o) The /path/names are best not to be hyphenated. Those are now fixed with
        correct formatting code
     o) The order of sections is changed to follow de facto section order
-       http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap01.html#tag_01_11
+       https://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap01.html#tag_01_11
     o) The quotes `` '' are escaped to make clean output.
     o) The top-level INSTALL sections are not made subsections for more clearer layout.
 

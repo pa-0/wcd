@@ -100,7 +100,7 @@ Table of Contents
         MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
         GNU General Public License for more details.
 
-        Visit <http://www.gnu.org/copyleft/gpl.html>
+        Visit <https://www.gnu.org/copyleft/gpl.html>
 
 
     2.1 C3PO data structures
@@ -109,7 +109,7 @@ Table of Contents
         with Ondrej Popp's C3PO ( Compiler Compiler Compiler Popp
         Ondrej ).
 
-        http://sourceforge.net/projects/c3po/
+        https://sourceforge.net/projects/c3po/
         email: <ondrejpopp@users.sourceforge.net>
 
     2.2 DOSDIR
@@ -137,7 +137,7 @@ Table of Contents
            Email: mathews@mitre.org, mathews@computer.org
 
         DOSDIR can be download from my own homepage
-        http://waterlan.home.xs4all.nl/
+        https://waterlan.home.xs4all.nl/
 
     2.3 Recmatch
 
@@ -159,7 +159,7 @@ Table of Contents
 
            Info-ZIP's home WWW site is at:
 
-           http://www.info-zip.org/
+            https://sourceforge.net/projects/infozip/
 
     2.4 Ninux Czo Directory
 
@@ -169,7 +169,7 @@ Table of Contents
         Ninux Change Directory
         Copyright (C) 1995 Borja Etxebarria
         <borja@bips.bi.ehu.es> or <jtbecgob@s835cc.bi.ehu.es>
-        http://www.ibiblio.org/pub/Linux/utils/shell/ncd-0.9.8.tgz
+        https://www.ibiblio.org/pub/Linux/utils/shell/ncd-0.9.8.tgz
 
         Additions on NCD were made by Olivier Sirol (Czo)
 
@@ -177,7 +177,7 @@ Table of Contents
         Copyright (C) 1995 Borja Etxebarria
         Copyright (C) 1996 Olivier Sirol
         Olivier Sirol <sirol@ecoledoc.ibp.fr>
-        http://www.ibiblio.org/pub/Linux/utils/file/managers/ncd1_205.tgz
+        https://www.ibiblio.org/pub/Linux/utils/file/managers/ncd1_205.tgz
 
     2.5 Miscellaneous bits and pieces
 
@@ -185,12 +185,12 @@ Table of Contents
         (C) 1995-1996 DJ Delorie, see COPYING.DJ for details
 
         _fixpath() is a library function of libc for DJGPP. See also
-        http://www.delorie.com/djgpp/
+        https://www.delorie.com/djgpp/
 
         Source code to scan Windows LAN was originally written and
         placed in the Public Domain by Felix Kasza. Copied from Felix
         Kasza's Win32 Samples page at MVPS.ORG.
-        http://www.mvps.org/win32/
+        https://www.mvps.org/
 
         Source code for colours in curses interface was copied from
         the PDCurses demo program 'tui'. The 'tui' demo program was
@@ -198,7 +198,7 @@ Table of Contents
         Domain.
 
         Markus Kuhn's free wcwidth() and wcwidth_cjk() implementation is used.
-        See also http://www.cl.cam.ac.uk/~mgk25/unicode.html
+        See also https://www.cl.cam.ac.uk/~mgk25/unicode.html
 
         Rugxulo is the original autor of query_con_codepage(),
         which is in the public domain.
@@ -276,7 +276,7 @@ Table of Contents
 
         Since verion 5.2.5 wcd is part of the Translation Project (TP).
         All translations of the messages go via the Translation Project.
-        see http://translationproject.org/domain/wcd.html
+        see https://translationproject.org/domain/wcd.html
 
         Brazilian Portuguese  Rafael Fontenelle            Version 6.0.1
         Chinese (simplified)  Mingcong Bai (Jeff) and      Version 5.3.1
@@ -302,7 +302,7 @@ Table of Contents
 
 
         Translations of the manual:
-        See http://translationproject.org/domain/wcd-man.html
+        See https://translationproject.org/domain/wcd-man.html
 
         Brazilian Portuguese  Rafael Fontenelle            Version 6.0.1 - 6.0.3
         Dutch                 Erwin Waterlander            Version 5.2.5 - 6.0.3
@@ -322,11 +322,11 @@ Table of Contents
         DJ Delorie                        _fixpath()
         Borja Etxebarria & Olivier Sirol  Ninux Czo Directory
         Felix Kasza                       WIN32 API sample WNetOpenEnum()/WNetEnumResource()
-                                          MVPS.ORG http://www.mvps.org/win32/
+                                          MVPS.ORG https://www.mvps.org/
         Markus Kuhn                       wcwidth() and wcwidth_cjk()
-                                          http://www.cl.cam.ac.uk/~mgk25/unicode.html
+                                          https://www.cl.cam.ac.uk/~mgk25/unicode.html
         Rugxulo                           query_con_codepage()
-                                          http://sites.google.com/site/rugxulo/
+                                          https://sites.google.com/site/rugxulo/
 
 4.0 Contact and Download information
 
@@ -344,12 +344,12 @@ Table of Contents
         The latest WCD packages, executables and sources, can be downloaded from
         this internet-page:
 
-        http://waterlan.home.xs4all.nl/
+        https://waterlan.home.xs4all.nl/
 
         --
 
         SourceForge project page:
-        http://sourceforge.net/projects/wcd/
+        https://sourceforge.net/projects/wcd/
 
         --
 
@@ -368,10 +368,10 @@ Table of Contents
         Wcd is also distributed by:
 
         Debian Linux
-        http://packages.debian.org/search?keywords=wcd
+        https://packages.debian.org/search?keywords=wcd
 
         Ubuntu Linux
-        http://packages.ubuntu.com/
+        https://packages.ubuntu.com/
 
         Fedora Linux
 
@@ -384,7 +384,7 @@ Table of Contents
         SYSTEM UTILITIES > File management and conversion utils > wcd
 
         Ibiblio (was Metalab (was SunSite)):
-        http://www.ibiblio.org/pub/Linux/utils/shell/
+        https://www.ibiblio.org/pub/Linux/utils/shell/
 
 
 -- Erwin Waterlander

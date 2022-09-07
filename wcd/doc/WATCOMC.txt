@@ -31,14 +31,16 @@ Watcom C
 ========
 
 There is a free version of the Watcom C compiler available
-at http://www.openwatcom.org/
+at https://sourceforge.net/projects/openwatcom/
+   https://github.com/open-watcom/open-watcom-1.9
+   https://github.com/open-watcom/open-watcom-v2
 
 It includes cross compilation. From a Windows machine you
 can also create DOS and OS/2 programs.
 
 
-Open Watcom V2  : http://open-watcom.github.io/open-watcom/    (git repo)
-                  http://sourceforge.net/projects/openwatcom/  (binaries download)
+Open Watcom V2  : https://github.com/open-watcom/open-watcom-v2
+                  https://sourceforge.net/projects/openwatcom/
 
 Note there is an issue with the DOS 32 bit version built with Watcom C. See problems.txt.
 
@@ -47,7 +49,7 @@ PDCurses
 ========
 
 To build wcd with PDCurses interface you need to have the PDCurses
-library installed. Get PDCurses at http://sourceforge.net/projects/pdcurses/
+library installed. Get PDCurses at https://sourceforge.net/projects/pdcurses/
 Compile it and copy the library file into the proper \lib directory
 and the curses.h file in the \watcom\h directory.
 
@@ -65,12 +67,12 @@ the manuals, you need a 'perl' installation.
 There exist ready-to-run perl packages.
 
     DOS:
-        DJGPP project: http://www.delorie.com/djgpp/
+        DJGPP project: https://www.delorie.com/djgpp/
         ftp://ftp.delorie.com/pub/djgpp/current/v2gnu/perl588b.zip
 
     Windows:
-        Strawberry Perl: http://strawberryperl.com/
-        Active Perl    : http://www.activestate.com/activeperl
+        Strawberry Perl: https://strawberryperl.com/
+        Active Perl    : https://www.activestate.com/activeperl
 
 
 Problems on Windows VISTA and higher
