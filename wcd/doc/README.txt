@@ -294,7 +294,7 @@ Table of Contents
                                                            5.3.3 - 5.3.4
         German                Lars Wendler                 Version 5.2.4
         German                Mario Blättermann            Version 5.2.5 - 5.2.6
-        Romainian             Remus-Gabriel Chelu          Version 6.0.5
+        Romanian              Remus-Gabriel Chelu          Version 6.0.5
         Serbian               Мирослав Николић             Version 5.3.4
         Spanish               Julio A. Freyre-Gonzalez     Version 5.0.4 - 5.2.4
         Spanish               Francisco Javier Serrador    Version 6.0.2
