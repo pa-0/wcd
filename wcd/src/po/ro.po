@@ -1,0 +1,1232 @@
+# Mesajele în limba română pentru pachetul wcd.
+# Copyright (C) 2022 Erwin Waterlander (msgids)
+# This file is distributed under the same license as the wcd package.
+#
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2022.
+#
+# Cronologia traducerii fișierului „wcd”:
+# Traducerea inițială, făcută de R-GC, pentru versiunea wcd 6.0.3-beta6.
+# Actualizare a traducerii pentru versiunea Y, făcută de X, Z.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wcd 6.0.3-beta6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-10 23:45+0100\n"
+"PO-Revision-Date: 2022-11-03 00:00+0100\n"
+"Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
+"Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: wcd.c:170
+#, c-format
+msgid "Wcd: error: "
+msgstr "Wcd: eroare: "
+
+#: wcd.c:183 wcd.c:237 wcd.c:257
+#, c-format
+msgid "Unable to read file %s: %s\n"
+msgstr "Nu se poate citi fișierul %s: %s\n"
+
+#: wcd.c:246
+#, c-format
+msgid "Unable to read file %s: Not a regular file.\n"
+msgstr "Nu se poate citi fișierul %s: nu este un fișier obișnuit.\n"
+
+#: wcd.c:259 wcd.c:346
+#, c-format
+msgid "Unable to write file %s: %s\n"
+msgstr "Nu se poate scrie fișierul %s: %s\n"
+
+#: wcd.c:348
+#, c-format
+msgid "Unable to close file %s: %s\n"
+msgstr "Nu se poate închide fișierul %s: %s\n"
+
+#: wcd.c:409 wcd.c:414 wfixpath.c:65
+#, c-format
+msgid "Memory allocation error in %s: %s\n"
+msgstr "Eroare de alocare a memoriei în %s: %s\n"
+
+#: wcd.c:716 wcd.c:730
+#, c-format
+msgid "%s added to file %s\n"
+msgstr "%s adăugat la fișierul %s\n"
+
+#: wcd.c:765 wcd.c:1097
+#, c-format
+msgid "%s is not a directory.\n"
+msgstr "%s nu este un director.\n"
+
+#: wcd.c:770
+#, c-format
+msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
+msgstr "Așteptați vă rog. Se scanează discul. Se construiește fișierul arborelui de date %s din %s\n"
+
+#: wcd.c:832 wcd.c:2223 wcd.c:2246 wcd.c:2326
+#, c-format
+msgid "Writing file \"%s\"\n"
+msgstr "Se scrie fișierul „%s”\n"
+
+#: wcd.c:837
+msgid "Write access to tree-file denied.\n"
+msgstr "Accesul de scriere la fișierul arborelui de date a fost refuzat.\n"
+
+#: wcd.c:838
+msgid "Set TEMP environment variable if this is a read-only disk.\n"
+msgstr "Definiți variabila de mediu TEMP dacă acesta este un disc numai pentru citire\n"
+
+#: wcd.c:967
+#, c-format
+msgid "Removed symbolic link %s\n"
+msgstr "S-a eliminat legătura simbolică %s\n"
+
+#: wcd.c:971
+#, c-format
+msgid "Unable to remove symbolic link %s: %s\n"
+msgstr "Nu s-a putut elimina legătura simbolică %s: %s\n"
+
+#: wcd.c:975
+#, c-format
+msgid "%s is a symbolic link to a file.\n"
+msgstr "%s este o legătură simbolică către un fișier.\n"
+
+#: wcd.c:1058
+#, c-format
+msgid "Recursively remove %s? Are you sure? y/n :"
+msgstr "Eliminați recursiv %s? Sunteți sigur? d/n :"
+
+#: wcd.c:1080 wcd.c:1090
+#, c-format
+msgid "Removed directory %s\n"
+msgstr "S-a eliminat directorul %s\n"
+
+#: wcd.c:1122 wcd.c:1191 wcd.c:1259
+#, c-format
+msgid "line too long in %s ( > %d). The treefile could be corrupt, else fix by increasing WCD_MAXPATH in source code.\n"
+msgstr "linie prea lungă în %s ( > %d). Fișierul arborelui de date ar putea fi corupt, altfel se remediază prin creșterea WCD_MAXPATH în codul sursă.\n"
+
+#: wcd.c:1123 wcd.c:1192 wcd.c:1260
+#, c-format
+msgid "file: %s, line: %d,"
+msgstr "fișier: %s, linia: %d,"
+
+#: wcd.c:1130 wcd.c:1199 wcd.c:1267
+#, c-format
+msgid " length: %d\n"
+msgstr " lungime: %d\n"
+
+#: wcd.c:1768 wcd.c:1837
+msgid "Alias file in UTF-16 format is not supported.\n"
+msgstr "Fișierul alias în format UTF-16 nu este acceptat.\n"
+
+#: wcd.c:1937
+#, c-format
+msgid ""
+"Usage: wcd [options] [directory]\n"
+"\n"
+msgstr ""
+"Utilizare: wcd [opțiuni] [director]\n"
+"\n"
+
+#: wcd.c:1938
+#, c-format
+msgid "directory:  Name of directory to change to.\n"
+msgstr "director:  Numele directorului în care trebuie schimbat.\n"
+
+#: wcd.c:1939
+#, c-format
+msgid ""
+"            Wildcards *, ? and [SET] are supported.\n"
+"\n"
+msgstr ""
+"            Metacaracterele *, ? și [SET] sunt acceptate.\n"
+"\n"
+
+#: wcd.c:1941
+#, c-format
+msgid "options:\n"
+msgstr "opțiuni:\n"
+
+#: wcd.c:1942
+#, c-format
+msgid "  -a                      Add current path to treefile\n"
+msgstr "  -a                      adaugă calea curentă la fișierul arbore\n"
+
+#: wcd.c:1943
+#, c-format
+msgid "  -aa                     Add current and all parent paths to treefile\n"
+msgstr "  -aa                     adaugă calea curentă și toate căile părinte la fișierul arbore\n"
+
+#: wcd.c:1944
+#, c-format
+msgid "  -A PATH                 Add tree from PATH\n"
+msgstr "  -A CALE                 adaugă arbore din CALE\n"
+
+#: wcd.c:1945
+#, c-format
+msgid "  -b                      Ban current path\n"
+msgstr "  -b                      interzice calea curentă\n"
+
+#: wcd.c:1946
+#, c-format
+msgid "  -c,  --direct-cd        direct CD mode\n"
+msgstr "  -c,  --direct-cd        modul direct «cd»\n"
+
+#: wcd.c:1947
+#, c-format
+msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
+msgstr "  -d UNITATE              stabilește UNITATEA pentru fișierele stivă și script-go (DOS)\n"
+
+#: wcd.c:1948
+#, c-format
+msgid "  -e                      add current path to Extra treefile\n"
+msgstr "  -e                      adaugă calea curentă la fișierul arbore suplimentar\n"
+
+#: wcd.c:1949
+#, c-format
+msgid "  -ee                     add current and all parent paths to Extra treefile\n"
+msgstr "  -ee                     adaugă calea curentă și toate căile părinte la fișierul arbore suplimentar\n"
+
+#: wcd.c:1950
+#, c-format
+msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
+msgstr "  -E PATH                 adaugă arbore din CALE la fișierul arbore suplimentar\n"
+
+#: wcd.c:1951
+#, c-format
+msgid "  -f FILE                 use extra treeFile\n"
+msgstr "  -f FIȘIER               utilizează FIȘIER-arbore suplimentar\n"
+
+#: wcd.c:1952
+#, c-format
+msgid "  +f FILE                 add extra treeFile\n"
+msgstr "  +f FILE                 adaugă FIȘIER-arbore suplimentar\n"
+
+#: wcd.c:1953
+#, c-format
+msgid "  -g                      Graphics\n"
+msgstr "  -g                      reprezentare grafică\n"
+
+#: wcd.c:1954
+#, c-format
+msgid "  -gd                     Graphics, dump tree\n"
+msgstr "  -gd                     reprezentare grafică, desenează o ierarhie arborescentă\n"
+
+#: wcd.c:1955
+#, c-format
+msgid "  -G PATH                 set PATH Go-script\n"
+msgstr "  -G CALE                 stabilește CALEa scriptului-Go\n"
+
+#: wcd.c:1956
+#, c-format
+msgid "  -GN, --no-go-script     No Go-script\n"
+msgstr "  -GN, --no-go-script     fără script-Go\n"
+
+#: wcd.c:1957
+#, c-format
+msgid "  -h,  --help             show this Help\n"
+msgstr "  -h,  --help             afișează acest mesaj de ajutor\n"
+
+#: wcd.c:1960
+#, c-format
+msgid "  -i,  --ignore-case      Ignore case (default)\n"
+msgstr "  -i,  --ignore-case      ignoră diferența majuscule/minuscule (implicit)\n"
+
+#: wcd.c:1961
+#, c-format
+msgid "  +i,  --no-ignore-case   regard case\n"
+msgstr "  +i,  --no-ignore-case   respectă diferența majuscule/minuscule\n"
+
+#: wcd.c:1963
+#, c-format
+msgid "  -i,  --ignore-case      Ignore case\n"
+msgstr "  -i,  --ignore-case      ignoră diferența majuscule/minuscule\n"
+
+#: wcd.c:1964
+#, c-format
+msgid "  +i,  --no-ignore-case   regard case (default)\n"
+msgstr "  +i,  --no-ignore-case   respectă diferența majuscule/minuscule (implicit)\n"
+
+#: wcd.c:1967
+#, c-format
+msgid "  -I,  --ignore-diacritics     Ignore diacritics\n"
+msgstr "  -I,  --ignore-diacritics     ignoră diacriticele\n"
+
+#: wcd.c:1968
+#, c-format
+msgid "  +I,  --no-ignore-diacritics  regard diacritics (default)\n"
+msgstr "  +I,  --no-ignore-diacritics  respectă diacriticele (implicit)\n"
+
+#: wcd.c:1969
+#, c-format
+msgid "  -j,  --just-go          Just go mode\n"
+msgstr "  -j,  --just-go          doar modul Go\n"
+
+#: wcd.c:1970
+#, c-format
+msgid "  -k,  --keep-paths       Keep paths\n"
+msgstr "  -k,  --keep-paths       păstrează căile\n"
+
+#: wcd.c:1971
+#, c-format
+msgid "  -K,  --color            colors\n"
+msgstr "  -K,  --color            utilizează culori pentru reprezentare\n"
+
+#: wcd.c:1972
+#, c-format
+msgid "  -l ALIAS                aLias current directory\n"
+msgstr "  -l ALIAS                stabilește un ALIAS pentru directorul curent\n"
+
+#: wcd.c:1973
+#, c-format
+msgid "  -ls                     List the aliases\n"
+msgstr "  -ls                     afișează lista de alias\n"
+
+#: wcd.c:1974
+#, c-format
+msgid "  -L,  --license          show software License\n"
+msgstr "  -L,  --license          afișează licența software-ului\n"
+
+#: wcd.c:1975
+#, c-format
+msgid "  -m DIR                  Make DIR, add to treefile\n"
+msgstr "  -m DIRECTOR             creează DIRECTORul, și-l adaugă în fișierul arbore\n"
+
+#: wcd.c:1976
+#, c-format
+msgid "  -M DIR                  Make DIR, add to extra treefile\n"
+msgstr "  -M DIRECTOR             creează DIRECTORul, și-l adaugă în fișierul arbore suplimentar\n"
+
+#: wcd.c:1977
+#, c-format
+msgid "  -n PATH                 use relative treefile in PATH\n"
+msgstr "  -n CALE                 utilizează fișierul arbore relativ din această CALE\n"
+
+#: wcd.c:1978
+#, c-format
+msgid "  +n PATH                 add relative treefile in PATH\n"
+msgstr "  +n CALE                 adaugă fișierul arbore relativ în această CALE\n"
+
+#: wcd.c:1979
+#, c-format
+msgid "  -N,  --numbers          use Numbers\n"
+msgstr "  -N,  --numbers          utilizează numere\n"
+
+#: wcd.c:1980
+#, c-format
+msgid "  -o                      use stdOut\n"
+msgstr "  -o                      utilizează ieșirea standard\n"
+
+#: wcd.c:1981
+#, c-format
+msgid "  -od, --to-stdout        dump matches\n"
+msgstr "  -od, --to-stdout        afișează potrivirile la ieșirea standard\n"
+
+#: wcd.c:1982
+#, c-format
+msgid "  -q,  --quiet            Quieter operation\n"
+msgstr "  -q,  --quiet            funcționare mai silențioasă\n"
+
+#: wcd.c:1983
+#, c-format
+msgid "  -r DIR                  Remove DIR\n"
+msgstr "  -r DIRECTOR             elimină DIRECTORul\n"
+
+#: wcd.c:1984
+#, c-format
+msgid "  -rmtree DIR             Remove DIR recursive\n"
+msgstr "  -rmtree DIRECTOR             elimină DIRECTORul de formă recursivă\n"
+
+#: wcd.c:1985
+#, c-format
+msgid "  -s                      Scan disk from $HOME\n"
+msgstr "  -s                      scanează discul de la $HOME\n"
+
+#: wcd.c:1986
+#, c-format
+msgid "  -S PATH                 Scan disk from PATH\n"
+msgstr "  -S CALE                 scanează discul de la CALE\n"
+
+#: wcd.c:1987
+#, c-format
+msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
+msgstr "  +S CALE                 scanează discul de la CALE, și creează fișierul arbore relativ\n"
+
+#: wcd.c:1988
+#, c-format
+msgid "  -t                      don't strip /tmp_mnt from paths\n"
+msgstr "  -t                      nu elimină „/tmp_mnt” de la căi\n"
+
+#: wcd.c:1989
+#, c-format
+msgid "  -T,  --ascii-tree       draw tree with ASCII characters\n"
+msgstr "  -T,  --ascii-tree       desenează arborele cu caractere ASCII\n"
+
+#: wcd.c:1990
+#, c-format
+msgid "  -Ta, --alt-tree-nav     Alternative tree navigation\n"
+msgstr "  -Ta, --alt-tree-nav     navigare alternativă prin arborele de directoare\n"
+
+#: wcd.c:1991
+#, c-format
+msgid "  -TC, --center-tree      Centered tree view\n"
+msgstr "  -TC, --center-tree      vizualizare centrată a arborelui de directoare\n"
+
+#: wcd.c:1992
+#, c-format
+msgid "  -Tc, --compact-tree     Compact tree\n"
+msgstr "  -Tc, --compact-tree     vizualizare compactă a arborelui de directoare\n"
+
+#: wcd.c:1993
+#, c-format
+msgid "  -Td, --cjk-width        support legacy CJK fonts\n"
+msgstr "  -Td, --cjk-width        acceptă fonturile CJK vechi\n"
+
+#: wcd.c:1994
+#, c-format
+msgid "  -u USER                 use USER's treefile\n"
+msgstr "  -u UTILIZATOR           utilizează fișierul arbore al UTILIZATORULUI\n"
+
+#: wcd.c:1995
+#, c-format
+msgid "  +u USER                 add USER's treefile\n"
+msgstr "  +u UTILIZATOR           adaugă fișierul arbore al UTILIZATORULUI\n"
+
+#: wcd.c:1996
+#, c-format
+msgid "  -v,  --verbose          Verbose operation\n"
+msgstr "  -v,  --verbose          funcționare cu mesaje detaliate a operațiilor realizate\n"
+
+#: wcd.c:1997
+#, c-format
+msgid "  -V,  --version          show Version info\n"
+msgstr "  -V,  --version          afișează informațiile despre versiune\n"
+
+#: wcd.c:1998
+#, c-format
+msgid "  -w,  --wild-match-only  Wild matching only\n"
+msgstr "  -w,  --wild-match-only  face numai potriviri aproximative\n"
+
+#: wcd.c:1999
+#, c-format
+msgid "  -x PATH                 eXclude PATH during disk scan\n"
+msgstr "  -x CALE                 exclude CALEa în timpul scanării discului\n"
+
+#: wcd.c:2000
+#, c-format
+msgid "  -xf FILE                eXclude paths from FILE\n"
+msgstr "  -xf FIȘIER              exclude căile din FIȘIER\n"
+
+#: wcd.c:2001
+#, c-format
+msgid "  -y,  --assume-yes       assume Yes on all queries\n"
+msgstr "  -y,  --assume-yes       presupune «Da» la toate întrebările\n"
+
+#: wcd.c:2002
+#, c-format
+msgid "  -z NUMBER               set max stack siZe\n"
+msgstr "  -z NUMĂR                stabilește dimensiunea maximă a stivei\n"
+
+#: wcd.c:2003
+#, c-format
+msgid "  -[NUMBER]               push dir (NUMBER times)\n"
+msgstr "  -[NUMĂR]                adaugă dosarul la stivă (de acest NUMĂR de ori)\n"
+
+#: wcd.c:2004
+#, c-format
+msgid "  +[NUMBER]               pop dir (NUMBER times)\n"
+msgstr "  +[NUMĂR]                elimină dosarul din stivă (de acest NUMĂR de ori)\n"
+
+#: wcd.c:2005
+#, c-format
+msgid "  =                       show stack\n"
+msgstr "  =                       afișează stiva\n"
+
+#: wcd.c:2014 wcd.c:2143
+#, c-format
+msgid "wcd %s (%s) - Wherever Change Directory\n"
+msgstr "wcd %s (%s) - Schimbă oriunde directorul\n"
+
+#: wcd.c:2015
+#, c-format
+msgid ""
+"Chdir for Dos and Unix.\n"
+"\n"
+msgstr ""
+"Chdir pentru Dos și Unix.\n"
+"\n"
+
+#: wcd.c:2019
+#, c-format
+msgid "DOS 16 bit version (WATCOMC).\n"
+msgstr "Versiunea DOS pe 16 biți (WATCOMC).\n"
+
+#: wcd.c:2021
+#, c-format
+msgid "DOS 16 bit version (TURBOC).\n"
+msgstr "Versiunea DOS pe 16 biți (TURBOC).\n"
+
+#: wcd.c:2023
+#, c-format
+msgid "DOS 32 bit version (DJGPP).\n"
+msgstr "Versiunea DOS pe 32 biți (DJGPP).\n"
+
+#: wcd.c:2025
+#, c-format
+msgid "DOS 32 bit version (WATCOMC).\n"
+msgstr "Versiunea DOS pe 32 biți (WATCOMC).\n"
+
+#: wcd.c:2032
+#, c-format
+msgid "Win64 version (MSVC %d).\n"
+msgstr "Versiunea Win64 (MSVC %d).\n"
+
+#: wcd.c:2034
+#, c-format
+msgid "Win64 version (MinGW-w64).\n"
+msgstr "Versiunea Win64 (MinGW-w64).\n"
+
+#: wcd.c:2038
+#, c-format
+msgid "Win32 version (WATCOMC).\n"
+msgstr "Versiunea Win32 (WATCOMC).\n"
+
+#: wcd.c:2040
+#, c-format
+msgid "Win32 version (MSVC %d).\n"
+msgstr "Versiunea Win32 (MSVC %d).\n"
+
+#: wcd.c:2042
+#, c-format
+msgid "Win32 version (MinGW-w64).\n"
+msgstr "Versiunea Win32 (MinGW-w64).\n"
+
+#: wcd.c:2044
+#, c-format
+msgid "Win32 version (MinGW).\n"
+msgstr "Versiunea Win32 (MinGW).\n"
+
+#: wcd.c:2051
+#, c-format
+msgid "This version is for MSYS and WinZsh.\n"
+msgstr "Această versiune este pentru MSYS și WinZsh.\n"
+
+#: wcd.c:2053
+#, c-format
+msgid "This version is for Windows PowerShell.\n"
+msgstr "Această versiune este pentru Windows PowerShell.\n"
+
+#: wcd.c:2055
+#, c-format
+msgid "This version is for Windows Command Prompt (cmd.exe).\n"
+msgstr "Această versiune este pentru linia de comandă Windows (cmd.exe).\n"
+
+#: wcd.c:2060
+#, c-format
+msgid "OS/2 version"
+msgstr "Versiunea OS/2"
+
+#: wcd.c:2071
+#, c-format
+msgid "This version is for native MSYS.\n"
+msgstr "Această versiune este pentru MSYS nativ.\n"
+
+#: wcd.c:2074
+#, c-format
+msgid "Cygwin version.\n"
+msgstr "Versiunea Cygwin.\n"
+
+#: wcd.c:2077
+#, c-format
+msgid "This version is for DJGPP DOS bash.\n"
+msgstr "Această versiune este pentru DJGPP DOS bash.\n"
+
+#: wcd.c:2080
+#, c-format
+msgid "This version is for OS/2 bash.\n"
+msgstr "Această versiune este pentru OS/2 bash.\n"
+
+#: wcd.c:2083
+#, c-format
+msgid "Interface: "
+msgstr "Interfață: "
+
+#: wcd.c:2089
+#, c-format
+msgid "ncurses version %s.%d\n"
+msgstr "ncurses versiunea %s.%d\n"
+
+#: wcd.c:2092
+#, c-format
+msgid "PDCurses build %d\n"
+msgstr "Versiunea PDCurses %d\n"
+
+#: wcd.c:2094
+#, c-format
+msgid "curses\n"
+msgstr "curses\n"
+
+#: wcd.c:2103
+#, c-format
+msgid "stdout\n"
+msgstr "ieșirea standard\n"
+
+#: wcd.c:2107
+#, c-format
+msgid "Native language support included.\n"
+msgstr "Suport pentru limba maternă inclus.\n"
+
+#: wcd.c:2108
+#, c-format
+msgid "LOCALEDIR=%s\n"
+msgstr "LOCALEDIR=%s\n"
+
+#: wcd.c:2110
+#, c-format
+msgid "No native language support included.\n"
+msgstr "Fără suport pentru limba maternă inclus.\n"
+
+#: wcd.c:2113
+#, c-format
+msgid "Current locale uses CP%u encoding.\n"
+msgstr "Regiunea lingvistică actuală utilizează codificarea CP%u.\n"
+
+#: wcd.c:2115
+#, c-format
+msgid "Current locale uses %s encoding.\n"
+msgstr "Regiunea lingvistică actuală utilizează codificarea %s.\n"
+
+#: wcd.c:2118
+#, c-format
+msgid "With Unicode support.\n"
+msgstr "Cu suport pentru Unicode.\n"
+
+#: wcd.c:2123
+#, c-format
+msgid "  Euro symbol: "
+msgstr "  Simbolul euro: "
+
+#: wcd.c:2125
+#, c-format
+msgid "  Chinese characters: "
+msgstr "  Caractere chinezești: "
+
+#: wcd.c:2129
+#, c-format
+msgid "Without Unicode support.\n"
+msgstr "Fără suport pentru Unicode.\n"
+
+#: wcd.c:2132
+#, c-format
+msgid "With Unicode normalization.\n"
+msgstr "Cu standardizare Unicode.\n"
+
+#: wcd.c:2134
+#, c-format
+msgid "Without Unicode normalization.\n"
+msgstr "Fără standardizare Unicode.\n"
+
+#: wcd.c:2137
+#, c-format
+msgid "Download the latest executables and sources from:\n"
+msgstr "Descărcați cele mai recente executabile și surse de la:\n"
+
+#: wcd.c:2144
+#, c-format
+msgid ""
+"Copyright (C) 1996-%d Erwin Waterlander\n"
+"Copyright (C) 1994-2002 Ondrej Popp on C3PO\n"
+"Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n"
+"Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n"
+"Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n"
+"Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
+"Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
+msgstr ""
+"Copyright © 1996-%d Erwin Waterlander\n"
+"Copyright © 1994-2002 Ondrej Popp asupra C3PO\n"
+"Copyright © 1995-1996 DJ Delorie asupra _fixpath()\n"
+"Copyright © 1995-1996 Borja Etxebarria & Olivier Sirol asupra Ninux Czo Directory\n"
+"Copyright © 1994-1996 Jason Mathews asupra DOSDIR\n"
+"Copyright © 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
+"Kai Uwe Rommel și Igor Mandrichenko asupra recmatch()\n"
+
+#: wcd.c:2152
+#, c-format
+msgid ""
+"Source code to scan Windows LAN was originally written and placed\n"
+"in the public domain by Felix Kasza.\n"
+"Markus Kuhn's free wcwidth() and wcswidth() implementations are used.\n"
+"Rugxulo is the original author of query_con_codepage() (public domain).\n"
+"\n"
+msgstr ""
+"Codul sursă pentru scanarea Windows LAN a fost inițial scris și plasat\n"
+"în domeniul public de Felix Kasza.\n"
+"Sunt utilizate implementările gratuite wcwidth() și wcswidth() ale lui Markus Kuhn.\n"
+"Rugxulo este autorul original al lui query_con_codepage() (domeniu public).\n"
+"\n"
+
+# R-GC, scrie:
+# după revizarea fișierului, DȘ spune:
+# „Aici nu am găsit decât clasica traducere a „free software”:
+# "Acest program este software gratuit; îl puteți redistribui și/sau"
+# → autorii licenței GPL vor explicit să spună „software liber” și nu „software gratuit”, ar trebui să respectăm acest lucru.
+# ***
+# „culpa mia”, am folosit unul dintre modelele
+# oferite de Poedit, care corespundea cel mai
+# bine cu „geometria” mesajului, verificînd
+# corectitudinea traducerii, „pe deasupra”.
+# ***
+# Corecție, aplicată!
+#: wcd.c:2158
+#, c-format
+msgid ""
+"This program is free software; you can redistribute it and/or\n"
+"modify it under the terms of the GNU General Public License\n"
+"as published by the Free Software Foundation; either version 2\n"
+"of the License, or (at your option) any later version.\n"
+"\n"
+msgstr ""
+"Acest program este software liber; îl puteți redistribui și/sau\n"
+"modifica în conformitate cu termenii Licenței Publice Generale GNU\n"
+"așa cum este publicată de Free Software Foundation; fie versiunea 2\n"
+"a Licenței sau (la alegerea dvs.) orice versiune ulterioară.\n"
+"\n"
+
+#: wcd.c:2164
+#, c-format
+msgid ""
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"GNU General Public License for more details.\n"
+"\n"
+msgstr ""
+"Acest program este distribuit în speranța că va fi folositor,\n"
+"dar FĂRĂ NICI O GARANȚIE; chiar și fără presupusa garanție de\n"
+"COMERCIALIZARE sau POTRIVIRE PENTRU UN ANUMIT SCOP.  Consultați\n"
+"Licența Publică Generală GNU pentru mai multe detalii.\n"
+"\n"
+
+#: wcd.c:2170
+#, c-format
+msgid ""
+"You should have received a copy of the GNU General Public License\n"
+"along with this program; if not, write to the Free Software\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+msgstr ""
+"Ar fi trebuit să primiți o copie a Licenței Publice Generale GNU\n"
+"împreună cu acest program; dacă nu, scrieți la Free Software\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+
+#: wcd.c:2203
+#, c-format
+msgid "creating directory %s\n"
+msgstr "se creează directorul %s\n"
+
+#: wcd.c:2535 wcd.c:2575 wcd.c:2590 wcd.c:2658 wcd.c:2727 wcd.c:3229
+#: wcd.c:3248
+#, c-format
+msgid "Value of environment variable %s is too long.\n"
+msgstr "Valoarea variabilei de mediu %s este prea lungă.\n"
+
+#: wcd.c:2564
+#, c-format
+msgid "Failed to unset environment variable TERM: %s\n"
+msgstr "Nu s-a putut anula variabila de mediu TERM: %s\n"
+
+#: wcd.c:2622 wcd.c:2651
+msgid "Environment variable HOME or WCDHOME is not set.\n"
+msgstr "Variabila de mediu HOME sau WCDHOME nu este definită.\n"
+
+#: wcd.c:2834
+#, c-format
+msgid "aliasfile: %s\n"
+msgstr "fișier de alias: %s\n"
+
+#: wcd.c:2848
+msgid "HOME is not defined\n"
+msgstr "variabila HOME nu este definită\n"
+
+#: wcd.c:2852
+msgid "WCDHOME is not defined\n"
+msgstr "variabila WCDHOME nu este definită\n"
+
+#: wcd.c:2856
+msgid "WCDSCAN is not defined\n"
+msgstr "variabila WCDSCAN nu este definită\n"
+
+#: wcd.c:2881
+msgid "Graphics mode only supported in wcd with curses-based interface.\n"
+msgstr "Modul grafic este acceptat numai în wcd cu interfață bazată pe „curses”.\n"
+
+#: wcd.c:3162
+#, c-format
+msgid "%s added to aliasfile %s\n"
+msgstr "%s adăugat la fișierul de alias %s\n"
+
+#: wcd.c:3261
+#, c-format
+msgid "Unable to read file %s or %s\n"
+msgstr "Nu se poate citi fișierul %s sau %s\n"
+
+#: wcd.c:3411
+#, c-format
+msgid "WCDSCAN directory {%s}\n"
+msgstr "Directorul WCDSCAN {%s}\n"
+
+#: wcd.c:3413
+#, c-format
+msgid "banning {%s}\n"
+msgstr "se interzice {%s}\n"
+
+#: wcd.c:3415
+#, c-format
+msgid "excluding {%s}\n"
+msgstr "se exclude {%s}\n"
+
+#: wcd.c:3417
+#, c-format
+msgid "filtering {%s}\n"
+msgstr "se filtrează {%s}\n"
+
+#: wcd.c:3677
+#, c-format
+msgid "No directory found matching %s\n"
+msgstr "Nu s-a găsit niciun director care să se potrivească cu %s\n"
+
+#: wcd.c:3678
+msgid "Perhaps you need to rescan the disk or path is banned.\n"
+msgstr "Poate că trebuie să rescanați discul sau calea este interzisă.\n"
+
+#: wcd.c:3807
+#, c-format
+msgid "Cannot change to %s\n"
+msgstr "Nu se poate schimba la directorul %s\n"
+
+#: wcddir.c:109
+#, c-format
+msgid "%lu (\"%s\") reported by \"%s\".\n"
+msgstr "%lu (\"%s\") raportat de \"%s\"\n"
+
+#: wcddir.c:131
+msgid "access denied.\n"
+msgstr "acces interzis.\n"
+
+#: wcddir.c:206
+#, c-format
+msgid "Searching for shared directories on server %s\n"
+msgstr "Se caută directoare partajate pe serverul %s\n"
+
+#: wcddir.c:218
+#, c-format
+msgid "Found %lu shared directories on server %s\n"
+msgstr "S-au găsit %lu directoare partajate pe serverul %s\n"
+
+#: wcddir.c:335
+msgid "Unable to get current working directory: "
+msgstr "Nu se poate obține directorul de lucru curent: "
+
+#: wcddir.c:362
+#, c-format
+msgid "Unable to change to directory %s: "
+msgstr "Nu se poate schimba la directorul %s: "
+
+#: wcddir.c:392
+#, c-format
+msgid "Unable to create directory %s: "
+msgstr "Nu se poate crea directorul %s: "
+
+#: wcddir.c:420
+#, c-format
+msgid "Unable to remove directory %s: "
+msgstr "Nu se poate elimina directorul %s: "
+
+#: wcddir.c:543 wcddir.c:554
+#, c-format
+msgid "Unable to create directory %s: %s\n"
+msgstr "Nu se poate crea directorul %s: %s\n"
+
+#: wcddir.c:660
+#, c-format
+msgid "Unable to get current working directory: %s\n"
+msgstr "Nu se poate obține directorul de lucru curent: %s\n"
+
+#: wcddir.c:674
+#, c-format
+msgid "Unable to change to directory %s: %s\n"
+msgstr "Nu se poate schimba la directorul %s: %s\n"
+
+#: wcddir.c:683
+#, c-format
+msgid "Unable to remove directory %s: %s\n"
+msgstr "Nu se poate elimina directorul %s: %s\n"
+
+#: stack.c:101
+msgid "Error parsing stack\n"
+msgstr "Eroare la analizarea stivei\n"
+
+#: display.c:263
+msgid "internal error in maxLength(), list == NULL\n"
+msgstr "eroare internă în maxLength(), list == NULL\n"
+
+#: display.c:284
+msgid "internal error in maxLengthStack(), s == NULL\n"
+msgstr "eroare internă în maxLengthStack(), s == NULL\n"
+
+#: display.c:524 display.c:1150 display.c:1538
+#, c-format
+msgid "Perfect match for %d directories."
+msgstr "Potrivire perfectă pentru %d directoare."
+
+#: display.c:526 display.c:1152 display.c:1540
+#, c-format
+msgid "Wild match for %d directories."
+msgstr "Potrivirea aproximativă se potrivește cu %d directoare."
+
+#: display.c:530 display.c:1164 display.c:1542 display.c:1585
+#, c-format
+msgid "Please choose one (<Enter> to abort): "
+msgstr "Alegeți unul (<Enter> pentru a renunța): "
+
+#: display.c:532 display.c:608 display.c:640 display.c:1157
+#, c-format
+msgid " w=up x=down ?=help  Page %d/%d "
+msgstr " w=sus  x=jos  ?= ajutor  Pagina %d/ %d "
+
+#: display.c:684 display.c:1180
+msgid "Screenheight must be > 20 for help."
+msgstr "Înălțimea ecranului trebuie să fie > 20 pentru ajutor."
+
+#: display.c:689 display.c:1183
+msgid "w or <Up>         page up"
+msgstr "w sau <Sus>          pagina precedentă"
+
+#: display.c:690 display.c:1184
+msgid "x or z or <Down>  page down"
+msgstr "x sau z sau <Jos>    pagina următoare"
+
+#: display.c:691 display.c:1185
+msgid ", or <Left>       scroll 1 left"
+msgstr ", or <Stânga>        derulează 1 la stânga"
+
+#: display.c:692 display.c:1186
+msgid ". or <Right>      scroll 1 right"
+msgstr ". or <Dreapta>       derulează 1 la dreapta"
+
+#: display.c:693 display.c:1187
+msgid "< or [            scroll 10 left"
+msgstr "< sau [              derulează 10 la stânga"
+
+#: display.c:694 display.c:1188
+msgid "> or ]            scroll 10 right"
+msgstr "> sau ]              derulează 10 la dreapta"
+
+#: display.c:695 display.c:1189
+msgid "CTRL-a or <HOME>  scroll to beginning"
+msgstr "CTRL-a sau <HOME>    deplasează la început"
+
+#: display.c:696 display.c:1190
+msgid "CTRL-e or <END>   scroll to end"
+msgstr "CTRL-e sau <END>     deplasează la final"
+
+#: display.c:697 display.c:1192
+msgid "CTRL-c or <Esc>   abort"
+msgstr "CTRL-c sau <Esc>     anulează"
+
+#: display.c:698 display.c:1193
+msgid "<Enter>           abort"
+msgstr "<Enter>              anulează"
+
+#: display.c:699
+msgid "Type w or x to quit help."
+msgstr "Tastați w sau x pentru a renunța la ajutor."
+
+#: display.c:1191 graphics.c:1994
+msgid "CTRL-l or F5      redraw screen"
+msgstr "CTRL-l sau F5        redesenează ecranul"
+
+#: display.c:1194 graphics.c:1979 graphics.c:1996 graphics.c:2019
+#: graphics.c:2036
+msgid "Press any key."
+msgstr "Apăsați orice tastă."
+
+#: display.c:1256 graphics.c:2289
+msgid "Error opening terminal, falling back to stdout interface.\n"
+msgstr "Eroare la deschiderea terminalului, se revine la interfața ieșirii standard (stdout) .\n"
+
+#: display.c:1277
+msgid "screen height must be larger than 3 lines.\n"
+msgstr "înălțimea ecranului trebuie să fie mai mare de 3 linii.\n"
+
+#: display.c:1318 graphics.c:2314
+msgid "error creating scroll window.\n"
+msgstr "eroare la crearea ferestrei de derulare.\n"
+
+#: display.c:1334 graphics.c:2330
+msgid "error creating input window.\n"
+msgstr "eroare la crearea ferestrei de intrare.\n"
+
+#: graphics.c:290
+#, c-format
+msgid "Wcd: error: path too long"
+msgstr "Wcd: eroare: calea este prea lungă"
+
+#: graphics.c:1940
+msgid "/ = search forward,  ? = search backward,  : = help"
+msgstr "/ = căutare înainte,  ? = căutare înapoi,  : = ajutor"
+
+#: graphics.c:1945
+msgid "SEARCH: "
+msgstr "CĂUTARE: "
+
+#: graphics.c:1948
+msgid "Search: "
+msgstr "Căutare: "
+
+#: graphics.c:1964
+msgid "NAVIGATION MODE (1/2):"
+msgstr "MOD DE NAVIGARE (1/2):"
+
+#: graphics.c:1965
+msgid "h or <Left>       go left"
+msgstr "h sau <Stânga>       merge la stânga"
+
+#: graphics.c:1966
+msgid "j or <Down>       go down"
+msgstr "j sau <Jos>          coboară"
+
+#: graphics.c:1967
+msgid "k or <Up>         go up"
+msgstr "k or <Sus>           urcă"
+
+#: graphics.c:1968
+msgid "l or <Right>      go right"
+msgstr "l sau <Dreapta>      merge la dreapta"
+
+#: graphics.c:1969
+msgid "* or v or <Space> go forward to dir with same name"
+msgstr "* sau v sau <Spațiu> merge înainte la directorul cu același nume"
+
+#: graphics.c:1970
+msgid "# or p or <BS>    go backward to dir with same name"
+msgstr "# sau p sau <BS>     merge înapoi, la directorul cu același nume"
+
+#: graphics.c:1971
+msgid "^ or a            go to beginning of line"
+msgstr "^ sau a              merge la începutul liniei"
+
+#: graphics.c:1972
+msgid "$ or e            go to end of line"
+msgstr "$ sau e              merge la sfârșitul liniei"
+
+#: graphics.c:1973
+msgid "1                 go to root dir"
+msgstr "1                    merge la directorul rădăcină"
+
+#: graphics.c:1974
+msgid "g or G            go to last dir"
+msgstr "g sau G              merge la ultimul director"
+
+#: graphics.c:1975
+msgid "f                 go page forward"
+msgstr "f                    merge o pagină înainte"
+
+#: graphics.c:1976
+msgid "b                 go page backward"
+msgstr "b                    merge o pagină înapoi"
+
+#: graphics.c:1977
+msgid "u                 go half page up"
+msgstr "u                    urcă cu o jumătate de pagină"
+
+#: graphics.c:1978
+msgid "d                 go half page down"
+msgstr "d                    coboară cu o jumătate de pagină"
+
+#: graphics.c:1985
+msgid "NAVIGATION MODE (2/2):"
+msgstr "MOD DE NAVIGARE (2/2):"
+
+#: graphics.c:1986
+msgid "A                 switch alternative tree navigation on/off"
+msgstr "A                    activează/dezactivează navigarea alternativă în arbore"
+
+#: graphics.c:1987
+msgid "t                 switch centered mode on/off"
+msgstr "t                    activează/dezactivează modul centrat"
+
+#: graphics.c:1988
+msgid "T                 toggle between line drawing and ASCII characters"
+msgstr "T                    comută între desenarea arborelui cu linii sau cu caractere ASCII"
+
+#: graphics.c:1989
+msgid "m                 toggle between compact and wide tree"
+msgstr "m                    comută între arbore compact și arbore expandat"
+
+#: graphics.c:1990
+msgid "<Esc> or q        abort"
+msgstr "<Esc> sau q          anulează"
+
+#: graphics.c:1991
+msgid "/                 search forward"
+msgstr "/                    caută înainte"
+
+#: graphics.c:1992
+msgid "?                 search backward"
+msgstr "?                    caută înapoi"
+
+#: graphics.c:1993
+msgid "n                 repeat last / or ? search"
+msgstr "n                    repetă ultima căutare înainte/înapoi"
+
+#: graphics.c:1995 graphics.c:2018
+msgid "<Enter>           select directory"
+msgstr "<Enter>              selectează directorul"
+
+#: graphics.c:2002
+msgid "SEARCH MODE with wildcard and subdir support:"
+msgstr "MOD DE CĂUTARE cu suport pentru metacaractere și subdirectoare:"
+
+#: graphics.c:2003
+msgid "<Left>            go left"
+msgstr "<Stânga>             merge la stânga"
+
+#: graphics.c:2004
+msgid "<Down>            go down"
+msgstr "<Jos>                coboară"
+
+#: graphics.c:2005
+msgid "<Up>              go up"
+msgstr "<Sus>                urcă"
+
+#: graphics.c:2006
+msgid "<Right>           go right"
+msgstr "<Dreapta>            merge la dreapta"
+
+#: graphics.c:2007
+msgid "CTRL-v            go forward to dir with same name"
+msgstr "CTRL-v               merge înainte la directorul cu același nume"
+
+#: graphics.c:2008
+msgid "CTRL-p            go backward to dir with same name"
+msgstr "CTRL-p               merge înapoi la directorul cu același nume"
+
+#: graphics.c:2009
+msgid "CTRL-a            go to beginning of line"
+msgstr "CTRL-a               merge la începutul liniei"
+
+#: graphics.c:2010
+msgid "CTRL-e            go to end of line"
+msgstr "CTRL-e               merge la sfârșitul liniei"
+
+#: graphics.c:2011
+msgid "CTRL-g            go to last dir"
+msgstr "CTRL-g               merge la ultimul director"
+
+#: graphics.c:2012
+msgid "CTRL-f            go page forward"
+msgstr "CTRL-f               merge o pagină înainte"
+
+#: graphics.c:2013
+msgid "CTRL-b            go page backward"
+msgstr "CTRL-b               merge o pagină înapoi"
+
+#: graphics.c:2014
+msgid "CTRL-u            go half page up"
+msgstr "CTRL-u               urcă cu o jumătate de pagină"
+
+#: graphics.c:2015
+msgid "CTRL-d            go half page down"
+msgstr "CTRL-d               coboară cu o jumătate de pagină"
+
+#: graphics.c:2016
+msgid "<Esc> or CTRL-x   abort SEARCH MODE"
+msgstr "<Esc> sau CTRL-x     anulează MODUL DE CĂUTARE"
+
+#: graphics.c:2017
+msgid "CTRL-n            repeat last / or ? search"
+msgstr "CTRL-n               repetă ultima căutare înainte/înapoi"
+
+#: graphics.c:2025
+msgid "ZOOMING:"
+msgstr "SCALARE:"
+
+#: graphics.c:2026
+msgid "z or i or CTRL-i  zoom in"
+msgstr "z sau i sau CTRL-i   mărește"
+
+#: graphics.c:2027
+msgid "Z or o or CTRL-o  zoom out"
+msgstr "Z sau o sau CTRL-o   micșorează"
+
+#: graphics.c:2028
+msgid "c                 condense: fold current level"
+msgstr "c                    comprimă: pliază nivelul curent"
+
+#: graphics.c:2029
+msgid "C                 condense: fold subdir level"
+msgstr "C                    comprimă: pliază nivelul subdirectorului"
+
+#: graphics.c:2030
+msgid "w                 condense: fold current and subdir levels"
+msgstr "w                    comprimă: pliază nivelul curent și sudirectoarele"
+
+#: graphics.c:2031
+msgid "y or CTRL-y       uncondense: unfold current and subdir levels"
+msgstr "y sau CTRL-y         decomprimă: depliază nivelul curent și subdirectoarele"
+
+#: graphics.c:2032
+msgid "r or CTRL-r       uncondense: unfold all directories"
+msgstr "r sau CTRL-r         decomprimă: depliază toate directoarele"
+
+#: graphics.c:2033
+msgid "-                 fold directory"
+msgstr "-                    pliază directorul"
+
+#: graphics.c:2034
+msgid "+ or =            unfold directory"
+msgstr "+ or =               depliază directorul"
+
+#: graphics.c:2035
+msgid "l or <Right>      unfold and go right"
+msgstr "l sau <Dreapta>      depliază și merge la dreapta"
+
+#: graphics.c:2039
+msgid "Screenheight must be > 21 for help."
+msgstr "Înălțimea ecranului trebuie să fie > 21 pentru ajutor."
+
+#: graphics.c:2271 graphics.c:2757
+#, c-format
+msgid "Cannot find the current path %s in the directory tree.\n"
+msgstr "Nu se poate găsi calea curentă %s în arborele de directoare.\n"
+
+#: finddirs.c:241 finddirs.c:249 finddirs.c:273 finddirs.c:300 finddirs.c:314
+#, c-format
+msgid "Unable to remove file %s: %s\n"
+msgstr "Nu se poate elimina fișierul %s: %s\n"
+
+#: finddirs.c:322 finddirs.c:486
+#, c-format
+msgid "Unable to close directory %s: %s\n"
+msgstr "Nu se poate închide directorul %s: %s\n"
+
+#: finddirs.c:365
+#, c-format
+msgid "finddirs(): can't determine path in directory %s\n"
+msgstr "finddirs(): nu se poate determina calea în directorul %s\n"
+
+#: finddirs.c:366
+msgid "path probably too long.\n"
+msgstr "calea probabil este prea lungă.\n"
+
+#: c3po/Error.c:41
+#, c-format
+msgid "in '%s', insufficient memory for allocation\n"
+msgstr "în „%s”, memorie insuficientă pentru alocare\n"

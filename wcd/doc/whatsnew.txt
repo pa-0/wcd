@@ -1,3 +1,7 @@
+6.0.5 beta
+  - New Romainian translation of the messages.
+    Thanks to Remus-Gabriel Chelu.
+
 6.0.4 2021-10-31
   - New Serbian translation of the manual.
     Thanks to Мирослав Николић.
