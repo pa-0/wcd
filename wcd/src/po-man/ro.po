@@ -1,0 +1,2587 @@
+# Mesajele în limba română pentru pachetul wcd-man.
+# Copyright © 2022 Erwin Waterlander (msgids)
+# This file is distributed under the same license as the wcd package.
+#
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2022.
+#
+# Cronologia traducerii fișierului „wcd-man”:
+# Traducerea inițială, făcută de R-GC, pentru versiunea wcd-man 6.0.3-beta7.
+# Actualizare a traducerii pentru versiunea Y, făcută de X, Z(anul).
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wcd-man 6.0.3-beta7\n"
+"POT-Creation-Date: 2019-01-11 20:02+0100\n"
+"PO-Revision-Date: 2022-11-14 00:10+0100\n"
+"Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
+"Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. type: =head1
+#: wcd.pod:43
+msgid "NAME"
+msgstr "NUME"
+
+#. type: textblock
+#: wcd.pod:45
+msgid "wcd - Wherever Change Directory"
+msgstr "wcd - Schimbă oriunde directorul"
+
+#. type: textblock
+#: wcd.pod:47
+msgid "chdir for DOS and Unix"
+msgstr "chdir pentru Dos și Unix"
+
+#. type: =head1
+#: wcd.pod:49
+msgid "SYNOPSIS"
+msgstr "REZUMAT"
+
+#. type: verbatim
+#: wcd.pod:51
+#, no-wrap
+msgid ""
+"    wcd [options] [directory]\n"
+"\n"
+msgstr ""
+"    wcd [opțiuni] [director]\n"
+"\n"
+
+#. type: =head1
+#: wcd.pod:53
+msgid "DESCRIPTION"
+msgstr "DESCRIERE"
+
+#. type: =head2
+#: wcd.pod:55
+msgid "Overview"
+msgstr "Prezentare generală"
+
+#. type: textblock
+#: wcd.pod:57
+msgid "Wcd is a command-line program to change directory fast. It saves time typing at the keyboard. One needs to type only a part of a directory name and wcd will jump to it. Wcd has a fast selection method in case of multiple matches and allows aliasing and banning of directories. Wcd also includes a full screen interactive directory tree browser with speed search."
+msgstr "Wcd este un program de linie de comandă pentru a schimba rapid directorul. Economisește timp la tastarea de la tastatură. Trebuie să tastați doar o parte din numele unui director și wcd va sări la el. Wcd are o metodă de selecție rapidă în cazul potrivirilor multiple și permite utilizarea de alias și interzicerea directoarelor. Wcd include, de asemenea, un navigator interactiv în arborele de directoare, pe ecran complet, cu căutare rapidă."
+
+#. type: textblock
+#: wcd.pod:63
+msgid "Wcd was modeled after Norton Change Directory (NCD). NCD appeared first in I<The Norton Utilities, Release 4>, for DOS in 1987, published by Peter Norton."
+msgstr "Wcd a fost modelat după „Norton Change Directory” (NCD). NCD a apărut prima dată în I<The Norton Utilities, Release 4>, pentru DOS în 1987, publicat de Peter Norton."
+
+#. type: textblock
+#: wcd.pod:66
+msgid "Wcd has been ported to different command-line shells: DOS command.com, Windows cmd.exe and PowerShell, OS/2 cmd.exe, and Unix shells such as Bourne (sh), Bourne Again (bash), Korn (ksh), Z (zsh), and C (csh) shell and others running on any operating system."
+msgstr "Wcd a fost portat pe diferite shell-uri de linie de comandă: DOS command.com, Windows cmd.exe și PowerShell, OS/2 cmd.exe și shell-uri Unix precum Bourne (sh), Bourne Again (bash), Korn (ksh) , Z shell (zsh) și C shell (csh) și altele, rulând pe orice sistem de operare."
+
+#. type: textblock
+#: wcd.pod:71
+msgid "Wcd supports 8 bit character sets on all systems, and has optional support for Unicode. See section LOCALIZATION."
+msgstr "Wcd acceptă seturi de caractere de 8 biți pe toate sistemele și are suport opțional pentru Unicode. Consultați secțiunea LOCALIZARE."
+
+#. type: textblock
+#: wcd.pod:74
+msgid "See section INSTALLATION how to setup wcd for personal use."
+msgstr "Consultați secțiunea INSTALARE, cum să configurați wcd pentru uz personal."
+
+#. type: =head2
+#: wcd.pod:76
+msgid "Basic use"
+msgstr "Utilizare de bază"
+
+#. type: textblock
+#: wcd.pod:78
+msgid "By default (if no wildcards are used) wcd searches for a directory with a name that begins with the typed name."
+msgstr "În mod implicit (dacă nu sunt folosite metacaractere), wcd caută un director cu un nume care începe cu numele tastat."
+
+#. type: textblock
+#: wcd.pod:81
+msgid "For instance this command will change to directory to the current user's C</home/user/Desktop>:"
+msgstr "De exemplu, această comandă va schimba la directorul C</home/nume_utilizator/Desktop> al utilizatorului curent:"
+
+#. type: verbatim
+#: wcd.pod:84
+#, no-wrap
+msgid ""
+"    wcd Desk\n"
+"\n"
+msgstr ""
+"    wcd Desk\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:86
+msgid "When there are multiple matches, wcd will present the user a list of all matches. The user can then make a selection with a few keystrokes (most of the times only one)."
+msgstr "Când există mai multe potriviri, wcd va prezenta utilizatorului o listă cu toate potrivirile. Utilizatorul poate apoi să facă o selecție cu câteva apăsări de taste (de cele mai multe ori doar una)."
+
+#. type: =head2
+#: wcd.pod:90
+msgid "Wildcards"
+msgstr "Metacaractere"
+
+#. type: textblock
+#: wcd.pod:92
+msgid "Wcd supports following wildcards:"
+msgstr "Wcd acceptă următoarele metacaractere:"
+
+#. type: verbatim
+#: wcd.pod:94
+#, no-wrap
+msgid ""
+"    *       matches any sequence of characters (zero or more)\n"
+"    ?       matches any character\n"
+"    [SET]   matches any character in the specified set,\n"
+"    [!SET]  or [^SET] matches any character not in the specified set.\n"
+"\n"
+msgstr ""
+"    *       se potrivește cu orice secvență de caractere (zero sau mai multe)\n"
+"    ?       se potrivește cu orice caracter\n"
+"    [SET]   se potrivește cu orice caracter din setul specificat,\n"
+"    [!SET]  sau [^SET] se potrivește cu orice caracter care nu se află în setul specificat.\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:99
+msgid "A set is composed of characters or ranges; a range looks like I<character hyphen character> as in C<0-9> or C<A-Z>. The C<[0-9a-zA-Z_]> is the minimal set of characters allowed in the C<[..]> pattern construct. International characters (i.e. 8 bit characters) are allowed if the system supports them. To suppress the special syntactic significance of any of C<[]*?!^-\\> inside or outside a C<[..]> construct and match the character exactly, precede the character with a backslash (C<\\>)  marker."
+msgstr "Un set este compus din caractere sau intervale; un interval arată ca un I<caracter cratimă>, ca în C<0-9> sau C<A-Z>. C<[0-9a-zA-Z_]> este setul minim de caractere permis în construcția modelului C<[..]>. Caracterele internaționale (adică caracterele de 8 biți) sunt permise dacă sistemul le acceptă. Pentru a suprima semnificația sintactică specială a oricăruia dintre C<[]*?!^-\\> în interiorul sau în afara unei construcții C<[..]> și pentru a potrivi exact caracterul, precedați caracterul cu o bară oblică inversă (C<\\>)."
+
+#. type: textblock
+#: wcd.pod:108
+msgid "Using wildcards makes powerful searching possible. For instance this matches any directory name that ends with \"top\":"
+msgstr "Utilizarea metacaracterelor face posibile căutări complexe. De exemplu, acesta se potrivește cu orice nume de director care se termină cu „top”:"
+
+#. type: verbatim
+#: wcd.pod:111
+#, no-wrap
+msgid ""
+"    wcd *top\n"
+"\n"
+msgstr ""
+"    wcd *top\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:113
+msgid "Match directories that have \"top\" anywhere in the name:"
+msgstr "Găsește directoarele care au „top” oriunde în nume:"
+
+#. type: verbatim
+#: wcd.pod:115
+#, no-wrap
+msgid ""
+"    wcd *top*\n"
+"\n"
+msgstr ""
+"    wcd *top*\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:117
+msgid "Match any directory name that begins with \"a\", \"b\" or \"c\":"
+msgstr "Găsește orice nume de director care începe cu „a”, „b” sau „c”:"
+
+#. type: verbatim
+#: wcd.pod:119
+#, no-wrap
+msgid ""
+"    wcd [a-c]*\n"
+"\n"
+msgstr ""
+"    wcd [a-c]*\n"
+"\n"
+
+# R-GC, scrie:
+# după revizuirea fișierului, DȘ spune:
+# "De asemenea, este posibil să dați o parte dintr-o cale de director. Aici Wcd "
+# "caută directorul care începe cu „Desk” și care cale se potrivește cu I<*me/"
+# "Desk*>."
+# msgid ""
+# " wcd me/Desk\n"
+# msgstr ""
+# " wcd me/Desk\n"
+# → nu neapărat necesar dar puți înlocui "me" cu "eu" ca să avem un exemplu localizat.
+# ****
+# Nu sunt de acord cu idea, aici
+# .
+# me ≠ mie, mă(pron, pers.I), ci:
+# me = ho-me → home
+# . pentru că vine de la:
+#  I<*me/Desk*>
+#. type: textblock
+#: wcd.pod:121
+msgid "It is also possible to give a part of a directory path. Here Wcd searches for directory that begins with \"Desk\" and which path matches I<*me/Desk*>."
+msgstr "De asemenea, este posibil să dați o parte dintr-o cale de director. Aici Wcd caută directorul care începe cu „Desk” și care cale se potrivește cu I<*me/Desk*>."
+
+#. type: verbatim
+#: wcd.pod:124
+#, no-wrap
+msgid ""
+"    wcd me/Desk\n"
+"\n"
+msgstr ""
+"    wcd me/Desk\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:126
+msgid "It is allowed to type any kind of expression with slashes and wildcards.  E.g.:"
+msgstr "Este permisă introducerea oricărui fel de expresie cu bare oblice și metacaractere.  De exemplu:"
+
+#. type: verbatim
+#: wcd.pod:129
+#, no-wrap
+msgid ""
+"    wcd src*/*1?/a*2\n"
+"\n"
+msgstr ""
+"    wcd src*/*1?/a*2\n"
+"\n"
+
+#. type: =head2
+#: wcd.pod:131
+msgid "Other uses"
+msgstr "Alte utilizări"
+
+#. type: textblock
+#: wcd.pod:133
+msgid "If no wildcards are used and wcd finds a perfect match, wcd will ignore all wild matches by default. This behaviour can be changed with the B<-w> option."
+msgstr "Dacă nu se utilizează metacaractere și wcd găsește o potrivire perfectă, wcd va ignora toate potrivirile aproximative în mod implicit. Acest comportament poate fi schimbat cu opțiunea B<-w>."
+
+#. type: textblock
+#: wcd.pod:136
+msgid "The interactive directory tree browser can be started by using option B<-g>."
+msgstr "Navigatorul interactiv de arbore de directoare poate fi pornit folosind opțiunea B<-g>."
+
+#. type: verbatim
+#: wcd.pod:138
+#, no-wrap
+msgid ""
+"    wcd -g\n"
+"\n"
+msgstr ""
+"    wcd -g\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:140
+msgid "Wcd generates a treedata file where it searches the directory. On Unix and Windows systems wcd does add symbolic links to the treedata file while scanning the disk, but does not follow them. While following links wcd could end up scanning infinite loops, or scan very large portions of a network."
+msgstr "Wcd generează un fișier cu datele arborelui în care caută directorul. Pe sistemele Unix și Windows, wcd adaugă legături simbolice la fișierul cu datele arborelui în timpul scanării discului, dar nu le urmează. Dacă ar urma legăturile, wcd ar putea sfârși prin a scana bucle infinite sau a scana porțiuni foarte mari ale unei rețele."
+
+#. type: textblock
+#: wcd.pod:145
+msgid "Wcd can also change to directories that are not in the treedata file. E.g.:"
+msgstr "Wcd poate schimba, de asemenea, la directoare care nu se află în fișierul cu datele arborelui. De exemplu:"
+
+#. type: verbatim
+#: wcd.pod:147
+#, no-wrap
+msgid ""
+"    wcd ..\n"
+"\n"
+msgstr ""
+"    wcd ..\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:149
+msgid "If wcd found a match but can't change to the directory it tries to remove it from the default treedata file. Not from the extra treedata file. See also option B<-k>."
+msgstr "Dacă wcd a găsit o potrivire, dar nu poate schimba la acel director, încearcă să-l elimine din fișierul implicit cu datele arborelui. Nu din fișierul suplimentar cu datele arborelui. A se vedea, de asemenea, opțiunea B<-k>."
+
+#. type: textblock
+#: wcd.pod:153
+msgid "Wcd keeps a directory stack which is stored on disk. The stack has a default size of 10 and is cyclic. See options B<-z>, B<->, B<+> and B<=>."
+msgstr "Wcd păstrează o stivă de directoare care este stocată pe disc. Stiva are o dimensiune implicită de 10 și este ciclică. Consultați opțiunile B<-z>, B<->, B<+> și B<=>."
+
+#. type: textblock
+#: wcd.pod:157
+msgid "In multi-user environments option B<-u> can be used to change to directories of other users."
+msgstr "În mediile multi-utilizator, opțiunea B<-u> poate fi folosită pentru a trece la directoarele altor utilizatori."
+
+# R-GC, scrie:
+# după revizuirea fișierului, DȘ spune:
+# "On DOS and Windows systems it does not matter if you use a slash \"/\" or a "
+# "backslash \"\\\" as a directory separator."
+# msgstr ""
+# "În sistemele DOS și Windows, nu contează dacă utilizați o bară oblică „/” sau o "
+# "bară oblică inversă „\\” ca separator de director."
+# → în română se folosește pluralul la expresii de genul ăsta. „separator de directoare”
+# ***
+# Ok, corecție aplicată!
+#. type: textblock
+#: wcd.pod:161
+msgid "On DOS and Windows systems it does not matter if you use a slash \"/\" or a backslash \"\\\" as a directory separator."
+msgstr "În sistemele DOS și Windows, nu contează dacă utilizați o bară oblică „/” sau o bară oblică inversă „\\” ca separator de directoare."
+
+#. type: textblock
+#: wcd.pod:164
+msgid "It is possible on DOS and Windows systems to change drive and directory in one go by preceding the directory name with the drive name."
+msgstr "În sistemele DOS și Windows este posibil să schimbați unitatea și directorul dintr-o singură mișcare, precedând numele directorului cu numele unității."
+
+#. type: verbatim
+#: wcd.pod:167
+#, no-wrap
+msgid ""
+"    wcd d:games\n"
+"\n"
+msgstr ""
+"    wcd d:games\n"
+"\n"
+
+#. type: =head2
+#: wcd.pod:171
+msgid "Windows UNC paths"
+msgstr "Căile UNC Windows"
+
+#. type: textblock
+#: wcd.pod:173
+msgid "The Windows versions (Command Prompt, PowerShell, MSYS, zsh, cygwin) support Windows SMB LAN UNC paths without drive letter such as C<\\\\servername\\sharename>. Wcd for Windows Command Prompt makes use of the \"pushd\" command to automatically map a UNC path to a drive letter. In Windows PowerShell, MSYS, zsh and Cygwin UNC paths are fully supported. The current working directory can be a UNC path."
+msgstr "Versiunile Windows (linie de comandă, PowerShell, MSYS, zsh, cygwin) acceptă căi UNC LAN SMB Windows fără litera de unitate, cum ar fi C<\\\\servername\\sharename>. Linia de comandă Wcd pentru Windows folosește comanda „pushd” pentru a asocia automat o cale UNC la o literă de unitate. În Windows PowerShell, MSYS, zsh și Cygwin căile UNC sunt pe deplin implementate. Directorul de lucru curent poate fi o cale UNC."
+
+#. type: =head2
+#: wcd.pod:180
+msgid "Console resizing on Windows"
+msgstr "Redimensionarea consolei în Windows"
+
+#. type: textblock
+#: wcd.pod:182
+msgid "Wcd supports console resizing in Windows 10 console and ConEmu (see L<https://conemu.github.io/>) since version 6.0.3. The Windows 10 console must not be in legacy mode (check the console's properties). The screen may not refresh when the console Layout property \"Wrap text output on resize\" is disabled. The screen can be refreshed manually by pressing the F5 key."
+msgstr "Wcd acceptă redimensionarea consolei în consola Windows 10 și ConEmu (consultați L<https://conemu.github.io/>) începând cu versiunea 6.0.3. Consola Windows 10 nu trebuie să fie în modul vechi (verificați proprietățile consolei). Este posibil ca ecranul să nu se reîmprospăteze atunci când proprietatea de «Aspect» din consolă „Încadrează automat textul când se redimensionează” este dezactivată. Ecranul poate fi reîmprospătat manual apăsând tasta F5."
+
+#. type: =head2
+#: wcd.pod:189
+msgid "Interfaces"
+msgstr "Interfețe"
+
+#. type: textblock
+#: wcd.pod:191
+msgid "Wcd has three different interfaces to choose from a list of matches. The interface can be chosen at compile time."
+msgstr "Wcd are trei interfețe diferite pentru a alege dintr-o listă de potriviri. Interfața poate fi aleasă în timpul compilării."
+
+#. type: textblock
+#: wcd.pod:194
+msgid "The first interface uses plain stdin/stdout. A numbered list is printed in the terminal. The user has to choose from the list by typing a number followed by <Enter>. This interface does not provide scroll back functionality in case of a long list. The scroll back capability of the terminal/console has to be used. It is very small and portable."
+msgstr "Prima interfață folosește intrarea/ieșirea standard simplă (stdin/stdout). O listă numerotată este afișată în terminal. Utilizatorul trebuie să aleagă din această listă tastând un număr urmat de apăsarea tastei <Enter>. Această interfață nu oferă funcționalitatea de derulare înapoi în cazul unei liste lungi. Trebuie utilizată funcționalitatea de derulare înapoi a terminalului/consolei. Este foarte mică și portabilă."
+
+#. type: textblock
+#: wcd.pod:200
+msgid "The second interface is built with the conio library. It provides a builtin scroll back capability. The user is presented a list numbered with letters.  Choosing from a list can be done by pressing just one letter. This interface is fast because it saves keystrokes. If possible the screen will be restored after exiting. One who prefers to type numbers can use the B<-N> option."
+msgstr "A doua interfață este construită cu biblioteca „conio”. Aceasta oferă o funcționalitate încorporată de derulare înapoi. Utilizatorului i se prezintă o listă numerotată cu litere. Alegerea dintr-o listă se poate face apăsând doar o literă. Această interfață este rapidă, deoarece salvează apăsările de taste. Dacă este posibil, ecranul va fi restabilit după ieșire. Cine preferă să tasteze numere poate folosi opțiunea B<-N>."
+
+#. type: textblock
+#: wcd.pod:207
+msgid "The third interface is built with the curses library. It is similar to the conio interface. The curses version of wcd has also an additional 'graphical' interface. It lets the user select a directory via a full screen interactive directory tree browser. It has a vim(1) like navigation and search method. It can be activated with option B<-g>."
+msgstr "A treia interfață este construită cu biblioteca „curses”. Este similară cu interfața „conio”. Versiunea „curses” a wcd are, de asemenea, o interfață „grafică” suplimentară. Aceasta permite utilizatorului să selecteze un director dintr-un arbore de directoare, prin intermediul unui navigator interactiv pe ecran complet. Acesta are o metodă de navigare și căutare precum vim(1). Aceasta poate fi activată cu opțiunea B<-g>."
+
+#. type: textblock
+#: wcd.pod:213
+msgid "By using the B<-o> option one can always fall back to the stdin/stdout interface."
+msgstr "Folosind opțiunea B<-o> se poate reveni oricând la interfața intrare/ieșire standard (stdin/stdout)."
+
+#. type: =head1
+#: wcd.pod:216
+msgid "OPTIONS"
+msgstr "OPȚIUNI"
+
+#. type: =item
+#: wcd.pod:220
+msgid "B<-a>"
+msgstr "B<-a>"
+
+#. type: textblock
+#: wcd.pod:222
+msgid "Add current path to the default treedata file."
+msgstr "Adaugă calea curentă la fișierul cu datele arborelui implicit."
+
+#. type: textblock
+#: wcd.pod:224
+msgid "Use this option to quickly add the current path to the default treedata file. Re-scanning the complete disk can take a long time in some cases."
+msgstr "Utilizați această opțiune pentru a adăuga rapid calea curentă la fișierul implicit cu datele arborelui. Rescanarea întregului disc poate dura mult timp în unele cazuri."
+
+#. type: =item
+#: wcd.pod:227
+msgid "B<-aa>"
+msgstr "B<-aa>"
+
+#. type: textblock
+#: wcd.pod:229
+msgid "Add current and all parent paths to the default treedata file."
+msgstr "Adaugă căile curente și toate căile părinte la fișierul implicit cu datele arborelui."
+
+#. type: =item
+#: wcd.pod:231
+msgid "B<-A PATH>"
+msgstr "B<-A CALEA>"
+
+#. type: textblock
+#: wcd.pod:233
+msgid "Scan directory tree from I<PATH> and append to the default treedata file. Examples:"
+msgstr "Scanează arborele de directoare din I<CALEA> și adaugă rezultatul la fișierul implicit cu datele arborelui. Exemple:"
+
+#. type: verbatim
+#: wcd.pod:236
+#, no-wrap
+msgid ""
+"    wcd -A .\n"
+"    wcd -A /home -A /etc\n"
+"    wcd -A d: -A e: -A \\\\server\\share\n"
+"\n"
+msgstr ""
+"    wcd -A .\n"
+"    wcd -A /home -A /etc\n"
+"    wcd -A d: -A e: -A \\\\server\\share\n"
+"\n"
+
+# R-GC, scrie:
+# nu am putut să pun traducerea:
+# nume_server pentru servername,
+# datorită faptului că Poedit
+# interpretează „\n” ca pe un salt
+# de linie; cu o bară adițională de
+# eludare, nu se întîmplă acest
+# lucru, dar rămîn vizibile patru
+# bări oblice în loc de trei, pentru
+# utilizator.
+#. type: textblock
+#: wcd.pod:240
+msgid "On Windows one can scan all shared directories of a Windows LAN server by typing something like: C<wcd -A \\\\servername>."
+msgstr "În Windows se pot scana toate directoarele partajate ale unui server LAN Windows tastând ceva precum: C<wcd -A \\\\servername>."
+
+#. type: textblock
+#: wcd.pod:244
+msgid "See also option B<-S> and B<-s> and B<-E>."
+msgstr "A se vedea, de asemenea, opțiunile B<-S>, B<-s> și B<-E>."
+
+#. type: =item
+#: wcd.pod:246
+msgid "B<-b>"
+msgstr "B<-b>"
+
+#. type: textblock
+#: wcd.pod:248
+msgid "Ban current path."
+msgstr "Interzice calea curentă."
+
+#. type: textblock
+#: wcd.pod:250
+msgid "Wcd places the current path in the ban file. This means that wcd ignores all matches of this directory and its sub directories."
+msgstr "Wcd plasează calea curentă în fișierul de interdicții. Aceasta înseamnă că wcd ignoră toate potrivirile acestui director și ale subdirectoarelor sale."
+
+#. type: textblock
+#: wcd.pod:253
+msgid "The ban file can be edited with a text editor. Use of wildcards is supported and names are matched against the absolute path."
+msgstr "Fișierul de interdicții poate fi editat cu un editor de text. Utilizarea metacaracterelor este acceptată și numele sunt corelate cu calea absolută."
+
+#. type: textblock
+#: wcd.pod:256
+msgid "Banned paths are not excluded from scanning the disk. To do that use option B<-xf>."
+msgstr "Căile interzise nu sunt excluse de la scanarea discului. Pentru a face acest lucru, utilizați opțiunea B<-xf>."
+
+#. type: =item
+#: wcd.pod:259
+msgid "B<-c, --direct-cd>"
+msgstr "B<-c, --direct-cd>"
+
+#. type: textblock
+#: wcd.pod:261
+msgid "Direct CD mode. By default wcd works as follows:"
+msgstr "Modul CD direct. În mod implicit, wcd funcționează după cum urmează:"
+
+#. type: verbatim
+#: wcd.pod:263
+#, no-wrap
+msgid ""
+"    1. Try to find a match in the treedata file(s)\n"
+"    2. If no match, try to open the directory you typed.\n"
+"\n"
+msgstr ""
+"    1. Încearcă să găsească o potrivire în fișierele cu datele arborelui.\n"
+"    2. Dacă n-o găsește, încearcă să deschidă directorul pe care l-ați introdus.\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:266
+msgid "In direct CD mode wcd works in reversed order."
+msgstr "În modul CD indirect, wcd funcționează în ordine inversă."
+
+#. type: verbatim
+#: wcd.pod:268
+#, no-wrap
+msgid ""
+"    1. Try to open the directory you typed.\n"
+"    2. If not, try to find a match in the treedata file(s).\n"
+"\n"
+msgstr ""
+"    1. Încearcă să deschidă directorul pe care l-ați introdus.\n"
+"    2. Dacă nu poate, încearcă să găsească o potrivire în fișierele cu datele arborelui.\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:272
+msgid "B<-d DRIVE>"
+msgstr "B<-d UNITATE>"
+
+#. type: textblock
+#: wcd.pod:274
+msgid "Set drive for stack and go file (DOS only)."
+msgstr "Stabilește unitatea pentru fișierul stivă și scriptul-go (numai pentru DOS)."
+
+#. type: textblock
+#: wcd.pod:276
+msgid "The stack file and the go-script are by default stored on drive C: if environment variable I<HOME> is not set. Use this option if drive C: is a read-only drive. This option must be used in front of the stack options B<->, B<+> and B<=>."
+msgstr "Fișierul stivă și fișierul script-go sunt stocate implicit pe unitatea C: dacă variabila de mediu I<HOME> nu este definită. Utilizați această opțiune dacă unitatea C: este o unitate numai pentru citire. Această opțiune trebuie utilizată în fața opțiunilor de stivă B<->, B<+> și B<=>."
+
+#. type: =item
+#: wcd.pod:281
+msgid "B<-e>"
+msgstr "B<-e>"
+
+#. type: textblock
+#: wcd.pod:283
+msgid "Add current path to the extra treedata file."
+msgstr "Adaugă calea curentă la fișierul suplimentar cu datele arborelui."
+
+#. type: textblock
+#: wcd.pod:285
+msgid "Use this option to quickly add the current path to the extra treedata file."
+msgstr "Utilizați această opțiune pentru a adăuga rapid calea curentă la fișierul suplimentar cu datele arborelui."
+
+#. type: =item
+#: wcd.pod:287
+msgid "B<-ee>"
+msgstr "B<-ee>"
+
+#. type: textblock
+#: wcd.pod:289
+msgid "Add current and all parent paths to extra treedata file."
+msgstr "Adaugă căile curente și toate căile părinte la fișierul suplimentar cu datele arborelui."
+
+#. type: =item
+#: wcd.pod:291
+msgid "B<-E PATH>"
+msgstr "B<-E CALEA>"
+
+#. type: textblock
+#: wcd.pod:293
+msgid "Scan directory tree from I<PATH> and append to Extra treedata file. See also options B<-A> and B<-S>."
+msgstr "Scanează arborele de directoare din I<CALEA> și-l adaugă la fișierul suplimentar cu datele arborelui. A se vedea, de asemenea, opțiunile B<-A> și B<-S>."
+
+#. type: =item
+#: wcd.pod:296
+msgid "B<-f FILE>"
+msgstr "B<-f FIȘIER>"
+
+#. type: textblock
+#: wcd.pod:298
+msgid "Read treedata file I<FILE>. Do not read the default treedata file."
+msgstr "Citește fișierul cu datele arborelui I<FIȘIER>. Nu citește fișierul implicit cu datele arborelui."
+
+#. type: =item
+#: wcd.pod:300
+msgid "B<+f FILE>"
+msgstr "B<+f FIȘIER>"
+
+#. type: textblock
+#: wcd.pod:302
+msgid "Read treedata file I<FILE> in addition to the default treedata file."
+msgstr "Citește fișierul cu datele arborelui I<FIȘIER> în plus față de fișierul implicit cu datele arborelui."
+
+#. type: =item
+#: wcd.pod:304
+msgid "B<-g>"
+msgstr "B<-g>"
+
+#. type: textblock
+#: wcd.pod:306
+msgid "Graphical interface (only in version with curses interface)."
+msgstr "Interfață grafică (numai în versiunea cu interfață „curses”)."
+
+#. type: textblock
+#: wcd.pod:308
+msgid "Wcd starts a textual curses based 'graphical' interface. The user can select a directory via a full-screen interactive directory tree browser. It has a vim(1) like navigation and search method."
+msgstr "Wcd pornește o interfață „grafică” bazată pe curses textual. Utilizatorul poate selecta un director prin intermediul unui navigator interactiv pe ecran complet. Acesta are o metodă de navigare și căutare precum vim(1)."
+
+#. type: textblock
+#: wcd.pod:312
+msgid "If no search string is given wcd presents the whole tree which is in the default treedata file and the extra treedata files."
+msgstr "Dacă nu este dat niciun șir de căutare, wcd prezintă întregul arbore care se află în fișierul implicit cu datele arborelui și fișierele suplimentare cu datele arborelui."
+
+#. type: textblock
+#: wcd.pod:315
+msgid "If a search string is given the match list is presented as a directory tree."
+msgstr "Dacă este dat un șir de căutare, lista de potriviri este prezentată ca un arbore de directoare."
+
+#. type: textblock
+#: wcd.pod:318
+msgid "The default tree layout is similar to the tree layout of the original NCD on DOS. The difference in layout is that in NCD all directories of a same depth level were vertically aligned over the whole tree. This was possible in NCD, because the maximum width of a directory name in DOS was 12 (8.3) characters. On modern operating systems directory names can be very long, so also the differences in length can be large. Therefore folders with a same depth are not vertically aligned over the whole tree in wcd, but only in sub-branches.  So there is some sideways movement when moving straight up and down from one sub-branch to another sub-branch."
+msgstr "Aspectul arborescent implicit este similar cu aspectul arborescent al NCD-ului original pe DOS. Diferența de aspect este că în NCD toate directoarele de același nivel de adâncime au fost aliniate vertical pe întregul arbore. Acest lucru a fost posibil în NCD, deoarece lățimea maximă a unui nume de director în DOS era de 12 (8,3) caractere. În sistemele de operare moderne, numele directoarelor pot fi foarte lungi, deci și diferențele de lungime pot fi mari. Prin urmare, dosarele cu aceeași adâncime nu sunt aliniate vertical pe întreg arborele în wcd, ci doar în subramuri.  Deci, există o mișcare laterală atunci când vă deplasați direct în sus și în jos de la o subramură la alta subramură."
+
+#. type: textblock
+#: wcd.pod:328
+msgid "The navigation behaviour in Wcd is exactly the same as in the original NCD. For instance if you push the Down key you go down to the next directory with the same depth level, jumping over branches. This enables fast navigation through the tree."
+msgstr "Comportamentul de navigare în Wcd este exact același ca în NCD original. De exemplu, dacă apăsați tasta «Jos», mergeți la următorul director cu același nivel de adâncime, sărind peste ramuri. Acest lucru permite navigarea rapidă prin arbore."
+
+#. type: textblock
+#: wcd.pod:333
+msgid "See options B<-Ta>, B<-TC>, and B<-Tc> to change the navigation behaviour."
+msgstr "Consultați opțiunile B<-Ta>, B<-TC> și B<-Tc> pentru a modifica comportamentul de navigare."
+
+#. type: =item
+#: wcd.pod:335
+msgid "B<-gd>"
+msgstr "B<-gd>"
+
+#. type: textblock
+#: wcd.pod:337
+msgid "Dump the treedata files as a tree to stdout."
+msgstr "Afișează fișierele cu datele arborelui, ca arbore la ieșirea standard."
+
+#. type: =item
+#: wcd.pod:339
+msgid "B<-G PATH>"
+msgstr "B<-G CALEA>"
+
+#. type: textblock
+#: wcd.pod:341
+msgid "Write go-script in directory I<PATH>. For instance on Unix, C<wcd -G PATH> will write a go-script B<PATH/wcd.go>."
+msgstr "Scrie un fișier script-go în directorul I<CALEA>. De exemplu, în Unix, C<wcd -G CALEA> va scrie un fișier go-script în B<CALEA/wcd.go>."
+
+#. type: =item
+#: wcd.pod:344
+msgid "B<-GN, --no-go-script>"
+msgstr "B<-GN, --no-go-script>"
+
+#. type: textblock
+#: wcd.pod:346
+msgid "Do not create go-script. This option can be used in combination with the option B<-j> if one does not want wcd to create a go-script."
+msgstr "Nu creează fișierul script-go. Această opțiune poate fi folosită în combinație cu opțiunea B<-j> dacă nu se dorește ca wcd să creeze un fișier script-go."
+
+#. type: =item
+#: wcd.pod:349
+msgid "B<-h, --help>"
+msgstr "B<-h, --help>"
+
+#. type: textblock
+#: wcd.pod:351
+msgid "Show help and exit."
+msgstr "Afișează ajutorul și iese."
+
+#. type: =item
+#: wcd.pod:353
+msgid "B<-i, --ignore-case>"
+msgstr "B<-i, --ignore-case>"
+
+#. type: textblock
+#: wcd.pod:355
+msgid "Ignore case.  Dos and Windows versions of wcd ignore case default. Unix/Cygwin versions regard case by default."
+msgstr "Ignoră diferența dintre majuscule/minuscule.  Versiunile Dos și Windows ale wcd ignoră diferența dintre majuscule/minuscule în mod implicit. Versiunile Unix/Cygwin respectă diferența dintre majuscule/minuscule în mod implicit."
+
+#. type: =item
+#: wcd.pod:359
+msgid "B<+i, --no-ignore-case>"
+msgstr "B<+i, --no-ignore-case>"
+
+#. type: textblock
+#: wcd.pod:361
+msgid "Regard case. See also option B<-i>."
+msgstr "Respectă diferența dintre majuscule/minuscule. A se vedea, de asemenea, opțiunea B<-i>."
+
+#. type: =item
+#: wcd.pod:363
+msgid "B<-I, --ignore-diacritics>"
+msgstr "B<-I, --ignore-diacritics>"
+
+#. type: textblock
+#: wcd.pod:365
+msgid "Ignore diacritics for Latin-based scripts.  Letters with diacritical marks match their base letter without diacritical mark. The following Latin encodings are supported: CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, ISO-8859-2, and Unicode Latin-1, Latin Extended-A, and Latin Extended-B.  See also L<http://en.wikipedia.org/wiki/Diacritic>"
+msgstr "Ignoră semnele diacritice pentru scripturile latine.  Literele cu semne diacritice se potrivesc cu litera de bază fără semne diacritice. Sunt acceptate următoarele codificări latine: CP437, CP850, CP852, CP1250, CP1252, ISO-8859-1, ISO-8859-2 și Unicode Latin-1, Latin Extended-A și Latin Extended-B.  A se vedea, de asemenea, L<https://ro.wikipedia.org/wiki/Semn_diacritic>, sau în engleză: L<http://en.wikipedia.org/wiki/Diacritic>, pentru cei care au cunoștințe de limbă, și vor să aprofundeze această temă"
+
+#. type: =item
+#: wcd.pod:372
+msgid "B<+I, --no-ignore-diacritics>"
+msgstr "B<+I, --no-ignore-diacritics>"
+
+#. type: textblock
+#: wcd.pod:374
+msgid "Regard diacritics (default). See also option B<-I>."
+msgstr "Respectă diacriticele (implicit). A se vedea, de asemenea, opțiunea B<-I>."
+
+#. type: =item
+#: wcd.pod:376
+msgid "B<-j, --just-go>"
+msgstr "B<-j, --just-go>"
+
+#. type: textblock
+#: wcd.pod:378
+msgid "Just go mode."
+msgstr "Doar modul „go”."
+
+#. type: textblock
+#: wcd.pod:380
+msgid "In this mode wcd will not present a list when there is more than one directory that matches the given directory. Wcd will just change to the first option. When wcd is invoked again with the same arguments it will change to the next option, and so on."
+msgstr "În acest mod, wcd nu va prezenta o listă atunci când există mai multe directoare care se potrivesc cu directorul dat. Wcd va schimba doar la prima opțiune. Când wcd este invocat din nou cu aceleași argumente, va schimba la următoarea opțiune și așa mai departe."
+
+#. type: textblock
+#: wcd.pod:385
+msgid "Wcd will print the directory to go to to stdout. So a different installation method can be used. One could make the following function for a POSIX compatible shell:"
+msgstr "Wcd va afișa directorul la care merge la ieșirea standard. În acest fel, poate fi utilizată o metodă diferită de instalare. S-ar putea face următoarea funcție pentru un shell compatibil POSIX:"
+
+#. type: verbatim
+#: wcd.pod:389
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        cd \"$($HOME/bin/wcd.exe -j $@)\"\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        cd \"$($HOME/bin/wcd.exe -j $@)\"\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:394
+msgid "When you are using an old shell that doesn't support \"$()\" command substitution you have to use old style command substitution with back-quotes."
+msgstr "Când utilizați un shell vechi care nu acceptă înlocuirea comenzii „$()”, trebuie să utilizați înlocuirea comenzii în stil vechi cu ghilimele înapoi «`»."
+
+#. type: verbatim
+#: wcd.pod:397
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        cd \"`$HOME/bin/wcd.exe -j $@`\"\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        cd \"`$HOME/bin/wcd.exe -j $@`\"\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:403
+msgid "On Windows systems, if one is running 4NT shell, one could make the following alias:"
+msgstr "În sistemele Windows, dacă cineva rulează shell 4NT, se poate face următorul alias:"
+
+#. type: verbatim
+#: wcd.pod:406
+#, no-wrap
+msgid ""
+"    alias wcd `cd %@execstr[wcdwin32.exe -z 0 -j %1]`\n"
+"\n"
+msgstr ""
+"    alias wcd `cd %@execstr[wcdwin32.exe -z 0 -j %1]`\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:409
+msgid "This method eliminates the need of the go-script, so one can use option B<-GN> in combination with B<-j>."
+msgstr "Această metodă elimină necesitatea utilizării scriptului-go, astfel încât se poate folosi opțiunea B<-GN> în combinație cu B<-j>."
+
+#. type: =item
+#: wcd.pod:412
+msgid "B<-k, --keep-paths>"
+msgstr "B<-k, --keep-paths>"
+
+#. type: textblock
+#: wcd.pod:414
+msgid "Keep paths."
+msgstr "Păstrează căile."
+
+#. type: textblock
+#: wcd.pod:416
+msgid "Keep paths in the treedata file when wcd can't change to them. The default behaviour of wcd is that it tries to remove paths from the treedata when wcd can't change to them. With this option this behavior is turned off."
+msgstr "Păstrează căile în fișierul cu datele arborelui atunci când wcd nu poate schimba la ele. Comportamentul implicit al wcd este de-a încerca să elimine căile din datele arborelui atunci când wcd nu poate schimba la ele. Cu această opțiune, acest comportament este dezactivat."
+
+#. type: =item
+#: wcd.pod:420
+msgid "B<-K, --color>"
+msgstr "B<-K, --color>"
+
+#. type: textblock
+#: wcd.pod:422
+msgid "Use colors in graphical mode."
+msgstr "Utilizează culori în modul grafic."
+
+#. type: =item
+#: wcd.pod:424
+msgid "B<-l ALIAS>"
+msgstr "B<-l ALIAS>"
+
+#. type: textblock
+#: wcd.pod:426
+msgid "Name the current path with I<ALIAS>. Wcd places the current path with alias I<ALIAS> in the alias file. Aliases are case sensitive."
+msgstr "Numește calea curentă cu I<ALIAS>. Wcd plasează calea curentă cu alias I<ALIAS> în fișierul de alias. Intrările de alias respectă diferența dintre majuscule/minuscule."
+
+#. type: =item
+#: wcd.pod:429
+msgid "B<-ls>"
+msgstr "B<-ls>"
+
+#. type: textblock
+#: wcd.pod:431
+msgid "Show the name of the alias file, and list all the aliases."
+msgstr "Afișează numele fișierului de alias și listează toate intrările de alias ce le conține."
+
+#. type: =item
+#: wcd.pod:433
+msgid "B<-m DIR>"
+msgstr "B<-m DIR>"
+
+#. type: textblock
+#: wcd.pod:435
+msgid "Make directory and add to treedata file."
+msgstr "Creează directorul și-l adaugă în fișierul cu datele arborelui."
+
+#. type: =item
+#: wcd.pod:437
+msgid "B<-L, --license>"
+msgstr "B<-L, --license>"
+
+#. type: textblock
+#: wcd.pod:439
+msgid "Print the distribution license."
+msgstr "Afișează licența de distribuție."
+
+#. type: =item
+#: wcd.pod:441
+msgid "B<-M DIR>"
+msgstr "B<-M DIR>"
+
+#. type: textblock
+#: wcd.pod:443
+msgid "Make directory and add to extra treedata file."
+msgstr "Creează directorul și-l adaugă în fișierul suplimentar cu datele arborelui."
+
+#. type: =item
+#: wcd.pod:445
+msgid "B<-n PATH>"
+msgstr "B<-n CALEA>"
+
+#. type: textblock
+#: wcd.pod:447
+msgid "Read relative treedata file from I<PATH>."
+msgstr "Citește fișierul cu datele arborelui relativ de la I<CALEA>."
+
+#. type: textblock
+#: wcd.pod:449
+msgid "Do not read the default treedata file. The relative treedata file should already have been created using the wcd B<+S> option.  I<PATH> may also point to a file directly."
+msgstr "Nu citește fișierul implicit cu datele arborelui. Fișierul cu datele arborelui relativ ar trebui să fi fost deja creat folosind opțiunea wcd B<+S>. I<CALEA> poate indica, de asemenea, direct către un fișier."
+
+#. type: textblock
+#: wcd.pod:453
+msgid "An example. Suppose another system has been mounted to mount point C</mnt/network>:"
+msgstr "Un exemplu. Să presupunem că un alt sistem a fost montat la punctul de montare C</mnt/network>:"
+
+#. type: verbatim
+#: wcd.pod:456
+#, no-wrap
+msgid ""
+"    wcd -n /mnt/network src\n"
+"\n"
+msgstr ""
+"    wcd -n /mnt/network src\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:458
+msgid "Wcd opens the relative treedata file in C</mnt/network/>. The file contains the paths relative from that point."
+msgstr "Wcd deschide fișierul cu datele arborelui relativ în C</mnt/network/>. Fișierul conține căile relative din acel punct."
+
+#. type: =item
+#: wcd.pod:461
+msgid "B<+n PATH>"
+msgstr "B<+n CALEA>"
+
+#. type: textblock
+#: wcd.pod:463
+msgid "Read relative treedata file in addition to the default treedata file. See option B<-n>."
+msgstr "Citește fișierul cu datele arborelui relativ pe lângă fișierul implicit cu datele arborelui. A se vedea opțiunea B<-n>."
+
+#. type: =item
+#: wcd.pod:466
+msgid "B<-N, --numbers>"
+msgstr "B<-N, --numbers>"
+
+#. type: textblock
+#: wcd.pod:468
+msgid "Use numbers instead of letters."
+msgstr "Utilizează numere în loc de litere."
+
+#. type: textblock
+#: wcd.pod:470
+msgid "Wcd with a conio or curses based interface (see section Interfaces) presents a match list by default numbered with letters. When the B<-N> option is used the match list is numbered with numbers. Regardless of the B<-N> option one can type a letter or numbers to make a selection from the list of matches."
+msgstr "Wcd cu o interfață bazată pe „conio” sau „curses” (a se vedea secțiunea Interfețe) prezintă o listă de potriviri numerotată implicit cu litere. Când se utilizează opțiunea B<-N>, lista de potriviri este numerotată cu numere. Indiferent dacă opțiunea B<-N> este prezentă, sau nu, se poate tasta o literă sau numere pentru a face o selecție din lista de potriviri."
+
+#. type: =item
+#: wcd.pod:475
+msgid "B<-o>"
+msgstr "B<-o>"
+
+#. type: textblock
+#: wcd.pod:477
+msgid "Use stdin/stdout interface."
+msgstr "Utilizează interfața intrare/ieșire standard (stdin/stdout)."
+
+#. type: textblock
+#: wcd.pod:479
+msgid "When for some kind of reason the conio or curses interface of wcd does not work one can fall back to the stdin/stdout interface of wcd by using the B<-o> option."
+msgstr "Când dintr-un anumit motiv interfața „conio” sau „curses” a wcd nu funcționează, se poate reveni la interfața intrare/ieșire standard (stdin/stdout) a wcd folosind opțiunea B<-o>."
+
+#. type: =item
+#: wcd.pod:483
+msgid "B<-od, --to-stdout>"
+msgstr "B<-od, --to-stdout>"
+
+#. type: textblock
+#: wcd.pod:485
+msgid "Dump all matches to stdout."
+msgstr "Afișează toate potrivirile la ieșirea standard."
+
+#. type: =item
+#: wcd.pod:487
+msgid "B<-q, --quiet>"
+msgstr "B<-q, --quiet>"
+
+#. type: textblock
+#: wcd.pod:489
+msgid "Quieter operation. Printing of the final match is suppressed."
+msgstr "Funcționare mai silențioasă. Afișarea potrivirii finale este suprimată."
+
+#. type: =item
+#: wcd.pod:491
+msgid "B<-r DIR>"
+msgstr "B<-r DIR>"
+
+#. type: textblock
+#: wcd.pod:493
+msgid "Remove directory and remove from the treedata file."
+msgstr "Elimină directorul și-l elimină și din fișierul cu datele arborelui."
+
+#. type: textblock
+#: wcd.pod:495
+msgid "If the directory is empty, wcd will remove it, and try to remove it from the treedata file."
+msgstr "Dacă directorul este gol, wcd îl va șterge și va încerca să-l elimine din fișierul cu datele arborelui."
+
+#. type: =item
+#: wcd.pod:498
+msgid "B<-rmtree DIR>"
+msgstr "B<-rmtree DIR>"
+
+#. type: textblock
+#: wcd.pod:500
+msgid "Recursively remove directory and remove from the treedata file."
+msgstr "Șterge în mod recurs directorul și-l elimină din fișierul cu datele arborelui."
+
+#. type: textblock
+#: wcd.pod:502
+msgid "Wcd will remove the directory and all its sub directories and files, and remove the directories from the treedata file."
+msgstr "Wcd va șterge directorul și toate subdirectoarele și fișierele sale și va elimina directoarele acestea din fișierul cu datele arborelui."
+
+#. type: =item
+#: wcd.pod:505
+msgid "B<-s>"
+msgstr "B<-s>"
+
+#. type: textblock
+#: wcd.pod:507
+msgid "(re)Scan disk from C<$HOME> directory. If I<HOME> is not defined the disk is scanned from root directory /."
+msgstr "Scanează/Rescanează discul din directorul C<$HOME>. Dacă variabila I<HOME> nu este definită, discul este scanat din directorul rădăcină /."
+
+#. type: textblock
+#: wcd.pod:510
+msgid "The existing default treedata file is overwritten."
+msgstr "Fișierul implicit cu datele arborelui, existent, este suprascris."
+
+#. type: textblock
+#: wcd.pod:512
+msgid "The default scan directory can be overruled with environment variable C<WCDSCAN>. See section ENVIRONMENT VARIABLES."
+msgstr "Directorul de scanare implicit poate fi anulat cu variabila de mediu C<WCDSCAN>. A se vedea secțiunea VARIABILE DE MEDIU."
+
+#. type: =item
+#: wcd.pod:515
+msgid "B<-S PATH>"
+msgstr "B<-S CALEA>"
+
+#. type: textblock
+#: wcd.pod:517
+msgid "Scan directory tree from I<PATH> and overwrite the default treedata file.  See also options B<-A>, B<-s> and B<-E>. E.g. with option B<-A> you can create a default treedata file of your choice. Examples:"
+msgstr "Scanează arborele de directoare din I<CALEA> și suprascrie fișierul implicit cu datele arborelui. A se vedea, de asemenea, opțiunile B<-A>, B<-s> și B<-E>. De exemplu, cu opțiunea B<-A> puteți crea un fișier implicit cu datele arborelui la alegere. Exemple:"
+
+#. type: textblock
+#: wcd.pod:521
+msgid "Unix:"
+msgstr "Unix:"
+
+#. type: verbatim
+#: wcd.pod:523
+#, no-wrap
+msgid ""
+"    wcd -S /\n"
+"    wcd -S /home -A /etc -A /usr\n"
+"\n"
+msgstr ""
+"    wcd -S /\n"
+"    wcd -S /home -A /etc -A /usr\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:526
+msgid "DOS/Windows:"
+msgstr "DOS/Windows:"
+
+#. type: verbatim
+#: wcd.pod:528
+#, no-wrap
+msgid ""
+"    wcd -S c:/\n"
+"    wcd -S c: -A d: -A \\\\server\\share\n"
+"\n"
+msgstr ""
+"    wcd -S c:/\n"
+"    wcd -S c: -A d: -A \\\\server\\share\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:531
+msgid "With the Windows versions one can scan all shared directories of a Windows LAN server by typing something like: C<wcd -S \\\\servername>."
+msgstr "Cu versiunile Windows se pot scana toate directoarele partajate ale unui server LAN Windows tastând ceva precum: C<wcd -S \\\\servername>."
+
+#. type: =item
+#: wcd.pod:535
+msgid "B<+S PATH>"
+msgstr "B<+S CALEA>"
+
+#. type: textblock
+#: wcd.pod:537
+msgid "Scan disk from I<PATH> and place relative paths in a relative treedata file.  This file is used by the B<-n> and B<+n> options of wcd. E.g. C<wcd -n PATH src>."
+msgstr "Scanează discul de la I<CALEA> și plasează căi relative într-un fișier cu datele arborelui relativ.  Acest fișier este utilizat de opțiunile B<-n> și B<+n> ale «wcd». De exemplu, C<wcd -n CALEA src>."
+
+#. type: =item
+#: wcd.pod:541
+msgid "B<-t>"
+msgstr "B<-t>"
+
+#. type: textblock
+#: wcd.pod:543
+msgid "Do not strip tmp mount dir C</tmp_mnt> (Unix only)"
+msgstr "Nu șterge dosarul de montare temporar C</tmp_mnt> (numai în Unix)"
+
+#. type: textblock
+#: wcd.pod:545
+msgid "Wcd strips by default C</tmp_mnt/> from the match. Directory C</tmp_mnt> is used by the auto-mounter. This behaviour can be turned off with the B<-t> option."
+msgstr "Wcd elimină în mod implicit C</tmp_mnt/> din potriviri. Directorul C</tmp_mnt> este utilizat de auto-mounter. Acest comportament poate fi dezactivat cu opțiunea B<-t>."
+
+#. type: =item
+#: wcd.pod:549
+msgid "B<-T, --ascii-tree>"
+msgstr "B<-T, --ascii-tree>"
+
+#. type: textblock
+#: wcd.pod:551
+msgid "Draw tree with ASCII characters. Use this option if line drawing characters are not displayed properly in your terminal."
+msgstr "Desenează arborele cu caractere ASCII. Utilizați această opțiune dacă caracterele desenate nu sunt afișate corect în terminalul dumneavoastră."
+
+#. type: =item
+#: wcd.pod:554
+msgid "B<-Ta, --alt-tree-nav>"
+msgstr "B<-Ta, --alt-tree-nav>"
+
+#. type: textblock
+#: wcd.pod:556
+msgid "Alternative way of navigation in the graphical tree."
+msgstr "Metodă alternativă de navigare în arborele grafic."
+
+#. type: textblock
+#: wcd.pod:558
+msgid "In the default NCD style tree layout the B<-Ta> option disables jumping to unrelated directories."
+msgstr "În aspectul implicit al arborelui în stil NCD, opțiunea B<-Ta> dezactivează accesul la directoare care nu au legătură."
+
+#. type: textblock
+#: wcd.pod:561
+msgid "In compact tree mode the alternative mode makes navigation similar to navigation in GUI file managers such as Windows Explorer or Linux KDE Konqueror. Pressing Up and Down moves the selected folder one line up or down. Pressing Left first folds the sub-folders and the next move left moves really left."
+msgstr "În modul arbore compact, modul alternativ face navigarea similară cu navigarea în managerii de fișiere GUI, cum ar fi Windows Explorer sau Linux KDE Konqueror. Apăsând „Sus” și „Jos”, va muta dosarul selectat cu o linie în sus sau în jos. Apăsând prima dată „Stânga”, subdosarele sunt pliate, iar la următoarea apăsare a tastei „Stânga” se deplasează cu adevărat la stânga."
+
+#. type: textblock
+#: wcd.pod:567
+msgid "You can switch on-the-fly between default and alternative navigation by pressing <Shift-A>."
+msgstr "Puteți comuta din mers între navigarea implicită și cea alternativă apăsând <Shift-A>."
+
+#. type: textblock
+#: wcd.pod:570
+msgid "When alternative navigation mode is on, you will see an \"A\" in the lower right corner."
+msgstr "Când modul alternativ de navigare este activat, veți vedea un „A” în colțul din dreapta jos."
+
+#. type: =item
+#: wcd.pod:572
+msgid "B<-TC, --center-tree>"
+msgstr "B<-TC, --center-tree>"
+
+#. type: textblock
+#: wcd.pod:574
+msgid "Centered view in the graphical tree. The selected directory stays in the middle of the screen. The centered mode can also be switched on and off with key <t> in the graphical tree."
+msgstr "Vizualizare centrată în arborele grafic. Directorul selectat rămâne în mijlocul ecranului. Modul centrat al arborelui grafic poate fi, de asemenea, activat și dezactivat cu tasta <t>."
+
+#. type: textblock
+#: wcd.pod:578
+msgid "The standard non-centered behaviour, which minimises tree movement, is the same as in the original NCD."
+msgstr "Comportamentul standard necentrat, care minimizează mișcarea arborelui, este același ca în NCD original."
+
+#. type: =item
+#: wcd.pod:581
+msgid "B<-Tc, --compact-tree>"
+msgstr "B<-Tc, --compact-tree>"
+
+#. type: textblock
+#: wcd.pod:583
+msgid "By default the 'graphical' tree is drawn the same way as the original NCD on DOS did it. On DOS a directory path could only be 66 characters in total. With the deep directory structures of today the tree can become very wide. To overcome this wcd can draw the tree in a compact way, similar to most GUI file managers, with only one folder per line. Use option B<-Tc> or switch on-the-fly with the <m> key."
+msgstr "În mod implicit, arborele „grafic” este desenat în același mod în care a făcut-o NCD-ul original pe DOS. Pe DOS, o cale de director poate avea doar 66 de caractere în total. Cu structurile de directoare profunde de astăzi, arborele poate deveni foarte lat. Pentru a depăși acest lucru, wcd poate desena arborele într-un mod compact, similar cu majoritatea managerilor de fișiere GUI, cu un singur folder pe linie. Utilizați opțiunea B<-Tc> sau comutați din mers cu tasta <m>."
+
+#. type: =item
+#: wcd.pod:590
+msgid "B<-Td, --cjk-width>"
+msgstr "B<-Td, --cjk-width>"
+
+#. type: textblock
+#: wcd.pod:592
+msgid "Legacy East-Asian CJK (Chinese, Japanese, and Korean) fonts have certain characters and line drawing symbols with a column width of 2, while the normal Unicode width for these characters is 1 column. For instance the Chinese CP936 raster font on Windows and the Simsun font. Use this option for a correct outlining of the graphical tree when a legacy CJK font is used."
+msgstr "Fonturile vechi CJK din Asia de Est (chineză, japoneză și coreeană) au anumite caractere și simboluri de desen de linii cu o lățime de 2 coloane, în timp ce lățimea Unicode normală pentru aceste caractere este de 1 coloană. De exemplu fontul raster chinezesc CP936 pe Windows și fontul Simsun. Utilizați această opțiune pentru o conturare corectă a arborelui grafic atunci când este utilizat un font CJK vechi."
+
+#. type: textblock
+#: wcd.pod:598
+msgid "When CJK mode is on, you will see a \"C\" in the lower right corner."
+msgstr "Când modul CJK este activat, veți vedea un „C” în colțul din dreapta jos."
+
+#. type: =item
+#: wcd.pod:600
+msgid "B<-u USER>"
+msgstr "B<-u UTILIZATOR>"
+
+#. type: textblock
+#: wcd.pod:602
+msgid "Scan treedata file of another user based on I<USER>, do not scan your own default treedata file. See also section ENVIRONMENT VARIABLES for I<WCDUSERSHOME>."
+msgstr "Scanează fișierul cu datele arborelui, al altui utilizator pe baza a I<UTILIZATOR>, nu scanează propriul dumneavoastră fișier cu datele arborelui implicit. A se vedea, de asemenea, secțiunea VARIABILE DE MEDIU pentru I<WCDUSERSHOME>."
+
+#. type: textblock
+#: wcd.pod:605
+msgid "On Unix/Cygwin the base directory for user home directories is assumed to be C</home>. Wcd will look for C</home/USER/.treedata.wcd> and C</home/USER/.wcd/.treedata.wcd>, in that order, and read the first one that exists and is readable.  On DOS/Windows the base directory for user home directories is assumed to be C<\\\\users>, so wcd tries to read C<\\\\users\\USER\\treedata.wcd> and C<\\\\users\\USER\\.wcd\\treedata.wcd>."
+msgstr "În Unix/Cygwin, directorul de bază pentru directoarele acasă ale utilizatorilor se presupune a fi C </home>. wcd va căuta c </home/nume_utilizator/.treedata.wcd> și c </home/nume_utilizator/.wcd/.treedata.wcd>, în această ordine, și va citi primul care există și poate fi citit. În DOS/Windows, directorul de bază pentru directoarele acasă ale utilizatorului se presupune a fi C <\\\\ Users>, astfel încât wcd încearcă să citească C <\\\\Users\\Nume_Utilizator\treedata.wcd> și C <\\\\Users\\Nume_Utilizator\\.wcd\treedata.wcd>."
+
+#. type: =item
+#: wcd.pod:613
+msgid "B<+u USER>"
+msgstr "B<+u UTILIZATOR>"
+
+#. type: textblock
+#: wcd.pod:615
+msgid "Read default treedata file of USER in addition to your own treedata file."
+msgstr "Citește fișierul implicit „treedata.wcd” al utilizatorului UTILIZATOR, pe lângă propriul dumneavoastră fișier „treedata.wcd”."
+
+#. type: =item
+#: wcd.pod:618
+msgid "B<-v, --verbose>"
+msgstr "B<-v, --verbose>"
+
+#. type: textblock
+#: wcd.pod:620
+msgid "Display verbose messages. With this option wcd prints all filters, bans and excludes."
+msgstr "Afișează mesaje detaliate. Cu această opțiune, wcd afișează toate filtrele, interdicțiile și excluderile."
+
+#. type: =item
+#: wcd.pod:623
+msgid "B<-V, --version>"
+msgstr "B<-V, --version>"
+
+#. type: textblock
+#: wcd.pod:625
+msgid "Print version information and exit."
+msgstr "Afișează informațiile despre versiune și iese."
+
+#. type: =item
+#: wcd.pod:627
+msgid "B<-w, --wild-match-only>"
+msgstr "B<-w, --wild-match-only>"
+
+#. type: textblock
+#: wcd.pod:629
+msgid "Wild matching only. Treat all matches as wild matches."
+msgstr "Doar potrivire cu ajutorul metacaracterelor. Tratează toate potrivirile ca potriviri cu metacaractere (caractere Jocker)."
+
+#. type: =item
+#: wcd.pod:631
+msgid "B<-x PATH>"
+msgstr "B<-x CALEA>"
+
+#. type: textblock
+#: wcd.pod:633
+msgid "Exclude I<PATH> from scanning."
+msgstr "Exclude I<CALEA> de la scanare."
+
+#. type: textblock
+#: wcd.pod:635
+msgid "When this option is used wcd will exclude I<PATH> and all its subdirectories when wcd is scanning a disk. Wildcards are supported and matched against absolute paths. Option B<-x> can be used multiple times."
+msgstr "Când această opțiune este folosită, wcd va exclude I<CALEA> și toate subdirectoarele sale atunci când wcd scanează un disc. Metacaracterele sunt acceptate și corelate cu căi absolute. Opțiunea B<-x> poate fi folosită de mai multe ori."
+
+#. type: verbatim
+#: wcd.pod:639
+#, no-wrap
+msgid ""
+"    wcd -x <path1> -x <path2> -s\n"
+"\n"
+msgstr ""
+"    wcd -x <calea1> -x <calea2> -s\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:641
+msgid "Option B<-x> must be used in front of any scan option (B<-s>, B<-S>, B<+S>, B<-A>, B<-E>)."
+msgstr "Opțiunea B<-x> trebuie folosită înaintea oricărei opțiuni de scanare (B<-s>, B<-S>, B<+S>, B<-A>, B<-E>)."
+
+#. type: textblock
+#: wcd.pod:645
+msgid "On DOS/Windows systems one must specify the drive letter depending on if environment variable I<HOME> or I<WCDHOME> is set. If I<HOME> or I<WCDHOME> is set one needs to specify the drive letter. An example:"
+msgstr "În sistemele DOS/Windows trebuie să specificați litera unității, în cazul în care este definită variabila de mediu I<HOME> sau I<WCDHOME>. Dacă I<HOME> sau I<WCDHOME> este definită, trebuie să specificați litera unității. Un exemplu:"
+
+#. type: verbatim
+#: wcd.pod:649
+#, no-wrap
+msgid ""
+"    wcd -x c:/temp -S c:\n"
+"\n"
+msgstr ""
+"    wcd -x c:/temp -S c:\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:651
+msgid "Otherwise do not specify drive letter."
+msgstr "În caz contrar, nu trebuie să specificați litera de unitate."
+
+#. type: verbatim
+#: wcd.pod:653
+#, no-wrap
+msgid ""
+"    wcd -x /temp -s\n"
+"\n"
+msgstr ""
+"    wcd -x /temp -s\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:656
+msgid "B<-xf FILE>"
+msgstr "B<-xf FIȘIER>"
+
+#. type: textblock
+#: wcd.pod:658
+msgid "Exclude all paths listed in I<FILE> from scanning."
+msgstr "Exclude toate căile listate în I<FIȘIER> de la scanare."
+
+#. type: textblock
+#: wcd.pod:660
+msgid "When this option is used wcd will exclude all paths listed in I<FILE> and all their subdirectories when wcd is scanning a disk. Wildcards are supported and they are matched against absolute paths; one path per line. Be aware that wcd will not ignore leading or trailing blanks on a line, because they are legal characters in a directory name. Option B<-xf> can be used multiple times. When one wants to exclude all banned paths from scanning one can do the following (example for wcd on unix):"
+msgstr "Când este utilizată această opțiune, wcd va exclude toate căile listate în I<FIȘIER> și toate subdirectoarele lor atunci când wcd scanează un disc. Metacaracterele sunt acceptate și sunt corelate cu căi absolute; o cale pe linie. Fiți conștienți de faptul că wcd nu va ignora spațiile libere de început sau de final de pe o linie, deoarece sunt caractere legale într-un nume de director. Opțiunea B<-xf> poate fi folosită de mai multe ori. Când doriți să excludeți toate căile interzise de la scanare, puteți face următoarele (exemplu pentru wcd în Unix):"
+
+#. type: verbatim
+#: wcd.pod:668
+#, no-wrap
+msgid ""
+"    wcd -xf ~/.ban.wcd -s\n"
+"\n"
+msgstr ""
+"    wcd -xf ~/.ban.wcd -s\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:670
+msgid "Wildcards are supported. For instance to exclude all your Subversion directories with administrative files add a line with C<*/.svn>."
+msgstr "Sunt acceptate metacaracterele. De exemplu, pentru a exclude toate directoarele dumneavoastră „Subversion” cu fișiere administrative adăugați o linie cu C<*/.svn>."
+
+#. type: textblock
+#: wcd.pod:673
+msgid "Option B<-xf> must be used in front of any scan option (B<-s>, B<-S>, B<+S>, B<-A>, B<-E>)."
+msgstr "Opțiunea B<-xf> trebuie folosită înaintea oricărei opțiuni de scanare (B<-s>, B<-S>, B<+S>, B<-A>, B<-E>)."
+
+#. type: =item
+#: wcd.pod:676
+msgid "B<-y, --assume-yes>"
+msgstr "B<-y, --assume-yes>"
+
+#. type: textblock
+#: wcd.pod:678
+msgid "Assume Yes on all queries."
+msgstr "Răspunde Da (Yes) la toate întrebările."
+
+#. type: textblock
+#: wcd.pod:680
+msgid "Wcd will not prompt the user with yes/no questions, but assumes the user answers yes on all questions. This can be used in combination with option B<-rmtree>. This option must be used in front of options that can lead to yes/no questions."
+msgstr "Wcd nu va solicita utilizatorului întrebări da/nu, dar presupune că utilizatorul răspunde da la toate întrebările. Aceasta poate fi utilizată în combinație cu opțiunea B<-rmtree>. Această opțiune trebuie utilizată în fața opțiunilor care pot conduce la întrebări da/nu."
+
+#. type: =item
+#: wcd.pod:685
+msgid "B<-z NUMBER>"
+msgstr "B<-z NUMĂR>"
+
+#. type: textblock
+#: wcd.pod:687
+msgid "Set maximum stack size to NUMBER."
+msgstr "Stabilește dimensiunea maximă a stivei la NUMĂR."
+
+#. type: textblock
+#: wcd.pod:689
+msgid "The default size of the stack is 10. Stack operation can be turned off by setting the size to 0. This option must be used in front of any other stack operations (B<->,B<+>,B<=>). Otherwise the size of the stack will be set back to the default 10."
+msgstr "Dimensiunea implicită a stivei este 10. Operația de stivă poate fi dezactivată setând dimensiunea la 0. Această opțiune trebuie utilizată în fața oricăror alte operațiuni de stivă (B<->,B<+>,B<=>) . În caz contrar, dimensiunea stivei va fi setată înapoi la valoarea implicită de 10."
+
+#. type: textblock
+#: wcd.pod:694
+msgid "A correct command is:"
+msgstr "O comandă corectă este:"
+
+#. type: verbatim
+#: wcd.pod:696
+#, no-wrap
+msgid ""
+"    wcd -z 50 -\n"
+"\n"
+msgstr ""
+"    wcd -z 50 -\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:698
+msgid "The new stack size will be 50, wcd will go one directory back. A wrong command is:"
+msgstr "Noua dimensiune a stivei va fi 50, wcd va merge cu un director înapoi. O comandă greșită este:"
+
+#. type: verbatim
+#: wcd.pod:701
+#, no-wrap
+msgid ""
+"    wcd - -z 50\n"
+"\n"
+msgstr ""
+"    wcd - -z 50\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:703
+msgid "Wcd goes one directory back, the stack gets the default size 10. The B<-z 50> is ignored."
+msgstr "Wcd merge cu un director înapoi, stiva primește dimensiunea implicită 10. B<-z 50> este ignorată."
+
+#. type: textblock
+#: wcd.pod:706
+msgid "Add this option as the first option to your wcd alias or function. E.g.  for the a POSIX compatible shell this would be:"
+msgstr "Adăugați această opțiune ca prima opțiune la alias sau funcția dumneavoastră wcd. De exemplu, pentru un shell compatibil POSIX, aceasta ar fi:"
+
+#. type: verbatim
+#: wcd.pod:709
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"\twcd.exe -z 50 \"$@\"\n"
+"\t. ${WCDHOME:-${HOME}}/bin/wcd.go\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"\twcd.exe -z 50 \"$@\"\n"
+"\t. ${WCDHOME:-${HOME}}/bin/wcd.go\n"
+"    }\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:715
+msgid "B<-[NUMBER]>"
+msgstr "B<-[NUMĂR]>"
+
+#. type: textblock
+#: wcd.pod:717
+msgid "Push dir NUMBER of times. Default is one."
+msgstr "Plasează directorul în stivă de NUMĂR de ori. Implicit este 1 (o dată)."
+
+#. type: textblock
+#: wcd.pod:719
+msgid "Go back a directory. Command C<wcd -> goes one directory back. To go more directories back add a number to it. E.g. command C<wcd -3>. The stack is cyclic."
+msgstr "Merge înapoi un director. Comanda C<wcd -> merge cu un director înapoi. Pentru a merge înapoi cu mai multe directoare, adăugați un număr la opțiunea „-”. De exemplu, comanda C<wcd -3>. Stiva este ciclică."
+
+#. type: =item
+#: wcd.pod:723
+msgid "B<+[NUMBER]>"
+msgstr "B<+[NUMĂR]>"
+
+#. type: textblock
+#: wcd.pod:725
+msgid "Pop dir NUMBER of times. Default is one."
+msgstr "Scoate directorul din stivă de NUMĂR de ori. Implicit este 1 (o dată)."
+
+#. type: textblock
+#: wcd.pod:727
+msgid "Go forward a directory. Command C<wcd +> goes one directory forward. To go more directories forward add a number to it. E.g. command C<wcd +2>. The stack is cyclic."
+msgstr "Merge înainte un director. Comanda C<wcd +> merge cu un director înainte. Pentru a merge înainte cu mai multe directoare, adăugați un număr la opțiunea „+”. De exemplu, comanda C<wcd +2>. Stiva este ciclică."
+
+#. type: =item
+#: wcd.pod:731
+msgid "B<=>"
+msgstr "B<=>"
+
+#. type: textblock
+#: wcd.pod:733
+msgid "Show stack."
+msgstr "Afișează stiva."
+
+# R-GC, scrie:
+# prima frază din traducerea acestui mesaj,
+# este de fapt adaptarea frazei originale.
+# Mi s-a părut alambicată și un pic cam
+# ambiguă traducerea inițială (corectă, dar...):
+# * „Utilizați această opțiune dacă nu mai știți de câte ori să plasați sau să scoateți.”
+# * „Utilizați această opțiune dacă nu mai știți de câte ori ați plasat sau scos.”
+#. type: textblock
+#: wcd.pod:735
+msgid "Use this option if you do not know anymore how many times to push or pop.  The stack is printed and you can choose a number. The current place in the stack is marked with an asterisk C<*>."
+msgstr "Utilizați această opțiune dacă nu vă amintiți unde vă aflați în stivă.  Stiva este afișată și puteți alege un număr. Locul curent în stivă este marcat cu un asterisc C<*>."
+
+#. type: =head1
+#: wcd.pod:741
+msgid "INSTALLATION"
+msgstr "INSTALARE"
+
+#. type: textblock
+#: wcd.pod:743
+msgid "The current working directory of a Unix shell can only be changed by the builtin cd(1) command. Therefore the program is always called by a function or an alias. The function or alias sources a shell script (go-script) which is generated by the wcd program. Wcd can only work after the function or alias is defined."
+msgstr "Directorul de lucru curent al unui shell Unix poate fi schimbat doar prin comanda internă cd(1). Prin urmare, programul este întotdeauna apelat printr-o funcție sau un alias. Funcția sau alias generează un script shell (script-go) care este generat de programul wcd. Wcd poate funcționa numai după ce funcția sau alias sunt definite."
+
+#. type: textblock
+#: wcd.pod:749
+msgid "Another important influence on your installation is the definition of environment variables I<HOME> and I<WCDHOME>. See section ENVIRONMENT VARIABLES."
+msgstr "O altă influență importantă asupra instalării dumneavoastră este definirea variabilelor de mediu I<HOME> și I<WCDHOME>. A se vedea secțiunea VARIABILE DE MEDIU."
+
+#. type: =head2
+#: wcd.pod:753
+msgid "Install for POSIX type shells"
+msgstr "Instalarea pentru shell-uri de tip POSIX"
+
+#. type: textblock
+#: wcd.pod:755
+msgid "For a POSIX shell (ksh, bash, zsh, etc.) on Unix, Linux, Cygwin, or native MSYS add the following function to the shell startup file (e.g. Bash uses C<$HOME/.bashrc>):"
+msgstr "Pentru un shell POSIX (ksh, bash, zsh etc.) în Unix, Linux, Cygwin sau MSYS nativ adăugați următoarea funcție la fișierul de configurare al shell-ului (de exemplu, Bash folosește C<$HOME/.bashrc>):"
+
+#. type: verbatim
+#: wcd.pod:759
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        PATH/wcd.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME}}/bin/wcd.go\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        CALEA/wcd.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME}}/bin/wcd.go\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:765
+msgid "Replace I<PATH> with the location where the wcd executable has been installed. Reload the shell initialization files or start new shell."
+msgstr "Înlocuiți I<CALEA> cu locația în care a fost instalat executabilul wcd. Reîncărcați fișierele de configurare a shell-ului sau porniți un nou shell."
+
+#. type: textblock
+#: wcd.pod:768
+msgid "The location of the go-script C<wcd.go> differs per shell."
+msgstr "Locația scriptului-go C<wcd.go> diferă în funcție de shell."
+
+#. type: textblock
+#: wcd.pod:770
+msgid "Wcd for DJGPP DOS bash and OS/2 bash require a different function. The go script is not written in a directory C<bin>, and if I<WCDHOME> and I<HOME> are both not defined the go-script is written on c:/."
+msgstr "Wcd pentru bash DOS DJGPP și bash OS/2 necesită o funcție diferită. Scriptul-go nu este scris într-un director C<bin>, iar dacă I<WCDHOME> și I<HOME> nu sunt ambele definite, scriptul-go este scris pe c:/."
+
+#. type: textblock
+#: wcd.pod:774
+msgid "DOS bash:"
+msgstr "bash DOS:"
+
+#. type: verbatim
+#: wcd.pod:776
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        PATH/wcdbash.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        CALEA/wcdbash.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:782
+msgid "OS/2 bash:"
+msgstr "bash OS/2:"
+
+#. type: verbatim
+#: wcd.pod:784
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        PATH/wcdos2bash.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        CALEA/wcdos2bash.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME:-\"c:\"}}/wcd.go\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:790
+msgid "The WinZsh version of wcd requires a bit different function. The go-script will never be written in c:/."
+msgstr "Versiunea WinZsh de wcd necesită o funcție puțin diferită. Scriptul-go nu va fi niciodată scris în c:/."
+
+#. type: verbatim
+#: wcd.pod:793
+#, no-wrap
+msgid ""
+"    wcd ()\n"
+"    {\n"
+"        PATH/wcdwin32zsh.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME}}/wcd.go\n"
+"    }\n"
+"\n"
+msgstr ""
+"    wcd ()\n"
+"    {\n"
+"        CALEA/wcdwin32zsh.exe \"$@\"\n"
+"        . ${WCDHOME:-${HOME}}/wcd.go\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:799
+msgid "See section FILES for more information."
+msgstr "Consultați secțiunea FIȘIERE pentru mai multe informații."
+
+#. type: =head2
+#: wcd.pod:801
+msgid "Install for C-alike shells (csh, tcsh)"
+msgstr "Instalarea pentru shell-uri asemănătoare cu limbajul C (csh, tcsh)"
+
+#. type: textblock
+#: wcd.pod:803
+msgid "Add the following alias to the shell startup file C<$HOME/.cshrc> or C<$HOME/.tcshrc> :"
+msgstr "Adăugați următorul alias la fișierul de configurare al shell-ului, C<$HOME/.cshrc> sau C<$HOME/.tcshrc> :"
+
+#. type: verbatim
+#: wcd.pod:806
+#, no-wrap
+msgid ""
+"    if ( ${?WCDHOME} ) then\n"
+"        alias wcd \"PATH/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
+"    else\n"
+"        alias wcd \"PATH/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
+"    endif\n"
+"\n"
+msgstr ""
+"    if ( ${?WCDHOME} ) then\n"
+"        alias wcd \"CALEA/wcd.exe \\!* ; source $WCDHOME/bin/wcd.go\"\n"
+"    else\n"
+"        alias wcd \"CALEA/wcd.exe \\!* ; source $HOME/bin/wcd.go\"\n"
+"    endif\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:812
+msgid "Replace I<PATH> with the location where the wcd executable has been installed.  Reload the shell initialization files or start a new shell."
+msgstr "Înlocuiți I<CALEA> cu locația în care a fost instalat executabilul wcd. Reîncărcați fișierele de configurare a shell-ului sau porniți un nou shell."
+
+#. type: =head2
+#: wcd.pod:816
+msgid "Windows Command Prompt version"
+msgstr "Versiunea liniei de comandă Windows"
+
+#. type: textblock
+#: wcd.pod:818
+msgid "Unpack the zip file and add directory C<bin> to your environment variable I<PATH>."
+msgstr "Despachetați fișierul zip și adăugați directorul C<bin> la variabila dumneavoastră de mediu I<PATH>."
+
+#. type: textblock
+#: wcd.pod:821
+msgid "In Windows Command Prompt a Windows program cannot change the current work directory, but a .bat file can. The batch script C<wcd.bat> runs the wcd program which generates a new batch script C<wcdgo.bat>. Then C<wcd.bat> runs C<wcdgo.bat> which actually changes the directory."
+msgstr "În linia de comandă Windows, un program Windows nu poate modifica directorul de lucru curent, dar un fișier .bat poate. Scriptul de loturi de comenzi C<wcd.bat> rulează programul wcd care generează un nou script de loturi de comenzi C<wcdgo.bat>. Apoi C<wcd.bat> rulează C<wcdgo.bat> care schimbă de fapt directorul."
+
+#. type: =head2
+#: wcd.pod:826
+msgid "Windows VISTA and higher"
+msgstr "Windows VISTA și versiunile ulterioare"
+
+#. type: textblock
+#: wcd.pod:828
+msgid "In a Windows VISTA and higher Command Prompt you may have limited access to directories. To get access to more directories you need administrator rights. You can get a Command Prompt with administrator rights if you right click on the Command Prompt icon and select I<Run as administrator>."
+msgstr "Într-o linie de comandă Windows VISTA și versiunile ulterioare, este posibil să aveți acces limitat la directoare. Pentru a avea acces la mai multe directoare aveți nevoie de drepturi de administrator. Puteți obține o Linie de comandă cu drepturi de administrator dacă faceți clic dreapta pe pictograma Linie de comandă și selectați I<Rulează ca administrator>."
+
+#. type: =head2
+#: wcd.pod:833
+msgid "Windows PowerShell version"
+msgstr "Versiunea Windows PowerShell"
+
+#. type: textblock
+#: wcd.pod:835
+msgid "Add the following function to your PowerShell user profile. The location of this profile is stored in the $profile variable. It is required that one of the environment variables I<HOME> or I<WCDHOME> is defined."
+msgstr "Adăugați următoarea funcție la profilul dumneavoastră de utilizator PowerShell. Locația acestui profil este stocată în variabila $profile. Este necesar ca una dintre variabilele de mediu I<HOME> sau I<WCDHOME> să fie definită."
+
+#. type: verbatim
+#: wcd.pod:839
+#, no-wrap
+msgid ""
+"    function wcd\n"
+"    {\n"
+"        PATH\\wcdwin32psh.exe $args\n"
+"        & $env:HOME\\wcdgo.ps1\n"
+"    }\n"
+"\n"
+msgstr ""
+"    function wcd\n"
+"    {\n"
+"        CALEA\\wcdwin32psh.exe $args\n"
+"        & $env:HOME\\wcdgo.ps1\n"
+"    }\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:845
+msgid "Replace I<PATH> with the location where the wcd executable has been installed.  Start a new PowerShell. Wcd for PowerShell supports only the file system provider. No other providers."
+msgstr "Înlocuiți I<CALEA> cu locația în care a fost instalat executabilul wcd. Porniți un nou PowerShell. «wcd» pentru PowerShell acceptă doar furnizorul de sistem de fișiere. Niciun alt furnizor."
+
+#. type: =head2
+#: wcd.pod:849
+msgid "OS/2 Command Prompt version"
+msgstr "Versiunea liniei de comandă OS/2"
+
+#. type: textblock
+#: wcd.pod:851
+msgid "In an OS/2 Command Prompt (cmd.exe) an OS/2-program can't change the current work directory. That is why wcd generates a command script C<wcdgo.cmd> which must be executed in the current shell. The script C<wcd.cmd> first executes C<wcdos2.exe>, which creates the C<wcdgo.cmd> script. Then C<wcd.cmd> executes the C<wcdgo.cmd> script."
+msgstr "Într-o linie de comandă OS/2 (cmd.exe), un program OS/2 nu poate schimba directorul de lucru curent. De aceea wcd generează un script de comandă C<wcdgo.cmd> care trebuie executat în shell-ul curent. Scriptul C<wcd.cmd> execută mai întâi C<wcdos2.exe>, care creează scriptul C<wcdgo.cmd>. Apoi C<wcd.cmd> execută scriptul C<wcdgo.cmd>."
+
+#. type: =head1
+#: wcd.pod:858
+msgid "LOCALIZATION"
+msgstr "LOCALIZAREA"
+
+#. type: =item
+#: wcd.pod:862
+msgid "B<LANG>"
+msgstr "B<LANG>"
+
+#. type: textblock
+#: wcd.pod:864
+msgid "The primary language is selected with the environment variable I<LANG>. The I<LANG> variable consists out of several parts. The first part is in small letters the language code. The second one is optional and is the country code in capital letters, preceded with an underscore. There is also an optional third part: character encoding, preceded with a dot. A few examples for POSIX standard type shells:"
+msgstr "Limba principală este selectată cu variabila de mediu I<LANG>. Variabila I<LANG> constă din mai multe părți. Prima parte este codul limbii cu litere mici. A doua este opțională și este codul țării cu majuscule, precedat de un caracter de subliniere. Există, de asemenea, o a treia parte opțională: codificarea caracterelor, precedată de un punct. Câteva exemple pentru shell-uri de tip standard POSIX:"
+
+#. type: verbatim
+#: wcd.pod:871
+#, no-wrap
+msgid ""
+"    export LANG=nl               Dutch\n"
+"    export LANG=nl_NL            Dutch, The Netherlands\n"
+"    export LANG=nl_BE            Dutch, Belgium\n"
+"    export LANG=es_ES            Spanish, Spain\n"
+"    export LANG=es_MX            Spanish, Mexico\n"
+"    export LANG=en_US.iso88591   English, USA, Latin-1 encoding\n"
+"\n"
+msgstr ""
+"    export LANG=ro               Română\n"
+"    export LANG=ro_RO            Română, România\n"
+"    export LANG=ro_MO            Română, Republica Moldova\n"
+"    export LANG=es_ES            Spaniolă, Spania\n"
+"    export LANG=es_MX            Spaniolă, Mexic\n"
+"    export LANG=en_US.iso88591   Engleză, SUA, codificarea Latin-1\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:878
+msgid "For a complete list of language and country codes see the gettext(1)  manual: L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes> On Unix systems you can use to command locale(1) to get locale specific information."
+msgstr "Pentru o listă completă a codurilor de limbă și de țară, consultați manualul gettext(1): L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes> În sistemele Unix, puteți utiliza comanda locale(1) pentru a obține informații specifice despre localizare."
+
+#. type: =item
+#: wcd.pod:884
+msgid "B<LANGUAGE>"
+msgstr "B<LANGUAGE>"
+
+#. type: textblock
+#: wcd.pod:886
+msgid "With the I<LANGUAGE> environment variable you can specify a priority list of languages, separated by colons. Wcd gives preference to I<LANGUAGE> over I<LANG>. For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first enable localization, by setting I<LANG> or I<LC_ALL> to a value other than I<C>, before you can use a language priority list through the I<LANGUAGE> variable. See also the gettext(1) manual: L<http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>"
+msgstr "Cu variabila de mediu I<LANGUAGE> puteți specifica o listă de limbi prioritare, separate prin două puncte. wcd dă preferință variabilei I<LANGUAGE> față de I<LANG>. De exemplu, mai întâi olandeză și apoi germană: C<LANGUAGE=nl:de>. Mai întâi trebuie să activați localizarea, setând I<LANG> sau I<LC_ALL> la o altă valoare decât I<C>, înainte de a putea utiliza o listă de priorități de limbă prin variabila I<LANGUAGE>. Consultați și manualul gettext(1): L<http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>"
+
+#. type: textblock
+#: wcd.pod:894
+msgid "If you select a language which is not available you will get the standard English messages."
+msgstr "Dacă selectați o limbă care nu este disponibilă, veți primi mesajele standard în limba engleză."
+
+#. type: =item
+#: wcd.pod:897
+msgid "B<WCDLOCALEDIR>"
+msgstr "B<WCDLOCALEDIR>"
+
+#. type: textblock
+#: wcd.pod:899
+msgid "With the environment variable I<WCDLOCALEDIR> the I<LOCALEDIR> used during compilation and installation of wcd can be overruled. I<LOCALEDIR> is used by wcd with native language support to find the language files. The GNU default value is C</usr/local/share/locale>. By typing C<wcd -V> wcd will print the I<LOCALEDIR> that is used."
+msgstr "Cu variabila de mediu I<WCDLOCALEDIR>, variabila I<LOCALEDIR> folosită în timpul compilării și instalării wcd poate fi anulată. I<LOCALEDIR> este folosită de wcd cu suport pentru limba maternă pentru a găsi fișierele de limbă. Valoarea implicită GNU este C</usr/local/share/locale>. Tastând C<wcd -V>, wcd va afișa valoarea variabilei I<LOCALEDIR>, ce este utilizată."
+
+#. type: textblock
+#: wcd.pod:905
+msgid "If you have installed wcd in a different directory than the default directory you may need to set the environment variable I<WCDLOCALEDIR> to point to the locale directory."
+msgstr "Dacă ați instalat wcd într-un alt director decât directorul implicit, poate fi necesar să definiți variabila de mediu I<WCDLOCALEDIR> pentru a indica directorul local."
+
+#. type: textblock
+#: wcd.pod:910
+msgid "An example for Windows cmd:"
+msgstr "Un exemplu pentru linia de comandă (cmd) Windows:"
+
+#. type: verbatim
+#: wcd.pod:912
+#, no-wrap
+msgid ""
+"    set WCDLOCALEDIR=c:/my_prefix/share/locale\n"
+"\n"
+msgstr ""
+"    set WCDLOCALEDIR=c:/prefixul_meu/share/locale\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:915
+msgid "An example for a POSIX shell:"
+msgstr "Un exemplu pentru un shell POSIX:"
+
+#. type: verbatim
+#: wcd.pod:917
+#, no-wrap
+msgid ""
+"    export WCDLOCALEDIR=$HOME/share/locale\n"
+"\n"
+msgstr ""
+"    export WCDLOCALEDIR=$HOME/share/locale\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:919
+msgid "B<LC_COLLATE>"
+msgstr "B<LC_COLLATE>"
+
+#. type: textblock
+#: wcd.pod:921
+msgid "When there are multiple directory matches wcd presents a sorted list. The sorting depends on the locale settings. If the environment I<LANG> has been set the matches are sorted like dictionaries or phone books are sorted in that language. For instance dots and dashes are ignored, or letters e with and without accent are equal, or upper and lower case is ignored."
+msgstr "Când există mai multe potriviri de directoare, wcd prezintă o listă sortată. Sortarea depinde de configurările de localizare. Dacă a fost definită variabila de mediu I<LANG>, potrivirile sunt sortate ca și cum dicționarele sau agendele telefonice sunt sortate în limba respectivă. De exemplu, punctele și liniuțele sunt ignorate sau literele e cu și fără accent sunt văzute ca fiind aceeași literă sau diferența între majuscule și minuscule este ignorată."
+
+#. type: textblock
+#: wcd.pod:927
+msgid "The sorting gives preference to environment variable I<LC_COLLATE> over I<LANG>. If you make I<LC_COLLATE> equal to C<C> or C<POSIX>, locale sorting is turned off. For instance if you want Dutch language, but not Dutch sorting, you can do something like this:"
+msgstr "Sortarea dă preferință variabilei de mediu I<LC_COLLATE> față de I<LANG>. Dacă faceți I<LC_COLLATE> egal cu C<C> sau C<POSIX>, sortarea locală este dezactivată. De exemplu, dacă doriți limba olandeză, dar nu sortarea olandeză, puteți să faceți acest lucru:"
+
+#. type: verbatim
+#: wcd.pod:932
+#, no-wrap
+msgid ""
+"    export LANG=nl_NL\n"
+"    export LC_COLLATE=C\n"
+"\n"
+msgstr ""
+"    export LANG=nl_NL\n"
+"    export LC_COLLATE=C\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:935
+msgid "B<LC_CTYPE>"
+msgstr "B<LC_CTYPE>"
+
+#. type: textblock
+#: wcd.pod:937
+msgid "With regard to character encoding Wcd will give preference to variable I<LC_CTYPE> over I<LANG>. For instance to set character encoding to UTF-8 the following environment setting can be done."
+msgstr "În ceea ce privește codificarea caracterelor, wcd va acorda preferință variabilei I<LC_CTYPE> față de I<LANG>. De exemplu, pentru a configura codificarea caracterelor la UTF-8, se poate face următoarea configurare de mediu."
+
+#. type: verbatim
+#: wcd.pod:941
+#, no-wrap
+msgid ""
+"    export LC_CTYPE=en_US.UTF-8\n"
+"\n"
+msgstr ""
+"    export LC_CTYPE=ro_RO.UTF-8\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:943
+msgid "B<LC_ALL>"
+msgstr "B<LC_ALL>"
+
+#. type: textblock
+#: wcd.pod:945
+msgid "All locale environment variables that start with I<LC_> are overruled by the environment variable I<LC_ALL> if it is defined. Wcd gives preference to I<LC_ALL> over I<LC_COLLATE> and I<LC_CTYPE>."
+msgstr "Toate variabilele de mediu de localizare care încep cu I<LC_> sunt anulate de variabila de mediu I<LC_ALL> dacă este definită. Wcd dă preferință lui I<LC_ALL> față de I<LC_COLLATE> și I<LC_CTYPE>."
+
+#. type: =head2
+#: wcd.pod:951
+msgid "WINDOWS CODE PAGES"
+msgstr "PAGINI DE CODURI WINDOWS"
+
+#. type: textblock
+#: wcd.pod:953
+msgid "There are two groups of code pages: DOS code pages (OEM) and Windows code pages (ANSI). The default encoding for Windows, when configured with Western regional settings, is ANSI CP1252. Windows programs, for instance notepad, use this default system ANSI code page. The Windows console uses by default an OEM code page (CP437 or CP850) for compatibility with DOS programs. If you use a DOS version of wcd in a Windows console it will work, because of the DOS code page.  But the DOS version of wcd lacks support for long directory names and network drives on Windows."
+msgstr "Există două grupuri de pagini de cod: pagini de cod DOS (OEM) și pagini de cod Windows (ANSI). Codificarea implicită pentru Windows, atunci când este configurată cu parametrii regionali occidentali, este ANSI CP1252. Programele Windows, de exemplu Notepad, folosesc această pagină de cod ANSI implicită a sistemului. Consola Windows utilizează implicit o pagină de coduri OEM (CP437 sau CP850) pentru compatibilitate cu programele DOS. Dacă utilizați o versiune DOS a wcd într-o consolă Windows, aceasta va funcționa, din cauza paginii de cod DOS.  Dar versiunea DOS a wcd nu are suport pentru nume lungi de directoare și unități de rețea în Windows."
+
+#. type: textblock
+#: wcd.pod:962
+msgid "The Windows version of wcd is a native Windows program and will use the Windows system ANSI code page. So on a Western regional Windows it will use code page CP1252 for directory names and messages. In order to get consistent output, independent of the active code page, all Windows versions of Wcd translate ANSI output to Unicode output in the Command Prompt and PowerShell."
+msgstr "Versiunea Windows a wcd este un program Windows nativ și va folosi pagina de cod ANSI a sistemului Windows. Deci, într-un Windows din regiunea occidentală, va folosi pagina de coduri CP1252 pentru nume de directoare și mesaje. Pentru a obține rezultate consistente, independent de pagina de cod activă, toate versiunile Windows ale wcd convertesc ieșirea ANSI în ieșire Unicode în linia de comandă și PowerShell."
+
+#. type: textblock
+#: wcd.pod:968
+msgid "The console raster font only supports the original OEM code page installed with Windows, so you have to change the console's font to true type Lucida Console to make Unicode (and ANSI) letters appear correctly."
+msgstr "Fontul raster al consolei acceptă numai pagina originală de coduri OEM instalată cu Windows, așa că va trebui să schimbați fontul consolei la „truetype” Lucida Console pentru ca literele Unicode (și ANSI) să apară corect."
+
+#. type: textblock
+#: wcd.pod:972
+msgid "Non-Unicode versions of Wcd I<prior to version 5.2.0> use plain ANSI output.  For these older versions the code page of the console has to be made equal to the system code page (changed to 1252) to make wcd for Windows work properly with special characters such as accented characters or the Euro symbol."
+msgstr "Versiunile non-Unicode ale wcd I<înainte de versiunea 5.2.0> folosesc ieșirea ANSI simplă.  Pentru aceste versiuni mai vechi, pagina de cod a consolei trebuie să fie aceeași cu pagina de cod a sistemului (modificată la 1252) pentru ca wcd pentru Windows să funcționeze corect cu caractere speciale, cum ar fi caractere accentuate sau simbolul „Euro”."
+
+#. type: textblock
+#: wcd.pod:977
+msgid "The Windows system code page can be changed via the Control Panel regional options. The Windows console code page is changed with the C<chcp> command."
+msgstr "Pagina de coduri a sistemului Windows poate fi modificată prin opțiunile regionale din Panoul de control. Pagina de cod a consolei Windows este schimbată cu comanda C<chcp>."
+
+#. type: textblock
+#: wcd.pod:980
+msgid "When you type C<wcd -V>, the actual character encoding used by wcd is shown. Type the command C<chcp> to display the active code page of the Windows console."
+msgstr "Când tastați C<wcd -V>, este afișată codarea reală a caracterelor folosită de wcd. Tastați comanda C<chcp> pentru a afișa pagina de cod activă a consolei Windows."
+
+#. type: =head2
+#: wcd.pod:985
+msgid "UNICODE"
+msgstr "UNICODE"
+
+#. type: textblock
+#: wcd.pod:987
+msgid "Wcd has optional support for Unicode. To see if wcd was built with Unicode support type C<wcd -V>. If your terminal/console and font supports it, you should see the Euro symbol and Chinese characters (meaning: \"Chinese\")."
+msgstr "Wcd are suport opțional pentru Unicode. Pentru a vedea dacă wcd a fost construit cu suport Unicode, tastați C<wcd -V>. Dacă terminalul/consola și fontul dumneavoastră acceptă acest lucru, ar trebui să vedeți simbolul euro și caracterele chinezești (însemnând: „Chineză”)."
+
+#. type: textblock
+#: wcd.pod:992
+msgid "Wcd has been I<soft> converted to Unicode. In its core wcd handles all data as a stream of bytes. Only the lines printed to screen are on the fly converted to Unicode wide characters. Wcd fully relies on libc functions and has no UTF-8 specific code. See also L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>"
+msgstr "Wcd a fost I<parțial> convertit la Unicode. În nucleul său, wcd gestionează toate datele ca un flux de octeți. Doar liniile afișate pe ecran sunt convertite din mers în caractere late Unicode. Wcd se bazează pe deplin pe funcțiile bibliotecii «libc» și nu are cod specific UTF-8. A se vedea, de asemenea, L<http://www.cl.cam.ac.uk/~mgk25/unicode.html>"
+
+#. type: textblock
+#: wcd.pod:998
+msgid "Wcd has optional support for Unicode matching with normalisation. To find out whether Wcd has normalisation support type C<wcd -V>.  Wcd with Unicode normalization support will match Unicode names based on I<compatible> equivalence. Without Unicode normalization support, names are matched when they are binary equivalent.  See also L<http://en.wikipedia.org/wiki/Unicode_normalization>"
+msgstr "Wcd are suport opțional pentru potrivirea Unicode cu normalizare. Pentru a afla dacă wcd are suport pentru normalizare, tastați C<wcd -V>. Wcd cu suport pentru normalizare Unicode se va potrivi cu numele Unicode pe baza echivalenței I<compatibile>. Fără suport pentru normalizarea Unicode, numele se potrivesc atunci când sunt echivalente binar. A se vedea, de asemenea, L<http://en.wikipedia.org/wiki/Unicode_normalization>"
+
+#. type: =head3
+#: wcd.pod:1005
+msgid "UTF-8 on Unix/Linux"
+msgstr "UTF-8 în Unix/Linux"
+
+#. type: textblock
+#: wcd.pod:1007
+msgid "In order to view UTF-8 characters your console/terminal also needs to support UTF-8. The xterm version that comes with XFree86 4.0 or higher includes UTF-8 support. To activate it, start xterm(1) in a UTF-8 locale and use a font with iso10646-1 encoding, for instance with"
+msgstr "Pentru a vizualiza caracterele UTF-8, consola/terminalul dumneavoastră trebuie să accepte și UTF-8. Versiunea xterm care vine cu XFree86 4.0 sau o versiune ulterioară include suport pentru UTF-8. Pentru a-l activa, porniți xterm(1) într-o localizare UTF-8 și utilizați un font cu codificare iso10646-1, de exemplu cu"
+
+#. type: verbatim
+#: wcd.pod:1012
+#, no-wrap
+msgid ""
+"    LC_CTYPE=en_GB.UTF-8 xterm -u8 -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'\n"
+"\n"
+msgstr ""
+"    LC_CTYPE=en_GB.UTF-8 xterm -u8 -fn '-Misc-Fixed-Medium-R-SemiCondensed--13-120-75-75-C-60-ISO10646-1'\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1014
+msgid "Modern distributions of GNU/Linux support UTF-8 by default. Other multi-byte character encodings should also work, but that has not been tested."
+msgstr "Distribuțiile moderne de GNU/Linux acceptă implicit UTF-8. Ar trebui să funcționeze și alte codificări de caractere pe mai mulți octeți, dar acest lucru nu a fost testat."
+
+#. type: textblock
+#: wcd.pod:1017
+msgid "Wcd assumes that the treedata files are encoded in the locale character encoding. There are no Byte Order Marks written to treedata files."
+msgstr "Wcd presupune că fișierele treedata.wcd/extra.wcd sunt codificate în codificarea caracterelor localizării. Nu există marcaje de ordine a octeților (BOM) scrise în fișierele treedata.wcd/extra.wcd."
+
+#. type: =head3
+#: wcd.pod:1021
+msgid "UTF-16 on Windows"
+msgstr "UTF-16 în Windows"
+
+#. type: textblock
+#: wcd.pod:1023
+msgid "On Windows Unicode is supported in all versions of PowerShell, and in Windows Command Prompt on Windows 7 (or higher). Unicode also works in Take Command or TCC/LE made by JP Software, which can be used on older Windows versions (XP/Vista)."
+msgstr "În Windows, Unicode este acceptată în toate versiunile de PowerShell și în linia de comandă Windows în Windows 7 (sau o versiune ulterioară). Unicode funcționează și în Take Command sau TCC/LE realizat de JP Software, care poate fi folosit cu versiuni mai vechi de Windows (XP/Vista)."
+
+#. type: textblock
+#: wcd.pod:1028
+msgid "On Windows all the directory names on disk are encoded in UTF-16 Unicode.  For non-Unicode Windows programs the Unicode characters are translated to the default ANSI code page. For characters that are not part of the regional setting this translation is not possible and non-Unicode programs print a question mark or a wrong character instead."
+msgstr "În Windows, toate numele directoarelor de pe disc sunt codificate în UTF-16 Unicode. Pentru programele Windows non-Unicode, caracterele Unicode sunt convertite în pagina de coduri ANSI implicită. Pentru caracterele care nu fac parte din configurarea regională, această conversie nu este posibilă, iar programele non-Unicode afișează un semn de întrebare sau un caracter greșit."
+
+#. type: textblock
+#: wcd.pod:1034
+msgid "Wcd with Unicode support will read the UTF-16 encoded directory names and converts them internally to UTF-8. All treedata files are encoded in UTF-8 and not compatible with the non-Unicode version of Wcd. Wcd will create a go-script encoded in UTF-8."
+msgstr "Wcd cu suport Unicode va citi numele directoarelor codificate UTF-16 și le va converti intern în UTF-8. Toate fișierele treedata.wcd/extra.wcd sunt codificate în UTF-8 și nu sunt compatibile cu versiunea non-Unicode a wcd. Wcd va crea un script-go codificat în UTF-8."
+
+#. type: textblock
+#: wcd.pod:1039
+msgid "All versions of Windows PowerShell are able to run scripts encoded in UTF-8, provided there is an UTF-8 BOM in the script."
+msgstr "Toate versiunile de Windows PowerShell pot rula scripturi codificate în UTF-8, cu condiția să existe un marcaj de ordine a octeților (BOM) UTF-8 în script."
+
+#. type: textblock
+#: wcd.pod:1042
+msgid "Since Windows 7 it is possible in Windows Command Prompt to change directory with a batch script to a directory with Unicode letters in the name. The directory name needs to be encoded in UTF-8, and the batch script must I<not> have a BOM. The active code page of the Command Prompt needs to be set to 65001 (UTF-8) prior to the cd command. Wcd for Command Prompt will create such a go script C<wcdgo.bat>. It first changes the code page to 65001, then changes directory, and finally sets the code page back to the original code page."
+msgstr "Începând cu Windows 7, este posibil ca în linia de comandă Windows să se schimbe directorul, cu un script de loturi de comenzi, într-un director cu litere Unicode în nume. Numele directorului trebuie să fie codificat în UTF-8, iar scriptul de loturi de comenzi trebuie să I<nu> să aibă un marcaj de ordine a octeților (BOM). Pagina de cod activă din linia de comandă trebuie definită la 65001 (UTF-8) înainte de comanda «cd». Wcd pentru linia de comandă va crea un astfel de script-go C<wcdgo.bat>. Mai întâi schimbă pagina de coduri la 65001, apoi schimbă directorul și, în final, configurează pagina de coduri înapoi la pagina de coduri inițială."
+
+#. type: textblock
+#: wcd.pod:1050
+msgid "You need to set the font to True Type Lucida Console (not raster font) when letters don't appear correctly."
+msgstr "Trebuie să configurați fontul la True Type Lucida Console (nu fontul raster) atunci când literele nu apar corect."
+
+#. type: textblock
+#: wcd.pod:1053
+msgid "The non-Unicode Windows version of Wcd can read Unicode treedata files since version 5.2.0, provided there is a Byte Order Mark (BOM) in the file (see L<http://en.wikipedia.org/wiki/Byte_order_mark>), but it can't change to directories with Unicode letters in the name that are not part of the default system ANSI code page. The Unicode Windows version of wcd writes a BOM in the UTF-8 encoded treedata files since version 5.2.0, which makes them also readable by notepad."
+msgstr "Versiunea Wcd non-Unicode Windows poate citi fișiere treedata.wcd/extra.wcd Unicode începând cu versiunea 5.2.0, cu condiția să existe un marcaj de ordine a octeților (BOM) în fișier (a se vedea L<http://en.wikipedia.org/wiki/Byte_order_mark> ), dar nu poate schimba la directoare cu litere Unicode în nume care nu fac parte din pagina de cod ANSI implicită a sistemului. Versiunea Unicode Windows a wcd scrie un marcaj de ordine a octeților (BOM) în fișierele treedata.wcd/extra.wcd codificate UTF-8 începând cu versiunea 5.2.0, ceea ce le face să fie citite și de BlocNote (notepad)."
+
+#. type: =head3
+#: wcd.pod:1062
+msgid "UTF-8 on Cygwin"
+msgstr "UTF-8 în Cygwin"
+
+#. type: textblock
+#: wcd.pod:1064
+msgid "Cygwin supports Unicode since version 1.7. The Cygwin layer takes care that the Windows UTF-16 Unicode names are converted to UTF-8. So programs, like wcd, do not need to be aware of this and can operate using UTF-8 encoding as on Unix/Linux. Set character encoding to UTF-8 with the I<LANG> or I<LC_CTYPE> environment variable. You may need to rescan your drives. You need to set the font to True Type Lucida Console (not raster font) if you use the default Cygwin console."
+msgstr "Cygwin acceptă Unicode începând cu versiunea 1.7. Stratul Cygwin are grijă ca numele Windows UTF-16 Unicode să fie convertite în UTF-8. Deci programele, cum ar fi wcd, nu trebuie să fie conștiente de acest lucru și pot funcționa folosind codificarea UTF-8 ca pe Unix/Linux. Stabiliți codificarea caracterelor la UTF-8 cu variabila de mediu I<LANG> sau I<LC_CTYPE>. Este posibil să fie nevoie să scanați din nou unitățile. Trebuie să configurați fontul la True Type Lucida Console (nu fontul raster) dacă utilizați consola implicită Cygwin."
+
+#. type: textblock
+#: wcd.pod:1072
+msgid "The Cygwin version behaves exactly as the Unix version of wcd.  There is no BOM written in the treedata files, and it is assumed they are encoded in the B<Cygwin> locale character encoding."
+msgstr "Versiunea Cygwin se comportă exact ca versiunea Unix a wcd. Nu există niciun marcaj de ordine a octeților (BOM) scris în fișierele treedata.wcd/extra.wcd și se presupune că acestea sunt codificate în codificarea caracterelor localizării B<Cygwin>."
+
+#. type: =head1
+#: wcd.pod:1076
+msgid "FILES"
+msgstr "FIȘIERE"
+
+#. type: textblock
+#: wcd.pod:1078
+msgid "If the environment variable I<WCDHOME> is set wcd will use I<WCDHOME> instead of I<HOME>. All C<*.wcd> files are text files. They can be edited with a text editor.  The Windows Command Prompt version of wcd behaves as the DOS version. The Cygwin version of wcd behaves as the Unix version."
+msgstr "Dacă variabila de mediu I<WCDHOME> este definită, wcd va folosi I<WCDHOME> în loc de I<HOME>. Toate fișierele C<*.wcd> sunt fișiere text. Ele pot fi editate cu un editor de text. Versiunea de linie de comandă Windows a wcd se comportă ca versiunea DOS. Versiunea Cygwin a wcd se comportă ca versiunea Unix."
+
+#. type: =item
+#: wcd.pod:1087
+msgid "B<wcd.exe>"
+msgstr "B<wcd.exe>"
+
+#. type: textblock
+#: wcd.pod:1089
+msgid "The program. In Unix shells the program is always called by a function or alias, because the current working directory of a Unix shell can only be changed by the builtin cd command. See also section INSTALLATION."
+msgstr "Programul. În shell-urile Unix, programul este întotdeauna apelat printr-o funcție sau un alias, deoarece directorul de lucru curent al unui shell Unix poate fi schimbat doar prin comanda internă «cd». A se vedea, de asemenea, secțiunea INSTALARE."
+
+#. type: =item
+#: wcd.pod:1094
+msgid "B<default treedata file>"
+msgstr "B<fișierul implicit cu datele arborelui>"
+
+#. type: textblock
+#: wcd.pod:1096
+msgid "This is the default treedata file where wcd searches for matches. If it is not readable wcd will create a new one."
+msgstr "Acesta este fișierul fișierul implicit cu datele arborelui în care wcd caută potriviri. Dacă acesta nu are permisiuni de citire, wcd va crea unul nou."
+
+#. type: verbatim
+#: wcd.pod:1099
+#, no-wrap
+msgid ""
+"    DOS: \\treedata.wcd or %HOME%\\treedata.wcd\n"
+"    Unix: $HOME/.treedata.wcd\n"
+"\n"
+msgstr ""
+"    DOS: \\treedata.wcd sau %HOME%\\treedata.wcd\n"
+"    Unix: $HOME/.treedata.wcd\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1102
+msgid "B<extra treedata file>"
+msgstr "B<fișierul suplimentar cu datele arborelui>"
+
+#. type: textblock
+#: wcd.pod:1104
+msgid "An optional extra treedata file. If it exists and is readable wcd will try to find matches in this file also."
+msgstr "Un fișier suplimentar cu datele arborelui, opțional. Dacă există și are permisiuni de citire, wcd va încerca să găsească potriviri și în acest fișier."
+
+#. type: verbatim
+#: wcd.pod:1107
+#, no-wrap
+msgid ""
+"    DOS: \\extra.wcd or %HOME%\\extra.wcd\n"
+"    Unix: $HOME/.extra.wcd\n"
+"\n"
+msgstr ""
+"    DOS: \\extra.wcd sau %HOME%\\extra.wcd\n"
+"    Unix: $HOME/.extra.wcd\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1110
+msgid "B<ban file>"
+msgstr "B<fișierul de interdicții>"
+
+#. type: textblock
+#: wcd.pod:1112
+msgid "In this optional file wcd places banned paths. See option B<-b>. Wildcards are supported."
+msgstr "În acest fișier opțional wcd plasează căile interzise. A se vedea opțiunea B<-b>. Metacaracterele (caracterele Joker) sunt acceptate."
+
+#. type: verbatim
+#: wcd.pod:1115
+#, no-wrap
+msgid ""
+"    DOS: \\ban.wcd or %HOME%\\ban.wcd\n"
+"    Unix: $HOME/.ban.wcd\n"
+"\n"
+msgstr ""
+"    DOS: \\ban.wcd or %HOME%\\ban.wcd\n"
+"    Unix: $HOME/.ban.wcd\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1118
+msgid "B<alias file>"
+msgstr "B<fișierul de alias>"
+
+#. type: textblock
+#: wcd.pod:1120
+msgid "Optional file with wcd aliases. See option B<-l>."
+msgstr "Fișier opțional cu alias ale wcd. A se vedea opțiunea B<-l>."
+
+#. type: verbatim
+#: wcd.pod:1122
+#, no-wrap
+msgid ""
+"    DOS: \\alias.wcd or %HOME%\\alias.wcd\n"
+"    Unix: $HOME/.alias.wcd\n"
+"\n"
+msgstr ""
+"    DOS: \\alias.wcd sau %HOME%\\alias.wcd\n"
+"    Unix: $HOME/.alias.wcd\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1125
+msgid "B<stack file>"
+msgstr "B<fișierul de stivă>"
+
+#. type: textblock
+#: wcd.pod:1127
+msgid "In this file wcd stores its stack. The drive letter can be changed with the B<-d> option."
+msgstr "În acest fișier, wcd își stochează stiva. Litera unității poate fi schimbată cu opțiunea B<-d>."
+
+#. type: verbatim
+#: wcd.pod:1130
+#, no-wrap
+msgid ""
+"    DOS: c:\\stack.wcd or %HOME%\\stack.wcd\n"
+"    Unix: $HOME/.stack.wcd\n"
+"\n"
+msgstr ""
+"    DOS: c:\\stack.wcd sau %HOME%\\stack.wcd\n"
+"    Unix: $HOME/.stack.wcd\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1133
+msgid "The name of the stack file can be changed with environment variable I<WCDSTACKFILE>.  See section ENVIRONMENT VARIABLES."
+msgstr "Numele fișierului de stivă poate fi schimbat cu variabila de mediu I<WCDSTACKFILE>. A se vedea secțiunea VARIABILE DE MEDIU."
+
+#. type: =item
+#: wcd.pod:1136
+msgid "B<go-script>"
+msgstr "B<script-go>"
+
+#. type: textblock
+#: wcd.pod:1138
+msgid "This is the shell script which wcd.exe creates each time. It is sourced via a function or an alias. The drive letter can be changed with the B<-d> option.  For history reasons it is placed by default in C<$HOME/bin> on Unix systems. The directory of this file can be changed with the option B<-G>."
+msgstr "Acesta este scriptul shell pe care wcd.exe îl creează de fiecare dată. Este obținut prin intermediul unei funcții sau un alias. Litera unității poate fi schimbată cu opțiunea B<-d>. Din motive istorice, este plasat implicit în C<$HOME/bin> pe sistemele Unix. Directorul acestui fișier poate fi schimbat cu opțiunea B<-G>."
+
+#. type: verbatim
+#: wcd.pod:1143
+#, no-wrap
+msgid ""
+"    DOS bash: c:/wcd.go or $HOME/wcd.go\n"
+"    Windows Command Prompt: c:\\wcdgo.bat or %HOME%\\wcdgo.bat\n"
+"    Windows PowerShell: $env:HOME\\wcdgo.ps1\n"
+"    WinZsh: $HOME/wcd.go\n"
+"    Cygwin/MSYS: $HOME/bin/wcd.go\n"
+"    OS/2 Command Prompt: c:\\wcdgo.cmd or %HOME%\\wcdgo.cmd\n"
+"    OS/2 bash: c:/wcd.go or $HOME/wcd.go\n"
+"    Unix: $HOME/bin/wcd.go\n"
+"\n"
+msgstr ""
+"    DOS bash: c:/wcd.go sau $HOME/wcd.go\n"
+"    linia de comandă Windows: c:\\wcdgo.bat sau %HOME%\\wcdgo.bat\n"
+"    Windows PowerShell: $env:HOME\\wcdgo.ps1\n"
+"    WinZsh: $HOME/wcd.go\n"
+"    Cygwin/MSYS: $HOME/bin/wcd.go\n"
+"    linia de comandă OS/2: c:\\wcdgo.cmd sau %HOME%\\wcdgo.cmd\n"
+"    bash OS/2: c:/wcd.go sau $HOME/wcd.go\n"
+"    Unix: $HOME/bin/wcd.go\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1152
+msgid "B<relative treedata file>"
+msgstr "B<fișierul cu datele arborelui relativ>"
+
+#. type: textblock
+#: wcd.pod:1154
+msgid "Text file with relative paths from I<DIR>. See options B<+S>, B<-n> and B<+n>."
+msgstr "Fișier text cu căi relative din I<DIR>. A se vedea opțiunile B<+S>, B<-n> și B<+n>."
+
+#. type: verbatim
+#: wcd.pod:1157
+#, no-wrap
+msgid ""
+"    DOS: PATH\\rtdata.wcd\n"
+"    Unix: PATH/.rtdata.wcd\n"
+"\n"
+msgstr ""
+"    DOS: CALEA\\rtdata.wcd\n"
+"    Unix: CALEA/.rtdata.wcd\n"
+"\n"
+
+#. type: =head1
+#: wcd.pod:1162
+msgid "ENVIRONMENT VARIABLES"
+msgstr "VARIABILE DE MEDIU"
+
+#. type: =item
+#: wcd.pod:1166
+msgid "B<HOME>"
+msgstr "B<HOME>"
+
+#. type: textblock
+#: wcd.pod:1168
+msgid "Wcd uses by default environment variable I<HOME> to determine where to store its files. See also section FILES. This can be overruled with environment variable I<WCDHOME>."
+msgstr "Wcd utilizează implicit variabila de mediu I<HOME> pentru a determina unde să-și stocheze fișierele. A se vedea, de asemenea, secțiunea FIȘIERE. Acest lucru poate fi anulat cu variabila de mediu I<WCDHOME>."
+
+#. type: textblock
+#: wcd.pod:1172
+msgid "I<HOME> also defines where to start scanning the disk when option B<-s> is used. This can be overruled with the environment variable I<WCDSCAN>."
+msgstr "I<HOME> definește, de asemenea, de unde să înceapă scanarea discului atunci când este utilizată opțiunea B<-s>. Acest lucru poate fi anulat cu variabila de mediu I<WCDSCAN>."
+
+#. type: textblock
+#: wcd.pod:1176
+msgid "For the Unix, Cygwin, Windows PowerShell, WinZsh and MSYS version it is required that I<HOME> or I<WCDHOME> is set. For the other versions of wcd the use of these variables is optional."
+msgstr "Pentru versiunea Unix, Cygwin, Windows PowerShell, WinZsh și MSYS este necesar ca I<HOME> sau I<WCDHOME> să fie definită. Pentru celelalte versiuni ale wcd utilizarea acestor variabile este opțională."
+
+#. type: textblock
+#: wcd.pod:1180
+msgid "If I<HOME> is set on DOS/Windows, wcd will place all its files (treedata.wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) in directory I<HOME>. The behaviour of wcd is then equal to the Unix version of wcd. Wcd will scan the disk default from I<HOME>. Drives will not be automatically scanned by changing to them. You need to tell wcd explicitly. E.g.:"
+msgstr "Dacă I<HOME> este definită pe DOS/Windows, wcd va plasa toate fișierele sale (treedata.wcd, extra.wcd, alias.wcd, ban.wcd, wcd.go) în directorul I<HOME>. Comportamentul wcd este atunci similar cu versiunea Unix a wcd. Wcd va scana implicit discul din I<HOME>. Unitățile nu vor fi scanate automat prin schimbarea la acestea. Trebuie să spuneți în mod explicit acest lucru wcd-ului. De exemplu:"
+
+#. type: verbatim
+#: wcd.pod:1187
+#, no-wrap
+msgid ""
+"    wcd -S c: -A d: -A e:\n"
+"\n"
+msgstr ""
+"    wcd -S c: -A d: -A e:\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1189
+msgid "Matching of directories is now global over all scanned drives."
+msgstr "Potrivirea directoarelor este acum globală pentru toate unitățile scanate."
+
+#. type: =item
+#: wcd.pod:1192
+msgid "B<WCDHOME>"
+msgstr "B<WCDHOME>"
+
+#. type: textblock
+#: wcd.pod:1194
+msgid "Environment variable I<WCDHOME> can be used to change the location of wcd's files. If both I<HOME> and I<WCDHOME> are set, I<WCDHOME> will be used instead of I<HOME>."
+msgstr "Variabila de mediu I<WCDHOME> poate fi folosită pentru a schimba locația fișierelor wcd. Dacă sunt definite atât I<HOME> cât și I<WCDHOME>, I<WCDHOME> va fi folosită în loc de I<HOME>."
+
+#. type: textblock
+#: wcd.pod:1198
+msgid "In wcd versions prior to 5.1.5 I<WCDHOME> also changed the default scan directory.  This has changed. Since version 5.1.5 I<WCDHOME> does not change the default scan directory. See option B<-s>. From version 5.1.5, use environment I<WCDSCAN> to overrule the default scan directory."
+msgstr "În versiunile wcd anterioare versiunii 5.1.5, I<WCDHOME> a schimbat și directorul de scanare implicit. Acest lucru s-a schimbat. De la versiunea 5.1.5, I<WCDHOME> nu schimbă directorul de scanare implicit. A se vedea opțiunea B<-s>. Începând cu versiunea 5.1.5, utilizați variabila de mediu I<WCDSCAN> pentru a anula directorul de scanare implicit."
+
+#. type: textblock
+#: wcd.pod:1203
+msgid "Example for DOS, Windows, OS/2 Command Prompt:"
+msgstr "Exemplu pentru linia de comandă DOS, Windows, OS/2:"
+
+#. type: verbatim
+#: wcd.pod:1205
+#, no-wrap
+msgid ""
+"    set WCDHOME=C:\\Users\\erwin\\wcd\n"
+"\n"
+msgstr ""
+"    set WCDHOME=C:\\Users\\erwin\\wcd\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1207 wcd.pod:1228 wcd.pod:1248 wcd.pod:1273
+msgid "An example for POSIX type shells:"
+msgstr "Un exemplu pentru shell-uri de tip POSIX:"
+
+#. type: verbatim
+#: wcd.pod:1209
+#, no-wrap
+msgid ""
+"    export WCDHOME=\"$HOME/.wcd\"\n"
+"\n"
+msgstr ""
+"    export WCDHOME=\"$HOME/.wcd\"\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1211 wcd.pod:1232 wcd.pod:1252 wcd.pod:1277
+msgid "An example for Csh type shells:"
+msgstr "Un exemplu pentru shell-uri de tip Csh:"
+
+#. type: verbatim
+#: wcd.pod:1213
+#, no-wrap
+msgid ""
+"    setenv WCDHOME \"$HOME/.wcd\"\n"
+"\n"
+msgstr ""
+"    setenv WCDHOME \"$HOME/.wcd\"\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1215
+msgid "B<WCDSCAN>"
+msgstr "B<WCDSCAN>"
+
+#. type: textblock
+#: wcd.pod:1217
+msgid "Use environment variable I<WCDSCAN> to overrule the default scan directory I<HOME>. Define a colon separated list (Unix) to define more than one directory.  On DOS/Windows make the list semi-colon separated."
+msgstr "Utilizați variabila de mediu I<WCDSCAN> pentru a anula directorul de scanare implicit I<HOME>. Definiți o listă separată de două puncte (Unix) pentru a defini mai multe directoare. Pe DOS/Windows, faceți lista separată prin punct și virgulă."
+
+#. type: textblock
+#: wcd.pod:1222
+msgid "Examples for DOS, Windows, OS/2 Command Prompt:"
+msgstr "Exemple pentru linia de comandă DOS, Windows, OS/2:"
+
+#. type: verbatim
+#: wcd.pod:1224
+#, no-wrap
+msgid ""
+"    set WCDSCAN=C:\\Users\\erwin;D:\\data\n"
+"\n"
+msgstr ""
+"    set WCDSCAN=C:\\Users\\erwin;D:\\data\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1226
+#, no-wrap
+msgid ""
+"    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\\\projectdrive\\projectX\n"
+"\n"
+msgstr ""
+"    set WCDSCAN=%HOMEDRIVE%%HOMEPATH%;\\\\projectdrive\\projectX\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1230
+#, no-wrap
+msgid ""
+"    export WCDSCAN=\"$HOME:/projectdisk/projectX\"\n"
+"\n"
+msgstr ""
+"    export WCDSCAN=\"$HOME:/projectdisk/projectX\"\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1234
+#, no-wrap
+msgid ""
+"    setenv WCDSCAN \"$HOME:/projectdisk/projectX\"\n"
+"\n"
+msgstr ""
+"    setenv WCDSCAN \"$HOME:/projectdisk/projectX\"\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1236
+msgid "B<WCDFILTER>"
+msgstr "B<WCDFILTER>"
+
+#. type: textblock
+#: wcd.pod:1238
+msgid "Specify filters with environment variable I<WCDFILTER>. All directories that do not match the filter(s) are ignored. A list can be specified by separating filters by the shell path separator. Similar as specifying the I<PATH> variable.  The case sensitivity is mandated by the Operating system."
+msgstr "Specificați filtre cu variabila de mediu I<WCDFILTER>. Toate directoarele care nu se potrivesc cu filtrul (filtrele) sunt ignorate. O listă poate fi specificată prin separarea filtrelor prin separatorul de cale shell. Similar cu specificarea variabilei I<PATH>. Ignorarea/respectarea diferenței dintre majuscule/minuscule este impusă de sistemul de operare."
+
+#. type: textblock
+#: wcd.pod:1244 wcd.pod:1269
+msgid "An example for DOS, Windows, OS/2 Command Prompt:"
+msgstr "Un exemplu pentru linia de comandă DOS, Windows, OS/2:"
+
+#. type: verbatim
+#: wcd.pod:1246
+#, no-wrap
+msgid ""
+"    set WCDFILTER=projects;doc\n"
+"\n"
+msgstr ""
+"    set WCDFILTER=projects;doc\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1250
+#, no-wrap
+msgid ""
+"    export WCDFILTER=\"projects:doc\"\n"
+"\n"
+msgstr ""
+"    export WCDFILTER=\"projects:doc\"\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1254
+#, no-wrap
+msgid ""
+"    setenv WCDFILTER \"projects:doc\"\n"
+"\n"
+msgstr ""
+"    setenv WCDFILTER \"projects:doc\"\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1256
+msgid "B<WCDBAN>"
+msgstr "B<WCDBAN>"
+
+#. type: textblock
+#: wcd.pod:1258
+msgid "The paths specified with environment I<WCDBAN> will be banned by wcd.  See also option B<-b>. Specify a list of paths separated by shell I<PATH> separator."
+msgstr "Căile specificate cu variabila de mediu I<WCDBAN> vor fi interzise de wcd. A se vedea, de asemenea, opțiunea B<-b>. Specificați o listă de căi separate prin separatorul shell I<PATH>."
+
+#. type: =item
+#: wcd.pod:1262
+msgid "B<WCDEXCLUDE>"
+msgstr "B<WCDEXCLUDE>"
+
+#. type: textblock
+#: wcd.pod:1264
+msgid "The paths specified with environment I<WCDEXCLUDE> will be excluded by wcd. See also options B<-x> and B<-xf>. Specify a list of paths separated by shell I<PATH> separator."
+msgstr "Căile specificate cu variabila de mediu I<WCDEXCLUDE> vor fi excluse de wcd. A se vedea, de asemenea, opțiunile B<-x> și B<-xf>. Specificați o listă de căi separate prin separatorul shell I<PATH>."
+
+#. type: verbatim
+#: wcd.pod:1271
+#, no-wrap
+msgid ""
+"    set WCDEXCLUDE=*/windows;*/temp;*CVS\n"
+"\n"
+msgstr ""
+"    set WCDEXCLUDE=*/windows;*/temp;*CVS\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1275
+#, no-wrap
+msgid ""
+"    export WCDEXCLUDE=\"/dev:/tmp:*CVS\"\n"
+"\n"
+msgstr ""
+"    export WCDEXCLUDE=\"/dev:/tmp:*CVS\"\n"
+"\n"
+
+#. type: verbatim
+#: wcd.pod:1279
+#, no-wrap
+msgid ""
+"    setenv WCDEXCLUDE \"/dev:/tmp:*CVS\"\n"
+"\n"
+msgstr ""
+"    setenv WCDEXCLUDE \"/dev:/tmp:*CVS\"\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1281
+msgid "B<WCDUSERSHOME>"
+msgstr "B<WCDUSERSHOME>"
+
+#. type: textblock
+#: wcd.pod:1283
+msgid "Set the base of user's home directories.  On DOS/Windows the default value is C<\\\\users>.  On Unix/Cygwin the default value is C</home>.  This variable is used to scan treedata files of other users. See also options B<-u> and B<+u>. In verbose mode wcd will print all filters, bans and excludes. See option B<-v>."
+msgstr "Stabilește baza directoarelor acasă ale utilizatorului. Pe DOS/Windows, valoarea implicită este C<\\\\users>. Pe Unix/Cygwin, valoarea implicită este C</home>. Această variabilă este utilizată pentru a scana fișierele treedata.wcd/extra.wcd ale altor utilizatori. A se vedea, de asemenea, opțiunile B<-u> și B<+u>. În modul de mesaje detaliate, wcd va afișa toate filtrele, interdicțiile și excluderile. A se vedea opțiunea B<-v>."
+
+#. type: =item
+#: wcd.pod:1290
+msgid "B<WCDSTACKFILE>"
+msgstr "B<WCDSTACKFILE>"
+
+#. type: textblock
+#: wcd.pod:1292
+msgid "Wcd gives preference to I<WCDSTACKFILE> over the default stack file name (see section FILES). With this variable each shell (or used terminal emulator) can have its private stack of used directories."
+msgstr "Wcd dă preferință variabilei I<WCDSTACKFILE> în defavoarea numelui implicit al fișierului stivă (vedeți secțiunea FIȘIERE). Cu această variabilă, fiecare shell (sau emulator de terminal utilizat) poate avea stiva sa privată de directoare utilizate."
+
+#. type: textblock
+#: wcd.pod:1296
+msgid "To use a unique time based YYYYMMDD-HHMMSS file for each opened interactive shell."
+msgstr "Pentru a utiliza un fișier unic bazat pe timp HH:MM:SS-DD.LL.AAAA pentru fiecare shell interactiv deschis."
+
+#. type: verbatim
+#: wcd.pod:1299
+#, no-wrap
+msgid ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$(date +%Y%m%d-%H%M%S)\n"
+"\n"
+msgstr ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$(date +%H:%M:%S-%d.%m.%Y)\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1301
+msgid "For a stack per xterm(1), use the xterm I<WINDOWID> environment variable:"
+msgstr "Pentru o stivă per xterm(1), utilizați variabila de mediu xterm I<WINDOWID>:"
+
+#. type: verbatim
+#: wcd.pod:1303
+#, no-wrap
+msgid ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOWID\n"
+"\n"
+msgstr ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOWID\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1305
+msgid "For GNU screen(1), to use stack per screen:"
+msgstr "Pentru screen(1) GNU, pentru a utiliza stiva pe ecran:"
+
+#. type: verbatim
+#: wcd.pod:1307
+#, no-wrap
+msgid ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOW\n"
+"\n"
+msgstr ""
+"    export WCDSTACKFILE=$HOME/.wcd/stack.$WINDOW\n"
+"\n"
+
+#. type: =item
+#: wcd.pod:1309
+msgid "B<TERMINFO>"
+msgstr "B<TERMINFO>"
+
+#. type: textblock
+#: wcd.pod:1311
+msgid "If the environment variable I<TERMINFO> is defined, wcd with ncurses interface checks for a local terminal definition before checking in the standard place. This is useful if terminal definitions are not on a standard place. Often used standard places are C</usr/lib/terminfo> and C</usr/share/terminfo>."
+msgstr "Dacă este definită variabila de mediu I<TERMINFO>, wcd cu interfața „ncurses” verifică o definiție de terminal local înainte de a verifica în locația standard. Acest lucru este util dacă definițiile terminalelor nu sunt într-o locație standard. Locațiile standard utilizate adesea sunt C</usr/lib/terminfo> și C</usr/share/terminfo>."
+
+#. type: =item
+#: wcd.pod:1317
+msgid "B<PDC_RESTORE_SCREEN>"
+msgstr "B<PDC_RESTORE_SCREEN>"
+
+#. type: textblock
+#: wcd.pod:1319
+msgid "Wcd with PDCurses interface recognizes the environment variable I<PDC_RESTORE_SCREEN>. If this environment variable is set, PDCurses will take a copy of the contents of the screen at the time that wcd is started; when wcd exits, the screen will be restored.  An example for Windows Command Prompt:"
+msgstr "Wcd cu interfața „PDCurses” recunoaște variabila de mediu I<PDC_RESTORE_SCREEN>. Dacă această variabilă de mediu este definită, „PDCurses” va prelua o copie a conținutului ecranului în momentul în care wcd este pornit; când wcd iese, ecranul va fi restabilit. Un exemplu pentru linia de comandă Windows:"
+
+#. type: verbatim
+#: wcd.pod:1325
+#, no-wrap
+msgid ""
+"    set PDC_RESTORE_SCREEN=1\n"
+"\n"
+msgstr ""
+"    set PDC_RESTORE_SCREEN=1\n"
+"\n"
+
+#. type: textblock
+#: wcd.pod:1327
+msgid "Windows allows only a small buffer to be saved. So it is not always possible to restore everything. Some garbage data may be printed in the console after wcd exits if you have set a large buffer width."
+msgstr "Windows permite salvarea doar a unei mici memorii tampon. Deci nu este întotdeauna posibil să se restabilească totul. Unele date-deșeuri pot fi afișate în consolă după ieșirea wcd dacă ați definit o dimensiune mare a memoriei tampon."
+
+#. type: =item
+#: wcd.pod:1332
+msgid "B<SHELL>"
+msgstr "B<SHELL>"
+
+#. type: textblock
+#: wcd.pod:1334
+msgid "Printing of C<#!$SHELL> on the first line of the go-script for POSIX type shell or C shell is needed for 8 bit characters. Some shells otherwise think that the go-script is a binary file and will not source it. In Cygwin Bash the variable I<SHELL> must be set in environment using the C<export> command, otherwise wcd can't read the variable."
+msgstr "Scrierea a C<#!$SHELL> pe prima linie a scriptului-go pentru shell de tip POSIX sau shell C este necesară pentru caracterele de 8 biți. În caz contrar, unele shell-uri ar putea crede că scriptul-go este un fișier binar și nu să nu-l citească. În Cygwin Bash, variabila I<SHELL> trebuie definită în mediu folosind comanda C<export>, altfel wcd nu poate citi variabila."
+
+#. type: =item
+#: wcd.pod:1342
+msgid "B<BASH>"
+msgstr "B<BASH>"
+
+#. type: textblock
+#: wcd.pod:1344
+msgid "Wcd for DOS bash uses C<$BASH> instead of C<$SHELL>, because C<$SHELL> points to the DOS command shell. One may need to define C<$BASH> with an C<export> command, otherwise wcd can't read the variable."
+msgstr "Wcd pentru DOS bash folosește C<$BASH> în loc de C<$SHELL>, deoarece C<$SHELL> indică shell-ul de comandă DOS. Poate fi necesar să definiți C<$BASH> cu o comandă C<export>, altfel wcd nu poate citi variabila."
+
+#. type: =head1
+#: wcd.pod:1351
+msgid "SEE ALSO"
+msgstr "CONSULTAȚI ȘI"
+
+#. type: textblock
+#: wcd.pod:1353
+msgid "sh(1), bash(1), csh(1), ksh(1), zsh(1), locale(1), ncurses(1),"
+msgstr "sh(1), bash(1), csh(1), ksh(1), zsh(1), locale(1), ncurses(1),"
+
+#. type: =head1
+#: wcd.pod:1361
+msgid "AUTHORS"
+msgstr "AUTORI"
+
+#. type: textblock
+#: wcd.pod:1363
+msgid "Wcd was written by Erwin Waterlander <waterlan@xs4all.nl>"
+msgstr "Wcd a fost scris de Erwin Waterlander <waterlan@xs4all.nl>"
+
+#. type: textblock
+#: wcd.pod:1365
+msgid "Project homepage: L<http://waterlan.home.xs4all.nl/>"
+msgstr "Pagina principală a proiectului: L<http://waterlan.home.xs4all.nl/>"
+
+#. type: textblock
+#: wcd.pod:1368
+msgid "SourceForge: L<http://sourceforge.net/projects/wcd/>"
+msgstr "Pagina SourceForge a proiectului: L<http://sourceforge.net/projects/wcd/>"
+
+#. type: textblock
+#: wcd.pod:1371
+msgid "The manual page formatting was provided by Jari Aalto <jari.aalto@cante.net>."
+msgstr "Aspectul paginii de manual a fost furnizat de către Jari Aalto <jari.aalto@cante.net>."
+
+#. type: textblock
+#: wcd.pod:1374
+msgid "NCD was originally written by Brad Kingsbury for Peter Norton's \"Norton Utilities\" around 1987. See also L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"
+msgstr "NCD a fost scris inițial de Brad Kingsbury pentru „Norton Utilities” al lui Peter Norton, în jurul anului 1987. A se vedea, de asemenea, L<http://www.softpanorama.org/OFM/norton_change_directory_clones.shtml>"

@@ -1,5 +1,5 @@
-6.0.5 beta
-  - New Romanian translation of the messages.
+6.0.5 beta2
+  - New Romanian translation of the messages and the manual.
     Thanks to Remus-Gabriel Chelu.
 
 6.0.4 2021-10-31

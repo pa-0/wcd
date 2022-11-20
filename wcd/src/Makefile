@@ -1,6 +1,6 @@
 #   Copyright information
 #
-#       Copyright (C) 2009-2018 Erwin Waterlander
+#       Copyright (C) 2009-2022 Erwin Waterlander
 #       Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -573,6 +573,9 @@ man/man1/wcd.pod : ;
 
 %.$(HTMLEXT) : %.pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(VERSION) - Wherever Change Directory" $< > $@
+
+man/ro/man1/$(PACKAGE).$(HTMLEXT) : man/ro/man1/$(PACKAGE).pod
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(VERSION) - Schimbă oriunde directorul (Wherever Change Directory)" $< > $@
 
 man/sr/man1/$(PACKAGE).$(HTMLEXT) : man/sr/man1/$(PACKAGE).pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(VERSION) - Промени директоријум било где (Wherever Change Directory)" $< > $@
