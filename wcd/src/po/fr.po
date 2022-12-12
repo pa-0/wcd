@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-6.0.3-beta6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-10 23:45+0100\n"
+"POT-Creation-Date: 2022-12-12 20:29+0100\n"
 "PO-Revision-Date: 2019-12-05 14:13+0800\n"
 "Last-Translator: Grégoire Scano <gregoire.scano@malloc.fr>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -63,7 +63,7 @@ msgstr "%s n'est pas un répertoire.\n"
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "Merci de patienter. Examen du disque. Construction du fichier d'arborescence %s depuis %s\n"
 
-#: wcd.c:832 wcd.c:2223 wcd.c:2246 wcd.c:2326
+#: wcd.c:832 wcd.c:2224 wcd.c:2247 wcd.c:2327
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Ecriture du fichier « %s »\n"
@@ -443,7 +443,7 @@ msgstr "  +[NOMBRE]               dépiler le répertoire (NOMBRE fois)\n"
 msgid "  =                       show stack\n"
 msgstr "  =                       montrer la pile\n"
 
-#: wcd.c:2014 wcd.c:2143
+#: wcd.c:2014 wcd.c:2144
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
@@ -632,7 +632,7 @@ msgstr "Sans normalisation Unicode.\n"
 msgid "Download the latest executables and sources from:\n"
 msgstr "Téléchargez le dernier exécutable et ses sources depuis :\n"
 
-#: wcd.c:2144
+#: wcd.c:2145
 #, c-format
 msgid ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
@@ -651,7 +651,7 @@ msgstr ""
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"
 
-#: wcd.c:2152
+#: wcd.c:2153
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -666,7 +666,7 @@ msgstr ""
 "Rugxulo est l'auteur initial de query_con_codepage() (domaine public).\n"
 "\n"
 
-#: wcd.c:2158
+#: wcd.c:2159
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -681,7 +681,7 @@ msgstr ""
 "ou (à votre discrétion) sous toute autre version ultérieure.\n"
 "\n"
 
-#: wcd.c:2164
+#: wcd.c:2165
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -695,7 +695,7 @@ msgstr ""
 "QUALITE MARCHANDE ou d'ADEQUATION A TOUTE FIN PARTICULIERE. Voir\n"
 "la licence GNU General Public License pour plus détails.\n"
 
-#: wcd.c:2170
+#: wcd.c:2171
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -706,87 +706,86 @@ msgstr ""
 "avec ce logiciel ; si tel n'était pas le cas, écrivez à la Free Software\n"
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
-#: wcd.c:2203
+#: wcd.c:2204
 #, c-format
 msgid "creating directory %s\n"
 msgstr " création du répertoire %s\n"
 
-#: wcd.c:2535 wcd.c:2575 wcd.c:2590 wcd.c:2658 wcd.c:2727 wcd.c:3229
-#: wcd.c:3248
+#: wcd.c:2536 wcd.c:2576 wcd.c:2591 wcd.c:2659 wcd.c:2728 wcd.c:3230 wcd.c:3249
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "La valeur de la variable d'environnement %s est trop longue.\n"
 
-#: wcd.c:2564
+#: wcd.c:2565
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Echec lors de la suppression de la variable d'environnement TERM : %s\n"
 
-#: wcd.c:2622 wcd.c:2651
+#: wcd.c:2623 wcd.c:2652
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "La variable d'environnement HOME ou WCDHOME n'est pas définie.\n"
 
-#: wcd.c:2834
+#: wcd.c:2835
 #, c-format
 msgid "aliasfile: %s\n"
 msgstr "fichier d'alias : %s\n"
 
-#: wcd.c:2848
+#: wcd.c:2849
 msgid "HOME is not defined\n"
 msgstr "HOME n'est pas défini\n"
 
-#: wcd.c:2852
+#: wcd.c:2853
 msgid "WCDHOME is not defined\n"
 msgstr "WCDHOME n'est pas défini\n"
 
-#: wcd.c:2856
+#: wcd.c:2857
 msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN n'est pas défini\n"
 
-#: wcd.c:2881
+#: wcd.c:2882
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Le mode graphique de wcd n'est pris en charge qu'avec des interfaces basées sur curses.\n"
 
-#: wcd.c:3162
+#: wcd.c:3163
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s ajouté au fichier d'alias %s\n"
 
-#: wcd.c:3261
+#: wcd.c:3262
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Incapable de lire le fichier %s ou %s\n"
 
-#: wcd.c:3411
+#: wcd.c:3412
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "répertoire WCDSCAN {%s}\n"
 
-#: wcd.c:3413
+#: wcd.c:3414
 #, c-format
 msgid "banning {%s}\n"
 msgstr "interdiction {%s}\n"
 
-#: wcd.c:3415
+#: wcd.c:3416
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "exclusion {%s}\n"
 
-#: wcd.c:3417
+#: wcd.c:3418
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "filtrage {%s}\n"
 
-#: wcd.c:3677
+#: wcd.c:3678
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Pas de répertoire correspondant à %s trouvé.\n"
 
-#: wcd.c:3678
+#: wcd.c:3679
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Peut-être vous faut-il examiner le disque à nouveau ou bien le chemin est interdit.\n"
 
-#: wcd.c:3807
+#: wcd.c:3808
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Impossible de changer vers %s\n"

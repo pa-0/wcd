@@ -1,6 +1,8 @@
-6.0.5 beta2
+6.0.5 beta3
   - New Romanian translation of the messages and the manual.
     Thanks to Remus-Gabriel Chelu.
+  - New Swedish translation of the messages and the manual.
+    Thanks to Josef Andersson.
 
 6.0.4 2021-10-31
   - New Serbian translation of the manual.

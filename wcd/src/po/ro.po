@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 6.0.3-beta6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-10 23:45+0100\n"
+"POT-Creation-Date: 2022-12-12 20:29+0100\n"
 "PO-Revision-Date: 2022-11-03 00:00+0100\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -69,7 +69,7 @@ msgstr "%s nu este un director.\n"
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "Așteptați vă rog. Se scanează discul. Se construiește fișierul arborelui de date %s din %s\n"
 
-#: wcd.c:832 wcd.c:2223 wcd.c:2246 wcd.c:2326
+#: wcd.c:832 wcd.c:2224 wcd.c:2247 wcd.c:2327
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Se scrie fișierul „%s”\n"
@@ -449,7 +449,7 @@ msgstr "  +[NUMĂR]                elimină dosarul din stivă (de acest NUMĂR 
 msgid "  =                       show stack\n"
 msgstr "  =                       afișează stiva\n"
 
-#: wcd.c:2014 wcd.c:2143
+#: wcd.c:2014 wcd.c:2144
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Schimbă oriunde directorul\n"
@@ -638,7 +638,7 @@ msgstr "Fără standardizare Unicode.\n"
 msgid "Download the latest executables and sources from:\n"
 msgstr "Descărcați cele mai recente executabile și surse de la:\n"
 
-#: wcd.c:2144
+#: wcd.c:2145
 #, c-format
 msgid ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
@@ -657,7 +657,7 @@ msgstr ""
 "Copyright © 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel și Igor Mandrichenko asupra recmatch()\n"
 
-#: wcd.c:2152
+#: wcd.c:2153
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -684,7 +684,7 @@ msgstr ""
 # corectitudinea traducerii, „pe deasupra”.
 # ***
 # Corecție, aplicată!
-#: wcd.c:2158
+#: wcd.c:2159
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -699,7 +699,7 @@ msgstr ""
 "a Licenței sau (la alegerea dvs.) orice versiune ulterioară.\n"
 "\n"
 
-#: wcd.c:2164
+#: wcd.c:2165
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -714,7 +714,7 @@ msgstr ""
 "Licența Publică Generală GNU pentru mai multe detalii.\n"
 "\n"
 
-#: wcd.c:2170
+#: wcd.c:2171
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -725,87 +725,86 @@ msgstr ""
 "împreună cu acest program; dacă nu, scrieți la Free Software\n"
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
-#: wcd.c:2203
+#: wcd.c:2204
 #, c-format
 msgid "creating directory %s\n"
 msgstr "se creează directorul %s\n"
 
-#: wcd.c:2535 wcd.c:2575 wcd.c:2590 wcd.c:2658 wcd.c:2727 wcd.c:3229
-#: wcd.c:3248
+#: wcd.c:2536 wcd.c:2576 wcd.c:2591 wcd.c:2659 wcd.c:2728 wcd.c:3230 wcd.c:3249
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Valoarea variabilei de mediu %s este prea lungă.\n"
 
-#: wcd.c:2564
+#: wcd.c:2565
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Nu s-a putut anula variabila de mediu TERM: %s\n"
 
-#: wcd.c:2622 wcd.c:2651
+#: wcd.c:2623 wcd.c:2652
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Variabila de mediu HOME sau WCDHOME nu este definită.\n"
 
-#: wcd.c:2834
+#: wcd.c:2835
 #, c-format
 msgid "aliasfile: %s\n"
 msgstr "fișier de alias: %s\n"
 
-#: wcd.c:2848
+#: wcd.c:2849
 msgid "HOME is not defined\n"
 msgstr "variabila HOME nu este definită\n"
 
-#: wcd.c:2852
+#: wcd.c:2853
 msgid "WCDHOME is not defined\n"
 msgstr "variabila WCDHOME nu este definită\n"
 
-#: wcd.c:2856
+#: wcd.c:2857
 msgid "WCDSCAN is not defined\n"
 msgstr "variabila WCDSCAN nu este definită\n"
 
-#: wcd.c:2881
+#: wcd.c:2882
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Modul grafic este acceptat numai în wcd cu interfață bazată pe „curses”.\n"
 
-#: wcd.c:3162
+#: wcd.c:3163
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s adăugat la fișierul de alias %s\n"
 
-#: wcd.c:3261
+#: wcd.c:3262
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Nu se poate citi fișierul %s sau %s\n"
 
-#: wcd.c:3411
+#: wcd.c:3412
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "Directorul WCDSCAN {%s}\n"
 
-#: wcd.c:3413
+#: wcd.c:3414
 #, c-format
 msgid "banning {%s}\n"
 msgstr "se interzice {%s}\n"
 
-#: wcd.c:3415
+#: wcd.c:3416
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "se exclude {%s}\n"
 
-#: wcd.c:3417
+#: wcd.c:3418
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "se filtrează {%s}\n"
 
-#: wcd.c:3677
+#: wcd.c:3678
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Nu s-a găsit niciun director care să se potrivească cu %s\n"
 
-#: wcd.c:3678
+#: wcd.c:3679
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Poate că trebuie să rescanați discul sau calea este interzisă.\n"
 
-#: wcd.c:3807
+#: wcd.c:3808
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Nu se poate schimba la directorul %s\n"

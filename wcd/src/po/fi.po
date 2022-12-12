@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.3.3-beta9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-18 11:44+0200\n"
+"POT-Creation-Date: 2022-12-12 20:29+0100\n"
 "PO-Revision-Date: 2016-09-28 15:49+0300\n"
 "Last-Translator: Jorma Karvonen <karvonen.jorma@gmail.com>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -64,7 +64,7 @@ msgstr "%s ei ole hakemisto.\n"
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "Odota, levyasemaa tutkitaan. Treedata-tiedostoa %s rakennetaan lähteestä %s\n"
 
-#: wcd.c:832 wcd.c:2223 wcd.c:2246 wcd.c:2326
+#: wcd.c:832 wcd.c:2224 wcd.c:2247 wcd.c:2327
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Kirjoitetaan tiedostoa ”%s”\n"
@@ -444,7 +444,7 @@ msgstr "  +[NUMERO]               ota hakemisto pinosta (NUMERO kertaa)\n"
 msgid "  =                       show stack\n"
 msgstr "  =                       näytä pino\n"
 
-#: wcd.c:2014 wcd.c:2143
+#: wcd.c:2014 wcd.c:2144
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Siirry mihin tahansa hakemistoon\n"
@@ -633,7 +633,7 @@ msgstr "Ilman Unicode-normalisointia.\n"
 msgid "Download the latest executables and sources from:\n"
 msgstr "Lataa viimeisin versio ohjelmasta ja sen lähdekoodista osoitteesta:\n"
 
-#: wcd.c:2144
+#: wcd.c:2145
 #, c-format
 msgid ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
@@ -652,7 +652,7 @@ msgstr ""
 "Copyright © 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel ja Igor Mandrichenko on recmatch()\n"
 
-#: wcd.c:2152
+#: wcd.c:2153
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -669,7 +669,7 @@ msgstr ""
 "tekijä.\n"
 "\n"
 
-#: wcd.c:2158
+#: wcd.c:2159
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -683,7 +683,7 @@ msgstr ""
 "version 2 tai (valintasi mukaan) minkä tahansa myöhäisemmän version alaisena.\n"
 "\n"
 
-#: wcd.c:2164
+#: wcd.c:2165
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -698,7 +698,7 @@ msgstr ""
 "Katso lisätietoja lisenssistä GNU General Public License.\n"
 "\n"
 
-#: wcd.c:2170
+#: wcd.c:2171
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -709,86 +709,86 @@ msgstr ""
 "tämän ohjelman mukana; jos niin ei ole, kirjoita osoitteeseen Free Software\n"
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
 
-#: wcd.c:2203
+#: wcd.c:2204
 #, c-format
 msgid "creating directory %s\n"
 msgstr "Luodaan hakemisto %s\n"
 
-#: wcd.c:2535 wcd.c:2575 wcd.c:2590 wcd.c:2658 wcd.c:2727 wcd.c:3229 wcd.c:3248
+#: wcd.c:2536 wcd.c:2576 wcd.c:2591 wcd.c:2659 wcd.c:2728 wcd.c:3230 wcd.c:3249
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Ympäristömuuttujan %s arvo on liian pitkä.\n"
 
-#: wcd.c:2564
+#: wcd.c:2565
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Ympäristömuuttujan TERM poistaminen epäonnistui: %s\n"
 
-#: wcd.c:2622 wcd.c:2651
+#: wcd.c:2623 wcd.c:2652
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Ympäristömuuttujaa HOME tai WCDHOME is ole asetettu.\n"
 
-#: wcd.c:2834
+#: wcd.c:2835
 #, c-format
 msgid "aliasfile: %s\n"
 msgstr "aliastiedosto: %s\n"
 
-#: wcd.c:2848
+#: wcd.c:2849
 msgid "HOME is not defined\n"
 msgstr "HOME-ympäristömuuttujaa ei ole asetettu\n"
 
-#: wcd.c:2852
+#: wcd.c:2853
 msgid "WCDHOME is not defined\n"
 msgstr "WCDHOME ympäristömuuttujaa ei ole asetettu\n"
 
-#: wcd.c:2856
+#: wcd.c:2857
 msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN-ympäristömuuttujaa ei ole asetettu\n"
 
-#: wcd.c:2881
+#: wcd.c:2882
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Graafinen tila tuettu ainoastaan ohjelman curses-perustaisessa käyttöliittymässä.\n"
 
-#: wcd.c:3162
+#: wcd.c:3163
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s lisätty alias-tiedostoon %s\n"
 
-#: wcd.c:3261
+#: wcd.c:3262
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Tiedoston %s tai %s lukeminen epäonnistui\n"
 
-#: wcd.c:3411
+#: wcd.c:3412
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "WCDSCAN-hakemisto {%s}\n"
 
-#: wcd.c:3413
+#: wcd.c:3414
 #, c-format
 msgid "banning {%s}\n"
 msgstr "asetettu mustalle listalle {%s}\n"
 
-#: wcd.c:3415
+#: wcd.c:3416
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "jätetään ottamatta huomioon {%s}\n"
 
-#: wcd.c:3417
+#: wcd.c:3418
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "suodatetaan {%s}\n"
 
-#: wcd.c:3677
+#: wcd.c:3678
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Ei hakemistoa kriteerillä %s\n"
 
-#: wcd.c:3678
+#: wcd.c:3679
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Levyasema on ehkä tutkittava uudelleen tai hakemisto on mustalla listalla.\n"
 
-#: wcd.c:3807
+#: wcd.c:3808
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Hakemistoon %s vaihtaminen epäonnistui\n"

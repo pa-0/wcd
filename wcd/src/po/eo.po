@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd-6.0.3-beta6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-10 23:45+0100\n"
+"POT-Creation-Date: 2022-12-12 20:29+0100\n"
 "PO-Revision-Date: 2021-03-17 12:24-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -67,7 +67,7 @@ msgstr "%s ne estas dosierujo.\n"
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "Bonvolu atendi, skaniĝas disko... Konstruiĝas arbodosiero %s el %s...\n"
 
-#: wcd.c:832 wcd.c:2223 wcd.c:2246 wcd.c:2326
+#: wcd.c:832 wcd.c:2224 wcd.c:2247 wcd.c:2327
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Skribiĝas dosiero '%s'\n"
@@ -450,7 +450,7 @@ msgstr "  +[NOMBRO]               elstakigi dosierujon (NOMBRO fojojn)\n"
 msgid "  =                       show stack\n"
 msgstr "  =                       montri stakon\n"
 
-#: wcd.c:2014 wcd.c:2143
+#: wcd.c:2014 wcd.c:2144
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) -- «ien ajn ŝanĝi dosierujon»\n"
@@ -639,7 +639,7 @@ msgstr "Sen Unikoda normigo.\n"
 msgid "Download the latest executables and sources from:\n"
 msgstr "Elŝutu la lastan version el:\n"
 
-#: wcd.c:2144
+#: wcd.c:2145
 #, c-format
 msgid ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
@@ -658,7 +658,7 @@ msgstr ""
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel kaj Igor Mandrichenko  [je recmatch()]\n"
 
-#: wcd.c:2152
+#: wcd.c:2153
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -672,7 +672,7 @@ msgstr ""
 "La origina aŭtoro de la ĉiesaĵa 'query_con_codepage()' estas Rugxulo.\n"
 "\n"
 
-#: wcd.c:2158
+#: wcd.c:2159
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -686,7 +686,7 @@ msgstr ""
 "de la 'Free Software Foundation'; aŭ laŭ versio 2 de tiu permesilo, aŭ\n"
 "(je via elekto) laŭ iu ajn posta versio.\n"
 
-#: wcd.c:2164
+#: wcd.c:2165
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -701,7 +701,7 @@ msgstr ""
 "GNU-an Ĝeneralan Publikan Liberpermeson por pli da detaloj.\n"
 "\n"
 
-#: wcd.c:2170
+#: wcd.c:2171
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -711,87 +711,86 @@ msgstr ""
 "Vi devus esti ricevinte kopion de la GNU-a Ĝenerala Publika Liberpermeso\n"
 "kune kun tiu ĉi programo; se ne, vidu <http://www.gnu.org/licenses/>.\n"
 
-#: wcd.c:2203
+#: wcd.c:2204
 #, c-format
 msgid "creating directory %s\n"
 msgstr "kreiĝas dosierujo %s\n"
 
-#: wcd.c:2535 wcd.c:2575 wcd.c:2590 wcd.c:2658 wcd.c:2727 wcd.c:3229
-#: wcd.c:3248
+#: wcd.c:2536 wcd.c:2576 wcd.c:2591 wcd.c:2659 wcd.c:2728 wcd.c:3230 wcd.c:3249
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Valoro de ĉirkaŭaĵa variablo %s tro longas.\n"
 
-#: wcd.c:2564
+#: wcd.c:2565
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Malsukcesis agordi ĉirkaŭaĵan variablon TERM: %s\n"
 
-#: wcd.c:2622 wcd.c:2651
+#: wcd.c:2623 wcd.c:2652
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Cirkaŭaĵaj variabloj HOME kaj WCDHOME ne agordiĝis.\n"
 
-#: wcd.c:2834
+#: wcd.c:2835
 #, c-format
 msgid "aliasfile: %s\n"
 msgstr "dosiero de alinomoj: %s\n"
 
-#: wcd.c:2848
+#: wcd.c:2849
 msgid "HOME is not defined\n"
 msgstr "HOME ne havas valoron\n"
 
-#: wcd.c:2852
+#: wcd.c:2853
 msgid "WCDHOME is not defined\n"
 msgstr "WCDHOME ne havas valoron\n"
 
-#: wcd.c:2856
+#: wcd.c:2857
 msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN ne havas valoron\n"
 
-#: wcd.c:2881
+#: wcd.c:2882
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Grafika moduso nur subtenatas en interfaco kiu baziĝas sur 'curses'.\n"
 
-#: wcd.c:3162
+#: wcd.c:3163
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "Aldoniĝis alinomo %s al dosiero %s\n"
 
-#: wcd.c:3261
+#: wcd.c:3262
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Ne eblas legi dosieron %s aŭ %s\n"
 
-#: wcd.c:3411
+#: wcd.c:3412
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "WCDSCAN-dosierujo {%s}\n"
 
-#: wcd.c:3413
+#: wcd.c:3414
 #, c-format
 msgid "banning {%s}\n"
 msgstr "esceptiĝas {%s}\n"
 
-#: wcd.c:3415
+#: wcd.c:3416
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "ekskludiĝas {%s}\n"
 
-#: wcd.c:3417
+#: wcd.c:3418
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "filtriĝas {%s}\n"
 
-#: wcd.c:3677
+#: wcd.c:3678
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Ne troviĝas dosierujo kiu kongruas kun %s\n"
 
-#: wcd.c:3678
+#: wcd.c:3679
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Eble necesas reskani la diskon, aŭ la pado esceptiĝis.\n"
 
-#: wcd.c:3807
+#: wcd.c:3808
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Ne eblas ŝanĝi al %s\n"

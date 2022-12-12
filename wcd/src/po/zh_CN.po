@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 5.2.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-18 11:44+0200\n"
+"POT-Creation-Date: 2022-12-12 20:29+0100\n"
 "PO-Revision-Date: 2015-11-13 20:29-0500\n"
 "Last-Translator: Mingye Wang (Arthur2e5) <arthur200126@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -65,7 +65,7 @@ msgstr "%s 不是目录。\n"
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "请稍等。正在扫描磁盘。正在从 %2$s 构建树状数据文件 %1$s\n"
 
-#: wcd.c:832 wcd.c:2223 wcd.c:2246 wcd.c:2326
+#: wcd.c:832 wcd.c:2224 wcd.c:2247 wcd.c:2327
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "正在写入文件 \"%s\"\n"
@@ -445,7 +445,7 @@ msgstr "  -[NUMBER]               从目录跳出（popd，NUMBER 次）\n"
 msgid "  =                       show stack\n"
 msgstr "  =                       显示目录栈\n"
 
-#: wcd.c:2014 wcd.c:2143
+#: wcd.c:2014 wcd.c:2144
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - 目录随意换\n"
@@ -634,7 +634,7 @@ msgstr "不带有 Unicode 归一化支持。\n"
 msgid "Download the latest executables and sources from:\n"
 msgstr "可从此处下载到最新的可执行文件及源代码：\n"
 
-#: wcd.c:2144
+#: wcd.c:2145
 #, fuzzy, c-format
 msgid ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
@@ -653,7 +653,7 @@ msgstr ""
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel 及 Igor Mandrichenko 贡献 recmatch() 支持\n"
 
-#: wcd.c:2152
+#: wcd.c:2153
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -667,7 +667,7 @@ msgstr ""
 "Rugxulo 是 query_con_codepage() 的原作者（公共领域）。\n"
 "\n"
 
-#: wcd.c:2158
+#: wcd.c:2159
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -681,7 +681,7 @@ msgstr ""
 "\n"
 "\n"
 
-#: wcd.c:2164
+#: wcd.c:2165
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -695,7 +695,7 @@ msgstr ""
 "GNU 通用公共许可证。\n"
 "\n"
 
-#: wcd.c:2170
+#: wcd.c:2171
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -707,86 +707,86 @@ msgstr ""
 "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 索取。\n"
 "\n"
 
-#: wcd.c:2203
+#: wcd.c:2204
 #, c-format
 msgid "creating directory %s\n"
 msgstr "正在创建目录 %s\n"
 
-#: wcd.c:2535 wcd.c:2575 wcd.c:2590 wcd.c:2658 wcd.c:2727 wcd.c:3229 wcd.c:3248
+#: wcd.c:2536 wcd.c:2576 wcd.c:2591 wcd.c:2659 wcd.c:2728 wcd.c:3230 wcd.c:3249
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "环境变量 %s 的值太长。\n"
 
-#: wcd.c:2564
+#: wcd.c:2565
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "无法取消设置 TERM 环境变量：%s\n"
 
-#: wcd.c:2622 wcd.c:2651
+#: wcd.c:2623 wcd.c:2652
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "未设置环境变量 HOME 及 WCDHOME。\n"
 
-#: wcd.c:2834
+#: wcd.c:2835
 #, fuzzy, c-format
 msgid "aliasfile: %s\n"
 msgstr "%s 已添加到别名文件 %s\n"
 
-#: wcd.c:2848
+#: wcd.c:2849
 msgid "HOME is not defined\n"
 msgstr "HOME 未定义\n"
 
-#: wcd.c:2852
+#: wcd.c:2853
 msgid "WCDHOME is not defined\n"
 msgstr "WCDHOME 未定义\n"
 
-#: wcd.c:2856
+#: wcd.c:2857
 msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN 未定义\n"
 
-#: wcd.c:2881
+#: wcd.c:2882
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "只有带有基于 curses 界面的 wcd 支持图形模式。\n"
 
-#: wcd.c:3162
+#: wcd.c:3163
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s 已添加到别名文件 %s\n"
 
-#: wcd.c:3261
+#: wcd.c:3262
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "无法读取文件 %s 或 %s\n"
 
-#: wcd.c:3411
+#: wcd.c:3412
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "WCDSCAN 目录 {%s}\n"
 
-#: wcd.c:3413
+#: wcd.c:3414
 #, c-format
 msgid "banning {%s}\n"
 msgstr "禁止 {%s}\n"
 
-#: wcd.c:3415
+#: wcd.c:3416
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "排除 {%s}\n"
 
-#: wcd.c:3417
+#: wcd.c:3418
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "过滤 {%s}\n"
 
-#: wcd.c:3677
+#: wcd.c:3678
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "未找到匹配 %s 的路径\n"
 
-#: wcd.c:3678
+#: wcd.c:3679
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "磁盘可能需要重新扫描，或此路径可能已被禁止。\n"
 
-#: wcd.c:3807
+#: wcd.c:3808
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "无法切换到 %s\n"

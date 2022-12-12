@@ -298,6 +298,7 @@ Table of Contents
         Serbian               Мирослав Николић             Version 5.3.4
         Spanish               Julio A. Freyre-Gonzalez     Version 5.0.4 - 5.2.4
         Spanish               Francisco Javier Serrador    Version 6.0.2
+        Swedish               Josef Andersson              Version 6.0.5
         Ukrainian             Yuri Chornoivan              Version 5.2.5 - 6.0.0
         Vietnamese            Trần Ngọc Quân               Version 5.2.5 - 6.0.0
 
@@ -311,6 +312,7 @@ Table of Contents
         French                Grégoire Scano               Version 6.0.3 - 6.0.4
         Romanian              Remus-Gabriel Chelu          Version 6.0.5
         Serbian               Мирослав Николић             Version 6.0.4
+        Swedish               Josef Andersson              Version 6.0.5
         Ukrainian             Yuri Chornoivan              Version 5.2.5 - 6.0.3
 
 

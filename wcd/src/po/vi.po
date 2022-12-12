@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wcd 6.0.0-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-18 11:44+0200\n"
+"POT-Creation-Date: 2022-12-12 20:29+0100\n"
 "PO-Revision-Date: 2017-02-11 07:11+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -64,7 +64,7 @@ msgstr "%s: không phải là một thư mục.\n"
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "Vui lòng chờ. Đang quét đĩa. Xây dựng tập-tin-dữ-liệu-cây %s từ %s\n"
 
-#: wcd.c:832 wcd.c:2223 wcd.c:2246 wcd.c:2326
+#: wcd.c:832 wcd.c:2224 wcd.c:2247 wcd.c:2327
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Đang ghi tập tin \"%s\"\n"
@@ -444,7 +444,7 @@ msgstr "  +[SỐ]                   lấy ra thư mục (SỐ lần)\n"
 msgid "  =                       show stack\n"
 msgstr "  =                       hiển thị ngăn xếp\n"
 
-#: wcd.c:2014 wcd.c:2143
+#: wcd.c:2014 wcd.c:2144
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Đổi thư mục ở bất kỳ chỗ nào\n"
@@ -633,7 +633,7 @@ msgstr "Không thường hóa Unicode.\n"
 msgid "Download the latest executables and sources from:\n"
 msgstr "Tải về chương trình thực thi và mã nguồn mới nhất từ:\n"
 
-#: wcd.c:2144
+#: wcd.c:2145
 #, c-format
 msgid ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
@@ -652,7 +652,7 @@ msgstr ""
 "Bản quyền (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel và Igor Mandrichenko trên recmatch()\n"
 
-#: wcd.c:2152
+#: wcd.c:2153
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -667,7 +667,7 @@ msgstr ""
 "Rugxulo là tác giả gốc của query_con_codepage() (miền công).\n"
 "\n"
 
-#: wcd.c:2158
+#: wcd.c:2159
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -682,7 +682,7 @@ msgstr ""
 "của Giấy Phép này, hoặc (tùy chọn) bất kỳ phiên bản nào mới hơn.\n"
 "\n"
 
-#: wcd.c:2164
+#: wcd.c:2165
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -697,7 +697,7 @@ msgstr ""
 "Hãy xem Giấy phép Công Chung GNU (GPL) để tìm chi tiết.\n"
 "\n"
 
-#: wcd.c:2170
+#: wcd.c:2171
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -708,86 +708,86 @@ msgstr ""
 "nếu không thì hãy viết thư cho Tổ chức Phần mềm Tự do theo địa chỉ:\n"
 "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA (Mỹ).\n"
 
-#: wcd.c:2203
+#: wcd.c:2204
 #, c-format
 msgid "creating directory %s\n"
 msgstr "đang tạo thư mục %s\n"
 
-#: wcd.c:2535 wcd.c:2575 wcd.c:2590 wcd.c:2658 wcd.c:2727 wcd.c:3229 wcd.c:3248
+#: wcd.c:2536 wcd.c:2576 wcd.c:2591 wcd.c:2659 wcd.c:2728 wcd.c:3230 wcd.c:3249
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Giá trị của biến môi trường %s là quá dài.\n"
 
-#: wcd.c:2564
+#: wcd.c:2565
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "Gặp lỗi khi bỏ đặt biến môi trường TERM: %s\n"
 
-#: wcd.c:2622 wcd.c:2651
+#: wcd.c:2623 wcd.c:2652
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "Biến môi trường HOME hoặc WCDHOME chưa được đặt.\n"
 
-#: wcd.c:2834
+#: wcd.c:2835
 #, c-format
 msgid "aliasfile: %s\n"
 msgstr "tập-tin-bí-danh: %s\n"
 
-#: wcd.c:2848
+#: wcd.c:2849
 msgid "HOME is not defined\n"
 msgstr "biến HOME chưa được định nghĩa\n"
 
-#: wcd.c:2852
+#: wcd.c:2853
 msgid "WCDHOME is not defined\n"
 msgstr "biến WCDHOME chưa được định nghĩa\n"
 
-#: wcd.c:2856
+#: wcd.c:2857
 msgid "WCDSCAN is not defined\n"
 msgstr "biến WCDSCAN chưa được định nghĩa\n"
 
-#: wcd.c:2881
+#: wcd.c:2882
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Chế độ đồ họa chỉ được hỗ trợ trong wcd với giao diện dựa trên thư viện curse.\n"
 
-#: wcd.c:3162
+#: wcd.c:3163
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s được thêm vào tập-tin-bí-danh %s\n"
 
-#: wcd.c:3261
+#: wcd.c:3262
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Không thể đọc tập tin %s hoặc %s\n"
 
-#: wcd.c:3411
+#: wcd.c:3412
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "thư mục WCDSCAN {%s}\n"
 
-#: wcd.c:3413
+#: wcd.c:3414
 #, c-format
 msgid "banning {%s}\n"
 msgstr "cấm {%s}\n"
 
-#: wcd.c:3415
+#: wcd.c:3416
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "loại trừ {%s}\n"
 
-#: wcd.c:3417
+#: wcd.c:3418
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "đang lọc {%s}\n"
 
-#: wcd.c:3677
+#: wcd.c:3678
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Không tìm thấy thư mục nào khớp với %s\n"
 
-#: wcd.c:3678
+#: wcd.c:3679
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Có lẽ bạn cần quét lại đĩa hoặc là đường dẫn đã bị cấm.\n"
 
-#: wcd.c:3807
+#: wcd.c:3808
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Không thể chuyển sang %s\n"
