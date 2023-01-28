@@ -1,23 +1,24 @@
 # Friulian translation of wcd.
 # Copyright (C) 2018 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the wcd package.
-# Fabio Tomat <f.t.public@gmail.com>, 2018.
+# Fabio Tomat <f.t.public@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: wcd-6.0.0-beta4\n"
+"Project-Id-Version: wcd-6.0.3-beta6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 20:29+0100\n"
-"PO-Revision-Date: 2018-03-15 09:39+0100\n"
-"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
+"POT-Creation-Date: 2019-01-10 23:45+0100\n"
+"PO-Revision-Date: 2023-01-25 23:18+0000\n"
+"Last-Translator: Fabio T. <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <f.t.public@gmail.com>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Editor: HaiPO 1.4 beta\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: wcd.c:170
 #, c-format
@@ -64,7 +65,7 @@ msgstr "%s nol è une cartele.\n"
 msgid "Please wait. Scanning disk. Building treedata-file %s from %s\n"
 msgstr "Par plasê spiete. Analisi dal disc. Costruzion di treedata-file %s di %s\n"
 
-#: wcd.c:832 wcd.c:2224 wcd.c:2247 wcd.c:2327
+#: wcd.c:832 wcd.c:2223 wcd.c:2246 wcd.c:2326
 #, c-format
 msgid "Writing file \"%s\"\n"
 msgstr "Daûr a scrivi il file \"%s\"\n"
@@ -152,12 +153,12 @@ msgstr "opzions:\n"
 #: wcd.c:1942
 #, c-format
 msgid "  -a                      Add current path to treefile\n"
-msgstr ""
+msgstr "  -a                      Zonte il percors corint al treefile\n"
 
 #: wcd.c:1943
 #, c-format
 msgid "  -aa                     Add current and all parent paths to treefile\n"
-msgstr ""
+msgstr "  -aa                     Zonte chest e ducj i percors superiôrs al treefile\n"
 
 #: wcd.c:1944
 #, c-format
@@ -177,32 +178,32 @@ msgstr "  -c,  --direct-cd        modalitât CD direte\n"
 #: wcd.c:1947
 #, c-format
 msgid "  -d DRIVE                set DRIVE for stack & go files (DOS)\n"
-msgstr ""
+msgstr "  -d UNITÂT               configure UNITÂT pai files stack & go (DOS)\n"
 
 #: wcd.c:1948
 #, c-format
 msgid "  -e                      add current path to Extra treefile\n"
-msgstr ""
+msgstr "  -e                      zonte chest percors al treefile adizionâl\n"
 
 #: wcd.c:1949
 #, c-format
 msgid "  -ee                     add current and all parent paths to Extra treefile\n"
-msgstr ""
+msgstr "  -ee                     zonte chest e ducj i percors superiôrs al treefile adizionâl\n"
 
 #: wcd.c:1950
 #, c-format
 msgid "  -E PATH                 add tree from PATH to Extra treefile\n"
-msgstr ""
+msgstr "  -E PERCORS              zonte l'arbul dal PERCORS al treefile adizionâl\n"
 
 #: wcd.c:1951
 #, c-format
 msgid "  -f FILE                 use extra treeFile\n"
-msgstr ""
+msgstr "  -f FILE                 dopre treeFile adizionâl\n"
 
 #: wcd.c:1952
 #, c-format
 msgid "  +f FILE                 add extra treeFile\n"
-msgstr ""
+msgstr "  +f FILE                 dopre treeFile adizionâl\n"
 
 #: wcd.c:1953
 #, c-format
@@ -292,22 +293,22 @@ msgstr "  -L,  --license          mostre la Licence dal software\n"
 #: wcd.c:1975
 #, c-format
 msgid "  -m DIR                  Make DIR, add to treefile\n"
-msgstr ""
+msgstr "  -m DIR                  Cree DIR, zonte al treefile\n"
 
 #: wcd.c:1976
 #, c-format
 msgid "  -M DIR                  Make DIR, add to extra treefile\n"
-msgstr ""
+msgstr "  -M DIR                  Cree DIR, zonte al treefile adizionâl\n"
 
 #: wcd.c:1977
 #, c-format
 msgid "  -n PATH                 use relative treefile in PATH\n"
-msgstr ""
+msgstr "  -n PERCORS              dopre il relatîf treefile in PERCORS\n"
 
 #: wcd.c:1978
 #, c-format
 msgid "  +n PATH                 add relative treefile in PATH\n"
-msgstr ""
+msgstr "  +n PERCORS              zonte il relatîf treefile in PERCORS\n"
 
 #: wcd.c:1979
 #, c-format
@@ -352,7 +353,7 @@ msgstr "  -S PATH                 Analize disc tacant di PATH\n"
 #: wcd.c:1987
 #, c-format
 msgid "  +S PATH                 Scan disk from PATH, create relative treefile\n"
-msgstr ""
+msgstr "  +S PERCORS              Scansione il disc dal PERCORS, cree il relatîf treefile\n"
 
 #: wcd.c:1988
 #, c-format
@@ -387,12 +388,12 @@ msgstr "  -Td, --cjk-width        supuarte caratars CJK vecje maniere\n"
 #: wcd.c:1994
 #, c-format
 msgid "  -u USER                 use USER's treefile\n"
-msgstr ""
+msgstr "  -u UTENT                dopre il treefile dal UTENT\n"
 
 #: wcd.c:1995
 #, c-format
 msgid "  +u USER                 add USER's treefile\n"
-msgstr ""
+msgstr "  +u UTENT                zonte il treefile dal UTENT\n"
 
 #: wcd.c:1996
 #, c-format
@@ -444,7 +445,7 @@ msgstr "  -[NUMAR]               gjave la cartele de tasse (NUMAR di voltis)\n"
 msgid "  =                       show stack\n"
 msgstr "  =                       mostre il stack\n"
 
-#: wcd.c:2014 wcd.c:2144
+#: wcd.c:2014 wcd.c:2143
 #, c-format
 msgid "wcd %s (%s) - Wherever Change Directory\n"
 msgstr "wcd %s (%s) - Wherever Change Directory\n"
@@ -633,7 +634,7 @@ msgstr "Cence normalizazion Unicode.\n"
 msgid "Download the latest executables and sources from:\n"
 msgstr "Discjarie i ultins eseguibii e sorzints di:\n"
 
-#: wcd.c:2145
+#: wcd.c:2144
 #, c-format
 msgid ""
 "Copyright (C) 1996-%d Erwin Waterlander\n"
@@ -652,7 +653,7 @@ msgstr ""
 "Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n"
 "Kai Uwe Rommel e Igor Mandrichenko su recmatch()\n"
 
-#: wcd.c:2153
+#: wcd.c:2152
 #, c-format
 msgid ""
 "Source code to scan Windows LAN was originally written and placed\n"
@@ -667,7 +668,7 @@ msgstr ""
 "Rugxulo al è l'autôr origjinâl di query_con_codepage() (domini public).\n"
 "\n"
 
-#: wcd.c:2159
+#: wcd.c:2158
 #, c-format
 msgid ""
 "This program is free software; you can redistribute it and/or\n"
@@ -682,7 +683,7 @@ msgstr ""
 "de licence, o (a to plasê) cualsisei version sucessive.\n"
 "\n"
 
-#: wcd.c:2165
+#: wcd.c:2164
 #, c-format
 msgid ""
 "This program is distributed in the hope that it will be useful,\n"
@@ -697,7 +698,7 @@ msgstr ""
 "GNU General Public License par vê plui detais.\n"
 "\n"
 
-#: wcd.c:2171
+#: wcd.c:2170
 #, c-format
 msgid ""
 "You should have received a copy of the GNU General Public License\n"
@@ -708,86 +709,87 @@ msgstr ""
 "adun cun chest program; se no, scrîf ae Free Software \n"
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n"
 
-#: wcd.c:2204
+#: wcd.c:2203
 #, c-format
 msgid "creating directory %s\n"
 msgstr "daûr a creâ la cartele %s\n"
 
-#: wcd.c:2536 wcd.c:2576 wcd.c:2591 wcd.c:2659 wcd.c:2728 wcd.c:3230 wcd.c:3249
+#: wcd.c:2535 wcd.c:2575 wcd.c:2590 wcd.c:2658 wcd.c:2727 wcd.c:3229
+#: wcd.c:3248
 #, c-format
 msgid "Value of environment variable %s is too long.\n"
 msgstr "Il valôr de variabile di ambient %s al è masse lunc.\n"
 
-#: wcd.c:2565
+#: wcd.c:2564
 #, c-format
 msgid "Failed to unset environment variable TERM: %s\n"
 msgstr "No si è rivâts a azerâ la variabile di ambient TERM: %s\n"
 
-#: wcd.c:2623 wcd.c:2652
+#: wcd.c:2622 wcd.c:2651
 msgid "Environment variable HOME or WCDHOME is not set.\n"
 msgstr "La variabile di ambient HOME o WCDHOME no je stabilide.\n"
 
-#: wcd.c:2835
+#: wcd.c:2834
 #, c-format
 msgid "aliasfile: %s\n"
 msgstr "file alias: %s\n"
 
-#: wcd.c:2849
+#: wcd.c:2848
 msgid "HOME is not defined\n"
 msgstr "HOME nol è definît\n"
 
-#: wcd.c:2853
+#: wcd.c:2852
 msgid "WCDHOME is not defined\n"
 msgstr "WCDHOME nol è definît\n"
 
-#: wcd.c:2857
+#: wcd.c:2856
 msgid "WCDSCAN is not defined\n"
 msgstr "WCDSCAN nol è definît\n"
 
-#: wcd.c:2882
+#: wcd.c:2881
 msgid "Graphics mode only supported in wcd with curses-based interface.\n"
 msgstr "Modalitât grafiche supuartade dome in wcd cun interface basade su curses.\n"
 
-#: wcd.c:3163
+#: wcd.c:3162
 #, c-format
 msgid "%s added to aliasfile %s\n"
 msgstr "%s zontât al file alias %s\n"
 
-#: wcd.c:3262
+#: wcd.c:3261
 #, c-format
 msgid "Unable to read file %s or %s\n"
 msgstr "Impussibil lei il file %s o %s\n"
 
-#: wcd.c:3412
+#: wcd.c:3411
 #, c-format
 msgid "WCDSCAN directory {%s}\n"
 msgstr "WCDSCAN cartele {%s}\n"
 
-#: wcd.c:3414
+#: wcd.c:3413
 #, c-format
 msgid "banning {%s}\n"
 msgstr "daûr a proibî {%s}\n"
 
-#: wcd.c:3416
+#: wcd.c:3415
 #, c-format
 msgid "excluding {%s}\n"
 msgstr "daûr a escludi {%s}\n"
 
-#: wcd.c:3418
+#: wcd.c:3417
 #, c-format
 msgid "filtering {%s}\n"
 msgstr "daûr a filtrâ {%s}\n"
 
-#: wcd.c:3678
+#: wcd.c:3677
 #, c-format
 msgid "No directory found matching %s\n"
 msgstr "Nissune cartele cjatade che e corispuindi a %s\n"
 
-#: wcd.c:3679
+#: wcd.c:3678
 msgid "Perhaps you need to rescan the disk or path is banned.\n"
 msgstr "Forsit si scugne tornâ a analizâ il disc o il percors al è proibît.\n"
 
-#: wcd.c:3808
+#: wcd.c:3807
 #, c-format
 msgid "Cannot change to %s\n"
 msgstr "Impussibil passâ su %s\n"
