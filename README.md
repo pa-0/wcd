@@ -46,8 +46,8 @@ Features
   * Unix/Linux: all Bourne and C type shells
   * OS/2 Warp
 * Native language support: Brazilian Portuguese, Chinese simplified, Danish,
-  Dutch, English, Esperanto, Finnish, French, Friulian, German, Serbian, Spanish,
-  Ukrainian, Vietnamese.
+  Dutch, English, Esperanto, Finnish, French, Friulian, German, Romanian, Serbian, Spanish,
+  Swedish, Ukrainian, Vietnamese.
 * Unicode Level 3 support (all UCS characters including double width and combining characters).
   * Unix/Linux
   * Cygwin.
@@ -61,8 +61,8 @@ Project information
 
 Maintainer: Erwin Waterlander <waterlan@xs4all.nl>
 
-[Home page](http://waterlan.home.xs4all.nl/)
+[Home page](https://waterlan.home.xs4all.nl/)
 
-[SourceForge](http://sourceforge.net/projects/wcd/)
+[SourceForge](https://sourceforge.net/projects/wcd/)
 
 [ChangeLog](wcd/doc/whatsnew.txt)

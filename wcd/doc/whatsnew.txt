@@ -1,4 +1,4 @@
-6.0.5 beta3
+6.0.5 2023-04-23
   - New Romanian translation of the UI and the manual.
     Thanks to Remus-Gabriel Chelu.
   - New Swedish translation of the UI and the manual.

@@ -12,7 +12,7 @@ WWW     : https://waterlan.home.xs4all.nl/
 ======================================================================
 = Copyright                                                          =
 ======================================================================
-Copyright (C) 1996-2022 Erwin Waterlander
+Copyright (C) 1996-2023 Erwin Waterlander
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -2149,7 +2149,7 @@ Copyright (C) 1995-1996 DJ Delorie on _fixpath()\n\
 Copyright (C) 1995-1996 Borja Etxebarria & Olivier Sirol on Ninux Czo Directory\n\
 Copyright (C) 1994-1996 Jason Mathews on DOSDIR\n\
 Copyright (C) 1990-1992 Mark Adler, Richard B. Wales, Jean-loup Gailly,\n\
-Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"),2021);
+Kai Uwe Rommel and Igor Mandrichenko on recmatch()\n"),2023);
    printf(_("\
 Source code to scan Windows LAN was originally written and placed\n\
 in the public domain by Felix Kasza.\n\
