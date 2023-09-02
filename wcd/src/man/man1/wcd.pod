@@ -752,14 +752,20 @@ VARIABLES.
 
 =head2 Install for POSIX type shells
 
+If wcd was installed with a package manager the wcd function may be
+installed in /etc/profile.d and automatically sourced. In this case it is
+not needed to define a function yourself.
+
 For a POSIX shell (ksh, bash, zsh, etc.) on Unix, Linux, Cygwin, or native MSYS
 add the following function to the shell startup file (e.g. Bash uses
 C<$HOME/.bashrc>):
 
     wcd ()
     {
+        typeset go="${WCDHOME:-${HOME}}/bin/wcd.go"
+        rm -f "$go" 2> /dev/null
         PATH/wcd.exe "$@"
-        . ${WCDHOME:-${HOME}}/bin/wcd.go
+        [ -f "$go" ] && . "$go"
     }
 
 Replace I<PATH> with the location where the wcd executable has been
