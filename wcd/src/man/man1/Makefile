@@ -3,7 +3,7 @@
 #   Copyright information
 #
 #       Copyright (C) 2008-2009 Jari Aalto
-#       Copyright (C) 2010-2017 Erwin Waterlander
+#       Copyright (C) 2010-2024 Erwin Waterlander
 #
 #   License
 #
@@ -30,19 +30,14 @@ include ../../version.mk
 
 .PRECIOUS: %.pod
 
+.PHONY: pods
+
 # This variable *must* be set when calling
 PACKAGE         ?= wcd
 
 # Optional variables to set
 MANSECT         ?= 1
 PODCENTER       ?= $(VERSION_DATE)
-
-# Directories
-MANSRC          =
-MANDEST         = $(MANSRC)
-
-MANPOD          = $(MANSRC)$(PACKAGE).pod
-MANPAGE         = $(MANDEST)$(PACKAGE).$(MANSECT)
 
 POD2MAN         = pod2man
 POD2MAN_FLAGS   =
@@ -53,27 +48,16 @@ MAN_OBJECTS = wcd.1 $(patsubst %.pod,%.1,$(PODFILES))
 
 MKDIR = mkdir
 
-all: $(MAN_OBJECTS) ../../po-man/wcd-man.pot
+all: pods $(MAN_OBJECTS)
 
-
-../../po-man/wcd-man.pot : wcd.pod
-	po4a-updatepo -f pod -m $< -p $@ --msgmerge-opt --no-wrap
-
-%.po : wcd.pod
-	po4a-updatepo -f pod -m $< -p $@ --msgmerge-opt "--backup=numbered --no-wrap"
-	# change timestamp in case .po file was not updated.
-	touch $@
 
 # Create pod files from po.
-# Fix problem that =encoding is before =pod command.
-../%/man1/wcd.pod : ../../po-man/%.po
-	$(MKDIR) -p $(dir $@)
-	po4a-translate -f pod -m wcd.pod -p $< > $@ -k 30
-	perl -ni.bak -e 'print unless /=encoding UTF-8/' $@
-	perl -pli.bak -e 's/=pod/=pod\n\n=encoding UTF-8/' $@
-
-# An empty recipe for wcd.pod to break circular dependency.
-wcd.pod : ;
+pods:
+	touch ../../po-man/wcd-man.pot
+	po4a --wrap-po no -k 70 --msgmerge-opt --no-wrap po4a.cfg
+	# Fix problem that =encoding is before =pod command.
+	#perl -ni.bak -e 'print unless /=encoding UTF-8/' $@
+	#perl -pli.bak -e 's/=pod/=pod\n\n=encoding UTF-8/' $@
 
 %.1 : %.pod
 	# make target - create manual page from a *.pod page
@@ -89,10 +73,7 @@ wcd.pod : ;
 	rm -f pod*.tmp
 
 
-
 clean:
 	rm -f $(MAN_OBJECTS)
-	rm -f wcd-man.pot
+	rm -f ../../po-man/wcd-man.pot
 	rm -f $(PODFILES)
-
-# End of of Makefile part

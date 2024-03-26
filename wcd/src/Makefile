@@ -1,6 +1,6 @@
 #   Copyright information
 #
-#       Copyright (C) 2009-2022 Erwin Waterlander
+#       Copyright (C) 2009-2024 Erwin Waterlander
 #       Copyright (C) 2009 Jari Aalto
 #
 #   License
@@ -538,7 +538,7 @@ wcd.o: wcd.c wcd.h version.mk
 	ps2pdf $< $@
 
 $(MANPOTFILE) : man/man1/wcd.pod
-	$(MAKE) -C man/man1 ../../po-man/$(notdir $@)
+	$(MAKE) -C man/man1 pods
 
 #  WARNING: Backward-incompatibility since GNU make 3.82.
 #  The pattern-specific variables and pattern rules are now applied in the
@@ -554,10 +554,10 @@ po/%.po : $(POT)
 	touch $@
 
 %.po : man/man1/wcd.pod
-	$(MAKE) -C man/man1 $(subst po-man/,../../po-man/,$@)
+	$(MAKE) -C man/man1 pods
 
 man/%/man1/wcd.pod : po-man/%.po
-	$(MAKE) -C man/man1 $(subst man/,../,$@)
+	$(MAKE) -C man/man1 pods
 
 # Empty recipe to break circular dependency.
 man/man1/wcd.pod : ;

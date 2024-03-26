@@ -1,3 +1,7 @@
+6.0.6-beta1 2023-03-26
+  - man/man1/Makefile: Stopped using po4a-translate and po4a-updatepo.
+    They are deprecated since po4a 0.68.
+
 6.0.5 2023-04-23
   - New Romanian translation of the UI and the manual.
     Thanks to Remus-Gabriel Chelu.
