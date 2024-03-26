@@ -1,4 +1,6 @@
 6.0.6-beta1 2023-03-26
+  - Updated installation instructions for Linux.
+    Thanks to Pascal Jäger.
   - man/man1/Makefile: Stopped using po4a-translate and po4a-updatepo.
     They are deprecated since po4a 0.68.
 
